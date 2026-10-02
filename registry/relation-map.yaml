@@ -1,0 +1,47 @@
+schema_version: 1.0
+relations:
+  - from: feature
+    relation: belongs_to
+    to: module
+    cardinality: many-to-one
+    required: true
+
+  - from: requirement
+    relation: specifies
+    to: feature
+    cardinality: many-to-many
+
+  - from: business_rule
+    relation: constrains
+    to: [feature, requirement, api, screen]
+    cardinality: many-to-many
+
+  - from: screen
+    relation: supports
+    to: feature
+    cardinality: many-to-many
+
+  - from: api
+    relation: supports
+    to: feature
+    cardinality: many-to-many
+
+  - from: api
+    relation: reads_writes
+    to: database_object
+    cardinality: many-to-many
+
+  - from: flow
+    relation: describes
+    to: [feature, screen, api]
+    cardinality: many-to-many
+
+  - from: test_case
+    relation: verifies
+    to: [requirement, business_rule, feature, api, screen]
+    cardinality: many-to-many
+
+  - from: decision
+    relation: affects
+    to: '*'
+    cardinality: many-to-many

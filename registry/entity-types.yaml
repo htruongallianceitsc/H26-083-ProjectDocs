@@ -1,0 +1,18 @@
+schema_version: 1.0
+entity_types:
+  project: {prefix: PRJ, canonical_folder: docs/00-project}
+  module: {prefix: MOD, canonical_folder: docs/02-modules}
+  feature: {prefix: FEAT, canonical_folder: docs/02-modules}
+  requirement: {prefix: REQ, canonical_folder: docs/03-requirements}
+  business_rule: {prefix: BR, canonical_folder: docs/04-business-rules}
+  screen: {prefix: SCR, canonical_folder: docs/05-screens}
+  flow: {prefix: FLOW, canonical_folder: docs/06-flows}
+  api: {prefix: API, canonical_folder: docs/07-api}
+  database_object: {prefix: DB, canonical_folder: docs/08-database}
+  integration: {prefix: INT, canonical_folder: docs/09-architecture/integrations}
+  nfr: {prefix: NFR, canonical_folder: docs/03-requirements/non-functional}
+  test_case: {prefix: TC, canonical_folder: docs/11-quality/test-cases}
+  decision: {prefix: ADR, canonical_folder: docs/15-decisions}
+  runbook: {prefix: RB, canonical_folder: docs/13-operations/runbooks}
+  release: {prefix: REL, canonical_folder: docs/16-release/releases}
+  open_question: {prefix: OQ, canonical_folder: docs/19-open-items}
