@@ -1,0 +1,3 @@
+import fs from 'node:fs'; import {spawn} from 'node:child_process'; import path from 'node:path'; import {root} from './lib/core.mjs';
+let timer; function run(){clearTimeout(timer);timer=setTimeout(()=>{const p=spawn(process.platform==='win32'?'npm.cmd':'npm',['run','docs:sync'],{cwd:path.resolve(root,'tools'),stdio:'inherit'});p.on('close',()=>spawn(process.platform==='win32'?'npm.cmd':'npm',['run','docs:build'],{cwd:path.resolve(root,'tools'),stdio:'inherit'}));},300)}
+for(const d of ['docs','standards','templates','prompts','workflows'])if(fs.existsSync(path.resolve(root,d)))fs.watch(path.resolve(root,d),{recursive:true},run);console.log('Watching documentation. Run docs:serve in another terminal.');

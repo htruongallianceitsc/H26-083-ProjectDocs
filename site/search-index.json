@@ -1,1 +1,1362 @@
-[{"title":"Documentation Governance","code":"","type":"","section":"Project","path":"DOCS_GOVERNANCE.md","href":"docs/DOCS_GOVERNANCE.html","text":" Documentation Governance 1. Source of Truth Mỗi thông tin có đúng một nơi canonical: Feature behaviour Feature / Requirement / Business Rule. UI contract Screen. HTTP contract API. Persistence schema/rules Database Object. Cross cutting technical choices Architecture / ADR. Test expectation Test Case. Production operation Runbook / Operations. Tài liệu khác chỉ reference bằng code/link. 2. Required Metadata Mọi entity document nên có metadata block với tối thiểu: 3. Lifecycle Khuyến nghị: draft review approved implemented deprecated . Decision dùng: proposed accepted/rejected superseded . 4. Review Rules Requirement/Rule: review bởi Product/BA. Screen/Flow: review bởi Product + UX/UI + Dev nếu có technical constraint. API/DB/Architecture: review bởi Tech Lead/Backend/DB owner. Security/NFR/Runbook: review bởi owner tương ứng. Traceability audit trước release hoặc milestone lớn. 5. Change Rules Khi thay đổi entity: 1. Xác định entity canonical. 2. Ghi reason/change request. 3. Phân tích impact. 4. Cập nhật entity canonical. 5. Cập nhật các tài liệu bị ảnh hưởng. 6. Cập nhật Blueprint nếu inventory/summary thay đổi. 7. Cập nhật traceability. 8. Review lại tests và production docs nếu hành vi runtime thay đổi. 6. Không xóa lịch sử quyết định ADR/Decision cũ không bị rewrite để trông như quyết định mới luôn tồn tại. Tạo quyết định mới và đánh dấu quyết định cũ là superseded . 7. Automated Documentation Gate Sau mỗi batch thay đổi tài liệu: Pipeline phải đảm bảo: validation không có error; generated catalog/traceability/graph được rebuild; static site build thành công; generated HTML không có broken local link. 8. Derived Artifacts Các thư mục sau không phải source of truth: docs/ generated/ tools/.cache/ site/ Có thể xóa và tạo lại bằng toolchain. Không ghi business fact chỉ tồn tại trong các file generated. "},{"title":"File Catalog","code":"","type":"","section":"Project","path":"FILE_CATALOG.md","href":"docs/FILE_CATALOG.html","text":" File Catalog Source/starter files excluding generated site/ and tools/.cache/ : 122 Files DOCS GOVERNANCE.md FILE CATALOG.md PROJECT BLUEPRINT.md README.md START HERE.md docs/00 project/README.md docs/01 product/README.md docs/02 modules/README.md docs/03 requirements/README.md docs/04 business rules/README.md docs/05 screens/README.md docs/06 flows/README.md docs/07 api/README.md docs/08 database/README.md docs/09 architecture/README.md docs/10 security/README.md docs/11 quality/README.md docs/12 devops/README.md docs/13 operations/README.md docs/14 performance/README.md docs/15 decisions/README.md docs/16 release/README.md docs/17 traceability/README.md docs/18 changelog/README.md docs/19 open items/README.md docs/README.md docs/ generated/DOCUMENT HEALTH.md docs/ generated/DOCUMENT INDEX.md docs/ generated/PROJECT GRAPH.md docs/ generated/TRACEABILITY MATRIX.md examples/mini project/API AUTH LOGIN.md examples/mini project/BR AUTH 001.md examples/mini project/DB USER.md examples/mini project/FEAT AUTH LOGIN.md examples/mini project/FLOW AUTH LOGIN.md examples/mini project/MOD AUTH.md examples/mini project/README.md examples/mini project/REQ AUTH 001.md examples/mini project/SCR LOGIN.md examples/mini project/TC AUTH LOGIN 001.md examples/mini project/TC AUTH LOGIN 002.md prompts/00 master orchestrator prompt.md prompts/01 idea to project overview.md prompts/02 discovery open questions.md prompts/03 build project blueprint.md prompts/04 module decomposition.md prompts/05 feature specification.md prompts/06 requirements business rules.md prompts/07 screen route ux.md prompts/08 flow diagrams.md prompts/09 api contracts.md prompts/10 database design.md prompts/11 architecture integrations.md prompts/12 non functional requirements.md prompts/13 test design.md prompts/14 security review.md prompts/15 devops production.md prompts/16 monitoring runbooks.md prompts/17 traceability audit.md prompts/18 change impact analysis.md prompts/19 release readiness.md prompts/20 documentation maintenance.md prompts/21 documentation health and site.md registry/entity types.yaml registry/quality rules.yaml registry/relation map.yaml registry/status lifecycle.yaml standards/ai agent rules.md standards/definition of ready done.md standards/diagram guidelines.md standards/documentation standard.md standards/metadata schema.md standards/naming and id convention.md standards/security and secrets.md standards/source of truth.md standards/tooling and static site.md templates/adr template.md templates/api template.md templates/architecture template.md templates/business rule template.md templates/database object template.md templates/feature template.md templates/flow template.md templates/incident template.md templates/integration template.md templates/module template.md templates/monitoring alert template.md templates/nfr template.md templates/product scope template.md templates/project overview template.md templates/release template.md templates/requirement template.md templates/runbook template.md templates/screen template.md templates/test case template.md tools/.gitignore tools/README.md tools/assets/site.css tools/assets/site.js tools/ci/github actions docs.yml tools/docs.config.json tools/package lock.json tools/package.json tools/scripts/build site.mjs tools/scripts/check site links.mjs tools/scripts/clean.mjs tools/scripts/dev.mjs tools/scripts/lib/core.mjs tools/scripts/serve site.mjs tools/scripts/sync docs.mjs tools/scripts/validate docs.mjs tools/scripts/vendor assets.mjs tools/vendor/README.md workflows/01 idea to scope.md workflows/02 scope to blueprint.md workflows/03 blueprint to functional docs.md workflows/04 functional to technical contracts.md workflows/05 quality and test.md workflows/06 production readiness.md workflows/07 change management.md workflows/08 documentation tooling.md workflows/END TO END CHECKLIST.md Derived output docs/ generated/ — document index, traceability, graph and health report. tools/.cache/ — machine readable catalog/graph cache. site/ — deployable static documentation website. "},{"title":"PROJECT BLUEPRINT","code":"","type":"","section":"Project","path":"PROJECT_BLUEPRINT.md","href":"docs/PROJECT_BLUEPRINT.html","text":" PROJECT BLUEPRINT Đây là bản đồ cấp cao và inventory toàn project. Không copy chi tiết từ các tài liệu con; chỉ tóm tắt và reference. 1. Project Summary Project Name: <PROJECT NAME Project Code: <PROJECT CODE Status: Discovery / Design / UAT / Production Primary Owner: <OWNER Business Goal: <1 3 sentences Primary Users: <roles/personas Last Reviewed: <YYYY MM DD 2. Scope In Scope <... Out of Scope <... 3. Technology Overview Layer Technology Notes Frontend <... Backend <... Database <... Cache <... Queue <... Storage <... Hosting <... CI/CD <... 4. Modules Code Module Purpose Owner Status Detail <MOD AUTH Authentication <... <... Planned docs/02 modules/... 5. Feature Inventory Feature Code Module Feature Priority Status Detail <FEAT AUTH LOGIN <MOD AUTH Login P0 Planned <link 6. Screen & Route Inventory Screen Code Screen Route Feature s Roles Detail <SCR LOGIN Login /login <FEAT AUTH LOGIN Guest <link 7. API Inventory API Code Method Path Feature s Auth Detail <API AUTH LOGIN POST /api/auth/login <FEAT AUTH LOGIN Public <link 8. Database Object Inventory DB Code Object Type Module Owner Detail <DB USER User Table AUTH <... <link 9. External Integrations Code Integration Purpose Features Criticality Detail <INT EMAIL Email Provider Transactional email <... High <link 10. Background & Scheduled Processing Code Name Trigger/Schedule Purpose Data Impact Detail <JOB 001 <... <... <... <... <link 11. Security Overview Authentication: <... Authorization model: <RBAC/ABAC/... Sensitive data classes: <... Audit requirements: <... Main security docs: docs/10 security/ 12. Environments Environment Purpose URL Deployment Source Data Policy DEV Development <... <branch/tag Synthetic UAT Acceptance <... <... Sanitized PROD Production <... Release Real 13. Non Functional Targets Category Target Ref Availability <... <NFR ... API latency <... <NFR ... Recovery <RPO/RTO <NFR ... Browser support <... <NFR ... 14. Release & Operations Release process: docs/16 release/release process.md Monitoring: docs/13 operations/monitoring.md Incident response: docs/13 operations/incident response.md Backup/restore: docs/12 devops/backup restore.md Runbooks: docs/13 operations/runbooks/ 15. Open Questions / Risks ID Type Question/Risk Owner Blocking Status <OQ 001 Question <... <... Yes Open 16. Documentation Health Missing feature docs: <count/list Missing API docs: <count/list Requirements without tests: <count/list Orphan screens/APIs/DB objects: <count/list Stale docs needing review: <count/list "},{"title":"Production Web Project Documentation Starter Kit","code":"","type":"","section":"Project","path":"README.md","href":"docs/README.html","text":" Production Web Project Documentation Starter Kit Bộ khung này dành cho project web theo hướng documentation first . Mục tiêu là tạo đủ tài liệu để một team mới hoặc AI Agent có thể hiểu project, đánh giá impact, phát triển feature và vận hành production lâu dài mà không phụ thuộc vào kiến thức truyền miệng. Nguyên tắc cốt lõi 1. PROJECT BLUEPRINT.md là bản đồ cấp cao của toàn project. 2. Module Feature là xương sống chức năng. 3. Mỗi entity có một mã ổn định: Module, Feature, Requirement, Business Rule, Screen, API, DB Object, Test, Decision... 4. Một thông tin chỉ có một source of truth ; tài liệu khác tham chiếu bằng code/link thay vì copy lại. 5. Mọi Feature phải trace được tối thiểu: Feature Requirement/Rule Screen/API/DB Test . 6. Thay đổi một entity phải có impact analysis và kiểm tra tài liệu liên quan có bị stale không. 7. Bộ tài liệu này chỉ quản lý tài liệu. Không sinh code ứng dụng trừ khi project về sau chủ động mở phase implementation. Cách bắt đầu nhanh 1. Đọc START HERE.md . 2. Đi lần lượt qua workflows/01 đến workflows/08 . 3. Dùng prompt trong prompts/ tương ứng với từng phase. 4. Dùng template trong templates/ để tạo tài liệu thật. 5. Cập nhật PROJECT BLUEPRINT.md sau mỗi batch tài liệu. 6. Chạy checklist trong workflows/END TO END CHECKLIST.md trước khi coi bộ tài liệu là đủ. 7. Xem examples/mini project/ để thấy một feature mẫu được trace xuyên suốt. 8. Vào tools/ , chạy npm install rồi npm run docs:all để validate + sync + build web. 9. Chạy npm run docs:serve và mở http://127.0.0.1:4173 để xem tài liệu trực quan. Cấu trúc chính Documentation toolchain Các view web chính: Dashboard, Markdown pages, Catalog, Traceability Matrix, Interactive Project Graph và Diagram Gallery. Diagram Mermaid được render trực tiếp từ fenced block trong Markdown; graph quan hệ được sinh tự động từ metadata related . Chi tiết xem tools/README.md và workflows/08 documentation tooling.md . Khi nào tài liệu được coi là sẵn sàng cho implementation? Tối thiểu phải có: Project scope rõ. Module và Feature inventory đầy đủ. Requirement + Business Rule cho feature cần làm. Screen/Flow nếu có UI. API contract nếu có backend interaction. DB impact nếu có persistence. Permission/Security/NFR liên quan. Acceptance Criteria và Test Case. Không còn open question blocking. Traceability không bị đứt. Chi tiết xem standards/definition of ready done.md . "},{"title":"START HERE — Quy trình từ ý tưởng đến bộ tài liệu production-ready","code":"","type":"","section":"Project","path":"START_HERE.md","href":"docs/START_HERE.html","text":" START HERE — Quy trình từ ý tưởng đến bộ tài liệu production ready Mục tiêu Tạo một bộ tài liệu đủ chi tiết để: PM/BA hiểu phạm vi sản phẩm. UX/UI hiểu screen, route, state và flow. Dev hiểu contract cần triển khai. QA có acceptance criteria và test coverage. DevOps/Ops hiểu deployment, monitoring, rollback, recovery. Team mới có thể onboard mà không phụ thuộc người cũ. AI Agent có thể đọc project, phân tích impact và sinh tài liệu mới có kiểm soát. 8 phase Phase Mục tiêu Output chính 1 Idea & Discovery Project Overview, Scope, Glossary, Open Questions 2 Blueprint Module, Feature inventory, Route/API/DB inventory 3 Functional Detail Requirement, Rule, Feature, Screen, Flow 4 Technical Contracts API, DB, Integration, Architecture 5 Quality Acceptance Criteria, Test Case, NFR 6 Production Readiness Security, DevOps, Monitoring, Runbook, Backup 7 Governance Traceability, Decisions, Change/Release process 8 Tooling & Visual Review Validate, sync, static site, graph, diagram review Cách làm khuyến nghị Phase 1 — Idea & Discovery Đọc workflows/01 idea to scope.md , sau đó dùng: prompts/01 idea to project overview.md prompts/02 discovery open questions.md Phase 2 — Blueprint Đọc workflows/02 scope to blueprint.md , dùng: prompts/03 build project blueprint.md prompts/04 module decomposition.md Phase 3 — Functional Detail Đọc workflows/03 blueprint to functional docs.md , dùng: prompts/05 feature specification.md prompts/06 requirements business rules.md prompts/07 screen route ux.md prompts/08 flow diagrams.md Phase 4 — Technical Contracts Đọc workflows/04 functional to technical contracts.md , dùng: prompts/09 api contracts.md prompts/10 database design.md prompts/11 architecture integrations.md Phase 5 — Quality Đọc workflows/05 quality and test.md , dùng: prompts/12 non functional requirements.md prompts/13 test design.md prompts/17 traceability audit.md Phase 6 — Production Readiness Đọc workflows/06 production readiness.md , dùng: prompts/14 security review.md prompts/15 devops production.md prompts/16 monitoring runbooks.md Phase 7 — Governance & Maintenance Đọc workflows/07 change management.md , dùng: prompts/18 change impact analysis.md prompts/19 release readiness.md prompts/20 documentation maintenance.md Phase 8 — Tooling & Visual Review Đọc workflows/08 documentation tooling.md , dùng: prompts/21 documentation health and site.md Sau đó chạy: Review Dashboard, Catalog, Traceability, Interactive Graph và Diagram Gallery trước khi coi documentation batch hoàn tất. Rule quan trọng khi dùng AI Không yêu cầu AI \"viết hết project một lần\". Hãy đi theo phase và review output mỗi phase. AI phải ghi rõ assumptions, open questions và các nơi chưa có đủ evidence. Không được tự biến assumption thành business fact. "},{"title":"project","code":"","type":"","section":"project","path":"docs/00-project/README.md","href":"docs/docs/00-project/README.html","text":" project Thư mục source of truth cho nhóm tài liệu project . Tài liệu entity thực tế trong thư mục này phải dùng frontmatter theo standards/metadata schema.md và code ổn định theo standards/naming and id convention.md . Không sửa các file trong docs/ generated/ ; chúng được tạo lại bằng npm run docs:sync trong thư mục tools/ . "},{"title":"product","code":"","type":"","section":"product","path":"docs/01-product/README.md","href":"docs/docs/01-product/README.html","text":" product Thư mục source of truth cho nhóm tài liệu product . Tài liệu entity thực tế trong thư mục này phải dùng frontmatter theo standards/metadata schema.md và code ổn định theo standards/naming and id convention.md . Không sửa các file trong docs/ generated/ ; chúng được tạo lại bằng npm run docs:sync trong thư mục tools/ . "},{"title":"modules","code":"","type":"","section":"modules","path":"docs/02-modules/README.md","href":"docs/docs/02-modules/README.html","text":" modules Thư mục source of truth cho nhóm tài liệu modules . Tài liệu entity thực tế trong thư mục này phải dùng frontmatter theo standards/metadata schema.md và code ổn định theo standards/naming and id convention.md . Không sửa các file trong docs/ generated/ ; chúng được tạo lại bằng npm run docs:sync trong thư mục tools/ . "},{"title":"requirements","code":"","type":"","section":"requirements","path":"docs/03-requirements/README.md","href":"docs/docs/03-requirements/README.html","text":" requirements Thư mục source of truth cho nhóm tài liệu requirements . Tài liệu entity thực tế trong thư mục này phải dùng frontmatter theo standards/metadata schema.md và code ổn định theo standards/naming and id convention.md . Không sửa các file trong docs/ generated/ ; chúng được tạo lại bằng npm run docs:sync trong thư mục tools/ . "},{"title":"business rules","code":"","type":"","section":"business rules","path":"docs/04-business-rules/README.md","href":"docs/docs/04-business-rules/README.html","text":" business rules Thư mục source of truth cho nhóm tài liệu business rules . Tài liệu entity thực tế trong thư mục này phải dùng frontmatter theo standards/metadata schema.md và code ổn định theo standards/naming and id convention.md . Không sửa các file trong docs/ generated/ ; chúng được tạo lại bằng npm run docs:sync trong thư mục tools/ . "},{"title":"screens","code":"","type":"","section":"screens","path":"docs/05-screens/README.md","href":"docs/docs/05-screens/README.html","text":" screens Thư mục source of truth cho nhóm tài liệu screens . Tài liệu entity thực tế trong thư mục này phải dùng frontmatter theo standards/metadata schema.md và code ổn định theo standards/naming and id convention.md . Không sửa các file trong docs/ generated/ ; chúng được tạo lại bằng npm run docs:sync trong thư mục tools/ . "},{"title":"flows","code":"","type":"","section":"flows","path":"docs/06-flows/README.md","href":"docs/docs/06-flows/README.html","text":" flows Thư mục source of truth cho nhóm tài liệu flows . Tài liệu entity thực tế trong thư mục này phải dùng frontmatter theo standards/metadata schema.md và code ổn định theo standards/naming and id convention.md . Không sửa các file trong docs/ generated/ ; chúng được tạo lại bằng npm run docs:sync trong thư mục tools/ . "},{"title":"api","code":"","type":"","section":"api","path":"docs/07-api/README.md","href":"docs/docs/07-api/README.html","text":" api Thư mục source of truth cho nhóm tài liệu api . Tài liệu entity thực tế trong thư mục này phải dùng frontmatter theo standards/metadata schema.md và code ổn định theo standards/naming and id convention.md . Không sửa các file trong docs/ generated/ ; chúng được tạo lại bằng npm run docs:sync trong thư mục tools/ . "},{"title":"database","code":"","type":"","section":"database","path":"docs/08-database/README.md","href":"docs/docs/08-database/README.html","text":" database Thư mục source of truth cho nhóm tài liệu database . Tài liệu entity thực tế trong thư mục này phải dùng frontmatter theo standards/metadata schema.md và code ổn định theo standards/naming and id convention.md . Không sửa các file trong docs/ generated/ ; chúng được tạo lại bằng npm run docs:sync trong thư mục tools/ . "},{"title":"architecture","code":"","type":"","section":"architecture","path":"docs/09-architecture/README.md","href":"docs/docs/09-architecture/README.html","text":" architecture Thư mục source of truth cho nhóm tài liệu architecture . Tài liệu entity thực tế trong thư mục này phải dùng frontmatter theo standards/metadata schema.md và code ổn định theo standards/naming and id convention.md . Không sửa các file trong docs/ generated/ ; chúng được tạo lại bằng npm run docs:sync trong thư mục tools/ . "},{"title":"security","code":"","type":"","section":"security","path":"docs/10-security/README.md","href":"docs/docs/10-security/README.html","text":" security Thư mục source of truth cho nhóm tài liệu security . Tài liệu entity thực tế trong thư mục này phải dùng frontmatter theo standards/metadata schema.md và code ổn định theo standards/naming and id convention.md . Không sửa các file trong docs/ generated/ ; chúng được tạo lại bằng npm run docs:sync trong thư mục tools/ . "},{"title":"quality","code":"","type":"","section":"quality","path":"docs/11-quality/README.md","href":"docs/docs/11-quality/README.html","text":" quality Thư mục source of truth cho nhóm tài liệu quality . Tài liệu entity thực tế trong thư mục này phải dùng frontmatter theo standards/metadata schema.md và code ổn định theo standards/naming and id convention.md . Không sửa các file trong docs/ generated/ ; chúng được tạo lại bằng npm run docs:sync trong thư mục tools/ . "},{"title":"devops","code":"","type":"","section":"devops","path":"docs/12-devops/README.md","href":"docs/docs/12-devops/README.html","text":" devops Thư mục source of truth cho nhóm tài liệu devops . Tài liệu entity thực tế trong thư mục này phải dùng frontmatter theo standards/metadata schema.md và code ổn định theo standards/naming and id convention.md . Không sửa các file trong docs/ generated/ ; chúng được tạo lại bằng npm run docs:sync trong thư mục tools/ . "},{"title":"operations","code":"","type":"","section":"operations","path":"docs/13-operations/README.md","href":"docs/docs/13-operations/README.html","text":" operations Thư mục source of truth cho nhóm tài liệu operations . Tài liệu entity thực tế trong thư mục này phải dùng frontmatter theo standards/metadata schema.md và code ổn định theo standards/naming and id convention.md . Không sửa các file trong docs/ generated/ ; chúng được tạo lại bằng npm run docs:sync trong thư mục tools/ . "},{"title":"performance","code":"","type":"","section":"performance","path":"docs/14-performance/README.md","href":"docs/docs/14-performance/README.html","text":" performance Thư mục source of truth cho nhóm tài liệu performance . Tài liệu entity thực tế trong thư mục này phải dùng frontmatter theo standards/metadata schema.md và code ổn định theo standards/naming and id convention.md . Không sửa các file trong docs/ generated/ ; chúng được tạo lại bằng npm run docs:sync trong thư mục tools/ . "},{"title":"decisions","code":"","type":"","section":"decisions","path":"docs/15-decisions/README.md","href":"docs/docs/15-decisions/README.html","text":" decisions Thư mục source of truth cho nhóm tài liệu decisions . Tài liệu entity thực tế trong thư mục này phải dùng frontmatter theo standards/metadata schema.md và code ổn định theo standards/naming and id convention.md . Không sửa các file trong docs/ generated/ ; chúng được tạo lại bằng npm run docs:sync trong thư mục tools/ . "},{"title":"release","code":"","type":"","section":"release","path":"docs/16-release/README.md","href":"docs/docs/16-release/README.html","text":" release Thư mục source of truth cho nhóm tài liệu release . Tài liệu entity thực tế trong thư mục này phải dùng frontmatter theo standards/metadata schema.md và code ổn định theo standards/naming and id convention.md . Không sửa các file trong docs/ generated/ ; chúng được tạo lại bằng npm run docs:sync trong thư mục tools/ . "},{"title":"traceability","code":"","type":"","section":"traceability","path":"docs/17-traceability/README.md","href":"docs/docs/17-traceability/README.html","text":" traceability Thư mục source of truth cho nhóm tài liệu traceability . Tài liệu entity thực tế trong thư mục này phải dùng frontmatter theo standards/metadata schema.md và code ổn định theo standards/naming and id convention.md . Không sửa các file trong docs/ generated/ ; chúng được tạo lại bằng npm run docs:sync trong thư mục tools/ . "},{"title":"changelog","code":"","type":"","section":"changelog","path":"docs/18-changelog/README.md","href":"docs/docs/18-changelog/README.html","text":" changelog Thư mục source of truth cho nhóm tài liệu changelog . Tài liệu entity thực tế trong thư mục này phải dùng frontmatter theo standards/metadata schema.md và code ổn định theo standards/naming and id convention.md . Không sửa các file trong docs/ generated/ ; chúng được tạo lại bằng npm run docs:sync trong thư mục tools/ . "},{"title":"open items","code":"","type":"","section":"open items","path":"docs/19-open-items/README.md","href":"docs/docs/19-open-items/README.html","text":" open items Thư mục source of truth cho nhóm tài liệu open items . Tài liệu entity thực tế trong thư mục này phải dùng frontmatter theo standards/metadata schema.md và code ổn định theo standards/naming and id convention.md . Không sửa các file trong docs/ generated/ ; chúng được tạo lại bằng npm run docs:sync trong thư mục tools/ . "},{"title":"Project Documentation Source","code":"","type":"","section":"README.md","path":"docs/README.md","href":"docs/docs/README.html","text":" Project Documentation Source docs/ chứa tài liệu canonical của project. Các file Markdown ở đây là source of truth; site/ và docs/ generated/ là output có thể build lại. Quy trình 1. Tạo/update tài liệu bằng template. 2. cd tools && npm run docs:validate . 3. npm run docs:sync để tạo catalog, graph và traceability. 4. npm run docs:build để sinh static website. 5. npm run docs:serve hoặc npm run docs:dev để xem giao diện web. "},{"title":"Generated Documentation Health","code":"","type":"","section":"_generated","path":"docs/_generated/DOCUMENT_HEALTH.md","href":"docs/docs/_generated/DOCUMENT_HEALTH.html","text":" Generated Documentation Health Entity documents: 10 Relations: 39 Orphan entities: 0 Stale review: 0 Mermaid diagrams: 9 Orphan Entities None Stale Documents None "},{"title":"Generated Document Index","code":"","type":"","section":"_generated","path":"docs/_generated/DOCUMENT_INDEX.md","href":"docs/docs/_generated/DOCUMENT_INDEX.html","text":" Generated Document Index Generated by tools/scripts/sync docs.mjs . Do not edit manually. Generated: 2026 10 03T03:58:25.805Z api Code Title Status Owner Source API AUTH LOGIN Login API approved API Team open ../../examples/mini project/API AUTH LOGIN.md business rule Code Title Status Owner Source BR AUTH 001 Disabled account cannot sign in approved Product Team open ../../examples/mini project/BR AUTH 001.md database object Code Title Status Owner Source DB USER User Table approved Data Team open ../../examples/mini project/DB USER.md feature Code Title Status Owner Source FEAT AUTH LOGIN User Login approved Platform Team open ../../examples/mini project/FEAT AUTH LOGIN.md flow Code Title Status Owner Source FLOW AUTH LOGIN Login End to End Flow approved Platform Team open ../../examples/mini project/FLOW AUTH LOGIN.md module Code Title Status Owner Source MOD AUTH Authentication approved Platform Team open ../../examples/mini project/MOD AUTH.md requirement Code Title Status Owner Source REQ AUTH 001 Authenticate registered user approved Product Team open ../../examples/mini project/REQ AUTH 001.md screen Code Title Status Owner Source SCR LOGIN Login Screen approved Web Team open ../../examples/mini project/SCR LOGIN.md test case Code Title Status Owner Source TC AUTH LOGIN 001 Login with valid credential passed QA Team open ../../examples/mini project/TC AUTH LOGIN 001.md TC AUTH LOGIN 002 Disabled account cannot login passed QA Team open ../../examples/mini project/TC AUTH LOGIN 002.md "},{"title":"Generated Project Graph","code":"","type":"","section":"_generated","path":"docs/_generated/PROJECT_GRAPH.md","href":"docs/docs/_generated/PROJECT_GRAPH.html","text":" Generated Project Graph The static website also contains an interactive graph with pan/zoom and click through navigation. "},{"title":"Generated Traceability Matrix","code":"","type":"","section":"_generated","path":"docs/_generated/TRACEABILITY_MATRIX.md","href":"docs/docs/_generated/TRACEABILITY_MATRIX.html","text":" Generated Traceability Matrix Generated from frontmatter related metadata. Do not edit manually. Feature Requirements Rules Screens APIs DB Tests Decisions FEAT AUTH LOGIN ../../examples/mini project/FEAT AUTH LOGIN.md REQ AUTH 001 ../../examples/mini project/REQ AUTH 001.md BR AUTH 001 ../../examples/mini project/BR AUTH 001.md SCR LOGIN ../../examples/mini project/SCR LOGIN.md API AUTH LOGIN ../../examples/mini project/API AUTH LOGIN.md DB USER ../../examples/mini project/DB USER.md TC AUTH LOGIN 001 ../../examples/mini project/TC AUTH LOGIN 001.md <br TC AUTH LOGIN 002 ../../examples/mini project/TC AUTH LOGIN 002.md — "},{"title":"Login API","code":"API-AUTH-LOGIN","type":"api","section":"Examples","path":"examples/mini-project/API-AUTH-LOGIN.md","href":"docs/examples/mini-project/API-AUTH-LOGIN.html","text":" Login API Request Response Sequence "},{"title":"Disabled account cannot sign in","code":"BR-AUTH-001","type":"business-rule","section":"Examples","path":"examples/mini-project/BR-AUTH-001.md","href":"docs/examples/mini-project/BR-AUTH-001.html","text":" Disabled account cannot sign in Nếu User.IsDisabled = true , API login phải từ chối authentication dù password đúng. "},{"title":"User Table","code":"DB-USER","type":"database-object","section":"Examples","path":"examples/mini-project/DB-USER.md","href":"docs/examples/mini-project/DB-USER.html","text":" User Table Logical model "},{"title":"User Login","code":"FEAT-AUTH-LOGIN","type":"feature","section":"Examples","path":"examples/mini-project/FEAT-AUTH-LOGIN.md","href":"docs/examples/mini-project/FEAT-AUTH-LOGIN.html","text":" User Login Goal Cho phép người dùng hợp lệ đăng nhập bằng email và mật khẩu. Main flow 1. User mở /login . 2. Nhập email và password. 3. UI gọi POST /api/auth/login . 4. Backend xác thực user. 5. Thành công: trả session/token và điều hướng Dashboard. 6. Thất bại: hiển thị lỗi chung, không tiết lộ email có tồn tại hay không. Acceptance summary Valid credential đăng nhập thành công. Invalid credential trả lỗi thống nhất. Disabled account không được đăng nhập. "},{"title":"Login End-to-End Flow","code":"FLOW-AUTH-LOGIN","type":"flow","section":"Examples","path":"examples/mini-project/FLOW-AUTH-LOGIN.md","href":"docs/examples/mini-project/FLOW-AUTH-LOGIN.html","text":" Login End to End Flow "},{"title":"Authentication","code":"MOD-AUTH","type":"module","section":"Examples","path":"examples/mini-project/MOD-AUTH.md","href":"docs/examples/mini-project/MOD-AUTH.html","text":" Authentication Module Quản lý đăng nhập và session của người dùng. Feature map "},{"title":"Mini Project Example","code":"","type":"","section":"Examples","path":"examples/mini-project/README.md","href":"docs/examples/mini-project/README.html","text":" Mini Project Example Ví dụ này minh họa một feature Login được trace xuyên suốt: MOD AUTH → FEAT AUTH LOGIN → REQ AUTH 001 / BR AUTH 001 → SCR LOGIN / FLOW AUTH LOGIN / API AUTH LOGIN / DB USER → TC Sau khi chạy cd tools && npm run docs:all , mở web docs để xem cùng dữ liệu ở các dạng Markdown, Mermaid, Traceability Matrix và Interactive Graph. "},{"title":"Authenticate registered user","code":"REQ-AUTH-001","type":"requirement","section":"Examples","path":"examples/mini-project/REQ-AUTH-001.md","href":"docs/examples/mini-project/REQ-AUTH-001.html","text":" Authenticate registered user Hệ thống phải cho phép tài khoản active đăng nhập bằng thông tin hợp lệ và từ chối thông tin không hợp lệ. Acceptance criteria Given account active, when credential đúng, then login thành công. Given credential sai, then login bị từ chối bằng generic error. "},{"title":"Login Screen","code":"SCR-LOGIN","type":"screen","section":"Examples","path":"examples/mini-project/SCR-LOGIN.md","href":"docs/examples/mini-project/SCR-LOGIN.html","text":" Login Screen Controls Control Required Notes : Email Yes Email format validation Password Yes Masked input Login Yes Disabled while submitting Screen states "},{"title":"Login with valid credential","code":"TC-AUTH-LOGIN-001","type":"test-case","section":"Examples","path":"examples/mini-project/TC-AUTH-LOGIN-001.md","href":"docs/examples/mini-project/TC-AUTH-LOGIN-001.html","text":" Login with valid credential 1. Open Login Screen. 2. Enter an active user's valid email/password. 3. Submit. 4. Verify response is successful and Dashboard is shown. "},{"title":"Disabled account cannot login","code":"TC-AUTH-LOGIN-002","type":"test-case","section":"Examples","path":"examples/mini-project/TC-AUTH-LOGIN-002.md","href":"docs/examples/mini-project/TC-AUTH-LOGIN-002.html","text":" Disabled account cannot login 1. Prepare an account with IsDisabled = true . 2. Enter correct credential. 3. Submit. 4. Verify API rejects login and UI shows a generic authentication error. "},{"title":"Master Prompt — Documentation-First Project Orchestrator","code":"","type":"","section":"Prompts","path":"prompts/00-master-orchestrator-prompt.md","href":"docs/prompts/00-master-orchestrator-prompt.html","text":" Master Prompt — Documentation First Project Orchestrator "},{"title":"Prompt 01 — Idea -> Project Overview","code":"","type":"","section":"Prompts","path":"prompts/01-idea-to-project-overview.md","href":"docs/prompts/01-idea-to-project-overview.html","text":" Prompt 01 — Idea Project Overview "},{"title":"Prompt 02 — Discovery & Open Questions","code":"","type":"","section":"Prompts","path":"prompts/02-discovery-open-questions.md","href":"docs/prompts/02-discovery-open-questions.html","text":" Prompt 02 — Discovery & Open Questions "},{"title":"Prompt 03 — Build Project Blueprint","code":"","type":"","section":"Prompts","path":"prompts/03-build-project-blueprint.md","href":"docs/prompts/03-build-project-blueprint.html","text":" Prompt 03 — Build Project Blueprint "},{"title":"Prompt 04 — Module & Feature Decomposition","code":"","type":"","section":"Prompts","path":"prompts/04-module-decomposition.md","href":"docs/prompts/04-module-decomposition.html","text":" Prompt 04 — Module & Feature Decomposition "},{"title":"Prompt 05 — Feature Specification","code":"","type":"","section":"Prompts","path":"prompts/05-feature-specification.md","href":"docs/prompts/05-feature-specification.html","text":" Prompt 05 — Feature Specification "},{"title":"Prompt 06 — Requirements & Business Rules","code":"","type":"","section":"Prompts","path":"prompts/06-requirements-business-rules.md","href":"docs/prompts/06-requirements-business-rules.html","text":" Prompt 06 — Requirements & Business Rules "},{"title":"Prompt 07 — Screen / Route / UX Contract","code":"","type":"","section":"Prompts","path":"prompts/07-screen-route-ux.md","href":"docs/prompts/07-screen-route-ux.html","text":" Prompt 07 — Screen / Route / UX Contract "},{"title":"Prompt 08 — Flow Diagrams","code":"","type":"","section":"Prompts","path":"prompts/08-flow-diagrams.md","href":"docs/prompts/08-flow-diagrams.html","text":" Prompt 08 — Flow Diagrams "},{"title":"Prompt 09 — API Contracts","code":"","type":"","section":"Prompts","path":"prompts/09-api-contracts.md","href":"docs/prompts/09-api-contracts.html","text":" Prompt 09 — API Contracts "},{"title":"Prompt 10 — Database Design","code":"","type":"","section":"Prompts","path":"prompts/10-database-design.md","href":"docs/prompts/10-database-design.html","text":" Prompt 10 — Database Design "},{"title":"Prompt 11 — Architecture & Integrations","code":"","type":"","section":"Prompts","path":"prompts/11-architecture-integrations.md","href":"docs/prompts/11-architecture-integrations.html","text":" Prompt 11 — Architecture & Integrations "},{"title":"Prompt 12 — NFR","code":"","type":"","section":"Prompts","path":"prompts/12-non-functional-requirements.md","href":"docs/prompts/12-non-functional-requirements.html","text":" Prompt 12 — NFR "},{"title":"Prompt 13 — Test Design","code":"","type":"","section":"Prompts","path":"prompts/13-test-design.md","href":"docs/prompts/13-test-design.html","text":" Prompt 13 — Test Design "},{"title":"Prompt 14 — Security Review","code":"","type":"","section":"Prompts","path":"prompts/14-security-review.md","href":"docs/prompts/14-security-review.html","text":" Prompt 14 — Security Review "},{"title":"Prompt 15 — DevOps & Production","code":"","type":"","section":"Prompts","path":"prompts/15-devops-production.md","href":"docs/prompts/15-devops-production.html","text":" Prompt 15 — DevOps & Production "},{"title":"Prompt 16 — Monitoring & Runbooks","code":"","type":"","section":"Prompts","path":"prompts/16-monitoring-runbooks.md","href":"docs/prompts/16-monitoring-runbooks.html","text":" Prompt 16 — Monitoring & Runbooks "},{"title":"Prompt 17 — Traceability Audit","code":"","type":"","section":"Prompts","path":"prompts/17-traceability-audit.md","href":"docs/prompts/17-traceability-audit.html","text":" Prompt 17 — Traceability Audit "},{"title":"Prompt 18 — Change Impact Analysis","code":"","type":"","section":"Prompts","path":"prompts/18-change-impact-analysis.md","href":"docs/prompts/18-change-impact-analysis.html","text":" Prompt 18 — Change Impact Analysis "},{"title":"Prompt 19 — Release Readiness","code":"","type":"","section":"Prompts","path":"prompts/19-release-readiness.md","href":"docs/prompts/19-release-readiness.html","text":" Prompt 19 — Release Readiness "},{"title":"Prompt 20 — Documentation Maintenance","code":"","type":"","section":"Prompts","path":"prompts/20-documentation-maintenance.md","href":"docs/prompts/20-documentation-maintenance.html","text":" Prompt 20 — Documentation Maintenance "},{"title":"Prompt 21 — Documentation Health & Static Site Review","code":"","type":"","section":"Prompts","path":"prompts/21-documentation-health-and-site.md","href":"docs/prompts/21-documentation-health-and-site.html","text":" Prompt 21 — Documentation Health & Static Site Review Bạn đang review một documentation first software project. Hãy thực hiện theo thứ tự: 1. Đọc PROJECT BLUEPRINT.md , DOCS GOVERNANCE.md , standards/ và tools/docs.config.json . 2. Chạy validation trong tools/ . 3. Với mỗi error/warning, phân loại: metadata; broken relation; missing traceability; stale documentation; duplicate identity/route/API; broken link; diagram issue. 4. Không tự sửa business fact nếu không có evidence. 5. Sau khi source hợp lệ, chạy sync và build static site. 6. Review các view: Dashboard; Catalog; Traceability Matrix; Interactive Graph; Diagram Gallery. 7. Báo cáo: coverage gap; orphan entity; feature chưa đủ requirement/test/API/UI/DB linkage; documents cần review; diagram/flow còn thiếu; các thay đổi source được đề xuất. 8. Chỉ sửa source docs. Không chỉnh trực tiếp site/ , docs/ generated/ , tools/.cache/ . "},{"title":"AI Agent Rules","code":"","type":"","section":"Standards","path":"standards/ai-agent-rules.md","href":"docs/standards/ai-agent-rules.html","text":" AI Agent Rules 1. Documentation first; không sinh implementation code khi chưa được yêu cầu rõ. 2. Không biến assumption thành fact. 3. Nếu thiếu thông tin, tạo Open Question; vẫn tiếp tục phần có thể làm bằng assumption được đánh dấu rõ. 4. Trước khi chỉnh một entity, đọc các relation trực tiếp của nó. 5. Khi thay đổi Requirement/Rule/API/DB, phải thực hiện impact analysis. 6. Không duplicate canonical content. 7. Mọi entity mới phải có code, type, owner/status và relation. 8. Sau mỗi phase, cập nhật PROJECT BLUEPRINT.md và traceability. 9. Không xóa Decision lịch sử; dùng superseded. 10. Báo rõ phần nào là suggested design, phần nào là confirmed requirement. "},{"title":"Definition of Ready / Done cho tài liệu","code":"","type":"","section":"Standards","path":"standards/definition-of-ready-done.md","href":"docs/standards/definition-of-ready-done.html","text":" Definition of Ready / Done cho tài liệu Documentation Ready — trước implementation Một Feature được coi là Ready khi: Feature scope và actors rõ. Preconditions, main flow, alternative/error flow đã có. Requirement được approved. Business Rule liên quan được xác định. Screen/Flow đủ nếu có UI. API contract đủ nếu có backend. DB impact đủ nếu có persistence. Permission/security implications đã xác định. NFR áp dụng được xác định. Acceptance Criteria + Test Case tồn tại. Không còn blocking Open Question. Traceability đầy đủ. Documentation Done — sau implementation/release Tài liệu phản ánh hành vi thực tế đã release. Route/API/DB inventory cập nhật. Test coverage cập nhật. Monitoring/runbook cập nhật nếu có thay đổi vận hành. ADR mới được ghi nếu có decision đáng kể. Release note/changelog có impact chính. Không còn stale document từ thay đổi vừa thực hiện. "},{"title":"Flow & Diagram Guidelines","code":"","type":"","section":"Standards","path":"standards/diagram-guidelines.md","href":"docs/standards/diagram-guidelines.html","text":" Flow & Diagram Guidelines Dùng Mermaid hoặc diagram portable. Mỗi diagram phải có textual explanation đi kèm. Loại diagram khuyến nghị User Journey: actor screen/action outcome. Business Flow: state/decision/business rule. Sequence: Screen API Service DB/Integration. Architecture: Browser Frontend API DB/Cache/External. State Machine: trạng thái entity và transition. Mermaid example "},{"title":"Documentation Standard","code":"","type":"","section":"Standards","path":"standards/documentation-standard.md","href":"docs/standards/documentation-standard.html","text":" Documentation Standard Viết cho người chưa biết project Mỗi tài liệu phải có đủ context để người mới hiểu được mục đích và phạm vi mà không cần hỏi tác giả. Tách Fact / Decision / Assumption / Open Question Không trình bày assumption như fact. Nếu chưa có quyết định, ghi rõ TBD và đưa vào Open Questions. Ưu tiên contract có thể kiểm thử Các mô tả nên đủ cụ thể để chuyển thành acceptance criteria hoặc test case. Tránh duplicate Nếu API request/response đã canonical ở API doc, Feature doc chỉ reference API ... . Versioning Dùng Git history cho thay đổi nội dung; metadata updated at và changelog dùng cho review ở cấp project. "},{"title":"Metadata Schema","code":"","type":"","section":"Standards","path":"standards/metadata-schema.md","href":"docs/standards/metadata-schema.html","text":" Metadata Schema Chỉ điền relation thực sự có evidence; không suy đoán chỉ vì tên giống nhau. "},{"title":"Naming & ID Convention","code":"","type":"","section":"Standards","path":"standards/naming-and-id-convention.md","href":"docs/standards/naming-and-id-convention.html","text":" Naming & ID Convention Code format Module: MOD <DOMAIN — ví dụ MOD AUTH . Feature: FEAT <DOMAIN <NAME — FEAT AUTH LOGIN . Requirement: REQ <DOMAIN NNN . Business Rule: BR <DOMAIN NNN . Screen: SCR <NAME . Flow: FLOW <DOMAIN <NAME . API: API <DOMAIN <NAME . DB object: DB <OBJECT . Test Case: TC <DOMAIN <NAME NNN . ADR: ADR NNN . Runbook: RB NNN . Rules 1. Code không đổi sau khi đã được dùng để reference. 2. Đổi title không được đổi code nếu identity logic vẫn là một entity. 3. Không encode version/date vào code trừ Release. 4. Route/API path không dùng làm identity vì path có thể refactor. "},{"title":"Security & Secrets Documentation Rules","code":"","type":"","section":"Standards","path":"standards/security-and-secrets.md","href":"docs/standards/security-and-secrets.html","text":" Security & Secrets Documentation Rules Không ghi production password, API key, token, private key, secret value vào repo tài liệu. Chỉ document tên biến/config và nơi quản lý secret. Sensitive sample data phải fake/anonymized. Với PII/financial/health data, ghi classification + retention + masking + audit requirements. Production access procedure phải mô tả role/process, không chứa credential. "},{"title":"Source of Truth Rules","code":"","type":"","section":"Standards","path":"standards/source-of-truth.md","href":"docs/standards/source-of-truth.html","text":" Source of Truth Rules Information Canonical document Product scope Product Scope Feature intent & flow Feature Testable functional need Requirement Business constraint Business Rule UI states/actions/route Screen HTTP contract API Schema/index/ownership Database Object Cross cutting technical rule Architecture Why a significant choice was made ADR Runtime recovery steps Runbook Nếu một thông tin xuất hiện ở nơi không canonical, chỉ tóm tắt ngắn và reference nguồn canonical. "},{"title":"Documentation Tooling & Static Site Standard","code":"","type":"","section":"Standards","path":"standards/tooling-and-static-site.md","href":"docs/standards/tooling-and-static-site.html","text":" Documentation Tooling & Static Site Standard 1. Canonical source Markdown source và frontmatter là source of truth. Web pages, indexes, matrices, graphs và JSON caches đều phải có thể rebuild. 2. Validation gate Mỗi pull request thay đổi tài liệu nên chạy: Không merge khi có validation error. Warning cần review nhưng không bắt buộc block trừ khi team nâng rule thành error. 3. Generated artifact policy docs/ generated/ : human readable derived documentation. tools/.cache/ : machine readable derived model. site/ : deployable static site. Không đặt business fact chỉ tồn tại trong generated output. 4. Diagram policy Ưu tiên Mermaid trong Markdown để diagram version control cùng tài liệu. Supported view phổ biến: flowchart cho business/system flow; sequenceDiagram cho interaction/API flow; stateDiagram v2 cho lifecycle/UI state; erDiagram cho logical data relationship; classDiagram cho domain/component relation; mindmap cho discovery/context map; timeline cho migration/release history; interactive graph được sinh từ metadata related , không viết tay. 5. Traceability Graph/traceability phải sinh từ stable entity code và metadata relationship. Không suy luận relationship chỉ từ filename hoặc text similarity. 6. Static hosting site/ chỉ gồm static HTML/CSS/JS/JSON/assets, có thể host trên GitHub Pages, GitLab Pages, Azure Static Web Apps, S3/CloudFront, Nginx hoặc bất kỳ static web server nào. "},{"title":"Architecture / Product Decision Record","code":"","type":"decision","section":"Templates","path":"templates/adr-template.md","href":"docs/templates/adr-template.html","text":" Architecture / Product Decision Record Context Decision Options Considered Rationale Consequences Risks Affected Entities Status Proposed / Accepted / Rejected / Superseded Supersedes / Superseded By "},{"title":"API Contract","code":"","type":"api","section":"Templates","path":"templates/api-template.md","href":"docs/templates/api-template.html","text":" API Contract Purpose Endpoint Method: <GET/POST/... Path: </api/... Version: <... Authentication / Authorization Request Headers Path Parameters Query Parameters Body Response Success Errors Validation Business Rules Applied Idempotency / Concurrency Transaction Boundary Database Impact READ WRITE External Dependencies Logging / Audit Performance / Rate Limit Related Feature / Screen / Tests "},{"title":"Architecture Document","code":"","type":"","section":"Templates","path":"templates/architecture-template.md","href":"docs/templates/architecture-template.html","text":" Architecture Document Context Goals / Constraints Components Diagram Responsibilities / Boundaries Data Flow Error / Resilience Strategy Security Considerations Scalability / Performance Deployment Considerations Related ADRs Risks / Open Questions "},{"title":"Business Rule","code":"","type":"business-rule","section":"Templates","path":"templates/business-rule-template.md","href":"docs/templates/business-rule-template.html","text":" Business Rule Rule Statement Conditions Result / Constraint Exceptions Scope / Effective Context Positive Examples Negative Examples Error / Message Affected Features / Requirements / APIs / Screens Test Coverage "},{"title":"Database Object","code":"","type":"database-object","section":"Templates","path":"templates/database-object-template.md","href":"docs/templates/database-object-template.html","text":" Database Object Purpose Object Schema: Name: Type: Table / View / Materialized View Owner Module: Columns Column Type Null Default Description : Primary Key Foreign Keys Unique / Check Constraints Indexes Index Columns Unique Purpose : Read By Written By Lifecycle / Soft Delete Sensitive Data / Retention Expected Volume / Growth Concurrency / Transaction Notes Migration / Backfill Notes "},{"title":"Feature Specification","code":"","type":"feature","section":"Templates","path":"templates/feature-template.md","href":"docs/templates/feature-template.html","text":" Feature Specification 1. Overview 2. Business Goal 3. Actors 4. Preconditions 5. Trigger 6. Main Flow 7. Alternative Flows 8. Error / Exception Flows 9. Business Rules 10. Screens / Routes 11. APIs 12. Database Objects 13. Permissions 14. Notifications / External Effects 15. Audit / Logging 16. Acceptance Summary 17. Edge Cases 18. Dependencies 19. Known Limitations 20. Open Questions "},{"title":"Flow","code":"","type":"flow","section":"Templates","path":"templates/flow-template.md","href":"docs/templates/flow-template.html","text":" Flow Purpose Actors / Systems Preconditions Flow Diagram Step Details Step Actor/System Action Rule/API/Screen Result Error / Retry Paths End States "},{"title":"Incident Record","code":"","type":"","section":"Templates","path":"templates/incident-template.md","href":"docs/templates/incident-template.html","text":" Incident Record Summary Customer / Business Impact Timeline Detection Root Cause Contributing Factors Mitigation Recovery Corrective Actions Documentation / Runbooks To Update "},{"title":"External Integration","code":"","type":"integration","section":"Templates","path":"templates/integration-template.md","href":"docs/templates/integration-template.html","text":" External Integration Purpose Provider / System Authentication Data Sent / Received Trigger / Flow Timeout / Retry / Backoff Idempotency / Duplicate Handling Failure Behaviour Security / Privacy Monitoring / Alerts Sandbox / Production Configuration Related Features / APIs "},{"title":"Module","code":"","type":"module","section":"Templates","path":"templates/module-template.md","href":"docs/templates/module-template.html","text":" Module Purpose Scope Feature Inventory Feature Code Title Priority Status Shared Concepts Dependencies Owners "},{"title":"Monitoring / Alert","code":"","type":"","section":"Templates","path":"templates/monitoring-alert-template.md","href":"docs/templates/monitoring-alert-template.html","text":" Monitoring / Alert Signal Purpose Metric / Query Threshold Severity Expected Baseline Investigation Steps Immediate Action Runbook Reference Owner "},{"title":"Non-Functional Requirement","code":"","type":"nfr","section":"Templates","path":"templates/nfr-template.md","href":"docs/templates/nfr-template.html","text":" Non Functional Requirement Category Requirement Metric Target Measurement Method Scope Failure Threshold Verification / Test "},{"title":"Product Scope","code":"","type":"","section":"Templates","path":"templates/product-scope-template.md","href":"docs/templates/product-scope-template.html","text":" Product Scope In Scope Out of Scope Future / Deferred Business Boundaries System Boundaries Dependencies Acceptance of Scope "},{"title":"Project Overview","code":"","type":"","section":"Templates","path":"templates/project-overview-template.md","href":"docs/templates/project-overview-template.html","text":" Project Overview Problem / Opportunity Business Goal Target Users Success Criteria High Level Scope Key Stakeholders Known Constraints Assumptions Open Questions "},{"title":"Release","code":"","type":"release","section":"Templates","path":"templates/release-template.md","href":"docs/templates/release-template.html","text":" Release Release Scope Included Features / Fixes Dependencies DB / Data Migration Configuration Changes Deployment Plan Verification Plan Rollback Plan Monitoring After Release Known Issues Documentation Updated "},{"title":"Requirement","code":"","type":"requirement","section":"Templates","path":"templates/requirement-template.md","href":"docs/templates/requirement-template.html","text":" Requirement Statement Type Functional / Non Functional Actor / Trigger Expected Behaviour Rationale / Source Priority Acceptance Criteria Given ... When ... Then ... Dependencies Related Business Rules Verification "},{"title":"Runbook","code":"","type":"runbook","section":"Templates","path":"templates/runbook-template.md","href":"docs/templates/runbook-template.html","text":" Runbook Scenario / Symptoms Severity / Impact Preconditions / Access Required Initial Checks Diagnosis Steps Mitigation Rollback / Recovery Verification Escalation Related Dashboards / Alerts / Services Post Incident Follow up "},{"title":"Screen / Route","code":"","type":"screen","section":"Templates","path":"templates/screen-template.md","href":"docs/templates/screen-template.html","text":" Screen / Route Purpose Route Accessible Roles Entry Points Layout / Sections Fields Field Type Required Validation Notes : Actions Data Sources UI States Initial Loading Success Empty Error No Permission Navigation Rules Validation & Messages Responsive / Accessibility Related Features / Rules / APIs "},{"title":"Test Case","code":"","type":"test-case","section":"Templates","path":"templates/test-case-template.md","href":"docs/templates/test-case-template.html","text":" Test Case Objective Verifies Preconditions Test Data Steps Action Expected Result Postconditions Priority Automation Candidate Notes "},{"title":"Documentation Tooling (NodeJS)","code":"","type":"","section":"Tooling","path":"tools/README.md","href":"docs/tools/README.html","text":" Documentation Tooling NodeJS Toolchain này biến repository tài liệu thành một hệ thống có thể kiểm tra, đồng bộ index và xem trực quan trên web. Yêu cầu NodeJS = 20 Toolchain core không có dependency NPM bên ngoài. Chạy lần đầu: Không commit tools/node modules/ . Commands 1. Validate source docs Kiểm tra: frontmatter bắt buộc theo loại entity; placeholder còn sót trong source docs; code format và duplicate code; broken local Markdown link; broken relation trong related ; duplicate screen route; duplicate API method + path; stale review date; orphan entity; feature thiếu requirement; requirement thiếu test; screen/API chưa trace về feature; Mermaid block có declaration bất thường. Validator không sửa source . Có error thì exit code = 1 để dùng trong CI. 2. Sync documentation model Scan source docs và tạo lại: Các file trên là derived output, không phải source of truth. 3. Build static website Output: ../site/ Website có: dashboard inventory/health; sidebar theo nhóm tài liệu; render Markdown; syntax highlighted code blocks; Mermaid flowchart/sequence/state/ERD/architecture diagrams; full text search; metadata panel; backlinks/related documents; entity catalog; traceability matrix; interactive Cytoscape project graph; diagram gallery; dark/light mode. Interactive project graph dùng SVG/JavaScript thuần, không cần thư viện ngoài. Mermaid mặc định render qua CDN; nếu cần môi trường offline, chạy npm run docs:vendor một lần để tải tools/vendor/mermaid.min.js . Builder sẽ tự ưu tiên bản local. 4. Serve static site Default: http://127.0.0.1:4173 Custom port: 5. Development mode Watch Markdown source, tự sync + build lại khi thay đổi và đồng thời mở static server. 6. CI/full build Equivalent: Nếu validation có error, pipeline dừng trước khi generate website. Source vs generated Không edit trực tiếp site/ , docs/ generated/ hoặc tools/.cache/ . 7. Vendor Mermaid for offline use Nếu không vendor, HTML vẫn build bình thường; các Mermaid diagram cần truy cập CDN khi browser mở site. Các view còn lại Markdown, search, catalog, traceability, interactive graph hoàn toàn self contained. 8. Check generated local links Duyệt toàn bộ HTML đã build và fail nếu href/src nội bộ trỏ tới file không tồn tại. docs:all đã bao gồm bước này. 9. Clean derived output Xóa site/ , tools/.cache/ , docs/ generated/ . Source Markdown không bị ảnh hưởng. "},{"title":"Optional local browser vendor assets","code":"","type":"","section":"Tooling","path":"tools/vendor/README.md","href":"docs/tools/vendor/README.html","text":" Optional local browser vendor assets site/ can render Mermaid via CDN without any setup. For fully offline/static network isolated hosting, run: This downloads mermaid.min.js into this folder. The site builder automatically prefers the local file when present. Do not manually modify vendor files. "},{"title":"Workflow 01 — Idea -> Scope","code":"","type":"","section":"Workflows","path":"workflows/01-idea-to-scope.md","href":"docs/workflows/01-idea-to-scope.html","text":" Workflow 01 — Idea Scope Input Ý tưởng thô, pain point, stakeholder notes hoặc product brief. Steps 1. Viết Project Overview. 2. Xác định users/personas và goals. 3. Liệt kê in scope/out of scope. 4. Tạo glossary. 5. Tách facts, assumptions, constraints. 6. Ghi Open Questions cần quyết định. Output docs/00 project/project overview.md docs/00 project/product scope.md docs/00 project/glossary.md docs/00 project/assumptions constraints.md docs/19 open items/open questions.md Exit Gate Không cần trả lời hết mọi câu hỏi, nhưng phải biết câu nào đang mở và câu nào blocking. "},{"title":"Workflow 02 — Scope -> Project Blueprint","code":"","type":"","section":"Workflows","path":"workflows/02-scope-to-blueprint.md","href":"docs/workflows/02-scope-to-blueprint.html","text":" Workflow 02 — Scope Project Blueprint Steps 1. Phân rã domain thành Module. 2. Phân rã mỗi Module thành Feature. 3. Lập inventory Screen/Route sơ bộ. 4. Lập inventory API sơ bộ. 5. Lập inventory DB object/integration sơ bộ. 6. Đánh dấu unknown thay vì tự thiết kế quá sớm. 7. Điền PROJECT BLUEPRINT.md . Exit Gate Mọi capability in scope phải map được vào ít nhất một Feature. Mọi Feature phải thuộc đúng một Module. Không dùng Module như container cho API/DB/Test. "},{"title":"Workflow 03 — Blueprint -> Functional Documentation","code":"","type":"","section":"Workflows","path":"workflows/03-blueprint-to-functional-docs.md","href":"docs/workflows/03-blueprint-to-functional-docs.html","text":" Workflow 03 — Blueprint Functional Documentation Thực hiện theo từng Feature, ưu tiên P0/P1. Steps cho mỗi Feature 1. Tạo Feature doc. 2. Tách Functional Requirements. 3. Tách Business Rules. 4. Xác định Actors/Permissions. 5. Tạo Screen docs và Route nếu có UI. 6. Tạo user/business/system flow. 7. Ghi Edge Cases và Open Questions. 8. Cập nhật Blueprint. Exit Gate Feature phải đủ rõ để một engineer có thể bắt đầu thiết kế technical contract mà không đoán business behaviour. "},{"title":"Workflow 04 — Functional -> Technical Contracts","code":"","type":"","section":"Workflows","path":"workflows/04-functional-to-technical-contracts.md","href":"docs/workflows/04-functional-to-technical-contracts.html","text":" Workflow 04 — Functional Technical Contracts Steps 1. Từ Screen/Flow, xác định API interaction. 2. Tạo API contract từng endpoint. 3. Từ API/business state, thiết kế DB objects. 4. Document transaction, concurrency, idempotency, retry. 5. Xác định external integrations/background jobs. 6. Ghi architecture decisions đáng kể bằng ADR. 7. Cập nhật Blueprint. Exit Gate Mỗi feature có technical contract đủ rõ để FE/BE/DB làm song song mà không tự mâu thuẫn. "},{"title":"Workflow 05 — Quality & Test","code":"","type":"","section":"Workflows","path":"workflows/05-quality-and-test.md","href":"docs/workflows/05-quality-and-test.html","text":" Workflow 05 — Quality & Test Steps 1. Tạo NFR áp dụng cho project/feature. 2. Chuyển Requirement/Rule thành Acceptance Criteria. 3. Tạo happy path, validation, permission, error, concurrency, boundary test cases. 4. Link Test Case Requirement/Business Rule. 5. Audit coverage. Exit Gate Requirement approved phải có test coverage. Business Rule critical phải có positive + negative test. API error/permission paths không bị bỏ quên. "},{"title":"Workflow 06 — Production Readiness","code":"","type":"","section":"Workflows","path":"workflows/06-production-readiness.md","href":"docs/workflows/06-production-readiness.html","text":" Workflow 06 — Production Readiness Areas Authentication & authorization. Data security/privacy/audit. Environment/configuration/secrets. CI/CD/deployment/rollback. Database migration/backup/restore. Logging/metrics/tracing/alerts. Performance/capacity. Incident response/runbooks. Scheduled jobs/external dependencies. Exit Gate Một on call engineer mới phải biết cách phát hiện, chẩn đoán và xử lý các failure mode chính mà không phụ thuộc người build feature ban đầu. "},{"title":"Workflow 07 — Change Management","code":"","type":"","section":"Workflows","path":"workflows/07-change-management.md","href":"docs/workflows/07-change-management.html","text":" Workflow 07 — Change Management Khi có yêu cầu thay đổi 1. Capture change request + reason. 2. Xác định entity canonical cần đổi. 3. Trace incoming/outgoing relations. 4. Phân tích potential impact. 5. Update docs canonical. 6. Reconcile Screen/API/DB/Test/Runbook liên quan. 7. Tạo ADR nếu decision đáng kể. 8. Update Blueprint/Traceability/Changelog. 9. Review Ready gate trước implementation. 10. Sau release, review Done gate. Không làm Sửa feature rồi quên test. Sửa API path nhưng Blueprint vẫn cũ. Rewrite ADR cũ để hợp lý hóa quyết định mới. Copy cùng rule vào nhiều file. "},{"title":"Workflow 08 — Validate, Sync and Publish Documentation","code":"","type":"","section":"Workflows","path":"workflows/08-documentation-tooling.md","href":"docs/workflows/08-documentation-tooling.html","text":" Workflow 08 — Validate, Sync and Publish Documentation Mục tiêu Sau khi tài liệu được tạo/update, biến source Markdown thành một knowledge site có thể review trực quan và tự động kiểm tra consistency. Flow Step 1 — Validate Resolve tất cả ERRORS . Review warnings về traceability/orphan/stale docs. Step 2 — Sync Review docs/ generated/DOCUMENT HEALTH.md và TRACEABILITY MATRIX.md . Step 3 — Build web Review Dashboard, Catalog, Traceability, Graph và Diagram Gallery. Step 4 — Development/watch mode Khi đang chỉnh nhiều tài liệu: Step 5 — CI gate CI nên chạy npm ci && npm run docs:all từ tools/ . "},{"title":"End-to-End Documentation Checklist","code":"","type":"","section":"Workflows","path":"workflows/END_TO_END_CHECKLIST.md","href":"docs/workflows/END_TO_END_CHECKLIST.html","text":" End to End Documentation Checklist A. Project Foundation Project Overview Product Scope Stakeholders / Personas Glossary Assumptions / Constraints Open Questions B. Functional Inventory Module inventory Feature inventory Roles/Permissions User journeys C. Feature Detail Feature docs Requirements Business Rules Screens / Routes Flows Edge cases D. Technical Contracts API docs Database docs Integrations Architecture docs Background jobs E. Quality NFR Acceptance Criteria Test Cases Traceability audit F. Production Security Environments CI/CD Deployment Rollback Backup/Restore Logging/Monitoring/Alerts Incident Response Runbooks Performance/Capacity G. Governance ADR / Decision Log Release Process Changelog Documentation freshness process PROJECT BLUEPRINT complete Final audit questions Có Feature nào không có Requirement? Có Requirement approved nào không có Test Case? Có Screen/API nào không thuộc Feature nào? Có DB object quan trọng nào không biết ai read/write? Có route/API/table production nào không có trong Blueprint? Có blocking Open Question chưa giải quyết? Có tài liệu duplicate source of truth? H. Tooling & Visual Review cd tools && npm run docs:validate pass npm run docs:sync pass npm run docs:build pass npm run docs:check site pass Dashboard reviewed Catalog reviewed Traceability Matrix reviewed Interactive Graph reviewed for orphan/unexpected links Diagram Gallery reviewed Mermaid flows render correctly Generated output is not being used as canonical business source "}]
+[
+  {
+    "file": "DOCS_GOVERNANCE.md",
+    "title": "Documentation Governance",
+    "type": "document",
+    "code": "",
+    "page": "pages/docs-governance.html",
+    "text": " Documentation Governance 1. Source of Truth Mỗi thông tin có đúng một nơi canonical: Feature behaviour Feature / Requirement / Business Rule. UI contract Screen. HTTP contract API. Persistence schema/rules Database Object. Cross cutting technical choices Architecture / ADR. Test expectation Test Case. Production operation Runbook / Operations. Tài liệu khác chỉ reference bằng code/link. 2. Required Metadata Mọi entity document nên có metadata block với tối thiểu: yaml code: FEAT XXX 001 type: feature title: Example status: draft owner: Team/Person created at: YYYY MM DD updated at: YYYY MM DD related: {} 3. Lifecycle Khuyến nghị: draft review approved implemented deprecated . Decision dùng: proposed accepted/rejected superseded . 4. Review Rules Requirement/Rule: review bởi Product/BA. Screen/Flow: review bởi Product + UX/UI + Dev nếu có technical constraint. API/DB/Architecture: review bởi Tech Lead/Backend/DB owner. Security/NFR/Runbook: review bởi owner tương ứng. Traceability audit trước release hoặc milestone lớn. 5. Change Rules Khi thay đổi entity: 1. Xác định entity canonical. 2. Ghi reason/change request. 3. Phân tích impact. 4. Cập nhật entity canonical. 5. Cập nhật các tài liệu bị ảnh hưởng. 6. Cập nhật Blueprint nếu inventory/summary thay đổi. 7. Cập nhật traceability. 8. Review lại tests và production docs nếu hành vi runtime thay đổi. 6. Không xóa lịch sử quyết định ADR/Decision cũ không bị rewrite để trông như quyết định mới luôn tồn tại. Tạo quyết định mới và đánh dấu quyết định cũ là superseded . 7. Automated Documentation Gate Sau mỗi batch thay đổi tài liệu: bash cd tools npm run docs:all Pipeline phải đảm bảo: validation không có error; generated catalog/traceability/graph được rebuild; static site build thành công; generated HTML không có broken local link. 8. Derived Artifacts Các thư mục sau không phải source of truth: docs/ generated/ tools/.cache/ site/ Có thể xóa và tạo lại bằng toolchain. Không ghi business fact chỉ tồn tại trong các file generated. 9. Standard Precedence Core governance Project Type Technology Stack Project ADR . ADR là cách duy nhất để cố ý khác standard. Stack standard không được vô hiệu hóa security/reliability requirement của project type standard chỉ bằng implementation convenience. 10. Machine readable Lifecycle & Blocking Questions Entity type/status lấy từ registry/entity types.json . Open Question dùng entity open question với blocking: true/false ; khi project profile bật blockOnOpenQuestions , Open Question trạng thái open và blocking làm validation fail. 11. Typed Relation & Traceability Relation được kiểm qua registry/relation map.json ; target type và cardinality phải hợp lệ. Traceability matrix chỉ dùng direct typed relations và path được cấu hình trong registry/traceability profiles.json , không dùng traversal gần neighbor chung. 12. Documentation Freshness Toolchain lưu dependency baseline hash trong tools/.cache/dependency state.json . Nếu tài liệu không đổi nhưng source liên quan thay đổi, tài liệu được cảnh báo stale cho tới khi được review/update lại. "
+  },
+  {
+    "file": "FILE_CATALOG.md",
+    "title": "FILE CATALOG",
+    "type": "document",
+    "code": "",
+    "page": "pages/file-catalog.html",
+    "text": " FILE CATALOG Total files in starter kit: 381 By area docs : 19 prompts : 26 registry : 8 root : 6 site : 180 standards : 83 templates : 32 tools : 15 workflows : 12 Registry & profiles PROJECT PROFILE.example.json — example project profile. registry/project types.json — Web/Mobile/API profiles. registry/technology stacks.json — technology stacks. registry/entity types.json — entity types/lifecycles. registry/relation map.json — typed relation/cardinality policy. registry/quality rules.json — data driven quality checks. registry/traceability profiles.json — typed traceability paths. Standards See standards/STANDARD CATALOG.md . Tooling See tools/README.md . "
+  },
+  {
+    "file": "PROJECT_BLUEPRINT.md",
+    "title": "PROJECT BLUEPRINT",
+    "type": "document",
+    "code": "",
+    "page": "pages/project-blueprint.html",
+    "text": " PROJECT BLUEPRINT 0. Project Profile Project Types: <web mobile api Technology Stacks: <reactjs react native flutter nodejs api dotnet core api postgresql ... Profile File: project profile.json Applicable Standards: generated/reviewed via tools npm run profile:check Standard Exceptions: reference ADR codes only. Đây là bản đồ cấp cao và inventory toàn project. Không copy chi tiết từ các tài liệu con; chỉ tóm tắt và reference. 1. Project Summary Project Name: <PROJECT NAME Project Code: <PROJECT CODE Status: Discovery / Design / UAT / Production Primary Owner: <OWNER Business Goal: <1 3 sentences Primary Users: <roles/personas Last Reviewed: <YYYY MM DD 2. Scope In Scope <... Out of Scope <... 3. Technology Overview Layer Technology Notes Frontend <... Backend <... Database <... Cache <... Queue <... Storage <... Hosting <... CI/CD <... 4. Modules Code Module Purpose Owner Status Detail <MOD AUTH Authentication <... <... Planned docs/02 modules/... 5. Feature Inventory Feature Code Module Feature Priority Status Detail <FEAT AUTH LOGIN <MOD AUTH Login P0 Planned <link 6. Screen & Route Inventory Screen Code Platform Screen Route Feature s Roles Detail <SCR LOGIN Web/Mobile Login /login <FEAT AUTH LOGIN Guest <link 7. API Inventory API Code Method Path Feature s Auth Detail <API AUTH LOGIN POST /api/auth/login <FEAT AUTH LOGIN Public <link 8. Database Object Inventory DB Code Object Type Module Owner Detail <DB USER User Table AUTH <... <link 9. External Integrations Code Integration Purpose Features Criticality Detail <INT EMAIL Email Provider Transactional email <... High <link 9A. Mobile Contract Inventory Chỉ dùng khi project có mobile . Code Type Purpose Feature s Detail <PERM CAMERA Permission Camera access <... <link <DL ORDER Deep Link Open order detail <... <link <PUSH ORDER Push Event Order changed <... <link <LS SESSION Local Storage Session/cache <... <link <SYNC TASK Sync Policy Offline task mutation <... <link <DTP MOBILE Device Test Profile OS/device/network matrix <... <link 10. Background & Scheduled Processing Code Name Trigger/Schedule Purpose Data Impact Detail <JOB 001 <... <... <... <... <link 11. Security Overview Authentication: <... Authorization model: <RBAC/ABAC/... Sensitive data classes: <... Audit requirements: <... Main security docs: docs/10 security/ 12. Environments Environment Purpose URL Deployment Source Data Policy DEV Development <... <branch/tag Synthetic UAT Acceptance <... <... Sanitized PROD Production <... Release Real 13. Non Functional Targets Category Target Ref Availability <... <NFR ... API latency <... <NFR ... Recovery <RPO/RTO <NFR ... Client compatibility <Browser / OS / app version support <NFR ... 14. Release & Operations Release process: docs/16 release/release process.md Monitoring: docs/13 operations/monitoring.md Incident response: docs/13 operations/incident response.md Backup/restore: docs/12 devops/backup restore.md Runbooks: docs/13 operations/runbooks/ 15. Open Questions / Risks ID Type Question/Risk Owner Blocking Status <OQ 001 Question <... <... Yes Open 16. Documentation Health Missing feature docs: <count/list Missing API docs: <count/list Requirements without tests: <count/list Orphan screens/APIs/DB objects: <count/list Stale docs needing review: <count/list "
+  },
+  {
+    "file": "README.md",
+    "title": "Production Project Documentation Starter Kit",
+    "type": "document",
+    "code": "",
+    "page": "pages/readme.html",
+    "text": " Production Project Documentation Starter Kit Bộ khung documentation first cho project production có thể gồm Web, Mobile, API/Backend hoặc nhiều surface cùng lúc. Mục tiêu là để PM/BA/UX/Dev/QA/Ops và AI Agent cùng dùng một source of truth có traceability, quality gate và static documentation portal. Điểm mới: standards theo profile Standards được áp dụng theo thứ tự: text Core Governance ↓ Project Type Standard ├── Web ├── Mobile └── API / Backend ↓ Technology Stack Standard ├── ReactJS ├── React Native / Expo ├── Flutter ├── NodeJS API ├── ASP.NET Core API └── PostgreSQL ↓ Project ADR / Exception Project thật tạo project profile.json từ PROJECT PROFILE.example.json . Toolchain sẽ kiểm tra stack có phù hợp project type và liệt kê toàn bộ standard cần áp dụng. Nguyên tắc cốt lõi 1. PROJECT BLUEPRINT.md là inventory/bản đồ cấp cao. 2. Module Feature là xương sống chức năng. 3. Entity dùng stable code; relation dựa evidence, không dựa filename hoặc tên giống nhau. 4. Một business/technical fact có một source of truth. 5. Traceability dùng typed/direct path; không dùng generic 2 hop dễ kéo nhầm entity. 6. Project type + technology stack quyết định standard bắt buộc. 7. Thay đổi entity phải có impact analysis + stale dependency check. 8. Open Question blocking có thể chặn Definition of Ready. 9. Generated graph/site/report không phải source of truth. Quick start bash cp PROJECT PROFILE.example.json project profile.json chỉnh projectTypes + technologyStacks cd tools npm run profile:check npm run docs:all npm run docs:serve Sau đó đọc START HERE.md và làm lần lượt workflow. Cấu trúc text . ├── PROJECT PROFILE.example.json ├── PROJECT BLUEPRINT.md ├── START HERE.md ├── registry/ │ ├── entity types.json │ ├── relation map.json │ ├── frontmatter schema.json │ ├── project types.json │ ├── technology stacks.json │ ├── traceability profiles.json │ └── quality rules.json ├── standards/ │ ├── project types/ │ │ ├── web/ │ │ ├── mobile/ │ │ └── api/ │ └── stacks/ │ ├── web/reactjs/ │ ├── mobile/react native/ │ ├── mobile/flutter/ │ ├── api/nodejs/ │ ├── api/dotnet core/ │ └── database/postgresql/ ├── templates/ ├── prompts/ ├── workflows/ ├── docs/ ├── tools/ └── site/ generated Tooling gates đã có Registry enforced entity type/status. Frontmatter required fields. Typed relation source relation target + cardinality. Duplicate stable code/route/API contract. Over link/high degree warning. Data driven quality rules theo project profile. Typed traceability; explicit Feature Requirement Test path. Dependency hash stale detection. Blocking Open Question gate. Mermaid structural lint. Static site: Markdown, tables, code, Mermaid, search, Catalog, Traceability, Diagram Gallery, interactive graph. Chi tiết: tools/README.md . "
+  },
+  {
+    "file": "START_HERE.md",
+    "title": "START HERE — Từ ý tưởng đến documentation production-ready",
+    "type": "document",
+    "code": "",
+    "page": "pages/start-here.html",
+    "text": " START HERE — Từ ý tưởng đến documentation production ready Phase 0 — Chọn project profile trước 1. Copy PROJECT PROFILE.example.json project profile.json . 2. Chọn một hoặc nhiều project type: web , mobile , api . 3. Chọn technology stack đúng implementation thật. 4. Chạy: bash cd tools npm run profile:check 5. Đọc standards theo thứ tự Core Project Type Stack Project ADR. Không tạo technical design trước khi profile/standards được chọn nếu technology đã biết. 11 phase Phase Mục tiêu Output chính 0 Project profile Applicable standards 1 Idea & Discovery Overview, Scope, Glossary, Open Questions 2 Blueprint Module/Feature/Route/API/DB inventory 3 Functional Detail Requirement, Rule, Screen, Flow 4 Technical Contracts API, DB, Integration, Architecture 5 Quality Acceptance Criteria, Test, NFR 6 Production Readiness Security, DevOps, Monitoring, Runbook 7 Governance Decision, Traceability, Change/Release 8 Tooling Validate, Sync, Static Site, Graph 9 Profile/Standards Audit Project type + stack compliance 10 Mobile Readiness Lifecycle/offline/native/device readiness 11 Store Release Readiness iOS/Android release/store/backward compatibility Workflow mapping workflows/01 idea to scope.md workflows/02 scope to blueprint.md workflows/03 blueprint to functional docs.md workflows/04 functional to technical contracts.md workflows/05 quality and test.md workflows/06 production readiness.md workflows/07 change management.md workflows/08 documentation tooling.md workflows/09 project profile and standards.md workflows/10 mobile readiness.md khi có mobile workflows/11 store release readiness.md khi chuẩn bị mobile store release Prompts mới cho profile specific review prompts/22 project profile selector.md prompts/23 mobile readiness review.md prompts/24 backend api readiness review.md AI rule AI không được chọn standard chỉ theo keyword trong filename. Phải đọc project profile.json , registry và ADR. Nếu thiếu evidence, ghi Open Question thay vì tự giả định stack/architecture. Gate cuối mỗi batch bash cd tools npm run docs:all npm run docs:serve Review Dashboard, typed Traceability, Graph và Diagram Gallery trước khi approve batch. "
+  },
+  {
+    "file": "docs/20-mobile/analytics-events/README.md",
+    "title": "analytics-events",
+    "type": "document",
+    "code": "",
+    "page": "pages/docs-20-mobile-analytics-events-readme.html",
+    "text": " analytics events Analytics event contracts and privacy classification. Only create entity files here when the project actually uses this concern. "
+  },
+  {
+    "file": "docs/20-mobile/background-work/README.md",
+    "title": "background-work",
+    "type": "document",
+    "code": "",
+    "page": "pages/docs-20-mobile-background-work-readme.html",
+    "text": " background work OS constrained mobile background execution. Only create entity files here when the project actually uses this concern. "
+  },
+  {
+    "file": "docs/20-mobile/deep-links/README.md",
+    "title": "deep-links",
+    "type": "document",
+    "code": "",
+    "page": "pages/docs-20-mobile-deep-links-readme.html",
+    "text": " deep links Universal/App link and canonical navigation contracts. Only create entity files here when the project actually uses this concern. "
+  },
+  {
+    "file": "docs/20-mobile/device-test-profiles/README.md",
+    "title": "device-test-profiles",
+    "type": "document",
+    "code": "",
+    "page": "pages/docs-20-mobile-device-test-profiles-readme.html",
+    "text": " device test profiles OS/device/network/lifecycle test matrices. Only create entity files here when the project actually uses this concern. "
+  },
+  {
+    "file": "docs/20-mobile/feature-flags/README.md",
+    "title": "feature-flags",
+    "type": "document",
+    "code": "",
+    "page": "pages/docs-20-mobile-feature-flags-readme.html",
+    "text": " feature flags Feature rollout/kill switch/min version contracts. Only create entity files here when the project actually uses this concern. "
+  },
+  {
+    "file": "docs/20-mobile/local-storage/README.md",
+    "title": "local-storage",
+    "type": "document",
+    "code": "",
+    "page": "pages/docs-20-mobile-local-storage-readme.html",
+    "text": " local storage Local storage/cache/offline database contracts. Only create entity files here when the project actually uses this concern. "
+  },
+  {
+    "file": "docs/20-mobile/native-capabilities/README.md",
+    "title": "native-capabilities",
+    "type": "document",
+    "code": "",
+    "page": "pages/docs-20-mobile-native-capabilities-readme.html",
+    "text": " native capabilities Camera, location, biometrics, files and other platform capabilities. Only create entity files here when the project actually uses this concern. "
+  },
+  {
+    "file": "docs/20-mobile/permissions/README.md",
+    "title": "permissions",
+    "type": "document",
+    "code": "",
+    "page": "pages/docs-20-mobile-permissions-readme.html",
+    "text": " permissions Native permission contracts. Only create entity files here when the project actually uses this concern. "
+  },
+  {
+    "file": "docs/20-mobile/push-events/README.md",
+    "title": "push-events",
+    "type": "document",
+    "code": "",
+    "page": "pages/docs-20-mobile-push-events-readme.html",
+    "text": " push events Push payload/version/navigation contracts. Only create entity files here when the project actually uses this concern. "
+  },
+  {
+    "file": "docs/20-mobile/sync-policies/README.md",
+    "title": "sync-policies",
+    "type": "document",
+    "code": "",
+    "page": "pages/docs-20-mobile-sync-policies-readme.html",
+    "text": " sync policies Offline mutation and synchronization policies. Only create entity files here when the project actually uses this concern. "
+  },
+  {
+    "file": "docs/README.md",
+    "title": "Project Documentation Source",
+    "type": "document",
+    "code": "",
+    "page": "pages/docs-readme.html",
+    "text": " Project Documentation Source docs/ chứa tài liệu canonical của project. Các file Markdown ở đây là source of truth; site/ và docs/ generated/ là output có thể build lại. Quy trình 1. Tạo/update tài liệu bằng template. 2. cd tools && npm run docs:validate . 3. npm run docs:sync để tạo catalog, graph và traceability. 4. npm run docs:build để sinh static website. 5. npm run docs:serve hoặc npm run docs:dev để xem giao diện web. "
+  },
+  {
+    "file": "prompts/00-master-orchestrator-prompt.md",
+    "title": "Master Prompt — Documentation-First Project Orchestrator",
+    "type": "document",
+    "code": "",
+    "page": "pages/prompts-00-master-orchestrator-prompt.html",
+    "text": " Master Prompt — Documentation First Project Orchestrator text Bạn là Project Documentation Architect. Mục tiêu: xây dựng bộ tài liệu đầy đủ cho một web project production lâu dài. KHÔNG triển khai source code ứng dụng. Luôn tuân thủ: 1. Đọc START HERE.md, PROJECT BLUEPRINT.md, registry/ và standards/ trước. 2. Làm theo phase trong workflows/. 3. Mỗi entity có code ổn định theo naming convention. 4. Không duplicate source of truth. 5. Không biến assumption thành fact; ghi assumptions và open questions rõ ràng. 6. Module chỉ là nhóm Feature. 7. Mỗi Feature phải trace qua Requirement/Business Rule Screen/API/DB Test khi áp dụng. 8. Sau mỗi batch thay đổi, cập nhật PROJECT BLUEPRINT.md và traceability. 9. Nếu thiếu thông tin, tạo Open Question và tiếp tục phần không bị block. 10. Không sinh code implementation trừ khi tôi thay đổi mục tiêu rõ ràng. Khi tôi đưa idea/project context: Xác định phase hiện tại. Nêu input đã có, thông tin đang thiếu. Tạo/cập nhật tài liệu tương ứng bằng template. Liệt kê assumptions và open questions. Chạy checklist exit gate của phase. Đề xuất phase tiếp theo. "
+  },
+  {
+    "file": "prompts/01-idea-to-project-overview.md",
+    "title": "Prompt 01 — Idea -> Project Overview",
+    "type": "document",
+    "code": "",
+    "page": "pages/prompts-01-idea-to-project-overview.html",
+    "text": " Prompt 01 — Idea Project Overview text Dựa trên idea/context tôi cung cấp, hãy tạo bộ tài liệu Phase 1: Project Overview Product Scope Stakeholders/Personas Assumptions & Constraints Glossary ban đầu Yêu cầu: Tách Confirmed Facts / Assumptions / Open Questions. Không tự bịa business rule. In scope/out of scope phải rõ. Xác định success criteria có thể đo được nếu đủ dữ liệu. Dùng template tương ứng trong templates/. Cuối cùng liệt kê các câu hỏi blocking cho Phase 2. "
+  },
+  {
+    "file": "prompts/02-discovery-open-questions.md",
+    "title": "Prompt 02 — Discovery & Open Questions",
+    "type": "document",
+    "code": "",
+    "page": "pages/prompts-02-discovery-open-questions.html",
+    "text": " Prompt 02 — Discovery & Open Questions text Review toàn bộ tài liệu hiện có của project và tạo danh sách Open Questions. Phân loại: Product/Scope User/Role/Permission Business Rule UX/UI API/Integration Data/Database Security/Compliance Operations/Production Mỗi câu hỏi gồm: ID OQ xxx Question Why it matters Blocking: Yes/No Affected entities nếu biết Suggested owner Assumption tạm thời nếu cần để tiếp tục Không tự trả lời câu hỏi khi không có evidence. "
+  },
+  {
+    "file": "prompts/03-build-project-blueprint.md",
+    "title": "Prompt 03 — Build Project Blueprint",
+    "type": "document",
+    "code": "",
+    "page": "pages/prompts-03-build-project-blueprint.html",
+    "text": " Prompt 03 — Build Project Blueprint text Từ Project Overview và Product Scope, hãy xây PROJECT BLUEPRINT.md. Phải lập inventory: Modules Features Screens + Routes APIs Database objects chính External integrations Background/scheduled jobs Security overview Environments NFR targets đã biết Open questions/risks Chưa có chi tiết thì đánh dấu TBD; không tự phát minh contract. Kiểm tra mọi capability in scope đều map vào Feature. "
+  },
+  {
+    "file": "prompts/04-module-decomposition.md",
+    "title": "Prompt 04 — Module & Feature Decomposition",
+    "type": "document",
+    "code": "",
+    "page": "pages/prompts-04-module-decomposition.html",
+    "text": " Prompt 04 — Module & Feature Decomposition text Hãy phân rã scope thành Module và Feature. Rules: Module là functional group của Feature, không phải container cho API/DB/Test. Feature nên mô tả capability có giá trị/business outcome rõ. Tránh feature quá kỹ thuật như \"Create Repository Layer\". Mỗi Feature có code, title, purpose, actors, priority, dependencies sơ bộ. Detect duplicate/overlap và đề xuất merge/split khi cần. Output gồm module tree + feature inventory + unresolved scope questions. "
+  },
+  {
+    "file": "prompts/05-feature-specification.md",
+    "title": "Prompt 05 — Feature Specification",
+    "type": "document",
+    "code": "",
+    "page": "pages/prompts-05-feature-specification.html",
+    "text": " Prompt 05 — Feature Specification text Tạo Feature Spec cho <FEATURE CODE bằng templates/feature template.md. Hãy đọc Module, related Requirements/Rules/Screens/APIs hiện có trước. Bao gồm: Business goal Actors Preconditions Trigger Main flow Alternative/error flows Permissions Data involved Dependencies Edge cases Acceptance summary Related entities Open questions Không copy chi tiết API/DB; chỉ reference canonical docs. "
+  },
+  {
+    "file": "prompts/06-requirements-business-rules.md",
+    "title": "Prompt 06 — Requirements & Business Rules",
+    "type": "document",
+    "code": "",
+    "page": "pages/prompts-06-requirements-business-rules.html",
+    "text": " Prompt 06 — Requirements & Business Rules text Từ Feature <FEATURE CODE , hãy tách: 1. Functional Requirements có thể kiểm thử. 2. Business Rules độc lập, có code riêng. Requirement phải có: actor/trigger expected behaviour acceptance criteria priority rationale/source nếu có Business Rule phải có: condition rule/result exception effective scope error/message nếu liên quan positive/negative examples Tránh viết implementation detail thành requirement. "
+  },
+  {
+    "file": "prompts/07-screen-route-ux.md",
+    "title": "Prompt 07 — Screen / Route / UX Contract",
+    "type": "document",
+    "code": "",
+    "page": "pages/prompts-07-screen-route-ux.html",
+    "text": " Prompt 07 — Screen / Route / UX Contract text Dựa trên Feature/Requirements hiện có, tạo Screen docs cần thiết. Mỗi Screen phải mô tả: code/title/route accessible roles entry points page sections/components fields, actions, validation loading/success/empty/error/no permission states navigation behaviour responsive/accessibility notes data sources theo API code feature/rule relation Không tự thiết kế API request/response trong Screen doc. "
+  },
+  {
+    "file": "prompts/08-flow-diagrams.md",
+    "title": "Prompt 08 — Flow Diagrams",
+    "type": "document",
+    "code": "",
+    "page": "pages/prompts-08-flow-diagrams.html",
+    "text": " Prompt 08 — Flow Diagrams text Tạo các flow cần thiết cho <FEATURE CODE : User flow Business decision flow Sequence/system flow State transition flow nếu có lifecycle Dùng Mermaid và mô tả text. Mỗi step/decision phải reference Screen/API/Business Rule bằng code khi có. Đánh dấu error/timeout/retry/permission paths; không chỉ vẽ happy path. "
+  },
+  {
+    "file": "prompts/09-api-contracts.md",
+    "title": "Prompt 09 — API Contracts",
+    "type": "document",
+    "code": "",
+    "page": "pages/prompts-09-api-contracts.html",
+    "text": " Prompt 09 — API Contracts text Từ Feature, Screen và Flow đã approved, xác định API cần thiết và tạo API docs. Mỗi API gồm: method/path/purpose auth + permission path/query/header/body response validation business rules applied error codes idempotency/concurrency transaction boundary DB read/write objects external dependencies logging/audit performance expectation related feature/screen/tests Không tự thêm endpoint nếu có thể reuse contract hiện có; nêu rõ đề xuất vs confirmed. "
+  },
+  {
+    "file": "prompts/10-database-design.md",
+    "title": "Prompt 10 — Database Design",
+    "type": "document",
+    "code": "",
+    "page": "pages/prompts-10-database-design.html",
+    "text": " Prompt 10 — Database Design text Từ Feature/API/Business Rules, tạo hoặc cập nhật DB documentation. Mỗi DB object gồm: purpose/owner module columns + type/null/default PK/FK unique/check constraints indexes + reason data lifecycle/soft delete/retention sensitive fields expected volume/growth read/write APIs transaction/concurrency notes migration/backfill considerations Phân biệt business invariant với implementation convenience. "
+  },
+  {
+    "file": "prompts/11-architecture-integrations.md",
+    "title": "Prompt 11 — Architecture & Integrations",
+    "type": "document",
+    "code": "",
+    "page": "pages/prompts-11-architecture-integrations.html",
+    "text": " Prompt 11 — Architecture & Integrations text Review project/feature và document technical architecture cần thiết: system context frontend/backend boundaries caching queue/background jobs file storage realtime external integrations resilience: timeout/retry/circuit breaker/idempotency Nếu có decision đáng kể, tạo ADR thay vì chỉ ghi trong architecture doc. Nêu trade off và consequences; không giả định hạ tầng chưa confirmed. "
+  },
+  {
+    "file": "prompts/12-non-functional-requirements.md",
+    "title": "Prompt 12 — NFR",
+    "type": "document",
+    "code": "",
+    "page": "pages/prompts-12-non-functional-requirements.html",
+    "text": " Prompt 12 — NFR text Tạo NFR cho project/feature, chỉ chọn category áp dụng: Performance Availability Scalability Reliability Security Privacy Accessibility Compatibility Observability Backup/Recovery Data retention Maintainability Mỗi NFR phải measurable/testable khi có thể. Ví dụ dùng percentile, load, RPO/RTO, supported versions thay vì từ mơ hồ như \"nhanh\", \"ổn định\". "
+  },
+  {
+    "file": "prompts/13-test-design.md",
+    "title": "Prompt 13 — Test Design",
+    "type": "document",
+    "code": "",
+    "page": "pages/prompts-13-test-design.html",
+    "text": " Prompt 13 — Test Design text Tạo Test Cases từ Requirements và Business Rules của <FEATURE CODE . Bao phủ: happy path validation boundary permission/auth business rule positive/negative API errors/timeouts duplicate/idempotency concurrency nếu áp dụng empty/data volume browser/device/accessibility nếu áp dụng Mỗi Test Case phải link tới Requirement/Rule mà nó verifies. Cuối cùng tạo coverage matrix và chỉ ra gaps. "
+  },
+  {
+    "file": "prompts/14-security-review.md",
+    "title": "Prompt 14 — Security Review",
+    "type": "document",
+    "code": "",
+    "page": "pages/prompts-14-security-review.html",
+    "text": " Prompt 14 — Security Review text Review project docs và tạo/cập nhật security documentation. Kiểm tra: authentication/session/token authorization/role/permission sensitive data classification encryption in transit/at rest secrets management audit trail input validation file upload/download risks rate limiting/abuse privacy/retention/deletion production access Không ghi secret value thật. Tạo Security Open Questions khi thiếu policy. "
+  },
+  {
+    "file": "prompts/15-devops-production.md",
+    "title": "Prompt 15 — DevOps & Production",
+    "type": "document",
+    "code": "",
+    "page": "pages/prompts-15-devops-production.html",
+    "text": " Prompt 15 — DevOps & Production text Tạo production delivery docs: environments configuration strategy CI/CD deployment DB migration rollback backup/restore release process feature flag nếu có Mỗi procedure phải nêu pre check, execution, verification, rollback/failure path và owner. "
+  },
+  {
+    "file": "prompts/16-monitoring-runbooks.md",
+    "title": "Prompt 16 — Monitoring & Runbooks",
+    "type": "document",
+    "code": "",
+    "page": "pages/prompts-16-monitoring-runbooks.html",
+    "text": " Prompt 16 — Monitoring & Runbooks text Từ architecture/API/DB/integration docs, xác định observability và runbook cần thiết. Tạo: logging standard key metrics alerts + threshold/meaning/action dashboards cần có incident response runbook cho failure modes quan trọng Runbook phải có symptoms, checks, diagnosis, mitigation, rollback/escalation và verification. "
+  },
+  {
+    "file": "prompts/17-traceability-audit.md",
+    "title": "Prompt 17 — Traceability Audit",
+    "type": "document",
+    "code": "",
+    "page": "pages/prompts-17-traceability-audit.html",
+    "text": " Prompt 17 — Traceability Audit text Audit toàn project theo relation map và quality rules. Tạo matrix: Module Feature Requirement/Rule Screen/Flow API DB Test. Báo riêng: Feature không có Requirement Requirement không có Test Screen/API orphan API persistence nhưng thiếu DB impact Business Rule critical chưa được test Blueprint item thiếu detail doc Detail doc không xuất hiện trong Blueprint khi đáng lẽ phải có Không tự tạo relation chỉ vì tên gần giống nhau. "
+  },
+  {
+    "file": "prompts/18-change-impact-analysis.md",
+    "title": "Prompt 18 — Change Impact Analysis",
+    "type": "document",
+    "code": "",
+    "page": "pages/prompts-18-change-impact-analysis.html",
+    "text": " Prompt 18 — Change Impact Analysis text Có change request sau: <CHANGE REQUEST Hãy: 1. Xác định canonical entity chịu thay đổi. 2. Trace related entities trực tiếp. 3. Phân tích potential impact theo các nhóm Business/UI/API/DB/Test/Security/Ops. 4. Phân loại Must Update / Review Needed / Probably Unaffected. 5. Chỉ ra regression tests cần xem lại. 6. Chỉ ra Blueprint/ADR/Runbook/Release docs có cần cập nhật không. 7. Tạo checklist update docs trước implementation. Không kết luận runtime impact nếu chỉ có quan hệ tài liệu mà chưa có evidence kỹ thuật. "
+  },
+  {
+    "file": "prompts/19-release-readiness.md",
+    "title": "Prompt 19 — Release Readiness",
+    "type": "document",
+    "code": "",
+    "page": "pages/prompts-19-release-readiness.html",
+    "text": " Prompt 19 — Release Readiness text Review documentation cho release <RELEASE . Kiểm tra: scope/feature list unresolved blocking questions requirement/test coverage API/DB migration impact backward compatibility security/privacy impact deployment/rollback monitoring/alerts runbooks known issues release note docs freshness Output PASS / NEEDS ACTION cho từng check với evidence/reference. Không dùng điểm số tổng hợp. "
+  },
+  {
+    "file": "prompts/20-documentation-maintenance.md",
+    "title": "Prompt 20 — Documentation Maintenance",
+    "type": "document",
+    "code": "",
+    "page": "pages/prompts-20-documentation-maintenance.html",
+    "text": " Prompt 20 — Documentation Maintenance text Audit độ tươi của tài liệu project sau một batch thay đổi/release. Hãy tìm: path/route/API/table đã đổi nhưng Blueprint chưa đổi entity relation bị đứt docs có duplicate conflicting facts ADR bị rewrite thay vì superseded tests không còn khớp requirement runbook/monitoring không còn khớp architecture open question đã được trả lời nhưng chưa đóng Đề xuất danh sách update cụ thể theo file và lý do. "
+  },
+  {
+    "file": "prompts/21-documentation-health-and-site.md",
+    "title": "Prompt 21 — Documentation Health & Static Site Review",
+    "type": "document",
+    "code": "",
+    "page": "pages/prompts-21-documentation-health-and-site.html",
+    "text": " Prompt 21 — Documentation Health & Static Site Review Bạn đang review một documentation first software project. Hãy thực hiện theo thứ tự: 1. Đọc PROJECT BLUEPRINT.md , DOCS GOVERNANCE.md , standards/ và tools/docs.config.json . 2. Chạy validation trong tools/ . 3. Với mỗi error/warning, phân loại: metadata; broken relation; missing traceability; stale documentation; duplicate identity/route/API; broken link; diagram issue. 4. Không tự sửa business fact nếu không có evidence. 5. Sau khi source hợp lệ, chạy sync và build static site. 6. Review các view: Dashboard; Catalog; Traceability Matrix; Interactive Graph; Diagram Gallery. 7. Báo cáo: coverage gap; orphan entity; feature chưa đủ requirement/test/API/UI/DB linkage; documents cần review; diagram/flow còn thiếu; các thay đổi source được đề xuất. 8. Chỉ sửa source docs. Không chỉnh trực tiếp site/ , docs/ generated/ , tools/.cache/ . "
+  },
+  {
+    "file": "prompts/22-project-profile-selector.md",
+    "title": "Prompt — Select Project Profile & Applicable Standards",
+    "type": "document",
+    "code": "",
+    "page": "pages/prompts-22-project-profile-selector.html",
+    "text": " Prompt — Select Project Profile & Applicable Standards Bạn là Software Architect. Hãy đọc Project Overview, Blueprint và technology notes. Tạo/đề xuất project profile.json bằng các registry trong registry/project types.json và registry/technology stacks.json . Yêu cầu: Chỉ chọn stack có evidence. Liệt kê standard bắt buộc theo thứ tự apply. Chỉ ra conflict/overlap giữa standards nếu có. Nếu project khác standard, đề xuất ADR thay vì âm thầm bỏ rule. Với mobile phải đánh giá lifecycle/offline/permission/deep link/push/store release. Với API phải đánh giá versioning/auth/resilience/transaction/observability/backward compatibility. "
+  },
+  {
+    "file": "prompts/23-mobile-readiness-review.md",
+    "title": "Prompt — Mobile Readiness Review",
+    "type": "document",
+    "code": "",
+    "page": "pages/prompts-23-mobile-readiness-review.html",
+    "text": " Prompt — Mobile Readiness Review Review tài liệu mobile hiện có dựa trên toàn bộ standards/project types/mobile/ và stack mobile được chọn. Output theo P0/P1/P2, nhưng mỗi finding phải có: Evidence file/code. Standard bị thiếu/vi phạm. Impact. Tài liệu/entity cần tạo hoặc cập nhật. Test/release gate liên quan. Bắt buộc kiểm: lifecycle, offline/sync, storage migration, permission, deep link, push, realtime, background, device matrix, security/privacy, performance, observability, store release, old binary/API compatibility. "
+  },
+  {
+    "file": "prompts/24-backend-api-readiness-review.md",
+    "title": "Prompt — Backend/API Readiness Review",
+    "type": "document",
+    "code": "",
+    "page": "pages/prompts-24-backend-api-readiness-review.html",
+    "text": " Prompt — Backend/API Readiness Review Review API docs theo standards/project types/api/ và stack backend được chọn. Bắt buộc kiểm: contract/versioning, auth/authz, validation/error code, transaction/concurrency, idempotency, timeout/retry, external dependency, background job, observability, performance budget, migration/deployment/backward compatibility, security/secret/audit. "
+  },
+  {
+    "file": "prompts/25-stack-standard-compliance-review.md",
+    "title": "Prompt — Technology Stack Standard Compliance Review",
+    "type": "document",
+    "code": "",
+    "page": "pages/prompts-25-stack-standard-compliance-review.html",
+    "text": " Prompt — Technology Stack Standard Compliance Review Đọc project profile.json , registry/technology stacks.json và toàn bộ standard của stack được chọn. Review architecture/docs hiện tại. Với mỗi finding ghi: Severity P0/P1/P2. Standard/rule cụ thể. Evidence code/file. Tài liệu/entity thiếu hoặc cần sửa. Test/tooling gate có thể tự động hóa. Nếu khác standard có chủ ý: ADR cần có. Không áp rule của stack không được khai báo trong profile. "
+  },
+  {
+    "file": "standards/ADDING_A_STACK.md",
+    "title": "Adding a New Technology Stack",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-adding-a-stack.html",
+    "text": " Adding a New Technology Stack Starter kit không hard code chỉ ReactJS/React Native/Flutter/NodeJS/.NET. Để thêm stack mới: 1. Tạo folder standards/stacks/<surface /<stack / . 2. Tạo các standard nhỏ theo concern thay vì một file khổng lồ: architecture, coding, state/data, security, testing, deployment... 3. Thêm entry vào registry/technology stacks.json : json { \"nextjs\": { \"projectType\": \"web\", \"displayName\": \"Next.js\", \"standardsRoot\": \"standards/stacks/web/nextjs\", \"requiredStandards\": \"architecture.md\", \"routing rendering.md\", \"testing release.md\" } } 4. Chạy cd tools && npm run profile:check . 5. Nếu stack cần entity/quality rule mới, mở rộng registry thay vì hard code vào validator. 6. Nếu rule chỉ đúng với một project, dùng ADR/project docs; không biến rule project specific thành standard global. Design rule Project Type Standard trả lời: một hệ thống loại này cần an toàn/vận hành thế nào? Stack Standard trả lời: với công nghệ này implement các yêu cầu đó thế nào? ADR trả lời: project cụ thể này cố ý chọn khác điều gì và vì sao? "
+  },
+  {
+    "file": "standards/README.md",
+    "title": "Standards Architecture",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-readme.html",
+    "text": " Standards Architecture Starter kit dùng hai tầng standard độc lập nhưng ghép được với nhau. 1. Project Type Standards — rule chung theo loại hệ thống: web , mobile , api . 2. Technology Stack Standards — rule cụ thể theo công nghệ: ReactJS, React Native, Flutter, NodeJS API, ASP.NET Core API, PostgreSQL. Project thật khai báo project profile.json . AI/PM/Dev phải đọc toàn bộ standard của project type trước, sau đó mới đọc standard của stack. Standard stack không được ghi đè yêu cầu production/security của project type nếu không có ADR . Ví dụ: json { \"projectTypes\": \"mobile\", \"api\" , \"technologyStacks\": \"react native\", \"dotnet core api\", \"postgresql\" } Thứ tự áp dụng: Core governance Mobile standards React Native standards API standards ASP.NET Core standards PostgreSQL standards project ADR . ADR có thể thay đổi một standard nhưng phải ghi rõ phạm vi, lý do và hậu quả. "
+  },
+  {
+    "file": "standards/STANDARD_CATALOG.md",
+    "title": "STANDARD CATALOG",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-standard-catalog.html",
+    "text": " STANDARD CATALOG Available standards: 84 ADDING A STACK.md README.md STANDARD CATALOG.md ai agent rules.md definition of ready done.md diagram guidelines.md documentation standard.md metadata schema.md naming and id convention.md project types/README.md project types/api/api architecture.md project types/api/auth authorization.md project types/api/background jobs.md project types/api/contract versioning.md project types/api/data transaction.md project types/api/deployment.md project types/api/observability.md project types/api/performance.md project types/api/resilience.md project types/api/security.md project types/mobile/app lifecycle.md project types/mobile/background work.md project types/mobile/connectivity realtime.md project types/mobile/local storage cache.md project types/mobile/logging observability.md project types/mobile/media attachment.md project types/mobile/mobile architecture.md project types/mobile/mobile performance.md project types/mobile/mobile release store.md project types/mobile/mobile security privacy.md project types/mobile/mobile ui ux accessibility.md project types/mobile/navigation deeplink.md project types/mobile/networking resilience.md project types/mobile/offline sync.md project types/mobile/permission native capabilities.md project types/mobile/push notification.md project types/mobile/time timezone.md project types/web/browser runtime.md project types/web/web application standard.md project types/web/web performance.md project types/web/web release.md project types/web/web security.md project types/web/web ui ux.md security and secrets.md source of truth.md stacks/README.md stacks/api/dotnet core/api conventions.md stacks/api/dotnet core/architecture.md stacks/api/dotnet core/background services.md stacks/api/dotnet core/coding standard.md stacks/api/dotnet core/data access.md stacks/api/dotnet core/dependency injection config.md stacks/api/dotnet core/security.md stacks/api/dotnet core/testing observability deployment.md stacks/api/nodejs/architecture.md stacks/api/nodejs/async resilience.md stacks/api/nodejs/coding standard.md stacks/api/nodejs/deployment.md stacks/api/nodejs/http contract.md stacks/api/nodejs/testing observability.md stacks/api/nodejs/validation errors.md stacks/database/postgresql/migration operations.md stacks/database/postgresql/query performance.md stacks/database/postgresql/schema conventions.md stacks/mobile/flutter/architecture.md stacks/mobile/flutter/coding standard.md stacks/mobile/flutter/navigation.md stacks/mobile/flutter/state management.md stacks/mobile/flutter/storage networking.md stacks/mobile/flutter/testing release.md stacks/mobile/react native/architecture.md stacks/mobile/react native/coding standard.md stacks/mobile/react native/expo native boundary.md stacks/mobile/react native/navigation.md stacks/mobile/react native/state management.md stacks/mobile/react native/storage networking.md stacks/mobile/react native/testing release.md stacks/web/reactjs/architecture.md stacks/web/reactjs/coding standard.md stacks/web/reactjs/forms validation.md stacks/web/reactjs/routing.md stacks/web/reactjs/state data fetching.md stacks/web/reactjs/testing.md tooling and static site.md "
+  },
+  {
+    "file": "standards/ai-agent-rules.md",
+    "title": "AI Agent Rules",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-ai-agent-rules.html",
+    "text": " AI Agent Rules 1. Documentation first; không sinh implementation code khi chưa được yêu cầu rõ. 2. Không biến assumption thành fact. 3. Nếu thiếu thông tin, tạo Open Question; vẫn tiếp tục phần có thể làm bằng assumption được đánh dấu rõ. 4. Trước khi chỉnh một entity, đọc các relation trực tiếp của nó. 5. Khi thay đổi Requirement/Rule/API/DB, phải thực hiện impact analysis. 6. Không duplicate canonical content. 7. Mọi entity mới phải có code, type, owner/status và relation. 8. Sau mỗi phase, cập nhật PROJECT BLUEPRINT.md và traceability. 9. Không xóa Decision lịch sử; dùng superseded. 10. Báo rõ phần nào là suggested design, phần nào là confirmed requirement. "
+  },
+  {
+    "file": "standards/definition-of-ready-done.md",
+    "title": "Definition of Ready / Done cho tài liệu",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-definition-of-ready-done.html",
+    "text": " Definition of Ready / Done cho tài liệu Documentation Ready — trước implementation Một Feature được coi là Ready khi: Feature scope và actors rõ. Preconditions, main flow, alternative/error flow đã có. Requirement được approved. Business Rule liên quan được xác định. Screen/Flow đủ nếu có UI. API contract đủ nếu có backend. DB impact đủ nếu có persistence. Permission/security implications đã xác định. NFR áp dụng được xác định. Acceptance Criteria + Test Case tồn tại. Không còn blocking Open Question. Traceability đầy đủ. Documentation Done — sau implementation/release Tài liệu phản ánh hành vi thực tế đã release. Route/API/DB inventory cập nhật. Test coverage cập nhật. Monitoring/runbook cập nhật nếu có thay đổi vận hành. ADR mới được ghi nếu có decision đáng kể. Release note/changelog có impact chính. Không còn stale document từ thay đổi vừa thực hiện. "
+  },
+  {
+    "file": "standards/diagram-guidelines.md",
+    "title": "Flow & Diagram Guidelines",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-diagram-guidelines.html",
+    "text": " Flow & Diagram Guidelines Dùng Mermaid hoặc diagram portable. Mỗi diagram phải có textual explanation đi kèm. Loại diagram khuyến nghị User Journey: actor screen/action outcome. Business Flow: state/decision/business rule. Sequence: Screen API Service DB/Integration. Architecture: Browser Frontend API DB/Cache/External. State Machine: trạng thái entity và transition. Mermaid example mermaid sequenceDiagram actor U as User participant S as Login Screen participant A as Auth API participant D as User DB U S: Enter credentials S A: POST /api/auth/login A D: Validate user D A: User + credential status A S: Token / Error "
+  },
+  {
+    "file": "standards/documentation-standard.md",
+    "title": "Documentation Standard",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-documentation-standard.html",
+    "text": " Documentation Standard Viết cho người chưa biết project Mỗi tài liệu phải có đủ context để người mới hiểu được mục đích và phạm vi mà không cần hỏi tác giả. Tách Fact / Decision / Assumption / Open Question Không trình bày assumption như fact. Nếu chưa có quyết định, ghi rõ TBD và đưa vào Open Questions. Ưu tiên contract có thể kiểm thử Các mô tả nên đủ cụ thể để chuyển thành acceptance criteria hoặc test case. Tránh duplicate Nếu API request/response đã canonical ở API doc, Feature doc chỉ reference API ... . Versioning Dùng Git history cho thay đổi nội dung; metadata updated at và changelog dùng cho review ở cấp project. "
+  },
+  {
+    "file": "standards/metadata-schema.md",
+    "title": "Metadata Schema",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-metadata-schema.html",
+    "text": " Metadata Schema Entity frontmatter được validator kiểm theo registry/frontmatter schema.json và registry/entity types.json . yaml code: <stable id type: <entity type from registry title: <title status: draft owner: <team/person created at: YYYY MM DD updated at: YYYY MM DD last reviewed at: YYYY MM DD reviewers: tags: blocking: false open question only when relevant route: /example screen/deep link when relevant method: POST api when relevant path: /api/example api when relevant related: modules: features: requirements: business rules: screens: flows: apis: database objects: tests: decisions: integrations: nfrs: runbooks: permissions: native capabilities: deep links: push events: local storage: sync policies: background jobs mobile: analytics events: feature flags: device test profiles: open questions: releases: Rules type và status phải tồn tại trong entity registry. Relation key phải tồn tại trong relation map và target code phải resolve được. Relation phải hợp lệ cho source type relation key target type và cardinality. Không link chỉ vì cùng domain/name. Link phải có evidence nghiệp vụ/technical cụ thể. Validator cảnh báo hub/degree bất thường để giảm over link. "
+  },
+  {
+    "file": "standards/naming-and-id-convention.md",
+    "title": "Naming & ID Convention",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-naming-and-id-convention.html",
+    "text": " Naming & ID Convention Code format Module: MOD <DOMAIN — ví dụ MOD AUTH . Feature: FEAT <DOMAIN <NAME — FEAT AUTH LOGIN . Requirement: REQ <DOMAIN NNN . Business Rule: BR <DOMAIN NNN . Screen: SCR <NAME . Flow: FLOW <DOMAIN <NAME . API: API <DOMAIN <NAME . DB object: DB <OBJECT . Test Case: TC <DOMAIN <NAME NNN . ADR: ADR NNN . Runbook: RB NNN . Rules 1. Code không đổi sau khi đã được dùng để reference. 2. Đổi title không được đổi code nếu identity logic vẫn là một entity. 3. Không encode version/date vào code trừ Release. 4. Route/API path không dùng làm identity vì path có thể refactor. "
+  },
+  {
+    "file": "standards/project-types/README.md",
+    "title": "Project Type Standards",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-project-types-readme.html",
+    "text": " Project Type Standards web/ : browser/UI/runtime/release rules. mobile/ : lifecycle/offline/native/store/device rules. api/ : contract/security/resilience/data/deployment rules. Apply every required standard for each project type listed in project profile.json . "
+  },
+  {
+    "file": "standards/project-types/api/api-architecture.md",
+    "title": "API Architecture Standard",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-project-types-api-api-architecture.html",
+    "text": " API Architecture Standard Mục tiêu Áp dụng cho mọi project thuộc profile này. Đây là policy/checklist production; tài liệu feature chi tiết chỉ reference standard, không copy toàn bộ rule. Rule bắt buộc Tách transport/application/domain/infrastructure theo mức phù hợp; không đặt business logic trong controller/route handler. API contract là source of truth cho request/response/error/auth. Transaction boundary, side effect và external integration phải rõ. Background work không được giả định request HTTP còn sống. Evidence mong đợi Blueprint/architecture hoặc entity docs reference standard này. Test/release checklist cover các rule áp dụng. Exception phải có ADR. "
+  },
+  {
+    "file": "standards/project-types/api/auth-authorization.md",
+    "title": "API Authentication & Authorization Standard",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-project-types-api-auth-authorization.html",
+    "text": " API Authentication & Authorization Standard Mục tiêu Áp dụng cho mọi project thuộc profile này. Đây là policy/checklist production; tài liệu feature chi tiết chỉ reference standard, không copy toàn bộ rule. Rule bắt buộc Authentication và authorization là hai concern riêng. Mọi endpoint phải khai báo auth, permission/role/scope. Object level authorization phải kiểm tra ở server. Sensitive action cần audit evidence. Evidence mong đợi Blueprint/architecture hoặc entity docs reference standard này. Test/release checklist cover các rule áp dụng. Exception phải có ADR. "
+  },
+  {
+    "file": "standards/project-types/api/background-jobs.md",
+    "title": "API Background Job Standard",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-project-types-api-background-jobs.html",
+    "text": " API Background Job Standard Mục tiêu Áp dụng cho mọi project thuộc profile này. Đây là policy/checklist production; tài liệu feature chi tiết chỉ reference standard, không copy toàn bộ rule. Rule bắt buộc Job phải idempotent hoặc có deduplication key. Retry/dead letter/failure escalation phải định nghĩa. Job payload phải versioned khi producer/consumer deploy độc lập. Có observability theo job/run/correlation id. Evidence mong đợi Blueprint/architecture hoặc entity docs reference standard này. Test/release checklist cover các rule áp dụng. Exception phải có ADR. "
+  },
+  {
+    "file": "standards/project-types/api/contract-versioning.md",
+    "title": "API Contract & Versioning Standard",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-project-types-api-contract-versioning.html",
+    "text": " API Contract & Versioning Standard Mục tiêu Áp dụng cho mọi project thuộc profile này. Đây là policy/checklist production; tài liệu feature chi tiết chỉ reference standard, không copy toàn bộ rule. Rule bắt buộc Khai báo compatibility policy và deprecation window. Không breaking change response/request mà không version/migration plan. Error envelope, pagination, filtering, sorting, idempotency phải nhất quán. Mobile client phải được xem là consumer có binary cũ tồn tại lâu. Evidence mong đợi Blueprint/architecture hoặc entity docs reference standard này. Test/release checklist cover các rule áp dụng. Exception phải có ADR. "
+  },
+  {
+    "file": "standards/project-types/api/data-transaction.md",
+    "title": "API Data & Transaction Standard",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-project-types-api-data-transaction.html",
+    "text": " API Data & Transaction Standard Mục tiêu Áp dụng cho mọi project thuộc profile này. Đây là policy/checklist production; tài liệu feature chi tiết chỉ reference standard, không copy toàn bộ rule. Rule bắt buộc Xác định transaction boundary cho multi write. Concurrency/optimistic locking cần cho dữ liệu dễ xung đột. Migration phải forward safe và rollback/roll forward aware. Query/index phải review theo expected volume. Evidence mong đợi Blueprint/architecture hoặc entity docs reference standard này. Test/release checklist cover các rule áp dụng. Exception phải có ADR. "
+  },
+  {
+    "file": "standards/project-types/api/deployment.md",
+    "title": "API Deployment Standard",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-project-types-api-deployment.html",
+    "text": " API Deployment Standard Mục tiêu Áp dụng cho mọi project thuộc profile này. Đây là policy/checklist production; tài liệu feature chi tiết chỉ reference standard, không copy toàn bộ rule. Rule bắt buộc Health/readiness/liveness phù hợp runtime. Backward compatible deploy khi có rolling/multi instance. DB migration ordering không làm binary cũ hỏng. Rollback và incident runbook phải tồn tại. Evidence mong đợi Blueprint/architecture hoặc entity docs reference standard này. Test/release checklist cover các rule áp dụng. Exception phải có ADR. "
+  },
+  {
+    "file": "standards/project-types/api/observability.md",
+    "title": "API Observability Standard",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-project-types-api-observability.html",
+    "text": " API Observability Standard Mục tiêu Áp dụng cho mọi project thuộc profile này. Đây là policy/checklist production; tài liệu feature chi tiết chỉ reference standard, không copy toàn bộ rule. Rule bắt buộc Structured log với TraceId/RequestId/CorrelationId. Metrics tối thiểu: request rate/error/latency/saturation. External calls và DB slow operations phải trace được. Mask secrets/PII trong logs. Evidence mong đợi Blueprint/architecture hoặc entity docs reference standard này. Test/release checklist cover các rule áp dụng. Exception phải có ADR. "
+  },
+  {
+    "file": "standards/project-types/api/performance.md",
+    "title": "API Performance Standard",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-project-types-api-performance.html",
+    "text": " API Performance Standard Mục tiêu Áp dụng cho mọi project thuộc profile này. Đây là policy/checklist production; tài liệu feature chi tiết chỉ reference standard, không copy toàn bộ rule. Rule bắt buộc Đặt latency SLO/P95/P99 cho endpoint trọng yếu. Đặt payload limit và pagination max. Review N+1, unbounded query, connection pool và serialization cost. Load test dựa trên capacity assumption. Evidence mong đợi Blueprint/architecture hoặc entity docs reference standard này. Test/release checklist cover các rule áp dụng. Exception phải có ADR. "
+  },
+  {
+    "file": "standards/project-types/api/resilience.md",
+    "title": "API Resilience Standard",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-project-types-api-resilience.html",
+    "text": " API Resilience Standard Mục tiêu Áp dụng cho mọi project thuộc profile này. Đây là policy/checklist production; tài liệu feature chi tiết chỉ reference standard, không copy toàn bộ rule. Rule bắt buộc Timeout cho outbound call là bắt buộc. Retry chỉ dùng cho operation an toàn/idempotent; phải có backoff/jitter. Circuit breaker/bulkhead dùng khi dependency critical. Request cancellation và duplicate request behavior phải rõ. Evidence mong đợi Blueprint/architecture hoặc entity docs reference standard này. Test/release checklist cover các rule áp dụng. Exception phải có ADR. "
+  },
+  {
+    "file": "standards/project-types/api/security.md",
+    "title": "API Security Standard",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-project-types-api-security.html",
+    "text": " API Security Standard Mục tiêu Áp dụng cho mọi project thuộc profile này. Đây là policy/checklist production; tài liệu feature chi tiết chỉ reference standard, không copy toàn bộ rule. Rule bắt buộc Input validation/normalization server side. Rate limit/abuse protection cho endpoint nhạy cảm. Secret management không qua source/config plaintext. OWASP API risks được review trước release. Evidence mong đợi Blueprint/architecture hoặc entity docs reference standard này. Test/release checklist cover các rule áp dụng. Exception phải có ADR. "
+  },
+  {
+    "file": "standards/project-types/mobile/app-lifecycle.md",
+    "title": "App Lifecycle Standard",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-project-types-mobile-app-lifecycle.html",
+    "text": " App Lifecycle Standard Mục tiêu Áp dụng cho mọi project thuộc profile này. Đây là policy/checklist production; tài liệu feature chi tiết chỉ reference standard, không copy toàn bộ rule. Rule bắt buộc Document Start/Foreground/Background/Inactive/Terminated/Resume/Process death behavior. Resume phải xác định refresh stale data, token validation, socket reconnect và pending sync. Background không được giả định timer/socket tiếp tục chạy. Process death phải có state restoration strategy cho flow quan trọng. Evidence mong đợi Blueprint/architecture hoặc entity docs reference standard này. Test/release checklist cover các rule áp dụng. Exception phải có ADR. "
+  },
+  {
+    "file": "standards/project-types/mobile/background-work.md",
+    "title": "Mobile Background Work Standard",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-project-types-mobile-background-work.html",
+    "text": " Mobile Background Work Standard Mục tiêu Áp dụng cho mọi project thuộc profile này. Đây là policy/checklist production; tài liệu feature chi tiết chỉ reference standard, không copy toàn bộ rule. Rule bắt buộc Mọi background work phải dựa capability thật của iOS/Android, không dựa timer giả định. Job phải chịu được OS kill/delay và chạy lại idempotent. Location/audio/upload/background fetch phải có permission/battery rationale. Notification/background handler phải tránh UI dependency. Evidence mong đợi Blueprint/architecture hoặc entity docs reference standard này. Test/release checklist cover các rule áp dụng. Exception phải có ADR. "
+  },
+  {
+    "file": "standards/project-types/mobile/connectivity-realtime.md",
+    "title": "Connectivity & Realtime Standard",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-project-types-mobile-connectivity-realtime.html",
+    "text": " Connectivity & Realtime Standard Mục tiêu Áp dụng cho mọi project thuộc profile này. Đây là policy/checklist production; tài liệu feature chi tiết chỉ reference standard, không copy toàn bộ rule. Rule bắt buộc WebSocket/SignalR có connect/disconnect/reconnect/backoff/heartbeat contract. Resume phải rejoin group/channel an toàn và chống duplicate event. Event ordering/message ACK/offline catch up phải xác định. Không dùng socket làm nguồn duy nhất nếu mất event không thể phục hồi. Evidence mong đợi Blueprint/architecture hoặc entity docs reference standard này. Test/release checklist cover các rule áp dụng. Exception phải có ADR. "
+  },
+  {
+    "file": "standards/project-types/mobile/local-storage-cache.md",
+    "title": "Local Storage & Cache Standard",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-project-types-mobile-local-storage-cache.html",
+    "text": " Local Storage & Cache Standard Mục tiêu Áp dụng cho mọi project thuộc profile này. Đây là policy/checklist production; tài liệu feature chi tiết chỉ reference standard, không copy toàn bộ rule. Rule bắt buộc Phân loại Preferences, Session, Cache, Offline DB, Sensitive secrets. Sensitive secret dùng Keychain/Keystore/Secure Storage. Cache phải có TTL/eviction/size policy. Schema migration, cleanup logout và backward compatibility phải được test. Evidence mong đợi Blueprint/architecture hoặc entity docs reference standard này. Test/release checklist cover các rule áp dụng. Exception phải có ADR. "
+  },
+  {
+    "file": "standards/project-types/mobile/logging-observability.md",
+    "title": "Mobile Logging & Observability Standard",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-project-types-mobile-logging-observability.html",
+    "text": " Mobile Logging & Observability Standard Mục tiêu Áp dụng cho mọi project thuộc profile này. Đây là policy/checklist production; tài liệu feature chi tiết chỉ reference standard, không copy toàn bộ rule. Rule bắt buộc Crash free, ANR, startup, screen latency và network error cần metrics theo app version. Logs có SessionId/RequestId/CorrelationId khi có thể. Source map/dSYM/symbol mapping phải upload theo release. Mask token, phone, email, document id và payload nhạy cảm. Evidence mong đợi Blueprint/architecture hoặc entity docs reference standard này. Test/release checklist cover các rule áp dụng. Exception phải có ADR. "
+  },
+  {
+    "file": "standards/project-types/mobile/media-attachment.md",
+    "title": "Mobile Media & Attachment Standard",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-project-types-mobile-media-attachment.html",
+    "text": " Mobile Media & Attachment Standard Mục tiêu Áp dụng cho mọi project thuộc profile này. Đây là policy/checklist production; tài liệu feature chi tiết chỉ reference standard, không copy toàn bộ rule. Rule bắt buộc Xác định file type/size/count/compression/quality. Upload lớn cần progress/cancel/resume khi nghiệp vụ cần. Signed URL expiry và retry behavior phải rõ. Backend chịu trách nhiệm virus/content validation theo risk. Evidence mong đợi Blueprint/architecture hoặc entity docs reference standard này. Test/release checklist cover các rule áp dụng. Exception phải có ADR. "
+  },
+  {
+    "file": "standards/project-types/mobile/mobile-architecture.md",
+    "title": "Mobile Architecture Standard",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-project-types-mobile-mobile-architecture.html",
+    "text": " Mobile Architecture Standard Mục tiêu Áp dụng cho mọi project thuộc profile này. Đây là policy/checklist production; tài liệu feature chi tiết chỉ reference standard, không copy toàn bộ rule. Rule bắt buộc Tách presentation/navigation, state, domain/use case, repository/data source, native capability và storage boundary. UI không gọi API/native SDK trực tiếp nếu có business rule. Project phải định nghĩa ownership của server state và local/client state. Native module/plugin phải có abstraction để test và thay đổi platform implementation. Evidence mong đợi Blueprint/architecture hoặc entity docs reference standard này. Test/release checklist cover các rule áp dụng. Exception phải có ADR. "
+  },
+  {
+    "file": "standards/project-types/mobile/mobile-performance.md",
+    "title": "Mobile Performance Standard",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-project-types-mobile-mobile-performance.html",
+    "text": " Mobile Performance Standard Mục tiêu Áp dụng cho mọi project thuộc profile này. Đây là policy/checklist production; tài liệu feature chi tiết chỉ reference standard, không copy toàn bộ rule. Rule bắt buộc Đặt budget cold/warm start, memory, JS/UI thread, frame drop, list rendering, image và bundle size. Không decode ảnh/file lớn trên UI thread. Theo dõi performance theo device tier và OS. Regression performance là release gate cho critical flow. Evidence mong đợi Blueprint/architecture hoặc entity docs reference standard này. Test/release checklist cover các rule áp dụng. Exception phải có ADR. "
+  },
+  {
+    "file": "standards/project-types/mobile/mobile-release-store.md",
+    "title": "Mobile Release & Store Standard",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-project-types-mobile-mobile-release-store.html",
+    "text": " Mobile Release & Store Standard Mục tiêu Áp dụng cho mọi project thuộc profile này. Đây là policy/checklist production; tài liệu feature chi tiết chỉ reference standard, không copy toàn bộ rule. Rule bắt buộc Version/build number, signing/certificate/provisioning ownership phải có runbook. App Store/Google Play privacy/review metadata phải được review cùng binary. Staged rollout/hotfix/min supported version/maintenance mode phải có policy. Backend phải backward compatible với binary cũ trong support window. Evidence mong đợi Blueprint/architecture hoặc entity docs reference standard này. Test/release checklist cover các rule áp dụng. Exception phải có ADR. "
+  },
+  {
+    "file": "standards/project-types/mobile/mobile-security-privacy.md",
+    "title": "Mobile Security & Privacy Standard",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-project-types-mobile-mobile-security-privacy.html",
+    "text": " Mobile Security & Privacy Standard Mục tiêu Áp dụng cho mọi project thuộc profile này. Đây là policy/checklist production; tài liệu feature chi tiết chỉ reference standard, không copy toàn bộ rule. Rule bắt buộc Secrets không hardcode trong bundle. Sensitive storage dùng platform secure storage; logout phải cleanup. Quyết định screenshot/clipboard/root jailbreak/biometric phải dựa threat model. SDK inventory, data collection purpose và Apple/Google privacy declaration phải đồng bộ. Evidence mong đợi Blueprint/architecture hoặc entity docs reference standard này. Test/release checklist cover các rule áp dụng. Exception phải có ADR. "
+  },
+  {
+    "file": "standards/project-types/mobile/mobile-ui-ux-accessibility.md",
+    "title": "Mobile UI/UX & Accessibility Standard",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-project-types-mobile-mobile-ui-ux-accessibility.html",
+    "text": " Mobile UI/UX & Accessibility Standard Mục tiêu Áp dụng cho mọi project thuộc profile này. Đây là policy/checklist production; tài liệu feature chi tiết chỉ reference standard, không copy toàn bộ rule. Rule bắt buộc Mỗi screen có Initial/Loading/Refreshing/Success/Empty/Partial/Error/Offline/Permission/Session states khi áp dụng. Safe area, keyboard, orientation, dynamic text, screen reader và touch target phải được test. List có preserve scroll/key/pagination/duplicate handling. Offline/stale/pending state phải hiển thị rõ nếu ảnh hưởng quyết định người dùng. Evidence mong đợi Blueprint/architecture hoặc entity docs reference standard này. Test/release checklist cover các rule áp dụng. Exception phải có ADR. "
+  },
+  {
+    "file": "standards/project-types/mobile/navigation-deeplink.md",
+    "title": "Navigation & Deep Link Standard",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-project-types-mobile-navigation-deeplink.html",
+    "text": " Navigation & Deep Link Standard Mục tiêu Áp dụng cho mọi project thuộc profile này. Đây là policy/checklist production; tài liệu feature chi tiết chỉ reference standard, không copy toàn bộ rule. Rule bắt buộc Route phải typed/canonical, params/query versionable và validate trước navigation. Auth/permission guard không nằm rải rác ở screen. Deep link phải xử lý invalid/unauthorized/deleted target. Push, universal/app link và internal navigation phải converge về cùng route contract. Evidence mong đợi Blueprint/architecture hoặc entity docs reference standard này. Test/release checklist cover các rule áp dụng. Exception phải có ADR. "
+  },
+  {
+    "file": "standards/project-types/mobile/networking-resilience.md",
+    "title": "Mobile Networking Resilience Standard",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-project-types-mobile-networking-resilience.html",
+    "text": " Mobile Networking Resilience Standard Mục tiêu Áp dụng cho mọi project thuộc profile này. Đây là policy/checklist production; tài liệu feature chi tiết chỉ reference standard, không copy toàn bộ rule. Rule bắt buộc Timeout, cancellation, retry/backoff và stale request cancellation phải được chuẩn hóa. Network switch Wi Fi/4G/5G, offline/online transition phải có behavior. Không retry mutation mù; cần idempotency/deduplication. Slow network UX phải khác hard error khi phù hợp. Evidence mong đợi Blueprint/architecture hoặc entity docs reference standard này. Test/release checklist cover các rule áp dụng. Exception phải có ADR. "
+  },
+  {
+    "file": "standards/project-types/mobile/offline-sync.md",
+    "title": "Offline & Sync Standard",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-project-types-mobile-offline-sync.html",
+    "text": " Offline & Sync Standard Mục tiêu Áp dụng cho mọi project thuộc profile này. Đây là policy/checklist production; tài liệu feature chi tiết chỉ reference standard, không copy toàn bộ rule. Rule bắt buộc Mỗi offline capable feature phải chọn cache first/network first/stale while revalidate rõ. Queued mutation cần idempotency key, ordering, retry và conflict policy. Sync cursor/version/timestamp source of truth phải xác định. UI phải phân biệt local pending/synced/failed khi nghiệp vụ cần. Evidence mong đợi Blueprint/architecture hoặc entity docs reference standard này. Test/release checklist cover các rule áp dụng. Exception phải có ADR. "
+  },
+  {
+    "file": "standards/project-types/mobile/permission-native-capabilities.md",
+    "title": "Permission & Native Capability Standard",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-project-types-mobile-permission-native-capabilities.html",
+    "text": " Permission & Native Capability Standard Mục tiêu Áp dụng cho mọi project thuộc profile này. Đây là policy/checklist production; tài liệu feature chi tiết chỉ reference standard, không copy toàn bộ rule. Rule bắt buộc Mỗi permission phải có purpose, trigger, pre prompt nếu cần và fallback UX. Xử lý denied, permanently denied/revoked, limited và OS settings return. Permission không được xin sớm hơn nhu cầu nghiệp vụ nếu không cần. Camera/photo/location/biometric/file/notification phải có platform difference documented. Evidence mong đợi Blueprint/architecture hoặc entity docs reference standard này. Test/release checklist cover các rule áp dụng. Exception phải có ADR. "
+  },
+  {
+    "file": "standards/project-types/mobile/push-notification.md",
+    "title": "Push Notification Standard",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-project-types-mobile-push-notification.html",
+    "text": " Push Notification Standard Mục tiêu Áp dụng cho mọi project thuộc profile này. Đây là policy/checklist production; tài liệu feature chi tiết chỉ reference standard, không copy toàn bộ rule. Rule bắt buộc Phân biệt notification payload và data payload. Xử lý foreground/background/terminated và token refresh. Payload phải versioned và không lộ sensitive data. Push navigation phải map canonical route hoặc explicit no navigation. Evidence mong đợi Blueprint/architecture hoặc entity docs reference standard này. Test/release checklist cover các rule áp dụng. Exception phải có ADR. "
+  },
+  {
+    "file": "standards/project-types/mobile/time-timezone.md",
+    "title": "Mobile Time & Timezone Standard",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-project-types-mobile-time-timezone.html",
+    "text": " Mobile Time & Timezone Standard Mục tiêu Áp dụng cho mọi project thuộc profile này. Đây là policy/checklist production; tài liệu feature chi tiết chỉ reference standard, không copy toàn bộ rule. Rule bắt buộc Server time là nguồn chuẩn cho nghiệp vụ nhạy thời gian trừ khi ADR khác. Lưu timestamp UTC/offset aware; UI format theo locale/timezone rule. Xử lý device clock sai, timezone change, DST và travel. Attendance/timesheet/deadline phải ghi rõ rule rounding/cutoff/server verification. Evidence mong đợi Blueprint/architecture hoặc entity docs reference standard này. Test/release checklist cover các rule áp dụng. Exception phải có ADR. "
+  },
+  {
+    "file": "standards/project-types/web/browser-runtime.md",
+    "title": "Browser Runtime Standard",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-project-types-web-browser-runtime.html",
+    "text": " Browser Runtime Standard Mục tiêu Áp dụng cho mọi project thuộc profile này. Đây là policy/checklist production; tài liệu feature chi tiết chỉ reference standard, không copy toàn bộ rule. Rule bắt buộc Khai báo browser support matrix và policy khi browser không hỗ trợ. Theo dõi memory, DOM growth, large response và long task cho màn hình trọng yếu. Xác định cache/service worker/PWA policy nếu có. Không lưu token hoặc sensitive data ở storage không phù hợp. Evidence mong đợi Blueprint/architecture hoặc entity docs reference standard này. Test/release checklist cover các rule áp dụng. Exception phải có ADR. "
+  },
+  {
+    "file": "standards/project-types/web/web-application-standard.md",
+    "title": "Web Application Standard",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-project-types-web-web-application-standard.html",
+    "text": " Web Application Standard Mục tiêu Áp dụng cho mọi project thuộc profile này. Đây là policy/checklist production; tài liệu feature chi tiết chỉ reference standard, không copy toàn bộ rule. Rule bắt buộc Phân tách UI/component, routing, server state, client state và service/integration boundary. Mỗi route phải map tới Screen/Feature và có auth/permission behavior rõ. Mỗi data heavy screen phải có loading/empty/error/partial/refetch states. Browser compatibility, accessibility, security headers, caching và observability phải được định nghĩa ở project level. Evidence mong đợi Blueprint/architecture hoặc entity docs reference standard này. Test/release checklist cover các rule áp dụng. Exception phải có ADR. "
+  },
+  {
+    "file": "standards/project-types/web/web-performance.md",
+    "title": "Web Performance Standard",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-project-types-web-web-performance.html",
+    "text": " Web Performance Standard Mục tiêu Áp dụng cho mọi project thuộc profile này. Đây là policy/checklist production; tài liệu feature chi tiết chỉ reference standard, không copy toàn bộ rule. Rule bắt buộc Đặt budget cho initial JS, route chunk, image, API payload và Core Web Vitals. Large list dùng virtualization/pagination phù hợp. Không fetch toàn bộ dataset chỉ để filter client nếu volume có thể tăng. Theo dõi regression theo release. Evidence mong đợi Blueprint/architecture hoặc entity docs reference standard này. Test/release checklist cover các rule áp dụng. Exception phải có ADR. "
+  },
+  {
+    "file": "standards/project-types/web/web-release.md",
+    "title": "Web Release Standard",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-project-types-web-web-release.html",
+    "text": " Web Release Standard Mục tiêu Áp dụng cho mọi project thuộc profile này. Đây là policy/checklist production; tài liệu feature chi tiết chỉ reference standard, không copy toàn bộ rule. Rule bắt buộc Release phải có build artifact immutable, environment config và rollback strategy. Migration/API compatibility phải được kiểm tra trước deploy. Feature flag dùng cho rollout rủi ro cao. Production smoke test và monitoring window phải được định nghĩa. Evidence mong đợi Blueprint/architecture hoặc entity docs reference standard này. Test/release checklist cover các rule áp dụng. Exception phải có ADR. "
+  },
+  {
+    "file": "standards/project-types/web/web-security.md",
+    "title": "Web Security Standard",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-project-types-web-web-security.html",
+    "text": " Web Security Standard Mục tiêu Áp dụng cho mọi project thuộc profile này. Đây là policy/checklist production; tài liệu feature chi tiết chỉ reference standard, không copy toàn bộ rule. Rule bắt buộc Bắt buộc XSS/CSRF/CSP/cookie/session policy. Auth token storage strategy phải có threat rationale. PII không được log hoặc đưa vào URL/query nếu không cần thiết. Third party script/SDK phải có inventory, purpose và data classification. Evidence mong đợi Blueprint/architecture hoặc entity docs reference standard này. Test/release checklist cover các rule áp dụng. Exception phải có ADR. "
+  },
+  {
+    "file": "standards/project-types/web/web-ui-ux.md",
+    "title": "Web UI/UX Standard",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-project-types-web-web-ui-ux.html",
+    "text": " Web UI/UX Standard Mục tiêu Áp dụng cho mọi project thuộc profile này. Đây là policy/checklist production; tài liệu feature chi tiết chỉ reference standard, không copy toàn bộ rule. Rule bắt buộc Responsive breakpoints và layout behavior phải có rule chung. Keyboard navigation, focus order, semantic HTML và WCAG target phải được xác định. Form phải có validation timing, server error mapping, unsaved change behavior. Table/list phải có pagination/filter/sort/search/empty/loading/error states. Evidence mong đợi Blueprint/architecture hoặc entity docs reference standard này. Test/release checklist cover các rule áp dụng. Exception phải có ADR. "
+  },
+  {
+    "file": "standards/security-and-secrets.md",
+    "title": "Security & Secrets Documentation Rules",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-security-and-secrets.html",
+    "text": " Security & Secrets Documentation Rules Không ghi production password, API key, token, private key, secret value vào repo tài liệu. Chỉ document tên biến/config và nơi quản lý secret. Sensitive sample data phải fake/anonymized. Với PII/financial/health data, ghi classification + retention + masking + audit requirements. Production access procedure phải mô tả role/process, không chứa credential. "
+  },
+  {
+    "file": "standards/source-of-truth.md",
+    "title": "Source of Truth Rules",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-source-of-truth.html",
+    "text": " Source of Truth Rules Information Canonical document Product scope Product Scope Feature intent & flow Feature Testable functional need Requirement Business constraint Business Rule UI states/actions/route Screen HTTP contract API Schema/index/ownership Database Object Cross cutting technical rule Architecture Why a significant choice was made ADR Runtime recovery steps Runbook Nếu một thông tin xuất hiện ở nơi không canonical, chỉ tóm tắt ngắn và reference nguồn canonical. "
+  },
+  {
+    "file": "standards/stacks/README.md",
+    "title": "Technology Stack Standards",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-stacks-readme.html",
+    "text": " Technology Stack Standards Technology specific implementation rules are additive to project type standards. Current starter profiles: ReactJS, React Native/Expo, Flutter, NodeJS API, ASP.NET Core API, PostgreSQL. Do not apply a stack standard unless the stack is selected in project profile.json . "
+  },
+  {
+    "file": "standards/stacks/api/dotnet-core/api-conventions.md",
+    "title": "ASP.NET Core API Conventions",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-stacks-api-dotnet-core-api-conventions.html",
+    "text": " ASP.NET Core API Conventions Scope Technology specific standard. Áp dụng sau project type standard tương ứng. Rules ProblemDetails/error envelope ổn định. Model validation + business validation tách biệt. Versioning/deprecation rõ; OpenAPI generated/reviewed. Authorization policy based cho permission phức tạp. Review checklist Có architecture/ADR nếu project cố ý khác chuẩn. Test và CI thể hiện rule quan trọng. Không copy secret hoặc environment specific credential vào tài liệu. "
+  },
+  {
+    "file": "standards/stacks/api/dotnet-core/architecture.md",
+    "title": "ASP.NET Core Architecture",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-stacks-api-dotnet-core-architecture.html",
+    "text": " ASP.NET Core Architecture Scope Technology specific standard. Áp dụng sau project type standard tương ứng. Rules Controller/endpoint mỏng; application service/use case chứa orchestration. Domain/business không phụ thuộc HttpContext. Infrastructure qua interface/DI; không service locator. CancellationToken propagate qua I/O path. Review checklist Có architecture/ADR nếu project cố ý khác chuẩn. Test và CI thể hiện rule quan trọng. Không copy secret hoặc environment specific credential vào tài liệu. "
+  },
+  {
+    "file": "standards/stacks/api/dotnet-core/background-services.md",
+    "title": "ASP.NET Core Background Services",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-stacks-api-dotnet-core-background-services.html",
+    "text": " ASP.NET Core Background Services Scope Technology specific standard. Áp dụng sau project type standard tương ứng. Rules HostedService/BackgroundService chịu cancellation và graceful shutdown. Không giữ DbContext scoped lâu dài; tạo scope mỗi work item. Job idempotent, retry/dead letter khi dùng queue. Health/metrics cho worker backlog/failure. Review checklist Có architecture/ADR nếu project cố ý khác chuẩn. Test và CI thể hiện rule quan trọng. Không copy secret hoặc environment specific credential vào tài liệu. "
+  },
+  {
+    "file": "standards/stacks/api/dotnet-core/coding-standard.md",
+    "title": "ASP.NET Core Coding Standard",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-stacks-api-dotnet-core-coding-standard.html",
+    "text": " ASP.NET Core Coding Standard Scope Technology specific standard. Áp dụng sau project type standard tương ứng. Rules Nullable reference types bật cho code mới. Async all the way cho I/O; tránh .Result/.Wait. Options pattern cho config typed; validation startup. Analyzer/format/test là CI gate. Review checklist Có architecture/ADR nếu project cố ý khác chuẩn. Test và CI thể hiện rule quan trọng. Không copy secret hoặc environment specific credential vào tài liệu. "
+  },
+  {
+    "file": "standards/stacks/api/dotnet-core/data-access.md",
+    "title": "ASP.NET Core Data Access",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-stacks-api-dotnet-core-data-access.html",
+    "text": " ASP.NET Core Data Access Scope Technology specific standard. Áp dụng sau project type standard tương ứng. Rules EF Core query projection/AsNoTracking khi read only phù hợp. Không lazy load gây N+1 không kiểm soát. Transaction cho atomic multi write. Migration backward compatible với rolling deploy. Review checklist Có architecture/ADR nếu project cố ý khác chuẩn. Test và CI thể hiện rule quan trọng. Không copy secret hoặc environment specific credential vào tài liệu. "
+  },
+  {
+    "file": "standards/stacks/api/dotnet-core/dependency-injection-config.md",
+    "title": "ASP.NET Core DI & Configuration",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-stacks-api-dotnet-core-dependency-injection-config.html",
+    "text": " ASP.NET Core DI & Configuration Scope Technology specific standard. Áp dụng sau project type standard tương ứng. Rules Service lifetime Singleton/Scoped/Transient phải phù hợp thread/request lifecycle. Không inject scoped vào singleton. Config từ environment/secret provider, không commit secret. HttpClientFactory cho outbound HTTP. Review checklist Có architecture/ADR nếu project cố ý khác chuẩn. Test và CI thể hiện rule quan trọng. Không copy secret hoặc environment specific credential vào tài liệu. "
+  },
+  {
+    "file": "standards/stacks/api/dotnet-core/security.md",
+    "title": "ASP.NET Core Security",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-stacks-api-dotnet-core-security.html",
+    "text": " ASP.NET Core Security Scope Technology specific standard. Áp dụng sau project type standard tương ứng. Rules Authentication scheme và authorization policy documented. Data Protection/key persistence phù hợp multi instance. Rate limiting/antiforgery áp dụng theo surface. Sensitive logging masking và audit action. Review checklist Có architecture/ADR nếu project cố ý khác chuẩn. Test và CI thể hiện rule quan trọng. Không copy secret hoặc environment specific credential vào tài liệu. "
+  },
+  {
+    "file": "standards/stacks/api/dotnet-core/testing-observability-deployment.md",
+    "title": "ASP.NET Core Testing, Observability & Deployment",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-stacks-api-dotnet-core-testing-observability-deployment.html",
+    "text": " ASP.NET Core Testing, Observability & Deployment Scope Technology specific standard. Áp dụng sau project type standard tương ứng. Rules Unit/application/integration với WebApplicationFactory khi phù hợp. OpenTelemetry/structured logs + TraceId correlation. Health checks phân readiness/liveness khi cần. Publish artifact/runtime/container version pinned và rollback tested. Review checklist Có architecture/ADR nếu project cố ý khác chuẩn. Test và CI thể hiện rule quan trọng. Không copy secret hoặc environment specific credential vào tài liệu. "
+  },
+  {
+    "file": "standards/stacks/api/nodejs/architecture.md",
+    "title": "NodeJS API Architecture",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-stacks-api-nodejs-architecture.html",
+    "text": " NodeJS API Architecture Scope Technology specific standard. Áp dụng sau project type standard tương ứng. Rules Route/controller mỏng; application/domain service chứa business orchestration. IO adapter cho DB/queue/external service. Không dùng module singleton mutable làm business state. Async boundary/error propagation phải có convention. Review checklist Có architecture/ADR nếu project cố ý khác chuẩn. Test và CI thể hiện rule quan trọng. Không copy secret hoặc environment specific credential vào tài liệu. "
+  },
+  {
+    "file": "standards/stacks/api/nodejs/async-resilience.md",
+    "title": "NodeJS Async & Resilience",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-stacks-api-nodejs-async-resilience.html",
+    "text": " NodeJS Async & Resilience Scope Technology specific standard. Áp dụng sau project type standard tương ứng. Rules Không block event loop bằng CPU work/file transform lớn; offload worker/job. Outbound retry có idempotency/backoff/jitter. Queue consumer ack/retry/dead letter explicit. Graceful shutdown đóng listener, drain request và connection pool. Review checklist Có architecture/ADR nếu project cố ý khác chuẩn. Test và CI thể hiện rule quan trọng. Không copy secret hoặc environment specific credential vào tài liệu. "
+  },
+  {
+    "file": "standards/stacks/api/nodejs/coding-standard.md",
+    "title": "NodeJS API Coding Standard",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-stacks-api-nodejs-coding-standard.html",
+    "text": " NodeJS API Coding Standard Scope Technology specific standard. Áp dụng sau project type standard tương ứng. Rules TypeScript strict khuyến nghị. Không swallow Promise rejection; await/catch ở boundary phù hợp. Input DTO/schema validation trước business logic. Lint/typecheck/test là CI gate. Review checklist Có architecture/ADR nếu project cố ý khác chuẩn. Test và CI thể hiện rule quan trọng. Không copy secret hoặc environment specific credential vào tài liệu. "
+  },
+  {
+    "file": "standards/stacks/api/nodejs/deployment.md",
+    "title": "NodeJS Deployment",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-stacks-api-nodejs-deployment.html",
+    "text": " NodeJS Deployment Scope Technology specific standard. Áp dụng sau project type standard tương ứng. Rules Pinned Node LTS/runtime, lockfile và reproducible build. Health/readiness, graceful shutdown, no local disk dependency nếu multi instance. Env secrets qua secret store. Process manager/container restart policy rõ. Review checklist Có architecture/ADR nếu project cố ý khác chuẩn. Test và CI thể hiện rule quan trọng. Không copy secret hoặc environment specific credential vào tài liệu. "
+  },
+  {
+    "file": "standards/stacks/api/nodejs/http-contract.md",
+    "title": "NodeJS HTTP Contract",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-stacks-api-nodejs-http-contract.html",
+    "text": " NodeJS HTTP Contract Scope Technology specific standard. Áp dụng sau project type standard tương ứng. Rules Framework Express/Fastify/Nest phải có centralized auth/error/validation. Không trả stack trace production. Request size, timeout, pagination max và rate limit có config. Correlation id propagate outbound calls. Review checklist Có architecture/ADR nếu project cố ý khác chuẩn. Test và CI thể hiện rule quan trọng. Không copy secret hoặc environment specific credential vào tài liệu. "
+  },
+  {
+    "file": "standards/stacks/api/nodejs/testing-observability.md",
+    "title": "NodeJS Testing & Observability",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-stacks-api-nodejs-testing-observability.html",
+    "text": " NodeJS Testing & Observability Scope Technology specific standard. Áp dụng sau project type standard tương ứng. Rules Unit/application test + API integration + contract test. Structured logger; AsyncLocalStorage hoặc equivalent cho trace context khi phù hợp. Metrics event loop lag, memory, latency, error, DB pool. Load test endpoint critical. Review checklist Có architecture/ADR nếu project cố ý khác chuẩn. Test và CI thể hiện rule quan trọng. Không copy secret hoặc environment specific credential vào tài liệu. "
+  },
+  {
+    "file": "standards/stacks/api/nodejs/validation-errors.md",
+    "title": "NodeJS Validation & Errors",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-stacks-api-nodejs-validation-errors.html",
+    "text": " NodeJS Validation & Errors Scope Technology specific standard. Áp dụng sau project type standard tương ứng. Rules Schema validator thống nhất; business error có stable code. Map validation/business/infrastructure errors sang HTTP status có convention. Không dựa message text để client branch logic. Log internal context nhưng response không lộ secret. Review checklist Có architecture/ADR nếu project cố ý khác chuẩn. Test và CI thể hiện rule quan trọng. Không copy secret hoặc environment specific credential vào tài liệu. "
+  },
+  {
+    "file": "standards/stacks/database/postgresql/migration-operations.md",
+    "title": "PostgreSQL Migration & Operations",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-stacks-database-postgresql-migration-operations.html",
+    "text": " PostgreSQL Migration & Operations Scope Technology specific standard. Áp dụng sau project type standard tương ứng. Rules Migration tránh long lock; large backfill tách batch. Expand/contract cho breaking schema change. Backup/restore/PITR test theo RPO/RTO. Role production theo least privilege và audit. Review checklist Có architecture/ADR nếu project cố ý khác chuẩn. Test và CI thể hiện rule quan trọng. Không copy secret hoặc environment specific credential vào tài liệu. "
+  },
+  {
+    "file": "standards/stacks/database/postgresql/query-performance.md",
+    "title": "PostgreSQL Query Performance",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-stacks-database-postgresql-query-performance.html",
+    "text": " PostgreSQL Query Performance Scope Technology specific standard. Áp dụng sau project type standard tương ứng. Rules pg stat statements theo dõi total exec time/mean/calls/rows. EXPLAIN ANALYZE dùng trên môi trường an toàn và dữ liệu đại diện. Review sequential scan lớn, N+1, missing/unused index và bloat. Connection pool/query timeout có budget. Review checklist Có architecture/ADR nếu project cố ý khác chuẩn. Test và CI thể hiện rule quan trọng. Không copy secret hoặc environment specific credential vào tài liệu. "
+  },
+  {
+    "file": "standards/stacks/database/postgresql/schema-conventions.md",
+    "title": "PostgreSQL Schema Conventions",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-stacks-database-postgresql-schema-conventions.html",
+    "text": " PostgreSQL Schema Conventions Scope Technology specific standard. Áp dụng sau project type standard tương ứng. Rules Naming/schema/PK/FK/audit/soft delete convention thống nhất. Constraint ở DB cho invariant dữ liệu quan trọng. Index gắn query pattern, không tạo theo cảm tính. TIMESTAMPTZ ưu tiên cho timestamp production đa timezone. Review checklist Có architecture/ADR nếu project cố ý khác chuẩn. Test và CI thể hiện rule quan trọng. Không copy secret hoặc environment specific credential vào tài liệu. "
+  },
+  {
+    "file": "standards/stacks/mobile/flutter/architecture.md",
+    "title": "Flutter Architecture",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-stacks-mobile-flutter-architecture.html",
+    "text": " Flutter Architecture Scope Technology specific standard. Áp dụng sau project type standard tương ứng. Rules Feature first, presentation/domain/data separation. Repository là boundary cho API/cache/storage. Widget không gọi API trực tiếp và không chứa business rule. Platform channel/plugin được bọc qua service/adaptor. Review checklist Có architecture/ADR nếu project cố ý khác chuẩn. Test và CI thể hiện rule quan trọng. Không copy secret hoặc environment specific credential vào tài liệu. "
+  },
+  {
+    "file": "standards/stacks/mobile/flutter/coding-standard.md",
+    "title": "Flutter Coding Standard",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-stacks-mobile-flutter-coding-standard.html",
+    "text": " Flutter Coding Standard Scope Technology specific standard. Áp dụng sau project type standard tương ứng. Rules Dart analyzer/lints là CI gate; ưu tiên const/final/immutable. Naming/file/import/barrel export nhất quán. Widget/function nhỏ; tách khi rebuild scope hoặc complexity cao. Null safety, deprecated/dead code và TODO/FIXME được quản lý. Review checklist Có architecture/ADR nếu project cố ý khác chuẩn. Test và CI thể hiện rule quan trọng. Không copy secret hoặc environment specific credential vào tài liệu. "
+  },
+  {
+    "file": "standards/stacks/mobile/flutter/navigation.md",
+    "title": "Flutter Navigation",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-stacks-mobile-flutter-navigation.html",
+    "text": " Flutter Navigation Scope Technology specific standard. Áp dụng sau project type standard tương ứng. Rules Router tập trung, typed route/params/query. Auth/permission guard ở routing layer. Nested/bottom nav, back stack, unknown route và restore route được document. Deep link/push route dùng cùng canonical mapping. Review checklist Có architecture/ADR nếu project cố ý khác chuẩn. Test và CI thể hiện rule quan trọng. Không copy secret hoặc environment specific credential vào tài liệu. "
+  },
+  {
+    "file": "standards/stacks/mobile/flutter/state-management.md",
+    "title": "Flutter State Management",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-stacks-mobile-flutter-state-management.html",
+    "text": " Flutter State Management Scope Technology specific standard. Áp dụng sau project type standard tương ứng. Rules BLoC/Cubit là chuẩn mặc định của profile này. Cubit cho state transition đơn giản; Bloc khi event/concurrency/flow phức tạp cần explicit event. State immutable và model Initial/Loading/Refreshing/Success/Empty/Error phù hợp. One time UI event/side effect không lưu như durable state. Review checklist Có architecture/ADR nếu project cố ý khác chuẩn. Test và CI thể hiện rule quan trọng. Không copy secret hoặc environment specific credential vào tài liệu. "
+  },
+  {
+    "file": "standards/stacks/mobile/flutter/storage-networking.md",
+    "title": "Flutter Storage & Networking",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-stacks-mobile-flutter-storage-networking.html",
+    "text": " Flutter Storage & Networking Scope Technology specific standard. Áp dụng sau project type standard tương ứng. Rules Secure storage cho token/secret; SharedPreferences cho preference; DB cho offline structured data. Dio/network layer có timeout/interceptor/cancel/retry policy. Cache expiry/migration/logout cleanup bắt buộc. Socket lifecycle gắn AppLifecycleState và reconnect policy. Review checklist Có architecture/ADR nếu project cố ý khác chuẩn. Test và CI thể hiện rule quan trọng. Không copy secret hoặc environment specific credential vào tài liệu. "
+  },
+  {
+    "file": "standards/stacks/mobile/flutter/testing-release.md",
+    "title": "Flutter Testing & Release",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-stacks-mobile-flutter-testing-release.html",
+    "text": " Flutter Testing & Release Scope Technology specific standard. Áp dụng sau project type standard tương ứng. Rules Unit/widget/integration test theo risk. Test lifecycle, network switch, permission, deep link, push và offline critical flow. Profile/release performance test trên device thật. Signing/store/release artifact và crash symbol upload có checklist. Review checklist Có architecture/ADR nếu project cố ý khác chuẩn. Test và CI thể hiện rule quan trọng. Không copy secret hoặc environment specific credential vào tài liệu. "
+  },
+  {
+    "file": "standards/stacks/mobile/react-native/architecture.md",
+    "title": "React Native Architecture",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-stacks-mobile-react-native-architecture.html",
+    "text": " React Native Architecture Scope Technology specific standard. Áp dụng sau project type standard tương ứng. Rules Feature first modules với presentation/domain/data/native boundary. React Navigation/Expo Router chỉ chịu route orchestration, không chứa business rule. Native capability bọc qua adapter/interface để mock. Repository chịu cache/network strategy; screen không gọi fetch trực tiếp. Review checklist Có architecture/ADR nếu project cố ý khác chuẩn. Test và CI thể hiện rule quan trọng. Không copy secret hoặc environment specific credential vào tài liệu. "
+  },
+  {
+    "file": "standards/stacks/mobile/react-native/coding-standard.md",
+    "title": "React Native Coding Standard",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-stacks-mobile-react-native-coding-standard.html",
+    "text": " React Native Coding Standard Scope Technology specific standard. Áp dụng sau project type standard tương ứng. Rules TypeScript strict, naming/import/lint thống nhất. Không tạo inline heavy object/function trong list hot path khi gây re render. Cleanup listener/subscription/AppState/NetInfo khi unmount. Không block JS thread bằng parse/transform file lớn. Review checklist Có architecture/ADR nếu project cố ý khác chuẩn. Test và CI thể hiện rule quan trọng. Không copy secret hoặc environment specific credential vào tài liệu. "
+  },
+  {
+    "file": "standards/stacks/mobile/react-native/expo-native-boundary.md",
+    "title": "React Native Expo & Native Boundary",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-stacks-mobile-react-native-expo-native-boundary.html",
+    "text": " React Native Expo & Native Boundary Scope Technology specific standard. Áp dụng sau project type standard tương ứng. Rules Khai báo managed/prebuild/bare strategy. Config plugin/native module thay đổi phải document build impact. OTA update chỉ cho thay đổi tương thích binary/native runtime. EAS/build credentials ownership và rollback strategy phải rõ nếu dùng Expo. Review checklist Có architecture/ADR nếu project cố ý khác chuẩn. Test và CI thể hiện rule quan trọng. Không copy secret hoặc environment specific credential vào tài liệu. "
+  },
+  {
+    "file": "standards/stacks/mobile/react-native/navigation.md",
+    "title": "React Native Navigation",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-stacks-mobile-react-native-navigation.html",
+    "text": " React Native Navigation Scope Technology specific standard. Áp dụng sau project type standard tương ứng. Rules Typed route params; deep link config cùng canonical route. Nested/bottom navigation có ownership rõ và back behavior test. Auth/session restore không gây flash screen sai quyền. Push/deep link pending được resume sau login nếu hợp lệ. Review checklist Có architecture/ADR nếu project cố ý khác chuẩn. Test và CI thể hiện rule quan trọng. Không copy secret hoặc environment specific credential vào tài liệu. "
+  },
+  {
+    "file": "standards/stacks/mobile/react-native/state-management.md",
+    "title": "React Native State Management",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-stacks-mobile-react-native-state-management.html",
+    "text": " React Native State Management Scope Technology specific standard. Áp dụng sau project type standard tương ứng. Rules Phân loại screen/local, app global, server state, persisted/offline state. Không duplicate server state vào store nếu không có lý do. One time effect/navigation/toast tách khỏi durable state. Persisted state phải version/migrate. Review checklist Có architecture/ADR nếu project cố ý khác chuẩn. Test và CI thể hiện rule quan trọng. Không copy secret hoặc environment specific credential vào tài liệu. "
+  },
+  {
+    "file": "standards/stacks/mobile/react-native/storage-networking.md",
+    "title": "React Native Storage & Networking",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-stacks-mobile-react-native-storage-networking.html",
+    "text": " React Native Storage & Networking Scope Technology specific standard. Áp dụng sau project type standard tương ứng. Rules SecureStore/Keychain/Keystore cho secret; AsyncStorage chỉ preferences/non secret. NetInfo chỉ signal connectivity, không chứng minh Internet/backend healthy. Axios/fetch client có timeout/cancel/error mapping/correlation id. Offline queue cần durable storage và dedupe. Review checklist Có architecture/ADR nếu project cố ý khác chuẩn. Test và CI thể hiện rule quan trọng. Không copy secret hoặc environment specific credential vào tài liệu. "
+  },
+  {
+    "file": "standards/stacks/mobile/react-native/testing-release.md",
+    "title": "React Native Testing & Release",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-stacks-mobile-react-native-testing-release.html",
+    "text": " React Native Testing & Release Scope Technology specific standard. Áp dụng sau project type standard tương ứng. Rules Test AppState/background/resume/process restart/network transition. Matrix tối thiểu iOS current/previous + Android API/device tiers theo audience. Upload sourcemap/dSYM/symbol artifacts. Release verify deep link, push, permission, store metadata và old client API compatibility. Review checklist Có architecture/ADR nếu project cố ý khác chuẩn. Test và CI thể hiện rule quan trọng. Không copy secret hoặc environment specific credential vào tài liệu. "
+  },
+  {
+    "file": "standards/stacks/web/reactjs/architecture.md",
+    "title": "ReactJS Architecture",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-stacks-web-reactjs-architecture.html",
+    "text": " ReactJS Architecture Scope Technology specific standard. Áp dụng sau project type standard tương ứng. Rules Feature first hoặc domain first structure nhất quán. Component chỉ orchestration UI; business rule ở use case/service phù hợp. API client, query/cache layer và auth boundary dùng chung. Không tạo global state cho server data nếu query cache đã quản lý. Review checklist Có architecture/ADR nếu project cố ý khác chuẩn. Test và CI thể hiện rule quan trọng. Không copy secret hoặc environment specific credential vào tài liệu. "
+  },
+  {
+    "file": "standards/stacks/web/reactjs/coding-standard.md",
+    "title": "ReactJS Coding Standard",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-stacks-web-reactjs-coding-standard.html",
+    "text": " ReactJS Coding Standard Scope Technology specific standard. Áp dụng sau project type standard tương ứng. Rules TypeScript strict khuyến nghị cho production. Component nhỏ, predictable props; tránh side effect trong render. Hook custom cho reusable behavior; không tạo hook chỉ để đổi tên một call. ESLint/format/typecheck là CI gate. Review checklist Có architecture/ADR nếu project cố ý khác chuẩn. Test và CI thể hiện rule quan trọng. Không copy secret hoặc environment specific credential vào tài liệu. "
+  },
+  {
+    "file": "standards/stacks/web/reactjs/forms-validation.md",
+    "title": "ReactJS Forms",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-stacks-web-reactjs-forms-validation.html",
+    "text": " ReactJS Forms Scope Technology specific standard. Áp dụng sau project type standard tương ứng. Rules Schema validation dùng chung với DTO khi khả thi. Client validation không thay server validation. Map field/server/business errors nhất quán. Prevent double submit và preserve/recover input theo policy. Review checklist Có architecture/ADR nếu project cố ý khác chuẩn. Test và CI thể hiện rule quan trọng. Không copy secret hoặc environment specific credential vào tài liệu. "
+  },
+  {
+    "file": "standards/stacks/web/reactjs/routing.md",
+    "title": "ReactJS Routing",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-stacks-web-reactjs-routing.html",
+    "text": " ReactJS Routing Scope Technology specific standard. Áp dụng sau project type standard tương ứng. Rules Route registry/canonical path tập trung. Route params/query typed/validated. Auth/permission guard ở router boundary. Error/not found route có behavior rõ. Review checklist Có architecture/ADR nếu project cố ý khác chuẩn. Test và CI thể hiện rule quan trọng. Không copy secret hoặc environment specific credential vào tài liệu. "
+  },
+  {
+    "file": "standards/stacks/web/reactjs/state-data-fetching.md",
+    "title": "ReactJS State & Data Fetching",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-stacks-web-reactjs-state-data-fetching.html",
+    "text": " ReactJS State & Data Fetching Scope Technology specific standard. Áp dụng sau project type standard tương ứng. Rules Phân loại local UI state, URL state, server state, global app state. Server state dùng query cache có stale/retry/invalidation policy. Mutation phải xử lý optimistic update/rollback khi dùng. Abort stale request khi navigation/search thay đổi. Review checklist Có architecture/ADR nếu project cố ý khác chuẩn. Test và CI thể hiện rule quan trọng. Không copy secret hoặc environment specific credential vào tài liệu. "
+  },
+  {
+    "file": "standards/stacks/web/reactjs/testing.md",
+    "title": "ReactJS Testing",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-stacks-web-reactjs-testing.html",
+    "text": " ReactJS Testing Scope Technology specific standard. Áp dụng sau project type standard tương ứng. Rules Unit cho pure logic, component test cho UI behavior, E2E cho critical flow. Không over mock network contract; contract test/mock server nên dựa fixture có version. Accessibility checks cho component critical. Test loading/error/empty/permission states. Review checklist Có architecture/ADR nếu project cố ý khác chuẩn. Test và CI thể hiện rule quan trọng. Không copy secret hoặc environment specific credential vào tài liệu. "
+  },
+  {
+    "file": "standards/tooling-and-static-site.md",
+    "title": "Documentation Tooling & Static Site Standard",
+    "type": "document",
+    "code": "",
+    "page": "pages/standards-tooling-and-static-site.html",
+    "text": " Documentation Tooling & Static Site Standard 1. Canonical source Markdown source và frontmatter là source of truth. Web pages, indexes, matrices, graphs và JSON caches đều phải có thể rebuild. 2. Validation gate Mỗi pull request thay đổi tài liệu nên chạy: bash cd tools npm ci npm run docs:validate npm run docs:sync npm run docs:build Không merge khi có validation error. Warning cần review nhưng không bắt buộc block trừ khi team nâng rule thành error. 3. Generated artifact policy docs/ generated/ : human readable derived documentation. tools/.cache/ : machine readable derived model. site/ : deployable static site. Không đặt business fact chỉ tồn tại trong generated output. 4. Diagram policy Ưu tiên Mermaid trong Markdown để diagram version control cùng tài liệu. Supported view phổ biến: flowchart cho business/system flow; sequenceDiagram cho interaction/API flow; stateDiagram v2 cho lifecycle/UI state; erDiagram cho logical data relationship; classDiagram cho domain/component relation; mindmap cho discovery/context map; timeline cho migration/release history; interactive graph được sinh từ metadata related , không viết tay. 5. Traceability Graph/traceability phải sinh từ stable entity code và metadata relationship. Không suy luận relationship chỉ từ filename hoặc text similarity. 6. Static hosting site/ chỉ gồm static HTML/CSS/JS/JSON/assets, có thể host trên GitHub Pages, GitLab Pages, Azure Static Web Apps, S3/CloudFront, Nginx hoặc bất kỳ static web server nào. "
+  },
+  {
+    "file": "templates/adr-template.md",
+    "title": "Architecture / Product Decision Record",
+    "type": "document",
+    "code": "",
+    "page": "pages/templates-adr-template.html",
+    "text": " Architecture / Product Decision Record Context Decision Options Considered Rationale Consequences Risks Affected Entities Status Proposed / Accepted / Rejected / Superseded Supersedes / Superseded By "
+  },
+  {
+    "file": "templates/analytics-event-template.md",
+    "title": "Analytics Event",
+    "type": "document",
+    "code": "",
+    "page": "pages/templates-analytics-event-template.html",
+    "text": " Analytics Event Purpose Trigger Properties PII / Sensitive Data Consent Requirement Platforms Deduplication Validation / Debugging Deprecation "
+  },
+  {
+    "file": "templates/api-template.md",
+    "title": "API Contract",
+    "type": "document",
+    "code": "",
+    "page": "pages/templates-api-template.html",
+    "text": " API Contract Purpose Endpoint Method: <GET/POST/... Path: </api/... Version: <... Authentication / Authorization Request Headers Path Parameters Query Parameters Body Response Success Errors Validation Business Rules Applied Idempotency / Concurrency Transaction Boundary Database Impact READ WRITE External Dependencies Logging / Audit Performance / Rate Limit Related Feature / Screen / Tests "
+  },
+  {
+    "file": "templates/architecture-template.md",
+    "title": "Architecture Document",
+    "type": "document",
+    "code": "",
+    "page": "pages/templates-architecture-template.html",
+    "text": " Architecture Document Context Goals / Constraints Applicable Standards Components Diagram Responsibilities / Boundaries Data Flow Error / Resilience Strategy Security Considerations Scalability / Performance Deployment Considerations Related ADRs Risks / Open Questions "
+  },
+  {
+    "file": "templates/background-mobile-template.md",
+    "title": "Mobile Background Work",
+    "type": "document",
+    "code": "",
+    "page": "pages/templates-background-mobile-template.html",
+    "text": " Mobile Background Work Purpose OS Capability Trigger Expected Execution Window Idempotency Retry Battery / Data Impact Permission App Lifecycle Interaction Failure Visibility Tests "
+  },
+  {
+    "file": "templates/business-rule-template.md",
+    "title": "Business Rule",
+    "type": "document",
+    "code": "",
+    "page": "pages/templates-business-rule-template.html",
+    "text": " Business Rule Rule Statement Conditions Result / Constraint Exceptions Scope / Effective Context Positive Examples Negative Examples Error / Message Affected Features / Requirements / APIs / Screens Test Coverage "
+  },
+  {
+    "file": "templates/database-object-template.md",
+    "title": "Database Object",
+    "type": "document",
+    "code": "",
+    "page": "pages/templates-database-object-template.html",
+    "text": " Database Object Purpose Object Schema: Name: Type: Table / View / Materialized View Owner Module: Columns Column Type Null Default Description : Primary Key Foreign Keys Unique / Check Constraints Indexes Index Columns Unique Purpose : Read By Written By Lifecycle / Soft Delete Sensitive Data / Retention Expected Volume / Growth Concurrency / Transaction Notes Migration / Backfill Notes "
+  },
+  {
+    "file": "templates/deep-link-template.md",
+    "title": "Deep Link Contract",
+    "type": "document",
+    "code": "",
+    "page": "pages/templates-deep-link-template.html",
+    "text": " Deep Link Contract Canonical Route URL Patterns Parameter Schema / Version Authentication Guard Permission Guard Cold / Warm / Background App Behaviour Invalid Target Unauthorized Target Deleted Target Fallback Destination Analytics Tests "
+  },
+  {
+    "file": "templates/device-test-profile-template.md",
+    "title": "Device / OS Test Profile",
+    "type": "document",
+    "code": "",
+    "page": "pages/templates-device-test-profile-template.html",
+    "text": " Device / OS Test Profile Audience Assumption iOS Matrix Android Matrix Device Tiers / Screen Sizes Network Conditions Lifecycle Transitions Permission States Timezone / Locale Accessibility Critical Flows Release Gate "
+  },
+  {
+    "file": "templates/feature-flag-template.md",
+    "title": "Feature Flag",
+    "type": "document",
+    "code": "",
+    "page": "pages/templates-feature-flag-template.html",
+    "text": " Feature Flag Purpose Owner Default Value Targeting Rules Client / Server Evaluation Offline Behaviour Minimum App Version Rollout Plan Kill Switch Retirement Plan Tests "
+  },
+  {
+    "file": "templates/feature-template.md",
+    "title": "Feature Specification",
+    "type": "document",
+    "code": "",
+    "page": "pages/templates-feature-template.html",
+    "text": " Feature Specification 1. Overview 2. Business Goal 3. Actors 4. Preconditions 5. Trigger 6. Main Flow 7. Alternative Flows 8. Error / Exception Flows 9. Business Rules 10. Screens / Routes 11. APIs 12. Database Objects 13. Permissions 14. Notifications / External Effects 15. Audit / Logging 16. Acceptance Summary 17. Edge Cases 18. Dependencies 19. Known Limitations 20. Open Questions "
+  },
+  {
+    "file": "templates/flow-template.md",
+    "title": "Flow",
+    "type": "document",
+    "code": "",
+    "page": "pages/templates-flow-template.html",
+    "text": " Flow Purpose Actors / Systems Preconditions Flow Diagram mermaid flowchart TD A Start B Action B C{Decision} C Yes D Success C No E Error Step Details Step Actor/System Action Rule/API/Screen Result Error / Retry Paths End States "
+  },
+  {
+    "file": "templates/incident-template.md",
+    "title": "Incident Record",
+    "type": "document",
+    "code": "",
+    "page": "pages/templates-incident-template.html",
+    "text": " Incident Record Summary Customer / Business Impact Timeline Detection Root Cause Contributing Factors Mitigation Recovery Corrective Actions Documentation / Runbooks To Update "
+  },
+  {
+    "file": "templates/integration-template.md",
+    "title": "External Integration",
+    "type": "document",
+    "code": "",
+    "page": "pages/templates-integration-template.html",
+    "text": " External Integration Purpose Provider / System Authentication Data Sent / Received Trigger / Flow Timeout / Retry / Backoff Idempotency / Duplicate Handling Failure Behaviour Security / Privacy Monitoring / Alerts Sandbox / Production Configuration Related Features / APIs "
+  },
+  {
+    "file": "templates/local-storage-template.md",
+    "title": "Local Storage Contract",
+    "type": "document",
+    "code": "",
+    "page": "pages/templates-local-storage-template.html",
+    "text": " Local Storage Contract Data Classification Storage Technology Schema / Keys Encryption Cache TTL / Expiry Size / Eviction Migration Logout Cleanup Corruption Recovery Tests "
+  },
+  {
+    "file": "templates/mobile-release-template.md",
+    "title": "Mobile Release",
+    "type": "document",
+    "code": "",
+    "page": "pages/templates-mobile-release-template.html",
+    "text": " Mobile Release Version / Build Included Features / Fixes Minimum Supported Version API Compatibility Window Signing / Credentials Check Store Metadata / Privacy Review Device / OS Matrix Deep Link / Push / Permission Smoke Crash Symbol / Source Map Upload Staged Rollout Rollback / Hotfix Monitoring Window "
+  },
+  {
+    "file": "templates/mobile-screen-template.md",
+    "title": "Mobile Screen",
+    "type": "document",
+    "code": "",
+    "page": "pages/templates-mobile-screen-template.html",
+    "text": " Mobile Screen Purpose Route & Typed Parameters Entry Points UI States Initial / Loading / Refreshing / Success / Empty / Partial / Error Offline Permission Session expired / Maintenance / Disabled Actions & Validation Safe Area / Keyboard / Orientation Accessibility Lifecycle Behaviour Network Transition Behaviour APIs / Storage / Realtime Analytics Performance Notes Test Matrix "
+  },
+  {
+    "file": "templates/module-template.md",
+    "title": "Module",
+    "type": "document",
+    "code": "",
+    "page": "pages/templates-module-template.html",
+    "text": " Module Purpose Scope Feature Inventory Feature Code Title Priority Status Shared Concepts Dependencies Owners "
+  },
+  {
+    "file": "templates/monitoring-alert-template.md",
+    "title": "Monitoring / Alert",
+    "type": "document",
+    "code": "",
+    "page": "pages/templates-monitoring-alert-template.html",
+    "text": " Monitoring / Alert Signal Purpose Metric / Query Threshold Severity Expected Baseline Investigation Steps Immediate Action Runbook Reference Owner "
+  },
+  {
+    "file": "templates/native-capability-template.md",
+    "title": "Native Capability",
+    "type": "document",
+    "code": "",
+    "page": "pages/templates-native-capability-template.html",
+    "text": " Native Capability Purpose Platform APIs / Libraries Abstraction Boundary Availability Detection Permission Dependency Failure / Fallback Lifecycle Constraints Privacy / Security Tests "
+  },
+  {
+    "file": "templates/nfr-template.md",
+    "title": "Non-Functional Requirement",
+    "type": "document",
+    "code": "",
+    "page": "pages/templates-nfr-template.html",
+    "text": " Non Functional Requirement Category Requirement Metric Target Measurement Method Scope Failure Threshold Verification / Test "
+  },
+  {
+    "file": "templates/offline-sync-template.md",
+    "title": "Offline Sync Policy",
+    "type": "document",
+    "code": "",
+    "page": "pages/templates-offline-sync-template.html",
+    "text": " Offline Sync Policy Scope Read Strategy Write Strategy Local Pending State Idempotency Conflict Policy Retry / Backoff Ordering / Dedupe Sync Cursor / Version Connectivity Restoration Logout / Account Switch Tests "
+  },
+  {
+    "file": "templates/open-question-template.md",
+    "title": "Open Question",
+    "type": "document",
+    "code": "",
+    "page": "pages/templates-open-question-template.html",
+    "text": " Open Question Question Why It Matters Options / Evidence Owner Blocking Scope Due / Decision Date Resolution Linked Decision "
+  },
+  {
+    "file": "templates/permission-template.md",
+    "title": "Native Permission Contract",
+    "type": "document",
+    "code": "",
+    "page": "pages/templates-permission-template.html",
+    "text": " Native Permission Contract Capability Platforms Privacy Purpose Request Trigger Pre prompt UX Granted Behaviour Denied / Revoked Behaviour Permanently Denied / Settings Flow Limited / Partial Access Return from Settings Data Collected Test Cases "
+  },
+  {
+    "file": "templates/product-scope-template.md",
+    "title": "Product Scope",
+    "type": "document",
+    "code": "",
+    "page": "pages/templates-product-scope-template.html",
+    "text": " Product Scope In Scope Out of Scope Future / Deferred Business Boundaries System Boundaries Dependencies Acceptance of Scope "
+  },
+  {
+    "file": "templates/project-overview-template.md",
+    "title": "Project Overview",
+    "type": "document",
+    "code": "",
+    "page": "pages/templates-project-overview-template.html",
+    "text": " Project Overview Project Types / Technology Stacks Problem / Opportunity Business Goal Target Users Success Criteria High Level Scope Key Stakeholders Known Constraints Assumptions Open Questions "
+  },
+  {
+    "file": "templates/push-event-template.md",
+    "title": "Push Event Contract",
+    "type": "document",
+    "code": "",
+    "page": "pages/templates-push-event-template.html",
+    "text": " Push Event Contract Event Name & Version Producer Payload Schema Sensitive Data Policy Foreground Behaviour Background Behaviour Terminated Behaviour Navigation Contract No navigation Behaviour Dedupe / Ordering Analytics Tests "
+  },
+  {
+    "file": "templates/release-template.md",
+    "title": "Release",
+    "type": "document",
+    "code": "",
+    "page": "pages/templates-release-template.html",
+    "text": " Release Release Scope Included Features / Fixes Dependencies DB / Data Migration Configuration Changes Deployment Plan Verification Plan Rollback Plan Monitoring After Release Known Issues Documentation Updated "
+  },
+  {
+    "file": "templates/requirement-template.md",
+    "title": "Requirement",
+    "type": "document",
+    "code": "",
+    "page": "pages/templates-requirement-template.html",
+    "text": " Requirement Statement Type Functional / Non Functional Actor / Trigger Expected Behaviour Rationale / Source Priority Acceptance Criteria Given ... When ... Then ... Dependencies Related Business Rules Verification "
+  },
+  {
+    "file": "templates/runbook-template.md",
+    "title": "Runbook",
+    "type": "document",
+    "code": "",
+    "page": "pages/templates-runbook-template.html",
+    "text": " Runbook Scenario / Symptoms Severity / Impact Preconditions / Access Required Initial Checks Diagnosis Steps Mitigation Rollback / Recovery Verification Escalation Related Dashboards / Alerts / Services Post Incident Follow up "
+  },
+  {
+    "file": "templates/screen-template.md",
+    "title": "Screen / Route",
+    "type": "document",
+    "code": "",
+    "page": "pages/templates-screen-template.html",
+    "text": " Screen / Route Purpose Route Accessible Roles Entry Points Layout / Sections Fields Field Type Required Validation Notes : Actions Data Sources UI States Initial Loading Success Empty Error No Permission Navigation Rules Validation & Messages Responsive / Accessibility Related Features / Rules / APIs "
+  },
+  {
+    "file": "templates/test-case-template.md",
+    "title": "Test Case",
+    "type": "document",
+    "code": "",
+    "page": "pages/templates-test-case-template.html",
+    "text": " Test Case Objective Verifies Preconditions Test Data Steps Action Expected Result Postconditions Priority Automation Candidate Notes "
+  },
+  {
+    "file": "workflows/01-idea-to-scope.md",
+    "title": "Workflow 01 — Idea -> Scope",
+    "type": "document",
+    "code": "",
+    "page": "pages/workflows-01-idea-to-scope.html",
+    "text": " Workflow 01 — Idea Scope Input Ý tưởng thô, pain point, stakeholder notes hoặc product brief. Steps 1. Viết Project Overview. 2. Xác định users/personas và goals. 3. Liệt kê in scope/out of scope. 4. Tạo glossary. 5. Tách facts, assumptions, constraints. 6. Ghi Open Questions cần quyết định. Output docs/00 project/project overview.md docs/00 project/product scope.md docs/00 project/glossary.md docs/00 project/assumptions constraints.md docs/19 open items/open questions.md Exit Gate Không cần trả lời hết mọi câu hỏi, nhưng phải biết câu nào đang mở và câu nào blocking. "
+  },
+  {
+    "file": "workflows/02-scope-to-blueprint.md",
+    "title": "Workflow 02 — Scope -> Project Blueprint",
+    "type": "document",
+    "code": "",
+    "page": "pages/workflows-02-scope-to-blueprint.html",
+    "text": " Workflow 02 — Scope Project Blueprint Steps 1. Phân rã domain thành Module. 2. Phân rã mỗi Module thành Feature. 3. Lập inventory Screen/Route sơ bộ. 4. Lập inventory API sơ bộ. 5. Lập inventory DB object/integration sơ bộ. 6. Đánh dấu unknown thay vì tự thiết kế quá sớm. 7. Điền PROJECT BLUEPRINT.md . Exit Gate Mọi capability in scope phải map được vào ít nhất một Feature. Mọi Feature phải thuộc đúng một Module. Không dùng Module như container cho API/DB/Test. "
+  },
+  {
+    "file": "workflows/03-blueprint-to-functional-docs.md",
+    "title": "Workflow 03 — Blueprint -> Functional Documentation",
+    "type": "document",
+    "code": "",
+    "page": "pages/workflows-03-blueprint-to-functional-docs.html",
+    "text": " Workflow 03 — Blueprint Functional Documentation Thực hiện theo từng Feature, ưu tiên P0/P1. Steps cho mỗi Feature 1. Tạo Feature doc. 2. Tách Functional Requirements. 3. Tách Business Rules. 4. Xác định Actors/Permissions. 5. Tạo Screen docs và Route nếu có UI. 6. Tạo user/business/system flow. 7. Ghi Edge Cases và Open Questions. 8. Cập nhật Blueprint. Exit Gate Feature phải đủ rõ để một engineer có thể bắt đầu thiết kế technical contract mà không đoán business behaviour. "
+  },
+  {
+    "file": "workflows/04-functional-to-technical-contracts.md",
+    "title": "Workflow 04 — Functional -> Technical Contracts",
+    "type": "document",
+    "code": "",
+    "page": "pages/workflows-04-functional-to-technical-contracts.html",
+    "text": " Workflow 04 — Functional Technical Contracts Steps 1. Từ Screen/Flow, xác định API interaction. 2. Tạo API contract từng endpoint. 3. Từ API/business state, thiết kế DB objects. 4. Document transaction, concurrency, idempotency, retry. 5. Xác định external integrations/background jobs. 6. Ghi architecture decisions đáng kể bằng ADR. 7. Cập nhật Blueprint. Exit Gate Mỗi feature có technical contract đủ rõ để FE/BE/DB làm song song mà không tự mâu thuẫn. "
+  },
+  {
+    "file": "workflows/05-quality-and-test.md",
+    "title": "Workflow 05 — Quality & Test",
+    "type": "document",
+    "code": "",
+    "page": "pages/workflows-05-quality-and-test.html",
+    "text": " Workflow 05 — Quality & Test Steps 1. Tạo NFR áp dụng cho project/feature. 2. Chuyển Requirement/Rule thành Acceptance Criteria. 3. Tạo happy path, validation, permission, error, concurrency, boundary test cases. 4. Link Test Case Requirement/Business Rule. 5. Audit coverage. Exit Gate Requirement approved phải có test coverage. Business Rule critical phải có positive + negative test. API error/permission paths không bị bỏ quên. "
+  },
+  {
+    "file": "workflows/06-production-readiness.md",
+    "title": "Workflow 06 — Production Readiness",
+    "type": "document",
+    "code": "",
+    "page": "pages/workflows-06-production-readiness.html",
+    "text": " Workflow 06 — Production Readiness Areas Authentication & authorization. Data security/privacy/audit. Environment/configuration/secrets. CI/CD/deployment/rollback. Database migration/backup/restore. Logging/metrics/tracing/alerts. Performance/capacity. Incident response/runbooks. Scheduled jobs/external dependencies. Exit Gate Một on call engineer mới phải biết cách phát hiện, chẩn đoán và xử lý các failure mode chính mà không phụ thuộc người build feature ban đầu. "
+  },
+  {
+    "file": "workflows/07-change-management.md",
+    "title": "Workflow 07 — Change Management",
+    "type": "document",
+    "code": "",
+    "page": "pages/workflows-07-change-management.html",
+    "text": " Workflow 07 — Change Management Khi có yêu cầu thay đổi 1. Capture change request + reason. 2. Xác định entity canonical cần đổi. 3. Trace incoming/outgoing relations. 4. Phân tích potential impact. 5. Update docs canonical. 6. Reconcile Screen/API/DB/Test/Runbook liên quan. 7. Tạo ADR nếu decision đáng kể. 8. Update Blueprint/Traceability/Changelog. 9. Review Ready gate trước implementation. 10. Sau release, review Done gate. Không làm Sửa feature rồi quên test. Sửa API path nhưng Blueprint vẫn cũ. Rewrite ADR cũ để hợp lý hóa quyết định mới. Copy cùng rule vào nhiều file. "
+  },
+  {
+    "file": "workflows/08-documentation-tooling.md",
+    "title": "Workflow 08 — Validate, Sync and Publish Documentation",
+    "type": "document",
+    "code": "",
+    "page": "pages/workflows-08-documentation-tooling.html",
+    "text": " Workflow 08 — Validate, Sync and Publish Documentation Mục tiêu Sau khi tài liệu được tạo/update, biến source Markdown thành một knowledge site có thể review trực quan và tự động kiểm tra consistency. Flow mermaid flowchart LR A Edit source Markdown B docs:validate B Error C Fix source C B B Pass D docs:sync D E Generated index + graph + traceability E F docs:build F G Static documentation site G H Human review H Need change A H Approved I Commit / publish Step 1 — Validate bash cd tools npm run docs:validate Resolve tất cả ERRORS . Review warnings về traceability/orphan/stale docs. Step 2 — Sync bash npm run docs:sync Review docs/ generated/DOCUMENT HEALTH.md và TRACEABILITY MATRIX.md . Step 3 — Build web bash npm run docs:build npm run docs:serve Review Dashboard, Catalog, Traceability, Graph và Diagram Gallery. Step 4 — Development/watch mode Khi đang chỉnh nhiều tài liệu: bash npm run docs:dev Step 5 — CI gate CI nên chạy npm ci && npm run docs:all từ tools/ . "
+  },
+  {
+    "file": "workflows/09-project-profile-and-standards.md",
+    "title": "Workflow 09 — Project Profile & Standards Selection",
+    "type": "document",
+    "code": "",
+    "page": "pages/workflows-09-project-profile-and-standards.html",
+    "text": " Workflow 09 — Project Profile & Standards Selection Goal Chọn đúng standard trước khi tạo technical documents. Steps 1. Copy PROJECT PROFILE.example.json thành project profile.json . 2. Chọn projectTypes : web / mobile / api; một product có thể có nhiều loại. 3. Chọn technologyStacks đúng implementation thật. 4. Chạy cd tools && npm run profile:check . 5. Đọc các standard mà output liệt kê theo thứ tự Core Project Type Stack ADR. 6. Ghi link standards vào architecture/blueprint; không copy nội dung standards vào từng feature. 7. Nếu project cố ý khác standard, tạo ADR. Exit Criteria Profile hợp lệ. Không stack nào thiếu project type cha. Architecture docs đã reference applicable standards. Team biết standard nào là mandatory vs project specific exception. "
+  },
+  {
+    "file": "workflows/10-mobile-readiness.md",
+    "title": "Workflow 10 — Mobile Readiness",
+    "type": "document",
+    "code": "",
+    "page": "pages/workflows-10-mobile-readiness.html",
+    "text": " Workflow 10 — Mobile Readiness Áp dụng khi projectTypes có mobile . Required passes 1. Architecture + state ownership. 2. App lifecycle + process death/resume. 3. Network resilience + offline/sync. 4. Storage migration/logout cleanup. 5. Permission/native capability. 6. Navigation/deep link/push contract. 7. Realtime/background work nếu có. 8. Mobile security/privacy + SDK inventory. 9. UI states/accessibility/performance budgets. 10. Device/OS/network/lifecycle test matrix. Chạy npm run docs:validate và không waive error nếu chưa có ADR/owner rõ. "
+  },
+  {
+    "file": "workflows/11-store-release-readiness.md",
+    "title": "Workflow 11 — Store Release Readiness",
+    "type": "document",
+    "code": "",
+    "page": "pages/workflows-11-store-release-readiness.html",
+    "text": " Workflow 11 — Store Release Readiness 1. Freeze version/build + API compatibility window. 2. Verify minimum supported version/maintenance mode/feature flags. 3. Verify signing/certificate/provisioning ownership. 4. Review Apple/Google privacy declarations against SDK/data inventory. 5. Run device/OS matrix + deep link/push/permission/background smoke. 6. Upload crash symbols/source maps. 7. Verify staged rollout, kill switch, hotfix path. 8. Monitor crash free/ANR/startup/error/version adoption after rollout. "
+  },
+  {
+    "file": "workflows/END_TO_END_CHECKLIST.md",
+    "title": "End-to-End Documentation Checklist",
+    "type": "document",
+    "code": "",
+    "page": "pages/workflows-end-to-end-checklist.html",
+    "text": " End to End Documentation Checklist A. Project Foundation Project Overview Product Scope Stakeholders / Personas Glossary Assumptions / Constraints Open Questions B. Functional Inventory Module inventory Feature inventory Roles/Permissions User journeys C. Feature Detail Feature docs Requirements Business Rules Screens / Routes Flows Edge cases D. Technical Contracts API docs Database docs Integrations Architecture docs Background jobs E. Quality NFR Acceptance Criteria Test Cases Traceability audit F. Production Security Environments CI/CD Deployment Rollback Backup/Restore Logging/Monitoring/Alerts Incident Response Runbooks Performance/Capacity G. Governance ADR / Decision Log Release Process Changelog Documentation freshness process PROJECT BLUEPRINT complete Final audit questions Có Feature nào không có Requirement? Có Requirement approved nào không có Test Case? Có Screen/API nào không thuộc Feature nào? Có DB object quan trọng nào không biết ai read/write? Có route/API/table production nào không có trong Blueprint? Có blocking Open Question chưa giải quyết? Có tài liệu duplicate source of truth? H. Tooling & Visual Review cd tools && npm run docs:validate pass npm run docs:sync pass npm run docs:build pass npm run docs:check site pass Dashboard reviewed Catalog reviewed Traceability Matrix reviewed Interactive Graph reviewed for orphan/unexpected links Diagram Gallery reviewed Mermaid flows render correctly Generated output is not being used as canonical business source "
+  }
+]

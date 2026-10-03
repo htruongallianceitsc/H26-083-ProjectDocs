@@ -1,0 +1,18 @@
+{
+  "required": [
+    "projectCode",
+    "projectName",
+    "projectTypes",
+    "technologyStacks"
+  ],
+  "projectTypesEnum": [
+    "web",
+    "mobile",
+    "api"
+  ],
+  "implementationGateFields": [
+    "blockOnOpenQuestions",
+    "blockOnValidationErrors",
+    "blockOnQualityErrors"
+  ]
+}

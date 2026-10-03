@@ -1,0 +1,339 @@
+{
+  "schemaVersion": "2.0",
+  "entityTypes": {
+    "module": {
+      "codePrefix": "MOD",
+      "category": "product",
+      "statuses": [
+        "draft",
+        "planned",
+        "active",
+        "deprecated"
+      ]
+    },
+    "feature": {
+      "codePrefix": "FEAT",
+      "category": "product",
+      "statuses": [
+        "draft",
+        "planned",
+        "in_progress",
+        "implemented",
+        "deprecated"
+      ]
+    },
+    "requirement": {
+      "codePrefix": "REQ",
+      "category": "product",
+      "statuses": [
+        "draft",
+        "approved",
+        "in_progress",
+        "implemented",
+        "deprecated"
+      ]
+    },
+    "business-rule": {
+      "codePrefix": "BR",
+      "category": "business",
+      "statuses": [
+        "draft",
+        "approved",
+        "deprecated"
+      ]
+    },
+    "screen": {
+      "codePrefix": "SCR",
+      "category": "ux",
+      "statuses": [
+        "draft",
+        "approved",
+        "implemented",
+        "deprecated"
+      ]
+    },
+    "flow": {
+      "codePrefix": "FLOW",
+      "category": "ux",
+      "statuses": [
+        "draft",
+        "approved",
+        "implemented",
+        "deprecated"
+      ]
+    },
+    "api": {
+      "codePrefix": "API",
+      "category": "technical",
+      "statuses": [
+        "draft",
+        "approved",
+        "implemented",
+        "deprecated"
+      ]
+    },
+    "database-object": {
+      "codePrefix": "DB",
+      "category": "technical",
+      "statuses": [
+        "draft",
+        "approved",
+        "implemented",
+        "deprecated"
+      ]
+    },
+    "test-case": {
+      "codePrefix": "TC",
+      "category": "quality",
+      "statuses": [
+        "draft",
+        "ready",
+        "passed",
+        "failed",
+        "blocked",
+        "deprecated"
+      ]
+    },
+    "decision": {
+      "codePrefix": "ADR",
+      "category": "governance",
+      "statuses": [
+        "proposed",
+        "accepted",
+        "rejected",
+        "superseded"
+      ]
+    },
+    "open-question": {
+      "codePrefix": "OQ",
+      "category": "governance",
+      "statuses": [
+        "open",
+        "answered",
+        "closed",
+        "deferred"
+      ]
+    },
+    "integration": {
+      "codePrefix": "INT",
+      "category": "technical",
+      "statuses": [
+        "draft",
+        "approved",
+        "implemented",
+        "deprecated"
+      ]
+    },
+    "nfr": {
+      "codePrefix": "NFR",
+      "category": "quality",
+      "statuses": [
+        "draft",
+        "approved",
+        "implemented",
+        "deprecated"
+      ]
+    },
+    "runbook": {
+      "codePrefix": "RB",
+      "category": "operations",
+      "statuses": [
+        "draft",
+        "approved",
+        "active",
+        "deprecated"
+      ]
+    },
+    "release": {
+      "codePrefix": "REL",
+      "category": "delivery",
+      "statuses": [
+        "draft",
+        "ready",
+        "released",
+        "rolled_back",
+        "deprecated"
+      ]
+    },
+    "incident": {
+      "codePrefix": "INC",
+      "category": "operations",
+      "statuses": [
+        "open",
+        "mitigated",
+        "resolved",
+        "closed"
+      ]
+    },
+    "permission": {
+      "codePrefix": "PERM",
+      "category": "mobile",
+      "statuses": [
+        "draft",
+        "approved",
+        "implemented",
+        "deprecated"
+      ]
+    },
+    "native-capability": {
+      "codePrefix": "NCAP",
+      "category": "mobile",
+      "statuses": [
+        "draft",
+        "approved",
+        "implemented",
+        "deprecated"
+      ]
+    },
+    "deep-link": {
+      "codePrefix": "DL",
+      "category": "mobile",
+      "statuses": [
+        "draft",
+        "approved",
+        "implemented",
+        "deprecated"
+      ]
+    },
+    "push-event": {
+      "codePrefix": "PUSH",
+      "category": "mobile",
+      "statuses": [
+        "draft",
+        "approved",
+        "implemented",
+        "deprecated"
+      ]
+    },
+    "local-storage": {
+      "codePrefix": "LS",
+      "category": "mobile",
+      "statuses": [
+        "draft",
+        "approved",
+        "implemented",
+        "deprecated"
+      ]
+    },
+    "sync-policy": {
+      "codePrefix": "SYNC",
+      "category": "mobile",
+      "statuses": [
+        "draft",
+        "approved",
+        "implemented",
+        "deprecated"
+      ]
+    },
+    "background-job-mobile": {
+      "codePrefix": "MBG",
+      "category": "mobile",
+      "statuses": [
+        "draft",
+        "approved",
+        "implemented",
+        "deprecated"
+      ]
+    },
+    "analytics-event": {
+      "codePrefix": "EVT",
+      "category": "analytics",
+      "statuses": [
+        "draft",
+        "approved",
+        "implemented",
+        "deprecated"
+      ]
+    },
+    "feature-flag": {
+      "codePrefix": "FLAG",
+      "category": "delivery",
+      "statuses": [
+        "draft",
+        "active",
+        "retired"
+      ]
+    },
+    "device-test-profile": {
+      "codePrefix": "DTP",
+      "category": "quality",
+      "statuses": [
+        "draft",
+        "approved",
+        "active",
+        "deprecated"
+      ]
+    },
+    "document": {
+      "codePrefix": "DOC",
+      "category": "governance",
+      "statuses": [
+        "draft",
+        "review",
+        "approved",
+        "deprecated"
+      ]
+    },
+    "project": {
+      "codePrefix": "PRJ",
+      "category": "project",
+      "statuses": [
+        "draft",
+        "active",
+        "maintenance",
+        "archived"
+      ]
+    },
+    "architecture": {
+      "codePrefix": "ARCH",
+      "category": "technical",
+      "statuses": [
+        "draft",
+        "approved",
+        "implemented",
+        "deprecated"
+      ]
+    },
+    "monitoring-alert": {
+      "codePrefix": "ALERT",
+      "category": "operations",
+      "statuses": [
+        "draft",
+        "active",
+        "disabled",
+        "deprecated"
+      ]
+    },
+    "review": {
+      "codePrefix": "REVIEW",
+      "category": "governance",
+      "statuses": [
+        "draft",
+        "approved",
+        "superseded"
+      ]
+    },
+    "task": {
+      "codePrefix": "TASK",
+      "category": "delivery",
+      "statuses": [
+        "todo",
+        "in_progress",
+        "blocked",
+        "done",
+        "cancelled"
+      ]
+    },
+    "bug": {
+      "codePrefix": "BUG",
+      "category": "delivery",
+      "statuses": [
+        "open",
+        "in_progress",
+        "resolved",
+        "closed",
+        "rejected"
+      ]
+    }
+  }
+}

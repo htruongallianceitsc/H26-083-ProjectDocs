@@ -1,0 +1,223 @@
+{
+  "schemaVersion": "2.0",
+  "overlink": {
+    "warningDegree": 24,
+    "errorDegree": 45,
+    "maxSingleRelationTargets": 15
+  },
+  "rules": [
+    {
+      "id": "feature-requirement",
+      "severity": "warning",
+      "targetTypes": [
+        "feature"
+      ],
+      "statuses": [
+        "planned",
+        "in_progress",
+        "implemented"
+      ],
+      "relationKey": "requirements",
+      "min": 1
+    },
+    {
+      "id": "requirement-test",
+      "severity": "warning",
+      "targetTypes": [
+        "requirement"
+      ],
+      "statuses": [
+        "approved",
+        "in_progress",
+        "implemented"
+      ],
+      "relationKey": "tests",
+      "min": 1,
+      "direction": "both"
+    },
+    {
+      "id": "mobile-screen-state",
+      "severity": "warning",
+      "projectTypes": [
+        "mobile"
+      ],
+      "targetTypes": [
+        "screen"
+      ],
+      "requiredSections": [
+        "UI States",
+        "Offline",
+        "Permission"
+      ]
+    },
+    {
+      "id": "permission-denied-flow",
+      "severity": "error",
+      "projectTypes": [
+        "mobile"
+      ],
+      "targetTypes": [
+        "permission"
+      ],
+      "requiredSections": [
+        "Denied / Revoked Behaviour",
+        "Privacy Purpose"
+      ]
+    },
+    {
+      "id": "deep-link-fallback",
+      "severity": "error",
+      "projectTypes": [
+        "mobile"
+      ],
+      "targetTypes": [
+        "deep-link"
+      ],
+      "requiredSections": [
+        "Invalid Target",
+        "Unauthorized Target",
+        "Deleted Target"
+      ]
+    },
+    {
+      "id": "sync-idempotency-conflict",
+      "severity": "error",
+      "projectTypes": [
+        "mobile"
+      ],
+      "targetTypes": [
+        "sync-policy"
+      ],
+      "requiredSections": [
+        "Idempotency",
+        "Conflict Policy",
+        "Retry / Backoff"
+      ]
+    },
+    {
+      "id": "push-navigation-contract",
+      "severity": "warning",
+      "projectTypes": [
+        "mobile"
+      ],
+      "targetTypes": [
+        "push-event"
+      ],
+      "requiredAnyRelation": [
+        "deep_links",
+        "screens"
+      ]
+    },
+    {
+      "id": "device-profile-release",
+      "severity": "warning",
+      "projectTypes": [
+        "mobile"
+      ],
+      "targetTypes": [
+        "release"
+      ],
+      "relationKey": "device_test_profiles",
+      "min": 1
+    },
+    {
+      "id": "api-test",
+      "severity": "warning",
+      "projectTypes": [
+        "api"
+      ],
+      "targetTypes": [
+        "api"
+      ],
+      "statuses": [
+        "approved",
+        "implemented"
+      ],
+      "relationKey": "tests",
+      "min": 1,
+      "direction": "both"
+    },
+    {
+      "id": "mobile-time-timezone",
+      "severity": "error",
+      "projectTypes": [
+        "mobile"
+      ],
+      "targetTypes": [
+        "feature"
+      ],
+      "tagsAny": [
+        "time-sensitive",
+        "attendance",
+        "timesheet"
+      ],
+      "requiredSections": [
+        "Time / Timezone"
+      ]
+    },
+    {
+      "id": "mobile-critical-test-profile",
+      "severity": "warning",
+      "projectTypes": [
+        "mobile"
+      ],
+      "targetTypes": [
+        "feature"
+      ],
+      "tagsAny": [
+        "mobile-critical",
+        "critical-flow"
+      ],
+      "relationKey": "device_test_profiles",
+      "min": 1,
+      "direction": "both"
+    },
+    {
+      "id": "mobile-critical-tests",
+      "severity": "error",
+      "projectTypes": [
+        "mobile"
+      ],
+      "targetTypes": [
+        "feature"
+      ],
+      "tagsAny": [
+        "mobile-critical",
+        "critical-flow"
+      ],
+      "relationKey": "tests",
+      "min": 1,
+      "direction": "both"
+    },
+    {
+      "id": "mobile-release-sections",
+      "severity": "error",
+      "projectTypes": [
+        "mobile"
+      ],
+      "targetTypes": [
+        "release"
+      ],
+      "requiredSections": [
+        "API Compatibility Window",
+        "Store Metadata / Privacy Review",
+        "Device / OS Matrix",
+        "Rollback / Hotfix"
+      ]
+    },
+    {
+      "id": "security-sensitive-review",
+      "severity": "warning",
+      "targetTypes": [
+        "feature"
+      ],
+      "tagsAny": [
+        "security-sensitive",
+        "privacy-sensitive"
+      ],
+      "requiredSections": [
+        "Security"
+      ]
+    }
+  ]
+}

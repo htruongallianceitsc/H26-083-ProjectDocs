@@ -1,175 +1,53 @@
-# Documentation Tooling (NodeJS)
+# Documentation Toolchain
 
-Toolchain này biến repository tài liệu thành một hệ thống có thể kiểm tra, đồng bộ index và xem trực quan trên web.
-
-## Yêu cầu
-
-- NodeJS >= 20
-- Toolchain core không có dependency NPM bên ngoài. Chạy lần đầu:
-
-```bash
-cd tools
-npm install
-```
-
-Không commit `tools/node_modules/`.
+Zero-dependency NodeJS toolchain (Node 20+). `npm install` không bắt buộc vì package không có runtime dependency.
 
 ## Commands
 
-### 1. Validate source docs
-
 ```bash
+cd tools
+npm run profile:check
 npm run docs:validate
-```
-
-Kiểm tra:
-
-- frontmatter bắt buộc theo loại entity;
-- placeholder còn sót trong source docs;
-- code format và duplicate code;
-- broken local Markdown link;
-- broken relation trong `related`;
-- duplicate screen route;
-- duplicate API method + path;
-- stale review date;
-- orphan entity;
-- feature thiếu requirement;
-- requirement thiếu test;
-- screen/API chưa trace về feature;
-- Mermaid block có declaration bất thường.
-
-Validator **không sửa source**. Có error thì exit code = 1 để dùng trong CI.
-
-### 2. Sync documentation model
-
-```bash
 npm run docs:sync
-```
-
-Scan source docs và tạo lại:
-
-```text
-docs/_generated/
-├── DOCUMENT_INDEX.md
-├── TRACEABILITY_MATRIX.md
-├── PROJECT_GRAPH.md
-└── DOCUMENT_HEALTH.md
-
-tools/.cache/
-├── catalog.json
-└── graph.json
-```
-
-Các file trên là derived output, không phải source of truth.
-
-### 3. Build static website
-
-```bash
 npm run docs:build
-```
-
-Output: `../site/`
-
-Website có:
-
-- dashboard inventory/health;
-- sidebar theo nhóm tài liệu;
-- render Markdown;
-- syntax highlighted code blocks;
-- Mermaid flowchart/sequence/state/ERD/architecture diagrams;
-- full-text search;
-- metadata panel;
-- backlinks/related documents;
-- entity catalog;
-- traceability matrix;
-- interactive Cytoscape project graph;
-- diagram gallery;
-- dark/light mode.
-
-Interactive project graph dùng SVG/JavaScript thuần, không cần thư viện ngoài. Mermaid mặc định render qua CDN; nếu cần môi trường offline, chạy `npm run docs:vendor` một lần để tải `tools/vendor/mermaid.min.js`. Builder sẽ tự ưu tiên bản local.
-
-### 4. Serve static site
-
-```bash
+npm run docs:check-site
 npm run docs:serve
 ```
 
-Default: `http://127.0.0.1:4173`
-
-Custom port:
-
-```bash
-node scripts/serve-site.mjs --port=8080
-```
-
-### 5. Development mode
-
-```bash
-npm run docs:dev
-```
-
-Watch Markdown source, tự sync + build lại khi thay đổi và đồng thời mở static server.
-
-### 6. CI/full build
+Full pipeline:
 
 ```bash
 npm run docs:all
 ```
 
-Equivalent:
+## What is validated
+- Entity `type/status` phải thuộc registry.
+- Frontmatter required fields/date.
+- Stable code uniqueness.
+- Typed relation target + allowed source relation + cardinality.
+- Broken relation.
+- Duplicate route/API method+path.
+- Over-link / high graph degree.
+- Data-driven quality rules theo `project-profile.json`.
+- Blocking Open Question gate.
+- Mermaid structural lint.
+- Dependency-hash stale warning.
 
-```text
-validate -> sync -> build
-```
+## Sync outputs
+`docs/_generated/` chứa catalog, graph, typed traceability và health report. Traceability không dùng generic untyped 2-hop; chỉ dùng direct/typed path và explicit `Feature -> Requirement -> Test`.
 
-Nếu validation có error, pipeline dừng trước khi generate website.
+## Static site
+`docs:build` render Markdown, table, code, Mermaid, Catalog, typed Traceability, Diagram Gallery, search và interactive typed graph.
 
-## Source vs generated
-
-```text
-Source of truth
-  *.md + docs/**/*.md + metadata related
-          |
-          v
-      validate
-          |
-          v
-        sync
-       /    \
-_generated   .cache
-       \    /
-          v
-         build
-          |
-          v
-         site/
-```
-
-Không edit trực tiếp `site/`, `docs/_generated/` hoặc `tools/.cache/`.
-
-
-### 7. Vendor Mermaid for offline use
+Mermaid mặc định thử local vendor rồi CDN. Muốn offline hoàn toàn:
 
 ```bash
 npm run docs:vendor
 npm run docs:build
 ```
 
-Nếu không vendor, HTML vẫn build bình thường; các Mermaid diagram cần truy cập CDN khi browser mở site. Các view còn lại (Markdown, search, catalog, traceability, interactive graph) hoàn toàn self-contained.
+## Stale detection
+`tools/.cache/dependency-state.json` lưu baseline hash. Nếu source A không đổi nhưng entity liên quan của A đổi, A được đánh dấu stale. Khi A được chỉnh/review lại, baseline dependency hash được cập nhật.
 
-
-### 8. Check generated local links
-
-```bash
-npm run docs:check-site
-```
-
-Duyệt toàn bộ HTML đã build và fail nếu `href/src` nội bộ trỏ tới file không tồn tại. `docs:all` đã bao gồm bước này.
-
-### 9. Clean derived output
-
-```bash
-npm run docs:clean
-```
-
-Xóa `site/`, `tools/.cache/`, `docs/_generated/`. Source Markdown không bị ảnh hưởng.
+## Source of truth
+Tools không tự sửa source Markdown. Generated outputs nằm ở `docs/_generated/`, `site/`, `tools/.cache/`.

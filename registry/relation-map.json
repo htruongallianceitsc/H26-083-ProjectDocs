@@ -1,0 +1,431 @@
+{
+  "schemaVersion": "2.0",
+  "relationKeys": {
+    "modules": "module",
+    "features": "feature",
+    "requirements": "requirement",
+    "business_rules": "business-rule",
+    "screens": "screen",
+    "flows": "flow",
+    "apis": "api",
+    "database_objects": "database-object",
+    "tests": "test-case",
+    "decisions": "decision",
+    "integrations": "integration",
+    "nfrs": "nfr",
+    "runbooks": "runbook",
+    "permissions": "permission",
+    "native_capabilities": "native-capability",
+    "deep_links": "deep-link",
+    "push_events": "push-event",
+    "local_storage": "local-storage",
+    "sync_policies": "sync-policy",
+    "background_jobs_mobile": "background-job-mobile",
+    "analytics_events": "analytics-event",
+    "feature_flags": "feature-flag",
+    "device_test_profiles": "device-test-profile",
+    "open_questions": "open-question",
+    "releases": "release"
+  },
+  "allowed": {
+    "module": [
+      "features",
+      "decisions",
+      "nfrs",
+      "open_questions"
+    ],
+    "feature": [
+      "modules",
+      "requirements",
+      "business_rules",
+      "screens",
+      "flows",
+      "apis",
+      "database_objects",
+      "tests",
+      "decisions",
+      "integrations",
+      "nfrs",
+      "permissions",
+      "native_capabilities",
+      "deep_links",
+      "push_events",
+      "local_storage",
+      "sync_policies",
+      "background_jobs_mobile",
+      "analytics_events",
+      "feature_flags",
+      "device_test_profiles",
+      "open_questions"
+    ],
+    "requirement": [
+      "features",
+      "business_rules",
+      "screens",
+      "flows",
+      "apis",
+      "database_objects",
+      "tests",
+      "decisions",
+      "nfrs",
+      "permissions",
+      "open_questions"
+    ],
+    "business-rule": [
+      "features",
+      "requirements",
+      "apis",
+      "database_objects",
+      "tests",
+      "decisions",
+      "open_questions"
+    ],
+    "screen": [
+      "features",
+      "requirements",
+      "flows",
+      "apis",
+      "tests",
+      "permissions",
+      "native_capabilities",
+      "deep_links",
+      "push_events",
+      "analytics_events",
+      "feature_flags",
+      "open_questions"
+    ],
+    "flow": [
+      "features",
+      "requirements",
+      "screens",
+      "apis",
+      "tests",
+      "permissions",
+      "deep_links",
+      "push_events",
+      "sync_policies",
+      "open_questions"
+    ],
+    "api": [
+      "features",
+      "requirements",
+      "business_rules",
+      "database_objects",
+      "tests",
+      "integrations",
+      "nfrs",
+      "decisions",
+      "open_questions"
+    ],
+    "database-object": [
+      "features",
+      "requirements",
+      "apis",
+      "tests",
+      "decisions",
+      "open_questions"
+    ],
+    "test-case": [
+      "features",
+      "requirements",
+      "business_rules",
+      "screens",
+      "flows",
+      "apis",
+      "permissions",
+      "deep_links",
+      "push_events",
+      "sync_policies",
+      "device_test_profiles"
+    ],
+    "decision": [
+      "modules",
+      "features",
+      "requirements",
+      "business_rules",
+      "screens",
+      "apis",
+      "database_objects",
+      "integrations",
+      "nfrs",
+      "permissions",
+      "open_questions"
+    ],
+    "open-question": [
+      "modules",
+      "features",
+      "requirements",
+      "business_rules",
+      "screens",
+      "flows",
+      "apis",
+      "database_objects",
+      "decisions",
+      "integrations",
+      "nfrs",
+      "permissions",
+      "releases"
+    ],
+    "integration": [
+      "features",
+      "apis",
+      "tests",
+      "decisions",
+      "nfrs",
+      "open_questions"
+    ],
+    "nfr": [
+      "modules",
+      "features",
+      "requirements",
+      "apis",
+      "tests",
+      "decisions",
+      "device_test_profiles",
+      "open_questions"
+    ],
+    "runbook": [
+      "features",
+      "apis",
+      "integrations",
+      "nfrs",
+      "releases",
+      "open_questions"
+    ],
+    "release": [
+      "features",
+      "tests",
+      "decisions",
+      "nfrs",
+      "runbooks",
+      "device_test_profiles",
+      "feature_flags",
+      "open_questions"
+    ],
+    "permission": [
+      "features",
+      "screens",
+      "flows",
+      "tests",
+      "decisions",
+      "native_capabilities",
+      "open_questions"
+    ],
+    "native-capability": [
+      "features",
+      "screens",
+      "permissions",
+      "tests",
+      "decisions",
+      "open_questions"
+    ],
+    "deep-link": [
+      "features",
+      "screens",
+      "flows",
+      "tests",
+      "push_events",
+      "decisions",
+      "open_questions"
+    ],
+    "push-event": [
+      "features",
+      "screens",
+      "deep_links",
+      "tests",
+      "analytics_events",
+      "decisions",
+      "open_questions"
+    ],
+    "local-storage": [
+      "features",
+      "sync_policies",
+      "tests",
+      "decisions",
+      "open_questions"
+    ],
+    "sync-policy": [
+      "features",
+      "apis",
+      "local_storage",
+      "tests",
+      "decisions",
+      "open_questions"
+    ],
+    "background-job-mobile": [
+      "features",
+      "apis",
+      "push_events",
+      "tests",
+      "decisions",
+      "open_questions"
+    ],
+    "analytics-event": [
+      "features",
+      "screens",
+      "push_events",
+      "decisions",
+      "open_questions"
+    ],
+    "feature-flag": [
+      "features",
+      "screens",
+      "apis",
+      "releases",
+      "tests",
+      "decisions",
+      "open_questions"
+    ],
+    "device-test-profile": [
+      "features",
+      "tests",
+      "nfrs",
+      "releases"
+    ],
+    "incident": [
+      "features",
+      "apis",
+      "integrations",
+      "runbooks",
+      "releases",
+      "decisions"
+    ],
+    "document": [
+      "modules",
+      "features",
+      "requirements",
+      "business_rules",
+      "screens",
+      "flows",
+      "apis",
+      "database_objects",
+      "tests",
+      "decisions",
+      "integrations",
+      "nfrs",
+      "runbooks",
+      "permissions",
+      "native_capabilities",
+      "deep_links",
+      "push_events",
+      "local_storage",
+      "sync_policies",
+      "background_jobs_mobile",
+      "analytics_events",
+      "feature_flags",
+      "device_test_profiles",
+      "open_questions",
+      "releases"
+    ],
+    "project": [
+      "modules",
+      "decisions",
+      "nfrs",
+      "open_questions",
+      "releases"
+    ],
+    "architecture": [
+      "modules",
+      "features",
+      "apis",
+      "database_objects",
+      "decisions",
+      "integrations",
+      "nfrs",
+      "permissions",
+      "native_capabilities",
+      "open_questions"
+    ],
+    "monitoring-alert": [
+      "features",
+      "apis",
+      "integrations",
+      "nfrs",
+      "runbooks",
+      "releases"
+    ],
+    "review": [
+      "modules",
+      "features",
+      "requirements",
+      "business_rules",
+      "screens",
+      "flows",
+      "apis",
+      "database_objects",
+      "tests",
+      "decisions",
+      "integrations",
+      "nfrs",
+      "runbooks",
+      "permissions",
+      "native_capabilities",
+      "deep_links",
+      "push_events",
+      "local_storage",
+      "sync_policies",
+      "background_jobs_mobile",
+      "analytics_events",
+      "feature_flags",
+      "device_test_profiles",
+      "open_questions",
+      "releases"
+    ],
+    "task": [
+      "modules",
+      "features",
+      "requirements",
+      "business_rules",
+      "screens",
+      "flows",
+      "apis",
+      "database_objects",
+      "tests",
+      "decisions",
+      "integrations",
+      "nfrs",
+      "runbooks",
+      "permissions",
+      "native_capabilities",
+      "deep_links",
+      "push_events",
+      "local_storage",
+      "sync_policies",
+      "background_jobs_mobile",
+      "analytics_events",
+      "feature_flags",
+      "device_test_profiles",
+      "open_questions",
+      "releases"
+    ],
+    "bug": [
+      "features",
+      "requirements",
+      "screens",
+      "flows",
+      "apis",
+      "database_objects",
+      "tests",
+      "releases",
+      "open_questions"
+    ]
+  },
+  "cardinality": {
+    "feature": {
+      "modules": {
+        "max": 1
+      }
+    },
+    "deep-link": {
+      "screens": {
+        "min": 1,
+        "max": 1
+      }
+    },
+    "push-event": {
+      "deep_links": {
+        "max": 1
+      }
+    }
+  }
+}

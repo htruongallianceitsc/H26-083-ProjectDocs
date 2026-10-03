@@ -1,88 +1,68 @@
-# START HERE — Quy trình từ ý tưởng đến bộ tài liệu production-ready
+# START HERE — Từ ý tưởng đến documentation production-ready
 
-## Mục tiêu
+## Phase 0 — Chọn project profile trước
 
-Tạo một bộ tài liệu đủ chi tiết để:
-
-- PM/BA hiểu phạm vi sản phẩm.
-- UX/UI hiểu screen, route, state và flow.
-- Dev hiểu contract cần triển khai.
-- QA có acceptance criteria và test coverage.
-- DevOps/Ops hiểu deployment, monitoring, rollback, recovery.
-- Team mới có thể onboard mà không phụ thuộc người cũ.
-- AI Agent có thể đọc project, phân tích impact và sinh tài liệu mới có kiểm soát.
-
-## 8 phase
-
-| Phase | Mục tiêu | Output chính |
-|---|---|---|
-| 1 | Idea & Discovery | Project Overview, Scope, Glossary, Open Questions |
-| 2 | Blueprint | Module, Feature inventory, Route/API/DB inventory |
-| 3 | Functional Detail | Requirement, Rule, Feature, Screen, Flow |
-| 4 | Technical Contracts | API, DB, Integration, Architecture |
-| 5 | Quality | Acceptance Criteria, Test Case, NFR |
-| 6 | Production Readiness | Security, DevOps, Monitoring, Runbook, Backup |
-| 7 | Governance | Traceability, Decisions, Change/Release process |
-| 8 | Tooling & Visual Review | Validate, sync, static site, graph, diagram review |
-
-## Cách làm khuyến nghị
-
-### Phase 1 — Idea & Discovery
-Đọc `workflows/01-idea-to-scope.md`, sau đó dùng:
-- `prompts/01-idea-to-project-overview.md`
-- `prompts/02-discovery-open-questions.md`
-
-### Phase 2 — Blueprint
-Đọc `workflows/02-scope-to-blueprint.md`, dùng:
-- `prompts/03-build-project-blueprint.md`
-- `prompts/04-module-decomposition.md`
-
-### Phase 3 — Functional Detail
-Đọc `workflows/03-blueprint-to-functional-docs.md`, dùng:
-- `prompts/05-feature-specification.md`
-- `prompts/06-requirements-business-rules.md`
-- `prompts/07-screen-route-ux.md`
-- `prompts/08-flow-diagrams.md`
-
-### Phase 4 — Technical Contracts
-Đọc `workflows/04-functional-to-technical-contracts.md`, dùng:
-- `prompts/09-api-contracts.md`
-- `prompts/10-database-design.md`
-- `prompts/11-architecture-integrations.md`
-
-### Phase 5 — Quality
-Đọc `workflows/05-quality-and-test.md`, dùng:
-- `prompts/12-non-functional-requirements.md`
-- `prompts/13-test-design.md`
-- `prompts/17-traceability-audit.md`
-
-### Phase 6 — Production Readiness
-Đọc `workflows/06-production-readiness.md`, dùng:
-- `prompts/14-security-review.md`
-- `prompts/15-devops-production.md`
-- `prompts/16-monitoring-runbooks.md`
-
-### Phase 7 — Governance & Maintenance
-Đọc `workflows/07-change-management.md`, dùng:
-- `prompts/18-change-impact-analysis.md`
-- `prompts/19-release-readiness.md`
-- `prompts/20-documentation-maintenance.md`
-
-### Phase 8 — Tooling & Visual Review
-Đọc `workflows/08-documentation-tooling.md`, dùng:
-- `prompts/21-documentation-health-and-site.md`
-
-Sau đó chạy:
+1. Copy `PROJECT_PROFILE.example.json` -> `project-profile.json`.
+2. Chọn một hoặc nhiều project type: `web`, `mobile`, `api`.
+3. Chọn technology stack đúng implementation thật.
+4. Chạy:
 
 ```bash
 cd tools
-npm install
+npm run profile:check
+```
+
+5. Đọc standards theo thứ tự Core -> Project Type -> Stack -> Project ADR.
+
+Không tạo technical design trước khi profile/standards được chọn nếu technology đã biết.
+
+## 11 phase
+
+| Phase | Mục tiêu | Output chính |
+|---|---|---|
+| 0 | Project profile | Applicable standards |
+| 1 | Idea & Discovery | Overview, Scope, Glossary, Open Questions |
+| 2 | Blueprint | Module/Feature/Route/API/DB inventory |
+| 3 | Functional Detail | Requirement, Rule, Screen, Flow |
+| 4 | Technical Contracts | API, DB, Integration, Architecture |
+| 5 | Quality | Acceptance Criteria, Test, NFR |
+| 6 | Production Readiness | Security, DevOps, Monitoring, Runbook |
+| 7 | Governance | Decision, Traceability, Change/Release |
+| 8 | Tooling | Validate, Sync, Static Site, Graph |
+| 9 | Profile/Standards Audit | Project-type + stack compliance |
+| 10 | Mobile Readiness | Lifecycle/offline/native/device readiness |
+| 11 | Store Release Readiness | iOS/Android release/store/backward compatibility |
+
+## Workflow mapping
+
+- `workflows/01-idea-to-scope.md`
+- `workflows/02-scope-to-blueprint.md`
+- `workflows/03-blueprint-to-functional-docs.md`
+- `workflows/04-functional-to-technical-contracts.md`
+- `workflows/05-quality-and-test.md`
+- `workflows/06-production-readiness.md`
+- `workflows/07-change-management.md`
+- `workflows/08-documentation-tooling.md`
+- `workflows/09-project-profile-and-standards.md`
+- `workflows/10-mobile-readiness.md` khi có mobile
+- `workflows/11-store-release-readiness.md` khi chuẩn bị mobile store release
+
+## Prompts mới cho profile-specific review
+
+- `prompts/22-project-profile-selector.md`
+- `prompts/23-mobile-readiness-review.md`
+- `prompts/24-backend-api-readiness-review.md`
+
+## AI rule
+
+AI không được chọn standard chỉ theo keyword trong filename. Phải đọc `project-profile.json`, registry và ADR. Nếu thiếu evidence, ghi Open Question thay vì tự giả định stack/architecture.
+
+## Gate cuối mỗi batch
+
+```bash
+cd tools
 npm run docs:all
 npm run docs:serve
 ```
 
-Review Dashboard, Catalog, Traceability, Interactive Graph và Diagram Gallery trước khi coi documentation batch hoàn tất.
-
-## Rule quan trọng khi dùng AI
-
-Không yêu cầu AI "viết hết project một lần". Hãy đi theo phase và review output mỗi phase. AI phải ghi rõ assumptions, open questions và các nơi chưa có đủ evidence. Không được tự biến assumption thành business fact.
+Review Dashboard, typed Traceability, Graph và Diagram Gallery trước khi approve batch.

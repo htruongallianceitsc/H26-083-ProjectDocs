@@ -1,0 +1,1 @@
+document.getElementById('theme')?.addEventListener('click',()=>{const d=document.documentElement;d.dataset.theme=d.dataset.theme==='dark'?'light':'dark';localStorage.theme=d.dataset.theme});document.documentElement.dataset.theme=localStorage.theme||'light';

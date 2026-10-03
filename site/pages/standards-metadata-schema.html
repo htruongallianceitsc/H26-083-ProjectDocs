@@ -1,0 +1,42 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Metadata Schema</title><link rel="stylesheet" href="../assets/style.css"></head><body><header><strong>Project Docs</strong><nav><a href="../index.html">Dashboard</a><a href="../catalog.html">Catalog</a><a href="../standards.html">Standards</a><a href="../profile.html">Profile</a><a href="../traceability.html">Traceability</a><a href="../graph.html">Graph</a><a href="../flows.html">Diagrams</a></nav><button id="theme">◐</button></header><main><div class="crumb">standards/metadata-schema.md</div><h1 id="metadata-schema">Metadata Schema</h1><p>Entity frontmatter được validator kiểm theo <code>registry/frontmatter-schema.json</code> và <code>registry/entity-types.json</code>.</p><pre><code class="language-yaml">---
+code: &lt;stable-id&gt;
+type: &lt;entity-type-from-registry&gt;
+title: &lt;title&gt;
+status: draft
+owner: &lt;team/person&gt;
+created_at: YYYY-MM-DD
+updated_at: YYYY-MM-DD
+last_reviewed_at: YYYY-MM-DD
+reviewers: []
+tags: []
+blocking: false              # open-question only when relevant
+route: /example              # screen/deep-link when relevant
+method: POST                 # api when relevant
+path: /api/example           # api when relevant
+related:
+  modules: []
+  features: []
+  requirements: []
+  business_rules: []
+  screens: []
+  flows: []
+  apis: []
+  database_objects: []
+  tests: []
+  decisions: []
+  integrations: []
+  nfrs: []
+  runbooks: []
+  permissions: []
+  native_capabilities: []
+  deep_links: []
+  push_events: []
+  local_storage: []
+  sync_policies: []
+  background_jobs_mobile: []
+  analytics_events: []
+  feature_flags: []
+  device_test_profiles: []
+  open_questions: []
+  releases: []
+---</code></pre><h2 id="rules">Rules</h2><ul><li><code>type</code> và <code>status</code> phải tồn tại trong entity registry.</li><li>Relation key phải tồn tại trong relation map và target code phải resolve được.</li><li>Relation phải hợp lệ cho source type -&gt; relation key -&gt; target type và cardinality.</li><li>Không link chỉ vì cùng domain/name. Link phải có evidence nghiệp vụ/technical cụ thể.</li><li>Validator cảnh báo hub/degree bất thường để giảm over-link.</li></ul></main><script src="../assets/app.js"></script><script type="module" src="../assets/mermaid-loader.js"></script></body></html>

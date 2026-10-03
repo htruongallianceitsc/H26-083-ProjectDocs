@@ -1,93 +1,104 @@
-# Production Web Project Documentation Starter Kit
+# Production Project Documentation Starter Kit
 
-Bộ khung này dành cho project web theo hướng **documentation-first**. Mục tiêu là tạo đủ tài liệu để một team mới hoặc AI Agent có thể hiểu project, đánh giá impact, phát triển feature và vận hành production lâu dài mà không phụ thuộc vào kiến thức truyền miệng.
+Bộ khung **documentation-first** cho project production có thể gồm Web, Mobile, API/Backend hoặc nhiều surface cùng lúc. Mục tiêu là để PM/BA/UX/Dev/QA/Ops và AI Agent cùng dùng một source of truth có traceability, quality gate và static documentation portal.
+
+## Điểm mới: standards theo profile
+
+Standards được áp dụng theo thứ tự:
+
+```text
+Core Governance
+   ↓
+Project Type Standard
+   ├── Web
+   ├── Mobile
+   └── API / Backend
+   ↓
+Technology Stack Standard
+   ├── ReactJS
+   ├── React Native / Expo
+   ├── Flutter
+   ├── NodeJS API
+   ├── ASP.NET Core API
+   └── PostgreSQL
+   ↓
+Project ADR / Exception
+```
+
+Project thật tạo `project-profile.json` từ `PROJECT_PROFILE.example.json`. Toolchain sẽ kiểm tra stack có phù hợp project type và liệt kê toàn bộ standard cần áp dụng.
 
 ## Nguyên tắc cốt lõi
 
-1. `PROJECT_BLUEPRINT.md` là bản đồ cấp cao của toàn project.
+1. `PROJECT_BLUEPRINT.md` là inventory/bản đồ cấp cao.
 2. `Module -> Feature` là xương sống chức năng.
-3. Mỗi entity có một mã ổn định: Module, Feature, Requirement, Business Rule, Screen, API, DB Object, Test, Decision...
-4. Một thông tin chỉ có **một source of truth**; tài liệu khác tham chiếu bằng code/link thay vì copy lại.
-5. Mọi Feature phải trace được tối thiểu: `Feature -> Requirement/Rule -> Screen/API/DB -> Test`.
-6. Thay đổi một entity phải có impact analysis và kiểm tra tài liệu liên quan có bị stale không.
-7. Bộ tài liệu này chỉ quản lý tài liệu. Không sinh code ứng dụng trừ khi project về sau chủ động mở phase implementation.
+3. Entity dùng stable code; relation dựa evidence, không dựa filename hoặc tên giống nhau.
+4. Một business/technical fact có một source of truth.
+5. Traceability dùng typed/direct path; không dùng generic 2-hop dễ kéo nhầm entity.
+6. Project type + technology stack quyết định standard bắt buộc.
+7. Thay đổi entity phải có impact analysis + stale dependency check.
+8. Open Question blocking có thể chặn Definition of Ready.
+9. Generated graph/site/report không phải source of truth.
 
-## Cách bắt đầu nhanh
-
-1. Đọc `START_HERE.md`.
-2. Đi lần lượt qua `workflows/01` đến `workflows/08`.
-3. Dùng prompt trong `prompts/` tương ứng với từng phase.
-4. Dùng template trong `templates/` để tạo tài liệu thật.
-5. Cập nhật `PROJECT_BLUEPRINT.md` sau mỗi batch tài liệu.
-6. Chạy checklist trong `workflows/END_TO_END_CHECKLIST.md` trước khi coi bộ tài liệu là đủ.
-7. Xem `examples/mini-project/` để thấy một feature mẫu được trace xuyên suốt.
-8. Vào `tools/`, chạy `npm install` rồi `npm run docs:all` để validate + sync + build web.
-9. Chạy `npm run docs:serve` và mở `http://127.0.0.1:4173` để xem tài liệu trực quan.
-
-## Cấu trúc chính
-
-```text
-.
-├── START_HERE.md
-├── PROJECT_BLUEPRINT.md
-├── DOCS_GOVERNANCE.md
-├── registry/
-├── standards/
-├── workflows/
-├── prompts/
-├── templates/
-├── tools/              # NodeJS validator/sync/static-site generator
-├── site/               # generated static web (sau khi build)
-├── docs/
-│   ├── 00-project/
-│   ├── 01-product/
-│   ├── 02-modules/
-│   ├── 03-requirements/
-│   ├── 04-business-rules/
-│   ├── 05-screens/
-│   ├── 06-flows/
-│   ├── 07-api/
-│   ├── 08-database/
-│   ├── 09-architecture/
-│   ├── 10-security/
-│   ├── 11-quality/
-│   ├── 12-devops/
-│   ├── 13-operations/
-│   ├── 14-performance/
-│   ├── 15-decisions/
-│   ├── 16-release/
-│   ├── 17-traceability/
-│   ├── 18-changelog/
-│   └── 19-open-items/
-└── examples/mini-project/
-```
-
-## Documentation toolchain
+## Quick start
 
 ```bash
+cp PROJECT_PROFILE.example.json project-profile.json
+# chỉnh projectTypes + technologyStacks
 cd tools
-npm install
+npm run profile:check
 npm run docs:all
 npm run docs:serve
 ```
 
-Các view web chính: Dashboard, Markdown pages, Catalog, Traceability Matrix, Interactive Project Graph và Diagram Gallery. Diagram Mermaid được render trực tiếp từ fenced block trong Markdown; graph quan hệ được sinh tự động từ metadata `related`.
+Sau đó đọc `START_HERE.md` và làm lần lượt workflow.
 
-Chi tiết xem `tools/README.md` và `workflows/08-documentation-tooling.md`.
+## Cấu trúc
 
-## Khi nào tài liệu được coi là sẵn sàng cho implementation?
+```text
+.
+├── PROJECT_PROFILE.example.json
+├── PROJECT_BLUEPRINT.md
+├── START_HERE.md
+├── registry/
+│   ├── entity-types.json
+│   ├── relation-map.json
+│   ├── frontmatter-schema.json
+│   ├── project-types.json
+│   ├── technology-stacks.json
+│   ├── traceability-profiles.json
+│   └── quality-rules.json
+├── standards/
+│   ├── project-types/
+│   │   ├── web/
+│   │   ├── mobile/
+│   │   └── api/
+│   └── stacks/
+│       ├── web/reactjs/
+│       ├── mobile/react-native/
+│       ├── mobile/flutter/
+│       ├── api/nodejs/
+│       ├── api/dotnet-core/
+│       └── database/postgresql/
+├── templates/
+├── prompts/
+├── workflows/
+├── docs/
+├── tools/
+└── site/                     # generated
+```
 
-Tối thiểu phải có:
+## Tooling gates đã có
 
-- Project scope rõ.
-- Module và Feature inventory đầy đủ.
-- Requirement + Business Rule cho feature cần làm.
-- Screen/Flow nếu có UI.
-- API contract nếu có backend interaction.
-- DB impact nếu có persistence.
-- Permission/Security/NFR liên quan.
-- Acceptance Criteria và Test Case.
-- Không còn open question blocking.
-- Traceability không bị đứt.
+- Registry-enforced entity type/status.
+- Frontmatter required fields.
+- Typed relation source -> relation -> target + cardinality.
+- Duplicate stable code/route/API contract.
+- Over-link/high-degree warning.
+- Data-driven quality rules theo project profile.
+- Typed traceability; explicit `Feature -> Requirement -> Test` path.
+- Dependency-hash stale detection.
+- Blocking Open Question gate.
+- Mermaid structural lint.
+- Static site: Markdown, tables, code, Mermaid, search, Catalog, Traceability, Diagram Gallery, interactive graph.
 
-Chi tiết xem `standards/definition-of-ready-done.md`.
+Chi tiết: `tools/README.md`.

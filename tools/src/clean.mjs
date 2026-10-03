@@ -1,0 +1,1 @@
+import fs from 'node:fs'; import path from 'node:path'; import {root,loadConfig} from './lib/core.mjs'; const c=loadConfig();fs.rmSync(path.resolve(root,c.siteDir),{recursive:true,force:true});fs.rmSync(path.resolve(root,c.generatedDir),{recursive:true,force:true});console.log('Generated site/docs removed. Cache preserved for stale dependency detection.');

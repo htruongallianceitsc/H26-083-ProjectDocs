@@ -87,3 +87,22 @@ Các thư mục sau không phải source of truth:
 - `site/`
 
 Có thể xóa và tạo lại bằng toolchain. Không ghi business fact chỉ tồn tại trong các file generated.
+
+
+## 9. Standard Precedence
+
+`Core governance -> Project Type -> Technology Stack -> Project ADR`.
+
+ADR là cách duy nhất để cố ý khác standard. Stack standard không được vô hiệu hóa security/reliability requirement của project-type standard chỉ bằng implementation convenience.
+
+## 10. Machine-readable Lifecycle & Blocking Questions
+
+Entity type/status lấy từ `registry/entity-types.json`. Open Question dùng entity `open-question` với `blocking: true/false`; khi project profile bật `blockOnOpenQuestions`, Open Question trạng thái `open` và blocking làm validation fail.
+
+## 11. Typed Relation & Traceability
+
+Relation được kiểm qua `registry/relation-map.json`; target type và cardinality phải hợp lệ. Traceability matrix chỉ dùng direct typed relations và path được cấu hình trong `registry/traceability-profiles.json`, không dùng traversal gần-neighbor chung.
+
+## 12. Documentation Freshness
+
+Toolchain lưu dependency baseline hash trong `tools/.cache/dependency-state.json`. Nếu tài liệu không đổi nhưng source liên quan thay đổi, tài liệu được cảnh báo stale cho tới khi được review/update lại.

@@ -1,0 +1,38 @@
+{
+  "required": [
+    "code",
+    "type",
+    "title",
+    "status",
+    "owner",
+    "created_at",
+    "updated_at",
+    "last_reviewed_at",
+    "related"
+  ],
+  "types": {
+    "code": "string",
+    "type": "string",
+    "title": "string",
+    "status": "string",
+    "owner": "string",
+    "created_at": "date",
+    "updated_at": "date",
+    "last_reviewed_at": "date",
+    "tags": "array",
+    "related": "object"
+  },
+  "optional": {
+    "reviewers": "array",
+    "priority": "string",
+    "route": "string",
+    "method": "string",
+    "path": "string",
+    "blocking": "boolean",
+    "platform": "string",
+    "project_types": "array",
+    "technology_stacks": "array",
+    "implementation_ready": "boolean",
+    "privacy_sensitive": "boolean"
+  }
+}

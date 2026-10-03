@@ -1,134 +1,34 @@
-# File Catalog
+# FILE CATALOG
 
-Source/starter files (excluding generated `site/` and `tools/.cache/`): **122**
+Total files in starter kit: **383**
 
-## Files
+## By area
 
-- `DOCS_GOVERNANCE.md`
-- `FILE_CATALOG.md`
-- `PROJECT_BLUEPRINT.md`
-- `README.md`
-- `START_HERE.md`
-- `docs/00-project/README.md`
-- `docs/01-product/README.md`
-- `docs/02-modules/README.md`
-- `docs/03-requirements/README.md`
-- `docs/04-business-rules/README.md`
-- `docs/05-screens/README.md`
-- `docs/06-flows/README.md`
-- `docs/07-api/README.md`
-- `docs/08-database/README.md`
-- `docs/09-architecture/README.md`
-- `docs/10-security/README.md`
-- `docs/11-quality/README.md`
-- `docs/12-devops/README.md`
-- `docs/13-operations/README.md`
-- `docs/14-performance/README.md`
-- `docs/15-decisions/README.md`
-- `docs/16-release/README.md`
-- `docs/17-traceability/README.md`
-- `docs/18-changelog/README.md`
-- `docs/19-open-items/README.md`
-- `docs/README.md`
-- `docs/_generated/DOCUMENT_HEALTH.md`
-- `docs/_generated/DOCUMENT_INDEX.md`
-- `docs/_generated/PROJECT_GRAPH.md`
-- `docs/_generated/TRACEABILITY_MATRIX.md`
-- `examples/mini-project/API-AUTH-LOGIN.md`
-- `examples/mini-project/BR-AUTH-001.md`
-- `examples/mini-project/DB-USER.md`
-- `examples/mini-project/FEAT-AUTH-LOGIN.md`
-- `examples/mini-project/FLOW-AUTH-LOGIN.md`
-- `examples/mini-project/MOD-AUTH.md`
-- `examples/mini-project/README.md`
-- `examples/mini-project/REQ-AUTH-001.md`
-- `examples/mini-project/SCR-LOGIN.md`
-- `examples/mini-project/TC-AUTH-LOGIN-001.md`
-- `examples/mini-project/TC-AUTH-LOGIN-002.md`
-- `prompts/00-master-orchestrator-prompt.md`
-- `prompts/01-idea-to-project-overview.md`
-- `prompts/02-discovery-open-questions.md`
-- `prompts/03-build-project-blueprint.md`
-- `prompts/04-module-decomposition.md`
-- `prompts/05-feature-specification.md`
-- `prompts/06-requirements-business-rules.md`
-- `prompts/07-screen-route-ux.md`
-- `prompts/08-flow-diagrams.md`
-- `prompts/09-api-contracts.md`
-- `prompts/10-database-design.md`
-- `prompts/11-architecture-integrations.md`
-- `prompts/12-non-functional-requirements.md`
-- `prompts/13-test-design.md`
-- `prompts/14-security-review.md`
-- `prompts/15-devops-production.md`
-- `prompts/16-monitoring-runbooks.md`
-- `prompts/17-traceability-audit.md`
-- `prompts/18-change-impact-analysis.md`
-- `prompts/19-release-readiness.md`
-- `prompts/20-documentation-maintenance.md`
-- `prompts/21-documentation-health-and-site.md`
-- `registry/entity-types.yaml`
-- `registry/quality-rules.yaml`
-- `registry/relation-map.yaml`
-- `registry/status-lifecycle.yaml`
-- `standards/ai-agent-rules.md`
-- `standards/definition-of-ready-done.md`
-- `standards/diagram-guidelines.md`
-- `standards/documentation-standard.md`
-- `standards/metadata-schema.md`
-- `standards/naming-and-id-convention.md`
-- `standards/security-and-secrets.md`
-- `standards/source-of-truth.md`
-- `standards/tooling-and-static-site.md`
-- `templates/adr-template.md`
-- `templates/api-template.md`
-- `templates/architecture-template.md`
-- `templates/business-rule-template.md`
-- `templates/database-object-template.md`
-- `templates/feature-template.md`
-- `templates/flow-template.md`
-- `templates/incident-template.md`
-- `templates/integration-template.md`
-- `templates/module-template.md`
-- `templates/monitoring-alert-template.md`
-- `templates/nfr-template.md`
-- `templates/product-scope-template.md`
-- `templates/project-overview-template.md`
-- `templates/release-template.md`
-- `templates/requirement-template.md`
-- `templates/runbook-template.md`
-- `templates/screen-template.md`
-- `templates/test-case-template.md`
-- `tools/.gitignore`
-- `tools/README.md`
-- `tools/assets/site.css`
-- `tools/assets/site.js`
-- `tools/ci/github-actions-docs.yml`
-- `tools/docs.config.json`
-- `tools/package-lock.json`
-- `tools/package.json`
-- `tools/scripts/build-site.mjs`
-- `tools/scripts/check-site-links.mjs`
-- `tools/scripts/clean.mjs`
-- `tools/scripts/dev.mjs`
-- `tools/scripts/lib/core.mjs`
-- `tools/scripts/serve-site.mjs`
-- `tools/scripts/sync-docs.mjs`
-- `tools/scripts/validate-docs.mjs`
-- `tools/scripts/vendor-assets.mjs`
-- `tools/vendor/README.md`
-- `workflows/01-idea-to-scope.md`
-- `workflows/02-scope-to-blueprint.md`
-- `workflows/03-blueprint-to-functional-docs.md`
-- `workflows/04-functional-to-technical-contracts.md`
-- `workflows/05-quality-and-test.md`
-- `workflows/06-production-readiness.md`
-- `workflows/07-change-management.md`
-- `workflows/08-documentation-tooling.md`
-- `workflows/END_TO_END_CHECKLIST.md`
+- `docs`: 19
+- `prompts`: 26
+- `registry`: 8
+- `root`: 7
+- `site`: 181
+- `standards`: 84
+- `templates`: 32
+- `tools`: 14
+- `workflows`: 12
 
-## Derived output
+## Profiles & registry
+- `PROJECT_PROFILE.example.json` — copy to `project-profile.json` for a real project.
+- `registry/project-types.json` — Web/Mobile/API.
+- `registry/technology-stacks.json` — ReactJS, React Native, Flutter, NodeJS API, ASP.NET Core API, PostgreSQL.
+- `registry/entity-types.json` — entity types and lifecycle.
+- `registry/relation-map.json` — typed relation/cardinality policy.
+- `registry/quality-rules.json` — profile-aware quality gates.
+- `registry/traceability-profiles.json` — typed traceability paths.
 
-- `docs/_generated/` — document index, traceability, graph and health report.
-- `tools/.cache/` — machine-readable catalog/graph cache.
-- `site/` — deployable static documentation website.
+## Standards
+See `standards/STANDARD_CATALOG.md`.
+
+## Upgrade mapping
+See `REVIEW_UPGRADE_NOTES.md`.
+
+## Tooling
+See `tools/README.md`.
+

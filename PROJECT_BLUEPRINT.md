@@ -1,5 +1,14 @@
 # PROJECT BLUEPRINT
 
+## 0. Project Profile
+
+- **Project Types:** `<web | mobile | api>`
+- **Technology Stacks:** `<reactjs | react-native | flutter | nodejs-api | dotnet-core-api | postgresql | ...>`
+- **Profile File:** `project-profile.json`
+- **Applicable Standards:** generated/reviewed via `tools -> npm run profile:check`
+- **Standard Exceptions:** reference ADR codes only.
+
+
 > Đây là bản đồ cấp cao và inventory toàn project. Không copy chi tiết từ các tài liệu con; chỉ tóm tắt và reference.
 
 ## 1. Project Summary
@@ -47,9 +56,9 @@
 
 ## 6. Screen & Route Inventory
 
-| Screen Code | Screen | Route | Feature(s) | Roles | Detail |
-|---|---|---|---|---|---|
-| `<SCR-LOGIN>` | Login | `/login` | `<FEAT-AUTH-LOGIN>` | Guest | `<link>` |
+| Screen Code | Platform | Screen | Route | Feature(s) | Roles | Detail |
+|---|---|---|---|---|---|---|
+| `<SCR-LOGIN>` | Web/Mobile | Login | `/login` | `<FEAT-AUTH-LOGIN>` | Guest | `<link>` |
 
 ## 7. API Inventory
 
@@ -68,6 +77,19 @@
 | Code | Integration | Purpose | Features | Criticality | Detail |
 |---|---|---|---|---|---|
 | `<INT-EMAIL>` | Email Provider | Transactional email | `<...>` | High | `<link>` |
+
+## 9A. Mobile Contract Inventory
+
+> Chỉ dùng khi project có `mobile`.
+
+| Code | Type | Purpose | Feature(s) | Detail |
+|---|---|---|---|---|
+| `<PERM-CAMERA>` | Permission | Camera access | `<...>` | `<link>` |
+| `<DL-ORDER>` | Deep Link | Open order detail | `<...>` | `<link>` |
+| `<PUSH-ORDER>` | Push Event | Order changed | `<...>` | `<link>` |
+| `<LS-SESSION>` | Local Storage | Session/cache | `<...>` | `<link>` |
+| `<SYNC-TASK>` | Sync Policy | Offline task mutation | `<...>` | `<link>` |
+| `<DTP-MOBILE>` | Device Test Profile | OS/device/network matrix | `<...>` | `<link>` |
 
 ## 10. Background & Scheduled Processing
 
@@ -98,7 +120,7 @@
 | Availability | `<...>` | `<NFR-...>` |
 | API latency | `<...>` | `<NFR-...>` |
 | Recovery | `<RPO/RTO>` | `<NFR-...>` |
-| Browser support | `<...>` | `<NFR-...>` |
+| Client compatibility | `<Browser / OS / app-version support>` | `<NFR-...>` |
 
 ## 14. Release & Operations
 

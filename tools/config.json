@@ -1,0 +1,8 @@
+{
+  "entityRoots": ["docs"],
+  "contentRoots": ["README.md", "START_HERE.md", "PROJECT_BLUEPRINT.md", "DOCS_GOVERNANCE.md", "FILE_CATALOG.md", "docs", "standards", "templates", "prompts", "workflows"],
+  "exclude": ["docs/_generated", "site", "tools/.cache", "node_modules"],
+  "generatedDir": "docs/_generated",
+  "siteDir": "site",
+  "port": 4173
+}

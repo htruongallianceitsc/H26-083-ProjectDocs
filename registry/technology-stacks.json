@@ -1,0 +1,84 @@
+{
+  "schemaVersion": "1.0",
+  "technologyStacks": {
+    "reactjs": {
+      "projectType": "web",
+      "displayName": "ReactJS",
+      "standardsRoot": "standards/stacks/web/reactjs",
+      "requiredStandards": [
+        "architecture.md",
+        "coding-standard.md",
+        "state-data-fetching.md",
+        "routing.md",
+        "forms-validation.md",
+        "testing.md"
+      ]
+    },
+    "react-native": {
+      "projectType": "mobile",
+      "displayName": "React Native / Expo",
+      "standardsRoot": "standards/stacks/mobile/react-native",
+      "requiredStandards": [
+        "architecture.md",
+        "coding-standard.md",
+        "state-management.md",
+        "navigation.md",
+        "expo-native-boundary.md",
+        "storage-networking.md",
+        "testing-release.md"
+      ]
+    },
+    "flutter": {
+      "projectType": "mobile",
+      "displayName": "Flutter",
+      "standardsRoot": "standards/stacks/mobile/flutter",
+      "requiredStandards": [
+        "architecture.md",
+        "coding-standard.md",
+        "state-management.md",
+        "navigation.md",
+        "storage-networking.md",
+        "testing-release.md"
+      ]
+    },
+    "nodejs-api": {
+      "projectType": "api",
+      "displayName": "NodeJS API",
+      "standardsRoot": "standards/stacks/api/nodejs",
+      "requiredStandards": [
+        "architecture.md",
+        "coding-standard.md",
+        "http-contract.md",
+        "validation-errors.md",
+        "async-resilience.md",
+        "testing-observability.md",
+        "deployment.md"
+      ]
+    },
+    "dotnet-core-api": {
+      "projectType": "api",
+      "displayName": "ASP.NET Core API",
+      "standardsRoot": "standards/stacks/api/dotnet-core",
+      "requiredStandards": [
+        "architecture.md",
+        "coding-standard.md",
+        "api-conventions.md",
+        "dependency-injection-config.md",
+        "data-access.md",
+        "security.md",
+        "background-services.md",
+        "testing-observability-deployment.md"
+      ]
+    },
+    "postgresql": {
+      "projectType": "supporting",
+      "displayName": "PostgreSQL",
+      "standardsRoot": "standards/stacks/database/postgresql",
+      "requiredStandards": [
+        "schema-conventions.md",
+        "query-performance.md",
+        "migration-operations.md"
+      ]
+    }
+  }
+}

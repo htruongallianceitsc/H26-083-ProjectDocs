@@ -1,0 +1,15 @@
+{
+  "projectCode": "EXAMPLE",
+  "projectName": "Example Product",
+  "projectTypes": ["mobile", "api"],
+  "technologyStacks": ["react-native", "dotnet-core-api", "postgresql"],
+  "implementationGate": {
+    "blockOnOpenQuestions": true,
+    "blockOnValidationErrors": true,
+    "blockOnQualityErrors": true
+  },
+  "documentation": {
+    "exclude": ["examples/**", "site/**", "docs/_generated/**"],
+    "staleDetection": "dependency-hash"
+  }
+}

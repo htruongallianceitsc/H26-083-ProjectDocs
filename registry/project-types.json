@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "1.0",
+  "projectTypes": {
+    "web": {
+      "displayName": "Web Application",
+      "standardsRoot": "standards/project-types/web",
+      "requiredStandards": [
+        "web-application-standard.md",
+        "web-ui-ux.md",
+        "browser-runtime.md",
+        "web-security.md",
+        "web-performance.md",
+        "web-release.md"
+      ]
+    },
+    "mobile": {
+      "displayName": "Mobile Application",
+      "standardsRoot": "standards/project-types/mobile",
+      "requiredStandards": [
+        "mobile-architecture.md",
+        "app-lifecycle.md",
+        "networking-resilience.md",
+        "offline-sync.md",
+        "local-storage-cache.md",
+        "connectivity-realtime.md",
+        "push-notification.md",
+        "permission-native-capabilities.md",
+        "navigation-deeplink.md",
+        "logging-observability.md",
+        "mobile-security-privacy.md",
+        "mobile-ui-ux-accessibility.md",
+        "mobile-performance.md",
+        "mobile-release-store.md",
+        "background-work.md",
+        "media-attachment.md",
+        "time-timezone.md"
+      ]
+    },
+    "api": {
+      "displayName": "API / Backend Service",
+      "standardsRoot": "standards/project-types/api",
+      "requiredStandards": [
+        "api-architecture.md",
+        "contract-versioning.md",
+        "auth-authorization.md",
+        "resilience.md",
+        "data-transaction.md",
+        "background-jobs.md",
+        "observability.md",
+        "performance.md",
+        "security.md",
+        "deployment.md"
+      ]
+    }
+  }
+}
