@@ -1,8 +1,11 @@
 # File Catalog
 
-Total starter files: 117
+Source/starter files (excluding generated `site/` and `tools/.cache/`): **122**
+
+## Files
 
 - `DOCS_GOVERNANCE.md`
+- `FILE_CATALOG.md`
 - `PROJECT_BLUEPRINT.md`
 - `README.md`
 - `START_HERE.md`
@@ -10,55 +13,38 @@ Total starter files: 117
 - `docs/01-product/README.md`
 - `docs/02-modules/README.md`
 - `docs/03-requirements/README.md`
-- `docs/03-requirements/functional/.gitkeep`
-- `docs/03-requirements/non-functional/.gitkeep`
 - `docs/04-business-rules/README.md`
 - `docs/05-screens/README.md`
 - `docs/06-flows/README.md`
-- `docs/06-flows/business/.gitkeep`
-- `docs/06-flows/sequence/.gitkeep`
-- `docs/06-flows/system/.gitkeep`
-- `docs/06-flows/user/.gitkeep`
 - `docs/07-api/README.md`
-- `docs/07-api/conventions.md`
 - `docs/08-database/README.md`
-- `docs/08-database/data-rules/.gitkeep`
-- `docs/08-database/database-overview.md`
-- `docs/08-database/functions/.gitkeep`
-- `docs/08-database/tables/.gitkeep`
-- `docs/08-database/views/.gitkeep`
 - `docs/09-architecture/README.md`
-- `docs/09-architecture/integrations/.gitkeep`
 - `docs/10-security/README.md`
 - `docs/11-quality/README.md`
-- `docs/11-quality/test-cases/.gitkeep`
 - `docs/12-devops/README.md`
-- `docs/12-devops/environments.md`
-- `docs/12-devops/release-process.md`
 - `docs/13-operations/README.md`
-- `docs/13-operations/incident-response.md`
-- `docs/13-operations/monitoring.md`
-- `docs/13-operations/runbooks/.gitkeep`
 - `docs/14-performance/README.md`
 - `docs/15-decisions/README.md`
 - `docs/16-release/README.md`
-- `docs/16-release/releases/.gitkeep`
 - `docs/17-traceability/README.md`
-- `docs/17-traceability/feature-matrix.md`
 - `docs/18-changelog/README.md`
 - `docs/19-open-items/README.md`
-- `docs/19-open-items/open-questions.md`
+- `docs/README.md`
+- `docs/_generated/DOCUMENT_HEALTH.md`
+- `docs/_generated/DOCUMENT_INDEX.md`
+- `docs/_generated/PROJECT_GRAPH.md`
+- `docs/_generated/TRACEABILITY_MATRIX.md`
 - `examples/mini-project/API-AUTH-LOGIN.md`
 - `examples/mini-project/BR-AUTH-001.md`
 - `examples/mini-project/DB-USER.md`
 - `examples/mini-project/FEAT-AUTH-LOGIN.md`
+- `examples/mini-project/FLOW-AUTH-LOGIN.md`
 - `examples/mini-project/MOD-AUTH.md`
 - `examples/mini-project/README.md`
 - `examples/mini-project/REQ-AUTH-001.md`
 - `examples/mini-project/SCR-LOGIN.md`
 - `examples/mini-project/TC-AUTH-LOGIN-001.md`
 - `examples/mini-project/TC-AUTH-LOGIN-002.md`
-- `examples/mini-project/TRACEABILITY.md`
 - `prompts/00-master-orchestrator-prompt.md`
 - `prompts/01-idea-to-project-overview.md`
 - `prompts/02-discovery-open-questions.md`
@@ -80,6 +66,7 @@ Total starter files: 117
 - `prompts/18-change-impact-analysis.md`
 - `prompts/19-release-readiness.md`
 - `prompts/20-documentation-maintenance.md`
+- `prompts/21-documentation-health-and-site.md`
 - `registry/entity-types.yaml`
 - `registry/quality-rules.yaml`
 - `registry/relation-map.yaml`
@@ -92,6 +79,7 @@ Total starter files: 117
 - `standards/naming-and-id-convention.md`
 - `standards/security-and-secrets.md`
 - `standards/source-of-truth.md`
+- `standards/tooling-and-static-site.md`
 - `templates/adr-template.md`
 - `templates/api-template.md`
 - `templates/architecture-template.md`
@@ -111,6 +99,24 @@ Total starter files: 117
 - `templates/runbook-template.md`
 - `templates/screen-template.md`
 - `templates/test-case-template.md`
+- `tools/.gitignore`
+- `tools/README.md`
+- `tools/assets/site.css`
+- `tools/assets/site.js`
+- `tools/ci/github-actions-docs.yml`
+- `tools/docs.config.json`
+- `tools/package-lock.json`
+- `tools/package.json`
+- `tools/scripts/build-site.mjs`
+- `tools/scripts/check-site-links.mjs`
+- `tools/scripts/clean.mjs`
+- `tools/scripts/dev.mjs`
+- `tools/scripts/lib/core.mjs`
+- `tools/scripts/serve-site.mjs`
+- `tools/scripts/sync-docs.mjs`
+- `tools/scripts/validate-docs.mjs`
+- `tools/scripts/vendor-assets.mjs`
+- `tools/vendor/README.md`
 - `workflows/01-idea-to-scope.md`
 - `workflows/02-scope-to-blueprint.md`
 - `workflows/03-blueprint-to-functional-docs.md`
@@ -118,4 +124,11 @@ Total starter files: 117
 - `workflows/05-quality-and-test.md`
 - `workflows/06-production-readiness.md`
 - `workflows/07-change-management.md`
+- `workflows/08-documentation-tooling.md`
 - `workflows/END_TO_END_CHECKLIST.md`
+
+## Derived output
+
+- `docs/_generated/` — document index, traceability, graph and health report.
+- `tools/.cache/` — machine-readable catalog/graph cache.
+- `site/` — deployable static documentation website.

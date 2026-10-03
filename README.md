@@ -15,12 +15,14 @@ Bộ khung này dành cho project web theo hướng **documentation-first**. M�
 ## Cách bắt đầu nhanh
 
 1. Đọc `START_HERE.md`.
-2. Đi lần lượt qua `workflows/01` đến `workflows/07`.
+2. Đi lần lượt qua `workflows/01` đến `workflows/08`.
 3. Dùng prompt trong `prompts/` tương ứng với từng phase.
 4. Dùng template trong `templates/` để tạo tài liệu thật.
 5. Cập nhật `PROJECT_BLUEPRINT.md` sau mỗi batch tài liệu.
 6. Chạy checklist trong `workflows/END_TO_END_CHECKLIST.md` trước khi coi bộ tài liệu là đủ.
 7. Xem `examples/mini-project/` để thấy một feature mẫu được trace xuyên suốt.
+8. Vào `tools/`, chạy `npm install` rồi `npm run docs:all` để validate + sync + build web.
+9. Chạy `npm run docs:serve` và mở `http://127.0.0.1:4173` để xem tài liệu trực quan.
 
 ## Cấu trúc chính
 
@@ -34,6 +36,8 @@ Bộ khung này dành cho project web theo hướng **documentation-first**. M�
 ├── workflows/
 ├── prompts/
 ├── templates/
+├── tools/              # NodeJS validator/sync/static-site generator
+├── site/               # generated static web (sau khi build)
 ├── docs/
 │   ├── 00-project/
 │   ├── 01-product/
@@ -57,6 +61,19 @@ Bộ khung này dành cho project web theo hướng **documentation-first**. M�
 │   └── 19-open-items/
 └── examples/mini-project/
 ```
+
+## Documentation toolchain
+
+```bash
+cd tools
+npm install
+npm run docs:all
+npm run docs:serve
+```
+
+Các view web chính: Dashboard, Markdown pages, Catalog, Traceability Matrix, Interactive Project Graph và Diagram Gallery. Diagram Mermaid được render trực tiếp từ fenced block trong Markdown; graph quan hệ được sinh tự động từ metadata `related`.
+
+Chi tiết xem `tools/README.md` và `workflows/08-documentation-tooling.md`.
 
 ## Khi nào tài liệu được coi là sẵn sàng cho implementation?
 

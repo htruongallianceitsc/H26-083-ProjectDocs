@@ -12,7 +12,7 @@ Tạo một bộ tài liệu đủ chi tiết để:
 - Team mới có thể onboard mà không phụ thuộc người cũ.
 - AI Agent có thể đọc project, phân tích impact và sinh tài liệu mới có kiểm soát.
 
-## 7 phase
+## 8 phase
 
 | Phase | Mục tiêu | Output chính |
 |---|---|---|
@@ -23,6 +23,7 @@ Tạo một bộ tài liệu đủ chi tiết để:
 | 5 | Quality | Acceptance Criteria, Test Case, NFR |
 | 6 | Production Readiness | Security, DevOps, Monitoring, Runbook, Backup |
 | 7 | Governance | Traceability, Decisions, Change/Release process |
+| 8 | Tooling & Visual Review | Validate, sync, static site, graph, diagram review |
 
 ## Cách làm khuyến nghị
 
@@ -66,6 +67,21 @@ Tạo một bộ tài liệu đủ chi tiết để:
 - `prompts/18-change-impact-analysis.md`
 - `prompts/19-release-readiness.md`
 - `prompts/20-documentation-maintenance.md`
+
+### Phase 8 — Tooling & Visual Review
+Đọc `workflows/08-documentation-tooling.md`, dùng:
+- `prompts/21-documentation-health-and-site.md`
+
+Sau đó chạy:
+
+```bash
+cd tools
+npm install
+npm run docs:all
+npm run docs:serve
+```
+
+Review Dashboard, Catalog, Traceability, Interactive Graph và Diagram Gallery trước khi coi documentation batch hoàn tất.
 
 ## Rule quan trọng khi dùng AI
 

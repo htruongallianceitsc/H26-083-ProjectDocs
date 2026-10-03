@@ -61,3 +61,29 @@ Khi thay đổi entity:
 ## 6. Không xóa lịch sử quyết định
 
 ADR/Decision cũ không bị rewrite để trông như quyết định mới luôn tồn tại. Tạo quyết định mới và đánh dấu quyết định cũ là `superseded`.
+
+## 7. Automated Documentation Gate
+
+Sau mỗi batch thay đổi tài liệu:
+
+```bash
+cd tools
+npm run docs:all
+```
+
+Pipeline phải đảm bảo:
+
+- validation không có error;
+- generated catalog/traceability/graph được rebuild;
+- static site build thành công;
+- generated HTML không có broken local link.
+
+## 8. Derived Artifacts
+
+Các thư mục sau không phải source of truth:
+
+- `docs/_generated/`
+- `tools/.cache/`
+- `site/`
+
+Có thể xóa và tạo lại bằng toolchain. Không ghi business fact chỉ tồn tại trong các file generated.

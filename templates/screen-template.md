@@ -1,14 +1,26 @@
 ---
 code: <CODE>
-type: <TYPE>
+type: screen
 title: <TITLE>
 status: draft
 owner: <OWNER>
 created_at: YYYY-MM-DD
 updated_at: YYYY-MM-DD
-related: {}
+last_reviewed_at: YYYY-MM-DD
+tags: []
+route: </route>
+related:
+  modules: []
+  features: []
+  requirements: []
+  business_rules: []
+  screens: []
+  flows: []
+  apis: []
+  database_objects: []
+  tests: []
+  decisions: []
 ---
-
 
 # Screen / Route
 

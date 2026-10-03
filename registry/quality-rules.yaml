@@ -1,33 +1,13 @@
-schema_version: 1.0
-quality_rules:
-  - id: feature-has-requirement
-    severity: error
-    rule: Every approved feature must have at least one requirement.
-
-  - id: requirement-has-acceptance-criteria
-    severity: error
-    rule: Every approved functional requirement must define acceptance criteria.
-
-  - id: requirement-test-coverage
-    severity: error
-    rule: Every approved requirement must be verified by at least one test case.
-
-  - id: screen-has-feature
-    severity: warning
-    rule: Every production screen must support at least one feature.
-
-  - id: api-has-feature
-    severity: warning
-    rule: Every business API must support at least one feature.
-
-  - id: api-db-impact-known
-    severity: warning
-    rule: APIs that persist data must document read/write DB objects and transaction behavior.
-
-  - id: blueprint-covers-inventory
-    severity: error
-    rule: Every production Module, Feature, Screen, Route, API and primary DB object must appear in PROJECT_BLUEPRINT.md.
-
-  - id: no-blocking-open-question
-    severity: error
-    rule: A feature cannot be implementation-ready while it has unresolved blocking questions.
+rules:
+  - id: feature-requirement
+    description: Planned/active feature should link to at least one requirement.
+  - id: requirement-test
+    description: Approved/implemented requirement should have test coverage.
+  - id: screen-feature
+    description: Screen should trace to a feature.
+  - id: api-feature
+    description: API should trace to a feature.
+  - id: no-broken-relations
+    description: Every related code must resolve to exactly one entity.
+  - id: no-duplicate-code
+    description: Entity code must be globally unique.

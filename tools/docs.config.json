@@ -1,0 +1,159 @@
+{
+  "projectName": "Production Web Documentation Starter Kit",
+  "siteTitle": "Project Documentation",
+  "sourceRoots": [
+    ".",
+    "docs",
+    "standards",
+    "workflows",
+    "prompts",
+    "templates",
+    "examples"
+  ],
+  "entityRoots": [
+    "docs",
+    "examples"
+  ],
+  "exclude": [
+    "node_modules/**",
+    "tools/node_modules/**",
+    "site/**",
+    "tools/.cache/**"
+  ],
+  "generatedDir": "docs/_generated",
+  "cacheDir": "tools/.cache",
+  "siteDir": "site",
+  "strictRoots": [
+    "docs"
+  ],
+  "maxReviewAgeDays": 180,
+  "requiredFrontmatter": {
+    "default": [
+      "code",
+      "type",
+      "title",
+      "status"
+    ],
+    "module": [
+      "code",
+      "type",
+      "title",
+      "status"
+    ],
+    "feature": [
+      "code",
+      "type",
+      "title",
+      "status"
+    ],
+    "requirement": [
+      "code",
+      "type",
+      "title",
+      "status"
+    ],
+    "business-rule": [
+      "code",
+      "type",
+      "title",
+      "status"
+    ],
+    "screen": [
+      "code",
+      "type",
+      "title",
+      "status",
+      "route"
+    ],
+    "api": [
+      "code",
+      "type",
+      "title",
+      "status",
+      "method",
+      "path"
+    ],
+    "database-object": [
+      "code",
+      "type",
+      "title",
+      "status",
+      "object_name",
+      "object_type"
+    ],
+    "test-case": [
+      "code",
+      "type",
+      "title",
+      "status"
+    ],
+    "decision": [
+      "code",
+      "type",
+      "title",
+      "status"
+    ]
+  },
+  "allowedStatuses": [
+    "draft",
+    "review",
+    "approved",
+    "planned",
+    "in_progress",
+    "implemented",
+    "active",
+    "deprecated",
+    "superseded",
+    "passed",
+    "failed"
+  ],
+  "relationKeys": {
+    "modules": [
+      "module"
+    ],
+    "features": [
+      "feature"
+    ],
+    "requirements": [
+      "requirement"
+    ],
+    "business_rules": [
+      "business-rule"
+    ],
+    "screens": [
+      "screen"
+    ],
+    "flows": [
+      "flow"
+    ],
+    "apis": [
+      "api"
+    ],
+    "database_objects": [
+      "database-object"
+    ],
+    "tests": [
+      "test-case",
+      "test-script"
+    ],
+    "decisions": [
+      "decision"
+    ],
+    "integrations": [
+      "integration"
+    ],
+    "nfrs": [
+      "nfr"
+    ],
+    "runbooks": [
+      "runbook"
+    ]
+  },
+  "qualityRules": {
+    "featureRequiresRequirement": true,
+    "requirementRequiresTest": true,
+    "screenRequiresFeature": true,
+    "apiRequiresFeature": true,
+    "databaseRequiresFeatureOrApi": false
+  }
+}

@@ -1,14 +1,22 @@
 ---
 code: TC-AUTH-LOGIN-002
-type: test_case
-title: Disabled user cannot login
-status: approved
+type: test-case
+title: Disabled account cannot login
+status: passed
+owner: QA Team
+created_at: 2026-10-03
+updated_at: 2026-10-03
+last_reviewed_at: 2026-10-03
 related:
-  verifies: [REQ-AUTH-001, BR-AUTH-001]
+  features: [FEAT-AUTH-LOGIN]
+  requirements: [REQ-AUTH-001]
+  business_rules: [BR-AUTH-001]
+  apis: [API-AUTH-LOGIN]
 ---
-# Test Case
 
-1. Given a disabled user with correct credentials.
-2. Submit login.
-3. Expect authentication rejection.
-4. Verify no token/session is created.
+# Disabled account cannot login
+
+1. Prepare an account with `IsDisabled = true`.
+2. Enter correct credential.
+3. Submit.
+4. Verify API rejects login and UI shows a generic authentication error.

@@ -1,14 +1,27 @@
 ---
 code: <CODE>
-type: <TYPE>
+type: api
 title: <TITLE>
 status: draft
 owner: <OWNER>
 created_at: YYYY-MM-DD
 updated_at: YYYY-MM-DD
-related: {}
+last_reviewed_at: YYYY-MM-DD
+tags: []
+method: <GET/POST/PUT/PATCH/DELETE>
+path: </api/...>
+related:
+  modules: []
+  features: []
+  requirements: []
+  business_rules: []
+  screens: []
+  flows: []
+  apis: []
+  database_objects: []
+  tests: []
+  decisions: []
 ---
-
 
 # API Contract
 

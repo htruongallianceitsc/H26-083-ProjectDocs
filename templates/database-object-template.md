@@ -1,14 +1,27 @@
 ---
 code: <CODE>
-type: <TYPE>
+type: database-object
 title: <TITLE>
 status: draft
 owner: <OWNER>
 created_at: YYYY-MM-DD
 updated_at: YYYY-MM-DD
-related: {}
+last_reviewed_at: YYYY-MM-DD
+tags: []
+object_name: <OBJECT_NAME>
+object_type: <table/view/materialized-view/function>
+related:
+  modules: []
+  features: []
+  requirements: []
+  business_rules: []
+  screens: []
+  flows: []
+  apis: []
+  database_objects: []
+  tests: []
+  decisions: []
 ---
-
 
 # Database Object
 

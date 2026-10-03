@@ -62,3 +62,16 @@
 - [ ] Có route/API/table production nào không có trong Blueprint?
 - [ ] Có blocking Open Question chưa giải quyết?
 - [ ] Có tài liệu duplicate source of truth?
+
+## H. Tooling & Visual Review
+- [ ] `cd tools && npm run docs:validate` pass
+- [ ] `npm run docs:sync` pass
+- [ ] `npm run docs:build` pass
+- [ ] `npm run docs:check-site` pass
+- [ ] Dashboard reviewed
+- [ ] Catalog reviewed
+- [ ] Traceability Matrix reviewed
+- [ ] Interactive Graph reviewed for orphan/unexpected links
+- [ ] Diagram Gallery reviewed
+- [ ] Mermaid flows render correctly
+- [ ] Generated output is not being used as canonical business source

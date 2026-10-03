@@ -1,23 +1,12 @@
-default:
+statuses:
   - draft
   - review
   - approved
-  - implemented
-  - deprecated
-
-decision:
-  - proposed
-  - accepted
-  - rejected
-  - superseded
-
-release:
   - planned
-  - ready
-  - released
-  - rolled_back
-
-open_question:
-  - open
-  - answered
-  - closed
+  - in_progress
+  - implemented
+  - active
+  - deprecated
+  - superseded
+  - passed
+  - failed

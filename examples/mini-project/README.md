@@ -1,7 +1,7 @@
-# Mini Project Example — Login Feature
+# Mini Project Example
 
-Ví dụ này minh họa một chuỗi traceability tối giản:
+Ví dụ này minh họa một feature Login được trace xuyên suốt:
 
-`MOD-AUTH -> FEAT-AUTH-LOGIN -> REQ-AUTH-001 + BR-AUTH-001 -> SCR-LOGIN -> API-AUTH-LOGIN -> DB-USER -> TC-AUTH-LOGIN-001/002`
+`MOD-AUTH → FEAT-AUTH-LOGIN → REQ-AUTH-001 / BR-AUTH-001 → SCR-LOGIN / FLOW-AUTH-LOGIN / API-AUTH-LOGIN / DB-USER → TC-*`
 
-Mục tiêu là cho thấy mỗi file chỉ giữ phần nó sở hữu, phần còn lại reference bằng code.
+Sau khi chạy `cd tools && npm run docs:all`, mở web docs để xem cùng dữ liệu ở các dạng Markdown, Mermaid, Traceability Matrix và Interactive Graph.

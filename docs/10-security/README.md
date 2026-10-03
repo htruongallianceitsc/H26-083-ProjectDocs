@@ -1,3 +1,5 @@
-# Security
+# security
 
-Authentication, authorization, privacy, audit, secrets and security reviews.
+Thư mục source-of-truth cho nhóm tài liệu **security**. Tài liệu entity thực tế trong thư mục này phải dùng frontmatter theo `standards/metadata-schema.md` và code ổn định theo `standards/naming-and-id-convention.md`.
+
+> Không sửa các file trong `docs/_generated/`; chúng được tạo lại bằng `npm run docs:sync` trong thư mục `tools/`.

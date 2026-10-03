@@ -1,0 +1,20 @@
+{
+  "name": "production-web-docs-tooling",
+  "version": "1.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "docs:validate": "node scripts/validate-docs.mjs",
+    "docs:sync": "node scripts/sync-docs.mjs",
+    "docs:build": "node scripts/build-site.mjs",
+    "docs:serve": "node scripts/serve-site.mjs",
+    "docs:dev": "node scripts/dev.mjs",
+    "docs:vendor": "node scripts/vendor-assets.mjs",
+    "docs:all": "npm run docs:validate && npm run docs:sync && npm run docs:build && npm run docs:check-site",
+    "docs:check-site": "node scripts/check-site-links.mjs",
+    "docs:clean": "node scripts/clean.mjs"
+  }
+}
