@@ -1,0 +1,33 @@
+{
+  "library": [
+    {
+      "packageId": "auth-standard",
+      "version": "1.0.0",
+      "description": "Reusable production-grade authentication documentation pack.",
+      "upgradePolicy": "track-upstream",
+      "features": {
+        "required": [
+          "login",
+          "logout",
+          "forgot-password",
+          "reset-password"
+        ],
+        "optional": {
+          "register": {
+            "defaultEnabled": true,
+            "description": "Self-service registration"
+          },
+          "google-login": {
+            "defaultEnabled": false,
+            "description": "Google OAuth sign-in"
+          },
+          "email-verification": {
+            "defaultEnabled": false,
+            "description": "Verify email ownership"
+          }
+        }
+      }
+    }
+  ],
+  "imports": []
+}

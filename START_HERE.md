@@ -16,7 +16,7 @@ npm run profile:check
 
 Không tạo technical design trước khi profile/standards được chọn nếu technology đã biết.
 
-## 11 phase
+## 12 phase
 
 | Phase | Mục tiêu | Output chính |
 |---|---|---|
@@ -32,6 +32,7 @@ Không tạo technical design trước khi profile/standards được chọn n�
 | 9 | Profile/Standards Audit | Project-type + stack compliance |
 | 10 | Mobile Readiness | Lifecycle/offline/native/device readiness |
 | 11 | Store Release Readiness | iOS/Android release/store/backward compatibility |
+| 12 | Reusable Capability Packs | Import/customize/upgrade repeated modules safely |
 
 ## Workflow mapping
 
@@ -46,12 +47,16 @@ Không tạo technical design trước khi profile/standards được chọn n�
 - `workflows/09-project-profile-and-standards.md`
 - `workflows/10-mobile-readiness.md` khi có mobile
 - `workflows/11-store-release-readiness.md` khi chuẩn bị mobile store release
+- `workflows/12-capability-pack-lifecycle.md` khi reuse AUTH/User Profile/File Upload/Notification/...
 
 ## Prompts mới cho profile-specific review
 
 - `prompts/22-project-profile-selector.md`
 - `prompts/23-mobile-readiness-review.md`
 - `prompts/24-backend-api-readiness-review.md`
+- `prompts/26-capability-pack-design.md`
+- `prompts/27-capability-pack-import-review.md`
+- `prompts/28-capability-pack-upgrade-review.md`
 
 ## AI rule
 
@@ -66,3 +71,16 @@ npm run docs:serve
 ```
 
 Review Dashboard, typed Traceability, Graph và Diagram Gallery trước khi approve batch.
+
+## Reuse pack quick flow
+
+```bash
+cd tools
+npm run pack:validate
+npm run pack:import -- ../reusable-modules/auth-standard        # preview
+npm run pack:import -- ../reusable-modules/auth-standard -- --apply
+npm run docs:all
+npm run pack:review -- auth-standard --approve
+```
+
+Khi có version pack mới, dùng `pack:diff` và `pack:upgrade`; không copy đè file project.

@@ -1,11 +1,17 @@
 {
   "name": "project-docs-toolchain",
   "private": true,
-  "version": "2.0.0",
+  "version": "3.0.0",
   "type": "module",
-  "engines": { "node": ">=20" },
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "profile:check": "node src/profile-check.mjs",
+    "pack:validate": "node src/pack-validate.mjs",
+    "pack:import": "node src/pack-import.mjs",
+    "pack:diff": "node src/pack-diff.mjs",
+    "pack:upgrade": "node src/pack-upgrade.mjs",
     "docs:validate": "node src/validate-docs.mjs",
     "docs:sync": "node src/sync-docs.mjs",
     "docs:build": "node src/build-site.mjs",
@@ -14,6 +20,7 @@
     "docs:check-site": "node src/check-site.mjs",
     "docs:vendor": "node src/vendor-mermaid.mjs",
     "docs:clean": "node src/clean.mjs",
-    "docs:all": "npm run profile:check && npm run docs:validate && npm run docs:sync && npm run docs:build && npm run docs:check-site"
+    "docs:all": "npm run profile:check && npm run pack:validate && npm run docs:validate && npm run docs:sync && npm run docs:build && npm run docs:check-site",
+    "pack:review": "node src/pack-review.mjs"
   }
 }

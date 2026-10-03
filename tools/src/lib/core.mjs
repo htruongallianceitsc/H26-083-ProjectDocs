@@ -123,7 +123,8 @@ export function registry() {
     projectTypes:readJson('registry/project-types.json',{projectTypes:{}}),
     stacks:readJson('registry/technology-stacks.json',{technologyStacks:{}}),
     trace:readJson('registry/traceability-profiles.json',{}),
-    quality:readJson('registry/quality-rules.json',{rules:[]})
+    quality:readJson('registry/quality-rules.json',{rules:[]}),
+    coreStandards:readJson('registry/core-standards.json',{standards:[]})
   };
 }
 export function entityIndex(entities) { return new Map(entities.map(e=>[String(e.code),e])); }

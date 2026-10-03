@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {root, loadConfig, loadEntities, registry, entityIndex, reverseIndex, sha, writeJson, writeText} from './lib/core.mjs';
+import {loadPackLock} from './lib/packs.mjs';
 const cfg=loadConfig(), entities=loadEntities(cfg), reg=registry(), idx=entityIndex(entities), rev=reverseIndex(entities);
 const gen=cfg.generatedDir;
 fs.mkdirSync(path.resolve(root,gen),{recursive:true}); fs.mkdirSync(path.resolve(root,'tools/.cache'),{recursive:true});
@@ -40,3 +41,14 @@ writeText(`${gen}/TRACEABILITY_MATRIX.md`,tmd);
 writeJson(`${gen}/health.json`,health);
 writeText(`${gen}/DOCUMENT_HEALTH.md`,'# DOCUMENT HEALTH\n\n'+(health.length?health.map(x=>`- ${x.severity.toUpperCase()} ${x.code}: ${x.message}`).join('\n'):'No stale dependency findings.')+'\n');
 console.log(`Synced ${entities.length} entities, ${edges.length} typed edges, ${rows.length} feature traceability rows.`);
+
+// Capability pack inventory (governance metadata, not business facts).
+const packLock=loadPackLock(); const library=[]; const libRoot=path.resolve(root,'reusable-modules');
+if(fs.existsSync(libRoot)) for(const ent of fs.readdirSync(libRoot,{withFileTypes:true})) if(ent.isDirectory()){
+ const mp=path.join(libRoot,ent.name,'manifest.json'); if(fs.existsSync(mp)){try{const m=JSON.parse(fs.readFileSync(mp,'utf8'));library.push({packageId:m.packageId,version:m.version,description:m.description||'',upgradePolicy:m.upgradePolicy,features:m.features});}catch{}}
+}
+const imports=Object.values(packLock.imports||{}).map(x=>({packageId:x.packageId,version:x.version,reviewStatus:x.reviewStatus,enabledFeatures:x.enabledFeatures||[],targetRoot:x.targetRoot,upgradePolicy:x.upgradePolicy,updatedAt:x.updatedAt}));
+writeJson(`${gen}/packs.json`,{library,imports});
+let pmd='# CAPABILITY PACK INVENTORY\n\n## Installed\n\n| Package | Version | Review | Features | Target | Policy |\n|---|---|---|---|---|---|\n';
+for(const x of imports)pmd+=`| ${x.packageId} | ${x.version} | ${x.reviewStatus||''} | ${(x.enabledFeatures||[]).join(', ')} | ${x.targetRoot||''} | ${x.upgradePolicy||''} |\n`;
+pmd+='\n## Library\n\n| Package | Version | Description | Policy |\n|---|---|---|---|\n';for(const x of library)pmd+=`| ${x.packageId} | ${x.version} | ${String(x.description).replaceAll('|','\\|')} | ${x.upgradePolicy||''} |\n`;writeText(`${gen}/PACK_INVENTORY.md`,pmd);

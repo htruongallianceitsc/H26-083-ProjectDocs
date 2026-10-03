@@ -106,3 +106,19 @@ Relation được kiểm qua `registry/relation-map.json`; target type và cardi
 ## 12. Documentation Freshness
 
 Toolchain lưu dependency baseline hash trong `tools/.cache/dependency-state.json`. Nếu tài liệu không đổi nhưng source liên quan thay đổi, tài liệu được cảnh báo stale cho tới khi được review/update lại.
+
+
+## 13. Reusable Capability Pack Governance
+
+Capability Pack Library là upstream reuse source, không phải project source of truth. Sau import:
+
+- file project-local trong `docs/` là canonical;
+- `.project-docs/packs.lock.json` chỉ giữ provenance/version/selection/code map;
+- `.project-docs/pack-snapshots/` giữ immutable base để three-way diff;
+- secrets không được lưu trong pack variable hoặc pack lock;
+- import/upgrade phải preview trước;
+- upgrade không overwrite local customization âm thầm;
+- `reviewStatus: pending` phải được project owner review/approve;
+- project có thể bật `blockOnPackReviewPending` để chặn implementation.
+
+Chi tiết: `standards/reuse/capability-pack-standard.md`.

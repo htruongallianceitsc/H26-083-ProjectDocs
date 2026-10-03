@@ -31,3 +31,19 @@ Bản nâng cấp này xử lý trực tiếp các finding trong review React Na
 ## Deliberate limitation
 
 Mermaid validator mặc định làm structural lint để giữ Node toolchain zero-dependency. Browser dùng Mermaid thật để render; có thể vendor Mermaid local bằng `npm run docs:vendor`. Nếu team cần parser/CLI validation sâu trong CI, có thể cài Mermaid CLI như optional CI dependency mà không thay source-of-truth model.
+
+## v3 — Reusable Capability Pack Layer
+
+Added after reuse review `DOC-REUSE-AUTH-PACKS`:
+
+- three-layer Starter Core / Capability Pack Library / Project Workspace model;
+- `registry/capability-pack.schema.json`;
+- `.project-docs/packs.lock.json` and immutable base snapshots;
+- preview-first selective import with variables, optional features and deterministic namespace remap;
+- pack provenance separated from business frontmatter;
+- `pack:validate`, `pack:import`, `pack:diff`, `pack:upgrade`, `pack:review`;
+- three-way base/local/upstream upgrade proposals;
+- no automatic conflict/deletion overwrite;
+- implementation gate for pending pack review;
+- `auth-standard@1.0.0` executable reference pack;
+- static-site Capability Packs inventory.

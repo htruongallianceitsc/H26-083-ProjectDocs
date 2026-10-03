@@ -86,3 +86,5 @@ Available standards: **84**
 - `stacks/web/reactjs/state-data-fetching.md`
 - `stacks/web/reactjs/testing.md`
 - `tooling-and-static-site.md`
+
+- `reuse/capability-pack-standard.md`

@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0",
+  "standards": [
+    "standards/documentation-standard.md",
+    "standards/metadata-schema.md",
+    "standards/naming-and-id-convention.md",
+    "standards/source-of-truth.md",
+    "standards/security-and-secrets.md",
+    "standards/ai-agent-rules.md",
+    "standards/definition-of-ready-done.md",
+    "standards/tooling-and-static-site.md",
+    "standards/reuse/capability-pack-standard.md"
+  ]
+}

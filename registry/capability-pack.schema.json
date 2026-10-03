@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "capability-pack.schema.json",
+  "title": "Capability Pack Manifest",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "packageId",
+    "version",
+    "starterSchemaRange",
+    "moduleCode",
+    "features",
+    "variables",
+    "files",
+    "upgradePolicy"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0"
+    },
+    "packageId": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "starterSchemaRange": {
+      "type": "string"
+    },
+    "moduleCode": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "defaultTargetRoot": {
+      "type": "string"
+    },
+    "features": {
+      "type": "object",
+      "required": [
+        "required",
+        "optional"
+      ],
+      "properties": {
+        "required": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "optional": {
+          "type": "object"
+        }
+      }
+    },
+    "variables": {
+      "type": "object"
+    },
+    "dependencies": {
+      "type": "array"
+    },
+    "files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "path",
+          "destination",
+          "entityCode",
+          "feature"
+        ]
+      }
+    },
+    "provenance": {
+      "type": "object"
+    },
+    "upgradePolicy": {
+      "enum": [
+        "fork",
+        "track-upstream",
+        "manual-review"
+      ]
+    },
+    "constraints": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  }
+}

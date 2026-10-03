@@ -13,6 +13,7 @@
   "implementationGateFields": [
     "blockOnOpenQuestions",
     "blockOnValidationErrors",
-    "blockOnQualityErrors"
+    "blockOnQualityErrors",
+    "blockOnPackReviewPending"
   ]
 }

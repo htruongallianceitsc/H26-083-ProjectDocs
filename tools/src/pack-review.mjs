@@ -1,0 +1,6 @@
+import {parseArgs,loadPackLock,savePackLock} from './lib/packs.mjs';
+process.on('uncaughtException',e=>{console.error(`ERROR ${e.message}`);process.exit(1);});
+process.on('unhandledRejection',e=>{console.error(`ERROR ${e?.message||e}`);process.exit(1);});
+const a=parseArgs(process.argv.slice(2));const id=a._[0];if(!id)throw new Error('Usage: pack:review -- <packageId> [--approve] [--note text]');const lock=loadPackLock(),p=lock.imports?.[id];if(!p)throw new Error(`${id} is not imported.`);
+console.log(`${p.packageId}@${p.version}`);console.log(`Review status: ${p.reviewStatus}`);console.log(`Features: ${(p.enabledFeatures||[]).join(', ')}`);console.log('Variables:');for(const [k,v] of Object.entries(p.variables||{}))console.log(`  ${k}=${v}`);if((p.reviewNotes||[]).length){console.log('Review notes:');for(const x of p.reviewNotes)console.log(`  - ${x}`);}if((p.reviewRequiredDefaults||[]).length)console.log(`Defaults requiring review: ${p.reviewRequiredDefaults.join(', ')}`);
+if(!a.approve){console.log('No change. Re-run with --approve after project-owner review.');process.exit(0);}p.reviewStatus='approved';p.reviewedAt=new Date().toISOString();p.reviewHistory=[...(p.reviewHistory||[]),{at:p.reviewedAt,action:'approved',note:a.note||''}];savePackLock(lock);console.log('Pack review approved.');

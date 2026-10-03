@@ -1,0 +1,201 @@
+{
+  "schemaVersion": "1.0",
+  "packageId": "auth-standard",
+  "version": "1.0.0",
+  "starterSchemaRange": ">=3.0.0 <4.0.0",
+  "moduleCode": "MOD-AUTH",
+  "description": "Reusable production-grade authentication documentation pack.",
+  "defaultTargetRoot": "docs/02-modules/AUTH",
+  "features": {
+    "required": [
+      "login",
+      "logout",
+      "forgot-password",
+      "reset-password"
+    ],
+    "optional": {
+      "register": {
+        "defaultEnabled": true,
+        "description": "Self-service registration"
+      },
+      "google-login": {
+        "defaultEnabled": false,
+        "description": "Google OAuth sign-in"
+      },
+      "email-verification": {
+        "defaultEnabled": false,
+        "description": "Verify email ownership"
+      }
+    }
+  },
+  "variables": {
+    "OWNER": {
+      "type": "string",
+      "default": "Product & Engineering"
+    },
+    "AUTH_ROUTE_PREFIX": {
+      "type": "string",
+      "default": "/auth",
+      "pattern": "^/"
+    },
+    "AUTH_API_PREFIX": {
+      "type": "string",
+      "default": "/api/auth",
+      "pattern": "^/"
+    },
+    "LOGIN_IDENTIFIER": {
+      "type": "enum",
+      "allowed": [
+        "email",
+        "username",
+        "phone"
+      ],
+      "default": "email",
+      "reviewRequired": true
+    },
+    "REGISTRATION_MODE": {
+      "type": "enum",
+      "allowed": [
+        "self_service",
+        "invite_only",
+        "disabled"
+      ],
+      "default": "self_service",
+      "reviewRequired": true
+    },
+    "EMAIL_VERIFICATION_REQUIRED": {
+      "type": "boolean",
+      "default": false,
+      "reviewRequired": true
+    },
+    "SESSION_STRATEGY": {
+      "type": "enum",
+      "allowed": [
+        "http_only_cookie",
+        "bearer_token",
+        "mobile_secure_token"
+      ],
+      "default": "http_only_cookie",
+      "reviewRequired": true
+    },
+    "GOOGLE_DOMAIN_POLICY": {
+      "type": "enum",
+      "allowed": [
+        "unrestricted",
+        "restricted"
+      ],
+      "default": "unrestricted",
+      "reviewRequired": true
+    }
+  },
+  "dependencies": [
+    {
+      "kind": "integration",
+      "whenFeature": "google-login",
+      "name": "Google OAuth / OIDC provider",
+      "required": true
+    }
+  ],
+  "files": [
+    {
+      "path": "entities/core/module.md",
+      "destination": "module.md",
+      "entityCode": "MOD-AUTH",
+      "feature": "core"
+    },
+    {
+      "path": "entities/login/feature.md",
+      "destination": "features/login/feature.md",
+      "entityCode": "FEAT-AUTH-LOGIN",
+      "feature": "login"
+    },
+    {
+      "path": "entities/login/requirement.md",
+      "destination": "features/login/requirement.md",
+      "entityCode": "REQ-AUTH-LOGIN-001",
+      "feature": "login"
+    },
+    {
+      "path": "entities/login/screen.md",
+      "destination": "features/login/screen.md",
+      "entityCode": "SCR-AUTH-LOGIN",
+      "feature": "login"
+    },
+    {
+      "path": "entities/login/api.md",
+      "destination": "features/login/api.md",
+      "entityCode": "API-AUTH-LOGIN",
+      "feature": "login"
+    },
+    {
+      "path": "entities/login/test.md",
+      "destination": "features/login/test.md",
+      "entityCode": "TC-AUTH-LOGIN-001",
+      "feature": "login"
+    },
+    {
+      "path": "entities/logout/feature.md",
+      "destination": "features/logout/feature.md",
+      "entityCode": "FEAT-AUTH-LOGOUT",
+      "feature": "logout"
+    },
+    {
+      "path": "entities/forgot-password/feature.md",
+      "destination": "features/forgot-password/feature.md",
+      "entityCode": "FEAT-AUTH-FORGOT-PASSWORD",
+      "feature": "forgot-password"
+    },
+    {
+      "path": "entities/reset-password/feature.md",
+      "destination": "features/reset-password/feature.md",
+      "entityCode": "FEAT-AUTH-RESET-PASSWORD",
+      "feature": "reset-password"
+    },
+    {
+      "path": "entities/register/feature.md",
+      "destination": "features/register/feature.md",
+      "entityCode": "FEAT-AUTH-REGISTER",
+      "feature": "register"
+    },
+    {
+      "path": "entities/google-login/feature.md",
+      "destination": "features/google-login/feature.md",
+      "entityCode": "FEAT-AUTH-GOOGLE-LOGIN",
+      "feature": "google-login"
+    },
+    {
+      "path": "entities/email-verification/feature.md",
+      "destination": "features/email-verification/feature.md",
+      "entityCode": "FEAT-AUTH-EMAIL-VERIFICATION",
+      "feature": "email-verification"
+    }
+  ],
+  "reviewNotes": [
+    "Confirm registration mode and login identifier for this product.",
+    "Confirm session/token strategy by project type and client platform.",
+    "Do not reuse concrete session duration, legal email copy, RBAC role names, secrets or environment URLs blindly."
+  ],
+  "provenance": {
+    "source": "starter-kit-v3",
+    "commit": null
+  },
+  "upgradePolicy": "track-upstream",
+  "constraints": [
+    {
+      "if": {
+        "variable": "EMAIL_VERIFICATION_REQUIRED",
+        "equals": true
+      },
+      "requireFeature": "email-verification",
+      "message": "Email verification is required, so the email-verification feature must be imported."
+    },
+    {
+      "if": {
+        "variable": "REGISTRATION_MODE",
+        "equals": "disabled"
+      },
+      "forbidFeature": "register",
+      "message": "Registration mode is disabled, so the register feature must not be imported."
+    }
+  ]
+}

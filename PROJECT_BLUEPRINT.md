@@ -143,3 +143,12 @@
 - Requirements without tests: `<count/list>`
 - Orphan screens/APIs/DB objects: `<count/list>`
 - Stale docs needing review: `<count/list>`
+
+
+## 17. Reusable Capability Inventory
+
+| Package | Version | Imported Features | Review Status | Target Root | Upgrade Policy |
+|---|---|---|---|---|---|
+| `<auth-standard>` | `<1.0.0>` | `<login, logout, ...>` | `<pending/approved>` | `<docs/02-modules/AUTH>` | `<track-upstream>` |
+
+> Đây là inventory tóm tắt. Provenance/code map/base hash canonical nằm trong `.project-docs/packs.lock.json`; business docs không lặp lại metadata package.

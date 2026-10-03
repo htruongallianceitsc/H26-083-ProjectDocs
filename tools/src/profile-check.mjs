@@ -11,7 +11,7 @@ for (const s of p.technologyStacks||[]) {
   if (!st) { console.log(`ERROR Unknown technology stack: ${s}`); errors++; continue; }
   if (st.projectType!=='supporting' && !(p.projectTypes||[]).includes(st.projectType)) { console.log(`ERROR Stack ${s} requires project type ${st.projectType}`); errors++; }
 }
-const standards=[];
+const standards=[...(r.coreStandards?.standards||[])];
 if(active){ for(const k of ['projectCode','projectName','projectTypes','technologyStacks']) if(p[k]===undefined||p[k]===null||p[k]===''){console.log(`ERROR project-profile.json missing ${k}`);errors++;} if(!Array.isArray(p.projectTypes)){console.log('ERROR projectTypes must be array');errors++;} if(!Array.isArray(p.technologyStacks)){console.log('ERROR technologyStacks must be array');errors++;} }
 for (const t of p.projectTypes||[]) { const x=r.projectTypes.projectTypes[t]; if(x) for(const f of x.requiredStandards) standards.push(`${x.standardsRoot}/${f}`); }
 for (const s of p.technologyStacks||[]) { const x=r.stacks.technologyStacks[s]; if(x) for(const f of x.requiredStandards) standards.push(`${x.standardsRoot}/${f}`); }
