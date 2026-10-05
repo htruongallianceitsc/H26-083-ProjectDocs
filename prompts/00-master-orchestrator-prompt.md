@@ -25,3 +25,6 @@ Khi tôi đưa idea/project context:
 - Chạy checklist exit gate của phase.
 - Đề xuất phase tiếp theo.
 ```
+
+## V4 mandatory reuse step
+Before creating detailed Module/Feature documentation, inspect `reusable-modules/`, `reusable-patterns/`, `registry/reuse-policy.json`, and run the Capability Detection workflow. Prefer an existing compatible pack only when it actually matches scope. If no suitable pack exists, generate project-specific docs from Standards. Never create a new Capability Pack for a one-off feature without portfolio reuse evidence.

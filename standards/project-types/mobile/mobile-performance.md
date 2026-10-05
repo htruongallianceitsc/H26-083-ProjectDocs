@@ -1,15 +1,7 @@
-# Mobile Performance Standard
+# Mobile Performance
 
-## Mục tiêu
-Áp dụng cho mọi project thuộc profile này. Đây là policy/checklist production; tài liệu feature chi tiết chỉ reference standard, không copy toàn bộ rule.
+## Required standard
+Set budgets for cold/warm start, memory, list rendering, images/files, JS/UI thread, binary/bundle size and battery/network use.
 
-## Rule bắt buộc
-- Đặt budget cold/warm start, memory, JS/UI thread, frame drop, list rendering, image và bundle size.
-- Không decode ảnh/file lớn trên UI thread.
-- Theo dõi performance theo device tier và OS.
-- Regression performance là release gate cho critical flow.
-
-## Evidence mong đợi
-- Blueprint/architecture hoặc entity docs reference standard này.
-- Test/release checklist cover các rule áp dụng.
-- Exception phải có ADR.
+## Documentation expectation
+Record project decisions, deviations, measurable acceptance criteria and tests. Do not leave framework defaults implicit.

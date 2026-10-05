@@ -1,15 +1,7 @@
-# Flutter Testing & Release
+# Testing Release
 
-## Scope
-Technology-specific standard. Áp dụng sau project-type standard tương ứng.
+## Standard
+Cover unit/widget/integration tests, golden use if applicable, device matrix, lifecycle/network transitions, signing and stores.
 
-## Rules
-- Unit/widget/integration test theo risk.
-- Test lifecycle, network switch, permission, deep link, push và offline critical flow.
-- Profile/release performance test trên device thật.
-- Signing/store/release artifact và crash symbol upload có checklist.
-
-## Review checklist
-- Có architecture/ADR nếu project cố ý khác chuẩn.
-- Test và CI thể hiện rule quan trọng.
-- Không copy secret hoặc environment-specific credential vào tài liệu.
+## Required evidence
+Document deviations, related ADRs, tests and production-operability impact.

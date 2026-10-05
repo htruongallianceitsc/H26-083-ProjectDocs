@@ -1,6 +1,5 @@
-# TRACEABILITY MATRIX
+# Traceability Matrix
 
-> Typed/direct paths only. No generic untyped 2-hop traversal.
+| Feature | Module | Requirements | Screens | APIs | Tests |
+|---|---|---|---|---|---|
 
-| Feature | Requirements | Rules | Screens | APIs | DB | Tests | Mobile contracts |
-|---|---|---|---|---|---|---|---|

@@ -2,36 +2,34 @@
 code: MOD-AUTH
 type: module
 title: Authentication
-status: draft
-owner: {{OWNER}}
-created_at: {{IMPORT_DATE}}
-updated_at: {{IMPORT_DATE}}
-last_reviewed_at: {{IMPORT_DATE}}
-tags: [reusable-capability, auth]
+status: planned
+owner: Product & Engineering
+created_at: 2026-10-05
+updated_at: 2026-10-05
+tags: [auth, reusable]
 related:
-  features: [FEAT-AUTH-LOGIN, FEAT-AUTH-LOGOUT, FEAT-AUTH-FORGOT-PASSWORD, FEAT-AUTH-RESET-PASSWORD, FEAT-AUTH-REGISTER, FEAT-AUTH-GOOGLE-LOGIN, FEAT-AUTH-EMAIL-VERIFICATION]
+  modules: []
+  features: []
+  requirements: []
+  business_rules: []
+  screens: []
+  flows: []
+  apis: []
+  database_objects: []
+  tests: []
   decisions: []
+  integrations: []
   nfrs: []
-  open_questions: []
+  runbooks: []
+  permissions: []
+  deep_links: []
+  sync_policies: []
 ---
 
-# Authentication Module
-
-## Purpose
-
-Provide a reusable authentication capability baseline. Project-specific RBAC, password policy, session lifetime, legal copy and compliance decisions must be reviewed locally.
+# Authentication
 
 ## Scope
+Reusable authentication capability. Required features cover login/logout/password recovery. Registration, Google login and email verification are optional.
 
-Authentication entry, session establishment/termination and account recovery. Optional registration, Google sign-in and email verification are selected during pack import.
-
-## Shared Concepts
-
-- Login identifier: `{{LOGIN_IDENTIFIER}}`.
-- Session strategy: `{{SESSION_STRATEGY}}`.
-- Authentication route prefix: `{{AUTH_ROUTE_PREFIX}}`.
-- Authentication API prefix: `{{AUTH_API_PREFIX}}`.
-
-## Reuse Boundary
-
-This document becomes project-local canonical documentation after import. Pack provenance is maintained outside business frontmatter in `.project-docs/packs.lock.json`.
+## Project decisions
+The project must review identity policy, registration mode, session strategy, token/cookie storage, lockout/rate limiting, audit and legal/privacy copy.

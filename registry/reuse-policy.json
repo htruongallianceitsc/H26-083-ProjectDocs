@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0",
+  "levels": [
+    {"id":"template","label":"Template","description":"Structure only; no reusable business behavior."},
+    {"id":"standard-only","label":"Standard","description":"Rules/checklists used to generate project-specific documentation."},
+    {"id":"pattern-pack","label":"Pattern Pack","description":"Reusable skeleton/relationship pattern; project still fills substantive details."},
+    {"id":"capability-pack","label":"Capability Pack","description":"Versioned reusable capability with canonical docs, variants, provenance and upgrade lifecycle."}
+  ],
+  "decision": {
+    "capabilityPack": {"minOccurrences":3,"minSimilarity":0.7,"stabilityIn":["stable","mature"]},
+    "patternPack": {"minOccurrences":2,"minSimilarity":0.4},
+    "securityOrCrossCuttingBoost": true
+  },
+  "rules": [
+    "Never create a capability pack only because a feature could theoretically be reused.",
+    "Use standards for project-specific or unstable business features.",
+    "Promote to pattern pack after repeatable structure is observed.",
+    "Promote to capability pack only when behavior and documentation are substantially stable across projects.",
+    "After import, project-local documentation is canonical; pack metadata stays in .project-docs."
+  ]
+}

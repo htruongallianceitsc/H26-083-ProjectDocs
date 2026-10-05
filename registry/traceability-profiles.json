@@ -1,93 +1,18 @@
 {
-  "schemaVersion": "2.0",
+  "schemaVersion":"1.0",
   "profiles": {
-    "feature-default": {
-      "rootType": "feature",
-      "columns": {
-        "requirements": [
-          {
-            "direction": "both",
-            "relationKey": "requirements",
-            "targetType": "requirement",
-            "depth": 1
-          }
-        ],
-        "business_rules": [
-          {
-            "direction": "both",
-            "relationKey": "business_rules",
-            "targetType": "business-rule",
-            "depth": 1
-          }
-        ],
-        "screens": [
-          {
-            "direction": "both",
-            "relationKey": "screens",
-            "targetType": "screen",
-            "depth": 1
-          }
-        ],
-        "flows": [
-          {
-            "direction": "both",
-            "relationKey": "flows",
-            "targetType": "flow",
-            "depth": 1
-          }
-        ],
-        "apis": [
-          {
-            "direction": "both",
-            "relationKey": "apis",
-            "targetType": "api",
-            "depth": 1
-          }
-        ],
-        "database_objects": [
-          {
-            "direction": "both",
-            "relationKey": "database_objects",
-            "targetType": "database-object",
-            "depth": 1
-          }
-        ],
-        "tests": [
-          {
-            "direction": "both",
-            "relationKey": "tests",
-            "targetType": "test-case",
-            "depth": 1
-          },
-          {
-            "via": "requirements",
-            "direction": "both",
-            "relationKey": "tests",
-            "targetType": "test-case",
-            "depth": 2
-          }
-        ],
-        "mobile_contracts": [
-          {
-            "direction": "both",
-            "relationKey": "permissions",
-            "targetType": "permission",
-            "depth": 1
-          },
-          {
-            "direction": "both",
-            "relationKey": "deep_links",
-            "targetType": "deep-link",
-            "depth": 1
-          },
-          {
-            "direction": "both",
-            "relationKey": "sync_policies",
-            "targetType": "sync-policy",
-            "depth": 1
-          }
-        ]
-      }
+    "feature": {
+      "rootType":"feature",
+      "columns": [
+        {"label":"Module","path":[{"field":"modules","type":"module"}]},
+        {"label":"Requirements","path":[{"field":"requirements","type":"requirement"}]},
+        {"label":"Rules","path":[{"field":"business_rules","type":"business-rule"}]},
+        {"label":"Screens","path":[{"field":"screens","type":"screen"}]},
+        {"label":"APIs","path":[{"field":"apis","type":"api"}]},
+        {"label":"DB","path":[{"field":"database_objects","type":"database-object"}]},
+        {"label":"Permissions","path":[{"field":"permissions","type":"permission"}]},
+        {"label":"Tests","paths":[[{"field":"tests","type":"test-case"}],[{"field":"requirements","type":"requirement"},{"field":"tests","type":"test-case"}]]}
+      ]
     }
   }
 }

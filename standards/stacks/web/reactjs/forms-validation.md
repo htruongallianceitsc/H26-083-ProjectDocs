@@ -1,15 +1,7 @@
-# ReactJS Forms
+# Forms Validation
 
-## Scope
-Technology-specific standard. Áp dụng sau project-type standard tương ứng.
+## Standard
+Define form library strategy, schema validation, server errors, async validation, accessibility and unsaved-change behavior.
 
-## Rules
-- Schema validation dùng chung với DTO khi khả thi.
-- Client validation không thay server validation.
-- Map field/server/business errors nhất quán.
-- Prevent double submit và preserve/recover input theo policy.
-
-## Review checklist
-- Có architecture/ADR nếu project cố ý khác chuẩn.
-- Test và CI thể hiện rule quan trọng.
-- Không copy secret hoặc environment-specific credential vào tài liệu.
+## Required evidence
+Document deviations, related ADRs, tests and production-operability impact.

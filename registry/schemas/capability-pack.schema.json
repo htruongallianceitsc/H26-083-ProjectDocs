@@ -1,0 +1,20 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "title":"Reusable Pack Manifest",
+  "type":"object",
+  "required":["packageId","packageType","version","starterSchemaVersion","files"],
+  "properties": {
+    "packageId":{"type":"string"},
+    "packageType":{"enum":["pattern","capability"]},
+    "version":{"type":"string"},
+    "starterSchemaVersion":{"type":"string"},
+    "moduleCode":{"type":"string"},
+    "features":{"type":"object"},
+    "variables":{"type":"object"},
+    "dependencies":{"type":"array"},
+    "files":{"type":"array"},
+    "constraints":{"type":"array"},
+    "provenance":{"type":"object"},
+    "upgradePolicy":{"enum":["fork","track-upstream","manual-review"]}
+  }
+}

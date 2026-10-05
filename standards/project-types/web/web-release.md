@@ -1,15 +1,7 @@
-# Web Release Standard
+# Web Release
 
-## Mục tiêu
-Áp dụng cho mọi project thuộc profile này. Đây là policy/checklist production; tài liệu feature chi tiết chỉ reference standard, không copy toàn bộ rule.
+## Required standard
+Define build/versioning, environment config, cache invalidation, rollback, compatibility and release smoke tests.
 
-## Rule bắt buộc
-- Release phải có build artifact immutable, environment config và rollback strategy.
-- Migration/API compatibility phải được kiểm tra trước deploy.
-- Feature flag dùng cho rollout rủi ro cao.
-- Production smoke test và monitoring window phải được định nghĩa.
-
-## Evidence mong đợi
-- Blueprint/architecture hoặc entity docs reference standard này.
-- Test/release checklist cover các rule áp dụng.
-- Exception phải có ADR.
+## Documentation expectation
+Record project decisions, deviations, measurable acceptance criteria and tests. Do not leave framework defaults implicit.

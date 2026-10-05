@@ -1,29 +1,41 @@
 ---
 code: TC-AUTH-LOGIN-001
 type: test-case
-title: Login with valid and invalid credentials
-status: draft
-owner: {{OWNER}}
-created_at: {{IMPORT_DATE}}
-updated_at: {{IMPORT_DATE}}
-last_reviewed_at: {{IMPORT_DATE}}
-tags: [auth, reusable-capability]
+title: Login primary test
+status: ready
+owner: Product & Engineering
+created_at: 2026-10-05
+updated_at: 2026-10-05
+tags: []
 related:
+  modules: []
   features: [FEAT-AUTH-LOGIN]
   requirements: [REQ-AUTH-LOGIN-001]
-  screens: [SCR-AUTH-LOGIN]
-  apis: [API-AUTH-LOGIN]
+  business_rules: []
+  screens: []
+  flows: []
+  apis: []
+  database_objects: []
+  tests: []
+  decisions: []
+  integrations: []
+  nfrs: []
+  runbooks: []
+  permissions: []
+  deep_links: []
+  sync_policies: []
 ---
 
-# Login Test Case
+# Login primary test
 
 ## Preconditions
+Use an account/test fixture appropriate to login.
 
-A valid test user exists and authentication service is available.
+## Test
+1. Execute the canonical success path.
+2. Verify expected UI/API state and audit outcome.
+3. Verify at least one invalid/security-sensitive path.
+4. Verify retry/duplicate behavior where applicable.
 
-## Scenarios
-
-1. Valid identifier + valid credential -> authenticated session.
-2. Valid identifier + invalid credential -> rejected without session.
-3. Unknown identifier -> rejected without user enumeration.
-4. Repeated failure -> project-specific throttling/lock behavior is verified.
+## Expected
+Behavior matches `REQ-AUTH-LOGIN-001` without sensitive information leakage.

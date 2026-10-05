@@ -1,0 +1,99 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import http from 'node:http';
+import { ROOT, loadJson, writeJson, ensureDir, scanEntities, markdownFiles, parseFrontmatter, rel, slugPath, escapeHtml, renderMarkdown, resolveStandards, walk } from '../lib/common.mjs';
+
+const cmd=process.argv[2]||'help';
+const profile=loadJson('project.profile.json',{});
+const registry=loadJson('registry/entity-types.json',{types:{}});
+const relationMap=loadJson('registry/relation-map.json',{relations:[]});
+const quality=loadJson('registry/quality-rules.json',{rules:[]});
+
+function issue(level,code,message,file=''){return {level,code,message,file};}
+function validate(){
+  const issues=[]; const {entities}=scanEntities(); const byCode=new Map();
+  const pts=loadJson('registry/project-types.json',{projectTypes:{}}).projectTypes;
+  const stacks=loadJson('registry/technology-stacks.json',{stacks:{}}).stacks;
+  for(const t of profile.projectTypes||[]) if(!pts[t]) issues.push(issue('error','PROFILE_TYPE',`Unknown project type ${t}`,'project.profile.json'));
+  for(const s of profile.technologyStacks||[]){ if(!stacks[s]) issues.push(issue('error','PROFILE_STACK',`Unknown technology stack ${s}`,'project.profile.json')); else if((profile.projectTypes||[]).length && !(stacks[s].projectTypes||[]).some(x=>(profile.projectTypes||[]).includes(x)) && s!=='postgresql') issues.push(issue('warning','PROFILE_COMPAT',`Stack ${s} is not mapped to selected project types`,'project.profile.json')); }
+  for(const e of entities){
+    if(byCode.has(e.code)) issues.push(issue('error','DUPLICATE_CODE',`Duplicate code ${e.code}`,e.path)); else byCode.set(e.code,e);
+    const def=registry.types[e.type]; if(!def) issues.push(issue('error','UNKNOWN_TYPE',`Unknown entity type ${e.type}`,e.path)); else if(e.status && !(def.statuses||[]).includes(e.status)) issues.push(issue('error','INVALID_STATUS',`${e.code}: status ${e.status} not allowed for ${e.type}`,e.path));
+    if(!e.meta.title) issues.push(issue('warning','MISSING_TITLE',`${e.code} has no title`,e.path));
+    const degree=Object.values(e.meta.related||{}).filter(Array.isArray).reduce((n,a)=>n+a.length,0); if(degree>20) issues.push(issue('warning','OVER_LINK',`${e.code} has ${degree} outgoing related links; review for over-linking`,e.path));
+  }
+  for(const e of entities){
+    const related=e.meta.related||{};
+    for(const [field,vals0] of Object.entries(related)){
+      const vals=Array.isArray(vals0)?vals0:(vals0?[vals0]:[]); if(!vals.length)continue;
+      const mapping=relationMap.relations.find(r=>(r.from==='*'||r.from===e.type)&&r.field===field);
+      if(!mapping){issues.push(issue('warning','UNMAPPED_RELATION',`${e.code}.${field} has no relation-map rule`,e.path));continue;}
+      if(mapping.cardinality==='many-to-one'&&vals.length>1) issues.push(issue('error','CARDINALITY',`${e.code}.${field} allows at most one target`,e.path));
+      for(const code of vals){const target=byCode.get(String(code)); if(!target) issues.push(issue('error','BROKEN_RELATION',`${e.code}.${field} -> ${code} not found`,e.path)); else if(mapping.to!=='*'&&target.type!==mapping.to) issues.push(issue('error','RELATION_TYPE',`${e.code}.${field} expects ${mapping.to}, got ${target.type} (${code})`,e.path));}
+    }
+  }
+  for(const rule of quality.rules||[]){
+    if(rule.projectType && !(profile.projectTypes||[]).includes(rule.projectType)) continue;
+    if(rule.type==='relation-min') for(const e of entities.filter(x=>x.type===rule.entityType)){const n=Array.isArray(e.meta.related?.[rule.field])?e.meta.related[rule.field].length:0;if(n<rule.min)issues.push(issue(rule.severity,rule.id,`${e.code} requires at least ${rule.min} ${rule.field}`,e.path));}
+    if(rule.type==='body-contains') for(const e of entities.filter(x=>x.type===rule.entityType)){const b=e.body.toLowerCase();const miss=(rule.terms||[]).filter(t=>!b.includes(String(t).toLowerCase()));if(miss.length)issues.push(issue(rule.severity,rule.id,`${e.code} missing documented terms: ${miss.join(', ')}`,e.path));}
+    if(rule.type==='status') for(const e of entities.filter(x=>x.type===rule.entityType&&(rule.statusIn||[]).includes(x.status)))issues.push(issue(rule.severity,rule.id,`${e.code} is in blocking status ${e.status}`,e.path));
+    if(rule.type==='pack-review-pending'&&profile.documentation?.blockOnPackReviewPending){const lock=loadJson('.project-docs/packs.lock.json',{packs:{}});for(const [id,p] of Object.entries(lock.packs||{}))if(p.reviewStatus!=='approved')issues.push(issue(rule.severity,rule.id,`Pack ${id}@${p.version} review is ${p.reviewStatus||'pending'}`,'.project-docs/packs.lock.json'));}
+  }
+  const errors=issues.filter(x=>x.level==='error').length, warnings=issues.filter(x=>x.level==='warning').length;
+  console.log(`Validation: ${errors} error(s), ${warnings} warning(s)`); for(const i of issues) console.log(`[${i.level.toUpperCase()}] ${i.code}: ${i.message}${i.file?' ('+i.file+')':''}`);
+  writeJson('docs/_generated/validation-report.json',{generatedAt:new Date().toISOString(),summary:{errors,warnings},issues});
+  return errors===0;
+}
+function sync(){
+  const {docs,entities}=scanEntities(); const byCode=new Map(entities.map(e=>[e.code,e])); const edges=[];
+  for(const e of entities) for(const [field,vals0] of Object.entries(e.meta.related||{})) for(const target of (Array.isArray(vals0)?vals0:[])) if(byCode.has(String(target))) edges.push({from:e.code,to:String(target),field});
+  const rows=entities.filter(e=>e.type==='feature').map(f=>{
+    const direct=(field)=>Array.isArray(f.meta.related?.[field])?f.meta.related[field]:[];
+    const reqs=direct('requirements'); const reqTests=reqs.flatMap(c=>Array.isArray(byCode.get(c)?.meta.related?.tests)?byCode.get(c).meta.related.tests:[]);
+    return {feature:f.code,module:direct('modules'),requirements:reqs,rules:direct('business_rules'),screens:direct('screens'),apis:direct('apis'),database:direct('database_objects'),permissions:direct('permissions'),deepLinks:direct('deep_links'),tests:[...new Set([...direct('tests'),...reqTests])]};
+  });
+  const installed=loadJson('.project-docs/packs.lock.json',{packs:{}}); const libraries=listPackLibraries();
+  ensureDir(path.join(ROOT,'docs/_generated'));
+  writeJson('docs/_generated/catalog.json',{generatedAt:new Date().toISOString(),documents:docs.map(d=>({path:d.path,title:d.title,code:d.meta.code||null,type:d.meta.type||null,status:d.meta.status||null})),entities:entities.map(e=>({path:e.path,title:e.title,code:e.code,type:e.type,status:e.status}))});
+  writeJson('docs/_generated/graph.json',{nodes:entities.map(e=>({id:e.code,label:e.title,type:e.type,path:e.path})),edges});
+  writeJson('docs/_generated/traceability.json',{rows}); writeJson('docs/_generated/reuse.json',{installed:installed.packs||{},libraries});
+  fs.writeFileSync(path.join(ROOT,'docs/_generated/DOCUMENT_INDEX.md'),'# Document Index\n\n'+docs.map(d=>`- [${d.title}](../../${d.path})`).join('\n')+'\n');
+  fs.writeFileSync(path.join(ROOT,'docs/_generated/TRACEABILITY_MATRIX.md'),'# Traceability Matrix\n\n| Feature | Module | Requirements | Screens | APIs | Tests |\n|---|---|---|---|---|---|\n'+rows.map(r=>`| ${r.feature} | ${r.module.join(', ')} | ${r.requirements.join(', ')} | ${r.screens.join(', ')} | ${r.apis.join(', ')} | ${r.tests.join(', ')} |`).join('\n')+'\n');
+  console.log(`Synced ${docs.length} markdown files, ${entities.length} entities, ${edges.length} typed edges.`);
+}
+function listPackLibraries(){
+  const result=[]; for(const dir of ['reusable-modules','reusable-patterns']){const abs=path.join(ROOT,dir);if(!fs.existsSync(abs))continue;for(const name of fs.readdirSync(abs)){const m=path.join(abs,name,'manifest.json');if(fs.existsSync(m)){const j=JSON.parse(fs.readFileSync(m,'utf8'));result.push({packageId:j.packageId,packageType:j.packageType,version:j.version,path:`${dir}/${name}`});}}} return result;
+}
+function shell(title,body,active='',base=''){ const nav=[['index.html','Dashboard'],['profile.html','Profile'],['standards.html','Standards'],['packs.html','Reuse'],['catalog.html','Catalog'],['traceability.html','Traceability'],['graph.html','Graph'],['flows.html','Diagrams']];return `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escapeHtml(title)}</title><link rel="stylesheet" href="${base}assets/style.css"></head><body><header><strong>Project Docs v4</strong><nav>${nav.map(([u,l])=>`<a class="${active===u?'active':''}" href="${base}${u}">${l}</a>`).join('')}</nav></header><main><h1>${escapeHtml(title)}</h1>${body}</main><script src="assets/app.js"></script><script type="module">if(document.querySelector('.mermaid')){import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs').then(m=>{m.default.initialize({startOnLoad:true,securityLevel:'loose'});});}</script></body></html>`; }
+function build(){
+  sync(); const site=path.join(ROOT,'site'); fs.rmSync(site,{recursive:true,force:true}); ensureDir(path.join(site,'pages')); ensureDir(path.join(site,'assets'));
+  fs.writeFileSync(path.join(site,'assets/style.css'),`body{margin:0;font:15px system-ui,sans-serif;background:#f7f7f8;color:#1d1d1f}header{position:sticky;top:0;background:#fff;border-bottom:1px solid #ddd;padding:12px 20px;display:flex;gap:24px;align-items:center;z-index:10}nav{display:flex;gap:10px;flex-wrap:wrap}nav a{color:#444;text-decoration:none;padding:6px 9px;border-radius:8px}nav a.active,nav a:hover{background:#eee}main{max-width:1200px;margin:0 auto;padding:24px}.card{background:#fff;border:1px solid #ddd;border-radius:12px;padding:16px;margin:12px 0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}table{border-collapse:collapse;width:100%;background:#fff}th,td{border:1px solid #ddd;padding:8px;text-align:left;vertical-align:top}pre{overflow:auto;background:#171717;color:#f5f5f5;padding:14px;border-radius:10px}code{background:#eee;padding:1px 4px;border-radius:4px}pre code{background:transparent}a{color:#0957d0}.badge{display:inline-block;padding:2px 7px;border-radius:999px;background:#eee;margin:2px}.search{width:100%;padding:10px;border:1px solid #bbb;border-radius:9px}svg{background:#fff;border:1px solid #ddd;border-radius:12px}`);
+  fs.writeFileSync(path.join(site,'assets/app.js'),`document.querySelectorAll('[data-search]').forEach(i=>i.addEventListener('input',()=>{const q=i.value.toLowerCase();document.querySelectorAll('[data-search-item]').forEach(x=>x.style.display=x.textContent.toLowerCase().includes(q)?'':'none')}));`);
+  const catalog=loadJson('docs/_generated/catalog.json',{documents:[],entities:[]}); const trace=loadJson('docs/_generated/traceability.json',{rows:[]}); const graph=loadJson('docs/_generated/graph.json',{nodes:[],edges:[]}); const reuse=loadJson('docs/_generated/reuse.json',{libraries:[],installed:{}});
+  const standards=resolveStandards(profile);
+  const cards=`<div class="grid"><div class="card"><b>${catalog.documents.length}</b><br>Markdown documents</div><div class="card"><b>${catalog.entities.length}</b><br>Typed entities</div><div class="card"><b>${graph.edges.length}</b><br>Relations</div><div class="card"><b>${reuse.libraries.length}</b><br>Reusable packs</div></div><div class="card"><input class="search" data-search placeholder="Filter quick links"><div data-search-item><a href="profile.html">Project profile and selected standards</a></div><div data-search-item><a href="packs.html">Capability/Pattern Pack library and installed packs</a></div><div data-search-item><a href="traceability.html">Typed feature traceability</a></div><div data-search-item><a href="graph.html">Project knowledge graph</a></div></div>`;
+  fs.writeFileSync(path.join(site,'index.html'),shell('Documentation Dashboard',cards,'index.html'));
+  fs.writeFileSync(path.join(site,'profile.html'),shell('Project Profile',`<pre>${escapeHtml(JSON.stringify(profile,null,2))}</pre><h2>Applicable standards</h2>${standards.map(s=>`<div class="card"><span class="badge">${escapeHtml(s.layer)}</span> ${escapeHtml(s.path)}</div>`).join('')}`,'profile.html'));
+  fs.writeFileSync(path.join(site,'standards.html'),shell('Applicable Standards',standards.map(s=>`<div class="card"><b>${escapeHtml(s.layer)}</b><br>${escapeHtml(s.path)}</div>`).join(''),'standards.html'));
+  const packHtml=`<h2>Library</h2>${reuse.libraries.map(p=>`<div class="card"><b>${escapeHtml(p.packageId)}</b> <span class="badge">${escapeHtml(p.packageType)}</span> <span class="badge">${escapeHtml(p.version)}</span><br>${escapeHtml(p.path)}</div>`).join('')}<h2>Installed</h2>${Object.keys(reuse.installed).length?Object.entries(reuse.installed).map(([id,p])=>`<div class="card"><b>${escapeHtml(id)}@${escapeHtml(p.version)}</b> <span class="badge">${escapeHtml(p.reviewStatus||'pending')}</span><br>Features: ${escapeHtml((p.features||[]).join(', '))}</div>`).join(''):'<p>No packs imported into this starter workspace.</p>'}`;
+  fs.writeFileSync(path.join(site,'packs.html'),shell('Reuse Library',packHtml,'packs.html'));
+  fs.writeFileSync(path.join(site,'catalog.html'),shell('Document Catalog',`<input class="search" data-search placeholder="Filter documents">${catalog.documents.map(d=>`<div class="card" data-search-item><a href="pages/${slugPath(d.path)}">${escapeHtml(d.title)}</a>${d.code?` <span class="badge">${escapeHtml(d.code)}</span>`:''}<br><small>${escapeHtml(d.path)}</small></div>`).join('')}`,'catalog.html'));
+  const headers=['Feature','Module','Requirements','Rules','Screens','APIs','DB','Permissions','Deep Links','Tests']; const rowHtml=trace.rows.map(r=>`<tr><td>${r.feature}</td><td>${r.module.join('<br>')}</td><td>${r.requirements.join('<br>')}</td><td>${r.rules.join('<br>')}</td><td>${r.screens.join('<br>')}</td><td>${r.apis.join('<br>')}</td><td>${r.database.join('<br>')}</td><td>${r.permissions.join('<br>')}</td><td>${r.deepLinks.join('<br>')}</td><td>${r.tests.join('<br>')}</td></tr>`).join('');
+  fs.writeFileSync(path.join(site,'traceability.html'),shell('Typed Traceability',`<table><tr>${headers.map(h=>`<th>${h}</th>`).join('')}</tr>${rowHtml}</table>`,'traceability.html'));
+  const nodes=graph.nodes; const w=1100,h=Math.max(500,Math.ceil(nodes.length/6)*140+100); const positions=new Map(nodes.map((n,i)=>[n.id,{x:100+(i%6)*180,y:80+Math.floor(i/6)*140}])); const edges=graph.edges.map(e=>{const a=positions.get(e.from),b=positions.get(e.to);return a&&b?`<line x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}" stroke="#bbb"/><text x="${(a.x+b.x)/2}" y="${(a.y+b.y)/2}" font-size="9">${escapeHtml(e.field)}</text>`:''}).join(''); const circles=nodes.map(n=>{const p=positions.get(n.id);return `<g><circle cx="${p.x}" cy="${p.y}" r="42" fill="#fff" stroke="#555"/><text x="${p.x}" y="${p.y-4}" text-anchor="middle" font-size="10">${escapeHtml(n.id.slice(0,18))}</text><text x="${p.x}" y="${p.y+11}" text-anchor="middle" font-size="9">${escapeHtml(n.type)}</text></g>`}).join('');
+  fs.writeFileSync(path.join(site,'graph.html'),shell('Project Knowledge Graph',nodes.length?`<svg width="100%" viewBox="0 0 ${w} ${h}">${edges}${circles}</svg>`:'<p>No typed project entities yet. Import a pack or add project docs to populate the graph.','graph.html'));
+  const diagramDocs=[];
+  for(const p of markdownFiles({includeGenerated:true})) { const text=fs.readFileSync(p,'utf8'); const parsed=parseFrontmatter(text); const title=parsed.data.title||rel(p); const page=slugPath(rel(p)); fs.writeFileSync(path.join(site,'pages',page),shell(title,`<p><small>${escapeHtml(rel(p))}</small></p>${renderMarkdown(parsed.body)}`,'','../')); if(text.includes('```mermaid'))diagramDocs.push({title,path:page}); }
+  fs.writeFileSync(path.join(site,'flows.html'),shell('Diagram Gallery',diagramDocs.length?diagramDocs.map(d=>`<div class="card"><a href="pages/${d.path}">${escapeHtml(d.title)}</a></div>`).join(''):'<p>No Mermaid diagrams found yet. Flow templates and prompts describe how to add them.</p>','flows.html'));
+  fs.writeFileSync(path.join(site,'search-index.json'),JSON.stringify(catalog.documents.map(d=>({title:d.title,path:`pages/${slugPath(d.path)}`,text:d.path})),null,2));
+  console.log(`Built static site with ${catalog.documents.length} document pages.`);
+}
+function checkSite(){const site=path.join(ROOT,'site');let broken=[];for(const p of walk(site,x=>x.endsWith('.html'))){const text=fs.readFileSync(p,'utf8');for(const m of text.matchAll(/href="([^"]+)"/g)){const href=m[1];if(/^https?:|^mailto:|^#|^javascript:/.test(href))continue;const target=path.resolve(path.dirname(p),href.split('#')[0]);if(href&& !fs.existsSync(target))broken.push(`${rel(p)} -> ${href}`);}}console.log(`Site link check: ${broken.length} broken link(s)`);broken.forEach(x=>console.log('[BROKEN] '+x));return broken.length===0;}
+function profileCheck(){const standards=resolveStandards(profile);let ok=true;for(const s of standards){if(!fs.existsSync(path.join(ROOT,s.path))){ok=false;console.log(`[MISSING] ${s.layer}: ${s.path}`);}}console.log(`Profile: ${(profile.projectTypes||[]).join(', ')||'(generic)'} / ${(profile.technologyStacks||[]).join(', ')||'(no stack selected)'}`);console.log(`Applicable standards: ${standards.length}`);standards.forEach(s=>console.log(`- ${s.layer}: ${s.path}`));return ok;}
+function serve(){const site=path.join(ROOT,'site');const port=Number(process.env.PORT||4173);http.createServer((req,res)=>{let u=decodeURIComponent((req.url||'/').split('?')[0]);if(u==='/')u='/index.html';let p=path.resolve(site,'.'+u);if(!p.startsWith(site)){res.writeHead(403).end();return;}if(fs.existsSync(p)&&fs.statSync(p).isDirectory())p=path.join(p,'index.html');if(!fs.existsSync(p)){res.writeHead(404);res.end('Not found');return;}const ext=path.extname(p);const ct={'.html':'text/html; charset=utf-8','.css':'text/css','.js':'text/javascript','.json':'application/json'}[ext]||'application/octet-stream';res.writeHead(200,{'content-type':ct});fs.createReadStream(p).pipe(res);}).listen(port,'127.0.0.1',()=>console.log(`Docs site: http://127.0.0.1:${port}`));}
+
+function clean(){fs.rmSync(path.join(ROOT,'site'),{recursive:true,force:true});fs.rmSync(path.join(ROOT,'docs/_generated'),{recursive:true,force:true});console.log('Removed site/ and docs/_generated/.');}
+function watch(){build();console.log('Watching documentation sources...');let timer=null;const roots=['docs','standards','prompts','workflows','templates','registry'];for(const d of roots){const abs=path.join(ROOT,d);if(!fs.existsSync(abs))continue;fs.watch(abs,{recursive:true},(event,filename)=>{if(!filename)return;clearTimeout(timer);timer=setTimeout(()=>{try{build();checkSite();console.log(`Rebuilt after ${d}/${filename}`);}catch(e){console.error('[WATCH ERROR] '+e.message);}},250);});}}
+
+function help(){console.log('docs-tool commands: profile, validate, sync, build, check-site, serve, clean, watch');}
+let ok=true;if(cmd==='profile')ok=profileCheck();else if(cmd==='validate')ok=validate();else if(cmd==='sync')sync();else if(cmd==='build')build();else if(cmd==='check-site')ok=checkSite();else if(cmd==='serve')serve();else if(cmd==='clean')clean();else if(cmd==='watch')watch();else help();if(!ok)process.exitCode=1;

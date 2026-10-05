@@ -1,15 +1,7 @@
-# ReactJS State & Data Fetching
+# State Data Fetching
 
-## Scope
-Technology-specific standard. Áp dụng sau project-type standard tương ứng.
+## Standard
+Separate server state from UI/client state; define query keys, caching, invalidation, retries, cancellation and optimistic updates.
 
-## Rules
-- Phân loại local UI state, URL state, server state, global app state.
-- Server state dùng query cache có stale/retry/invalidation policy.
-- Mutation phải xử lý optimistic update/rollback khi dùng.
-- Abort stale request khi navigation/search thay đổi.
-
-## Review checklist
-- Có architecture/ADR nếu project cố ý khác chuẩn.
-- Test và CI thể hiện rule quan trọng.
-- Không copy secret hoặc environment-specific credential vào tài liệu.
+## Required evidence
+Document deviations, related ADRs, tests and production-operability impact.

@@ -1,58 +1,11 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Production Project Documentation Starter Kit v3</title><link rel="stylesheet" href="../assets/style.css"></head><body><header><strong>Project Docs</strong><nav><a href="../index.html">Dashboard</a><a href="../catalog.html">Catalog</a><a href="../packs.html">Packs</a><a href="../standards.html">Standards</a><a href="../profile.html">Profile</a><a href="../traceability.html">Traceability</a><a href="../graph.html">Graph</a><a href="../flows.html">Diagrams</a></nav><button id="theme">◐</button></header><main><div class="crumb">README.md</div><h1 id="production-project-documentation-starter-kit-v3">Production Project Documentation Starter Kit v3</h1><p>Bộ khung <strong>documentation-first</strong> cho project production có thể gồm Web, Mobile, API/Backend hoặc nhiều surface cùng lúc. Mục tiêu là để PM/BA/UX/Dev/QA/Ops và AI Agent cùng dùng một source of truth có traceability, quality gate và static documentation portal.</p><h2 id="i-m-m-i-v3-standards-theo-profile-reusable-capability-packs">Điểm mới v3: standards theo profile + reusable capability packs</h2><p>Standards được áp dụng theo thứ tự:</p><pre><code class="language-text">Core Governance
-   ↓
-Project Type Standard
-   ├── Web
-   ├── Mobile
-   └── API / Backend
-   ↓
-Technology Stack Standard
-   ├── ReactJS
-   ├── React Native / Expo
-   ├── Flutter
-   ├── NodeJS API
-   ├── ASP.NET Core API
-   └── PostgreSQL
-   ↓
-Project ADR / Exception</code></pre><p>Project thật tạo <code>project-profile.json</code> từ <code>PROJECT_PROFILE.example.json</code>. Toolchain sẽ kiểm tra stack có phù hợp project type và liệt kê toàn bộ standard cần áp dụng.</p><h3 id="reusable-capability-packs">Reusable Capability Packs</h3><p>Các capability lặp lại như AUTH, User Profile, File Upload, Notification, Audit Log hoặc Common CRUD được đóng gói versioned trong <code>reusable-modules/</code>. Pack chỉ là upstream reusable baseline; sau import, file trong <code>docs/</code> của project mới là source of truth.</p><pre><code class="language-text">Starter Core
-   +
-Capability Pack Library
-   ↓ import / customize / three-way upgrade
-Project-local Canonical Docs</code></pre><p>Governance state nằm ở <code>.project-docs/packs.lock.json</code> + immutable base snapshots, không chèn provenance vào business frontmatter.</p><h2 id="nguy-n-t-c-c-t-l-i">Nguyên tắc cốt lõi</h2><ol><li><code>PROJECT_BLUEPRINT.md</code> là inventory/bản đồ cấp cao.</li><li><code>Module -&gt; Feature</code> là xương sống chức năng.</li><li>Entity dùng stable code; relation dựa evidence, không dựa filename hoặc tên giống nhau.</li><li>Một business/technical fact có một source of truth.</li><li>Traceability dùng typed/direct path; không dùng generic 2-hop dễ kéo nhầm entity.</li><li>Project type + technology stack quyết định standard bắt buộc.</li><li>Thay đổi entity phải có impact analysis + stale dependency check.</li><li>Open Question blocking có thể chặn Definition of Ready.</li><li>Generated graph/site/report không phải source of truth.</li><li>Reusable pack không bao giờ là runtime source of truth của project; import xong project-local docs là canonical.</li><li>Pack upgrade luôn dùng base/upstream/local three-way review, không overwrite thẳng.</li></ol><h2 id="quick-start">Quick start</h2><pre><code class="language-bash">cp PROJECT_PROFILE.example.json project-profile.json
-# chỉnh projectTypes + technologyStacks
-cd tools
-npm run profile:check
-npm run pack:validate
-npm run docs:all
-npm run docs:serve</code></pre><p>Sau đó đọc <code>START_HERE.md</code> và làm lần lượt workflow.</p><h2 id="c-u-tr-c">Cấu trúc</h2><pre><code class="language-text">.
-├── starter-kit.json
-├── PROJECT_PROFILE.example.json
-├── PROJECT_BLUEPRINT.md
-├── START_HERE.md
-├── .project-docs/              # pack lock/base/proposals
-├── reusable-modules/           # versioned capability pack library
-├── registry/
-│   ├── entity-types.json
-│   ├── relation-map.json
-│   ├── frontmatter-schema.json
-│   ├── project-types.json
-│   ├── technology-stacks.json
-│   ├── traceability-profiles.json
-│   └── quality-rules.json
-├── standards/
-│   ├── project-types/
-│   │   ├── web/
-│   │   ├── mobile/
-│   │   └── api/
-│   └── stacks/
-│       ├── web/reactjs/
-│       ├── mobile/react-native/
-│       ├── mobile/flutter/
-│       ├── api/nodejs/
-│       ├── api/dotnet-core/
-│       └── database/postgresql/
-├── templates/
-├── prompts/
-├── workflows/
-├── docs/
-├── tools/
-└── site/                     # generated</code></pre><h2 id="tooling-gates-c">Tooling gates đã có</h2><ul><li>Registry-enforced entity type/status.</li><li>Frontmatter required fields.</li><li>Typed relation source -&gt; relation -&gt; target + cardinality.</li><li>Duplicate stable code/route/API contract.</li><li>Over-link/high-degree warning.</li><li>Data-driven quality rules theo project profile.</li><li>Typed traceability; explicit <code>Feature -&gt; Requirement -&gt; Test</code> path.</li><li>Dependency-hash stale detection.</li><li>Blocking Open Question gate.</li><li>Mermaid structural lint.</li><li>Static site: Markdown, tables, code, Mermaid, search, Catalog, Capability Packs, Traceability, Diagram Gallery, interactive graph.</li><li>Pack manifest validation + preview-first import.</li><li>Pack lock/provenance + immutable import snapshot.</li><li>Three-way <code>base/local/upstream</code> diff + upgrade proposal.</li><li>Explicit pack review gate before implementation.</li></ul><p>Chi tiết: <code>tools/README.md</code>.</p></main><script src="../assets/app.js"></script><script type="module" src="../assets/mermaid-loader.js"></script></body></html>
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>README.md</title><link rel="stylesheet" href="../assets/style.css"></head><body><header><strong>Project Docs v4</strong><nav><a class="" href="../index.html">Dashboard</a><a class="" href="../profile.html">Profile</a><a class="" href="../standards.html">Standards</a><a class="" href="../packs.html">Reuse</a><a class="" href="../catalog.html">Catalog</a><a class="" href="../traceability.html">Traceability</a><a class="" href="../graph.html">Graph</a><a class="" href="../flows.html">Diagrams</a></nav></header><main><h1>README.md</h1><p><small>README.md</small></p><h1>Production Project Documentation Starter Kit v4</h1><p>Documentation-first starter kit for long-lived production Web, Mobile and API projects.</p><h2>Core model</h2><pre><code class="language-text">Core Governance Standards
+        ↓
+Project Type Standards (web/mobile/api)
+        ↓
+Technology Standards (ReactJS/React Native/Flutter/NodeJS/.NET/PostgreSQL)
+        ↓
+Reuse Decision (Standard / Pattern Pack / Capability Pack)
+        ↓
+Project-local canonical documentation
+        ↓
+Typed traceability + validation + static documentation portal</code></pre><h2>Start</h2><ul><li>Read <code>START_HERE.md</code>.</li><li>Configure <code>project.profile.json</code>.</li><li>Run <code>cd tools &amp;&amp; npm run profile:check</code>.</li><li>Follow workflows 01 -&gt; 03A -&gt; 03/04 -&gt; quality/production readiness.</li><li>Before generating repeated modules, inspect <code>reusable-modules/</code> and <code>reusable-patterns/</code>.</li><li>Run <code>npm run docs:all</code> before implementation/release reviews.</li></ul><h2>Reuse</h2><ul><li><code>standards/</code> says how a good feature/system must behave.</li><li><code>reusable-patterns/</code> provides reusable skeletons.</li><li><code>reusable-modules/</code> provides versioned reusable capabilities.</li><li>Project docs are always source of truth after import.</li></ul><p>See <code>REUSE_STRATEGY_V4.md</code>, <code>CAPABILITY_PACKS.md</code> and <code>V4_UPGRADE_NOTES.md</code>.</p></main><script src="assets/app.js"></script><script type="module">if(document.querySelector('.mermaid')){import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs').then(m=>{m.default.initialize({startOnLoad:true,securityLevel:'loose'});});}</script></body></html>

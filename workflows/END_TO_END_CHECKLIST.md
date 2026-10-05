@@ -75,3 +75,12 @@
 - [ ] Diagram Gallery reviewed
 - [ ] Mermaid flows render correctly
 - [ ] Generated output is not being used as canonical business source
+
+## V4 Reuse Gate
+- [ ] Project profile resolves correct project-type and stack standards.
+- [ ] Reuse detection was performed before detailed module/feature decomposition.
+- [ ] Existing Capability/Pattern Packs were considered where relevant.
+- [ ] New pack creation is supported by reuse evidence, not convenience alone.
+- [ ] Pack import/upgrade preview was reviewed before apply.
+- [ ] Pack review status is approved before implementation when the gate is enabled.
+- [ ] Project-local docs are canonical after import.

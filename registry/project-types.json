@@ -2,54 +2,51 @@
   "schemaVersion": "1.0",
   "projectTypes": {
     "web": {
-      "displayName": "Web Application",
-      "standardsRoot": "standards/project-types/web",
-      "requiredStandards": [
-        "web-application-standard.md",
-        "web-ui-ux.md",
-        "browser-runtime.md",
-        "web-security.md",
-        "web-performance.md",
-        "web-release.md"
+      "label": "Web Application",
+      "standards": [
+        "standards/project-types/web/web-architecture.md",
+        "standards/project-types/web/browser-runtime.md",
+        "standards/project-types/web/web-ui-ux.md",
+        "standards/project-types/web/web-security.md",
+        "standards/project-types/web/web-performance.md",
+        "standards/project-types/web/web-release.md"
       ]
     },
     "mobile": {
-      "displayName": "Mobile Application",
-      "standardsRoot": "standards/project-types/mobile",
-      "requiredStandards": [
-        "mobile-architecture.md",
-        "app-lifecycle.md",
-        "networking-resilience.md",
-        "offline-sync.md",
-        "local-storage-cache.md",
-        "connectivity-realtime.md",
-        "push-notification.md",
-        "permission-native-capabilities.md",
-        "navigation-deeplink.md",
-        "logging-observability.md",
-        "mobile-security-privacy.md",
-        "mobile-ui-ux-accessibility.md",
-        "mobile-performance.md",
-        "mobile-release-store.md",
-        "background-work.md",
-        "media-attachment.md",
-        "time-timezone.md"
+      "label": "Mobile Application",
+      "standards": [
+        "standards/project-types/mobile/mobile-architecture.md",
+        "standards/project-types/mobile/app-lifecycle.md",
+        "standards/project-types/mobile/offline-sync.md",
+        "standards/project-types/mobile/networking-resilience.md",
+        "standards/project-types/mobile/local-storage-cache.md",
+        "standards/project-types/mobile/connectivity-realtime.md",
+        "standards/project-types/mobile/push-notification.md",
+        "standards/project-types/mobile/permission-native-capabilities.md",
+        "standards/project-types/mobile/navigation-deeplink.md",
+        "standards/project-types/mobile/logging-observability.md",
+        "standards/project-types/mobile/mobile-security-privacy.md",
+        "standards/project-types/mobile/mobile-ui-ux-accessibility.md",
+        "standards/project-types/mobile/mobile-performance.md",
+        "standards/project-types/mobile/mobile-release-store.md",
+        "standards/project-types/mobile/background-work.md",
+        "standards/project-types/mobile/media-attachment.md",
+        "standards/project-types/mobile/timezone-server-time.md"
       ]
     },
     "api": {
-      "displayName": "API / Backend Service",
-      "standardsRoot": "standards/project-types/api",
-      "requiredStandards": [
-        "api-architecture.md",
-        "contract-versioning.md",
-        "auth-authorization.md",
-        "resilience.md",
-        "data-transaction.md",
-        "background-jobs.md",
-        "observability.md",
-        "performance.md",
-        "security.md",
-        "deployment.md"
+      "label": "Backend/API",
+      "standards": [
+        "standards/project-types/api/api-architecture.md",
+        "standards/project-types/api/api-conventions.md",
+        "standards/project-types/api/auth-authorization.md",
+        "standards/project-types/api/resilience.md",
+        "standards/project-types/api/data-transaction.md",
+        "standards/project-types/api/background-jobs.md",
+        "standards/project-types/api/observability.md",
+        "standards/project-types/api/performance.md",
+        "standards/project-types/api/security.md",
+        "standards/project-types/api/deployment.md"
       ]
     }
   }

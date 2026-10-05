@@ -1,15 +1,7 @@
-# ASP.NET Core Architecture
+# Architecture
 
-## Scope
-Technology-specific standard. Áp dụng sau project-type standard tương ứng.
+## Standard
+Define API/Application/Domain/Infrastructure boundaries, DI ownership, middleware, exception handling and validation.
 
-## Rules
-- Controller/endpoint mỏng; application service/use case chứa orchestration.
-- Domain/business không phụ thuộc HttpContext.
-- Infrastructure qua interface/DI; không service locator.
-- CancellationToken propagate qua I/O path.
-
-## Review checklist
-- Có architecture/ADR nếu project cố ý khác chuẩn.
-- Test và CI thể hiện rule quan trọng.
-- Không copy secret hoặc environment-specific credential vào tài liệu.
+## Required evidence
+Document deviations, related ADRs, tests and production-operability impact.

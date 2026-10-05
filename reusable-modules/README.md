@@ -1,18 +1,7 @@
-# Reusable Capability Pack Library
+# Capability Pack Library
 
-Capability Packs are versioned documentation assets for repeated capabilities such as AUTH, User Profile, File Upload, Notification, Audit Log or Common CRUD.
+This folder contains versioned reusable capabilities whose behavior is substantially stable across projects.
 
-They are **not runtime shared documentation**. Import a pack into a project; after import, project-local files become canonical. The pack lock keeps provenance and the imported base snapshot so upgrades can be reviewed with a three-way diff.
+A Capability Pack is not a shared runtime document dependency. Import creates project-local canonical documentation; `.project-docs/packs.lock.json` keeps provenance/version/base snapshots for review and upgrade.
 
-## Commands
-
-```bash
-cd tools
-npm run pack:validate -- ../reusable-modules/auth-standard
-npm run pack:import -- ../reusable-modules/auth-standard
-npm run pack:import -- ../reusable-modules/auth-standard -- --apply --features register,google-login --set LOGIN_IDENTIFIER=email
-npm run pack:diff -- auth-standard --source ../reusable-modules/auth-standard
-npm run pack:upgrade -- auth-standard --source ../reusable-modules/auth-standard
-```
-
-`pack:import` without `--apply` is always a preview. `pack:upgrade` without `--apply` only creates an upgrade proposal.
+Reference pack: `auth-standard/`.

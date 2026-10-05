@@ -1,15 +1,7 @@
-# ASP.NET Core API Conventions
+# Api Conventions
 
-## Scope
-Technology-specific standard. Áp dụng sau project-type standard tương ứng.
+## Standard
+Use consistent controllers/minimal APIs, model binding, validation, ProblemDetails, versioning, pagination and cancellation tokens.
 
-## Rules
-- ProblemDetails/error envelope ổn định.
-- Model validation + business validation tách biệt.
-- Versioning/deprecation rõ; OpenAPI generated/reviewed.
-- Authorization policy-based cho permission phức tạp.
-
-## Review checklist
-- Có architecture/ADR nếu project cố ý khác chuẩn.
-- Test và CI thể hiện rule quan trọng.
-- Không copy secret hoặc environment-specific credential vào tài liệu.
+## Required evidence
+Document deviations, related ADRs, tests and production-operability impact.

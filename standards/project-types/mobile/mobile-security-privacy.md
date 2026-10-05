@@ -1,15 +1,7 @@
-# Mobile Security & Privacy Standard
+# Mobile Security Privacy
 
-## Mục tiêu
-Áp dụng cho mọi project thuộc profile này. Đây là policy/checklist production; tài liệu feature chi tiết chỉ reference standard, không copy toàn bộ rule.
+## Required standard
+Cover Keychain/Keystore, screenshots/clipboard, push leakage, lost device, root/jailbreak decision, SDK inventory and store privacy declarations.
 
-## Rule bắt buộc
-- Secrets không hardcode trong bundle.
-- Sensitive storage dùng platform secure storage; logout phải cleanup.
-- Quyết định screenshot/clipboard/root-jailbreak/biometric phải dựa threat model.
-- SDK inventory, data collection purpose và Apple/Google privacy declaration phải đồng bộ.
-
-## Evidence mong đợi
-- Blueprint/architecture hoặc entity docs reference standard này.
-- Test/release checklist cover các rule áp dụng.
-- Exception phải có ADR.
+## Documentation expectation
+Record project decisions, deviations, measurable acceptance criteria and tests. Do not leave framework defaults implicit.

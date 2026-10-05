@@ -1,15 +1,7 @@
-# Mobile Release & Store Standard
+# Mobile Release Store
 
-## Mục tiêu
-Áp dụng cho mọi project thuộc profile này. Đây là policy/checklist production; tài liệu feature chi tiết chỉ reference standard, không copy toàn bộ rule.
+## Required standard
+Define signing, certificates/profiles, version/build numbers, App Store/Play review, staged rollout, rollback/hotfix and API backward compatibility.
 
-## Rule bắt buộc
-- Version/build number, signing/certificate/provisioning ownership phải có runbook.
-- App Store/Google Play privacy/review metadata phải được review cùng binary.
-- Staged rollout/hotfix/min-supported-version/maintenance mode phải có policy.
-- Backend phải backward-compatible với binary cũ trong support window.
-
-## Evidence mong đợi
-- Blueprint/architecture hoặc entity docs reference standard này.
-- Test/release checklist cover các rule áp dụng.
-- Exception phải có ADR.
+## Documentation expectation
+Record project decisions, deviations, measurable acceptance criteria and tests. Do not leave framework defaults implicit.

@@ -2,13 +2,16 @@
   "schemaVersion": "1.0",
   "standards": [
     "standards/documentation-standard.md",
-    "standards/metadata-schema.md",
-    "standards/naming-and-id-convention.md",
     "standards/source-of-truth.md",
-    "standards/security-and-secrets.md",
-    "standards/ai-agent-rules.md",
+    "standards/naming-and-id-convention.md",
+    "standards/metadata-schema.md",
     "standards/definition-of-ready-done.md",
+    "standards/security-and-secrets.md",
+    "standards/diagram-guidelines.md",
     "standards/tooling-and-static-site.md",
-    "standards/reuse/capability-pack-standard.md"
+    "standards/reuse/reuse-strategy.md",
+    "standards/reuse/capability-pack-standard.md",
+    "standards/reuse/pattern-pack-standard.md",
+    "standards/reuse/promotion-policy.md"
   ]
 }

@@ -1,15 +1,7 @@
-# Connectivity & Realtime Standard
+# Connectivity Realtime
 
-## Mục tiêu
-Áp dụng cho mọi project thuộc profile này. Đây là policy/checklist production; tài liệu feature chi tiết chỉ reference standard, không copy toàn bộ rule.
+## Required standard
+Define socket/SignalR connect/disconnect/reconnect, heartbeat, rejoin, ACK, event ordering, duplicates and background/resume behavior.
 
-## Rule bắt buộc
-- WebSocket/SignalR có connect/disconnect/reconnect/backoff/heartbeat contract.
-- Resume phải rejoin group/channel an toàn và chống duplicate event.
-- Event ordering/message ACK/offline catch-up phải xác định.
-- Không dùng socket làm nguồn duy nhất nếu mất event không thể phục hồi.
-
-## Evidence mong đợi
-- Blueprint/architecture hoặc entity docs reference standard này.
-- Test/release checklist cover các rule áp dụng.
-- Exception phải có ADR.
+## Documentation expectation
+Record project decisions, deviations, measurable acceptance criteria and tests. Do not leave framework defaults implicit.

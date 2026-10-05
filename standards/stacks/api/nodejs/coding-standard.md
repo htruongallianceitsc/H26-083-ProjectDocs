@@ -1,15 +1,7 @@
-# NodeJS API Coding Standard
+# Coding Standard
 
-## Scope
-Technology-specific standard. Áp dụng sau project-type standard tương ứng.
+## Standard
+Use TypeScript where applicable, strict linting, explicit async/error boundaries, structured logging and dependency injection conventions.
 
-## Rules
-- TypeScript strict khuyến nghị.
-- Không swallow Promise rejection; await/catch ở boundary phù hợp.
-- Input DTO/schema validation trước business logic.
-- Lint/typecheck/test là CI gate.
-
-## Review checklist
-- Có architecture/ADR nếu project cố ý khác chuẩn.
-- Test và CI thể hiện rule quan trọng.
-- Không copy secret hoặc environment-specific credential vào tài liệu.
+## Required evidence
+Document deviations, related ADRs, tests and production-operability impact.

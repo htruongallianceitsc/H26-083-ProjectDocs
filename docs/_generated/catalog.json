@@ -1,1 +1,1245 @@
-[]
+{
+  "generatedAt": "2026-10-05T00:30:36.157Z",
+  "documents": [
+    {
+      "path": "CAPABILITY_PACKS.md",
+      "title": "Reuse Model in v4",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "DOCS_GOVERNANCE.md",
+      "title": "Documentation Governance v4",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "FILE_CATALOG.md",
+      "title": "FILE CATALOG — Starter Kit v3",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "PROJECT_BLUEPRINT.md",
+      "title": "Project Blueprint",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "README.md",
+      "title": "Production Project Documentation Starter Kit v4",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "REUSE_STRATEGY_V4.md",
+      "title": "V4 Reuse Strategy",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "REVIEW_UPGRADE_NOTES.md",
+      "title": "Review Upgrade Notes — React Native Trial",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "START_HERE.md",
+      "title": "Start Here - v4",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "V3_CAPABILITY_PACK_UPGRADE.md",
+      "title": "Starter Kit v3 — Capability Pack Upgrade",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "V4_UPGRADE_NOTES.md",
+      "title": "Starter Kit v4 Upgrade Notes",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/README.md",
+      "title": "Project Documentation Source",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "prompts/00-master-orchestrator-prompt.md",
+      "title": "Master Prompt — Documentation-First Project Orchestrator",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "prompts/01-idea-to-project-overview.md",
+      "title": "Prompt 01 — Idea -> Project Overview",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "prompts/02-discovery-open-questions.md",
+      "title": "Prompt 02 — Discovery & Open Questions",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "prompts/03-build-project-blueprint.md",
+      "title": "Prompt 03 — Build Project Blueprint",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "prompts/04-module-decomposition.md",
+      "title": "Prompt 04 — Module & Feature Decomposition",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "prompts/05-feature-specification.md",
+      "title": "Prompt 05 — Feature Specification",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "prompts/06-requirements-business-rules.md",
+      "title": "Prompt 06 — Requirements & Business Rules",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "prompts/07-screen-route-ux.md",
+      "title": "Prompt 07 — Screen / Route / UX Contract",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "prompts/08-flow-diagrams.md",
+      "title": "Prompt 08 — Flow Diagrams",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "prompts/09-api-contracts.md",
+      "title": "Prompt 09 — API Contracts",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "prompts/10-database-design.md",
+      "title": "Prompt 10 — Database Design",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "prompts/11-architecture-integrations.md",
+      "title": "Prompt 11 — Architecture & Integrations",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "prompts/12-non-functional-requirements.md",
+      "title": "Prompt 12 — NFR",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "prompts/13-test-design.md",
+      "title": "Prompt 13 — Test Design",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "prompts/14-security-review.md",
+      "title": "Prompt 14 — Security Review",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "prompts/15-devops-production.md",
+      "title": "Prompt 15 — DevOps & Production",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "prompts/16-monitoring-runbooks.md",
+      "title": "Prompt 16 — Monitoring & Runbooks",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "prompts/17-traceability-audit.md",
+      "title": "Prompt 17 — Traceability Audit",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "prompts/18-change-impact-analysis.md",
+      "title": "Prompt 18 — Change Impact Analysis",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "prompts/19-release-readiness.md",
+      "title": "Prompt 19 — Release Readiness",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "prompts/20-documentation-maintenance.md",
+      "title": "Prompt 20 — Documentation Maintenance",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "prompts/21-documentation-health-and-site.md",
+      "title": "Prompt 21 — Documentation Health & Static Site Review",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "prompts/22-project-profile-selector.md",
+      "title": "Prompt — Select Project Profile & Applicable Standards",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "prompts/23-mobile-readiness-review.md",
+      "title": "Prompt — Mobile Readiness Review",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "prompts/24-backend-api-readiness-review.md",
+      "title": "Prompt — Backend/API Readiness Review",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "prompts/25-stack-standard-compliance-review.md",
+      "title": "Prompt — Technology Stack Standard Compliance Review",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "prompts/26-capability-pack-design.md",
+      "title": "Prompt 26 — Design a Reusable Capability Pack",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "prompts/27-capability-pack-import-review.md",
+      "title": "Prompt 27 — Review Capability Pack Import",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "prompts/28-capability-pack-upgrade-review.md",
+      "title": "Prompt 28 — Review Capability Pack Upgrade",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "prompts/29-capability-detection.md",
+      "title": "Prompt - Capability Detection Before Decomposition",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "prompts/30-reuse-promotion-review.md",
+      "title": "Prompt - Reuse Promotion Review",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "prompts/31-pattern-pack-design.md",
+      "title": "Prompt - Pattern Pack Design",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "reusable-templates/README.md",
+      "title": "Reusable Templates",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/ADDING_A_STACK.md",
+      "title": "Adding a New Technology Stack",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/README.md",
+      "title": "Standards Architecture v4",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/STANDARD_CATALOG.md",
+      "title": "Standard Catalog",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/ai-agent-rules.md",
+      "title": "AI Agent Rules",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/capabilities/authentication.md",
+      "title": "Authentication Feature Standard",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/definition-of-ready-done.md",
+      "title": "Definition of Ready / Done cho tài liệu",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/diagram-guidelines.md",
+      "title": "Flow & Diagram Guidelines",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/documentation-standard.md",
+      "title": "Documentation Standard",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/metadata-schema.md",
+      "title": "Metadata Schema",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/naming-and-id-convention.md",
+      "title": "Naming & ID Convention",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/project-types/api/api-architecture.md",
+      "title": "Api Architecture",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/project-types/api/api-conventions.md",
+      "title": "Api Conventions",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/project-types/api/auth-authorization.md",
+      "title": "Auth Authorization",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/project-types/api/background-jobs.md",
+      "title": "Background Jobs",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/project-types/api/data-transaction.md",
+      "title": "Data Transaction",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/project-types/api/deployment.md",
+      "title": "Deployment",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/project-types/api/observability.md",
+      "title": "Observability",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/project-types/api/performance.md",
+      "title": "Performance",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/project-types/api/resilience.md",
+      "title": "Resilience",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/project-types/api/security.md",
+      "title": "Security",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/project-types/mobile/app-lifecycle.md",
+      "title": "App Lifecycle",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/project-types/mobile/background-work.md",
+      "title": "Background Work",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/project-types/mobile/connectivity-realtime.md",
+      "title": "Connectivity Realtime",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/project-types/mobile/local-storage-cache.md",
+      "title": "Local Storage Cache",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/project-types/mobile/logging-observability.md",
+      "title": "Logging Observability",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/project-types/mobile/media-attachment.md",
+      "title": "Media Attachment",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/project-types/mobile/mobile-architecture.md",
+      "title": "Mobile Architecture",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/project-types/mobile/mobile-performance.md",
+      "title": "Mobile Performance",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/project-types/mobile/mobile-release-store.md",
+      "title": "Mobile Release Store",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/project-types/mobile/mobile-security-privacy.md",
+      "title": "Mobile Security Privacy",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/project-types/mobile/mobile-ui-ux-accessibility.md",
+      "title": "Mobile Ui Ux Accessibility",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/project-types/mobile/navigation-deeplink.md",
+      "title": "Navigation Deeplink",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/project-types/mobile/networking-resilience.md",
+      "title": "Networking Resilience",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/project-types/mobile/offline-sync.md",
+      "title": "Offline Sync",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/project-types/mobile/permission-native-capabilities.md",
+      "title": "Permission Native Capabilities",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/project-types/mobile/push-notification.md",
+      "title": "Push Notification",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/project-types/mobile/timezone-server-time.md",
+      "title": "Timezone Server Time",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/project-types/web/browser-runtime.md",
+      "title": "Browser Runtime",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/project-types/web/web-architecture.md",
+      "title": "Web Architecture",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/project-types/web/web-performance.md",
+      "title": "Web Performance",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/project-types/web/web-release.md",
+      "title": "Web Release",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/project-types/web/web-security.md",
+      "title": "Web Security",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/project-types/web/web-ui-ux.md",
+      "title": "Web Ui Ux",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/reuse/capability-pack-standard.md",
+      "title": "Capability Pack Standard",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/reuse/pattern-pack-standard.md",
+      "title": "Pattern Pack Standard",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/reuse/promotion-policy.md",
+      "title": "Reuse Promotion Policy",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/reuse/reuse-strategy.md",
+      "title": "Reuse Strategy",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/security-and-secrets.md",
+      "title": "Security & Secrets Documentation Rules",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/source-of-truth.md",
+      "title": "Source of Truth Rules",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/stacks/api/dotnet-core/api-conventions.md",
+      "title": "Api Conventions",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/stacks/api/dotnet-core/architecture.md",
+      "title": "Architecture",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/stacks/api/dotnet-core/background-services.md",
+      "title": "Background Services",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/stacks/api/dotnet-core/data-access.md",
+      "title": "Data Access",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/stacks/api/dotnet-core/security.md",
+      "title": "Security",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/stacks/api/dotnet-core/testing-observability-deployment.md",
+      "title": "Testing Observability Deployment",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/stacks/api/nodejs/architecture.md",
+      "title": "Architecture",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/stacks/api/nodejs/coding-standard.md",
+      "title": "Coding Standard",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/stacks/api/nodejs/deployment.md",
+      "title": "Deployment",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/stacks/api/nodejs/testing-observability.md",
+      "title": "Testing Observability",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/stacks/api/nodejs/validation-errors.md",
+      "title": "Validation Errors",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/stacks/database/postgresql/migration-operations.md",
+      "title": "Migration Operations",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/stacks/database/postgresql/query-performance.md",
+      "title": "Query Performance",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/stacks/database/postgresql/schema-conventions.md",
+      "title": "Schema Conventions",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/stacks/mobile/flutter/architecture.md",
+      "title": "Architecture",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/stacks/mobile/flutter/coding-standard.md",
+      "title": "Coding Standard",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/stacks/mobile/flutter/navigation.md",
+      "title": "Navigation",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/stacks/mobile/flutter/state-management-bloc-cubit.md",
+      "title": "State Management Bloc Cubit",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/stacks/mobile/flutter/storage-networking.md",
+      "title": "Storage Networking",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/stacks/mobile/flutter/testing-release.md",
+      "title": "Testing Release",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/stacks/mobile/react-native/architecture.md",
+      "title": "Architecture",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/stacks/mobile/react-native/coding-standard.md",
+      "title": "Coding Standard",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/stacks/mobile/react-native/expo-native-boundary.md",
+      "title": "Expo Native Boundary",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/stacks/mobile/react-native/navigation.md",
+      "title": "Navigation",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/stacks/mobile/react-native/state-management.md",
+      "title": "State Management",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/stacks/mobile/react-native/storage-networking.md",
+      "title": "Storage Networking",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/stacks/mobile/react-native/testing-release.md",
+      "title": "Testing Release",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/stacks/web/reactjs/architecture.md",
+      "title": "Architecture",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/stacks/web/reactjs/forms-validation.md",
+      "title": "Forms Validation",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/stacks/web/reactjs/routing.md",
+      "title": "Routing",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/stacks/web/reactjs/state-data-fetching.md",
+      "title": "State Data Fetching",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/stacks/web/reactjs/testing.md",
+      "title": "Testing",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/tooling-and-static-site.md",
+      "title": "Documentation Tooling & Static Site Standard",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "templates/adr-template.md",
+      "title": "<TITLE>",
+      "code": "<CODE>",
+      "type": "decision",
+      "status": "draft"
+    },
+    {
+      "path": "templates/analytics-event-template.md",
+      "title": "<Analytics Event>",
+      "code": "<EVT-XXX>",
+      "type": "analytics-event",
+      "status": "draft"
+    },
+    {
+      "path": "templates/api-template.md",
+      "title": "<TITLE>",
+      "code": "<CODE>",
+      "type": "api",
+      "status": "draft"
+    },
+    {
+      "path": "templates/architecture-template.md",
+      "title": "<Architecture Document>",
+      "code": "<ARCH-XXX>",
+      "type": "architecture",
+      "status": "draft"
+    },
+    {
+      "path": "templates/background-mobile-template.md",
+      "title": "<Mobile Background Work>",
+      "code": "<MBG-XXX>",
+      "type": "background-job-mobile",
+      "status": "draft"
+    },
+    {
+      "path": "templates/business-rule-template.md",
+      "title": "<TITLE>",
+      "code": "<CODE>",
+      "type": "business-rule",
+      "status": "draft"
+    },
+    {
+      "path": "templates/database-object-template.md",
+      "title": "<TITLE>",
+      "code": "<CODE>",
+      "type": "database-object",
+      "status": "draft"
+    },
+    {
+      "path": "templates/deep-link-template.md",
+      "title": "<Deep Link Contract>",
+      "code": "<DL-XXX>",
+      "type": "deep-link",
+      "status": "draft"
+    },
+    {
+      "path": "templates/device-test-profile-template.md",
+      "title": "<Device / OS Test Profile>",
+      "code": "<DTP-XXX>",
+      "type": "device-test-profile",
+      "status": "draft"
+    },
+    {
+      "path": "templates/feature-flag-template.md",
+      "title": "<Feature Flag>",
+      "code": "<FLAG-XXX>",
+      "type": "feature-flag",
+      "status": "draft"
+    },
+    {
+      "path": "templates/feature-template.md",
+      "title": "<TITLE>",
+      "code": "<CODE>",
+      "type": "feature",
+      "status": "draft"
+    },
+    {
+      "path": "templates/flow-template.md",
+      "title": "<TITLE>",
+      "code": "<CODE>",
+      "type": "flow",
+      "status": "draft"
+    },
+    {
+      "path": "templates/incident-template.md",
+      "title": "<Incident Record>",
+      "code": "<INC-XXX>",
+      "type": "incident",
+      "status": "draft"
+    },
+    {
+      "path": "templates/integration-template.md",
+      "title": "<TITLE>",
+      "code": "<CODE>",
+      "type": "integration",
+      "status": "draft"
+    },
+    {
+      "path": "templates/local-storage-template.md",
+      "title": "<Local Storage Contract>",
+      "code": "<LS-XXX>",
+      "type": "local-storage",
+      "status": "draft"
+    },
+    {
+      "path": "templates/mobile-release-template.md",
+      "title": "<Mobile Release>",
+      "code": "<REL-MOB-XXX>",
+      "type": "release",
+      "status": "draft"
+    },
+    {
+      "path": "templates/mobile-screen-template.md",
+      "title": "<Mobile Screen>",
+      "code": "<SCR-MOB-XXX>",
+      "type": "screen",
+      "status": "draft"
+    },
+    {
+      "path": "templates/module-template.md",
+      "title": "<TITLE>",
+      "code": "<CODE>",
+      "type": "module",
+      "status": "draft"
+    },
+    {
+      "path": "templates/monitoring-alert-template.md",
+      "title": "<Monitoring / Alert>",
+      "code": "<ALERT-XXX>",
+      "type": "monitoring-alert",
+      "status": "draft"
+    },
+    {
+      "path": "templates/native-capability-template.md",
+      "title": "<Native Capability>",
+      "code": "<NCAP-XXX>",
+      "type": "native-capability",
+      "status": "draft"
+    },
+    {
+      "path": "templates/nfr-template.md",
+      "title": "<TITLE>",
+      "code": "<CODE>",
+      "type": "nfr",
+      "status": "draft"
+    },
+    {
+      "path": "templates/offline-sync-template.md",
+      "title": "<Offline Sync Policy>",
+      "code": "<SYNC-XXX>",
+      "type": "sync-policy",
+      "status": "draft"
+    },
+    {
+      "path": "templates/open-question-template.md",
+      "title": "<Open Question>",
+      "code": "<OQ-XXX>",
+      "type": "open-question",
+      "status": "draft"
+    },
+    {
+      "path": "templates/permission-template.md",
+      "title": "<Native Permission Contract>",
+      "code": "<PERM-XXX>",
+      "type": "permission",
+      "status": "draft"
+    },
+    {
+      "path": "templates/product-scope-template.md",
+      "title": "<Product Scope>",
+      "code": "<DOC-SCOPE>",
+      "type": "document",
+      "status": "draft"
+    },
+    {
+      "path": "templates/project-overview-template.md",
+      "title": "<Project Overview>",
+      "code": "<PRJ-XXX>",
+      "type": "project",
+      "status": "draft"
+    },
+    {
+      "path": "templates/push-event-template.md",
+      "title": "<Push Event Contract>",
+      "code": "<PUSH-XXX>",
+      "type": "push-event",
+      "status": "draft"
+    },
+    {
+      "path": "templates/release-template.md",
+      "title": "<TITLE>",
+      "code": "<CODE>",
+      "type": "release",
+      "status": "draft"
+    },
+    {
+      "path": "templates/requirement-template.md",
+      "title": "<TITLE>",
+      "code": "<CODE>",
+      "type": "requirement",
+      "status": "draft"
+    },
+    {
+      "path": "templates/reuse/feature-standard-template.md",
+      "title": "<Capability> Feature Standard",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "templates/reuse/pack-import-review-template.md",
+      "title": "Pack Import Review",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "templates/reuse/reuse-assessment-template.md",
+      "title": "Reuse Assessment - <Capability>",
+      "code": "REVIEW-REUSE-<CAPABILITY>",
+      "type": "review",
+      "status": "draft"
+    },
+    {
+      "path": "templates/runbook-template.md",
+      "title": "<TITLE>",
+      "code": "<CODE>",
+      "type": "runbook",
+      "status": "draft"
+    },
+    {
+      "path": "templates/screen-template.md",
+      "title": "<TITLE>",
+      "code": "<CODE>",
+      "type": "screen",
+      "status": "draft"
+    },
+    {
+      "path": "templates/test-case-template.md",
+      "title": "<TITLE>",
+      "code": "<CODE>",
+      "type": "test-case",
+      "status": "draft"
+    },
+    {
+      "path": "tools/README.md",
+      "title": "Documentation Toolchain v4",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "workflows/01-idea-to-scope.md",
+      "title": "Workflow 01 — Idea -> Scope",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "workflows/02-scope-to-blueprint.md",
+      "title": "Workflow 02 — Scope -> Project Blueprint",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "workflows/03-blueprint-to-functional-docs.md",
+      "title": "Workflow 03 — Blueprint -> Functional Documentation",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "workflows/03A-reuse-capability-detection.md",
+      "title": "Workflow 03A - Reuse and Capability Detection",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "workflows/04-functional-to-technical-contracts.md",
+      "title": "Workflow 04 — Functional -> Technical Contracts",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "workflows/05-quality-and-test.md",
+      "title": "Workflow 05 — Quality & Test",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "workflows/06-production-readiness.md",
+      "title": "Workflow 06 — Production Readiness",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "workflows/07-change-management.md",
+      "title": "Workflow 07 — Change Management",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "workflows/08-documentation-tooling.md",
+      "title": "Workflow 08 — Validate, Sync and Publish Documentation",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "workflows/09-project-profile-and-standards.md",
+      "title": "Workflow 09 — Project Profile & Standards Selection",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "workflows/10-mobile-readiness.md",
+      "title": "Workflow 10 — Mobile Readiness",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "workflows/11-store-release-readiness.md",
+      "title": "Workflow 11 — Store Release Readiness",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "workflows/12-capability-pack-lifecycle.md",
+      "title": "Workflow 12 — Reusable Capability Pack Lifecycle",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "workflows/13-reuse-promotion-governance.md",
+      "title": "Workflow 13 - Reuse Promotion Governance",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "workflows/END_TO_END_CHECKLIST.md",
+      "title": "End-to-End Documentation Checklist",
+      "code": null,
+      "type": null,
+      "status": null
+    }
+  ],
+  "entities": []
+}

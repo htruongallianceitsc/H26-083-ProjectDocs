@@ -1,0 +1,2 @@
+import fs from 'node:fs';import path from 'node:path';import { ROOT, ensureDir } from '../lib/common.mjs';
+const url='https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js';const res=await fetch(url);if(!res.ok)throw new Error(`Download failed: ${res.status}`);const text=await res.text();const out=path.join(ROOT,'tools/vendor/mermaid.min.js');ensureDir(path.dirname(out));fs.writeFileSync(out,text);console.log(`Saved ${out}`);

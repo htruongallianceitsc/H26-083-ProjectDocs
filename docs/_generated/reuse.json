@@ -1,0 +1,17 @@
+{
+  "installed": {},
+  "libraries": [
+    {
+      "packageId": "auth-standard",
+      "packageType": "capability",
+      "version": "1.0.0",
+      "path": "reusable-modules/auth-standard"
+    },
+    {
+      "packageId": "common-crud-pattern",
+      "packageType": "pattern",
+      "version": "1.0.0",
+      "path": "reusable-patterns/common-crud-pattern"
+    }
+  ]
+}

@@ -1,89 +1,31 @@
-# Capability Packs — Quick Reference
+# Reuse Model in v4
 
-Starter Kit v3 supports reusable, versioned documentation capabilities without making shared Markdown the project source of truth.
+V4 uses four reuse levels:
 
-## Model
+1. **Template** - structure only.
+2. **Standard** - reusable rules/checklists.
+3. **Pattern Pack** - reusable skeleton and relationship pattern.
+4. **Capability Pack** - versioned, substantially complete reusable capability.
 
-```text
-Starter Core
-    +
-Capability Pack Library
-    ↓ preview/import
-Project-local canonical docs
-    ↓ customize
-base + local + upstream
-    ↓ three-way review
-safe upgrade
+## Decision flow
+
+```mermaid
+flowchart TD
+  A[New capability/module] --> B{Suitable existing Capability Pack?}
+  B -- Yes --> C[Preview import]
+  C --> D[Configure optional features and variables]
+  D --> E[Review/approve]
+  E --> F[Project-local canonical docs]
+  B -- No --> G{Suitable Pattern Pack?}
+  G -- Yes --> H[Import skeleton and complete TODOs]
+  G -- No --> I[Generate from Standards]
+  I --> J{Repeated across projects?}
+  J -- No --> F
+  J -- Yes --> K[Reuse assessment]
+  K --> L[Promote to Pattern/Capability Pack only with evidence]
 ```
 
-## Included sample
+## Rule of thumb
+A capability normally needs at least three occurrences, 70%+ similarity and stable semantics before becoming a Capability Pack. Security/cross-cutting baselines may justify earlier promotion.
 
-`reusable-modules/auth-standard/` is a runnable reference pack.
-
-Required features:
-
-- Login
-- Logout
-- Forgot Password
-- Reset Password
-
-Optional features:
-
-- Register
-- Google Login
-- Email Verification
-
-## Import
-
-```bash
-cd tools
-npm run pack:validate
-npm run pack:import -- ../reusable-modules/auth-standard
-npm run pack:import -- ../reusable-modules/auth-standard -- \
-  --apply \
-  --features register,google-login \
-  --set LOGIN_IDENTIFIER=email \
-  --set SESSION_STRATEGY=http_only_cookie
-```
-
-Import is preview-first. The second command changes nothing. `--apply` is required to create project files.
-
-## Review
-
-```bash
-npm run pack:review -- auth-standard
-npm run pack:review -- auth-standard --approve --note "Reviewed by Product + Tech Lead"
-```
-
-When `blockOnPackReviewPending` is enabled, pending pack review blocks documentation validation/implementation readiness.
-
-## Upgrade
-
-```bash
-npm run pack:diff -- auth-standard --source ../path/to/auth-standard-new
-npm run pack:upgrade -- auth-standard --source ../path/to/auth-standard-new
-```
-
-The upgrade command creates a proposal by default. It does not overwrite project files.
-
-Apply safe changes only:
-
-```bash
-npm run pack:upgrade -- auth-standard --source ../path/to/auth-standard-new --apply
-```
-
-If both local and upstream changed the same entity, merge/review the project-local file first. Only then acknowledge the merge explicitly:
-
-```bash
-npm run pack:upgrade -- auth-standard --source ../path/to/auth-standard-new --apply --accept-local-merge
-```
-
-## Governance state
-
-- `.project-docs/packs.lock.json` — provenance/version/features/variables/code map.
-- `.project-docs/pack-snapshots/` — immutable rendered base snapshots.
-- `.project-docs/pack-proposals/` — generated upgrade proposals.
-
-No secrets belong in any of these files.
-
-See `standards/reuse/capability-pack-standard.md` and `workflows/12-capability-pack-lifecycle.md`.
+AUTH is the reference Capability Pack. COMMON CRUD is the reference Pattern Pack.

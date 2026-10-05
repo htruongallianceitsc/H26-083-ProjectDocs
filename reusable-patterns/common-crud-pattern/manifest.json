@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "1.0",
+  "packageId": "common-crud-pattern",
+  "packageType": "pattern",
+  "version": "1.0.0",
+  "starterSchemaVersion": "4.0",
+  "summary": "CRUD documentation skeleton for repeated but project-specific resources.",
+  "features": {
+    "required": [
+      "crud"
+    ],
+    "optional": []
+  },
+  "variables": {
+    "ENTITY_NAME": {
+      "type": "string",
+      "required": true
+    },
+    "ENTITY_CODE": {
+      "type": "string",
+      "required": true
+    },
+    "ROUTE_PREFIX": {
+      "type": "string",
+      "default": "/"
+    },
+    "API_PREFIX": {
+      "type": "string",
+      "default": "/api"
+    }
+  },
+  "constraints": [],
+  "dependencies": [],
+  "files": [
+    {
+      "source": "entities/feature.md",
+      "destination": "docs/02-modules/{{ENTITY_CODE}}/crud/feature.md",
+      "code": "FEAT-{{ENTITY_CODE}}-CRUD",
+      "type": "feature"
+    },
+    {
+      "source": "entities/screen.md",
+      "destination": "docs/05-screens/SCR-{{ENTITY_CODE}}-LIST.md",
+      "code": "SCR-{{ENTITY_CODE}}-LIST",
+      "type": "screen"
+    },
+    {
+      "source": "entities/api.md",
+      "destination": "docs/07-api/API-{{ENTITY_CODE}}-CRUD.md",
+      "code": "API-{{ENTITY_CODE}}-CRUD",
+      "type": "api"
+    },
+    {
+      "source": "entities/test.md",
+      "destination": "docs/11-quality/test-cases/TC-{{ENTITY_CODE}}-CRUD-001.md",
+      "code": "TC-{{ENTITY_CODE}}-CRUD-001",
+      "type": "test-case"
+    }
+  ],
+  "provenance": {
+    "source": "starter-kit-v4"
+  },
+  "upgradePolicy": "fork"
+}

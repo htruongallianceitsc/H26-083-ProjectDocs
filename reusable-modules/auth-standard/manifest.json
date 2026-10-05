@@ -1,11 +1,11 @@
 {
   "schemaVersion": "1.0",
   "packageId": "auth-standard",
+  "packageType": "capability",
   "version": "1.0.0",
-  "starterSchemaRange": ">=3.0.0 <4.0.0",
-  "moduleCode": "MOD-AUTH",
-  "description": "Reusable production-grade authentication documentation pack.",
-  "defaultTargetRoot": "docs/02-modules/AUTH",
+  "starterSchemaVersion": "4.0",
+  "moduleCode": "AUTH",
+  "summary": "Reusable production authentication documentation baseline.",
   "features": {
     "required": [
       "login",
@@ -13,189 +13,347 @@
       "forgot-password",
       "reset-password"
     ],
-    "optional": {
-      "register": {
-        "defaultEnabled": true,
-        "description": "Self-service registration"
-      },
-      "google-login": {
-        "defaultEnabled": false,
-        "description": "Google OAuth sign-in"
-      },
-      "email-verification": {
-        "defaultEnabled": false,
-        "description": "Verify email ownership"
-      }
-    }
+    "optional": [
+      "register",
+      "google-login",
+      "email-verification"
+    ]
   },
   "variables": {
-    "OWNER": {
-      "type": "string",
-      "default": "Product & Engineering"
-    },
     "AUTH_ROUTE_PREFIX": {
       "type": "string",
-      "default": "/auth",
-      "pattern": "^/"
+      "default": "/auth"
     },
     "AUTH_API_PREFIX": {
       "type": "string",
-      "default": "/api/auth",
-      "pattern": "^/"
+      "default": "/api/auth"
     },
     "LOGIN_IDENTIFIER": {
       "type": "enum",
-      "allowed": [
+      "values": [
         "email",
         "username",
         "phone"
       ],
-      "default": "email",
-      "reviewRequired": true
+      "default": "email"
+    },
+    "GOOGLE_LOGIN_ENABLED": {
+      "type": "boolean",
+      "default": false
     },
     "REGISTRATION_MODE": {
       "type": "enum",
-      "allowed": [
+      "values": [
         "self_service",
         "invite_only",
         "disabled"
       ],
-      "default": "self_service",
-      "reviewRequired": true
+      "default": "disabled"
     },
     "EMAIL_VERIFICATION_REQUIRED": {
       "type": "boolean",
-      "default": false,
-      "reviewRequired": true
+      "default": false
     },
     "SESSION_STRATEGY": {
       "type": "enum",
-      "allowed": [
+      "values": [
         "http_only_cookie",
-        "bearer_token",
-        "mobile_secure_token"
+        "mobile_secure_token",
+        "external_idp"
       ],
-      "default": "http_only_cookie",
-      "reviewRequired": true
+      "default": "http_only_cookie"
     },
     "GOOGLE_DOMAIN_POLICY": {
-      "type": "enum",
-      "allowed": [
-        "unrestricted",
-        "restricted"
-      ],
-      "default": "unrestricted",
-      "reviewRequired": true
+      "type": "string",
+      "default": "unrestricted"
     }
   },
-  "dependencies": [
-    {
-      "kind": "integration",
-      "whenFeature": "google-login",
-      "name": "Google OAuth / OIDC provider",
-      "required": true
-    }
-  ],
-  "files": [
-    {
-      "path": "entities/core/module.md",
-      "destination": "module.md",
-      "entityCode": "MOD-AUTH",
-      "feature": "core"
-    },
-    {
-      "path": "entities/login/feature.md",
-      "destination": "features/login/feature.md",
-      "entityCode": "FEAT-AUTH-LOGIN",
-      "feature": "login"
-    },
-    {
-      "path": "entities/login/requirement.md",
-      "destination": "features/login/requirement.md",
-      "entityCode": "REQ-AUTH-LOGIN-001",
-      "feature": "login"
-    },
-    {
-      "path": "entities/login/screen.md",
-      "destination": "features/login/screen.md",
-      "entityCode": "SCR-AUTH-LOGIN",
-      "feature": "login"
-    },
-    {
-      "path": "entities/login/api.md",
-      "destination": "features/login/api.md",
-      "entityCode": "API-AUTH-LOGIN",
-      "feature": "login"
-    },
-    {
-      "path": "entities/login/test.md",
-      "destination": "features/login/test.md",
-      "entityCode": "TC-AUTH-LOGIN-001",
-      "feature": "login"
-    },
-    {
-      "path": "entities/logout/feature.md",
-      "destination": "features/logout/feature.md",
-      "entityCode": "FEAT-AUTH-LOGOUT",
-      "feature": "logout"
-    },
-    {
-      "path": "entities/forgot-password/feature.md",
-      "destination": "features/forgot-password/feature.md",
-      "entityCode": "FEAT-AUTH-FORGOT-PASSWORD",
-      "feature": "forgot-password"
-    },
-    {
-      "path": "entities/reset-password/feature.md",
-      "destination": "features/reset-password/feature.md",
-      "entityCode": "FEAT-AUTH-RESET-PASSWORD",
-      "feature": "reset-password"
-    },
-    {
-      "path": "entities/register/feature.md",
-      "destination": "features/register/feature.md",
-      "entityCode": "FEAT-AUTH-REGISTER",
-      "feature": "register"
-    },
-    {
-      "path": "entities/google-login/feature.md",
-      "destination": "features/google-login/feature.md",
-      "entityCode": "FEAT-AUTH-GOOGLE-LOGIN",
-      "feature": "google-login"
-    },
-    {
-      "path": "entities/email-verification/feature.md",
-      "destination": "features/email-verification/feature.md",
-      "entityCode": "FEAT-AUTH-EMAIL-VERIFICATION",
-      "feature": "email-verification"
-    }
-  ],
-  "reviewNotes": [
-    "Confirm registration mode and login identifier for this product.",
-    "Confirm session/token strategy by project type and client platform.",
-    "Do not reuse concrete session duration, legal email copy, RBAC role names, secrets or environment URLs blindly."
-  ],
-  "provenance": {
-    "source": "starter-kit-v3",
-    "commit": null
-  },
-  "upgradePolicy": "track-upstream",
   "constraints": [
     {
       "if": {
         "variable": "EMAIL_VERIFICATION_REQUIRED",
         "equals": true
       },
-      "requireFeature": "email-verification",
-      "message": "Email verification is required, so the email-verification feature must be imported."
+      "requireFeature": "email-verification"
+    },
+    {
+      "if": {
+        "variable": "GOOGLE_LOGIN_ENABLED",
+        "equals": true
+      },
+      "requireFeature": "google-login"
     },
     {
       "if": {
         "variable": "REGISTRATION_MODE",
         "equals": "disabled"
       },
-      "forbidFeature": "register",
-      "message": "Registration mode is disabled, so the register feature must not be imported."
+      "forbidFeature": "register"
     }
-  ]
+  ],
+  "dependencies": [],
+  "files": [
+    {
+      "source": "entities/core/module.md",
+      "destination": "docs/02-modules/AUTH/module.md",
+      "code": "MOD-AUTH",
+      "type": "module"
+    },
+    {
+      "source": "entities/core/open-question.md",
+      "destination": "docs/19-open-items/OQ-AUTH-SECURITY-BASELINE.md",
+      "code": "OQ-AUTH-SECURITY-BASELINE",
+      "type": "open-question"
+    },
+    {
+      "source": "entities/login/feature.md",
+      "destination": "docs/02-modules/AUTH/login/feature.md",
+      "feature": "login",
+      "code": "FEAT-AUTH-LOGIN",
+      "type": "feature"
+    },
+    {
+      "source": "entities/login/requirement.md",
+      "destination": "docs/03-requirements/functional/REQ-AUTH-LOGIN-001.md",
+      "feature": "login",
+      "code": "REQ-AUTH-LOGIN-001",
+      "type": "requirement"
+    },
+    {
+      "source": "entities/login/screen.md",
+      "destination": "docs/05-screens/SCR-AUTH-LOGIN.md",
+      "feature": "login",
+      "code": "SCR-AUTH-LOGIN",
+      "type": "screen"
+    },
+    {
+      "source": "entities/login/api.md",
+      "destination": "docs/07-api/API-AUTH-LOGIN.md",
+      "feature": "login",
+      "code": "API-AUTH-LOGIN",
+      "type": "api"
+    },
+    {
+      "source": "entities/login/test.md",
+      "destination": "docs/11-quality/test-cases/TC-AUTH-LOGIN-001.md",
+      "feature": "login",
+      "code": "TC-AUTH-LOGIN-001",
+      "type": "test-case"
+    },
+    {
+      "source": "entities/logout/feature.md",
+      "destination": "docs/02-modules/AUTH/logout/feature.md",
+      "feature": "logout",
+      "code": "FEAT-AUTH-LOGOUT",
+      "type": "feature"
+    },
+    {
+      "source": "entities/logout/requirement.md",
+      "destination": "docs/03-requirements/functional/REQ-AUTH-LOGOUT-001.md",
+      "feature": "logout",
+      "code": "REQ-AUTH-LOGOUT-001",
+      "type": "requirement"
+    },
+    {
+      "source": "entities/logout/screen.md",
+      "destination": "docs/05-screens/SCR-AUTH-LOGOUT.md",
+      "feature": "logout",
+      "code": "SCR-AUTH-LOGOUT",
+      "type": "screen"
+    },
+    {
+      "source": "entities/logout/api.md",
+      "destination": "docs/07-api/API-AUTH-LOGOUT.md",
+      "feature": "logout",
+      "code": "API-AUTH-LOGOUT",
+      "type": "api"
+    },
+    {
+      "source": "entities/logout/test.md",
+      "destination": "docs/11-quality/test-cases/TC-AUTH-LOGOUT-001.md",
+      "feature": "logout",
+      "code": "TC-AUTH-LOGOUT-001",
+      "type": "test-case"
+    },
+    {
+      "source": "entities/forgot-password/feature.md",
+      "destination": "docs/02-modules/AUTH/forgot-password/feature.md",
+      "feature": "forgot-password",
+      "code": "FEAT-AUTH-FORGOT-PASSWORD",
+      "type": "feature"
+    },
+    {
+      "source": "entities/forgot-password/requirement.md",
+      "destination": "docs/03-requirements/functional/REQ-AUTH-FORGOT-PASSWORD-001.md",
+      "feature": "forgot-password",
+      "code": "REQ-AUTH-FORGOT-PASSWORD-001",
+      "type": "requirement"
+    },
+    {
+      "source": "entities/forgot-password/screen.md",
+      "destination": "docs/05-screens/SCR-AUTH-FORGOT-PASSWORD.md",
+      "feature": "forgot-password",
+      "code": "SCR-AUTH-FORGOT-PASSWORD",
+      "type": "screen"
+    },
+    {
+      "source": "entities/forgot-password/api.md",
+      "destination": "docs/07-api/API-AUTH-FORGOT-PASSWORD.md",
+      "feature": "forgot-password",
+      "code": "API-AUTH-FORGOT-PASSWORD",
+      "type": "api"
+    },
+    {
+      "source": "entities/forgot-password/test.md",
+      "destination": "docs/11-quality/test-cases/TC-AUTH-FORGOT-PASSWORD-001.md",
+      "feature": "forgot-password",
+      "code": "TC-AUTH-FORGOT-PASSWORD-001",
+      "type": "test-case"
+    },
+    {
+      "source": "entities/reset-password/feature.md",
+      "destination": "docs/02-modules/AUTH/reset-password/feature.md",
+      "feature": "reset-password",
+      "code": "FEAT-AUTH-RESET-PASSWORD",
+      "type": "feature"
+    },
+    {
+      "source": "entities/reset-password/requirement.md",
+      "destination": "docs/03-requirements/functional/REQ-AUTH-RESET-PASSWORD-001.md",
+      "feature": "reset-password",
+      "code": "REQ-AUTH-RESET-PASSWORD-001",
+      "type": "requirement"
+    },
+    {
+      "source": "entities/reset-password/screen.md",
+      "destination": "docs/05-screens/SCR-AUTH-RESET-PASSWORD.md",
+      "feature": "reset-password",
+      "code": "SCR-AUTH-RESET-PASSWORD",
+      "type": "screen"
+    },
+    {
+      "source": "entities/reset-password/api.md",
+      "destination": "docs/07-api/API-AUTH-RESET-PASSWORD.md",
+      "feature": "reset-password",
+      "code": "API-AUTH-RESET-PASSWORD",
+      "type": "api"
+    },
+    {
+      "source": "entities/reset-password/test.md",
+      "destination": "docs/11-quality/test-cases/TC-AUTH-RESET-PASSWORD-001.md",
+      "feature": "reset-password",
+      "code": "TC-AUTH-RESET-PASSWORD-001",
+      "type": "test-case"
+    },
+    {
+      "source": "entities/register/feature.md",
+      "destination": "docs/02-modules/AUTH/register/feature.md",
+      "feature": "register",
+      "code": "FEAT-AUTH-REGISTER",
+      "type": "feature"
+    },
+    {
+      "source": "entities/register/requirement.md",
+      "destination": "docs/03-requirements/functional/REQ-AUTH-REGISTER-001.md",
+      "feature": "register",
+      "code": "REQ-AUTH-REGISTER-001",
+      "type": "requirement"
+    },
+    {
+      "source": "entities/register/screen.md",
+      "destination": "docs/05-screens/SCR-AUTH-REGISTER.md",
+      "feature": "register",
+      "code": "SCR-AUTH-REGISTER",
+      "type": "screen"
+    },
+    {
+      "source": "entities/register/api.md",
+      "destination": "docs/07-api/API-AUTH-REGISTER.md",
+      "feature": "register",
+      "code": "API-AUTH-REGISTER",
+      "type": "api"
+    },
+    {
+      "source": "entities/register/test.md",
+      "destination": "docs/11-quality/test-cases/TC-AUTH-REGISTER-001.md",
+      "feature": "register",
+      "code": "TC-AUTH-REGISTER-001",
+      "type": "test-case"
+    },
+    {
+      "source": "entities/google-login/feature.md",
+      "destination": "docs/02-modules/AUTH/google-login/feature.md",
+      "feature": "google-login",
+      "code": "FEAT-AUTH-GOOGLE-LOGIN",
+      "type": "feature"
+    },
+    {
+      "source": "entities/google-login/requirement.md",
+      "destination": "docs/03-requirements/functional/REQ-AUTH-GOOGLE-LOGIN-001.md",
+      "feature": "google-login",
+      "code": "REQ-AUTH-GOOGLE-LOGIN-001",
+      "type": "requirement"
+    },
+    {
+      "source": "entities/google-login/screen.md",
+      "destination": "docs/05-screens/SCR-AUTH-GOOGLE-LOGIN.md",
+      "feature": "google-login",
+      "code": "SCR-AUTH-GOOGLE-LOGIN",
+      "type": "screen"
+    },
+    {
+      "source": "entities/google-login/api.md",
+      "destination": "docs/07-api/API-AUTH-GOOGLE-LOGIN.md",
+      "feature": "google-login",
+      "code": "API-AUTH-GOOGLE-LOGIN",
+      "type": "api"
+    },
+    {
+      "source": "entities/google-login/test.md",
+      "destination": "docs/11-quality/test-cases/TC-AUTH-GOOGLE-LOGIN-001.md",
+      "feature": "google-login",
+      "code": "TC-AUTH-GOOGLE-LOGIN-001",
+      "type": "test-case"
+    },
+    {
+      "source": "entities/email-verification/feature.md",
+      "destination": "docs/02-modules/AUTH/email-verification/feature.md",
+      "feature": "email-verification",
+      "code": "FEAT-AUTH-EMAIL-VERIFICATION",
+      "type": "feature"
+    },
+    {
+      "source": "entities/email-verification/requirement.md",
+      "destination": "docs/03-requirements/functional/REQ-AUTH-EMAIL-VERIFICATION-001.md",
+      "feature": "email-verification",
+      "code": "REQ-AUTH-EMAIL-VERIFICATION-001",
+      "type": "requirement"
+    },
+    {
+      "source": "entities/email-verification/screen.md",
+      "destination": "docs/05-screens/SCR-AUTH-EMAIL-VERIFICATION.md",
+      "feature": "email-verification",
+      "code": "SCR-AUTH-EMAIL-VERIFICATION",
+      "type": "screen"
+    },
+    {
+      "source": "entities/email-verification/api.md",
+      "destination": "docs/07-api/API-AUTH-EMAIL-VERIFICATION.md",
+      "feature": "email-verification",
+      "code": "API-AUTH-EMAIL-VERIFICATION",
+      "type": "api"
+    },
+    {
+      "source": "entities/email-verification/test.md",
+      "destination": "docs/11-quality/test-cases/TC-AUTH-EMAIL-VERIFICATION-001.md",
+      "feature": "email-verification",
+      "code": "TC-AUTH-EMAIL-VERIFICATION-001",
+      "type": "test-case"
+    }
+  ],
+  "provenance": {
+    "source": "starter-kit-v4",
+    "maintainer": "Product & Engineering"
+  },
+  "upgradePolicy": "manual-review"
 }

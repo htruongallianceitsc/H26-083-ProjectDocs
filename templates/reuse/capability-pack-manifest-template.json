@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0",
+  "packageId": "example-capability",
+  "packageType": "capability",
+  "version": "1.0.0",
+  "starterSchemaVersion": "4.0",
+  "moduleCode": "EXAMPLE",
+  "features": {"required": ["core"], "optional": ["optional-feature"]},
+  "variables": {},
+  "constraints": [],
+  "dependencies": [],
+  "files": [],
+  "provenance": {"source": "internal-library"},
+  "upgradePolicy": "manual-review"
+}

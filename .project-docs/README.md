@@ -1,9 +1,9 @@
 # Project Documentation Governance State
 
-This folder contains project-local governance state that is version-controlled but is not business documentation.
+This folder stores non-business governance state for reusable packs.
 
-- `packs.lock.json`: imported capability pack identity, version, selected features, variables, code map and base hashes.
-- `pack-snapshots/`: immutable rendered base snapshots used for three-way upgrade comparison.
-- `pack-proposals/`: generated upgrade proposals and conflict reports. Proposals may be deleted after review/merge.
+- `packs.lock.json`: installed pack version, variables, enabled features, namespace and review state.
+- `pack-snapshots/`: accepted base content for three-way diff.
+- `pack-proposals/`: upgrade proposals.
 
-Do not put secrets here. Do not treat this folder as product/business source of truth.
+Do not move product/business facts here. Do not add pack version/provenance to business frontmatter unless it is itself a business fact.

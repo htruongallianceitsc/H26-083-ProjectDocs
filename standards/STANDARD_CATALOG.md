@@ -1,90 +1,36 @@
-# STANDARD CATALOG
+# Standard Catalog
 
-Available standards: **84**
+## Core
+- documentation-standard
+- source-of-truth
+- naming-and-id-convention
+- metadata-schema
+- definition-of-ready-done
+- security-and-secrets
+- diagram-guidelines
+- tooling-and-static-site
+- reuse/reuse-strategy
+- reuse/capability-pack-standard
+- reuse/pattern-pack-standard
+- reuse/promotion-policy
 
-- `ADDING_A_STACK.md`
-- `README.md`
-- `STANDARD_CATALOG.md`
-- `ai-agent-rules.md`
-- `definition-of-ready-done.md`
-- `diagram-guidelines.md`
-- `documentation-standard.md`
-- `metadata-schema.md`
-- `naming-and-id-convention.md`
-- `project-types/README.md`
-- `project-types/api/api-architecture.md`
-- `project-types/api/auth-authorization.md`
-- `project-types/api/background-jobs.md`
-- `project-types/api/contract-versioning.md`
-- `project-types/api/data-transaction.md`
-- `project-types/api/deployment.md`
-- `project-types/api/observability.md`
-- `project-types/api/performance.md`
-- `project-types/api/resilience.md`
-- `project-types/api/security.md`
-- `project-types/mobile/app-lifecycle.md`
-- `project-types/mobile/background-work.md`
-- `project-types/mobile/connectivity-realtime.md`
-- `project-types/mobile/local-storage-cache.md`
-- `project-types/mobile/logging-observability.md`
-- `project-types/mobile/media-attachment.md`
-- `project-types/mobile/mobile-architecture.md`
-- `project-types/mobile/mobile-performance.md`
-- `project-types/mobile/mobile-release-store.md`
-- `project-types/mobile/mobile-security-privacy.md`
-- `project-types/mobile/mobile-ui-ux-accessibility.md`
-- `project-types/mobile/navigation-deeplink.md`
-- `project-types/mobile/networking-resilience.md`
-- `project-types/mobile/offline-sync.md`
-- `project-types/mobile/permission-native-capabilities.md`
-- `project-types/mobile/push-notification.md`
-- `project-types/mobile/time-timezone.md`
-- `project-types/web/browser-runtime.md`
-- `project-types/web/web-application-standard.md`
-- `project-types/web/web-performance.md`
-- `project-types/web/web-release.md`
-- `project-types/web/web-security.md`
-- `project-types/web/web-ui-ux.md`
-- `security-and-secrets.md`
-- `source-of-truth.md`
-- `stacks/README.md`
-- `stacks/api/dotnet-core/api-conventions.md`
-- `stacks/api/dotnet-core/architecture.md`
-- `stacks/api/dotnet-core/background-services.md`
-- `stacks/api/dotnet-core/coding-standard.md`
-- `stacks/api/dotnet-core/data-access.md`
-- `stacks/api/dotnet-core/dependency-injection-config.md`
-- `stacks/api/dotnet-core/security.md`
-- `stacks/api/dotnet-core/testing-observability-deployment.md`
-- `stacks/api/nodejs/architecture.md`
-- `stacks/api/nodejs/async-resilience.md`
-- `stacks/api/nodejs/coding-standard.md`
-- `stacks/api/nodejs/deployment.md`
-- `stacks/api/nodejs/http-contract.md`
-- `stacks/api/nodejs/testing-observability.md`
-- `stacks/api/nodejs/validation-errors.md`
-- `stacks/database/postgresql/migration-operations.md`
-- `stacks/database/postgresql/query-performance.md`
-- `stacks/database/postgresql/schema-conventions.md`
-- `stacks/mobile/flutter/architecture.md`
-- `stacks/mobile/flutter/coding-standard.md`
-- `stacks/mobile/flutter/navigation.md`
-- `stacks/mobile/flutter/state-management.md`
-- `stacks/mobile/flutter/storage-networking.md`
-- `stacks/mobile/flutter/testing-release.md`
-- `stacks/mobile/react-native/architecture.md`
-- `stacks/mobile/react-native/coding-standard.md`
-- `stacks/mobile/react-native/expo-native-boundary.md`
-- `stacks/mobile/react-native/navigation.md`
-- `stacks/mobile/react-native/state-management.md`
-- `stacks/mobile/react-native/storage-networking.md`
-- `stacks/mobile/react-native/testing-release.md`
-- `stacks/web/reactjs/architecture.md`
-- `stacks/web/reactjs/coding-standard.md`
-- `stacks/web/reactjs/forms-validation.md`
-- `stacks/web/reactjs/routing.md`
-- `stacks/web/reactjs/state-data-fetching.md`
-- `stacks/web/reactjs/testing.md`
-- `tooling-and-static-site.md`
+## Project Type
+### Web
+Architecture, browser/runtime, UI/UX, security, performance and release.
+### Mobile
+Architecture, lifecycle, offline/sync, networking, storage, realtime, push, permission/native capability, navigation/deep link, observability, security/privacy, accessibility, performance, store release, background work, media and timezone.
+### API
+Architecture, conventions, auth/authz, resilience, transaction, background jobs, observability, performance, security and deployment.
 
-- `reuse/capability-pack-standard.md`
+## Technology Stack
+- ReactJS
+- React Native / Expo
+- Flutter with BLoC/Cubit baseline
+- NodeJS API
+- ASP.NET Core API
+- PostgreSQL
+
+## Capability Standards
+- Authentication
+
+The machine-readable source is `registry/core-standards.json`, `registry/project-types.json` and `registry/technology-stacks.json`.

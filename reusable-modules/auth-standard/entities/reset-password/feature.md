@@ -2,39 +2,40 @@
 code: FEAT-AUTH-RESET-PASSWORD
 type: feature
 title: Reset Password
-status: draft
-owner: {{OWNER}}
-created_at: {{IMPORT_DATE}}
-updated_at: {{IMPORT_DATE}}
-last_reviewed_at: {{IMPORT_DATE}}
-tags: [auth, reusable-capability]
+status: planned
+owner: Product & Engineering
+created_at: 2026-10-05
+updated_at: 2026-10-05
+tags: [auth]
 related:
   modules: [MOD-AUTH]
-  requirements: []
+  features: []
+  requirements: [REQ-AUTH-RESET-PASSWORD-001]
   business_rules: []
-  screens: []
+  screens: [SCR-AUTH-RESET-PASSWORD]
   flows: []
-  apis: []
+  apis: [API-AUTH-RESET-PASSWORD]
   database_objects: []
-  tests: []
+  tests: [TC-AUTH-RESET-PASSWORD-001]
   decisions: []
-  open_questions: []
+  integrations: []
+  nfrs: []
+  runbooks: []
+  permissions: []
+  deep_links: []
+  sync_policies: []
 ---
 
 # Reset Password
 
-## Overview
+## Goal
+Provide reset password according to the project authentication policy.
 
-Set a new credential using a valid recovery proof/token.
+## Variables
+- Route prefix: `{{AUTH_ROUTE_PREFIX}}`
+- API prefix: `{{AUTH_API_PREFIX}}`
+- Login identifier: `{{LOGIN_IDENTIFIER}}`
+- Session strategy: `{{SESSION_STRATEGY}}`
 
-## Reuse Guidance
-
-This feature is a reusable baseline only. Create project-specific requirements, contracts, security rules and tests before moving it from draft to planned/implemented.
-
-## Security
-
-Apply the target project's authentication, privacy, abuse-prevention and observability standards.
-
-## Open Questions
-
-Confirm product policy and stack-specific behavior before implementation.
+## Required behavior
+Define success, validation failure, authorization/session failure, audit behavior, security controls and recovery/edge cases. Project-specific values remain governed by the imported Open Question/ADRs.

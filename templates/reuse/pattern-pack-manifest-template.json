@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0",
+  "packageId": "example-pattern",
+  "packageType": "pattern",
+  "version": "1.0.0",
+  "starterSchemaVersion": "4.0",
+  "features": {"required": ["core"], "optional": []},
+  "variables": {},
+  "constraints": [],
+  "dependencies": [],
+  "files": [],
+  "provenance": {"source": "internal-library"},
+  "upgradePolicy": "fork"
+}

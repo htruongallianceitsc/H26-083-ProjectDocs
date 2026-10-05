@@ -1,15 +1,7 @@
-# Mobile UI/UX & Accessibility Standard
+# Mobile Ui Ux Accessibility
 
-## Mục tiêu
-Áp dụng cho mọi project thuộc profile này. Đây là policy/checklist production; tài liệu feature chi tiết chỉ reference standard, không copy toàn bộ rule.
+## Required standard
+Cover safe area, keyboard, dynamic text, screen reader, touch targets, skeletons, pull-to-refresh, offline banner and orientation.
 
-## Rule bắt buộc
-- Mỗi screen có Initial/Loading/Refreshing/Success/Empty/Partial/Error/Offline/Permission/Session states khi áp dụng.
-- Safe area, keyboard, orientation, dynamic text, screen reader và touch target phải được test.
-- List có preserve scroll/key/pagination/duplicate handling.
-- Offline/stale/pending state phải hiển thị rõ nếu ảnh hưởng quyết định người dùng.
-
-## Evidence mong đợi
-- Blueprint/architecture hoặc entity docs reference standard này.
-- Test/release checklist cover các rule áp dụng.
-- Exception phải có ADR.
+## Documentation expectation
+Record project decisions, deviations, measurable acceptance criteria and tests. Do not leave framework defaults implicit.

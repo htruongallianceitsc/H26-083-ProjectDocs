@@ -1,83 +1,66 @@
 {
   "schemaVersion": "1.0",
-  "technologyStacks": {
+  "stacks": {
     "reactjs": {
-      "projectType": "web",
-      "displayName": "ReactJS",
-      "standardsRoot": "standards/stacks/web/reactjs",
-      "requiredStandards": [
-        "architecture.md",
-        "coding-standard.md",
-        "state-data-fetching.md",
-        "routing.md",
-        "forms-validation.md",
-        "testing.md"
+      "projectTypes": ["web"],
+      "standards": [
+        "standards/stacks/web/reactjs/architecture.md",
+        "standards/stacks/web/reactjs/routing.md",
+        "standards/stacks/web/reactjs/state-data-fetching.md",
+        "standards/stacks/web/reactjs/forms-validation.md",
+        "standards/stacks/web/reactjs/testing.md"
       ]
     },
     "react-native": {
-      "projectType": "mobile",
-      "displayName": "React Native / Expo",
-      "standardsRoot": "standards/stacks/mobile/react-native",
-      "requiredStandards": [
-        "architecture.md",
-        "coding-standard.md",
-        "state-management.md",
-        "navigation.md",
-        "expo-native-boundary.md",
-        "storage-networking.md",
-        "testing-release.md"
+      "projectTypes": ["mobile"],
+      "standards": [
+        "standards/stacks/mobile/react-native/architecture.md",
+        "standards/stacks/mobile/react-native/coding-standard.md",
+        "standards/stacks/mobile/react-native/state-management.md",
+        "standards/stacks/mobile/react-native/navigation.md",
+        "standards/stacks/mobile/react-native/expo-native-boundary.md",
+        "standards/stacks/mobile/react-native/storage-networking.md",
+        "standards/stacks/mobile/react-native/testing-release.md"
       ]
     },
     "flutter": {
-      "projectType": "mobile",
-      "displayName": "Flutter",
-      "standardsRoot": "standards/stacks/mobile/flutter",
-      "requiredStandards": [
-        "architecture.md",
-        "coding-standard.md",
-        "state-management.md",
-        "navigation.md",
-        "storage-networking.md",
-        "testing-release.md"
+      "projectTypes": ["mobile"],
+      "standards": [
+        "standards/stacks/mobile/flutter/architecture.md",
+        "standards/stacks/mobile/flutter/coding-standard.md",
+        "standards/stacks/mobile/flutter/state-management-bloc-cubit.md",
+        "standards/stacks/mobile/flutter/navigation.md",
+        "standards/stacks/mobile/flutter/storage-networking.md",
+        "standards/stacks/mobile/flutter/testing-release.md"
       ]
     },
     "nodejs-api": {
-      "projectType": "api",
-      "displayName": "NodeJS API",
-      "standardsRoot": "standards/stacks/api/nodejs",
-      "requiredStandards": [
-        "architecture.md",
-        "coding-standard.md",
-        "http-contract.md",
-        "validation-errors.md",
-        "async-resilience.md",
-        "testing-observability.md",
-        "deployment.md"
+      "projectTypes": ["api"],
+      "standards": [
+        "standards/stacks/api/nodejs/architecture.md",
+        "standards/stacks/api/nodejs/coding-standard.md",
+        "standards/stacks/api/nodejs/validation-errors.md",
+        "standards/stacks/api/nodejs/testing-observability.md",
+        "standards/stacks/api/nodejs/deployment.md"
       ]
     },
     "dotnet-core-api": {
-      "projectType": "api",
-      "displayName": "ASP.NET Core API",
-      "standardsRoot": "standards/stacks/api/dotnet-core",
-      "requiredStandards": [
-        "architecture.md",
-        "coding-standard.md",
-        "api-conventions.md",
-        "dependency-injection-config.md",
-        "data-access.md",
-        "security.md",
-        "background-services.md",
-        "testing-observability-deployment.md"
+      "projectTypes": ["api"],
+      "standards": [
+        "standards/stacks/api/dotnet-core/architecture.md",
+        "standards/stacks/api/dotnet-core/api-conventions.md",
+        "standards/stacks/api/dotnet-core/data-access.md",
+        "standards/stacks/api/dotnet-core/background-services.md",
+        "standards/stacks/api/dotnet-core/security.md",
+        "standards/stacks/api/dotnet-core/testing-observability-deployment.md"
       ]
     },
     "postgresql": {
-      "projectType": "supporting",
-      "displayName": "PostgreSQL",
-      "standardsRoot": "standards/stacks/database/postgresql",
-      "requiredStandards": [
-        "schema-conventions.md",
-        "query-performance.md",
-        "migration-operations.md"
+      "projectTypes": ["api", "web", "mobile"],
+      "standards": [
+        "standards/stacks/database/postgresql/schema-conventions.md",
+        "standards/stacks/database/postgresql/query-performance.md",
+        "standards/stacks/database/postgresql/migration-operations.md"
       ]
     }
   }

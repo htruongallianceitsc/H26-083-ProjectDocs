@@ -2,30 +2,40 @@
 code: API-AUTH-LOGIN
 type: api
 title: Login API
-status: draft
-owner: {{OWNER}}
-created_at: {{IMPORT_DATE}}
-updated_at: {{IMPORT_DATE}}
-last_reviewed_at: {{IMPORT_DATE}}
-method: POST
-path: {{AUTH_API_PREFIX}}/login
-tags: [auth, reusable-capability, security-sensitive]
+status: approved
+owner: Product & Engineering
+created_at: 2026-10-05
+updated_at: 2026-10-05
+tags: []
 related:
+  modules: []
   features: [FEAT-AUTH-LOGIN]
   requirements: [REQ-AUTH-LOGIN-001]
-  tests: [TC-AUTH-LOGIN-001]
+  business_rules: []
+  screens: []
+  flows: []
+  apis: []
+  database_objects: []
+  tests: []
+  decisions: []
+  integrations: []
+  nfrs: []
+  runbooks: []
+  permissions: []
+  deep_links: []
+  sync_policies: []
 ---
 
 # Login API
 
-## Purpose
+## Contract
+`POST {{AUTH_API_PREFIX}}/login`
 
-Validate credentials and create the project-approved authenticated session.
+## Authentication
+Document whether anonymous, authenticated or recovery-token access is required.
 
-## Contract Notes
-
-Request/response DTOs are intentionally not frozen by the reusable pack. They must be defined by the selected backend stack and project security decisions.
+## Validation & errors
+Use project API conventions, privacy-safe auth errors, rate limits and correlation IDs.
 
 ## Security
-
-Apply rate limiting, non-enumerating errors, sensitive-field masking, audit policy and session/token protections defined by the project.
+Apply brute-force/replay/idempotency controls as applicable to this operation.

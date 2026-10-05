@@ -14,3 +14,5 @@ Thực hiện theo từng Feature, ưu tiên P0/P1.
 
 ## Exit Gate
 Feature phải đủ rõ để một engineer có thể bắt đầu thiết kế technical contract mà không đoán business behaviour.
+
+> V4 prerequisite: run `03A-reuse-capability-detection.md` before generating repeated capabilities from scratch.

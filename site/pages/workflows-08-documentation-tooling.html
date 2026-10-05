@@ -1,4 +1,4 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Workflow 08 — Validate, Sync and Publish Documentation</title><link rel="stylesheet" href="../assets/style.css"></head><body><header><strong>Project Docs</strong><nav><a href="../index.html">Dashboard</a><a href="../catalog.html">Catalog</a><a href="../packs.html">Packs</a><a href="../standards.html">Standards</a><a href="../profile.html">Profile</a><a href="../traceability.html">Traceability</a><a href="../graph.html">Graph</a><a href="../flows.html">Diagrams</a></nav><button id="theme">◐</button></header><main><div class="crumb">workflows/08-documentation-tooling.md</div><h1 id="workflow-08-validate-sync-and-publish-documentation">Workflow 08 — Validate, Sync and Publish Documentation</h1><h2 id="m-c-ti-u">Mục tiêu</h2><p>Sau khi tài liệu được tạo/update, biến source Markdown thành một knowledge site có thể review trực quan và tự động kiểm tra consistency.</p><h2 id="flow">Flow</h2><div class="diagram-card"><pre class="mermaid">flowchart LR
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>workflows/08-documentation-tooling.md</title><link rel="stylesheet" href="../assets/style.css"></head><body><header><strong>Project Docs v4</strong><nav><a class="" href="../index.html">Dashboard</a><a class="" href="../profile.html">Profile</a><a class="" href="../standards.html">Standards</a><a class="" href="../packs.html">Reuse</a><a class="" href="../catalog.html">Catalog</a><a class="" href="../traceability.html">Traceability</a><a class="" href="../graph.html">Graph</a><a class="" href="../flows.html">Diagrams</a></nav></header><main><h1>workflows/08-documentation-tooling.md</h1><p><small>workflows/08-documentation-tooling.md</small></p><h1>Workflow 08 — Validate, Sync and Publish Documentation</h1><h2>Mục tiêu</h2><p>Sau khi tài liệu được tạo/update, biến source Markdown thành một knowledge site có thể review trực quan và tự động kiểm tra consistency.</p><h2>Flow</h2><div class="mermaid">flowchart LR
   A[Edit source Markdown] --&gt; B[docs:validate]
   B --&gt;|Error| C[Fix source]
   C --&gt; B
@@ -8,16 +8,6 @@
   F --&gt; G[Static documentation site]
   G --&gt; H[Human review]
   H --&gt;|Need change| A
-  H --&gt;|Approved| I[Commit / publish]</pre><details><summary>Source</summary><pre><code>flowchart LR
-  A[Edit source Markdown] --&gt; B[docs:validate]
-  B --&gt;|Error| C[Fix source]
-  C --&gt; B
-  B --&gt;|Pass| D[docs:sync]
-  D --&gt; E[Generated index + graph + traceability]
-  E --&gt; F[docs:build]
-  F --&gt; G[Static documentation site]
-  G --&gt; H[Human review]
-  H --&gt;|Need change| A
-  H --&gt;|Approved| I[Commit / publish]</code></pre></details></div><h2 id="step-1-validate">Step 1 — Validate</h2><pre><code class="language-bash">cd tools
-npm run docs:validate</code></pre><p>Resolve tất cả <code>ERRORS</code>. Review warnings về traceability/orphan/stale docs.</p><h2 id="step-2-sync">Step 2 — Sync</h2><pre><code class="language-bash">npm run docs:sync</code></pre><p>Review <code>docs/_generated/DOCUMENT_HEALTH.md</code> và <code>TRACEABILITY_MATRIX.md</code>.</p><h2 id="step-3-build-web">Step 3 — Build web</h2><pre><code class="language-bash">npm run docs:build
-npm run docs:serve</code></pre><p>Review Dashboard, Catalog, Traceability, Graph và Diagram Gallery.</p><h2 id="step-4-development-watch-mode">Step 4 — Development/watch mode</h2><p>Khi đang chỉnh nhiều tài liệu:</p><pre><code class="language-bash">npm run docs:dev</code></pre><h2 id="step-5-ci-gate">Step 5 — CI gate</h2><p>CI nên chạy <code>npm ci &amp;&amp; npm run docs:all</code> từ <code>tools/</code>.</p></main><script src="../assets/app.js"></script><script type="module" src="../assets/mermaid-loader.js"></script></body></html>
+  H --&gt;|Approved| I[Commit / publish]</div><h2>Step 1 — Validate</h2><pre><code class="language-bash">cd tools
+npm run docs:validate</code></pre><p>Resolve tất cả <code>ERRORS</code>. Review warnings về traceability/orphan/stale docs.</p><h2>Step 2 — Sync</h2><pre><code class="language-bash">npm run docs:sync</code></pre><p>Review <code>docs/_generated/DOCUMENT_HEALTH.md</code> và <code>TRACEABILITY_MATRIX.md</code>.</p><h2>Step 3 — Build web</h2><pre><code class="language-bash">npm run docs:build
+npm run docs:serve</code></pre><p>Review Dashboard, Catalog, Traceability, Graph và Diagram Gallery.</p><h2>Step 4 — Development/watch mode</h2><p>Khi đang chỉnh nhiều tài liệu:</p><pre><code class="language-bash">npm run docs:dev</code></pre><h2>Step 5 — CI gate</h2><p>CI nên chạy <code>npm ci &amp;&amp; npm run docs:all</code> từ <code>tools/</code>.</p></main><script src="assets/app.js"></script><script type="module">if(document.querySelector('.mermaid')){import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs').then(m=>{m.default.initialize({startOnLoad:true,securityLevel:'loose'});});}</script></body></html>

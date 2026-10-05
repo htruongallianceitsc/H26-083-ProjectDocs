@@ -1,15 +1,7 @@
-# API Observability Standard
+# Observability
 
-## Mục tiêu
-Áp dụng cho mọi project thuộc profile này. Đây là policy/checklist production; tài liệu feature chi tiết chỉ reference standard, không copy toàn bộ rule.
+## Required standard
+Define structured logs, metrics, traces, correlation IDs, health checks, dashboards and alert ownership.
 
-## Rule bắt buộc
-- Structured log với TraceId/RequestId/CorrelationId.
-- Metrics tối thiểu: request rate/error/latency/saturation.
-- External calls và DB slow operations phải trace được.
-- Mask secrets/PII trong logs.
-
-## Evidence mong đợi
-- Blueprint/architecture hoặc entity docs reference standard này.
-- Test/release checklist cover các rule áp dụng.
-- Exception phải có ADR.
+## Documentation expectation
+Record project decisions, deviations, measurable acceptance criteria and tests. Do not leave framework defaults implicit.

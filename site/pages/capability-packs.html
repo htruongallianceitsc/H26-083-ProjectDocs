@@ -1,18 +1,13 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Capability Packs — Quick Reference</title><link rel="stylesheet" href="../assets/style.css"></head><body><header><strong>Project Docs</strong><nav><a href="../index.html">Dashboard</a><a href="../catalog.html">Catalog</a><a href="../packs.html">Packs</a><a href="../standards.html">Standards</a><a href="../profile.html">Profile</a><a href="../traceability.html">Traceability</a><a href="../graph.html">Graph</a><a href="../flows.html">Diagrams</a></nav><button id="theme">◐</button></header><main><div class="crumb">CAPABILITY_PACKS.md</div><h1 id="capability-packs-quick-reference">Capability Packs — Quick Reference</h1><p>Starter Kit v3 supports reusable, versioned documentation capabilities without making shared Markdown the project source of truth.</p><h2 id="model">Model</h2><pre><code class="language-text">Starter Core
-    +
-Capability Pack Library
-    ↓ preview/import
-Project-local canonical docs
-    ↓ customize
-base + local + upstream
-    ↓ three-way review
-safe upgrade</code></pre><h2 id="included-sample">Included sample</h2><p><code>reusable-modules/auth-standard/</code> is a runnable reference pack.</p><p>Required features:</p><ul><li>Login</li><li>Logout</li><li>Forgot Password</li><li>Reset Password</li></ul><p>Optional features:</p><ul><li>Register</li><li>Google Login</li><li>Email Verification</li></ul><h2 id="import">Import</h2><pre><code class="language-bash">cd tools
-npm run pack:validate
-npm run pack:import -- ../reusable-modules/auth-standard
-npm run pack:import -- ../reusable-modules/auth-standard -- \
-  --apply \
-  --features register,google-login \
-  --set LOGIN_IDENTIFIER=email \
-  --set SESSION_STRATEGY=http_only_cookie</code></pre><p>Import is preview-first. The second command changes nothing. <code>--apply</code> is required to create project files.</p><h2 id="review">Review</h2><pre><code class="language-bash">npm run pack:review -- auth-standard
-npm run pack:review -- auth-standard --approve --note &quot;Reviewed by Product + Tech Lead&quot;</code></pre><p>When <code>blockOnPackReviewPending</code> is enabled, pending pack review blocks documentation validation/implementation readiness.</p><h2 id="upgrade">Upgrade</h2><pre><code class="language-bash">npm run pack:diff -- auth-standard --source ../path/to/auth-standard-new
-npm run pack:upgrade -- auth-standard --source ../path/to/auth-standard-new</code></pre><p>The upgrade command creates a proposal by default. It does not overwrite project files.</p><p>Apply safe changes only:</p><pre><code class="language-bash">npm run pack:upgrade -- auth-standard --source ../path/to/auth-standard-new --apply</code></pre><p>If both local and upstream changed the same entity, merge/review the project-local file first. Only then acknowledge the merge explicitly:</p><pre><code class="language-bash">npm run pack:upgrade -- auth-standard --source ../path/to/auth-standard-new --apply --accept-local-merge</code></pre><h2 id="governance-state">Governance state</h2><ul><li><code>.project-docs/packs.lock.json</code> — provenance/version/features/variables/code map.</li><li><code>.project-docs/pack-snapshots/</code> — immutable rendered base snapshots.</li><li><code>.project-docs/pack-proposals/</code> — generated upgrade proposals.</li></ul><p>No secrets belong in any of these files.</p><p>See <code>standards/reuse/capability-pack-standard.md</code> and <code>workflows/12-capability-pack-lifecycle.md</code>.</p></main><script src="../assets/app.js"></script><script type="module" src="../assets/mermaid-loader.js"></script></body></html>
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CAPABILITY_PACKS.md</title><link rel="stylesheet" href="../assets/style.css"></head><body><header><strong>Project Docs v4</strong><nav><a class="" href="../index.html">Dashboard</a><a class="" href="../profile.html">Profile</a><a class="" href="../standards.html">Standards</a><a class="" href="../packs.html">Reuse</a><a class="" href="../catalog.html">Catalog</a><a class="" href="../traceability.html">Traceability</a><a class="" href="../graph.html">Graph</a><a class="" href="../flows.html">Diagrams</a></nav></header><main><h1>CAPABILITY_PACKS.md</h1><p><small>CAPABILITY_PACKS.md</small></p><h1>Reuse Model in v4</h1><p>V4 uses four reuse levels:</p><ul><li><strong>Template</strong> - structure only.</li><li><strong>Standard</strong> - reusable rules/checklists.</li><li><strong>Pattern Pack</strong> - reusable skeleton and relationship pattern.</li><li><strong>Capability Pack</strong> - versioned, substantially complete reusable capability.</li></ul><h2>Decision flow</h2><div class="mermaid">flowchart TD
+  A[New capability/module] --&gt; B{Suitable existing Capability Pack?}
+  B -- Yes --&gt; C[Preview import]
+  C --&gt; D[Configure optional features and variables]
+  D --&gt; E[Review/approve]
+  E --&gt; F[Project-local canonical docs]
+  B -- No --&gt; G{Suitable Pattern Pack?}
+  G -- Yes --&gt; H[Import skeleton and complete TODOs]
+  G -- No --&gt; I[Generate from Standards]
+  I --&gt; J{Repeated across projects?}
+  J -- No --&gt; F
+  J -- Yes --&gt; K[Reuse assessment]
+  K --&gt; L[Promote to Pattern/Capability Pack only with evidence]</div><h2>Rule of thumb</h2><p>A capability normally needs at least three occurrences, 70%+ similarity and stable semantics before becoming a Capability Pack. Security/cross-cutting baselines may justify earlier promotion.</p><p>AUTH is the reference Capability Pack. COMMON CRUD is the reference Pattern Pack.</p></main><script src="assets/app.js"></script><script type="module">if(document.querySelector('.mermaid')){import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs').then(m=>{m.default.initialize({startOnLoad:true,securityLevel:'loose'});});}</script></body></html>
