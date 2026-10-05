@@ -43,7 +43,7 @@ writeText(`${gen}/DOCUMENT_HEALTH.md`,'# DOCUMENT HEALTH\n\n'+(health.length?hea
 console.log(`Synced ${entities.length} entities, ${edges.length} typed edges, ${rows.length} feature traceability rows.`);
 
 // Capability pack inventory (governance metadata, not business facts).
-const packLock=loadPackLock(); const library=[]; const libRoot=path.resolve(root,'reusable-modules');
+const packLock=loadPackLock(); const library=[]; const libRoot=path.resolve(root,'kit/reuse/capabilities');
 if(fs.existsSync(libRoot)) for(const ent of fs.readdirSync(libRoot,{withFileTypes:true})) if(ent.isDirectory()){
  const mp=path.join(libRoot,ent.name,'manifest.json'); if(fs.existsSync(mp)){try{const m=JSON.parse(fs.readFileSync(mp,'utf8'));library.push({packageId:m.packageId,version:m.version,description:m.description||'',upgradePolicy:m.upgradePolicy,features:m.features});}catch{}}
 }

@@ -4,7 +4,7 @@ import {parseFrontmatter} from './lib/core.mjs';
 import {parseArgs,resolvePackDir,loadManifest,validateManifestShape,checkCompatibility,renderPack,packRegistry} from './lib/packs.mjs';
 process.on('uncaughtException',e=>{console.error(`ERROR ${e.message}`);process.exit(1);});
 process.on('unhandledRejection',e=>{console.error(`ERROR ${e?.message||e}`);process.exit(1);});
-const args=parseArgs(process.argv.slice(2));let dirs=args._;if(!dirs.length){const base=path.resolve(process.cwd(),'../reusable-modules');dirs=fs.existsSync(base)?fs.readdirSync(base,{withFileTypes:true}).filter(x=>x.isDirectory()&&fs.existsSync(path.join(base,x.name,'manifest.json'))).map(x=>path.join(base,x.name)):[];}let totalErr=0;
+const args=parseArgs(process.argv.slice(2));let dirs=args._;if(!dirs.length){const base=path.resolve(process.cwd(),'../kit/reuse/capabilities');dirs=fs.existsSync(base)?fs.readdirSync(base,{withFileTypes:true}).filter(x=>x.isDirectory()&&fs.existsSync(path.join(base,x.name,'manifest.json'))).map(x=>path.join(base,x.name)):[];}let totalErr=0;
 for(const arg of dirs){
  try{
   const dir=resolvePackDir(arg),m=loadManifest(dir),errors=validateManifestShape(m),warnings=[];checkCompatibility(m);

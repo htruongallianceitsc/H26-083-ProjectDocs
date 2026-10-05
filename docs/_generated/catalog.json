@@ -1,6 +1,33 @@
 {
-  "generatedAt": "2026-10-05T05:54:07.622Z",
+  "generatedAt": "2026-10-05T06:30:12.220Z",
   "documents": [
+    {
+      "path": "PROJECT_BLUEPRINT.md",
+      "title": "Project Blueprint",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "README.md",
+      "title": "Production Project Documentation Starter Kit v5.6",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "START_HERE.md",
+      "title": "START HERE - v5.6",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
     {
       "path": "docs/00-project/README.md",
       "title": "project",
@@ -65,15 +92,6 @@
       "status": null
     },
     {
-      "path": "docs/07-api/conventions.md",
-      "title": "API Conventions",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
       "path": "docs/07-api/README.md",
       "title": "api",
       "uid": null,
@@ -83,8 +101,8 @@
       "status": null
     },
     {
-      "path": "docs/08-database/database-overview.md",
-      "title": "Database Overview",
+      "path": "docs/07-api/conventions.md",
+      "title": "API Conventions",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -94,6 +112,15 @@
     {
       "path": "docs/08-database/README.md",
       "title": "database",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/08-database/database-overview.md",
+      "title": "Database Overview",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -128,15 +155,6 @@
       "status": null
     },
     {
-      "path": "docs/12-devops/environments.md",
-      "title": "Environments",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
       "path": "docs/12-devops/README.md",
       "title": "devops",
       "uid": null,
@@ -146,8 +164,26 @@
       "status": null
     },
     {
+      "path": "docs/12-devops/environments.md",
+      "title": "Environments",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
       "path": "docs/12-devops/release-process.md",
       "title": "Release Process",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/13-operations/README.md",
+      "title": "operations",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -166,15 +202,6 @@
     {
       "path": "docs/13-operations/monitoring.md",
       "title": "Monitoring",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "docs/13-operations/README.md",
-      "title": "operations",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -209,8 +236,8 @@
       "status": null
     },
     {
-      "path": "docs/17-traceability/feature-matrix.md",
-      "title": "Feature Traceability Matrix",
+      "path": "docs/17-traceability/README.md",
+      "title": "traceability",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -218,8 +245,8 @@
       "status": null
     },
     {
-      "path": "docs/17-traceability/README.md",
-      "title": "traceability",
+      "path": "docs/17-traceability/feature-matrix.md",
+      "title": "Feature Traceability Matrix",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -236,8 +263,8 @@
       "status": null
     },
     {
-      "path": "docs/19-open-items/open-questions.md",
-      "title": "Open Questions",
+      "path": "docs/19-open-items/README.md",
+      "title": "open items",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -245,8 +272,8 @@
       "status": null
     },
     {
-      "path": "docs/19-open-items/README.md",
-      "title": "open items",
+      "path": "docs/19-open-items/open-questions.md",
+      "title": "Open Questions",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -380,6 +407,15 @@
       "status": null
     },
     {
+      "path": "docs/README.md",
+      "title": "Project Documentation Source",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
       "path": "docs/guides/capability-packs.md",
       "title": "Capability & Pattern Pack Overview",
       "uid": null,
@@ -390,7 +426,7 @@
     },
     {
       "path": "docs/guides/docs-governance.md",
-      "title": "Documentation Governance v5.5",
+      "title": "Documentation Governance v5.6",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -399,7 +435,7 @@
     },
     {
       "path": "docs/guides/file-catalog.md",
-      "title": "File Catalog — v5.5",
+      "title": "File Catalog — v5.6",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -569,6 +605,24 @@
       "status": null
     },
     {
+      "path": "docs/history/V5_6_QA_REPORT.md",
+      "title": "v5.6 QA Report",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/history/V5_6_UPGRADE_NOTES.md",
+      "title": "v5.6 Upgrade Notes — Workspace Layout & Root Hygiene",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
       "path": "docs/history/V5_QA_REPORT.md",
       "title": "v5.0 QA Report",
       "uid": null,
@@ -587,8 +641,8 @@
       "status": null
     },
     {
-      "path": "docs/README.md",
-      "title": "Project Documentation Source",
+      "path": "kit/README.md",
+      "title": "Starter Kit Framework",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -596,8 +650,8 @@
       "status": null
     },
     {
-      "path": "PROJECT_BLUEPRINT.md",
-      "title": "Project Blueprint",
+      "path": "kit/prompts/00-master-orchestrator-prompt.md",
+      "title": "Master Prompt — Documentation-First Project Orchestrator v5.6",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -605,16 +659,7 @@
       "status": null
     },
     {
-      "path": "prompts/00-master-orchestrator-prompt.md",
-      "title": "Master Prompt — Documentation-First Project Orchestrator v5.5",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "prompts/01-idea-to-project-overview.md",
+      "path": "kit/prompts/01-idea-to-project-overview.md",
       "title": "Prompt 01 — Idea -> Project Overview",
       "uid": null,
       "code": null,
@@ -623,7 +668,7 @@
       "status": null
     },
     {
-      "path": "prompts/02-discovery-open-questions.md",
+      "path": "kit/prompts/02-discovery-open-questions.md",
       "title": "Prompt 02 — Discovery & Open Questions",
       "uid": null,
       "code": null,
@@ -632,7 +677,7 @@
       "status": null
     },
     {
-      "path": "prompts/03-build-project-blueprint.md",
+      "path": "kit/prompts/03-build-project-blueprint.md",
       "title": "Prompt 03 — Build Project Blueprint",
       "uid": null,
       "code": null,
@@ -641,7 +686,7 @@
       "status": null
     },
     {
-      "path": "prompts/04-module-decomposition.md",
+      "path": "kit/prompts/04-module-decomposition.md",
       "title": "Prompt 04 — Module & Feature Decomposition",
       "uid": null,
       "code": null,
@@ -650,7 +695,7 @@
       "status": null
     },
     {
-      "path": "prompts/05-feature-specification.md",
+      "path": "kit/prompts/05-feature-specification.md",
       "title": "Prompt 05 — Feature Specification",
       "uid": null,
       "code": null,
@@ -659,7 +704,7 @@
       "status": null
     },
     {
-      "path": "prompts/06-requirements-business-rules.md",
+      "path": "kit/prompts/06-requirements-business-rules.md",
       "title": "Prompt 06 — Requirements & Business Rules",
       "uid": null,
       "code": null,
@@ -668,7 +713,7 @@
       "status": null
     },
     {
-      "path": "prompts/07-screen-route-ux.md",
+      "path": "kit/prompts/07-screen-route-ux.md",
       "title": "Prompt 07 — Screen / Route / UX Contract",
       "uid": null,
       "code": null,
@@ -677,7 +722,7 @@
       "status": null
     },
     {
-      "path": "prompts/08-flow-diagrams.md",
+      "path": "kit/prompts/08-flow-diagrams.md",
       "title": "Prompt 08 — Flow Diagrams",
       "uid": null,
       "code": null,
@@ -686,7 +731,7 @@
       "status": null
     },
     {
-      "path": "prompts/09-api-contracts.md",
+      "path": "kit/prompts/09-api-contracts.md",
       "title": "Prompt 09 — API Contracts",
       "uid": null,
       "code": null,
@@ -695,7 +740,7 @@
       "status": null
     },
     {
-      "path": "prompts/10-database-design.md",
+      "path": "kit/prompts/10-database-design.md",
       "title": "Prompt 10 — Database Design",
       "uid": null,
       "code": null,
@@ -704,7 +749,7 @@
       "status": null
     },
     {
-      "path": "prompts/11-architecture-integrations.md",
+      "path": "kit/prompts/11-architecture-integrations.md",
       "title": "Prompt 11 — Architecture & Integrations",
       "uid": null,
       "code": null,
@@ -713,7 +758,7 @@
       "status": null
     },
     {
-      "path": "prompts/12-non-functional-requirements.md",
+      "path": "kit/prompts/12-non-functional-requirements.md",
       "title": "Prompt 12 — NFR",
       "uid": null,
       "code": null,
@@ -722,7 +767,7 @@
       "status": null
     },
     {
-      "path": "prompts/13-test-design.md",
+      "path": "kit/prompts/13-test-design.md",
       "title": "Prompt 13 — Test Design",
       "uid": null,
       "code": null,
@@ -731,7 +776,7 @@
       "status": null
     },
     {
-      "path": "prompts/14-security-review.md",
+      "path": "kit/prompts/14-security-review.md",
       "title": "Prompt 14 — Security Review",
       "uid": null,
       "code": null,
@@ -740,7 +785,7 @@
       "status": null
     },
     {
-      "path": "prompts/15-devops-production.md",
+      "path": "kit/prompts/15-devops-production.md",
       "title": "Prompt 15 — DevOps & Production",
       "uid": null,
       "code": null,
@@ -749,7 +794,7 @@
       "status": null
     },
     {
-      "path": "prompts/16-monitoring-runbooks.md",
+      "path": "kit/prompts/16-monitoring-runbooks.md",
       "title": "Prompt 16 — Monitoring & Runbooks",
       "uid": null,
       "code": null,
@@ -758,7 +803,7 @@
       "status": null
     },
     {
-      "path": "prompts/17-traceability-audit.md",
+      "path": "kit/prompts/17-traceability-audit.md",
       "title": "Prompt 17 — Traceability Audit",
       "uid": null,
       "code": null,
@@ -767,7 +812,7 @@
       "status": null
     },
     {
-      "path": "prompts/18-change-impact-analysis.md",
+      "path": "kit/prompts/18-change-impact-analysis.md",
       "title": "Prompt 18 — Change Impact Analysis",
       "uid": null,
       "code": null,
@@ -776,7 +821,7 @@
       "status": null
     },
     {
-      "path": "prompts/19-release-readiness.md",
+      "path": "kit/prompts/19-release-readiness.md",
       "title": "Prompt 19 — Release Readiness",
       "uid": null,
       "code": null,
@@ -785,7 +830,7 @@
       "status": null
     },
     {
-      "path": "prompts/20-documentation-maintenance.md",
+      "path": "kit/prompts/20-documentation-maintenance.md",
       "title": "Prompt 20 — Documentation Maintenance",
       "uid": null,
       "code": null,
@@ -794,7 +839,7 @@
       "status": null
     },
     {
-      "path": "prompts/21-documentation-health-and-site.md",
+      "path": "kit/prompts/21-documentation-health-and-site.md",
       "title": "Prompt 21 — Documentation Health & Static Site Review",
       "uid": null,
       "code": null,
@@ -803,7 +848,7 @@
       "status": null
     },
     {
-      "path": "prompts/22-project-profile-selector.md",
+      "path": "kit/prompts/22-project-profile-selector.md",
       "title": "Prompt — Select Project Profile & Applicable Standards",
       "uid": null,
       "code": null,
@@ -812,7 +857,7 @@
       "status": null
     },
     {
-      "path": "prompts/23-mobile-readiness-review.md",
+      "path": "kit/prompts/23-mobile-readiness-review.md",
       "title": "Prompt — Mobile Readiness Review",
       "uid": null,
       "code": null,
@@ -821,7 +866,7 @@
       "status": null
     },
     {
-      "path": "prompts/24-backend-api-readiness-review.md",
+      "path": "kit/prompts/24-backend-api-readiness-review.md",
       "title": "Prompt — Backend/API Readiness Review",
       "uid": null,
       "code": null,
@@ -830,7 +875,7 @@
       "status": null
     },
     {
-      "path": "prompts/25-stack-standard-compliance-review.md",
+      "path": "kit/prompts/25-stack-standard-compliance-review.md",
       "title": "Prompt — Technology Stack Standard Compliance Review",
       "uid": null,
       "code": null,
@@ -839,7 +884,7 @@
       "status": null
     },
     {
-      "path": "prompts/26-capability-pack-design.md",
+      "path": "kit/prompts/26-capability-pack-design.md",
       "title": "Prompt 26 — Design a Reusable Capability Pack",
       "uid": null,
       "code": null,
@@ -848,7 +893,7 @@
       "status": null
     },
     {
-      "path": "prompts/27-capability-pack-import-review.md",
+      "path": "kit/prompts/27-capability-pack-import-review.md",
       "title": "Prompt 27 — Review Capability Pack Import",
       "uid": null,
       "code": null,
@@ -857,7 +902,7 @@
       "status": null
     },
     {
-      "path": "prompts/28-capability-pack-upgrade-review.md",
+      "path": "kit/prompts/28-capability-pack-upgrade-review.md",
       "title": "Prompt 28 — Review Capability Pack Upgrade",
       "uid": null,
       "code": null,
@@ -866,7 +911,7 @@
       "status": null
     },
     {
-      "path": "prompts/29-capability-detection.md",
+      "path": "kit/prompts/29-capability-detection.md",
       "title": "Prompt - Capability Detection Before Decomposition",
       "uid": null,
       "code": null,
@@ -875,7 +920,7 @@
       "status": null
     },
     {
-      "path": "prompts/30-reuse-promotion-review.md",
+      "path": "kit/prompts/30-reuse-promotion-review.md",
       "title": "Prompt - Reuse Promotion Review",
       "uid": null,
       "code": null,
@@ -884,7 +929,7 @@
       "status": null
     },
     {
-      "path": "prompts/31-pattern-pack-design.md",
+      "path": "kit/prompts/31-pattern-pack-design.md",
       "title": "Prompt - Pattern Pack Design",
       "uid": null,
       "code": null,
@@ -893,7 +938,7 @@
       "status": null
     },
     {
-      "path": "prompts/32-request-capture-and-promotion.md",
+      "path": "kit/prompts/32-request-capture-and-promotion.md",
       "title": "Prompt 32 — Request Capture and Promotion",
       "uid": null,
       "code": null,
@@ -902,7 +947,7 @@
       "status": null
     },
     {
-      "path": "prompts/33-ready-gate-review.md",
+      "path": "kit/prompts/33-ready-gate-review.md",
       "title": "Prompt 33 — Ready Gate Review",
       "uid": null,
       "code": null,
@@ -911,7 +956,7 @@
       "status": null
     },
     {
-      "path": "prompts/34-workplan-and-task-generation.md",
+      "path": "kit/prompts/34-workplan-and-task-generation.md",
       "title": "Prompt 34 — WorkPlan and Task Generation",
       "uid": null,
       "code": null,
@@ -920,7 +965,7 @@
       "status": null
     },
     {
-      "path": "prompts/35-document-freshness-review.md",
+      "path": "kit/prompts/35-document-freshness-review.md",
       "title": "Prompt 35 — Document Freshness Review",
       "uid": null,
       "code": null,
@@ -929,7 +974,7 @@
       "status": null
     },
     {
-      "path": "prompts/36-impact-analysis.md",
+      "path": "kit/prompts/36-impact-analysis.md",
       "title": "Prompt 36 — Impact Analysis",
       "uid": null,
       "code": null,
@@ -938,7 +983,7 @@
       "status": null
     },
     {
-      "path": "prompts/37-changeset-baseline-review.md",
+      "path": "kit/prompts/37-changeset-baseline-review.md",
       "title": "Prompt 37 — ChangeSet and Baseline Review",
       "uid": null,
       "code": null,
@@ -947,7 +992,7 @@
       "status": null
     },
     {
-      "path": "prompts/38-spec-level-selection.md",
+      "path": "kit/prompts/38-spec-level-selection.md",
       "title": "Prompt 38 — Select Documentation Depth",
       "uid": null,
       "code": null,
@@ -956,7 +1001,7 @@
       "status": null
     },
     {
-      "path": "prompts/39-lightweight-spec-authoring.md",
+      "path": "kit/prompts/39-lightweight-spec-authoring.md",
       "title": "Prompt 39 — Author a Lightweight Feature Spec",
       "uid": null,
       "code": null,
@@ -965,7 +1010,7 @@
       "status": null
     },
     {
-      "path": "prompts/40-spec-promotion-review.md",
+      "path": "kit/prompts/40-spec-promotion-review.md",
       "title": "Prompt 40 — Promote Specification Depth",
       "uid": null,
       "code": null,
@@ -974,7 +1019,7 @@
       "status": null
     },
     {
-      "path": "prompts/41-source-profile-selection.md",
+      "path": "kit/prompts/41-source-profile-selection.md",
       "title": "Source Profile Selection",
       "uid": null,
       "code": null,
@@ -983,7 +1028,7 @@
       "status": null
     },
     {
-      "path": "prompts/42-source-bootstrap.md",
+      "path": "kit/prompts/42-source-bootstrap.md",
       "title": "Source Bootstrap",
       "uid": null,
       "code": null,
@@ -992,7 +1037,7 @@
       "status": null
     },
     {
-      "path": "prompts/43-existing-source-adoption.md",
+      "path": "kit/prompts/43-existing-source-adoption.md",
       "title": "Existing Source Adoption",
       "uid": null,
       "code": null,
@@ -1001,8 +1046,8 @@
       "status": null
     },
     {
-      "path": "README.md",
-      "title": "Production Project Documentation Starter Kit v5.5",
+      "path": "kit/registry/README.md",
+      "title": "Registry Governance — v5.6",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -1010,16 +1055,7 @@
       "status": null
     },
     {
-      "path": "registry/README.md",
-      "title": "Registry Governance — v5.5",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "registry/_generated/README.md",
+      "path": "kit/registry/_generated/README.md",
       "title": "Generated registry mirrors",
       "uid": null,
       "code": null,
@@ -1028,7 +1064,16 @@
       "status": null
     },
     {
-      "path": "reusable-templates/README.md",
+      "path": "kit/reuse/README.md",
+      "title": "Reuse Library",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/reuse/templates/README.md",
       "title": "Reusable Templates",
       "uid": null,
       "code": null,
@@ -1037,7 +1082,7 @@
       "status": null
     },
     {
-      "path": "standards/ADDING_A_STACK.md",
+      "path": "kit/standards/ADDING_A_STACK.md",
       "title": "Adding a New Technology Stack",
       "uid": null,
       "code": null,
@@ -1046,8 +1091,8 @@
       "status": null
     },
     {
-      "path": "standards/ai-agent-rules.md",
-      "title": "AI Agent Rules — v5.3",
+      "path": "kit/standards/README.md",
+      "title": "Standards Architecture v5.6",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -1055,970 +1100,7 @@
       "status": null
     },
     {
-      "path": "standards/capabilities/authentication.md",
-      "title": "Authentication Feature Standard",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/change-history-and-baselines.md",
-      "title": "Semantic Change History and Baselines — v5.3",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/definition-of-ready-done.md",
-      "title": "Definition of Ready / Done — v5.3",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/diagram-guidelines.md",
-      "title": "Flow & Diagram Guidelines",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/document-freshness.md",
-      "title": "Document Freshness Standard — v5.3",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/documentation-standard.md",
-      "title": "Documentation Standard",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/entity-identity-lifecycle-and-relations.md",
-      "title": "Entity Identity, Lifecycle and Relation Semantics",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/impact-analysis.md",
-      "title": "Graph Impact Analysis Standard — v5.3",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/implementation-governance.md",
-      "title": "Implementation Governance Standard — v5.3",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/local-knowledge-engine.md",
-      "title": "Local Knowledge Engine Standard",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/metadata-schema.md",
-      "title": "Metadata Schema",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/naming-and-id-convention.md",
-      "title": "Naming, Code & UID Convention",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/progressive-specification.md",
-      "title": "Progressive Specification Standard — v5.3",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/project-types/api/api-architecture.md",
-      "title": "Api Architecture",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/project-types/api/api-conventions.md",
-      "title": "Api Conventions",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/project-types/api/auth-authorization.md",
-      "title": "Auth Authorization",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/project-types/api/background-jobs.md",
-      "title": "Background Jobs",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/project-types/api/contract-versioning.md",
-      "title": "API Contract & Versioning Standard",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/project-types/api/data-transaction.md",
-      "title": "Data Transaction",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/project-types/api/deployment.md",
-      "title": "Deployment",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/project-types/api/observability.md",
-      "title": "Observability",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/project-types/api/performance.md",
-      "title": "Performance",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/project-types/api/resilience.md",
-      "title": "Resilience",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/project-types/api/security.md",
-      "title": "Security",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/project-types/mobile/app-lifecycle.md",
-      "title": "App Lifecycle",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/project-types/mobile/background-work.md",
-      "title": "Background Work",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/project-types/mobile/connectivity-realtime.md",
-      "title": "Connectivity Realtime",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/project-types/mobile/local-storage-cache.md",
-      "title": "Local Storage Cache",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/project-types/mobile/logging-observability.md",
-      "title": "Logging Observability",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/project-types/mobile/media-attachment.md",
-      "title": "Media Attachment",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/project-types/mobile/mobile-architecture.md",
-      "title": "Mobile Architecture",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/project-types/mobile/mobile-performance.md",
-      "title": "Mobile Performance",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/project-types/mobile/mobile-release-store.md",
-      "title": "Mobile Release Store",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/project-types/mobile/mobile-security-privacy.md",
-      "title": "Mobile Security Privacy",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/project-types/mobile/mobile-ui-ux-accessibility.md",
-      "title": "Mobile Ui Ux Accessibility",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/project-types/mobile/navigation-deeplink.md",
-      "title": "Navigation Deeplink",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/project-types/mobile/networking-resilience.md",
-      "title": "Networking Resilience",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/project-types/mobile/offline-sync.md",
-      "title": "Offline Sync",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/project-types/mobile/permission-native-capabilities.md",
-      "title": "Permission Native Capabilities",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/project-types/mobile/push-notification.md",
-      "title": "Push Notification",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/project-types/mobile/time-timezone.md",
-      "title": "Mobile Time & Timezone Standard",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/project-types/mobile/timezone-server-time.md",
-      "title": "Timezone Server Time",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/project-types/README.md",
-      "title": "Project Type Standards",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/project-types/web/browser-runtime.md",
-      "title": "Browser Runtime",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/project-types/web/web-application-standard.md",
-      "title": "Web Application Standard",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/project-types/web/web-architecture.md",
-      "title": "Web Architecture",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/project-types/web/web-performance.md",
-      "title": "Web Performance",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/project-types/web/web-release.md",
-      "title": "Web Release",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/project-types/web/web-security.md",
-      "title": "Web Security",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/project-types/web/web-ui-ux.md",
-      "title": "Web Ui Ux",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/README.md",
-      "title": "Standards Architecture v5.5",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/repository-entry-hygiene.md",
-      "title": "Repository Entry & History Hygiene Standard — v5.5",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/reuse/capability-pack-standard.md",
-      "title": "Capability Pack Standard",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/reuse/pattern-pack-standard.md",
-      "title": "Pattern Pack Standard",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/reuse/promotion-policy.md",
-      "title": "Reuse Promotion Policy",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/reuse/reuse-strategy.md",
-      "title": "Reuse Strategy",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/security-and-secrets.md",
-      "title": "Security & Secrets Documentation Rules",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/source-base-governance.md",
-      "title": "Source Base Governance",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/source-intelligence.md",
-      "title": "Source Intelligence Standard",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/source-of-truth.md",
-      "title": "Source of Truth Rules",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/source-workspace.md",
-      "title": "Source Workspace Standard",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/stacks/api/dotnet-core/api-conventions.md",
-      "title": "Api Conventions",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/stacks/api/dotnet-core/architecture.md",
-      "title": "Architecture",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/stacks/api/dotnet-core/background-services.md",
-      "title": "Background Services",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/stacks/api/dotnet-core/coding-standard.md",
-      "title": "ASP.NET Core Coding Standard",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/stacks/api/dotnet-core/data-access.md",
-      "title": "Data Access",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/stacks/api/dotnet-core/dependency-injection-config.md",
-      "title": "ASP.NET Core DI & Configuration",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/stacks/api/dotnet-core/security.md",
-      "title": "Security",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/stacks/api/dotnet-core/testing-observability-deployment.md",
-      "title": "Testing Observability Deployment",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/stacks/api/nodejs/architecture.md",
-      "title": "Architecture",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/stacks/api/nodejs/async-resilience.md",
-      "title": "NodeJS Async & Resilience",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/stacks/api/nodejs/coding-standard.md",
-      "title": "Coding Standard",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/stacks/api/nodejs/deployment.md",
-      "title": "Deployment",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/stacks/api/nodejs/http-contract.md",
-      "title": "NodeJS HTTP Contract",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/stacks/api/nodejs/testing-observability.md",
-      "title": "Testing Observability",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/stacks/api/nodejs/validation-errors.md",
-      "title": "Validation Errors",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/stacks/database/postgresql/migration-operations.md",
-      "title": "Migration Operations",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/stacks/database/postgresql/query-performance.md",
-      "title": "Query Performance",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/stacks/database/postgresql/schema-conventions.md",
-      "title": "Schema Conventions",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/stacks/mobile/android-compose/architecture.md",
-      "title": "Android Compose Architecture",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/stacks/mobile/android-compose/lifecycle-navigation-storage.md",
-      "title": "Android Compose Lifecycle, Navigation and Storage",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/stacks/mobile/flutter/architecture.md",
-      "title": "Architecture",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/stacks/mobile/flutter/coding-standard.md",
-      "title": "Coding Standard",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/stacks/mobile/flutter/navigation.md",
-      "title": "Navigation",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/stacks/mobile/flutter/state-management-bloc-cubit.md",
-      "title": "State Management Bloc Cubit",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/stacks/mobile/flutter/state-management.md",
-      "title": "Flutter State Management",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/stacks/mobile/flutter/storage-networking.md",
-      "title": "Storage Networking",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/stacks/mobile/flutter/testing-release.md",
-      "title": "Testing Release",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/stacks/mobile/ios-swiftui/architecture.md",
-      "title": "iOS SwiftUI Architecture",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/stacks/mobile/ios-swiftui/lifecycle-navigation-storage.md",
-      "title": "iOS SwiftUI Lifecycle, Navigation and Storage",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/stacks/mobile/react-native/architecture.md",
-      "title": "Architecture",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/stacks/mobile/react-native/coding-standard.md",
-      "title": "Coding Standard",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/stacks/mobile/react-native/expo-native-boundary.md",
-      "title": "Expo Native Boundary",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/stacks/mobile/react-native/navigation.md",
-      "title": "Navigation",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/stacks/mobile/react-native/state-management.md",
-      "title": "State Management",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/stacks/mobile/react-native/storage-networking.md",
-      "title": "Storage Networking",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/stacks/mobile/react-native/testing-release.md",
-      "title": "Testing Release",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/stacks/README.md",
-      "title": "Technology Stack Standards",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/stacks/web/nextjs/architecture.md",
-      "title": "Next.js Architecture Standard",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/stacks/web/nextjs/rendering-routing.md",
-      "title": "Next.js Rendering and Routing",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/stacks/web/nextjs/testing-deployment.md",
-      "title": "Next.js Testing and Deployment",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/stacks/web/reactjs/architecture.md",
-      "title": "Architecture",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/stacks/web/reactjs/coding-standard.md",
-      "title": "ReactJS Coding Standard",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/stacks/web/reactjs/forms-validation.md",
-      "title": "Forms Validation",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/stacks/web/reactjs/routing.md",
-      "title": "Routing",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/stacks/web/reactjs/state-data-fetching.md",
-      "title": "State Data Fetching",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/stacks/web/reactjs/testing.md",
-      "title": "Testing",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "standards/STANDARD_CATALOG.md",
+      "path": "kit/standards/STANDARD_CATALOG.md",
       "title": "Standard Catalog",
       "uid": null,
       "code": null,
@@ -2027,7 +1109,970 @@
       "status": null
     },
     {
-      "path": "standards/tooling-and-static-site.md",
+      "path": "kit/standards/ai-agent-rules.md",
+      "title": "AI Agent Rules — v5.3",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/capabilities/authentication.md",
+      "title": "Authentication Feature Standard",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/change-history-and-baselines.md",
+      "title": "Semantic Change History and Baselines — v5.3",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/definition-of-ready-done.md",
+      "title": "Definition of Ready / Done — v5.3",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/diagram-guidelines.md",
+      "title": "Flow & Diagram Guidelines",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/document-freshness.md",
+      "title": "Document Freshness Standard — v5.3",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/documentation-standard.md",
+      "title": "Documentation Standard",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/entity-identity-lifecycle-and-relations.md",
+      "title": "Entity Identity, Lifecycle and Relation Semantics",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/impact-analysis.md",
+      "title": "Graph Impact Analysis Standard — v5.3",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/implementation-governance.md",
+      "title": "Implementation Governance Standard — v5.3",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/local-knowledge-engine.md",
+      "title": "Local Knowledge Engine Standard",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/metadata-schema.md",
+      "title": "Metadata Schema",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/naming-and-id-convention.md",
+      "title": "Naming, Code & UID Convention",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/progressive-specification.md",
+      "title": "Progressive Specification Standard — v5.3",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/project-types/README.md",
+      "title": "Project Type Standards",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/project-types/api/api-architecture.md",
+      "title": "Api Architecture",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/project-types/api/api-conventions.md",
+      "title": "Api Conventions",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/project-types/api/auth-authorization.md",
+      "title": "Auth Authorization",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/project-types/api/background-jobs.md",
+      "title": "Background Jobs",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/project-types/api/contract-versioning.md",
+      "title": "API Contract & Versioning Standard",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/project-types/api/data-transaction.md",
+      "title": "Data Transaction",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/project-types/api/deployment.md",
+      "title": "Deployment",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/project-types/api/observability.md",
+      "title": "Observability",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/project-types/api/performance.md",
+      "title": "Performance",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/project-types/api/resilience.md",
+      "title": "Resilience",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/project-types/api/security.md",
+      "title": "Security",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/project-types/mobile/app-lifecycle.md",
+      "title": "App Lifecycle",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/project-types/mobile/background-work.md",
+      "title": "Background Work",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/project-types/mobile/connectivity-realtime.md",
+      "title": "Connectivity Realtime",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/project-types/mobile/local-storage-cache.md",
+      "title": "Local Storage Cache",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/project-types/mobile/logging-observability.md",
+      "title": "Logging Observability",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/project-types/mobile/media-attachment.md",
+      "title": "Media Attachment",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/project-types/mobile/mobile-architecture.md",
+      "title": "Mobile Architecture",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/project-types/mobile/mobile-performance.md",
+      "title": "Mobile Performance",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/project-types/mobile/mobile-release-store.md",
+      "title": "Mobile Release Store",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/project-types/mobile/mobile-security-privacy.md",
+      "title": "Mobile Security Privacy",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/project-types/mobile/mobile-ui-ux-accessibility.md",
+      "title": "Mobile Ui Ux Accessibility",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/project-types/mobile/navigation-deeplink.md",
+      "title": "Navigation Deeplink",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/project-types/mobile/networking-resilience.md",
+      "title": "Networking Resilience",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/project-types/mobile/offline-sync.md",
+      "title": "Offline Sync",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/project-types/mobile/permission-native-capabilities.md",
+      "title": "Permission Native Capabilities",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/project-types/mobile/push-notification.md",
+      "title": "Push Notification",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/project-types/mobile/time-timezone.md",
+      "title": "Mobile Time & Timezone Standard",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/project-types/mobile/timezone-server-time.md",
+      "title": "Timezone Server Time",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/project-types/web/browser-runtime.md",
+      "title": "Browser Runtime",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/project-types/web/web-application-standard.md",
+      "title": "Web Application Standard",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/project-types/web/web-architecture.md",
+      "title": "Web Architecture",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/project-types/web/web-performance.md",
+      "title": "Web Performance",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/project-types/web/web-release.md",
+      "title": "Web Release",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/project-types/web/web-security.md",
+      "title": "Web Security",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/project-types/web/web-ui-ux.md",
+      "title": "Web Ui Ux",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/repository-entry-hygiene.md",
+      "title": "Repository Entry & History Hygiene Standard — v5.6",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/reuse/capability-pack-standard.md",
+      "title": "Capability Pack Standard",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/reuse/pattern-pack-standard.md",
+      "title": "Pattern Pack Standard",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/reuse/promotion-policy.md",
+      "title": "Reuse Promotion Policy",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/reuse/reuse-strategy.md",
+      "title": "Reuse Strategy",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/security-and-secrets.md",
+      "title": "Security & Secrets Documentation Rules",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/source-base-governance.md",
+      "title": "Source Base Governance",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/source-intelligence.md",
+      "title": "Source Intelligence Standard",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/source-of-truth.md",
+      "title": "Source of Truth Rules",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/source-workspace.md",
+      "title": "Source Workspace Standard",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/stacks/README.md",
+      "title": "Technology Stack Standards",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/stacks/api/dotnet-core/api-conventions.md",
+      "title": "Api Conventions",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/stacks/api/dotnet-core/architecture.md",
+      "title": "Architecture",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/stacks/api/dotnet-core/background-services.md",
+      "title": "Background Services",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/stacks/api/dotnet-core/coding-standard.md",
+      "title": "ASP.NET Core Coding Standard",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/stacks/api/dotnet-core/data-access.md",
+      "title": "Data Access",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/stacks/api/dotnet-core/dependency-injection-config.md",
+      "title": "ASP.NET Core DI & Configuration",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/stacks/api/dotnet-core/security.md",
+      "title": "Security",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/stacks/api/dotnet-core/testing-observability-deployment.md",
+      "title": "Testing Observability Deployment",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/stacks/api/nodejs/architecture.md",
+      "title": "Architecture",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/stacks/api/nodejs/async-resilience.md",
+      "title": "NodeJS Async & Resilience",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/stacks/api/nodejs/coding-standard.md",
+      "title": "Coding Standard",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/stacks/api/nodejs/deployment.md",
+      "title": "Deployment",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/stacks/api/nodejs/http-contract.md",
+      "title": "NodeJS HTTP Contract",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/stacks/api/nodejs/testing-observability.md",
+      "title": "Testing Observability",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/stacks/api/nodejs/validation-errors.md",
+      "title": "Validation Errors",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/stacks/database/postgresql/migration-operations.md",
+      "title": "Migration Operations",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/stacks/database/postgresql/query-performance.md",
+      "title": "Query Performance",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/stacks/database/postgresql/schema-conventions.md",
+      "title": "Schema Conventions",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/stacks/mobile/android-compose/architecture.md",
+      "title": "Android Compose Architecture",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/stacks/mobile/android-compose/lifecycle-navigation-storage.md",
+      "title": "Android Compose Lifecycle, Navigation and Storage",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/stacks/mobile/flutter/architecture.md",
+      "title": "Architecture",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/stacks/mobile/flutter/coding-standard.md",
+      "title": "Coding Standard",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/stacks/mobile/flutter/navigation.md",
+      "title": "Navigation",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/stacks/mobile/flutter/state-management-bloc-cubit.md",
+      "title": "State Management Bloc Cubit",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/stacks/mobile/flutter/state-management.md",
+      "title": "Flutter State Management",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/stacks/mobile/flutter/storage-networking.md",
+      "title": "Storage Networking",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/stacks/mobile/flutter/testing-release.md",
+      "title": "Testing Release",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/stacks/mobile/ios-swiftui/architecture.md",
+      "title": "iOS SwiftUI Architecture",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/stacks/mobile/ios-swiftui/lifecycle-navigation-storage.md",
+      "title": "iOS SwiftUI Lifecycle, Navigation and Storage",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/stacks/mobile/react-native/architecture.md",
+      "title": "Architecture",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/stacks/mobile/react-native/coding-standard.md",
+      "title": "Coding Standard",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/stacks/mobile/react-native/expo-native-boundary.md",
+      "title": "Expo Native Boundary",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/stacks/mobile/react-native/navigation.md",
+      "title": "Navigation",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/stacks/mobile/react-native/state-management.md",
+      "title": "State Management",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/stacks/mobile/react-native/storage-networking.md",
+      "title": "Storage Networking",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/stacks/mobile/react-native/testing-release.md",
+      "title": "Testing Release",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/stacks/web/nextjs/architecture.md",
+      "title": "Next.js Architecture Standard",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/stacks/web/nextjs/rendering-routing.md",
+      "title": "Next.js Rendering and Routing",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/stacks/web/nextjs/testing-deployment.md",
+      "title": "Next.js Testing and Deployment",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/stacks/web/reactjs/architecture.md",
+      "title": "Architecture",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/stacks/web/reactjs/coding-standard.md",
+      "title": "ReactJS Coding Standard",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/stacks/web/reactjs/forms-validation.md",
+      "title": "Forms Validation",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/stacks/web/reactjs/routing.md",
+      "title": "Routing",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/stacks/web/reactjs/state-data-fetching.md",
+      "title": "State Data Fetching",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/stacks/web/reactjs/testing.md",
+      "title": "Testing",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/tooling-and-static-site.md",
       "title": "Documentation Tooling & Static Site Standard",
       "uid": null,
       "code": null,
@@ -2036,16 +2081,7 @@
       "status": null
     },
     {
-      "path": "START_HERE.md",
-      "title": "START HERE - v5.5",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "templates/adr-template.md",
+      "path": "kit/templates/adr-template.md",
       "title": "<TITLE>",
       "uid": "<GENERATE-UUID>",
       "code": "<CODE>",
@@ -2054,7 +2090,7 @@
       "status": "draft"
     },
     {
-      "path": "templates/analytics-event-template.md",
+      "path": "kit/templates/analytics-event-template.md",
       "title": "<Analytics Event>",
       "uid": "<GENERATE-UUID>",
       "code": "<EVT-XXX>",
@@ -2063,7 +2099,7 @@
       "status": "draft"
     },
     {
-      "path": "templates/api-template.md",
+      "path": "kit/templates/api-template.md",
       "title": "<TITLE>",
       "uid": "<GENERATE-UUID>",
       "code": "<CODE>",
@@ -2072,7 +2108,7 @@
       "status": "draft"
     },
     {
-      "path": "templates/application-template.md",
+      "path": "kit/templates/application-template.md",
       "title": "Web Application",
       "uid": "<GENERATE-UUID>",
       "code": "APP-WEB",
@@ -2081,7 +2117,7 @@
       "status": "planned"
     },
     {
-      "path": "templates/architecture-template.md",
+      "path": "kit/templates/architecture-template.md",
       "title": "<Architecture Document>",
       "uid": "<GENERATE-UUID>",
       "code": "<ARCH-XXX>",
@@ -2090,7 +2126,7 @@
       "status": "draft"
     },
     {
-      "path": "templates/background-mobile-template.md",
+      "path": "kit/templates/background-mobile-template.md",
       "title": "<Mobile Background Work>",
       "uid": "<GENERATE-UUID>",
       "code": "<MBG-XXX>",
@@ -2099,7 +2135,7 @@
       "status": "draft"
     },
     {
-      "path": "templates/bug-template.md",
+      "path": "kit/templates/bug-template.md",
       "title": "Bug title",
       "uid": "<GENERATE-UUID>",
       "code": "BUG-MOD-001",
@@ -2108,7 +2144,7 @@
       "status": "open"
     },
     {
-      "path": "templates/business-rule-template.md",
+      "path": "kit/templates/business-rule-template.md",
       "title": "<TITLE>",
       "uid": "<GENERATE-UUID>",
       "code": "<CODE>",
@@ -2117,7 +2153,7 @@
       "status": "draft"
     },
     {
-      "path": "templates/database-object-template.md",
+      "path": "kit/templates/database-object-template.md",
       "title": "<TITLE>",
       "uid": "<GENERATE-UUID>",
       "code": "<CODE>",
@@ -2126,7 +2162,7 @@
       "status": "draft"
     },
     {
-      "path": "templates/deep-link-template.md",
+      "path": "kit/templates/deep-link-template.md",
       "title": "<Deep Link Contract>",
       "uid": "<GENERATE-UUID>",
       "code": "<DL-XXX>",
@@ -2135,7 +2171,7 @@
       "status": "draft"
     },
     {
-      "path": "templates/device-test-profile-template.md",
+      "path": "kit/templates/device-test-profile-template.md",
       "title": "<Device / OS Test Profile>",
       "uid": "<GENERATE-UUID>",
       "code": "<DTP-XXX>",
@@ -2144,7 +2180,7 @@
       "status": "draft"
     },
     {
-      "path": "templates/feature-flag-template.md",
+      "path": "kit/templates/feature-flag-template.md",
       "title": "<Feature Flag>",
       "uid": "<GENERATE-UUID>",
       "code": "<FLAG-XXX>",
@@ -2153,7 +2189,7 @@
       "status": "draft"
     },
     {
-      "path": "templates/feature-template.md",
+      "path": "kit/templates/feature-template.md",
       "title": "<TITLE>",
       "uid": "<GENERATE-UUID>",
       "code": "<CODE>",
@@ -2162,7 +2198,7 @@
       "status": "draft"
     },
     {
-      "path": "templates/flow-template.md",
+      "path": "kit/templates/flow-template.md",
       "title": "<TITLE>",
       "uid": "<GENERATE-UUID>",
       "code": "<CODE>",
@@ -2171,7 +2207,7 @@
       "status": "draft"
     },
     {
-      "path": "templates/incident-template.md",
+      "path": "kit/templates/incident-template.md",
       "title": "<Incident Record>",
       "uid": "<GENERATE-UUID>",
       "code": "<INC-XXX>",
@@ -2180,7 +2216,7 @@
       "status": "draft"
     },
     {
-      "path": "templates/integration-template.md",
+      "path": "kit/templates/integration-template.md",
       "title": "<TITLE>",
       "uid": "<GENERATE-UUID>",
       "code": "<CODE>",
@@ -2189,7 +2225,7 @@
       "status": "draft"
     },
     {
-      "path": "templates/lightweight-feature-template.md",
+      "path": "kit/templates/lightweight-feature-template.md",
       "title": "<TITLE>",
       "uid": "<GENERATE-UUID>",
       "code": "<CODE>",
@@ -2198,7 +2234,7 @@
       "status": "draft"
     },
     {
-      "path": "templates/local-storage-template.md",
+      "path": "kit/templates/local-storage-template.md",
       "title": "<Local Storage Contract>",
       "uid": "<GENERATE-UUID>",
       "code": "<LS-XXX>",
@@ -2207,7 +2243,7 @@
       "status": "draft"
     },
     {
-      "path": "templates/mobile-release-template.md",
+      "path": "kit/templates/mobile-release-template.md",
       "title": "<Mobile Release>",
       "uid": "<GENERATE-UUID>",
       "code": "<REL-MOB-XXX>",
@@ -2216,7 +2252,7 @@
       "status": "draft"
     },
     {
-      "path": "templates/mobile-screen-template.md",
+      "path": "kit/templates/mobile-screen-template.md",
       "title": "<Mobile Screen>",
       "uid": "<GENERATE-UUID>",
       "code": "<SCR-MOB-XXX>",
@@ -2225,7 +2261,7 @@
       "status": "draft"
     },
     {
-      "path": "templates/module-template.md",
+      "path": "kit/templates/module-template.md",
       "title": "<TITLE>",
       "uid": "<GENERATE-UUID>",
       "code": "<CODE>",
@@ -2234,7 +2270,7 @@
       "status": "draft"
     },
     {
-      "path": "templates/monitoring-alert-template.md",
+      "path": "kit/templates/monitoring-alert-template.md",
       "title": "<Monitoring / Alert>",
       "uid": "<GENERATE-UUID>",
       "code": "<ALERT-XXX>",
@@ -2243,7 +2279,7 @@
       "status": "draft"
     },
     {
-      "path": "templates/native-capability-template.md",
+      "path": "kit/templates/native-capability-template.md",
       "title": "<Native Capability>",
       "uid": "<GENERATE-UUID>",
       "code": "<NCAP-XXX>",
@@ -2252,7 +2288,7 @@
       "status": "draft"
     },
     {
-      "path": "templates/nfr-template.md",
+      "path": "kit/templates/nfr-template.md",
       "title": "<TITLE>",
       "uid": "<GENERATE-UUID>",
       "code": "<CODE>",
@@ -2261,7 +2297,7 @@
       "status": "draft"
     },
     {
-      "path": "templates/offline-sync-template.md",
+      "path": "kit/templates/offline-sync-template.md",
       "title": "<Offline Sync Policy>",
       "uid": "<GENERATE-UUID>",
       "code": "<SYNC-XXX>",
@@ -2270,7 +2306,7 @@
       "status": "draft"
     },
     {
-      "path": "templates/open-question-template.md",
+      "path": "kit/templates/open-question-template.md",
       "title": "<Open Question>",
       "uid": "<GENERATE-UUID>",
       "code": "<OQ-XXX>",
@@ -2279,7 +2315,7 @@
       "status": "draft"
     },
     {
-      "path": "templates/permission-template.md",
+      "path": "kit/templates/permission-template.md",
       "title": "<Native Permission Contract>",
       "uid": "<GENERATE-UUID>",
       "code": "<PERM-XXX>",
@@ -2288,7 +2324,7 @@
       "status": "draft"
     },
     {
-      "path": "templates/product-scope-template.md",
+      "path": "kit/templates/product-scope-template.md",
       "title": "<Product Scope>",
       "uid": "<GENERATE-UUID>",
       "code": "<DOC-SCOPE>",
@@ -2297,7 +2333,7 @@
       "status": "draft"
     },
     {
-      "path": "templates/project-overview-template.md",
+      "path": "kit/templates/project-overview-template.md",
       "title": "<Project Overview>",
       "uid": "<GENERATE-UUID>",
       "code": "<PRJ-XXX>",
@@ -2306,7 +2342,7 @@
       "status": "draft"
     },
     {
-      "path": "templates/push-event-template.md",
+      "path": "kit/templates/push-event-template.md",
       "title": "<Push Event Contract>",
       "uid": "<GENERATE-UUID>",
       "code": "<PUSH-XXX>",
@@ -2315,7 +2351,7 @@
       "status": "draft"
     },
     {
-      "path": "templates/release-template.md",
+      "path": "kit/templates/release-template.md",
       "title": "<TITLE>",
       "uid": "<GENERATE-UUID>",
       "code": "<CODE>",
@@ -2324,7 +2360,7 @@
       "status": "draft"
     },
     {
-      "path": "templates/request-template.md",
+      "path": "kit/templates/request-template.md",
       "title": "Request title",
       "uid": "<GENERATE-UUID>",
       "code": "REQST-YYYYMMDD-001",
@@ -2333,7 +2369,7 @@
       "status": "captured"
     },
     {
-      "path": "templates/requirement-template.md",
+      "path": "kit/templates/requirement-template.md",
       "title": "<TITLE>",
       "uid": "<GENERATE-UUID>",
       "code": "<CODE>",
@@ -2342,7 +2378,7 @@
       "status": "draft"
     },
     {
-      "path": "templates/reuse/feature-standard-template.md",
+      "path": "kit/templates/reuse/feature-standard-template.md",
       "title": "<Capability> Feature Standard",
       "uid": null,
       "code": null,
@@ -2351,7 +2387,7 @@
       "status": null
     },
     {
-      "path": "templates/reuse/pack-import-review-template.md",
+      "path": "kit/templates/reuse/pack-import-review-template.md",
       "title": "Pack Import Review",
       "uid": null,
       "code": null,
@@ -2360,7 +2396,7 @@
       "status": null
     },
     {
-      "path": "templates/reuse/reuse-assessment-template.md",
+      "path": "kit/templates/reuse/reuse-assessment-template.md",
       "title": "Reuse Assessment - <Capability>",
       "uid": "<GENERATE-UUID>",
       "code": "REVIEW-REUSE-<CAPABILITY>",
@@ -2369,7 +2405,7 @@
       "status": "draft"
     },
     {
-      "path": "templates/runbook-template.md",
+      "path": "kit/templates/runbook-template.md",
       "title": "<TITLE>",
       "uid": "<GENERATE-UUID>",
       "code": "<CODE>",
@@ -2378,7 +2414,7 @@
       "status": "draft"
     },
     {
-      "path": "templates/screen-template.md",
+      "path": "kit/templates/screen-template.md",
       "title": "<TITLE>",
       "uid": "<GENERATE-UUID>",
       "code": "<CODE>",
@@ -2387,7 +2423,7 @@
       "status": "draft"
     },
     {
-      "path": "templates/task-template.md",
+      "path": "kit/templates/task-template.md",
       "title": "Task title",
       "uid": "<GENERATE-UUID>",
       "code": "TASK-MOD-FEATURE-001",
@@ -2396,7 +2432,7 @@
       "status": "ready"
     },
     {
-      "path": "templates/test-case-template.md",
+      "path": "kit/templates/test-case-template.md",
       "title": "<TITLE>",
       "uid": "<GENERATE-UUID>",
       "code": "<CODE>",
@@ -2405,8 +2441,179 @@
       "status": "draft"
     },
     {
+      "path": "kit/workflows/01-idea-to-scope.md",
+      "title": "Workflow 01 — Idea -> Scope",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/workflows/02-scope-to-blueprint.md",
+      "title": "Workflow 02 — Scope -> Project Blueprint",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/workflows/03-blueprint-to-functional-docs.md",
+      "title": "Workflow 03 — Blueprint -> Functional Documentation",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/workflows/03A-reuse-capability-detection.md",
+      "title": "Workflow 03A - Reuse and Capability Detection",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/workflows/04-functional-to-technical-contracts.md",
+      "title": "Workflow 04 — Functional -> Technical Contracts",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/workflows/05-quality-and-test.md",
+      "title": "Workflow 05 — Quality & Test",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/workflows/06-production-readiness.md",
+      "title": "Workflow 06 — Production Readiness",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/workflows/07-change-management.md",
+      "title": "Workflow 07 — Change Management",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/workflows/08-documentation-tooling.md",
+      "title": "Workflow 08 — Validate, Sync and Publish Documentation",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/workflows/09-project-profile-and-standards.md",
+      "title": "Workflow 09 — Project Profile & Standards Selection",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/workflows/10-mobile-readiness.md",
+      "title": "Workflow 10 — Mobile Readiness",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/workflows/11-store-release-readiness.md",
+      "title": "Workflow 11 — Store Release Readiness",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/workflows/12-capability-pack-lifecycle.md",
+      "title": "Workflow 12 — Reusable Capability Pack Lifecycle",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/workflows/13-reuse-promotion-governance.md",
+      "title": "Workflow 13 - Reuse Promotion Governance",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/workflows/14-request-to-workplan-task.md",
+      "title": "Workflow 14 — Request to WorkPlan to Task",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/workflows/15-freshness-change-history-impact.md",
+      "title": "Workflow 15 — Freshness, Impact, ChangeSet and Baseline",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/workflows/16-progressive-specification.md",
+      "title": "Workflow 16 — Progressive Specification / Lightweight Mode",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/workflows/17-source-workspace-bootstrap.md",
+      "title": "Workflow 17 — Source Workspace Bootstrap / Adoption",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/workflows/END_TO_END_CHECKLIST.md",
+      "title": "End-to-End Documentation Checklist",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
       "path": "tools/README.md",
-      "title": "Documentation Toolchain v5.5",
+      "title": "Documentation Toolchain v5.6",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -2466,177 +2673,6 @@
       "revision": 0,
       "type": "test-case",
       "status": "ready"
-    },
-    {
-      "path": "workflows/01-idea-to-scope.md",
-      "title": "Workflow 01 — Idea -> Scope",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "workflows/02-scope-to-blueprint.md",
-      "title": "Workflow 02 — Scope -> Project Blueprint",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "workflows/03-blueprint-to-functional-docs.md",
-      "title": "Workflow 03 — Blueprint -> Functional Documentation",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "workflows/03A-reuse-capability-detection.md",
-      "title": "Workflow 03A - Reuse and Capability Detection",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "workflows/04-functional-to-technical-contracts.md",
-      "title": "Workflow 04 — Functional -> Technical Contracts",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "workflows/05-quality-and-test.md",
-      "title": "Workflow 05 — Quality & Test",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "workflows/06-production-readiness.md",
-      "title": "Workflow 06 — Production Readiness",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "workflows/07-change-management.md",
-      "title": "Workflow 07 — Change Management",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "workflows/08-documentation-tooling.md",
-      "title": "Workflow 08 — Validate, Sync and Publish Documentation",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "workflows/09-project-profile-and-standards.md",
-      "title": "Workflow 09 — Project Profile & Standards Selection",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "workflows/10-mobile-readiness.md",
-      "title": "Workflow 10 — Mobile Readiness",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "workflows/11-store-release-readiness.md",
-      "title": "Workflow 11 — Store Release Readiness",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "workflows/12-capability-pack-lifecycle.md",
-      "title": "Workflow 12 — Reusable Capability Pack Lifecycle",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "workflows/13-reuse-promotion-governance.md",
-      "title": "Workflow 13 - Reuse Promotion Governance",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "workflows/14-request-to-workplan-task.md",
-      "title": "Workflow 14 — Request to WorkPlan to Task",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "workflows/15-freshness-change-history-impact.md",
-      "title": "Workflow 15 — Freshness, Impact, ChangeSet and Baseline",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "workflows/16-progressive-specification.md",
-      "title": "Workflow 16 — Progressive Specification / Lightweight Mode",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "workflows/17-source-workspace-bootstrap.md",
-      "title": "Workflow 17 — Source Workspace Bootstrap / Adoption",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
-    },
-    {
-      "path": "workflows/END_TO_END_CHECKLIST.md",
-      "title": "End-to-End Documentation Checklist",
-      "uid": null,
-      "code": null,
-      "revision": 0,
-      "type": null,
-      "status": null
     }
   ],
   "entities": []

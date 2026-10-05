@@ -3,7 +3,7 @@ import path from 'node:path';
 import {root, loadProfile, registry, exists} from './lib/core.mjs';
 const p=loadProfile(), r=registry(); let errors=0, warnings=0;
 const active=exists('project-profile.json');
-if (!active) { console.log('WARN project-profile.json not found. Copy PROJECT_PROFILE.example.json and select the real project types/stacks before technical design.'); warnings++; }
+if (!active) { console.log('WARN project-profile.json not found. Copy kit/examples/project-profile.example.json and select the real project types/stacks before technical design.'); warnings++; }
 if(active){ for(const k of ['projectCode','projectName','projectTypes','technologyStacks']) if(p[k]===undefined||p[k]===null||p[k]===''){console.log(`ERROR project-profile.json missing ${k}`);errors++;} if(!Array.isArray(p.projectTypes)){console.log('ERROR projectTypes must be array');errors++;} if(!Array.isArray(p.technologyStacks)){console.log('ERROR technologyStacks must be array');errors++;} }
 for (const t of p.projectTypes||[]) if (!r.projectTypes.projectTypes[t]) { console.log(`ERROR Unknown project type: ${t}`); errors++; }
 for (const s of p.technologyStacks||[]) {

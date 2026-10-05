@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "1.0",
+  "projectTypes": {
+    "web": {
+      "label": "Web Application",
+      "standards": [
+        "kit/standards/project-types/web/web-architecture.md",
+        "kit/standards/project-types/web/browser-runtime.md",
+        "kit/standards/project-types/web/web-ui-ux.md",
+        "kit/standards/project-types/web/web-security.md",
+        "kit/standards/project-types/web/web-performance.md",
+        "kit/standards/project-types/web/web-release.md"
+      ]
+    },
+    "mobile": {
+      "label": "Mobile Application",
+      "standards": [
+        "kit/standards/project-types/mobile/mobile-architecture.md",
+        "kit/standards/project-types/mobile/app-lifecycle.md",
+        "kit/standards/project-types/mobile/offline-sync.md",
+        "kit/standards/project-types/mobile/networking-resilience.md",
+        "kit/standards/project-types/mobile/local-storage-cache.md",
+        "kit/standards/project-types/mobile/connectivity-realtime.md",
+        "kit/standards/project-types/mobile/push-notification.md",
+        "kit/standards/project-types/mobile/permission-native-capabilities.md",
+        "kit/standards/project-types/mobile/navigation-deeplink.md",
+        "kit/standards/project-types/mobile/logging-observability.md",
+        "kit/standards/project-types/mobile/mobile-security-privacy.md",
+        "kit/standards/project-types/mobile/mobile-ui-ux-accessibility.md",
+        "kit/standards/project-types/mobile/mobile-performance.md",
+        "kit/standards/project-types/mobile/mobile-release-store.md",
+        "kit/standards/project-types/mobile/background-work.md",
+        "kit/standards/project-types/mobile/media-attachment.md",
+        "kit/standards/project-types/mobile/timezone-server-time.md"
+      ]
+    },
+    "api": {
+      "label": "Backend/API",
+      "standards": [
+        "kit/standards/project-types/api/api-architecture.md",
+        "kit/standards/project-types/api/api-conventions.md",
+        "kit/standards/project-types/api/auth-authorization.md",
+        "kit/standards/project-types/api/resilience.md",
+        "kit/standards/project-types/api/data-transaction.md",
+        "kit/standards/project-types/api/background-jobs.md",
+        "kit/standards/project-types/api/observability.md",
+        "kit/standards/project-types/api/performance.md",
+        "kit/standards/project-types/api/security.md",
+        "kit/standards/project-types/api/deployment.md"
+      ]
+    }
+  }
+}

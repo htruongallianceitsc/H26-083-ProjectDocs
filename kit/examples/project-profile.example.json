@@ -1,0 +1,34 @@
+{
+  "projectCode": "EXAMPLE",
+  "projectName": "Example Product",
+  "projectTypes": [
+    "mobile",
+    "api"
+  ],
+  "technologyStacks": [
+    "react-native",
+    "dotnet-core-api",
+    "postgresql"
+  ],
+  "implementationGate": {
+    "blockOnOpenQuestions": true,
+    "blockOnValidationErrors": true,
+    "blockOnQualityErrors": true,
+    "blockOnPackReviewPending": true,
+    "blockOnReadyGateFailure": true,
+    "requireApprovedWorkPlan": true,
+    "blockOnStaleWorkPlanContext": true,
+    "blockOnStaleDocumentation": true
+  },
+  "documentation": {
+    "exclude": [
+      "kit/examples/**",
+      ".project-docs/site/**",
+      "docs/_generated/**"
+    ],
+    "staleDetection": "dependency-hash",
+    "defaultSpecLevel": "standard",
+    "targetMaturity": "production",
+    "riskEscalation": "warn"
+  }
+}

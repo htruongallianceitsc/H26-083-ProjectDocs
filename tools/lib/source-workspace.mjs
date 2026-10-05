@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { ROOT, loadJson, writeJson, scanEntities, writeMarkdownEntity } from './common.mjs';
+import { ROOT, loadJson, writeJson, scanEntities, writeMarkdownEntity, existingWorkspaceAbs, workspaceRel } from './common.mjs';
 
 export const sourceLockPath = '.project-docs/source.lock.json';
 export function sourceProfiles(){ return loadJson('registry/source-profiles.json',{profiles:{}}); }
@@ -10,12 +10,12 @@ export function applications(){ return scanEntities().entities.filter(e=>e.type=
 export function applicationByCode(code){ return applications().find(e=>e.code===String(code))||null; }
 export function profileById(id){ return sourceProfiles().profiles?.[id]||null; }
 export function listBaseVersions(baseId){
-  const dir=path.join(ROOT,'source-bases',baseId); if(!fs.existsSync(dir)) return [];
+  const dir=existingWorkspaceAbs('sourceBases',baseId); if(!fs.existsSync(dir)) return [];
   return fs.readdirSync(dir,{withFileTypes:true}).filter(x=>x.isDirectory()&&fs.existsSync(path.join(dir,x.name,'manifest.json'))).map(x=>x.name).sort(compareVersions);
 }
 function compareVersions(a,b){ const pa=a.split('.').map(Number),pb=b.split('.').map(Number); for(let i=0;i<Math.max(pa.length,pb.length);i++){const d=(pa[i]||0)-(pb[i]||0);if(d)return d;} return 0; }
 export function latestBaseVersion(baseId){ const v=listBaseVersions(baseId); return v.length?v[v.length-1]:null; }
-export function loadBase(baseId,version=null){ const resolved=version||latestBaseVersion(baseId); if(!resolved) throw new Error(`Source Base not found: ${baseId}`); const manifest=loadJson(`source-bases/${baseId}/${resolved}/manifest.json`); if(!manifest) throw new Error(`Source Base manifest not found: ${baseId}@${resolved}`); return {version:resolved,manifest,dir:path.join(ROOT,'source-bases',baseId,resolved)}; }
+export function loadBase(baseId,version=null){ const resolved=version||latestBaseVersion(baseId); if(!resolved) throw new Error(`Source Base not found: ${baseId}`); const manifest=loadJson(`source-bases/${baseId}/${resolved}/manifest.json`); if(!manifest) throw new Error(`Source Base manifest not found: ${baseId}@${resolved}`); return {version:resolved,manifest,dir:existingWorkspaceAbs('sourceBases',baseId,resolved)}; }
 export function validateBase(baseId,version){
   const errors=[]; let loaded; try{loaded=loadBase(baseId,version);}catch(e){return [e.message];}
   const m=loaded.manifest; for(const k of ['schemaVersion','sourceBaseId','version','sourceProfile','applicationType','variants']) if(m[k]===undefined||m[k]===null||m[k]==='') errors.push(`${baseId}@${loaded.version}: missing ${k}`);
@@ -29,7 +29,7 @@ export function validateBase(baseId,version){
   }
   return errors;
 }
-export function validateAllBases(){ const errors=[]; const lib=path.join(ROOT,'source-bases'); if(!fs.existsSync(lib)) return ['source-bases directory missing']; for(const entry of fs.readdirSync(lib,{withFileTypes:true})){ if(!entry.isDirectory())continue; for(const v of listBaseVersions(entry.name)) errors.push(...validateBase(entry.name,v)); } return errors; }
+export function validateAllBases(){ const errors=[]; const lib=existingWorkspaceAbs('sourceBases'); if(!fs.existsSync(lib)) return [`${workspaceRel('sourceBases')} directory missing`]; for(const entry of fs.readdirSync(lib,{withFileTypes:true})){ if(!entry.isDirectory())continue; for(const v of listBaseVersions(entry.name)) errors.push(...validateBase(entry.name,v)); } return errors; }
 export function appMeta({code,title,profileId,sourceRoot,baseId='',baseVersion='',variant='',origin='existing',owner='Engineering'}){
   const p=profileById(profileId); if(!p) throw new Error(`Unknown source profile: ${profileId}`); const date=new Date().toISOString().slice(0,10);
   return {code,type:'application',title,status:'active',owner,created_at:date,updated_at:date,last_reviewed_at:date,tags:['application','source'],application_type:p.applicationType,source_profile:profileId,technology_stack:p.technologyStack,source_root:sourceRoot,source_base:baseId||'',source_base_version:baseVersion||'',source_variant:variant||'',source_origin:origin,related:{features:[]}};

@@ -8,7 +8,7 @@ const here = path.dirname(fileURLToPath(import.meta.url));
 const toolsDir = path.resolve(here, '..');
 const sourceRoot = path.resolve(toolsDir, '..');
 const fixture = path.join(toolsDir, 'tests/fixtures/valid-project');
-const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'project-docs-v55-'));
+const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'project-docs-v56-'));
 
 function copy(src,dst){ fs.cpSync(src,dst,{recursive:true}); }
 function run(script, action, extra=[], expectOk=true){
@@ -26,9 +26,9 @@ function replace(file,from,to){ const p=path.join(tempRoot,file); fs.writeFileSy
 
 try {
   copy(fixture,tempRoot);
-  copy(path.join(sourceRoot,'registry'),path.join(tempRoot,'registry'));
+  copy(path.join(sourceRoot,'kit/registry'),path.join(tempRoot,'kit/registry'));
   copy(path.join(sourceRoot,'starter-kit.json'),path.join(tempRoot,'starter-kit.json'));
-  copy(path.join(sourceRoot,'source-bases'),path.join(tempRoot,'source-bases'));
+  copy(path.join(sourceRoot,'kit/source-bases'),path.join(tempRoot,'kit/source-bases'));
   fs.mkdirSync(path.join(tempRoot,'docs/history'),{recursive:true});
   fs.mkdirSync(path.join(tempRoot,'.project-docs/workplans'),{recursive:true});
   fs.mkdirSync(path.join(tempRoot,'.project-docs/freshness'),{recursive:true});
@@ -247,7 +247,7 @@ ${doctorStale}`);
   const negative=run('docs-tool.mjs','validate',[],false);
   if(!negative.includes('BROKEN_RELATION')) throw new Error(`Negative fixture failed for wrong reason:\n${negative}`);
 
-  console.log('E2E regression: PASS (v5.5 entity identity/lifecycle + semantic relations + Source Base + source intelligence/Git impact + search/query/context/doctor + Progressive Specs + governance + freshness + ChangeSets/Baselines + broken relation path).');
+  console.log('E2E regression: PASS (v5.6 workspace layout + v5.5 entity identity/lifecycle + semantic relations + Source Base + source intelligence/Git impact + search/query/context/doctor + Progressive Specs + governance + freshness + ChangeSets/Baselines + broken relation path).');
 } finally {
   fs.rmSync(tempRoot,{recursive:true,force:true});
 }

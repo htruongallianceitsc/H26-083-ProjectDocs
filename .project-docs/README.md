@@ -1,6 +1,8 @@
-# Project Documentation Governance State — v5.1
+# Project Documentation Governance & Runtime State — v5.6
 
-This folder stores governance/operational state, not product truth.
+This folder stores governance/operational/generated state, not product truth.
+
+- `site/`: generated static documentation portal; rebuild with `npm run docs:build`.
 
 - `workplans/`: reviewed implementation plans with context hashes.
 - `freshness/`: dependency fingerprints created by explicit documentation reconciliation.
@@ -29,3 +31,7 @@ Do not manually edit hashes to bypass stale detection. Keep product/domain behav
 
 `indexes/` contains rebuildable entity, relation, search and source indexes. `reports/` contains generated context/Git-impact outputs. These files are operational caches/evidence and are never canonical business truth.
 
+
+## Workspace runtime state (v5.6)
+
+The generated static site moved from root `site/` to `.project-docs/site/`. This keeps the repository root focused on entry files, project knowledge, implementation, kit assets, and tooling. The site remains derived and may be deleted/rebuilt safely.

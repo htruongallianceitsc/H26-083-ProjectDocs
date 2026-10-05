@@ -4,22 +4,22 @@ on:
   pull_request:
     paths:
       - '**/*.md'
-      - 'registry/**'
+      - 'kit/registry/**'
       - 'tools/**'
       - 'project.profile.json'
       - 'starter-kit.json'
-      - 'reusable-modules/**'
-      - 'reusable-patterns/**'
+      - 'kit/reuse/capabilities/**'
+      - 'kit/reuse/patterns/**'
   push:
     branches: [main]
     paths:
       - '**/*.md'
-      - 'registry/**'
+      - 'kit/registry/**'
       - 'tools/**'
       - 'project.profile.json'
       - 'starter-kit.json'
-      - 'reusable-modules/**'
-      - 'reusable-patterns/**'
+      - 'kit/reuse/capabilities/**'
+      - 'kit/reuse/patterns/**'
 
 jobs:
   docs:
@@ -39,4 +39,4 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: documentation-site
-          path: site
+          path: .project-docs/site

@@ -1,4 +1,4 @@
-# Documentation Governance v5.5
+# Documentation Governance v5.6
 
 ## Principle
 
@@ -7,18 +7,18 @@ Documentation depth must be proportional to delivery maturity and risk. The proj
 ## Canonical layers
 
 1. `docs/` — product/project truth.
-2. `registry/*.json` — machine-readable schema/policy truth.
+2. `kit/registry/*.json` — machine-readable schema/policy truth.
 3. `.project-docs/spec-promotions/` — promotion gap evidence; not domain truth.
 4. `.project-docs/workplans/` — reviewed implementation planning state.
 5. `.project-docs/freshness/` — dependency review snapshots.
 6. `.project-docs/changesets/` + `audit-state.json` — semantic change history.
 7. `.project-docs/baselines/` — named milestone fingerprints.
 8. `.project-docs/packs.*` — reusable-pack governance.
-9. `docs/_generated/` and `site/` — derived views only.
+9. `docs/_generated/` and `.project-docs/site/` — derived views only.
 
 ## Progressive specification
 
-`registry/spec-profiles.json` defines Lightweight, Standard and Full documentation expectations. `auto` is a selection mode resolved from maturity and risk.
+`kit/registry/spec-profiles.json` defines Lightweight, Standard and Full documentation expectations. `auto` is a selection mode resolved from maturity and risk.
 
 Resolution order: Feature override → project default → registry default.
 
@@ -46,7 +46,7 @@ Do not weaken spec, freshness, Ready/Done, WorkPlan or reuse policies just to cl
 
 ## Repository entry hygiene
 
-Repository root is an entry surface, not a version archive or general documentation dumping ground. Version upgrade notes, QA reports and historical migration/review notes belong in `docs/history/`. General guides and standards belong in `docs/guides/` or `standards/`.
+Repository root is an entry surface, not a version archive or general documentation dumping ground. Version upgrade notes, QA reports and historical migration/review notes belong in `docs/history/`. General guides and standards belong in `docs/guides/` or `kit/standards/`.
 
 `starter-kit.json.documentationLayout` defines the canonical history directory and root-history filename patterns. `docs:validate` blocks matching historical or misplaced files at root.
 
@@ -65,10 +65,20 @@ Repository root is an entry surface, not a version archive or general documentat
 ## v5.5 Knowledge Runtime Governance
 
 1. Every new typed entity receives a permanent UUID `uid`; `code` remains the human-readable project reference.
-2. Governed status changes must follow lifecycle transitions from `registry/entity-types.json`.
+2. Governed status changes must follow lifecycle transitions from `kit/registry/entity-types.json`.
 3. Exact typed relation rules take precedence over wildcard compatibility rules. Fallback use is reviewable evidence, not an ideal steady state.
 4. Source indexes and knowledge indexes are derived caches. They can never replace canonical Markdown entities or real source files.
 5. Source-to-entity matches based on code/technical identifier scanning are evidence only; they do not create durable graph relations automatically.
 6. Git impact is potential impact based on current mapping evidence and graph rules. Human review remains required for implementation/release decisions.
 7. AI agents should prefer bounded `context` packs over unbounded repository scans.
 8. `doctor --fix` is limited to safe derived-state repair and must not silently change business meaning.
+
+## v5.6 Workspace Layout Governance
+
+1. Project/domain truth remains under `docs/`.
+2. Reusable framework assets live under the visible `kit/` root.
+3. Executable tooling stays first-class under `tools/`.
+4. Implementation roots (`apps/`, `packages/`, `tests/`, `infra/`) remain at repository root for developer/CI ergonomics.
+5. Generated/runtime state belongs under `.project-docs/`; `.project-docs/site/` is rebuildable.
+6. Canonical physical paths come from `starter-kit.json.workspaceLayout`. New tooling must use the shared resolver instead of adding root-path literals.
+7. v5.5 root names are compatibility aliases for migration only and must not be recreated in a healthy v5.6 workspace.

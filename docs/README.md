@@ -1,6 +1,6 @@
 # Project Documentation Source
 
-`docs/` chứa tài liệu canonical của project. Các file Markdown ở đây là source of truth; `site/` và `docs/_generated/` là output có thể build lại.
+`docs/` chứa tài liệu canonical của project. Các file Markdown ở đây là source of truth; `.project-docs/site/` và `docs/_generated/` là output có thể build lại.
 
 ## Quy trình
 

@@ -1,6 +1,6 @@
-# Production Project Documentation Starter Kit v5.5
+# Production Project Documentation Starter Kit v5.6
 
-Documentation-first starter kit for long-lived Web, Mobile and API projects. v5.5 turns the v5.4 source workspace into a local project knowledge runtime by hardening entity identity/relations, adding source and Git intelligence, and adding fast local search/query/context/doctor commands.
+Documentation-first starter kit for long-lived Web, Mobile and API projects. v5.6 keeps the v5.5 knowledge runtime intact while reorganizing the repository root into a smaller, clearer workspace: project knowledge, implementation source, reusable starter-kit assets, tooling, and generated/runtime state are now separated explicitly.
 
 ## Core model
 
@@ -29,7 +29,49 @@ Docs Reconciliation <- Tests <- Source Changes
 Done Gate -> ChangeSet / Baseline
 ```
 
-## What v5.5 adds
+## What v5.6 adds
+
+### 1. Compact root workspace
+
+The root is now limited to project entry files plus first-class project/source/runtime directories. Framework assets no longer compete visually with project implementation.
+
+```text
+/
+├── README.md
+├── START_HERE.md
+├── PROJECT_BLUEPRINT.md
+├── project.profile.json
+├── starter-kit.json
+├── docs/
+├── apps/
+├── packages/
+├── tests/
+├── infra/
+├── kit/
+├── tools/
+├── .project-docs/
+└── .github/
+```
+
+### 2. Unified `kit/` framework surface
+
+- `kit/registry/` — machine-readable governance and model configuration.
+- `kit/standards/` — core, project-type, stack and reuse standards.
+- `kit/prompts/`, `kit/templates/`, `kit/workflows/` — authoring/orchestration assets.
+- `kit/source-bases/` — versioned greenfield source bases.
+- `kit/reuse/` — capability packs, pattern packs and reusable templates.
+- `kit/examples/` — starter examples such as the project profile sample.
+
+### 3. Centralized workspace layout
+
+`starter-kit.json.workspaceLayout` is the canonical physical-layout map. Tooling exposes layout helpers and a compatibility alias layer so v5.5 logical roots can still be resolved during migration. Use `npm run layout:check` to validate the canonical structure and `npm run layout:migrate -- --apply` when moving a legacy workspace.
+
+### 4. Generated site moved out of root
+
+The static documentation site now lives under `.project-docs/site/`, alongside other derived/runtime artifacts. It remains fully rebuildable with `npm run docs:build`.
+
+## v5.5 knowledge runtime retained
+
 
 ### 1. Hardened entity and relation model
 
@@ -42,7 +84,7 @@ Done Gate -> ChangeSet / Baseline
 
 ### 2. Source intelligence and Git impact
 
-- `registry/source-intelligence.json` defines scan and mapping behavior.
+- `kit/registry/source-intelligence.json` defines scan and mapping behavior.
 - `.project-docs/indexes/source-index.json` is a disposable derived source index.
 - Lightweight symbol/import/dependency/dependent extraction.
 - Source file -> entity evidence through application roots, explicit mappings, entity-code mentions and technical identifiers.
@@ -55,7 +97,7 @@ Done Gate -> ChangeSet / Baseline
 - Full-text `search` across metadata and document bodies.
 - Field-aware `query` with boolean expressions and graph scope.
 - Bounded `context` packs that combine project graph and source evidence for AI agents.
-- Reusable views in `registry/views.json`.
+- Reusable views in `kit/registry/views.json`.
 - `doctor` detects identity, relation and stale-index problems; `doctor --fix` performs safe derived-state repairs.
 
 ## v5.4 capabilities retained
@@ -106,6 +148,6 @@ npm run git:impact
 - Markdown project entities in `docs/` remain canonical business/project knowledge.
 - Real implementation under `apps/`, `packages/`, `tests/` and adopted source roots remains canonical source code.
 - Registry JSON files define model and governance behavior.
-- Files under `.project-docs/indexes/`, `.project-docs/reports/`, `docs/_generated/` and `site/` are derived and rebuildable.
+- Files under `.project-docs/indexes/`, `.project-docs/reports/`, `docs/_generated/` and `.project-docs/site/` are derived and rebuildable.
 
-See `docs/history/V5_5_UPGRADE_NOTES.md`, `standards/entity-identity-lifecycle-and-relations.md`, `standards/source-intelligence.md`, and `standards/local-knowledge-engine.md`.
+See `docs/history/V5_6_UPGRADE_NOTES.md`, `docs/history/V5_5_UPGRADE_NOTES.md`, `kit/standards/entity-identity-lifecycle-and-relations.md`, `kit/standards/source-intelligence.md`, and `kit/standards/local-knowledge-engine.md`.

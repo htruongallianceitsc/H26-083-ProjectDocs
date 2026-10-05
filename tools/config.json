@@ -7,18 +7,21 @@
     "START_HERE.md",
     "PROJECT_BLUEPRINT.md",
     "docs",
-    "standards",
-    "templates",
-    "prompts",
-    "workflows"
+    "kit/standards",
+    "kit/templates",
+    "kit/prompts",
+    "kit/workflows"
   ],
   "exclude": [
     "docs/_generated",
-    "site",
+    ".project-docs/site",
     "tools/.cache",
-    "node_modules"
+    "node_modules",
+    "kit/source-bases",
+    "kit/reuse/capabilities",
+    "kit/reuse/patterns"
   ],
   "generatedDir": "docs/_generated",
-  "siteDir": "site",
+  "siteDir": ".project-docs/site",
   "port": 4173
 }

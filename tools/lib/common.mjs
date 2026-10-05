@@ -6,13 +6,107 @@ import { fileURLToPath } from 'node:url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 export const ROOT = process.env.PROJECT_DOCS_ROOT ? path.resolve(process.env.PROJECT_DOCS_ROOT) : path.resolve(__dirname, '..', '..');
 
+const DEFAULT_WORKSPACE_LAYOUT = Object.freeze({
+  docs: 'docs',
+  runtime: '.project-docs',
+  kit: 'kit',
+  registry: 'kit/registry',
+  standards: 'kit/standards',
+  prompts: 'kit/prompts',
+  templates: 'kit/templates',
+  workflows: 'kit/workflows',
+  sourceBases: 'kit/source-bases',
+  reuse: {
+    capabilities: 'kit/reuse/capabilities',
+    patterns: 'kit/reuse/patterns',
+    templates: 'kit/reuse/templates'
+  },
+  examples: 'kit/examples',
+  site: '.project-docs/site',
+  tools: 'tools',
+  source: { apps: 'apps', packages: 'packages', tests: 'tests', infra: 'infra' }
+});
+
+const LOGICAL_ROOTS = Object.freeze({
+  registry: 'registry',
+  standards: 'standards',
+  prompts: 'prompts',
+  templates: 'templates',
+  workflows: 'workflows',
+  'source-bases': 'sourceBases',
+  'reusable-modules': 'reuse.capabilities',
+  'reusable-patterns': 'reuse.patterns',
+  'reusable-templates': 'reuse.templates',
+  site: 'site'
+});
+
+function readStarterKitRaw() {
+  const p = path.join(ROOT, 'starter-kit.json');
+  if (!fs.existsSync(p)) return {};
+  try { return JSON.parse(fs.readFileSync(p, 'utf8')); } catch { return {}; }
+}
+function valueAt(obj, dotted) { return String(dotted).split('.').reduce((v, k) => v?.[k], obj); }
+function posixJoin(...parts) { return parts.filter(Boolean).join('/').replace(/\\/g, '/').replace(/\/{2,}/g, '/'); }
+
+export function workspaceLayout() {
+  const configured = readStarterKitRaw().workspaceLayout || {};
+  return {
+    ...DEFAULT_WORKSPACE_LAYOUT,
+    ...configured,
+    reuse: { ...DEFAULT_WORKSPACE_LAYOUT.reuse, ...(configured.reuse || {}) },
+    source: { ...DEFAULT_WORKSPACE_LAYOUT.source, ...(configured.source || {}) }
+  };
+}
+
+export function workspaceRel(key, ...parts) {
+  const base = valueAt(workspaceLayout(), key);
+  if (!base) throw new Error(`Unknown workspace layout key: ${key}`);
+  return posixJoin(String(base), ...parts.map(String));
+}
+
+export function workspaceAbs(key, ...parts) {
+  return path.join(ROOT, ...workspaceRel(key, ...parts).split('/'));
+}
+
+export function legacyWorkspaceRel(key) {
+  const starter = readStarterKitRaw();
+  return starter.legacyLayoutAliases?.[key] || ({
+    registry: 'registry', standards: 'standards', prompts: 'prompts', templates: 'templates', workflows: 'workflows',
+    sourceBases: 'source-bases', 'reuse.capabilities': 'reusable-modules', 'reuse.patterns': 'reusable-patterns',
+    'reuse.templates': 'reusable-templates', site: 'site'
+  })[key] || null;
+}
+
+export function existingWorkspaceAbs(key, ...parts) {
+  const canonical = workspaceAbs(key, ...parts);
+  if (fs.existsSync(canonical)) return canonical;
+  const legacy = legacyWorkspaceRel(key);
+  if (legacy) {
+    const candidate = path.join(ROOT, legacy, ...parts.map(String));
+    if (fs.existsSync(candidate)) return candidate;
+  }
+  return canonical;
+}
+
+export function resolveProjectRel(relPath) {
+  const normalized = String(relPath).replace(/\\/g, '/').replace(/^\.\//, '');
+  for (const [logical, key] of Object.entries(LOGICAL_ROOTS).sort((a,b)=>b[0].length-a[0].length)) {
+    if (normalized !== logical && !normalized.startsWith(logical + '/')) continue;
+    const canonicalRoot = workspaceRel(key);
+    const legacyRoot = legacyWorkspaceRel(key) || logical;
+    const chosenRoot = fs.existsSync(path.join(ROOT, canonicalRoot)) || !fs.existsSync(path.join(ROOT, legacyRoot)) ? canonicalRoot : legacyRoot;
+    return posixJoin(chosenRoot, normalized.slice(logical.length).replace(/^\//, ''));
+  }
+  return normalized;
+}
+
 export function loadJson(rel, fallback = null) {
-  const p = path.isAbsolute(rel) ? rel : path.join(ROOT, rel);
+  const p = path.isAbsolute(rel) ? rel : path.join(ROOT, resolveProjectRel(rel));
   if (!fs.existsSync(p)) return fallback;
   return JSON.parse(fs.readFileSync(p, 'utf8'));
 }
 export function writeJson(rel, value) {
-  const p = path.isAbsolute(rel) ? rel : path.join(ROOT, rel);
+  const p = path.isAbsolute(rel) ? rel : path.join(ROOT, resolveProjectRel(rel));
   fs.mkdirSync(path.dirname(p), { recursive: true });
   fs.writeFileSync(p, JSON.stringify(value, null, 2) + '\n');
 }
@@ -70,8 +164,13 @@ export function parseFrontmatter(text) {
   return { data, body, raw, hasFrontmatter: true };
 }
 export function markdownFiles({ includeGenerated = false } = {}) {
-  const excluded = ['site/', 'node_modules/', 'tools/vendor/', 'reusable-modules/', 'reusable-patterns/', '.project-docs/', 'apps/', 'packages/', 'tests/', 'infra/', 'source-bases/'];
-  if (!includeGenerated) excluded.push('docs/_generated/');
+  const excluded = [
+    `${workspaceRel('site')}/`, 'node_modules/', 'tools/vendor/',
+    `${workspaceRel('reuse.capabilities')}/`, `${workspaceRel('reuse.patterns')}/`,
+    `${workspaceRel('runtime')}/`, `${workspaceRel('source.apps')}/`, `${workspaceRel('source.packages')}/`,
+    `${workspaceRel('source.tests')}/`, `${workspaceRel('source.infra')}/`, `${workspaceRel('sourceBases')}/`
+  ];
+  if (!includeGenerated) excluded.push(`${workspaceRel('docs')}/_generated/`);
   return walk(ROOT, p => p.endsWith('.md')).filter(p => !excluded.some(x => rel(p).startsWith(x)));
 }
 export function scanEntities() {

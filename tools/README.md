@@ -1,4 +1,4 @@
-# Documentation Toolchain v5.5
+# Documentation Toolchain v5.6
 
 Requires Node.js 20+. The runtime uses only Node.js standard-library modules.
 
@@ -9,7 +9,17 @@ npm ci
 npm run qa
 ```
 
-The QA pipeline validates registries, source bases, source workspace, source intelligence, progressive specs, documentation, local indexes, Doctor, freshness, generated docs/site, and E2E regression.
+The QA pipeline validates workspace layout, registries, source bases, source workspace, source intelligence, progressive specs, documentation, local indexes, Doctor, freshness, generated docs/site, and E2E regression.
+
+## Workspace layout
+
+```bash
+npm run layout:check
+npm run layout:migrate
+npm run layout:migrate -- --apply
+```
+
+`layout:migrate` previews by default. v5.6 resolves canonical paths from `starter-kit.json.workspaceLayout`; legacy v5.5 root names remain accepted as migration aliases by the common path resolver.
 
 ## Entity model hardening
 

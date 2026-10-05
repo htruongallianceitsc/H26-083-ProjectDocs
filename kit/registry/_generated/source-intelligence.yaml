@@ -1,0 +1,56 @@
+# GENERATED FILE - DO NOT EDIT
+# Source: kit/registry/source-intelligence.json
+schemaVersion: 1.0
+scan:
+  roots:
+    - apps
+    - packages
+    - tests
+    - infra
+  includeExtensions:
+    - .js
+    - .jsx
+    - .mjs
+    - .cjs
+    - .ts
+    - .tsx
+    - .cs
+    - .dart
+    - .swift
+    - .kt
+    - .kts
+    - .java
+    - .sql
+    - .json
+    - .yaml
+    - .yml
+  includeNames:
+    - Dockerfile
+  ignoreDirectories:
+    - .git
+    - node_modules
+    - site
+    - kit/source-bases
+    - .project-docs
+    - tools/vendor
+    - dist
+    - build
+    - .next
+    - .dart_tool
+    - .gradle
+    - Pods
+  maxFileBytes: 1048576
+mapping:
+  scanEntityCodes: true
+  scanTechnicalIdentifiers: true
+  applicationRootEvidence: true
+  technicalFields:
+    - path
+    - route
+    - operation_id
+    - table
+    - source_root
+  explicit: []
+git:
+  defaultBase: HEAD
+  maxImpactDepth: 3

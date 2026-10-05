@@ -2,10 +2,35 @@ Mục tiêu là **một project chỉ quản lý tài liệu**, nhưng tài li�
 
 Điểm quan trọng nhất là: **mỗi thông tin chỉ có một source of truth**, còn các tài liệu tổng hợp chỉ link tới nó.
 
+
+## v5.6 Repository Workspace
+
+Từ v5.6, repository root được giữ gọn và tách rõ framework assets khỏi project truth:
+
+```text
+project-root/
+├── README.md
+├── START_HERE.md
+├── PROJECT_BLUEPRINT.md
+├── project.profile.json
+├── starter-kit.json
+├── docs/
+├── apps/
+├── packages/
+├── tests/
+├── infra/
+├── kit/
+├── tools/
+├── .project-docs/
+└── .github/
+```
+
+Trong đó `docs/` là Project Knowledge Base; `kit/` chứa registry/standards/prompts/templates/workflows/Source Bases/reuse assets; `.project-docs/` chứa runtime và generated state. Phần cấu trúc dưới đây mô tả **bên trong `docs/`**, không phải toàn bộ repository root.
+
 ## 1. Cấu trúc tổng thể tôi đề xuất
 
 ```text
-project-docs/
+docs/
 │
 ├── README.md
 ├── START_HERE.md
@@ -159,18 +184,9 @@ project-docs/
 │   ├── technical-debt.md
 │   └── future-improvements.md
 │
-└── templates/
-    ├── module-template.md
-    ├── feature-template.md
-    ├── screen-template.md
-    ├── api-template.md
-    ├── business-rule-template.md
-    ├── database-table-template.md
-    ├── test-case-template.md
-    └── decision-template.md
 ```
 
-Đây là mức tôi thấy phù hợp với một **production web application lâu dài**.
+Đây là mức tôi thấy phù hợp với một **production web application lâu dài**. Các template dùng để tạo tài liệu nằm ở `kit/templates/`, không nằm trong `docs/`.
 
 ---
 
@@ -1495,7 +1511,7 @@ docs/
 .project-docs/
 └── workplans/       # reviewed plans + context hashes; not domain truth
 
-registry/
+kit/registry/
 ├── readiness-rules.json
 └── workplan.schema.json
 ```
@@ -1529,7 +1545,7 @@ project-root/
 │   ├── 22-tasks/
 │   ├── 23-bugs/
 │   └── _generated/
-├── registry/
+├── kit/registry/
 │   ├── readiness-rules.json
 │   ├── freshness-rules.json
 │   └── impact-rules.json
@@ -1558,7 +1574,7 @@ lightweight -> standard -> full
 
 - Lightweight vẫn dùng Feature canonical bình thường.
 - Không tạo duplicate entity tree riêng cho mock.
-- `registry/spec-profiles.json` định nghĩa minimum documentation theo level.
+- `kit/registry/spec-profiles.json` định nghĩa minimum documentation theo level.
 - `target_maturity` cho biết concept/prototype/UAT/production.
 - Ready/Done gate resolve theo effective level.
 - `spec:promote` sinh gap report trước khi nâng level.
@@ -1595,7 +1611,7 @@ project-root/
 Rules:
 
 - version upgrade notes, QA reports và historical transition reviews nằm trong `docs/history/`;
-- general guides và governance docs nằm trong `docs/guides/` hoặc `standards/`;
+- general guides và governance docs nằm trong `docs/guides/` hoặc `kit/standards/`;
 - `starter-kit.json.documentationLayout` định nghĩa history directory và filename patterns;
 - `docs:validate` fail với `ROOT_HISTORY_DOC` nếu historical hoặc non-entry file quay lại root;
 - generated catalog/site vẫn index `docs/guides/` và `docs/history/`, giúp giảm noise ở root nhưng duy trì 100% discoverability.
@@ -1609,9 +1625,9 @@ The project is now intended to hold documentation/governance and implementation 
 project/
 ├── docs/
 ├── .project-docs/
-├── registry/
-├── standards/
-├── source-bases/
+├── kit/registry/
+├── kit/standards/
+├── kit/source-bases/
 ├── apps/
 ├── packages/
 ├── tests/
@@ -1619,7 +1635,7 @@ project/
 └── tools/
 ```
 
-`apps/` is the preferred home for deployable applications. `packages/` is for reusable project-local libraries. Existing repositories may adopt source in place. `source-bases/` contains bootstrap templates only and is excluded from normal documentation indexing.
+`apps/` is the preferred home for deployable applications. `packages/` is for reusable project-local libraries. Existing repositories may adopt source in place. `kit/source-bases/` contains bootstrap templates only and is excluded from normal documentation indexing.
 
 A stack changes the structure **inside** an Application boundary, not the workspace root model.
 
@@ -1628,7 +1644,7 @@ A stack changes the structure **inside** an Application boundary, not the worksp
 New governance/configuration:
 
 ```text
-registry/
+kit/registry/
 ├── entity-policy.json
 ├── source-intelligence.json
 ├── local-engine.json

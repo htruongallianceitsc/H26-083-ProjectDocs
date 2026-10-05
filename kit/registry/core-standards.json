@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "1.0",
+  "standards": [
+    "kit/standards/documentation-standard.md",
+    "kit/standards/source-of-truth.md",
+    "kit/standards/naming-and-id-convention.md",
+    "kit/standards/metadata-schema.md",
+    "kit/standards/definition-of-ready-done.md",
+    "kit/standards/security-and-secrets.md",
+    "kit/standards/diagram-guidelines.md",
+    "kit/standards/tooling-and-static-site.md",
+    "kit/standards/reuse/reuse-strategy.md",
+    "kit/standards/reuse/capability-pack-standard.md",
+    "kit/standards/reuse/pattern-pack-standard.md",
+    "kit/standards/reuse/promotion-policy.md",
+    "kit/standards/implementation-governance.md",
+    "kit/standards/document-freshness.md",
+    "kit/standards/change-history-and-baselines.md",
+    "kit/standards/impact-analysis.md",
+    "kit/standards/progressive-specification.md",
+    "kit/standards/repository-entry-hygiene.md",
+    "kit/standards/source-workspace.md",
+    "kit/standards/source-base-governance.md",
+    "kit/standards/entity-identity-lifecycle-and-relations.md",
+    "kit/standards/source-intelligence.md",
+    "kit/standards/local-knowledge-engine.md"
+  ]
+}

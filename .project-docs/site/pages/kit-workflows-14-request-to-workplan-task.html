@@ -1,0 +1,43 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>kit/workflows/14-request-to-workplan-task.md</title><link rel="stylesheet" href="../assets/style.css"></head><body><header><strong>Project Docs v5.6</strong><nav><a class="" href="../index.html">Dashboard</a><a class="" href="../profile.html">Profile</a><a class="" href="../standards.html">Standards</a><a class="" href="../source.html">Source</a><a class="" href="../packs.html">Reuse</a><a class="" href="../catalog.html">Catalog</a><a class="" href="../traceability.html">Traceability</a><a class="" href="../graph.html">Graph</a><a class="" href="../governance.html">Governance</a><a class="" href="../specification.html">Spec Levels</a><a class="" href="../flows.html">Diagrams</a></nav></header><main><h1>kit/workflows/14-request-to-workplan-task.md</h1><p><small>kit/workflows/14-request-to-workplan-task.md</small></p><h1>Workflow 14 — Request to WorkPlan to Task</h1><h2>Goal</h2><p>Turn a user/change request into implementation-ready tasks only after canonical documentation is complete and reviewable.</p><h2>Flow</h2><pre><code class="language-text">1. Capture Request
+       ↓
+2. Analyze / decide scope
+       ↓
+3. Create or update canonical docs
+       ↓
+4. Promote Request to durable entities
+       ↓
+5. Run validation + Ready Gate
+       ↓
+6. Scaffold WorkPlan
+       ↓
+7. Author/review task breakdown, assumptions, risks, acceptance criteria
+       ↓
+8. Mark authoring complete
+       ↓
+9. Submit WorkPlan (captures context hash)
+       ↓
+10. Review + approve
+       ↓
+11. Materialize Tasks
+       ↓
+12. Implement
+       ↓
+13. Reconcile docs/tests
+       ↓
+14. Run Done Gate</code></pre><h2>Commands</h2><pre><code class="language-bash">cd tools
+
+npm run request:create -- --title &quot;...&quot; --kind change --summary &quot;...&quot;
+npm run request:promote -- --request REQST-... --target FEAT-...
+
+npm run docs:validate
+npm run gate:ready -- --feature FEAT-...
+
+npm run plan:scaffold -- --feature FEAT-...
+# Review/edit .project-docs/workplans/WP-....json
+npm run plan:author-complete -- --id WP-... --actor &quot;Author&quot;
+npm run plan:submit -- --id WP-...
+npm run plan:approve -- --id WP-... --reviewer &quot;Reviewer&quot;
+npm run plan:materialize -- --id WP-... --owner &quot;Engineering&quot;
+
+# After implementation/reconciliation:
+npm run gate:done -- --feature FEAT-...</code></pre><h2>Safety properties</h2><ul><li>Submit is blocked if the Ready gate fails.</li><li>Approval is blocked when documentation changed after submit.</li><li>Task materialization is blocked when approved context is stale.</li><li>WorkPlan is separate from business truth.</li></ul></main><script src="assets/app.js"></script><script type="module">if(document.querySelector('.mermaid')){import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs').then(m=>{m.default.initialize({startOnLoad:true,securityLevel:'loose'});});}</script></body></html>

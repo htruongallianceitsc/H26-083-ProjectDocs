@@ -4,25 +4,28 @@
   "sourceRoots": [
     ".",
     "docs",
-    "standards",
-    "workflows",
-    "prompts",
-    "templates",
-    "examples"
+    "kit/standards",
+    "kit/workflows",
+    "kit/prompts",
+    "kit/templates",
+    "kit/examples"
   ],
   "entityRoots": [
     "docs",
-    "examples"
+    "kit/examples"
   ],
   "exclude": [
     "node_modules/**",
     "tools/node_modules/**",
-    "site/**",
-    "tools/.cache/**"
+    ".project-docs/site/**",
+    "tools/.cache/**",
+    "kit/source-bases/**",
+    "kit/reuse/capabilities/**",
+    "kit/reuse/patterns/**"
   ],
   "generatedDir": "docs/_generated",
   "cacheDir": "tools/.cache",
-  "siteDir": "site",
+  "siteDir": ".project-docs/site",
   "strictRoots": [
     "docs"
   ],

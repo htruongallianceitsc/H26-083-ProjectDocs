@@ -117,14 +117,14 @@ export function loadProfile() {
 }
 export function registry() {
   return {
-    entities:readJson('registry/entity-types.json',{entityTypes:{}}),
-    relations:readJson('registry/relation-map.json',{relationKeys:{},allowed:{},cardinality:{}}),
-    schema:readJson('registry/frontmatter-schema.json',{}),
-    projectTypes:readJson('registry/project-types.json',{projectTypes:{}}),
-    stacks:readJson('registry/technology-stacks.json',{technologyStacks:{}}),
-    trace:readJson('registry/traceability-profiles.json',{}),
-    quality:readJson('registry/quality-rules.json',{rules:[]}),
-    coreStandards:readJson('registry/core-standards.json',{standards:[]})
+    entities:readJson('kit/registry/entity-types.json',{entityTypes:{}}),
+    relations:readJson('kit/registry/relation-map.json',{relationKeys:{},allowed:{},cardinality:{}}),
+    schema:readJson('kit/registry/frontmatter-schema.json',{}),
+    projectTypes:readJson('kit/registry/project-types.json',{projectTypes:{}}),
+    stacks:readJson('kit/registry/technology-stacks.json',{technologyStacks:{}}),
+    trace:readJson('kit/registry/traceability-profiles.json',{}),
+    quality:readJson('kit/registry/quality-rules.json',{rules:[]}),
+    coreStandards:readJson('kit/registry/core-standards.json',{standards:[]})
   };
 }
 export function entityIndex(entities) { return new Map(entities.map(e=>[String(e.code),e])); }

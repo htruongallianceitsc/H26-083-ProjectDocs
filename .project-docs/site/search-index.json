@@ -1,0 +1,1487 @@
+[
+  {
+    "title": "Project Blueprint",
+    "path": "pages/project-blueprint.html",
+    "text": "PROJECT_BLUEPRINT.md"
+  },
+  {
+    "title": "Production Project Documentation Starter Kit v5.6",
+    "path": "pages/readme.html",
+    "text": "README.md"
+  },
+  {
+    "title": "START HERE - v5.6",
+    "path": "pages/start-here.html",
+    "text": "START_HERE.md"
+  },
+  {
+    "title": "project",
+    "path": "pages/docs-00-project-readme.html",
+    "text": "docs/00-project/README.md"
+  },
+  {
+    "title": "product",
+    "path": "pages/docs-01-product-readme.html",
+    "text": "docs/01-product/README.md"
+  },
+  {
+    "title": "modules",
+    "path": "pages/docs-02-modules-readme.html",
+    "text": "docs/02-modules/README.md"
+  },
+  {
+    "title": "requirements",
+    "path": "pages/docs-03-requirements-readme.html",
+    "text": "docs/03-requirements/README.md"
+  },
+  {
+    "title": "business rules",
+    "path": "pages/docs-04-business-rules-readme.html",
+    "text": "docs/04-business-rules/README.md"
+  },
+  {
+    "title": "screens",
+    "path": "pages/docs-05-screens-readme.html",
+    "text": "docs/05-screens/README.md"
+  },
+  {
+    "title": "flows",
+    "path": "pages/docs-06-flows-readme.html",
+    "text": "docs/06-flows/README.md"
+  },
+  {
+    "title": "api",
+    "path": "pages/docs-07-api-readme.html",
+    "text": "docs/07-api/README.md"
+  },
+  {
+    "title": "API Conventions",
+    "path": "pages/docs-07-api-conventions.html",
+    "text": "docs/07-api/conventions.md"
+  },
+  {
+    "title": "database",
+    "path": "pages/docs-08-database-readme.html",
+    "text": "docs/08-database/README.md"
+  },
+  {
+    "title": "Database Overview",
+    "path": "pages/docs-08-database-database-overview.html",
+    "text": "docs/08-database/database-overview.md"
+  },
+  {
+    "title": "architecture",
+    "path": "pages/docs-09-architecture-readme.html",
+    "text": "docs/09-architecture/README.md"
+  },
+  {
+    "title": "security",
+    "path": "pages/docs-10-security-readme.html",
+    "text": "docs/10-security/README.md"
+  },
+  {
+    "title": "quality",
+    "path": "pages/docs-11-quality-readme.html",
+    "text": "docs/11-quality/README.md"
+  },
+  {
+    "title": "devops",
+    "path": "pages/docs-12-devops-readme.html",
+    "text": "docs/12-devops/README.md"
+  },
+  {
+    "title": "Environments",
+    "path": "pages/docs-12-devops-environments.html",
+    "text": "docs/12-devops/environments.md"
+  },
+  {
+    "title": "Release Process",
+    "path": "pages/docs-12-devops-release-process.html",
+    "text": "docs/12-devops/release-process.md"
+  },
+  {
+    "title": "operations",
+    "path": "pages/docs-13-operations-readme.html",
+    "text": "docs/13-operations/README.md"
+  },
+  {
+    "title": "Incident Response",
+    "path": "pages/docs-13-operations-incident-response.html",
+    "text": "docs/13-operations/incident-response.md"
+  },
+  {
+    "title": "Monitoring",
+    "path": "pages/docs-13-operations-monitoring.html",
+    "text": "docs/13-operations/monitoring.md"
+  },
+  {
+    "title": "performance",
+    "path": "pages/docs-14-performance-readme.html",
+    "text": "docs/14-performance/README.md"
+  },
+  {
+    "title": "decisions",
+    "path": "pages/docs-15-decisions-readme.html",
+    "text": "docs/15-decisions/README.md"
+  },
+  {
+    "title": "release",
+    "path": "pages/docs-16-release-readme.html",
+    "text": "docs/16-release/README.md"
+  },
+  {
+    "title": "traceability",
+    "path": "pages/docs-17-traceability-readme.html",
+    "text": "docs/17-traceability/README.md"
+  },
+  {
+    "title": "Feature Traceability Matrix",
+    "path": "pages/docs-17-traceability-feature-matrix.html",
+    "text": "docs/17-traceability/feature-matrix.md"
+  },
+  {
+    "title": "changelog",
+    "path": "pages/docs-18-changelog-readme.html",
+    "text": "docs/18-changelog/README.md"
+  },
+  {
+    "title": "open items",
+    "path": "pages/docs-19-open-items-readme.html",
+    "text": "docs/19-open-items/README.md"
+  },
+  {
+    "title": "Open Questions",
+    "path": "pages/docs-19-open-items-open-questions.html",
+    "text": "docs/19-open-items/open-questions.md"
+  },
+  {
+    "title": "analytics-events",
+    "path": "pages/docs-20-mobile-analytics-events-readme.html",
+    "text": "docs/20-mobile/analytics-events/README.md"
+  },
+  {
+    "title": "background-work",
+    "path": "pages/docs-20-mobile-background-work-readme.html",
+    "text": "docs/20-mobile/background-work/README.md"
+  },
+  {
+    "title": "deep-links",
+    "path": "pages/docs-20-mobile-deep-links-readme.html",
+    "text": "docs/20-mobile/deep-links/README.md"
+  },
+  {
+    "title": "device-test-profiles",
+    "path": "pages/docs-20-mobile-device-test-profiles-readme.html",
+    "text": "docs/20-mobile/device-test-profiles/README.md"
+  },
+  {
+    "title": "feature-flags",
+    "path": "pages/docs-20-mobile-feature-flags-readme.html",
+    "text": "docs/20-mobile/feature-flags/README.md"
+  },
+  {
+    "title": "local-storage",
+    "path": "pages/docs-20-mobile-local-storage-readme.html",
+    "text": "docs/20-mobile/local-storage/README.md"
+  },
+  {
+    "title": "native-capabilities",
+    "path": "pages/docs-20-mobile-native-capabilities-readme.html",
+    "text": "docs/20-mobile/native-capabilities/README.md"
+  },
+  {
+    "title": "permissions",
+    "path": "pages/docs-20-mobile-permissions-readme.html",
+    "text": "docs/20-mobile/permissions/README.md"
+  },
+  {
+    "title": "push-events",
+    "path": "pages/docs-20-mobile-push-events-readme.html",
+    "text": "docs/20-mobile/push-events/README.md"
+  },
+  {
+    "title": "sync-policies",
+    "path": "pages/docs-20-mobile-sync-policies-readme.html",
+    "text": "docs/20-mobile/sync-policies/README.md"
+  },
+  {
+    "title": "Requests",
+    "path": "pages/docs-21-requests-readme.html",
+    "text": "docs/21-requests/README.md"
+  },
+  {
+    "title": "Tasks",
+    "path": "pages/docs-22-tasks-readme.html",
+    "text": "docs/22-tasks/README.md"
+  },
+  {
+    "title": "Bugs",
+    "path": "pages/docs-23-bugs-readme.html",
+    "text": "docs/23-bugs/README.md"
+  },
+  {
+    "title": "Applications",
+    "path": "pages/docs-24-applications-readme.html",
+    "text": "docs/24-applications/README.md"
+  },
+  {
+    "title": "Project Documentation Source",
+    "path": "pages/docs-readme.html",
+    "text": "docs/README.md"
+  },
+  {
+    "title": "Capability & Pattern Pack Overview",
+    "path": "pages/docs-guides-capability-packs.html",
+    "text": "docs/guides/capability-packs.md"
+  },
+  {
+    "title": "Documentation Governance v5.6",
+    "path": "pages/docs-guides-docs-governance.html",
+    "text": "docs/guides/docs-governance.md"
+  },
+  {
+    "title": "File Catalog — v5.6",
+    "path": "pages/docs-guides-file-catalog.html",
+    "text": "docs/guides/file-catalog.md"
+  },
+  {
+    "title": "2. File quan trọng nhất: `PROJECT_BLUEPRINT.md`",
+    "path": "pages/docs-guides-project-structure.html",
+    "text": "docs/guides/project-structure.md"
+  },
+  {
+    "title": "Version History",
+    "path": "pages/docs-history-readme.html",
+    "text": "docs/history/README.md"
+  },
+  {
+    "title": "Review Upgrade Notes — React Native Trial",
+    "path": "pages/docs-history-review-upgrade-notes.html",
+    "text": "docs/history/REVIEW_UPGRADE_NOTES.md"
+  },
+  {
+    "title": "Starter Kit v3 — Capability Pack Upgrade",
+    "path": "pages/docs-history-v3-capability-pack-upgrade.html",
+    "text": "docs/history/V3_CAPABILITY_PACK_UPGRADE.md"
+  },
+  {
+    "title": "Starter Kit v4.1 QA Report",
+    "path": "pages/docs-history-v4-1-qa-report.html",
+    "text": "docs/history/V4_1_QA_REPORT.md"
+  },
+  {
+    "title": "Starter Kit v4.1 Upgrade Notes",
+    "path": "pages/docs-history-v4-1-upgrade-notes.html",
+    "text": "docs/history/V4_1_UPGRADE_NOTES.md"
+  },
+  {
+    "title": "V4 QA Report",
+    "path": "pages/docs-history-v4-qa-report.html",
+    "text": "docs/history/V4_QA_REPORT.md"
+  },
+  {
+    "title": "Starter Kit v4 Upgrade Notes",
+    "path": "pages/docs-history-v4-upgrade-notes.html",
+    "text": "docs/history/V4_UPGRADE_NOTES.md"
+  },
+  {
+    "title": "v5.1 QA Report",
+    "path": "pages/docs-history-v5-1-qa-report.html",
+    "text": "docs/history/V5_1_QA_REPORT.md"
+  },
+  {
+    "title": "v5.1 Upgrade Notes",
+    "path": "pages/docs-history-v5-1-upgrade-notes.html",
+    "text": "docs/history/V5_1_UPGRADE_NOTES.md"
+  },
+  {
+    "title": "v5.2 QA Report",
+    "path": "pages/docs-history-v5-2-qa-report.html",
+    "text": "docs/history/V5_2_QA_REPORT.md"
+  },
+  {
+    "title": "v5.2 Upgrade Notes — Progressive Specification",
+    "path": "pages/docs-history-v5-2-upgrade-notes.html",
+    "text": "docs/history/V5_2_UPGRADE_NOTES.md"
+  },
+  {
+    "title": "v5.3 QA Report",
+    "path": "pages/docs-history-v5-3-qa-report.html",
+    "text": "docs/history/V5_3_QA_REPORT.md"
+  },
+  {
+    "title": "v5.3 Upgrade Notes — Root History Hygiene",
+    "path": "pages/docs-history-v5-3-upgrade-notes.html",
+    "text": "docs/history/V5_3_UPGRADE_NOTES.md"
+  },
+  {
+    "title": "v5.4 QA Report",
+    "path": "pages/docs-history-v5-4-qa-report.html",
+    "text": "docs/history/V5_4_QA_REPORT.md"
+  },
+  {
+    "title": "v5.4 Upgrade Notes — Source Workspace & Starter Code Profiles",
+    "path": "pages/docs-history-v5-4-upgrade-notes.html",
+    "text": "docs/history/V5_4_UPGRADE_NOTES.md"
+  },
+  {
+    "title": "v5.5 QA Report",
+    "path": "pages/docs-history-v5-5-qa-report.html",
+    "text": "docs/history/V5_5_QA_REPORT.md"
+  },
+  {
+    "title": "v5.5 Upgrade Notes - Knowledge Runtime Foundations",
+    "path": "pages/docs-history-v5-5-upgrade-notes.html",
+    "text": "docs/history/V5_5_UPGRADE_NOTES.md"
+  },
+  {
+    "title": "v5.6 QA Report",
+    "path": "pages/docs-history-v5-6-qa-report.html",
+    "text": "docs/history/V5_6_QA_REPORT.md"
+  },
+  {
+    "title": "v5.6 Upgrade Notes — Workspace Layout & Root Hygiene",
+    "path": "pages/docs-history-v5-6-upgrade-notes.html",
+    "text": "docs/history/V5_6_UPGRADE_NOTES.md"
+  },
+  {
+    "title": "v5.0 QA Report",
+    "path": "pages/docs-history-v5-qa-report.html",
+    "text": "docs/history/V5_QA_REPORT.md"
+  },
+  {
+    "title": "v5.0 Upgrade Notes",
+    "path": "pages/docs-history-v5-upgrade-notes.html",
+    "text": "docs/history/V5_UPGRADE_NOTES.md"
+  },
+  {
+    "title": "Starter Kit Framework",
+    "path": "pages/kit-readme.html",
+    "text": "kit/README.md"
+  },
+  {
+    "title": "Master Prompt — Documentation-First Project Orchestrator v5.6",
+    "path": "pages/kit-prompts-00-master-orchestrator-prompt.html",
+    "text": "kit/prompts/00-master-orchestrator-prompt.md"
+  },
+  {
+    "title": "Prompt 01 — Idea -> Project Overview",
+    "path": "pages/kit-prompts-01-idea-to-project-overview.html",
+    "text": "kit/prompts/01-idea-to-project-overview.md"
+  },
+  {
+    "title": "Prompt 02 — Discovery & Open Questions",
+    "path": "pages/kit-prompts-02-discovery-open-questions.html",
+    "text": "kit/prompts/02-discovery-open-questions.md"
+  },
+  {
+    "title": "Prompt 03 — Build Project Blueprint",
+    "path": "pages/kit-prompts-03-build-project-blueprint.html",
+    "text": "kit/prompts/03-build-project-blueprint.md"
+  },
+  {
+    "title": "Prompt 04 — Module & Feature Decomposition",
+    "path": "pages/kit-prompts-04-module-decomposition.html",
+    "text": "kit/prompts/04-module-decomposition.md"
+  },
+  {
+    "title": "Prompt 05 — Feature Specification",
+    "path": "pages/kit-prompts-05-feature-specification.html",
+    "text": "kit/prompts/05-feature-specification.md"
+  },
+  {
+    "title": "Prompt 06 — Requirements & Business Rules",
+    "path": "pages/kit-prompts-06-requirements-business-rules.html",
+    "text": "kit/prompts/06-requirements-business-rules.md"
+  },
+  {
+    "title": "Prompt 07 — Screen / Route / UX Contract",
+    "path": "pages/kit-prompts-07-screen-route-ux.html",
+    "text": "kit/prompts/07-screen-route-ux.md"
+  },
+  {
+    "title": "Prompt 08 — Flow Diagrams",
+    "path": "pages/kit-prompts-08-flow-diagrams.html",
+    "text": "kit/prompts/08-flow-diagrams.md"
+  },
+  {
+    "title": "Prompt 09 — API Contracts",
+    "path": "pages/kit-prompts-09-api-contracts.html",
+    "text": "kit/prompts/09-api-contracts.md"
+  },
+  {
+    "title": "Prompt 10 — Database Design",
+    "path": "pages/kit-prompts-10-database-design.html",
+    "text": "kit/prompts/10-database-design.md"
+  },
+  {
+    "title": "Prompt 11 — Architecture & Integrations",
+    "path": "pages/kit-prompts-11-architecture-integrations.html",
+    "text": "kit/prompts/11-architecture-integrations.md"
+  },
+  {
+    "title": "Prompt 12 — NFR",
+    "path": "pages/kit-prompts-12-non-functional-requirements.html",
+    "text": "kit/prompts/12-non-functional-requirements.md"
+  },
+  {
+    "title": "Prompt 13 — Test Design",
+    "path": "pages/kit-prompts-13-test-design.html",
+    "text": "kit/prompts/13-test-design.md"
+  },
+  {
+    "title": "Prompt 14 — Security Review",
+    "path": "pages/kit-prompts-14-security-review.html",
+    "text": "kit/prompts/14-security-review.md"
+  },
+  {
+    "title": "Prompt 15 — DevOps & Production",
+    "path": "pages/kit-prompts-15-devops-production.html",
+    "text": "kit/prompts/15-devops-production.md"
+  },
+  {
+    "title": "Prompt 16 — Monitoring & Runbooks",
+    "path": "pages/kit-prompts-16-monitoring-runbooks.html",
+    "text": "kit/prompts/16-monitoring-runbooks.md"
+  },
+  {
+    "title": "Prompt 17 — Traceability Audit",
+    "path": "pages/kit-prompts-17-traceability-audit.html",
+    "text": "kit/prompts/17-traceability-audit.md"
+  },
+  {
+    "title": "Prompt 18 — Change Impact Analysis",
+    "path": "pages/kit-prompts-18-change-impact-analysis.html",
+    "text": "kit/prompts/18-change-impact-analysis.md"
+  },
+  {
+    "title": "Prompt 19 — Release Readiness",
+    "path": "pages/kit-prompts-19-release-readiness.html",
+    "text": "kit/prompts/19-release-readiness.md"
+  },
+  {
+    "title": "Prompt 20 — Documentation Maintenance",
+    "path": "pages/kit-prompts-20-documentation-maintenance.html",
+    "text": "kit/prompts/20-documentation-maintenance.md"
+  },
+  {
+    "title": "Prompt 21 — Documentation Health & Static Site Review",
+    "path": "pages/kit-prompts-21-documentation-health-and-site.html",
+    "text": "kit/prompts/21-documentation-health-and-site.md"
+  },
+  {
+    "title": "Prompt — Select Project Profile & Applicable Standards",
+    "path": "pages/kit-prompts-22-project-profile-selector.html",
+    "text": "kit/prompts/22-project-profile-selector.md"
+  },
+  {
+    "title": "Prompt — Mobile Readiness Review",
+    "path": "pages/kit-prompts-23-mobile-readiness-review.html",
+    "text": "kit/prompts/23-mobile-readiness-review.md"
+  },
+  {
+    "title": "Prompt — Backend/API Readiness Review",
+    "path": "pages/kit-prompts-24-backend-api-readiness-review.html",
+    "text": "kit/prompts/24-backend-api-readiness-review.md"
+  },
+  {
+    "title": "Prompt — Technology Stack Standard Compliance Review",
+    "path": "pages/kit-prompts-25-stack-standard-compliance-review.html",
+    "text": "kit/prompts/25-stack-standard-compliance-review.md"
+  },
+  {
+    "title": "Prompt 26 — Design a Reusable Capability Pack",
+    "path": "pages/kit-prompts-26-capability-pack-design.html",
+    "text": "kit/prompts/26-capability-pack-design.md"
+  },
+  {
+    "title": "Prompt 27 — Review Capability Pack Import",
+    "path": "pages/kit-prompts-27-capability-pack-import-review.html",
+    "text": "kit/prompts/27-capability-pack-import-review.md"
+  },
+  {
+    "title": "Prompt 28 — Review Capability Pack Upgrade",
+    "path": "pages/kit-prompts-28-capability-pack-upgrade-review.html",
+    "text": "kit/prompts/28-capability-pack-upgrade-review.md"
+  },
+  {
+    "title": "Prompt - Capability Detection Before Decomposition",
+    "path": "pages/kit-prompts-29-capability-detection.html",
+    "text": "kit/prompts/29-capability-detection.md"
+  },
+  {
+    "title": "Prompt - Reuse Promotion Review",
+    "path": "pages/kit-prompts-30-reuse-promotion-review.html",
+    "text": "kit/prompts/30-reuse-promotion-review.md"
+  },
+  {
+    "title": "Prompt - Pattern Pack Design",
+    "path": "pages/kit-prompts-31-pattern-pack-design.html",
+    "text": "kit/prompts/31-pattern-pack-design.md"
+  },
+  {
+    "title": "Prompt 32 — Request Capture and Promotion",
+    "path": "pages/kit-prompts-32-request-capture-and-promotion.html",
+    "text": "kit/prompts/32-request-capture-and-promotion.md"
+  },
+  {
+    "title": "Prompt 33 — Ready Gate Review",
+    "path": "pages/kit-prompts-33-ready-gate-review.html",
+    "text": "kit/prompts/33-ready-gate-review.md"
+  },
+  {
+    "title": "Prompt 34 — WorkPlan and Task Generation",
+    "path": "pages/kit-prompts-34-workplan-and-task-generation.html",
+    "text": "kit/prompts/34-workplan-and-task-generation.md"
+  },
+  {
+    "title": "Prompt 35 — Document Freshness Review",
+    "path": "pages/kit-prompts-35-document-freshness-review.html",
+    "text": "kit/prompts/35-document-freshness-review.md"
+  },
+  {
+    "title": "Prompt 36 — Impact Analysis",
+    "path": "pages/kit-prompts-36-impact-analysis.html",
+    "text": "kit/prompts/36-impact-analysis.md"
+  },
+  {
+    "title": "Prompt 37 — ChangeSet and Baseline Review",
+    "path": "pages/kit-prompts-37-changeset-baseline-review.html",
+    "text": "kit/prompts/37-changeset-baseline-review.md"
+  },
+  {
+    "title": "Prompt 38 — Select Documentation Depth",
+    "path": "pages/kit-prompts-38-spec-level-selection.html",
+    "text": "kit/prompts/38-spec-level-selection.md"
+  },
+  {
+    "title": "Prompt 39 — Author a Lightweight Feature Spec",
+    "path": "pages/kit-prompts-39-lightweight-spec-authoring.html",
+    "text": "kit/prompts/39-lightweight-spec-authoring.md"
+  },
+  {
+    "title": "Prompt 40 — Promote Specification Depth",
+    "path": "pages/kit-prompts-40-spec-promotion-review.html",
+    "text": "kit/prompts/40-spec-promotion-review.md"
+  },
+  {
+    "title": "Source Profile Selection",
+    "path": "pages/kit-prompts-41-source-profile-selection.html",
+    "text": "kit/prompts/41-source-profile-selection.md"
+  },
+  {
+    "title": "Source Bootstrap",
+    "path": "pages/kit-prompts-42-source-bootstrap.html",
+    "text": "kit/prompts/42-source-bootstrap.md"
+  },
+  {
+    "title": "Existing Source Adoption",
+    "path": "pages/kit-prompts-43-existing-source-adoption.html",
+    "text": "kit/prompts/43-existing-source-adoption.md"
+  },
+  {
+    "title": "Registry Governance — v5.6",
+    "path": "pages/kit-registry-readme.html",
+    "text": "kit/registry/README.md"
+  },
+  {
+    "title": "Generated registry mirrors",
+    "path": "pages/kit-registry-generated-readme.html",
+    "text": "kit/registry/_generated/README.md"
+  },
+  {
+    "title": "Reuse Library",
+    "path": "pages/kit-reuse-readme.html",
+    "text": "kit/reuse/README.md"
+  },
+  {
+    "title": "Reusable Templates",
+    "path": "pages/kit-reuse-templates-readme.html",
+    "text": "kit/reuse/templates/README.md"
+  },
+  {
+    "title": "Adding a New Technology Stack",
+    "path": "pages/kit-standards-adding-a-stack.html",
+    "text": "kit/standards/ADDING_A_STACK.md"
+  },
+  {
+    "title": "Standards Architecture v5.6",
+    "path": "pages/kit-standards-readme.html",
+    "text": "kit/standards/README.md"
+  },
+  {
+    "title": "Standard Catalog",
+    "path": "pages/kit-standards-standard-catalog.html",
+    "text": "kit/standards/STANDARD_CATALOG.md"
+  },
+  {
+    "title": "AI Agent Rules — v5.3",
+    "path": "pages/kit-standards-ai-agent-rules.html",
+    "text": "kit/standards/ai-agent-rules.md"
+  },
+  {
+    "title": "Authentication Feature Standard",
+    "path": "pages/kit-standards-capabilities-authentication.html",
+    "text": "kit/standards/capabilities/authentication.md"
+  },
+  {
+    "title": "Semantic Change History and Baselines — v5.3",
+    "path": "pages/kit-standards-change-history-and-baselines.html",
+    "text": "kit/standards/change-history-and-baselines.md"
+  },
+  {
+    "title": "Definition of Ready / Done — v5.3",
+    "path": "pages/kit-standards-definition-of-ready-done.html",
+    "text": "kit/standards/definition-of-ready-done.md"
+  },
+  {
+    "title": "Flow & Diagram Guidelines",
+    "path": "pages/kit-standards-diagram-guidelines.html",
+    "text": "kit/standards/diagram-guidelines.md"
+  },
+  {
+    "title": "Document Freshness Standard — v5.3",
+    "path": "pages/kit-standards-document-freshness.html",
+    "text": "kit/standards/document-freshness.md"
+  },
+  {
+    "title": "Documentation Standard",
+    "path": "pages/kit-standards-documentation-standard.html",
+    "text": "kit/standards/documentation-standard.md"
+  },
+  {
+    "title": "Entity Identity, Lifecycle and Relation Semantics",
+    "path": "pages/kit-standards-entity-identity-lifecycle-and-relations.html",
+    "text": "kit/standards/entity-identity-lifecycle-and-relations.md"
+  },
+  {
+    "title": "Graph Impact Analysis Standard — v5.3",
+    "path": "pages/kit-standards-impact-analysis.html",
+    "text": "kit/standards/impact-analysis.md"
+  },
+  {
+    "title": "Implementation Governance Standard — v5.3",
+    "path": "pages/kit-standards-implementation-governance.html",
+    "text": "kit/standards/implementation-governance.md"
+  },
+  {
+    "title": "Local Knowledge Engine Standard",
+    "path": "pages/kit-standards-local-knowledge-engine.html",
+    "text": "kit/standards/local-knowledge-engine.md"
+  },
+  {
+    "title": "Metadata Schema",
+    "path": "pages/kit-standards-metadata-schema.html",
+    "text": "kit/standards/metadata-schema.md"
+  },
+  {
+    "title": "Naming, Code & UID Convention",
+    "path": "pages/kit-standards-naming-and-id-convention.html",
+    "text": "kit/standards/naming-and-id-convention.md"
+  },
+  {
+    "title": "Progressive Specification Standard — v5.3",
+    "path": "pages/kit-standards-progressive-specification.html",
+    "text": "kit/standards/progressive-specification.md"
+  },
+  {
+    "title": "Project Type Standards",
+    "path": "pages/kit-standards-project-types-readme.html",
+    "text": "kit/standards/project-types/README.md"
+  },
+  {
+    "title": "Api Architecture",
+    "path": "pages/kit-standards-project-types-api-api-architecture.html",
+    "text": "kit/standards/project-types/api/api-architecture.md"
+  },
+  {
+    "title": "Api Conventions",
+    "path": "pages/kit-standards-project-types-api-api-conventions.html",
+    "text": "kit/standards/project-types/api/api-conventions.md"
+  },
+  {
+    "title": "Auth Authorization",
+    "path": "pages/kit-standards-project-types-api-auth-authorization.html",
+    "text": "kit/standards/project-types/api/auth-authorization.md"
+  },
+  {
+    "title": "Background Jobs",
+    "path": "pages/kit-standards-project-types-api-background-jobs.html",
+    "text": "kit/standards/project-types/api/background-jobs.md"
+  },
+  {
+    "title": "API Contract & Versioning Standard",
+    "path": "pages/kit-standards-project-types-api-contract-versioning.html",
+    "text": "kit/standards/project-types/api/contract-versioning.md"
+  },
+  {
+    "title": "Data Transaction",
+    "path": "pages/kit-standards-project-types-api-data-transaction.html",
+    "text": "kit/standards/project-types/api/data-transaction.md"
+  },
+  {
+    "title": "Deployment",
+    "path": "pages/kit-standards-project-types-api-deployment.html",
+    "text": "kit/standards/project-types/api/deployment.md"
+  },
+  {
+    "title": "Observability",
+    "path": "pages/kit-standards-project-types-api-observability.html",
+    "text": "kit/standards/project-types/api/observability.md"
+  },
+  {
+    "title": "Performance",
+    "path": "pages/kit-standards-project-types-api-performance.html",
+    "text": "kit/standards/project-types/api/performance.md"
+  },
+  {
+    "title": "Resilience",
+    "path": "pages/kit-standards-project-types-api-resilience.html",
+    "text": "kit/standards/project-types/api/resilience.md"
+  },
+  {
+    "title": "Security",
+    "path": "pages/kit-standards-project-types-api-security.html",
+    "text": "kit/standards/project-types/api/security.md"
+  },
+  {
+    "title": "App Lifecycle",
+    "path": "pages/kit-standards-project-types-mobile-app-lifecycle.html",
+    "text": "kit/standards/project-types/mobile/app-lifecycle.md"
+  },
+  {
+    "title": "Background Work",
+    "path": "pages/kit-standards-project-types-mobile-background-work.html",
+    "text": "kit/standards/project-types/mobile/background-work.md"
+  },
+  {
+    "title": "Connectivity Realtime",
+    "path": "pages/kit-standards-project-types-mobile-connectivity-realtime.html",
+    "text": "kit/standards/project-types/mobile/connectivity-realtime.md"
+  },
+  {
+    "title": "Local Storage Cache",
+    "path": "pages/kit-standards-project-types-mobile-local-storage-cache.html",
+    "text": "kit/standards/project-types/mobile/local-storage-cache.md"
+  },
+  {
+    "title": "Logging Observability",
+    "path": "pages/kit-standards-project-types-mobile-logging-observability.html",
+    "text": "kit/standards/project-types/mobile/logging-observability.md"
+  },
+  {
+    "title": "Media Attachment",
+    "path": "pages/kit-standards-project-types-mobile-media-attachment.html",
+    "text": "kit/standards/project-types/mobile/media-attachment.md"
+  },
+  {
+    "title": "Mobile Architecture",
+    "path": "pages/kit-standards-project-types-mobile-mobile-architecture.html",
+    "text": "kit/standards/project-types/mobile/mobile-architecture.md"
+  },
+  {
+    "title": "Mobile Performance",
+    "path": "pages/kit-standards-project-types-mobile-mobile-performance.html",
+    "text": "kit/standards/project-types/mobile/mobile-performance.md"
+  },
+  {
+    "title": "Mobile Release Store",
+    "path": "pages/kit-standards-project-types-mobile-mobile-release-store.html",
+    "text": "kit/standards/project-types/mobile/mobile-release-store.md"
+  },
+  {
+    "title": "Mobile Security Privacy",
+    "path": "pages/kit-standards-project-types-mobile-mobile-security-privacy.html",
+    "text": "kit/standards/project-types/mobile/mobile-security-privacy.md"
+  },
+  {
+    "title": "Mobile Ui Ux Accessibility",
+    "path": "pages/kit-standards-project-types-mobile-mobile-ui-ux-accessibility.html",
+    "text": "kit/standards/project-types/mobile/mobile-ui-ux-accessibility.md"
+  },
+  {
+    "title": "Navigation Deeplink",
+    "path": "pages/kit-standards-project-types-mobile-navigation-deeplink.html",
+    "text": "kit/standards/project-types/mobile/navigation-deeplink.md"
+  },
+  {
+    "title": "Networking Resilience",
+    "path": "pages/kit-standards-project-types-mobile-networking-resilience.html",
+    "text": "kit/standards/project-types/mobile/networking-resilience.md"
+  },
+  {
+    "title": "Offline Sync",
+    "path": "pages/kit-standards-project-types-mobile-offline-sync.html",
+    "text": "kit/standards/project-types/mobile/offline-sync.md"
+  },
+  {
+    "title": "Permission Native Capabilities",
+    "path": "pages/kit-standards-project-types-mobile-permission-native-capabilities.html",
+    "text": "kit/standards/project-types/mobile/permission-native-capabilities.md"
+  },
+  {
+    "title": "Push Notification",
+    "path": "pages/kit-standards-project-types-mobile-push-notification.html",
+    "text": "kit/standards/project-types/mobile/push-notification.md"
+  },
+  {
+    "title": "Mobile Time & Timezone Standard",
+    "path": "pages/kit-standards-project-types-mobile-time-timezone.html",
+    "text": "kit/standards/project-types/mobile/time-timezone.md"
+  },
+  {
+    "title": "Timezone Server Time",
+    "path": "pages/kit-standards-project-types-mobile-timezone-server-time.html",
+    "text": "kit/standards/project-types/mobile/timezone-server-time.md"
+  },
+  {
+    "title": "Browser Runtime",
+    "path": "pages/kit-standards-project-types-web-browser-runtime.html",
+    "text": "kit/standards/project-types/web/browser-runtime.md"
+  },
+  {
+    "title": "Web Application Standard",
+    "path": "pages/kit-standards-project-types-web-web-application-standard.html",
+    "text": "kit/standards/project-types/web/web-application-standard.md"
+  },
+  {
+    "title": "Web Architecture",
+    "path": "pages/kit-standards-project-types-web-web-architecture.html",
+    "text": "kit/standards/project-types/web/web-architecture.md"
+  },
+  {
+    "title": "Web Performance",
+    "path": "pages/kit-standards-project-types-web-web-performance.html",
+    "text": "kit/standards/project-types/web/web-performance.md"
+  },
+  {
+    "title": "Web Release",
+    "path": "pages/kit-standards-project-types-web-web-release.html",
+    "text": "kit/standards/project-types/web/web-release.md"
+  },
+  {
+    "title": "Web Security",
+    "path": "pages/kit-standards-project-types-web-web-security.html",
+    "text": "kit/standards/project-types/web/web-security.md"
+  },
+  {
+    "title": "Web Ui Ux",
+    "path": "pages/kit-standards-project-types-web-web-ui-ux.html",
+    "text": "kit/standards/project-types/web/web-ui-ux.md"
+  },
+  {
+    "title": "Repository Entry & History Hygiene Standard — v5.6",
+    "path": "pages/kit-standards-repository-entry-hygiene.html",
+    "text": "kit/standards/repository-entry-hygiene.md"
+  },
+  {
+    "title": "Capability Pack Standard",
+    "path": "pages/kit-standards-reuse-capability-pack-standard.html",
+    "text": "kit/standards/reuse/capability-pack-standard.md"
+  },
+  {
+    "title": "Pattern Pack Standard",
+    "path": "pages/kit-standards-reuse-pattern-pack-standard.html",
+    "text": "kit/standards/reuse/pattern-pack-standard.md"
+  },
+  {
+    "title": "Reuse Promotion Policy",
+    "path": "pages/kit-standards-reuse-promotion-policy.html",
+    "text": "kit/standards/reuse/promotion-policy.md"
+  },
+  {
+    "title": "Reuse Strategy",
+    "path": "pages/kit-standards-reuse-reuse-strategy.html",
+    "text": "kit/standards/reuse/reuse-strategy.md"
+  },
+  {
+    "title": "Security & Secrets Documentation Rules",
+    "path": "pages/kit-standards-security-and-secrets.html",
+    "text": "kit/standards/security-and-secrets.md"
+  },
+  {
+    "title": "Source Base Governance",
+    "path": "pages/kit-standards-source-base-governance.html",
+    "text": "kit/standards/source-base-governance.md"
+  },
+  {
+    "title": "Source Intelligence Standard",
+    "path": "pages/kit-standards-source-intelligence.html",
+    "text": "kit/standards/source-intelligence.md"
+  },
+  {
+    "title": "Source of Truth Rules",
+    "path": "pages/kit-standards-source-of-truth.html",
+    "text": "kit/standards/source-of-truth.md"
+  },
+  {
+    "title": "Source Workspace Standard",
+    "path": "pages/kit-standards-source-workspace.html",
+    "text": "kit/standards/source-workspace.md"
+  },
+  {
+    "title": "Technology Stack Standards",
+    "path": "pages/kit-standards-stacks-readme.html",
+    "text": "kit/standards/stacks/README.md"
+  },
+  {
+    "title": "Api Conventions",
+    "path": "pages/kit-standards-stacks-api-dotnet-core-api-conventions.html",
+    "text": "kit/standards/stacks/api/dotnet-core/api-conventions.md"
+  },
+  {
+    "title": "Architecture",
+    "path": "pages/kit-standards-stacks-api-dotnet-core-architecture.html",
+    "text": "kit/standards/stacks/api/dotnet-core/architecture.md"
+  },
+  {
+    "title": "Background Services",
+    "path": "pages/kit-standards-stacks-api-dotnet-core-background-services.html",
+    "text": "kit/standards/stacks/api/dotnet-core/background-services.md"
+  },
+  {
+    "title": "ASP.NET Core Coding Standard",
+    "path": "pages/kit-standards-stacks-api-dotnet-core-coding-standard.html",
+    "text": "kit/standards/stacks/api/dotnet-core/coding-standard.md"
+  },
+  {
+    "title": "Data Access",
+    "path": "pages/kit-standards-stacks-api-dotnet-core-data-access.html",
+    "text": "kit/standards/stacks/api/dotnet-core/data-access.md"
+  },
+  {
+    "title": "ASP.NET Core DI & Configuration",
+    "path": "pages/kit-standards-stacks-api-dotnet-core-dependency-injection-config.html",
+    "text": "kit/standards/stacks/api/dotnet-core/dependency-injection-config.md"
+  },
+  {
+    "title": "Security",
+    "path": "pages/kit-standards-stacks-api-dotnet-core-security.html",
+    "text": "kit/standards/stacks/api/dotnet-core/security.md"
+  },
+  {
+    "title": "Testing Observability Deployment",
+    "path": "pages/kit-standards-stacks-api-dotnet-core-testing-observability-deployment.html",
+    "text": "kit/standards/stacks/api/dotnet-core/testing-observability-deployment.md"
+  },
+  {
+    "title": "Architecture",
+    "path": "pages/kit-standards-stacks-api-nodejs-architecture.html",
+    "text": "kit/standards/stacks/api/nodejs/architecture.md"
+  },
+  {
+    "title": "NodeJS Async & Resilience",
+    "path": "pages/kit-standards-stacks-api-nodejs-async-resilience.html",
+    "text": "kit/standards/stacks/api/nodejs/async-resilience.md"
+  },
+  {
+    "title": "Coding Standard",
+    "path": "pages/kit-standards-stacks-api-nodejs-coding-standard.html",
+    "text": "kit/standards/stacks/api/nodejs/coding-standard.md"
+  },
+  {
+    "title": "Deployment",
+    "path": "pages/kit-standards-stacks-api-nodejs-deployment.html",
+    "text": "kit/standards/stacks/api/nodejs/deployment.md"
+  },
+  {
+    "title": "NodeJS HTTP Contract",
+    "path": "pages/kit-standards-stacks-api-nodejs-http-contract.html",
+    "text": "kit/standards/stacks/api/nodejs/http-contract.md"
+  },
+  {
+    "title": "Testing Observability",
+    "path": "pages/kit-standards-stacks-api-nodejs-testing-observability.html",
+    "text": "kit/standards/stacks/api/nodejs/testing-observability.md"
+  },
+  {
+    "title": "Validation Errors",
+    "path": "pages/kit-standards-stacks-api-nodejs-validation-errors.html",
+    "text": "kit/standards/stacks/api/nodejs/validation-errors.md"
+  },
+  {
+    "title": "Migration Operations",
+    "path": "pages/kit-standards-stacks-database-postgresql-migration-operations.html",
+    "text": "kit/standards/stacks/database/postgresql/migration-operations.md"
+  },
+  {
+    "title": "Query Performance",
+    "path": "pages/kit-standards-stacks-database-postgresql-query-performance.html",
+    "text": "kit/standards/stacks/database/postgresql/query-performance.md"
+  },
+  {
+    "title": "Schema Conventions",
+    "path": "pages/kit-standards-stacks-database-postgresql-schema-conventions.html",
+    "text": "kit/standards/stacks/database/postgresql/schema-conventions.md"
+  },
+  {
+    "title": "Android Compose Architecture",
+    "path": "pages/kit-standards-stacks-mobile-android-compose-architecture.html",
+    "text": "kit/standards/stacks/mobile/android-compose/architecture.md"
+  },
+  {
+    "title": "Android Compose Lifecycle, Navigation and Storage",
+    "path": "pages/kit-standards-stacks-mobile-android-compose-lifecycle-navigation-storage.html",
+    "text": "kit/standards/stacks/mobile/android-compose/lifecycle-navigation-storage.md"
+  },
+  {
+    "title": "Architecture",
+    "path": "pages/kit-standards-stacks-mobile-flutter-architecture.html",
+    "text": "kit/standards/stacks/mobile/flutter/architecture.md"
+  },
+  {
+    "title": "Coding Standard",
+    "path": "pages/kit-standards-stacks-mobile-flutter-coding-standard.html",
+    "text": "kit/standards/stacks/mobile/flutter/coding-standard.md"
+  },
+  {
+    "title": "Navigation",
+    "path": "pages/kit-standards-stacks-mobile-flutter-navigation.html",
+    "text": "kit/standards/stacks/mobile/flutter/navigation.md"
+  },
+  {
+    "title": "State Management Bloc Cubit",
+    "path": "pages/kit-standards-stacks-mobile-flutter-state-management-bloc-cubit.html",
+    "text": "kit/standards/stacks/mobile/flutter/state-management-bloc-cubit.md"
+  },
+  {
+    "title": "Flutter State Management",
+    "path": "pages/kit-standards-stacks-mobile-flutter-state-management.html",
+    "text": "kit/standards/stacks/mobile/flutter/state-management.md"
+  },
+  {
+    "title": "Storage Networking",
+    "path": "pages/kit-standards-stacks-mobile-flutter-storage-networking.html",
+    "text": "kit/standards/stacks/mobile/flutter/storage-networking.md"
+  },
+  {
+    "title": "Testing Release",
+    "path": "pages/kit-standards-stacks-mobile-flutter-testing-release.html",
+    "text": "kit/standards/stacks/mobile/flutter/testing-release.md"
+  },
+  {
+    "title": "iOS SwiftUI Architecture",
+    "path": "pages/kit-standards-stacks-mobile-ios-swiftui-architecture.html",
+    "text": "kit/standards/stacks/mobile/ios-swiftui/architecture.md"
+  },
+  {
+    "title": "iOS SwiftUI Lifecycle, Navigation and Storage",
+    "path": "pages/kit-standards-stacks-mobile-ios-swiftui-lifecycle-navigation-storage.html",
+    "text": "kit/standards/stacks/mobile/ios-swiftui/lifecycle-navigation-storage.md"
+  },
+  {
+    "title": "Architecture",
+    "path": "pages/kit-standards-stacks-mobile-react-native-architecture.html",
+    "text": "kit/standards/stacks/mobile/react-native/architecture.md"
+  },
+  {
+    "title": "Coding Standard",
+    "path": "pages/kit-standards-stacks-mobile-react-native-coding-standard.html",
+    "text": "kit/standards/stacks/mobile/react-native/coding-standard.md"
+  },
+  {
+    "title": "Expo Native Boundary",
+    "path": "pages/kit-standards-stacks-mobile-react-native-expo-native-boundary.html",
+    "text": "kit/standards/stacks/mobile/react-native/expo-native-boundary.md"
+  },
+  {
+    "title": "Navigation",
+    "path": "pages/kit-standards-stacks-mobile-react-native-navigation.html",
+    "text": "kit/standards/stacks/mobile/react-native/navigation.md"
+  },
+  {
+    "title": "State Management",
+    "path": "pages/kit-standards-stacks-mobile-react-native-state-management.html",
+    "text": "kit/standards/stacks/mobile/react-native/state-management.md"
+  },
+  {
+    "title": "Storage Networking",
+    "path": "pages/kit-standards-stacks-mobile-react-native-storage-networking.html",
+    "text": "kit/standards/stacks/mobile/react-native/storage-networking.md"
+  },
+  {
+    "title": "Testing Release",
+    "path": "pages/kit-standards-stacks-mobile-react-native-testing-release.html",
+    "text": "kit/standards/stacks/mobile/react-native/testing-release.md"
+  },
+  {
+    "title": "Next.js Architecture Standard",
+    "path": "pages/kit-standards-stacks-web-nextjs-architecture.html",
+    "text": "kit/standards/stacks/web/nextjs/architecture.md"
+  },
+  {
+    "title": "Next.js Rendering and Routing",
+    "path": "pages/kit-standards-stacks-web-nextjs-rendering-routing.html",
+    "text": "kit/standards/stacks/web/nextjs/rendering-routing.md"
+  },
+  {
+    "title": "Next.js Testing and Deployment",
+    "path": "pages/kit-standards-stacks-web-nextjs-testing-deployment.html",
+    "text": "kit/standards/stacks/web/nextjs/testing-deployment.md"
+  },
+  {
+    "title": "Architecture",
+    "path": "pages/kit-standards-stacks-web-reactjs-architecture.html",
+    "text": "kit/standards/stacks/web/reactjs/architecture.md"
+  },
+  {
+    "title": "ReactJS Coding Standard",
+    "path": "pages/kit-standards-stacks-web-reactjs-coding-standard.html",
+    "text": "kit/standards/stacks/web/reactjs/coding-standard.md"
+  },
+  {
+    "title": "Forms Validation",
+    "path": "pages/kit-standards-stacks-web-reactjs-forms-validation.html",
+    "text": "kit/standards/stacks/web/reactjs/forms-validation.md"
+  },
+  {
+    "title": "Routing",
+    "path": "pages/kit-standards-stacks-web-reactjs-routing.html",
+    "text": "kit/standards/stacks/web/reactjs/routing.md"
+  },
+  {
+    "title": "State Data Fetching",
+    "path": "pages/kit-standards-stacks-web-reactjs-state-data-fetching.html",
+    "text": "kit/standards/stacks/web/reactjs/state-data-fetching.md"
+  },
+  {
+    "title": "Testing",
+    "path": "pages/kit-standards-stacks-web-reactjs-testing.html",
+    "text": "kit/standards/stacks/web/reactjs/testing.md"
+  },
+  {
+    "title": "Documentation Tooling & Static Site Standard",
+    "path": "pages/kit-standards-tooling-and-static-site.html",
+    "text": "kit/standards/tooling-and-static-site.md"
+  },
+  {
+    "title": "<TITLE>",
+    "path": "pages/kit-templates-adr-template.html",
+    "text": "kit/templates/adr-template.md"
+  },
+  {
+    "title": "<Analytics Event>",
+    "path": "pages/kit-templates-analytics-event-template.html",
+    "text": "kit/templates/analytics-event-template.md"
+  },
+  {
+    "title": "<TITLE>",
+    "path": "pages/kit-templates-api-template.html",
+    "text": "kit/templates/api-template.md"
+  },
+  {
+    "title": "Web Application",
+    "path": "pages/kit-templates-application-template.html",
+    "text": "kit/templates/application-template.md"
+  },
+  {
+    "title": "<Architecture Document>",
+    "path": "pages/kit-templates-architecture-template.html",
+    "text": "kit/templates/architecture-template.md"
+  },
+  {
+    "title": "<Mobile Background Work>",
+    "path": "pages/kit-templates-background-mobile-template.html",
+    "text": "kit/templates/background-mobile-template.md"
+  },
+  {
+    "title": "Bug title",
+    "path": "pages/kit-templates-bug-template.html",
+    "text": "kit/templates/bug-template.md"
+  },
+  {
+    "title": "<TITLE>",
+    "path": "pages/kit-templates-business-rule-template.html",
+    "text": "kit/templates/business-rule-template.md"
+  },
+  {
+    "title": "<TITLE>",
+    "path": "pages/kit-templates-database-object-template.html",
+    "text": "kit/templates/database-object-template.md"
+  },
+  {
+    "title": "<Deep Link Contract>",
+    "path": "pages/kit-templates-deep-link-template.html",
+    "text": "kit/templates/deep-link-template.md"
+  },
+  {
+    "title": "<Device / OS Test Profile>",
+    "path": "pages/kit-templates-device-test-profile-template.html",
+    "text": "kit/templates/device-test-profile-template.md"
+  },
+  {
+    "title": "<Feature Flag>",
+    "path": "pages/kit-templates-feature-flag-template.html",
+    "text": "kit/templates/feature-flag-template.md"
+  },
+  {
+    "title": "<TITLE>",
+    "path": "pages/kit-templates-feature-template.html",
+    "text": "kit/templates/feature-template.md"
+  },
+  {
+    "title": "<TITLE>",
+    "path": "pages/kit-templates-flow-template.html",
+    "text": "kit/templates/flow-template.md"
+  },
+  {
+    "title": "<Incident Record>",
+    "path": "pages/kit-templates-incident-template.html",
+    "text": "kit/templates/incident-template.md"
+  },
+  {
+    "title": "<TITLE>",
+    "path": "pages/kit-templates-integration-template.html",
+    "text": "kit/templates/integration-template.md"
+  },
+  {
+    "title": "<TITLE>",
+    "path": "pages/kit-templates-lightweight-feature-template.html",
+    "text": "kit/templates/lightweight-feature-template.md"
+  },
+  {
+    "title": "<Local Storage Contract>",
+    "path": "pages/kit-templates-local-storage-template.html",
+    "text": "kit/templates/local-storage-template.md"
+  },
+  {
+    "title": "<Mobile Release>",
+    "path": "pages/kit-templates-mobile-release-template.html",
+    "text": "kit/templates/mobile-release-template.md"
+  },
+  {
+    "title": "<Mobile Screen>",
+    "path": "pages/kit-templates-mobile-screen-template.html",
+    "text": "kit/templates/mobile-screen-template.md"
+  },
+  {
+    "title": "<TITLE>",
+    "path": "pages/kit-templates-module-template.html",
+    "text": "kit/templates/module-template.md"
+  },
+  {
+    "title": "<Monitoring / Alert>",
+    "path": "pages/kit-templates-monitoring-alert-template.html",
+    "text": "kit/templates/monitoring-alert-template.md"
+  },
+  {
+    "title": "<Native Capability>",
+    "path": "pages/kit-templates-native-capability-template.html",
+    "text": "kit/templates/native-capability-template.md"
+  },
+  {
+    "title": "<TITLE>",
+    "path": "pages/kit-templates-nfr-template.html",
+    "text": "kit/templates/nfr-template.md"
+  },
+  {
+    "title": "<Offline Sync Policy>",
+    "path": "pages/kit-templates-offline-sync-template.html",
+    "text": "kit/templates/offline-sync-template.md"
+  },
+  {
+    "title": "<Open Question>",
+    "path": "pages/kit-templates-open-question-template.html",
+    "text": "kit/templates/open-question-template.md"
+  },
+  {
+    "title": "<Native Permission Contract>",
+    "path": "pages/kit-templates-permission-template.html",
+    "text": "kit/templates/permission-template.md"
+  },
+  {
+    "title": "<Product Scope>",
+    "path": "pages/kit-templates-product-scope-template.html",
+    "text": "kit/templates/product-scope-template.md"
+  },
+  {
+    "title": "<Project Overview>",
+    "path": "pages/kit-templates-project-overview-template.html",
+    "text": "kit/templates/project-overview-template.md"
+  },
+  {
+    "title": "<Push Event Contract>",
+    "path": "pages/kit-templates-push-event-template.html",
+    "text": "kit/templates/push-event-template.md"
+  },
+  {
+    "title": "<TITLE>",
+    "path": "pages/kit-templates-release-template.html",
+    "text": "kit/templates/release-template.md"
+  },
+  {
+    "title": "Request title",
+    "path": "pages/kit-templates-request-template.html",
+    "text": "kit/templates/request-template.md"
+  },
+  {
+    "title": "<TITLE>",
+    "path": "pages/kit-templates-requirement-template.html",
+    "text": "kit/templates/requirement-template.md"
+  },
+  {
+    "title": "<Capability> Feature Standard",
+    "path": "pages/kit-templates-reuse-feature-standard-template.html",
+    "text": "kit/templates/reuse/feature-standard-template.md"
+  },
+  {
+    "title": "Pack Import Review",
+    "path": "pages/kit-templates-reuse-pack-import-review-template.html",
+    "text": "kit/templates/reuse/pack-import-review-template.md"
+  },
+  {
+    "title": "Reuse Assessment - <Capability>",
+    "path": "pages/kit-templates-reuse-reuse-assessment-template.html",
+    "text": "kit/templates/reuse/reuse-assessment-template.md"
+  },
+  {
+    "title": "<TITLE>",
+    "path": "pages/kit-templates-runbook-template.html",
+    "text": "kit/templates/runbook-template.md"
+  },
+  {
+    "title": "<TITLE>",
+    "path": "pages/kit-templates-screen-template.html",
+    "text": "kit/templates/screen-template.md"
+  },
+  {
+    "title": "Task title",
+    "path": "pages/kit-templates-task-template.html",
+    "text": "kit/templates/task-template.md"
+  },
+  {
+    "title": "<TITLE>",
+    "path": "pages/kit-templates-test-case-template.html",
+    "text": "kit/templates/test-case-template.md"
+  },
+  {
+    "title": "Workflow 01 — Idea -> Scope",
+    "path": "pages/kit-workflows-01-idea-to-scope.html",
+    "text": "kit/workflows/01-idea-to-scope.md"
+  },
+  {
+    "title": "Workflow 02 — Scope -> Project Blueprint",
+    "path": "pages/kit-workflows-02-scope-to-blueprint.html",
+    "text": "kit/workflows/02-scope-to-blueprint.md"
+  },
+  {
+    "title": "Workflow 03 — Blueprint -> Functional Documentation",
+    "path": "pages/kit-workflows-03-blueprint-to-functional-docs.html",
+    "text": "kit/workflows/03-blueprint-to-functional-docs.md"
+  },
+  {
+    "title": "Workflow 03A - Reuse and Capability Detection",
+    "path": "pages/kit-workflows-03a-reuse-capability-detection.html",
+    "text": "kit/workflows/03A-reuse-capability-detection.md"
+  },
+  {
+    "title": "Workflow 04 — Functional -> Technical Contracts",
+    "path": "pages/kit-workflows-04-functional-to-technical-contracts.html",
+    "text": "kit/workflows/04-functional-to-technical-contracts.md"
+  },
+  {
+    "title": "Workflow 05 — Quality & Test",
+    "path": "pages/kit-workflows-05-quality-and-test.html",
+    "text": "kit/workflows/05-quality-and-test.md"
+  },
+  {
+    "title": "Workflow 06 — Production Readiness",
+    "path": "pages/kit-workflows-06-production-readiness.html",
+    "text": "kit/workflows/06-production-readiness.md"
+  },
+  {
+    "title": "Workflow 07 — Change Management",
+    "path": "pages/kit-workflows-07-change-management.html",
+    "text": "kit/workflows/07-change-management.md"
+  },
+  {
+    "title": "Workflow 08 — Validate, Sync and Publish Documentation",
+    "path": "pages/kit-workflows-08-documentation-tooling.html",
+    "text": "kit/workflows/08-documentation-tooling.md"
+  },
+  {
+    "title": "Workflow 09 — Project Profile & Standards Selection",
+    "path": "pages/kit-workflows-09-project-profile-and-standards.html",
+    "text": "kit/workflows/09-project-profile-and-standards.md"
+  },
+  {
+    "title": "Workflow 10 — Mobile Readiness",
+    "path": "pages/kit-workflows-10-mobile-readiness.html",
+    "text": "kit/workflows/10-mobile-readiness.md"
+  },
+  {
+    "title": "Workflow 11 — Store Release Readiness",
+    "path": "pages/kit-workflows-11-store-release-readiness.html",
+    "text": "kit/workflows/11-store-release-readiness.md"
+  },
+  {
+    "title": "Workflow 12 — Reusable Capability Pack Lifecycle",
+    "path": "pages/kit-workflows-12-capability-pack-lifecycle.html",
+    "text": "kit/workflows/12-capability-pack-lifecycle.md"
+  },
+  {
+    "title": "Workflow 13 - Reuse Promotion Governance",
+    "path": "pages/kit-workflows-13-reuse-promotion-governance.html",
+    "text": "kit/workflows/13-reuse-promotion-governance.md"
+  },
+  {
+    "title": "Workflow 14 — Request to WorkPlan to Task",
+    "path": "pages/kit-workflows-14-request-to-workplan-task.html",
+    "text": "kit/workflows/14-request-to-workplan-task.md"
+  },
+  {
+    "title": "Workflow 15 — Freshness, Impact, ChangeSet and Baseline",
+    "path": "pages/kit-workflows-15-freshness-change-history-impact.html",
+    "text": "kit/workflows/15-freshness-change-history-impact.md"
+  },
+  {
+    "title": "Workflow 16 — Progressive Specification / Lightweight Mode",
+    "path": "pages/kit-workflows-16-progressive-specification.html",
+    "text": "kit/workflows/16-progressive-specification.md"
+  },
+  {
+    "title": "Workflow 17 — Source Workspace Bootstrap / Adoption",
+    "path": "pages/kit-workflows-17-source-workspace-bootstrap.html",
+    "text": "kit/workflows/17-source-workspace-bootstrap.md"
+  },
+  {
+    "title": "End-to-End Documentation Checklist",
+    "path": "pages/kit-workflows-end-to-end-checklist.html",
+    "text": "kit/workflows/END_TO_END_CHECKLIST.md"
+  },
+  {
+    "title": "Documentation Toolchain v5.6",
+    "path": "pages/tools-readme.html",
+    "text": "tools/README.md"
+  },
+  {
+    "title": "Demo API",
+    "path": "pages/tools-tests-fixtures-valid-project-docs-api.html",
+    "text": "tools/tests/fixtures/valid-project/docs/api.md"
+  },
+  {
+    "title": "Demo Feature",
+    "path": "pages/tools-tests-fixtures-valid-project-docs-feature.html",
+    "text": "tools/tests/fixtures/valid-project/docs/feature.md"
+  },
+  {
+    "title": "Demo Module",
+    "path": "pages/tools-tests-fixtures-valid-project-docs-module.html",
+    "text": "tools/tests/fixtures/valid-project/docs/module.md"
+  },
+  {
+    "title": "Demo Requirement",
+    "path": "pages/tools-tests-fixtures-valid-project-docs-requirement.html",
+    "text": "tools/tests/fixtures/valid-project/docs/requirement.md"
+  },
+  {
+    "title": "Demo Screen",
+    "path": "pages/tools-tests-fixtures-valid-project-docs-screen.html",
+    "text": "tools/tests/fixtures/valid-project/docs/screen.md"
+  },
+  {
+    "title": "Demo Test",
+    "path": "pages/tools-tests-fixtures-valid-project-docs-test.html",
+    "text": "tools/tests/fixtures/valid-project/docs/test.md"
+  }
+]

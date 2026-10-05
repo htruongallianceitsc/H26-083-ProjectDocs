@@ -75,6 +75,19 @@ Track blockers and accepted decisions explicitly; do not hide assumptions in pro
 
 > Requests explain why change entered the project. WorkPlans explain the reviewed implementation plan. Tasks execute the plan. None of these replace canonical Feature/Requirement/Rule/API/Screen/DB/Test documentation.
 
+
+## v5.6 Workspace Layout
+
+The repository separates five concerns explicitly:
+
+- `docs/` — canonical project knowledge.
+- `apps/`, `packages/`, `tests/`, `infra/` — implementation/source workspace.
+- `kit/` — reusable starter-kit framework assets.
+- `tools/` — executable local tooling.
+- `.project-docs/` — governance/runtime/generated state, including `.project-docs/site/`.
+
+Physical locations are defined in `starter-kit.json.workspaceLayout`; v5.5 root names are migration aliases only.
+
 ## v5.5 Engineering Knowledge Runtime
 
 The blueprint now includes a local intelligence layer:

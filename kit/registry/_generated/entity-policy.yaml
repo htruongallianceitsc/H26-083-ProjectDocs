@@ -1,0 +1,20 @@
+# GENERATED FILE - DO NOT EDIT
+# Source: kit/registry/entity-policy.json
+schemaVersion: 1.0
+identity:
+  uidField: uid
+  uidFormat: uuid
+  revisionField: revision
+  requiredForNew: true
+  legacyMissingUidSeverity: warning
+  immutableFields:
+    - uid
+    - code
+    - type
+lifecycle:
+  enforceConfiguredTransitions: true
+  allowForcedTransition: false
+relations:
+  preferExactMappings: true
+  warnOnFallbackMappings: true
+  unresolvedTargetSeverity: error

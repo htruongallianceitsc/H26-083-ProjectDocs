@@ -5,7 +5,7 @@ import {markdownToHtml} from './lib/markdown.mjs';
 const cfg=loadConfig(), site=path.resolve(root,cfg.siteDir); fs.rmSync(site,{recursive:true,force:true}); fs.mkdirSync(path.join(site,'pages'),{recursive:true});fs.mkdirSync(path.join(site,'assets'),{recursive:true});
 const entities=loadEntities(cfg), byFile=new Map(entities.map(e=>[e.file,e]));
 const graph=readJson(`${cfg.generatedDir}/graph.json`,{nodes:[],edges:[]}), trace=readJson(`${cfg.generatedDir}/traceability.json`,[]), health=readJson(`${cfg.generatedDir}/health.json`,[]), packs=readJson(`${cfg.generatedDir}/packs.json`,{library:[],imports:[]});
-const projectTypes=readJson('registry/project-types.json',{projectTypes:{}}).projectTypes||{}, stacks=readJson('registry/technology-stacks.json',{technologyStacks:{}}).technologyStacks||{}, coreStandards=readJson('registry/core-standards.json',{standards:[]}).standards||[], profile=readJson('project-profile.json',{projectName:'Starter Template',projectTypes:[],technologyStacks:[],implementationGate:{}});
+const projectTypes=readJson('kit/registry/project-types.json',{projectTypes:{}}).projectTypes||{}, stacks=readJson('kit/registry/technology-stacks.json',{technologyStacks:{}}).technologyStacks||{}, coreStandards=readJson('kit/registry/core-standards.json',{standards:[]}).standards||[], profile=readJson('project-profile.json',{projectName:'Starter Template',projectTypes:[],technologyStacks:[],implementationGate:{}});
 const pages=[];
 function pagePath(file){return 'pages/'+slug(file.replace(/\.md$/,''))+'.html';}
 for(const p of contentFiles(cfg)){

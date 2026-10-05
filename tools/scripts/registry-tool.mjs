@@ -1,9 +1,9 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { ROOT, loadJson, ensureDir } from '../lib/common.mjs';
+import { ROOT, loadJson, ensureDir, workspaceAbs, workspaceRel } from '../lib/common.mjs';
 
 const action = process.argv[2] || 'check';
-const generatedDir = path.join(ROOT, 'registry/_generated');
+const generatedDir = workspaceAbs('registry', '_generated');
 const sources = [
   ['entity-types.json', 'entity-types.yaml'],
   ['relation-map.json', 'relation-map.yaml'],
@@ -53,12 +53,12 @@ function yaml(value, indent = 0) {
 }
 function generatedText(sourceName) {
   const data = loadJson(`registry/${sourceName}`);
-  return `# GENERATED FILE - DO NOT EDIT\n# Source: registry/${sourceName}\n${yaml(data)}\n`;
+  return `# GENERATED FILE - DO NOT EDIT\n# Source: ${workspaceRel('registry', sourceName)}\n${yaml(data)}\n`;
 }
 function statusLifecycleText() {
   const reg = loadJson('registry/entity-types.json', {types:{}});
   const statuses = [...new Set(Object.values(reg.types || {}).flatMap(x => x.statuses || []))].sort();
-  return `# GENERATED FILE - DO NOT EDIT\n# Source: registry/entity-types.json\nstatuses:\n${statuses.map(s => `  - ${s}`).join('\n')}\n`;
+  return `# GENERATED FILE - DO NOT EDIT\n# Source: ${workspaceRel('registry', 'entity-types.json')}\nstatuses:\n${statuses.map(s => `  - ${s}`).join('\n')}\n`;
 }
 function sync() {
   ensureDir(generatedDir);
@@ -78,7 +78,7 @@ function check() {
   const sourceProfiles = loadJson('registry/source-profiles.json', {profiles:{}});
   const entityPolicy = loadJson('registry/entity-policy.json', {});
   const legacy = ['entity-types.yaml','relation-map.yaml','quality-rules.yaml','status-lifecycle.yaml'];
-  for (const f of legacy) if (fs.existsSync(path.join(ROOT,'registry',f))) errors.push(`Legacy hand-maintained registry mirror still exists: registry/${f}`);
+  for (const f of legacy) if (fs.existsSync(workspaceAbs('registry', f))) errors.push(`Legacy hand-maintained registry mirror still exists: ${workspaceRel('registry', f)}`);
   for (const r of relations) {
     if (r.from !== '*' && !types[r.from]) errors.push(`relation-map: unknown from type ${r.from}`);
     if (r.to !== '*' && !types[r.to]) errors.push(`relation-map: unknown to type ${r.to}`);
@@ -133,19 +133,19 @@ function check() {
     if (!cfg.applicationType) errors.push(`source-profiles: ${id} missing applicationType`);
     if (!cfg.technologyStack || !technologyStacks[cfg.technologyStack]) errors.push(`source-profiles: ${id} references unknown technologyStack ${cfg.technologyStack}`);
     if (!cfg.defaultRoot) errors.push(`source-profiles: ${id} missing defaultRoot`);
-    if (cfg.sourceBase && !fs.existsSync(path.join(ROOT, 'source-bases', cfg.sourceBase))) errors.push(`source-profiles: ${id} sourceBase not found ${cfg.sourceBase}`);
+    if (cfg.sourceBase && !fs.existsSync(workspaceAbs('sourceBases', cfg.sourceBase))) errors.push(`source-profiles: ${id} sourceBase not found ${cfg.sourceBase}`);
   }
 
   for (const [source,target] of sources) {
     const p = path.join(generatedDir,target);
-    if (!fs.existsSync(p)) errors.push(`Missing generated mirror registry/_generated/${target}; run npm run registry:sync`);
-    else if (fs.readFileSync(p,'utf8') !== generatedText(source)) errors.push(`Generated mirror drift: registry/_generated/${target}`);
+    if (!fs.existsSync(p)) errors.push(`Missing generated mirror ${workspaceRel('registry','_generated',target)}; run npm run registry:sync`);
+    else if (fs.readFileSync(p,'utf8') !== generatedText(source)) errors.push(`Generated mirror drift: ${workspaceRel('registry','_generated',target)}`);
   }
   const statusPath = path.join(generatedDir,'status-lifecycle.yaml');
-  if (!fs.existsSync(statusPath)) errors.push('Missing generated mirror registry/_generated/status-lifecycle.yaml; run npm run registry:sync');
-  else if (fs.readFileSync(statusPath,'utf8') !== statusLifecycleText()) errors.push('Generated mirror drift: registry/_generated/status-lifecycle.yaml');
+  if (!fs.existsSync(statusPath)) errors.push(`Missing generated mirror ${workspaceRel('registry','_generated','status-lifecycle.yaml')}; run npm run registry:sync`);
+  else if (fs.readFileSync(statusPath,'utf8') !== statusLifecycleText()) errors.push(`Generated mirror drift: ${workspaceRel('registry','_generated','status-lifecycle.yaml')}`);
   const starter = loadJson('starter-kit.json',{});
-  if (starter.version !== '5.5.0' || starter.schemaVersion !== '5.5.0') errors.push(`starter-kit.json expected version/schemaVersion 5.5.0, got ${starter.version}/${starter.schemaVersion}`);
+  if (starter.version !== '5.6.0' || starter.schemaVersion !== '5.6.0') errors.push(`starter-kit.json expected version/schemaVersion 5.6.0, got ${starter.version}/${starter.schemaVersion}`);
   const layout = starter.documentationLayout || {};
   if (!layout.historyDirectory) errors.push('starter-kit.json documentationLayout.historyDirectory is required');
   else if (!fs.existsSync(path.join(ROOT, layout.historyDirectory))) errors.push(`Configured history directory does not exist: ${layout.historyDirectory}`);

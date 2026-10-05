@@ -1,4 +1,19 @@
-# START HERE - v5.5
+# START HERE - v5.6
+
+## 0. Understand the workspace layout
+
+- `docs/` = canonical project/business knowledge.
+- `apps/`, `packages/`, `tests/`, `infra/` = implementation workspace.
+- `kit/` = reusable starter-kit framework assets.
+- `tools/` = executable local tooling.
+- `.project-docs/` = runtime/governance/generated state, including the static site.
+
+Validate the layout after upgrades or repository moves:
+
+```bash
+cd tools
+npm run layout:check
+```
 
 ## 1. Configure the project
 

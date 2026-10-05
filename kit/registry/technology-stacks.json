@@ -1,0 +1,109 @@
+{
+  "schemaVersion": "1.0",
+  "stacks": {
+    "reactjs": {
+      "projectTypes": [
+        "web"
+      ],
+      "standards": [
+        "kit/standards/stacks/web/reactjs/architecture.md",
+        "kit/standards/stacks/web/reactjs/routing.md",
+        "kit/standards/stacks/web/reactjs/state-data-fetching.md",
+        "kit/standards/stacks/web/reactjs/forms-validation.md",
+        "kit/standards/stacks/web/reactjs/testing.md"
+      ]
+    },
+    "react-native": {
+      "projectTypes": [
+        "mobile"
+      ],
+      "standards": [
+        "kit/standards/stacks/mobile/react-native/architecture.md",
+        "kit/standards/stacks/mobile/react-native/coding-standard.md",
+        "kit/standards/stacks/mobile/react-native/state-management.md",
+        "kit/standards/stacks/mobile/react-native/navigation.md",
+        "kit/standards/stacks/mobile/react-native/expo-native-boundary.md",
+        "kit/standards/stacks/mobile/react-native/storage-networking.md",
+        "kit/standards/stacks/mobile/react-native/testing-release.md"
+      ]
+    },
+    "flutter": {
+      "projectTypes": [
+        "mobile"
+      ],
+      "standards": [
+        "kit/standards/stacks/mobile/flutter/architecture.md",
+        "kit/standards/stacks/mobile/flutter/coding-standard.md",
+        "kit/standards/stacks/mobile/flutter/state-management-bloc-cubit.md",
+        "kit/standards/stacks/mobile/flutter/navigation.md",
+        "kit/standards/stacks/mobile/flutter/storage-networking.md",
+        "kit/standards/stacks/mobile/flutter/testing-release.md"
+      ]
+    },
+    "nodejs-api": {
+      "projectTypes": [
+        "api"
+      ],
+      "standards": [
+        "kit/standards/stacks/api/nodejs/architecture.md",
+        "kit/standards/stacks/api/nodejs/coding-standard.md",
+        "kit/standards/stacks/api/nodejs/validation-errors.md",
+        "kit/standards/stacks/api/nodejs/testing-observability.md",
+        "kit/standards/stacks/api/nodejs/deployment.md"
+      ]
+    },
+    "dotnet-core-api": {
+      "projectTypes": [
+        "api"
+      ],
+      "standards": [
+        "kit/standards/stacks/api/dotnet-core/architecture.md",
+        "kit/standards/stacks/api/dotnet-core/api-conventions.md",
+        "kit/standards/stacks/api/dotnet-core/data-access.md",
+        "kit/standards/stacks/api/dotnet-core/background-services.md",
+        "kit/standards/stacks/api/dotnet-core/security.md",
+        "kit/standards/stacks/api/dotnet-core/testing-observability-deployment.md"
+      ]
+    },
+    "postgresql": {
+      "projectTypes": [
+        "api",
+        "web",
+        "mobile"
+      ],
+      "standards": [
+        "kit/standards/stacks/database/postgresql/schema-conventions.md",
+        "kit/standards/stacks/database/postgresql/query-performance.md",
+        "kit/standards/stacks/database/postgresql/migration-operations.md"
+      ]
+    },
+    "nextjs": {
+      "projectTypes": [
+        "web"
+      ],
+      "standards": [
+        "kit/standards/stacks/web/nextjs/architecture.md",
+        "kit/standards/stacks/web/nextjs/rendering-routing.md",
+        "kit/standards/stacks/web/nextjs/testing-deployment.md"
+      ]
+    },
+    "ios-swiftui": {
+      "projectTypes": [
+        "mobile"
+      ],
+      "standards": [
+        "kit/standards/stacks/mobile/ios-swiftui/architecture.md",
+        "kit/standards/stacks/mobile/ios-swiftui/lifecycle-navigation-storage.md"
+      ]
+    },
+    "android-compose": {
+      "projectTypes": [
+        "mobile"
+      ],
+      "standards": [
+        "kit/standards/stacks/mobile/android-compose/architecture.md",
+        "kit/standards/stacks/mobile/android-compose/lifecycle-navigation-storage.md"
+      ]
+    }
+  }
+}

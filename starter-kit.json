@@ -1,7 +1,7 @@
 {
   "name": "production-project-docs-starter-kit",
-  "version": "5.5.0",
-  "schemaVersion": "5.5.0",
+  "version": "5.6.0",
+  "schemaVersion": "5.6.0",
   "registrySchemaVersion": "1.0",
   "capabilityPackSchemaVersion": "1.0",
   "workPlanSchemaVersion": "1.2",
@@ -28,5 +28,44 @@
   "relationModelVersion": "1.1",
   "sourceIntelligenceVersion": "1.0",
   "localKnowledgeEngineVersion": "1.0",
-  "doctorVersion": "1.0"
+  "doctorVersion": "1.0",
+  "workspaceLayoutVersion": "1.0",
+  "workspaceLayout": {
+    "docs": "docs",
+    "runtime": ".project-docs",
+    "kit": "kit",
+    "registry": "kit/registry",
+    "standards": "kit/standards",
+    "prompts": "kit/prompts",
+    "templates": "kit/templates",
+    "workflows": "kit/workflows",
+    "sourceBases": "kit/source-bases",
+    "reuse": {
+      "capabilities": "kit/reuse/capabilities",
+      "patterns": "kit/reuse/patterns",
+      "templates": "kit/reuse/templates"
+    },
+    "examples": "kit/examples",
+    "site": ".project-docs/site",
+    "tools": "tools",
+    "source": {
+      "apps": "apps",
+      "packages": "packages",
+      "tests": "tests",
+      "infra": "infra"
+    }
+  },
+  "legacyLayoutAliases": {
+    "registry": "registry",
+    "standards": "standards",
+    "prompts": "prompts",
+    "templates": "templates",
+    "workflows": "workflows",
+    "sourceBases": "source-bases",
+    "reuse.capabilities": "reusable-modules",
+    "reuse.patterns": "reusable-patterns",
+    "reuse.templates": "reusable-templates",
+    "examples.profile": "PROJECT_PROFILE.example.json",
+    "site": "site"
+  }
 }

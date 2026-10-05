@@ -1,0 +1,33 @@
+# GENERATED FILE - DO NOT EDIT
+# Source: kit/registry/entity-types.json
+statuses:
+  - accepted
+  - active
+  - analyzed
+  - approved
+  - archived
+  - blocked
+  - cancelled
+  - captured
+  - closed
+  - deprecated
+  - done
+  - draft
+  - failed
+  - implemented
+  - in_progress
+  - open
+  - passed
+  - planned
+  - promoted
+  - proposed
+  - ready
+  - rejected
+  - released
+  - resolved
+  - retired
+  - review
+  - rolled_back
+  - superseded
+  - triaged
+  - wont_fix
