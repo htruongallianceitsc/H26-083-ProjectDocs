@@ -26,6 +26,9 @@
       "site/**",
       "docs/_generated/**"
     ],
-    "staleDetection": "dependency-hash"
+    "staleDetection": "dependency-hash",
+    "defaultSpecLevel": "standard",
+    "targetMaturity": "production",
+    "riskEscalation": "warn"
   }
 }

@@ -1,4 +1,4 @@
-# Graph Impact Analysis Standard — v5.1
+# Graph Impact Analysis Standard — v5.2
 
 ## Purpose
 

@@ -98,3 +98,13 @@
 - [ ] Tasks do not redefine product/business truth.
 - [ ] After implementation, linked tests are passed and canonical docs are reconciled.
 - [ ] `npm run gate:done -- --feature <CODE>` passes before considering the feature documentation-complete.
+
+## v5.2 Progressive Specification checkpoint
+
+- [ ] Project default spec level and target maturity are explicit.
+- [ ] Each Feature that differs from the project default has `spec_level` / `target_maturity` override.
+- [ ] Lightweight Features contain minimum Goal / Actors / Main Flow / Key Rules / Acceptance sections.
+- [ ] `spec:recommend` warnings are reviewed for sensitive/high-risk work.
+- [ ] Ready gate is evaluated against the effective spec profile.
+- [ ] Before maturity increases, `spec:promote` gap report is reviewed and resolved.
+- [ ] Promotion preserves Feature identity and does not invent requirements.

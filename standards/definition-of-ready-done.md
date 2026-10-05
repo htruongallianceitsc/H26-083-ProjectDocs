@@ -1,34 +1,46 @@
-# Definition of Ready / Done — v5.1
+# Definition of Ready / Done — v5.2
 
-## Documentation Ready — before WorkPlan submission
+## Mode-aware Documentation Ready
 
-A Feature is Ready only when the configured machine gate passes.
+A Feature is Ready only when the configured machine gate passes for its **effective specification level**.
 
-Default minimum:
+Common checks:
 
-- Feature status is compatible with implementation planning.
+- Feature status permits implementation planning.
+- No linked Open Question is `open` or `blocked`.
+- Imported reusable packs have approved review state when required.
+- Known stale dependency state is not blocking.
+- Risk/maturity policy is respected.
+
+Profile-specific minimums are defined in `registry/spec-profiles.json`:
+
+### Lightweight
+
+- Goal / purpose is documented.
+- Actors are documented.
+- Main Flow is documented.
+- Key Rules are documented.
+- Acceptance is documented.
+- Separate Requirement/Test entities are not required by default.
+
+### Standard
+
 - At least one linked Requirement exists.
 - At least one linked Test Case exists.
 - Linked Requirements are `approved` or `implemented`.
 - Linked Tests are `ready` or `passed`.
-- No linked Open Question is `open` or `blocked`.
-- Imported reusable packs have approved review state when the profile requires it.
 
-Human review should additionally confirm, when applicable:
+### Full
 
-- Feature scope, actors, preconditions and flows are clear.
-- Business Rules are identified.
-- Screen/Flow contracts are adequate for UI work.
-- API contract is adequate for backend work.
-- DB impact is adequate for persistence changes.
-- Security/permission/NFR implications are explicit.
-- Acceptance criteria are testable.
-- Blueprint and traceability are current.
+- Standard requirements apply.
+- NFR coverage is explicitly linked.
+- Error/failure behaviour, audit/observability, edge cases and security/privacy review are documented.
 
 Command:
 
 ```bash
 cd tools
+npm run spec:check -- --feature FEAT-...
 npm run gate:ready -- --feature FEAT-...
 ```
 
@@ -36,39 +48,36 @@ npm run gate:ready -- --feature FEAT-...
 
 A WorkPlan is reviewable when:
 
-- target Feature passes Documentation Ready;
+- target Feature passes the mode-aware Documentation Ready gate;
 - task breakdown is deterministic and linked to canonical entities;
 - assumptions, risks and acceptance criteria are explicit;
 - `requiresAuthoring=false`;
+- effective spec level, maturity and recommendation are snapshotted;
 - submission captures the current documentation context hash.
 
 Approval must fail if that hash becomes stale.
 
-## Documentation Done — after implementation/reconciliation
+## Documentation Done
 
-Default machine minimum:
+Common machine minimum:
 
 - Feature status is `implemented`.
-- linked Feature tests are `passed`.
-- at least one incoming Task exists.
-- all incoming Tasks are `done`.
-- no linked Open Question is `open` or `blocked`.
+- all incoming implementation Tasks are `done`.
+- no linked Open Question remains blocking.
+- known stale documentation is reconciled.
 
-Human review should additionally confirm:
+If linked tests exist, they must satisfy the configured Done status rules. Standard/Full normally have explicit linked tests because their Ready profiles require them.
 
-- released/implemented behaviour matches canonical docs;
-- Route/API/DB inventories are current;
-- monitoring/runbook/release notes are updated when impacted;
-- Decisions are recorded instead of rewriting history;
-- no known stale documentation remains from the change.
-
-Command:
+Human review should confirm that implemented/released behaviour matches the selected depth and current maturity. A Lightweight prototype can be Done at prototype maturity without pretending to be production-ready.
 
 ```bash
 npm run gate:done -- --feature FEAT-...
 ```
 
+## Promotion readiness
 
-## v5.1 Freshness Gate
+When maturity/risk increases, do not reinterpret the previous Lightweight spec as production-complete. Generate the target-level gap report and resolve it before promotion:
 
-For a reconciled Feature, known `STALE` dependency state blocks both Ready and Done. `UNTRACKED` remains non-blocking for progressive adoption. After implementation changes linked tests/contracts, review and reconcile the Feature before Done.
+```bash
+npm run spec:promote -- --feature FEAT-... --to standard
+```

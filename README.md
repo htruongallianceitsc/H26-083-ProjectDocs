@@ -1,66 +1,67 @@
-# Production Project Documentation Starter Kit v5.1
+# Production Project Documentation Starter Kit v5.2
 
-Documentation-first starter kit for long-lived production Web, Mobile and API projects.
+Documentation-first starter kit for long-lived Web, Mobile and API projects, with progressive documentation depth for prototypes through production.
 
 ## Core model
 
 ```text
-Core Governance Standards
-        ↓
-Project Type + Technology Standards
-        ↓
-Reuse Decision
-        ↓
+Idea / Request
+      ↓
+Select Spec Level (Lightweight / Standard / Full / Auto)
+      ↓
 Project-local canonical documentation
-        ↓
+      ↓
 Typed traceability + impact analysis
-        ↓
-Request capture / promotion
-        ↓
+      ↓
 Dependency freshness review
-        ↓
-Documentation Ready Gate
-        ↓
+      ↓
+Mode-aware Ready Gate
+      ↓
 Reviewed WorkPlan
-        ↓
+      ↓
 Implementation Tasks
-        ↓
+      ↓
 Documentation reconciliation
-        ↓
-Done Gate
-        ↓
+      ↓
+Mode-aware Done Gate
+      ↓
 Semantic ChangeSet / Baseline
 ```
 
-## What v5.1 adds
+## What v5.2 adds
 
-V5.1 strengthens the maintenance/governance layer introduced by v5.0:
+v5.2 introduces **Progressive Specification** so mock/POC/prototype work does not need production-level documentation on day one:
 
-- dependency-aware document freshness snapshots;
-- Ready/Done gates that block known stale documentation;
-- stale-document quality validation;
-- graph impact analysis with typed path evidence and risk levels;
-- semantic ChangeSets for direct/manual documentation edits;
-- named Baselines for UAT/release/migration comparison;
-- Governance static-site summaries for freshness, ChangeSets and Baselines;
-- expanded E2E regression for freshness, impact and change history.
+- project default `documentation.defaultSpecLevel`;
+- Feature-level `spec_level` override;
+- `target_maturity`: concept / prototype / UAT / production;
+- `lightweight`, `standard`, `full`, and `auto` selection;
+- policy-driven `registry/spec-profiles.json`;
+- Lightweight Feature template with minimum viable documentation;
+- mode-aware Ready/Done gates;
+- risk/maturity recommendation and configurable escalation (`warn|block|off`);
+- `spec:status`, `spec:check`, `spec:recommend`, `spec:promote`;
+- promotion gap reports without inventing missing requirements;
+- WorkPlans snapshot effective spec level and maturity;
+- static Spec Levels dashboard;
+- E2E regression for Lightweight → Standard promotion and risk escalation.
+
+v5.2 keeps all v5.1 freshness, impact, ChangeSet and Baseline governance.
 
 ## Start
 
 1. Read `START_HERE.md`.
 2. Configure `project.profile.json`.
-3. Run `cd tools && npm ci && npm run qa`.
-4. Build documentation before implementation tasks.
-5. Before changing an existing entity, run impact analysis.
-6. Reconcile important Feature documentation to activate dependency freshness tracking.
-7. Use Request → Ready Gate → WorkPlan → Task for implementation work.
-8. Record semantic batches with ChangeSets and create Baselines at UAT/release boundaries.
+3. Choose the default documentation depth intentionally.
+4. Run `cd tools && npm ci && npm run qa`.
+5. Build documentation at the current maturity instead of maximizing detail by default.
+6. Promote a Feature only when its delivery maturity/risk requires deeper specification.
 
 ## Sources of truth
 
 - Project/domain truth: project-local Markdown under `docs/`.
 - Machine-readable policy: canonical JSON under `registry/`.
-- Generated YAML views: `registry/_generated/` only.
+- Spec promotion reports: `.project-docs/spec-promotions/`.
 - WorkPlan state: `.project-docs/workplans/`.
 - Freshness review state: `.project-docs/freshness/`.
 - Semantic history: `.project-docs/changesets/` and `.project-docs/audit-state.json`.
@@ -68,33 +69,29 @@ V5.1 strengthens the maintenance/governance layer introduced by v5.0:
 - Reuse state: `.project-docs/packs.lock.json`, snapshots and proposals.
 - Generated site/reports: derived and rebuildable.
 
-## Key v5.1 commands
+## Key v5.2 commands
 
 ```bash
 cd tools
+
+npm run spec:status
+npm run spec:recommend -- --feature FEAT-DASHBOARD
+npm run spec:check -- --feature FEAT-DASHBOARD
+npm run spec:promote -- --feature FEAT-DASHBOARD --to standard
 
 npm run impact -- --entity REQ-AUTH-001
 npm run doc:check -- --entity FEAT-AUTH-LOGIN
 npm run doc:reconcile -- --entity FEAT-AUTH-LOGIN --reviewer "Reviewer"
 
-npm run request:create -- --title "..." --kind change --summary "..."
-npm run request:promote -- --request REQST-... --target FEAT-...
-npm run gate:ready -- --feature FEAT-...
-
-npm run plan:scaffold -- --feature FEAT-...
+npm run gate:ready -- --feature FEAT-AUTH-LOGIN
+npm run plan:scaffold -- --feature FEAT-AUTH-LOGIN
 npm run plan:author-complete -- --id WP-... --actor "Author"
 npm run plan:submit -- --id WP-...
 npm run plan:approve -- --id WP-... --reviewer "Reviewer"
 npm run plan:materialize -- --id WP-... --owner "Engineering"
-
-npm run gate:done -- --feature FEAT-...
-
-npm run audit:init -- --actor "Team"
-npm run changeset:scan -- --actor "Team" --reason "..." --related FEAT-...
-npm run baseline:create -- --name UAT-1 --actor "PM"
-npm run baseline:compare -- --name UAT-1
+npm run gate:done -- --feature FEAT-AUTH-LOGIN
 
 npm run qa
 ```
 
-See `V5_1_UPGRADE_NOTES.md`, `V5_1_QA_REPORT.md`, `standards/document-freshness.md`, `standards/change-history-and-baselines.md`, and `workflows/15-freshness-change-history-impact.md`.
+See `V5_2_UPGRADE_NOTES.md`, `V5_2_QA_REPORT.md`, `standards/progressive-specification.md`, and `workflows/16-progressive-specification.md`.

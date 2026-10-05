@@ -1,106 +1,82 @@
-# START HERE — v5.1
+# START HERE — v5.2
 
-## 1. Configure the project
+## 1. Configure the project and documentation depth
 
-Fill `project.profile.json` from `PROJECT_PROFILE.example.json` and select only the project types/technology stacks actually used.
+Fill `project.profile.json` from `PROJECT_PROFILE.example.json`.
 
-## 2. Build documentation before tasks
+Recommended starting point:
+
+```json
+{
+  "documentation": {
+    "defaultSpecLevel": "standard",
+    "targetMaturity": "production",
+    "riskEscalation": "warn"
+  }
+}
+```
+
+For a mock/POC project, use `lightweight` + `prototype`. For mixed projects, keep a project default and override individual Features.
+
+## 2. Choose depth before generating detailed docs
+
+```bash
+cd tools
+npm run spec:status
+npm run spec:recommend -- --feature FEAT-...
+```
+
+Use:
+
+- Lightweight — low-risk mock/POC/prototype.
+- Standard — normal product delivery.
+- Full — sensitive/high-impact production work.
+- Auto — tooling recommends effective depth from maturity and risk.
+
+## 3. Lightweight still means documented
+
+Use `templates/lightweight-feature-template.md`. Capture Goal, Actors, Main Flow, Key Rules, Acceptance and known impact. Do not create Requirement/Test/API/DB documents merely to fill folders.
+
+## 4. Build documentation before tasks
 
 ```text
 Idea → Discovery → Scope → Blueprint → Reuse decision
-→ Module / Feature → Requirement / Business Rule
-→ Screen / Flow / API / DB → Test
-→ Freshness / Ready Gate → WorkPlan → Tasks
+→ Select Spec Level
+→ Canonical Feature documentation at current depth
+→ Freshness / Mode-aware Ready Gate → WorkPlan → Tasks
 → Implementation → Documentation reconciliation
 → Done Gate → ChangeSet / Baseline
 ```
 
-## 3. Analyze impact before changing existing knowledge
+## 5. Validate the selected depth
 
 ```bash
-cd tools
-npm run impact -- --entity REQ-...
-```
-
-Treat results as potential impact. Review HIGH candidates first.
-
-## 4. Activate dependency freshness for important Features
-
-After a Feature and its related docs are reviewed:
-
-```bash
-npm run doc:reconcile -- --entity FEAT-... --reviewer "Reviewer" --note "Initial reviewed baseline"
-npm run doc:check -- --entity FEAT-...
-```
-
-After this point, Requirement/API/Screen/Test/Request dependency drift can mark the Feature `STALE` and block implementation gates.
-
-## 5. Capture durable incoming requests
-
-```bash
-npm run request:create -- --title "..." --kind change --summary "..."
-npm run request:promote -- --request REQST-... --target FEAT-...
-```
-
-Promotion itself may invalidate an existing freshness snapshot; review/reconcile the Feature before implementation planning.
-
-## 6. Do not generate tasks until Ready passes
-
-```bash
-npm run docs:validate
-npm run doc:check -- --entity FEAT-...
+npm run spec:check -- --feature FEAT-...
 npm run gate:ready -- --feature FEAT-...
 ```
 
-## 7. Use a reviewed WorkPlan
+## 6. Promote only when needed
+
+Before UAT/production hardening or when risk increases:
 
 ```bash
-npm run plan:scaffold -- --feature FEAT-...
-# Review/edit .project-docs/workplans/WP-....json
-npm run plan:author-complete -- --id WP-... --actor "Author"
-npm run plan:submit -- --id WP-...
-npm run plan:approve -- --id WP-... --reviewer "Reviewer"
-npm run plan:materialize -- --id WP-... --owner "Engineering"
+npm run spec:promote -- --feature FEAT-... --to standard
 ```
 
-WorkPlan submit still protects the exact reviewed context with SHA-256 fingerprints.
-
-## 8. Reconcile after implementation
-
-When implementation changes tests/contracts/status:
+The command creates a gap report under `.project-docs/spec-promotions/` and does not invent missing behaviour. After gaps are resolved:
 
 ```bash
-npm run doc:check -- --entity FEAT-...
-# review/update canonical docs
-npm run doc:reconcile -- --entity FEAT-... --reviewer "Reviewer" --note "Implementation reconciled"
-npm run gate:done -- --feature FEAT-...
+npm run spec:promote -- --feature FEAT-... --to standard --apply
 ```
 
-## 9. Record semantic history
+## 7. Continue v5.1 governance
 
-Initialize once for a project/workspace:
+Before significant edits, run impact analysis. Reconcile important Feature docs for freshness tracking. Capture durable Requests, use reviewed WorkPlans, reconcile after implementation, and record ChangeSets/Baselines at meaningful boundaries.
 
-```bash
-npm run audit:init -- --actor "Team"
-```
-
-After a meaningful reviewed batch:
-
-```bash
-npm run changeset:scan -- --actor "Team" --reason "..." --related FEAT-...
-```
-
-At UAT/release/migration boundaries:
-
-```bash
-npm run baseline:create -- --name UAT-1 --actor "PM" --note "UAT handoff"
-npm run baseline:compare -- --name UAT-1
-```
-
-## 10. Run full QA
+## 8. Run full QA
 
 ```bash
 npm run qa
 ```
 
-QA covers registry drift, profile/reuse validation, documentation graph, freshness quality, static site, and the v5.1 end-to-end governance regression.
+QA covers registry drift, spec profile compliance, mode-aware gates, reuse, traceability, freshness, impact, change history and the static documentation site.

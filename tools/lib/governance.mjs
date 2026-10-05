@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { ROOT, loadJson, scanEntities, sha256 } from './common.mjs';
 import { checkFreshness } from './freshness.mjs';
+import { evaluateSpec, resolveSpec } from './specification.mjs';
 
 export function entityIndex() {
   const { entities } = scanEntities();
@@ -56,6 +57,16 @@ export function evaluateGate(gateName, entityCode) {
     add(pending.length === 0, 'PACK_REVIEW', pending.length ? `Pack review pending: ${pending.map(([id,p]) => `${id}@${p.version}`).join(', ')}` : 'All imported packs are approved');
   }
 
+  if (config.specProfile && entity.type === 'feature') {
+    const spec = evaluateSpec(entity, { gate: gateName });
+    for (const c of spec.checks) {
+      const pass = c.pass || (c.severity === 'warning' && c.blocking !== true);
+      add(pass, c.code, c.message);
+      checks[checks.length - 1].severity = c.severity || (pass ? 'info' : 'error');
+      checks[checks.length - 1].specLevel = spec.effectiveLevel;
+    }
+  }
+
   if (config.freshness) {
     const freshness = checkFreshness(entity.code);
     const allowUntracked = config.freshness.allowUntracked !== false;
@@ -73,8 +84,9 @@ export function featureContext(featureCode) {
   const relatedCodes = [...new Set(Object.values(feature.meta.related || {}).flatMap(normalizeList))].sort();
   const related = relatedCodes.map(code => byCode.get(code)).filter(Boolean);
   const incomingRequests = entities.filter(e => e.type === 'request' && normalizeList(e.meta.related?.promoted_to).includes(feature.code));
+  const spec = resolveSpec(feature);
   return {
-    feature: { code: feature.code, title: feature.title, status: feature.status, path: feature.path, related: feature.meta.related || {} },
+    feature: { code: feature.code, title: feature.title, status: feature.status, path: feature.path, related: feature.meta.related || {}, specLevel: spec.effectiveLevel, requestedSpecLevel: spec.requestedLevel, targetMaturity: spec.targetMaturity, recommendedSpecLevel: spec.recommendedLevel },
     related: related.map(e => ({ code: e.code, type: e.type, status: e.status, title: e.title, path: e.path })),
     requests: incomingRequests.map(e => ({ code: e.code, status: e.status, title: e.title, path: e.path }))
   };
@@ -115,7 +127,7 @@ export function listWorkplans() {
 export function validateWorkplan(plan) {
   const errors = [];
   for (const key of ['id','schemaVersion','featureCode','title','status','createdAt','updatedAt','requiresAuthoring','tasks']) if (plan[key] === undefined || plan[key] === null || plan[key] === '') errors.push(`Missing ${key}`);
-  if (plan.schemaVersion !== '1.0') errors.push(`schemaVersion must be 1.0`);
+  if (!['1.0','1.1'].includes(plan.schemaVersion)) errors.push(`schemaVersion must be 1.0 or 1.1`);
   if (!/^WP-[A-Z0-9-]+$/.test(String(plan.id || ''))) errors.push(`id must match WP-[A-Z0-9-]+`);
   if (!['draft','submitted','approved','rejected','materialized','cancelled'].includes(plan.status)) errors.push(`Invalid status ${plan.status}`);
   if (!Array.isArray(plan.tasks) || !plan.tasks.length) errors.push('tasks must contain at least one task');

@@ -1,6 +1,6 @@
 {
   "projectCode": "FIXTURE",
-  "projectName": "V5.1 E2E Fixture",
+  "projectName": "V5.2 E2E Fixture",
   "projectTypes": [],
   "technologyStacks": [],
   "implementationGate": {
@@ -12,5 +12,10 @@
     "requireApprovedWorkPlan": true,
     "blockOnStaleWorkPlanContext": true,
     "blockOnStaleDocumentation": true
+  },
+  "documentation": {
+    "defaultSpecLevel": "standard",
+    "targetMaturity": "production",
+    "riskEscalation": "warn"
   }
 }

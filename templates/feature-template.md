@@ -7,6 +7,8 @@ owner: <OWNER>
 created_at: YYYY-MM-DD
 updated_at: YYYY-MM-DD
 last_reviewed_at: YYYY-MM-DD
+spec_level: standard
+target_maturity: production
 tags: []
 related:
   modules: []
@@ -18,6 +20,8 @@ related:
   apis: []
   database_objects: []
   tests: []
+  nfrs: []
+  open_questions: []
   decisions: []
 ---
 
@@ -62,3 +66,7 @@ related:
 ## 19. Known Limitations
 
 ## 20. Open Questions
+
+## 21. Security / Privacy
+
+Document security/privacy considerations when relevant. Full specs require explicit review here.

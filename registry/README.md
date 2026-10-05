@@ -1,13 +1,14 @@
-# Registry Governance — v5.1
+# Registry Governance — v5.2
 
-`registry/*.json` is the only canonical machine-readable registry source.
+`registry/*.json` is the canonical machine-readable policy source.
 
-Core canonical files include:
+Important files:
 
 - `entity-types.json`
 - `relation-map.json`
 - `quality-rules.json`
 - `readiness-rules.json`
+- `spec-profiles.json` — Progressive Specification levels, maturity minimums and risk escalation rules.
 - `freshness-rules.json`
 - `impact-rules.json`
 - `workplan.schema.json`
@@ -15,7 +16,7 @@ Core canonical files include:
 - `project-profile.schema.json`
 - project type / technology stack / reuse / traceability registries
 
-Human-readable YAML mirrors are generated into `registry/_generated/` and must never be edited manually.
+Generated YAML mirrors live under `registry/_generated/` and must not be edited manually.
 
 ```bash
 cd tools
@@ -23,4 +24,4 @@ npm run registry:sync
 npm run registry:check
 ```
 
-V5.1 keeps Ready/Done, freshness and impact semantics policy-driven rather than embedding project-specific rules in prompts.
+Ready/Done, spec depth, freshness, impact and reuse semantics remain policy-driven rather than prompt-driven.

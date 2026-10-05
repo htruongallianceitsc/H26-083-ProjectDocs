@@ -1,59 +1,45 @@
-# Documentation Governance v5.1
+# Documentation Governance v5.2
 
 ## Principle
 
-Documentation is reviewed before implementation and remains governed after review. A recent review date alone is not proof that dependent knowledge is still current.
+Documentation depth must be proportional to delivery maturity and risk. The project must remain traceable without forcing every prototype to pay the cost of production-level decomposition immediately.
 
 ## Canonical layers
 
 1. `docs/` — product/project truth.
 2. `registry/*.json` — machine-readable schema/policy truth.
-3. `.project-docs/workplans/` — reviewed implementation planning state.
-4. `.project-docs/freshness/` — dependency review snapshots.
-5. `.project-docs/changesets/` + `audit-state.json` — semantic change history.
-6. `.project-docs/baselines/` — named milestone fingerprints.
-7. `.project-docs/packs.*` — reusable-pack governance.
-8. `docs/_generated/` and `site/` — derived views only.
+3. `.project-docs/spec-promotions/` — promotion gap evidence; not domain truth.
+4. `.project-docs/workplans/` — reviewed implementation planning state.
+5. `.project-docs/freshness/` — dependency review snapshots.
+6. `.project-docs/changesets/` + `audit-state.json` — semantic change history.
+7. `.project-docs/baselines/` — named milestone fingerprints.
+8. `.project-docs/packs.*` — reusable-pack governance.
+9. `docs/_generated/` and `site/` — derived views only.
 
-## Change intake and impact
+## Progressive specification
 
-Capture durable change provenance as Request entities. Before material edits to existing entities, run the typed graph impact engine and inspect HIGH/MEDIUM candidates.
+`registry/spec-profiles.json` defines Lightweight, Standard and Full documentation expectations. `auto` is a selection mode resolved from maturity and risk.
 
-Impact evidence is potential impact, not runtime proof.
+Resolution order: Feature override → project default → registry default.
 
-## Freshness governance
+Lightweight is a valid completion state for suitable prototype work; it is not synonymous with Draft. The same Feature code is retained when promoted.
 
-`registry/freshness-rules.json` defines which dependencies are fingerprinted. `doc:reconcile` records the reviewed dependency state.
+## Risk escalation
 
-Default states:
+Risk/maturity recommendation is visible in `spec:status` and WorkPlans. Explicit low depth below recommendation is warned by default and can be configured to block through `project.profile.json.documentation.riskEscalation`.
 
-- `UNTRACKED`: adoption not started; non-blocking.
-- `FRESH`: dependencies match review snapshot.
-- `SELF_CHANGED`: tracked document changed but dependencies did not.
-- `STALE`: dependency content or relation membership changed; blocking by default.
+## Mode-aware gates
 
-Never reconcile merely to clear a warning. Review the changed dependency and update canonical docs first when needed.
+Ready/Done uses the effective Feature spec profile. Standard keeps explicit Requirement/Test traceability. Lightweight uses minimum viable Feature sections instead of manufacturing separate entities. Full adds stronger NFR/failure/security depth.
 
-## Documentation gate
+## Promotion
 
-Implementation planning targets a Feature that passes `registry/readiness-rules.json`.
+`spec:promote` generates a gap report. It never creates product facts to satisfy gates. Resolve gaps from confirmed knowledge, then apply the target level.
 
-Ready checks include Requirement/Test coverage/status, blocking Open Questions, reusable-pack review state, and known stale-document state.
+## Freshness, impact and history
 
-## WorkPlan and Task governance
-
-WorkPlans remain outside domain truth, capture context hash at submit, and materialize Tasks only after approval. `STALE_CONTEXT` still protects the exact Feature context reviewers saw even when freshness snapshots exist.
-
-## Completion governance
-
-Done requires implemented Feature status, passed tests, completed incoming Tasks, no blocking questions, and no known stale documentation. After implementation changes a tracked dependency, reconcile docs before Done.
-
-## Semantic history
-
-ChangeSets record reviewed semantic batches with actor/reason/related references and before/after snapshots. Baselines provide immutable named comparison points for UAT/release/migration.
-
-Generated files are excluded from semantic history.
+All v5.1 rules remain: use typed impact before material changes, reconcile tracked Feature documentation after dependency changes, protect WorkPlan review with context hashes, and capture meaningful semantic batches with ChangeSets/Baselines.
 
 ## No-bypass rule
 
-When freshness, Ready, WorkPlan context, Done, validation or reuse gates fail, remediate project knowledge. Do not edit hashes/rules merely to make the gate pass.
+Do not weaken spec, freshness, Ready/Done, WorkPlan or reuse policies just to clear a gate. Change depth only because project maturity/risk changed or because the team explicitly accepted the trade-off.

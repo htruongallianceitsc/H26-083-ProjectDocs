@@ -13,7 +13,7 @@ try {
     const result = evaluateGate(gate, code); reports.push(result); pass = pass && result.pass;
     if (!args.json) {
       console.log(`${gate.toUpperCase()} ${code}: ${result.pass ? 'PASS' : 'FAIL'}`);
-      for (const c of result.checks) console.log(`[${c.pass ? 'PASS' : 'FAIL'}] ${c.code}: ${c.message}`);
+      for (const c of result.checks) console.log(`[${c.pass ? (c.severity === 'warning' ? 'WARN' : 'PASS') : 'FAIL'}] ${c.code}: ${c.message}`);
     }
   }
   if (args.json) console.log(JSON.stringify(reports, null, 2));

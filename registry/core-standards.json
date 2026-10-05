@@ -16,6 +16,7 @@
     "standards/implementation-governance.md",
     "standards/document-freshness.md",
     "standards/change-history-and-baselines.md",
-    "standards/impact-analysis.md"
+    "standards/impact-analysis.md",
+    "standards/progressive-specification.md"
   ]
 }

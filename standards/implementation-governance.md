@@ -1,71 +1,59 @@
-# Implementation Governance Standard
+# Implementation Governance Standard — v5.2
 
 ## Purpose
 
-V5.0 introduces an explicit bridge from documentation to implementation without allowing Tasks to become a second source of product truth.
+Bridge documentation to implementation while allowing proportional documentation depth.
 
 ```text
 Request
-  -> Canonical Documentation
-  -> Ready Gate
+  -> Canonical Documentation at selected Spec Level
+  -> Mode-aware Ready Gate
   -> WorkPlan
   -> Review / Approval
   -> Tasks
   -> Implementation
-  -> Done Gate
+  -> Documentation reconciliation
+  -> Mode-aware Done Gate
 ```
+
+## Progressive specification rule
+
+WorkPlan/Task generation must use the Feature's effective `spec_level`. A Lightweight WorkPlan is acceptable for a suitable prototype, but it must carry that depth/maturity explicitly so downstream users do not mistake prototype evidence for production completeness.
+
+When the selected level is below risk/maturity recommendation, tooling follows `project.profile.json.documentation.riskEscalation`.
 
 ## Request rules
 
 - Capture durable requests when provenance, prioritization, or change history matters.
-- A Request describes why/what is being asked; it does not replace Feature/Requirement/API/Screen/DB/Test documentation.
-- Accepted requests must be promoted to one or more durable target entities.
+- A Request describes why/what is being asked; it does not replace canonical product documentation.
 
 ## Ready Gate
 
-A WorkPlan cannot be submitted unless the target Feature passes the machine-readable Ready gate in `registry/readiness-rules.json`.
+A WorkPlan cannot be submitted unless the target Feature passes `registry/readiness-rules.json` plus the effective profile from `registry/spec-profiles.json`.
 
-The default v5.1 gate verifies at least:
-
-- Feature status permits implementation planning.
-- At least one linked Requirement exists.
-- At least one linked Test Case exists.
-- Linked Requirements are approved/implemented.
-- Linked Tests are ready/passed.
-- No linked blocking/open Open Question remains.
-- Imported packs have approved review state when required.
-
-The gate is intentionally registry-driven so projects can tighten it without rewriting tool logic.
+The gate is registry-driven. Do not hard-code Standard requirements into prompts or assume every Feature requires separate Requirement/Test entities.
 
 ## WorkPlan rules
 
 - WorkPlans live in `.project-docs/workplans/`; they are governance artifacts, not product/domain entities.
-- Scaffolded plans have `requiresAuthoring=true` and must be reviewed/refined before submission.
-- Submission captures a hash of the Feature and its direct documentation context.
-- Approval fails if the documentation context changed after submission (`STALE_CONTEXT`).
-- Materialization fails if approved context became stale before task creation.
-- WorkPlan review never bypasses entity/relation/quality validation.
+- New scaffolds use WorkPlan schema 1.1 and snapshot effective/requested spec level, target maturity, recommendation and risk matches.
+- Scaffolded plans have `requiresAuthoring=true` and must be refined before submission.
+- Submission captures a hash of the Feature and direct documentation context.
+- Approval/materialization fail on `STALE_CONTEXT`.
 
 ## Task rules
 
-- Tasks are created only after an approved WorkPlan, unless a project explicitly documents an exception.
-- Every implementation Task must link to at least one Feature.
-- Tasks may point to Requirement/Screen/API/DB/Test/Request context but must not duplicate their canonical content.
-- Task completion evidence records implementation/test/reconciliation facts, not new product requirements.
+- Tasks are created only after an approved WorkPlan unless an explicit exception exists.
+- Tasks link back to canonical context and do not compensate for missing product knowledge by inventing behaviour.
 
 ## Done Gate
 
-The default Done gate verifies:
+Done is mode-aware and freshness-aware. It confirms implementation/task completion without falsely upgrading documentation maturity.
 
-- Feature status is `implemented`.
-- Linked Feature tests are `passed`.
-- All incoming Tasks linked through `related.features` are `done`.
-- At least one implementation Task exists.
-- No linked blocking/open Open Question remains.
+## Promotion rule
 
-A project can extend the Done gate later with documentation freshness, release, monitoring, or change-set rules.
+If a Feature moves from prototype to UAT/production, run `spec:promote`. Resolve target-level gaps in canonical docs first; then apply the promoted level and create/re-author WorkPlans against the new context.
 
+## Maintenance governance
 
-## v5.1 Maintenance Governance
-
-Before significant canonical edits, run typed graph impact analysis. After dependency changes, run freshness checks and reconcile only after review. Record meaningful reviewed batches as semantic ChangeSets and create named Baselines at UAT/release/migration boundaries.
+Continue v5.1 impact, freshness, ChangeSet and Baseline rules for all spec levels.

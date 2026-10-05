@@ -8,7 +8,7 @@ const here = path.dirname(fileURLToPath(import.meta.url));
 const toolsDir = path.resolve(here, '..');
 const sourceRoot = path.resolve(toolsDir, '..');
 const fixture = path.join(toolsDir, 'tests/fixtures/valid-project');
-const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'project-docs-v51-'));
+const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'project-docs-v52-'));
 
 function copy(src,dst){ fs.cpSync(src,dst,{recursive:true}); }
 function run(script, action, extra=[], expectOk=true){
@@ -37,6 +37,40 @@ try {
   run('docs-tool.mjs','validate');
   const initial=run('docs-tool.mjs','sync');
   if(!/6 entities, 6 typed edges/.test(initial)) throw new Error(`Expected initial 6 entities / 6 edges, got:\n${initial}`);
+
+  const lightBody = (code,title) => `---\ncode: ${code}\ntype: feature\ntitle: ${title}\nstatus: planned\nspec_level: lightweight\ntarget_maturity: prototype\nrelated:\n  requirements: []\n  tests: []\n---\n# ${title}\n\n## Business Goal\nPrototype the workflow quickly.\n\n## Actors\nInternal user.\n\n## Main Flow\n1. Open the mock.\n2. Complete the basic action.\n\n## Key Rules\n- Keep behaviour intentionally minimal.\n\n## Acceptance Summary\n- The prototype demonstrates the expected happy path.\n\n## Open Questions\n- Production hardening is deferred.\n`;
+  fs.writeFileSync(path.join(tempRoot,'docs/lightweight.md'), lightBody('FEAT-LITE','Lightweight Demo'));
+  fs.writeFileSync(path.join(tempRoot,'docs/promote.md'), lightBody('FEAT-PROMO','Promotion Demo'));
+
+  const lightCheck=run('spec-tool.mjs','check',['--feature','FEAT-LITE']);
+  if(!lightCheck.includes('effective=lightweight') || !lightCheck.includes('SPEC FEAT-LITE: PASS')) throw new Error(`Lightweight spec did not pass minimal profile:\n${lightCheck}`);
+  const lightReady=run('gate-tool.mjs','ready',['--feature','FEAT-LITE']);
+  if(!lightReady.includes('READY FEAT-LITE: PASS')) throw new Error(`Lightweight Ready gate should not require Requirement/Test entities:\n${lightReady}`);
+
+  const promoGap=run('spec-tool.mjs','promote',['--feature','FEAT-PROMO','--to','standard']);
+  if(!promoGap.includes('SPEC_RELATION_MIN:requirements') || !promoGap.includes('SPEC_RELATION_MIN:tests')) throw new Error(`Promotion gap report did not identify Standard gaps:\n${promoGap}`);
+  const promoBlocked=run('spec-tool.mjs','promote',['--feature','FEAT-PROMO','--to','standard','--apply'],false);
+  if(!promoBlocked.includes('PROMOTION_NOT_READY')) throw new Error(`Promotion apply should be blocked while gaps remain:\n${promoBlocked}`);
+  replace('docs/promote.md','  requirements: []','  requirements: [REQ-DEMO-001]');
+  replace('docs/promote.md','  tests: []','  tests: [TC-DEMO-001]');
+  const promoApply=run('spec-tool.mjs','promote',['--feature','FEAT-PROMO','--to','standard','--apply']);
+  if(!promoApply.includes('Applied spec_level=standard')) throw new Error(`Promotion did not apply after gaps were resolved:\n${promoApply}`);
+  run('gate-tool.mjs','ready',['--feature','FEAT-PROMO']);
+
+  const lightPath=path.join(tempRoot,'docs/lightweight.md');
+  const originalLight=fs.readFileSync(lightPath,'utf8');
+  fs.writeFileSync(lightPath,originalLight.replace('spec_level: lightweight','spec_level: auto').replace('Prototype the workflow quickly.','Prototype a payment workflow quickly.'));
+  const autoRisk=run('spec-tool.mjs','recommend',['--feature','FEAT-LITE']);
+  if(!autoRisk.includes('recommended=full') || !autoRisk.includes('financial-or-payment')) throw new Error(`Auto/risk recommendation did not escalate payment prototype:\n${autoRisk}`);
+  fs.writeFileSync(lightPath,originalLight.replace('Prototype the workflow quickly.','Prototype a payment workflow quickly.'));
+  const fixtureProfilePath=path.join(tempRoot,'project.profile.json');
+  const fixtureProfile=JSON.parse(fs.readFileSync(fixtureProfilePath,'utf8')); fixtureProfile.documentation.riskEscalation='block'; fs.writeFileSync(fixtureProfilePath,JSON.stringify(fixtureProfile,null,2)+'\n');
+  const riskBlocked=run('gate-tool.mjs','ready',['--feature','FEAT-LITE'],false);
+  if(!riskBlocked.includes('SPEC_RISK_LEVEL')) throw new Error(`Block escalation did not stop under-specified payment Feature:\n${riskBlocked}`);
+  fixtureProfile.documentation.riskEscalation='warn'; fs.writeFileSync(fixtureProfilePath,JSON.stringify(fixtureProfile,null,2)+'\n');
+  fs.writeFileSync(lightPath,originalLight);
+
+  run('docs-tool.mjs','validate');
 
   run('freshness-tool.mjs','reconcile',['--entity','FEAT-DEMO','--reviewer','E2E Reviewer']);
   const fresh=run('freshness-tool.mjs','check',['--entity','FEAT-DEMO']);
@@ -67,7 +101,8 @@ try {
   run('gate-tool.mjs','ready',['--feature','FEAT-DEMO']);
 
   const planId='WP-FEAT-DEMO-E2E';
-  run('plan-tool.mjs','scaffold',['--feature','FEAT-DEMO','--id',planId]);
+  const scaffoldOut=run('plan-tool.mjs','scaffold',['--feature','FEAT-DEMO','--id',planId]);
+  if(!scaffoldOut.includes('Spec level: standard')) throw new Error(`WorkPlan did not snapshot Standard spec level:\n${scaffoldOut}`);
   run('plan-tool.mjs','validate',['--id',planId]);
   run('plan-tool.mjs','author-complete',['--id',planId,'--actor','E2E Author']);
   run('plan-tool.mjs','submit',['--id',planId]);
@@ -81,7 +116,7 @@ try {
   run('plan-tool.mjs','materialize',['--id',planId,'--owner','Engineering']);
   run('docs-tool.mjs','validate');
   const after=run('docs-tool.mjs','sync');
-  if(!/9 entities, 15 typed edges/.test(after)) throw new Error(`Expected 9 entities / 15 edges after governance flow, got:\n${after}`);
+  if(!/11 entities, 17 typed edges/.test(after)) throw new Error(`Expected 11 entities / 17 edges after progressive-spec + governance flow, got:\n${after}`);
 
   const cs1=run('change-tool.mjs','changeset-scan',['--actor','E2E','--reason','Request to approved WorkPlan and tasks','--related','FEAT-DEMO']);
   if(!/Created CHG-/.test(cs1)) throw new Error(`Expected first ChangeSet:\n${cs1}`);
@@ -114,6 +149,8 @@ try {
 
   run('docs-tool.mjs','build');
   run('docs-tool.mjs','check-site');
+  const specification=JSON.parse(fs.readFileSync(path.join(tempRoot,'docs/_generated/specification.json'),'utf8'));
+  if((specification.summary?.lightweight||0)!==1 || (specification.summary?.standard||0)<2) throw new Error(`Specification summary mismatch: ${JSON.stringify(specification.summary)}`);
   const governance=JSON.parse(fs.readFileSync(path.join(tempRoot,'docs/_generated/governance.json'),'utf8'));
   if(governance.requests.length!==1 || governance.tasks.length!==2 || governance.workplans.length!==1 || governance.changesets.length!==2 || governance.baselines.length!==1) throw new Error(`Governance summary mismatch: ${JSON.stringify(governance)}`);
   const featFresh=governance.freshness.find(x=>x.code==='FEAT-DEMO');
@@ -123,7 +160,7 @@ try {
   const negative=run('docs-tool.mjs','validate',[],false);
   if(!negative.includes('BROKEN_RELATION')) throw new Error(`Negative fixture failed for wrong reason:\n${negative}`);
 
-  console.log('E2E regression: PASS (dependency freshness + Ready/Done freshness gates + Request/WorkPlan/Task flow + stale WorkPlan protection + graph impact + semantic ChangeSets + baseline drift + broken relation path).');
+  console.log('E2E regression: PASS (Lightweight/Standard progressive specs + promotion gaps + risk escalation + mode-aware gates + dependency freshness + Request/WorkPlan/Task + impact + ChangeSets + Baselines + broken relation path).');
 } finally {
   fs.rmSync(tempRoot,{recursive:true,force:true});
 }

@@ -3,6 +3,8 @@
 This is the inventory map for a real project created from the starter. Every important Module, Feature, Screen/Route, API, DB object, Integration, critical Test and mobile-specific entity should appear here and have a detailed canonical document.
 
 ## Project Profile
+- Default spec level: `<lightweight|standard|full|auto>`
+- Target maturity: `<concept|prototype|uat|production>`
 - Project code: `<PROJECT_CODE>`
 - Project types: `<web|mobile|api>`
 - Technology stacks: `<reactjs|react-native|flutter|nodejs-api|dotnet-core-api|postgresql>`
@@ -17,8 +19,8 @@ This is the inventory map for a real project created from the starter. Every imp
 |---|---|---|---|
 
 ## Features
-| Code | Module | Feature | Requirements | Screens | APIs | Tests |
-|---|---|---|---|---|---|---|
+| Code | Module | Feature | Spec Level | Maturity | Requirements | Screens | APIs | Tests |
+|---|---|---|---|---|---|---|---|---|
 
 ## Screens / Routes
 | Code | Route | Feature | Platform |
@@ -56,8 +58,8 @@ Track blockers and accepted decisions explicitly; do not hide assumptions in pro
 |---|---|---|---|
 
 ### WorkPlans
-| ID | Feature | Status | Context Review |
-|---|---|---|---|
+| ID | Feature | Spec Level | Maturity | Status | Context Review |
+|---|---|---|---|---|---|
 
 ### Implementation Tasks
 | Code | Feature | WorkPlan | Status |

@@ -8,11 +8,7 @@ gates:
       - planned
       - in_progress
       - implemented
-    requiredRelations:
-      - field: requirements
-        min: 1
-      - field: tests
-        min: 1
+    requiredRelations: []
     relatedStatuses:
       - field: requirements
         allowed:
@@ -32,6 +28,7 @@ gates:
       scope: feature-context
       mode: block-stale
       allowUntracked: true
+    specProfile: true
   done:
     entityType: feature
     allowedEntityStatuses:
@@ -55,3 +52,4 @@ gates:
       scope: feature-context
       mode: block-stale
       allowUntracked: true
+    specProfile: true

@@ -53,3 +53,12 @@ related:
 - Relation phải hợp lệ cho source type -> relation key -> target type và cardinality.
 - Không link chỉ vì cùng domain/name. Link phải có evidence nghiệp vụ/technical cụ thể.
 - Validator cảnh báo hub/degree bất thường để giảm over-link.
+
+## Progressive Specification fields (Feature)
+
+```yaml
+spec_level: lightweight       # lightweight | standard | full | auto
+target_maturity: prototype    # concept | prototype | uat | production
+```
+
+These fields are independent from `status`. If omitted, project defaults from `project.profile.json` apply.

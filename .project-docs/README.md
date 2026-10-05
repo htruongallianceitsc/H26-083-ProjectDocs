@@ -12,3 +12,9 @@ This folder stores governance/operational state, not product truth.
 - `pack-proposals/`: reusable-pack upgrade proposals.
 
 Do not manually edit hashes to bypass stale detection. Keep product/domain behaviour in `docs/`.
+
+## v5.2 Progressive Specification
+
+- `spec-promotions/` stores generated Lightweight → Standard → Full gap reports.
+- Promotion reports are review evidence, not canonical product truth.
+- Effective spec level remains on the Feature/project profile; WorkPlans snapshot it at planning time.

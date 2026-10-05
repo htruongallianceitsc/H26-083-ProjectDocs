@@ -8,12 +8,14 @@ rules:
     entityType: feature
     field: requirements
     min: 1
+    minSpecLevel: standard
   - id: feature-test
     severity: warning
     type: relation-min
     entityType: feature
     field: tests
     min: 1
+    minSpecLevel: standard
   - id: mobile-screen-states
     severity: warning
     type: body-contains

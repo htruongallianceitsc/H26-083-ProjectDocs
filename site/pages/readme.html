@@ -1,48 +1,40 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>README.md</title><link rel="stylesheet" href="../assets/style.css"></head><body><header><strong>Project Docs v5.1</strong><nav><a class="" href="../index.html">Dashboard</a><a class="" href="../profile.html">Profile</a><a class="" href="../standards.html">Standards</a><a class="" href="../packs.html">Reuse</a><a class="" href="../catalog.html">Catalog</a><a class="" href="../traceability.html">Traceability</a><a class="" href="../graph.html">Graph</a><a class="" href="../governance.html">Governance</a><a class="" href="../flows.html">Diagrams</a></nav></header><main><h1>README.md</h1><p><small>README.md</small></p><h1>Production Project Documentation Starter Kit v5.1</h1><p>Documentation-first starter kit for long-lived production Web, Mobile and API projects.</p><h2>Core model</h2><pre><code class="language-text">Core Governance Standards
-        ↓
-Project Type + Technology Standards
-        ↓
-Reuse Decision
-        ↓
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>README.md</title><link rel="stylesheet" href="../assets/style.css"></head><body><header><strong>Project Docs v5.2</strong><nav><a class="" href="../index.html">Dashboard</a><a class="" href="../profile.html">Profile</a><a class="" href="../standards.html">Standards</a><a class="" href="../packs.html">Reuse</a><a class="" href="../catalog.html">Catalog</a><a class="" href="../traceability.html">Traceability</a><a class="" href="../graph.html">Graph</a><a class="" href="../governance.html">Governance</a><a class="" href="../specification.html">Spec Levels</a><a class="" href="../flows.html">Diagrams</a></nav></header><main><h1>README.md</h1><p><small>README.md</small></p><h1>Production Project Documentation Starter Kit v5.2</h1><p>Documentation-first starter kit for long-lived Web, Mobile and API projects, with progressive documentation depth for prototypes through production.</p><h2>Core model</h2><pre><code class="language-text">Idea / Request
+      ↓
+Select Spec Level (Lightweight / Standard / Full / Auto)
+      ↓
 Project-local canonical documentation
-        ↓
+      ↓
 Typed traceability + impact analysis
-        ↓
-Request capture / promotion
-        ↓
+      ↓
 Dependency freshness review
-        ↓
-Documentation Ready Gate
-        ↓
+      ↓
+Mode-aware Ready Gate
+      ↓
 Reviewed WorkPlan
-        ↓
+      ↓
 Implementation Tasks
-        ↓
+      ↓
 Documentation reconciliation
-        ↓
-Done Gate
-        ↓
-Semantic ChangeSet / Baseline</code></pre><h2>What v5.1 adds</h2><p>V5.1 strengthens the maintenance/governance layer introduced by v5.0:</p><ul><li>dependency-aware document freshness snapshots;</li><li>Ready/Done gates that block known stale documentation;</li><li>stale-document quality validation;</li><li>graph impact analysis with typed path evidence and risk levels;</li><li>semantic ChangeSets for direct/manual documentation edits;</li><li>named Baselines for UAT/release/migration comparison;</li><li>Governance static-site summaries for freshness, ChangeSets and Baselines;</li><li>expanded E2E regression for freshness, impact and change history.</li></ul><h2>Start</h2><ul><li>Read <code>START_HERE.md</code>.</li><li>Configure <code>project.profile.json</code>.</li><li>Run <code>cd tools &amp;&amp; npm ci &amp;&amp; npm run qa</code>.</li><li>Build documentation before implementation tasks.</li><li>Before changing an existing entity, run impact analysis.</li><li>Reconcile important Feature documentation to activate dependency freshness tracking.</li><li>Use Request → Ready Gate → WorkPlan → Task for implementation work.</li><li>Record semantic batches with ChangeSets and create Baselines at UAT/release boundaries.</li></ul><h2>Sources of truth</h2><ul><li>Project/domain truth: project-local Markdown under <code>docs/</code>.</li><li>Machine-readable policy: canonical JSON under <code>registry/</code>.</li><li>Generated YAML views: <code>registry/_generated/</code> only.</li><li>WorkPlan state: <code>.project-docs/workplans/</code>.</li><li>Freshness review state: <code>.project-docs/freshness/</code>.</li><li>Semantic history: <code>.project-docs/changesets/</code> and <code>.project-docs/audit-state.json</code>.</li><li>Named snapshots: <code>.project-docs/baselines/</code>.</li><li>Reuse state: <code>.project-docs/packs.lock.json</code>, snapshots and proposals.</li><li>Generated site/reports: derived and rebuildable.</li></ul><h2>Key v5.1 commands</h2><pre><code class="language-bash">cd tools
+      ↓
+Mode-aware Done Gate
+      ↓
+Semantic ChangeSet / Baseline</code></pre><h2>What v5.2 adds</h2><p>v5.2 introduces <strong>Progressive Specification</strong> so mock/POC/prototype work does not need production-level documentation on day one:</p><ul><li>project default <code>documentation.defaultSpecLevel</code>;</li><li>Feature-level <code>spec_level</code> override;</li><li><code>target_maturity</code>: concept / prototype / UAT / production;</li><li><code>lightweight</code>, <code>standard</code>, <code>full</code>, and <code>auto</code> selection;</li><li>policy-driven <code>registry/spec-profiles.json</code>;</li><li>Lightweight Feature template with minimum viable documentation;</li><li>mode-aware Ready/Done gates;</li><li>risk/maturity recommendation and configurable escalation (<code>warn|block|off</code>);</li><li><code>spec:status</code>, <code>spec:check</code>, <code>spec:recommend</code>, <code>spec:promote</code>;</li><li>promotion gap reports without inventing missing requirements;</li><li>WorkPlans snapshot effective spec level and maturity;</li><li>static Spec Levels dashboard;</li><li>E2E regression for Lightweight → Standard promotion and risk escalation.</li></ul><p>v5.2 keeps all v5.1 freshness, impact, ChangeSet and Baseline governance.</p><h2>Start</h2><ul><li>Read <code>START_HERE.md</code>.</li><li>Configure <code>project.profile.json</code>.</li><li>Choose the default documentation depth intentionally.</li><li>Run <code>cd tools &amp;&amp; npm ci &amp;&amp; npm run qa</code>.</li><li>Build documentation at the current maturity instead of maximizing detail by default.</li><li>Promote a Feature only when its delivery maturity/risk requires deeper specification.</li></ul><h2>Sources of truth</h2><ul><li>Project/domain truth: project-local Markdown under <code>docs/</code>.</li><li>Machine-readable policy: canonical JSON under <code>registry/</code>.</li><li>Spec promotion reports: <code>.project-docs/spec-promotions/</code>.</li><li>WorkPlan state: <code>.project-docs/workplans/</code>.</li><li>Freshness review state: <code>.project-docs/freshness/</code>.</li><li>Semantic history: <code>.project-docs/changesets/</code> and <code>.project-docs/audit-state.json</code>.</li><li>Named snapshots: <code>.project-docs/baselines/</code>.</li><li>Reuse state: <code>.project-docs/packs.lock.json</code>, snapshots and proposals.</li><li>Generated site/reports: derived and rebuildable.</li></ul><h2>Key v5.2 commands</h2><pre><code class="language-bash">cd tools
+
+npm run spec:status
+npm run spec:recommend -- --feature FEAT-DASHBOARD
+npm run spec:check -- --feature FEAT-DASHBOARD
+npm run spec:promote -- --feature FEAT-DASHBOARD --to standard
 
 npm run impact -- --entity REQ-AUTH-001
 npm run doc:check -- --entity FEAT-AUTH-LOGIN
 npm run doc:reconcile -- --entity FEAT-AUTH-LOGIN --reviewer &quot;Reviewer&quot;
 
-npm run request:create -- --title &quot;...&quot; --kind change --summary &quot;...&quot;
-npm run request:promote -- --request REQST-... --target FEAT-...
-npm run gate:ready -- --feature FEAT-...
-
-npm run plan:scaffold -- --feature FEAT-...
+npm run gate:ready -- --feature FEAT-AUTH-LOGIN
+npm run plan:scaffold -- --feature FEAT-AUTH-LOGIN
 npm run plan:author-complete -- --id WP-... --actor &quot;Author&quot;
 npm run plan:submit -- --id WP-...
 npm run plan:approve -- --id WP-... --reviewer &quot;Reviewer&quot;
 npm run plan:materialize -- --id WP-... --owner &quot;Engineering&quot;
+npm run gate:done -- --feature FEAT-AUTH-LOGIN
 
-npm run gate:done -- --feature FEAT-...
-
-npm run audit:init -- --actor &quot;Team&quot;
-npm run changeset:scan -- --actor &quot;Team&quot; --reason &quot;...&quot; --related FEAT-...
-npm run baseline:create -- --name UAT-1 --actor &quot;PM&quot;
-npm run baseline:compare -- --name UAT-1
-
-npm run qa</code></pre><p>See <code>V5_1_UPGRADE_NOTES.md</code>, <code>V5_1_QA_REPORT.md</code>, <code>standards/document-freshness.md</code>, <code>standards/change-history-and-baselines.md</code>, and <code>workflows/15-freshness-change-history-impact.md</code>.</p></main><script src="assets/app.js"></script><script type="module">if(document.querySelector('.mermaid')){import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs').then(m=>{m.default.initialize({startOnLoad:true,securityLevel:'loose'});});}</script></body></html>
+npm run qa</code></pre><p>See <code>V5_2_UPGRADE_NOTES.md</code>, <code>V5_2_QA_REPORT.md</code>, <code>standards/progressive-specification.md</code>, and <code>workflows/16-progressive-specification.md</code>.</p></main><script src="assets/app.js"></script><script type="module">if(document.querySelector('.mermaid')){import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs').then(m=>{m.default.initialize({startOnLoad:true,securityLevel:'loose'});});}</script></body></html>

@@ -5,12 +5,12 @@
     "text": "CAPABILITY_PACKS.md"
   },
   {
-    "title": "Documentation Governance v5.1",
+    "title": "Documentation Governance v5.2",
     "path": "pages/docs-governance.html",
     "text": "DOCS_GOVERNANCE.md"
   },
   {
-    "title": "File Catalog — v5.1",
+    "title": "File Catalog — v5.2",
     "path": "pages/file-catalog.html",
     "text": "FILE_CATALOG.md"
   },
@@ -20,7 +20,7 @@
     "text": "PROJECT_BLUEPRINT.md"
   },
   {
-    "title": "Production Project Documentation Starter Kit v5.1",
+    "title": "Production Project Documentation Starter Kit v5.2",
     "path": "pages/readme.html",
     "text": "README.md"
   },
@@ -35,7 +35,7 @@
     "text": "REVIEW_UPGRADE_NOTES.md"
   },
   {
-    "title": "START HERE — v5.1",
+    "title": "START HERE — v5.2",
     "path": "pages/start-here.html",
     "text": "START_HERE.md"
   },
@@ -78,6 +78,16 @@
     "title": "v5.1 Upgrade Notes",
     "path": "pages/v5-1-upgrade-notes.html",
     "text": "V5_1_UPGRADE_NOTES.md"
+  },
+  {
+    "title": "v5.2 QA Report",
+    "path": "pages/v5-2-qa-report.html",
+    "text": "V5_2_QA_REPORT.md"
+  },
+  {
+    "title": "v5.2 Upgrade Notes — Progressive Specification",
+    "path": "pages/v5-2-upgrade-notes.html",
+    "text": "V5_2_UPGRADE_NOTES.md"
   },
   {
     "title": "v5.0 QA Report",
@@ -300,7 +310,7 @@
     "text": "docs/README.md"
   },
   {
-    "title": "Master Prompt — Documentation-First Project Orchestrator",
+    "title": "Master Prompt — Documentation-First Project Orchestrator v5.2",
     "path": "pages/prompts-00-master-orchestrator-prompt.html",
     "text": "prompts/00-master-orchestrator-prompt.md"
   },
@@ -490,7 +500,22 @@
     "text": "prompts/37-changeset-baseline-review.md"
   },
   {
-    "title": "Registry Governance — v5.1",
+    "title": "Prompt 38 — Select Documentation Depth",
+    "path": "pages/prompts-38-spec-level-selection.html",
+    "text": "prompts/38-spec-level-selection.md"
+  },
+  {
+    "title": "Prompt 39 — Author a Lightweight Feature Spec",
+    "path": "pages/prompts-39-lightweight-spec-authoring.html",
+    "text": "prompts/39-lightweight-spec-authoring.md"
+  },
+  {
+    "title": "Prompt 40 — Promote Specification Depth",
+    "path": "pages/prompts-40-spec-promotion-review.html",
+    "text": "prompts/40-spec-promotion-review.md"
+  },
+  {
+    "title": "Registry Governance — v5.2",
     "path": "pages/registry-readme.html",
     "text": "registry/README.md"
   },
@@ -510,7 +535,7 @@
     "text": "standards/ADDING_A_STACK.md"
   },
   {
-    "title": "Standards Architecture v5.1",
+    "title": "Standards Architecture v5.2",
     "path": "pages/standards-readme.html",
     "text": "standards/README.md"
   },
@@ -520,7 +545,7 @@
     "text": "standards/STANDARD_CATALOG.md"
   },
   {
-    "title": "AI Agent Rules — v5.1",
+    "title": "AI Agent Rules — v5.2",
     "path": "pages/standards-ai-agent-rules.html",
     "text": "standards/ai-agent-rules.md"
   },
@@ -530,12 +555,12 @@
     "text": "standards/capabilities/authentication.md"
   },
   {
-    "title": "Semantic Change History and Baselines — v5.1",
+    "title": "Semantic Change History and Baselines — v5.2",
     "path": "pages/standards-change-history-and-baselines.html",
     "text": "standards/change-history-and-baselines.md"
   },
   {
-    "title": "Definition of Ready / Done — v5.1",
+    "title": "Definition of Ready / Done — v5.2",
     "path": "pages/standards-definition-of-ready-done.html",
     "text": "standards/definition-of-ready-done.md"
   },
@@ -545,7 +570,7 @@
     "text": "standards/diagram-guidelines.md"
   },
   {
-    "title": "Document Freshness Standard — v5.1",
+    "title": "Document Freshness Standard — v5.2",
     "path": "pages/standards-document-freshness.html",
     "text": "standards/document-freshness.md"
   },
@@ -555,12 +580,12 @@
     "text": "standards/documentation-standard.md"
   },
   {
-    "title": "Graph Impact Analysis Standard — v5.1",
+    "title": "Graph Impact Analysis Standard — v5.2",
     "path": "pages/standards-impact-analysis.html",
     "text": "standards/impact-analysis.md"
   },
   {
-    "title": "Implementation Governance Standard",
+    "title": "Implementation Governance Standard — v5.2",
     "path": "pages/standards-implementation-governance.html",
     "text": "standards/implementation-governance.md"
   },
@@ -573,6 +598,11 @@
     "title": "Naming & ID Convention",
     "path": "pages/standards-naming-and-id-convention.html",
     "text": "standards/naming-and-id-convention.md"
+  },
+  {
+    "title": "Progressive Specification Standard — v5.2",
+    "path": "pages/standards-progressive-specification.html",
+    "text": "standards/progressive-specification.md"
   },
   {
     "title": "Project Type Standards",
@@ -1065,6 +1095,11 @@
     "text": "templates/integration-template.md"
   },
   {
+    "title": "<TITLE>",
+    "path": "pages/templates-lightweight-feature-template.html",
+    "text": "templates/lightweight-feature-template.md"
+  },
+  {
     "title": "<Local Storage Contract>",
     "path": "pages/templates-local-storage-template.html",
     "text": "templates/local-storage-template.md"
@@ -1180,7 +1215,7 @@
     "text": "templates/test-case-template.md"
   },
   {
-    "title": "Documentation Toolchain v5.1",
+    "title": "Documentation Toolchain v5.2",
     "path": "pages/tools-readme.html",
     "text": "tools/README.md"
   },
@@ -1293,6 +1328,11 @@
     "title": "Workflow 15 — Freshness, Impact, ChangeSet and Baseline",
     "path": "pages/workflows-15-freshness-change-history-impact.html",
     "text": "workflows/15-freshness-change-history-impact.md"
+  },
+  {
+    "title": "Workflow 16 — Progressive Specification / Lightweight Mode",
+    "path": "pages/workflows-16-progressive-specification.html",
+    "text": "workflows/16-progressive-specification.md"
   },
   {
     "title": "End-to-End Documentation Checklist",

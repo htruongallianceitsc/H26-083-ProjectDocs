@@ -1,0 +1,140 @@
+# GENERATED FILE - DO NOT EDIT
+# Source: registry/spec-profiles.json
+schemaVersion: 1.0
+levels:
+  - lightweight
+  - standard
+  - full
+defaultLevel: standard
+maturities:
+  - concept
+  - prototype
+  - uat
+  - production
+maturityMinimumLevel:
+  concept: lightweight
+  prototype: lightweight
+  uat: standard
+  production: standard
+profiles:
+  lightweight:
+    description: "Minimum viable documentation for mock, proof-of-concept, prototype and low-risk discovery work."
+    requiredSectionGroups:
+      - id: goal
+        headings:
+          - "Business Goal"
+          - Goal
+          - Overview
+      - id: actors
+        headings:
+          - Actors
+          - Users
+          - "User / Actor"
+      - id: main-flow
+        headings:
+          - "Main Flow"
+          - "Primary Flow"
+          - Flow
+      - id: key-rules
+        headings:
+          - "Key Rules"
+          - "Business Rules"
+          - Rules
+      - id: acceptance
+        headings:
+          - Acceptance
+          - "Acceptance Summary"
+          - "Acceptance Criteria"
+    ready:
+      requiredRelations: []
+    done:
+      requiredRelations: []
+  standard:
+    description: "Normal product documentation. Keeps explicit Requirement and Test traceability before implementation."
+    requiredSectionGroups: []
+    ready:
+      requiredRelations:
+        - field: requirements
+          min: 1
+        - field: tests
+          min: 1
+    done:
+      requiredRelations: []
+  full:
+    extends: standard
+    description: "Production-critical documentation for sensitive, regulated or high-impact work."
+    requiredSectionGroups:
+      - id: error-flows
+        headings:
+          - "Error / Exception Flows"
+          - "Error Flows"
+          - "Failure Scenarios"
+      - id: audit-logging
+        headings:
+          - "Audit / Logging"
+          - "Audit and Logging"
+          - Observability
+      - id: edge-cases
+        headings:
+          - "Edge Cases"
+          - "Boundary Cases"
+      - id: security-privacy
+        headings:
+          - "Security / Privacy"
+          - "Security and Privacy"
+          - Security
+    ready:
+      requiredRelations:
+        - field: nfrs
+          min: 1
+    done:
+      requiredRelations: []
+riskEscalation:
+  defaultEnforcement: warn
+  rules:
+    - id: financial-or-payment
+      minimumLevel: full
+      terms:
+        - payment
+        - payout
+        - withdrawal
+        - "financial calculation"
+        - "interest rate"
+        - "money movement"
+        - billing
+    - id: privacy-or-identity
+      minimumLevel: full
+      terms:
+        - pii
+        - "personal data"
+        - "identity document"
+        - passport
+        - "driver licence"
+        - kyc
+        - "sensitive data"
+    - id: destructive-data-change
+      minimumLevel: full
+      terms:
+        - "database migration"
+        - "schema migration"
+        - "destructive migration"
+        - backfill
+        - "data deletion"
+        - "purge data"
+    - id: auth-or-security
+      minimumLevel: standard
+      terms:
+        - authentication
+        - authorization
+        - login
+        - permission
+        - role
+        - security
+    - id: external-integration
+      minimumLevel: standard
+      terms:
+        - "external integration"
+        - third-party
+        - webhook
+        - "payment gateway"
+        - "oauth provider"

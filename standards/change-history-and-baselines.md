@@ -1,4 +1,4 @@
-# Semantic Change History and Baselines — v5.1
+# Semantic Change History and Baselines — v5.2
 
 ## Purpose
 

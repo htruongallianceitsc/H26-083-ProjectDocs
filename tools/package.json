@@ -1,7 +1,7 @@
 {
   "name": "production-project-docs-tools",
   "private": true,
-  "version": "5.1.0",
+  "version": "5.2.0",
   "type": "module",
   "engines": {
     "node": ">=20"
@@ -26,7 +26,7 @@
     "docs:clean": "node scripts/docs-tool.mjs clean",
     "docs:dev": "node scripts/docs-tool.mjs watch",
     "test:e2e": "node scripts/e2e-test.mjs",
-    "docs:all": "npm run registry:check && npm run profile:check && npm run pack:validate && npm run docs:validate && npm run doc:check && npm run docs:sync && npm run docs:build && npm run docs:check-site",
+    "docs:all": "npm run registry:check && npm run profile:check && npm run pack:validate && npm run spec:check && npm run docs:validate && npm run doc:check && npm run docs:sync && npm run docs:build && npm run docs:check-site",
     "qa": "npm run docs:all && npm run test:e2e",
     "request:create": "node scripts/request-tool.mjs create",
     "request:list": "node scripts/request-tool.mjs list",
@@ -52,6 +52,10 @@
     "changeset:show": "node scripts/change-tool.mjs changeset-show",
     "baseline:create": "node scripts/change-tool.mjs baseline-create",
     "baseline:list": "node scripts/change-tool.mjs baseline-list",
-    "baseline:compare": "node scripts/change-tool.mjs baseline-compare"
+    "baseline:compare": "node scripts/change-tool.mjs baseline-compare",
+    "spec:status": "node scripts/spec-tool.mjs status",
+    "spec:check": "node scripts/spec-tool.mjs check",
+    "spec:recommend": "node scripts/spec-tool.mjs recommend",
+    "spec:promote": "node scripts/spec-tool.mjs promote"
   }
 }

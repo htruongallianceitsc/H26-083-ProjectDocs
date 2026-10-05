@@ -1521,7 +1521,7 @@ This extends the earlier Module -> Feature -> Requirement -> Screen/API/DB/Test 
 
 ---
 
-# v5.1 Governance Additions
+# v5.2 Governance Additions
 
 The long-term project structure now also reserves these implementation-governance paths:
 
@@ -1545,3 +1545,26 @@ project-root/
 ```
 
 `docs/` remains project/domain truth. `.project-docs/` holds review, planning and history state used to govern that truth.
+
+---
+
+# v5.2 — Progressive Specification / Lightweight Mode
+
+Không phải mọi project hoặc Feature đều cần decomposition production-level ngay từ đầu. v5.2 thêm `spec_level` như một dimension độc lập với lifecycle:
+
+```text
+lightweight -> standard -> full
+      ^           ^          ^
+ prototype     normal       high-risk /
+ / mock         product      production-critical
+```
+
+- Lightweight vẫn dùng Feature canonical bình thường.
+- Không tạo duplicate entity tree riêng cho mock.
+- `registry/spec-profiles.json` định nghĩa minimum documentation theo level.
+- `target_maturity` cho biết concept/prototype/UAT/production.
+- Ready/Done gate resolve theo effective level.
+- `spec:promote` sinh gap report trước khi nâng level.
+- Risk rules có thể recommend Standard/Full nếu payment/privacy/security/migration/integration làm Lightweight trở nên không phù hợp.
+
+Mục tiêu là **progressive normalization**: tài liệu ngắn nhưng đủ dùng ở giai đoạn đầu, sau đó extract thành Requirement/Test/API/Screen/NFR khi maturity thực sự cần, không viết lại Feature từ đầu.

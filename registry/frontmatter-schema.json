@@ -39,6 +39,8 @@
     "workplan_id": "string",
     "task_kind": "string",
     "estimate": "string",
-    "source_request": "string"
+    "source_request": "string",
+    "spec_level": "string",
+    "target_maturity": "string"
   }
 }

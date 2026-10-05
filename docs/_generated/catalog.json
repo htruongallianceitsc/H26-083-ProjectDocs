@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-05T01:28:56.639Z",
+  "generatedAt": "2026-10-05T01:50:55.687Z",
   "documents": [
     {
       "path": "CAPABILITY_PACKS.md",
@@ -10,14 +10,14 @@
     },
     {
       "path": "DOCS_GOVERNANCE.md",
-      "title": "Documentation Governance v5.1",
+      "title": "Documentation Governance v5.2",
       "code": null,
       "type": null,
       "status": null
     },
     {
       "path": "FILE_CATALOG.md",
-      "title": "File Catalog — v5.1",
+      "title": "File Catalog — v5.2",
       "code": null,
       "type": null,
       "status": null
@@ -31,7 +31,7 @@
     },
     {
       "path": "README.md",
-      "title": "Production Project Documentation Starter Kit v5.1",
+      "title": "Production Project Documentation Starter Kit v5.2",
       "code": null,
       "type": null,
       "status": null
@@ -52,7 +52,7 @@
     },
     {
       "path": "START_HERE.md",
-      "title": "START HERE — v5.1",
+      "title": "START HERE — v5.2",
       "code": null,
       "type": null,
       "status": null
@@ -109,6 +109,20 @@
     {
       "path": "V5_1_UPGRADE_NOTES.md",
       "title": "v5.1 Upgrade Notes",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "V5_2_QA_REPORT.md",
+      "title": "v5.2 QA Report",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "V5_2_UPGRADE_NOTES.md",
+      "title": "v5.2 Upgrade Notes — Progressive Specification",
       "code": null,
       "type": null,
       "status": null
@@ -423,7 +437,7 @@
     },
     {
       "path": "prompts/00-master-orchestrator-prompt.md",
-      "title": "Master Prompt — Documentation-First Project Orchestrator",
+      "title": "Master Prompt — Documentation-First Project Orchestrator v5.2",
       "code": null,
       "type": null,
       "status": null
@@ -688,8 +702,29 @@
       "status": null
     },
     {
+      "path": "prompts/38-spec-level-selection.md",
+      "title": "Prompt 38 — Select Documentation Depth",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "prompts/39-lightweight-spec-authoring.md",
+      "title": "Prompt 39 — Author a Lightweight Feature Spec",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "prompts/40-spec-promotion-review.md",
+      "title": "Prompt 40 — Promote Specification Depth",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
       "path": "registry/README.md",
-      "title": "Registry Governance — v5.1",
+      "title": "Registry Governance — v5.2",
       "code": null,
       "type": null,
       "status": null
@@ -717,7 +752,7 @@
     },
     {
       "path": "standards/README.md",
-      "title": "Standards Architecture v5.1",
+      "title": "Standards Architecture v5.2",
       "code": null,
       "type": null,
       "status": null
@@ -731,7 +766,7 @@
     },
     {
       "path": "standards/ai-agent-rules.md",
-      "title": "AI Agent Rules — v5.1",
+      "title": "AI Agent Rules — v5.2",
       "code": null,
       "type": null,
       "status": null
@@ -745,14 +780,14 @@
     },
     {
       "path": "standards/change-history-and-baselines.md",
-      "title": "Semantic Change History and Baselines — v5.1",
+      "title": "Semantic Change History and Baselines — v5.2",
       "code": null,
       "type": null,
       "status": null
     },
     {
       "path": "standards/definition-of-ready-done.md",
-      "title": "Definition of Ready / Done — v5.1",
+      "title": "Definition of Ready / Done — v5.2",
       "code": null,
       "type": null,
       "status": null
@@ -766,7 +801,7 @@
     },
     {
       "path": "standards/document-freshness.md",
-      "title": "Document Freshness Standard — v5.1",
+      "title": "Document Freshness Standard — v5.2",
       "code": null,
       "type": null,
       "status": null
@@ -780,14 +815,14 @@
     },
     {
       "path": "standards/impact-analysis.md",
-      "title": "Graph Impact Analysis Standard — v5.1",
+      "title": "Graph Impact Analysis Standard — v5.2",
       "code": null,
       "type": null,
       "status": null
     },
     {
       "path": "standards/implementation-governance.md",
-      "title": "Implementation Governance Standard",
+      "title": "Implementation Governance Standard — v5.2",
       "code": null,
       "type": null,
       "status": null
@@ -802,6 +837,13 @@
     {
       "path": "standards/naming-and-id-convention.md",
       "title": "Naming & ID Convention",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/progressive-specification.md",
+      "title": "Progressive Specification Standard — v5.2",
       "code": null,
       "type": null,
       "status": null
@@ -1493,6 +1535,13 @@
       "status": "draft"
     },
     {
+      "path": "templates/lightweight-feature-template.md",
+      "title": "<TITLE>",
+      "code": "<CODE>",
+      "type": "feature",
+      "status": "draft"
+    },
+    {
       "path": "templates/local-storage-template.md",
       "title": "<Local Storage Contract>",
       "code": "<LS-XXX>",
@@ -1655,7 +1704,7 @@
     },
     {
       "path": "tools/README.md",
-      "title": "Documentation Toolchain v5.1",
+      "title": "Documentation Toolchain v5.2",
       "code": null,
       "type": null,
       "status": null
@@ -1810,6 +1859,13 @@
     {
       "path": "workflows/15-freshness-change-history-impact.md",
       "title": "Workflow 15 — Freshness, Impact, ChangeSet and Baseline",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "workflows/16-progressive-specification.md",
+      "title": "Workflow 16 — Progressive Specification / Lightweight Mode",
       "code": null,
       "type": null,
       "status": null

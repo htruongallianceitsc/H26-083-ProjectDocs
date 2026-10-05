@@ -19,5 +19,29 @@
     "requireApprovedWorkPlan",
     "blockOnStaleWorkPlanContext",
     "blockOnStaleDocumentation"
+  ],
+  "documentationFields": [
+    "defaultSpecLevel",
+    "targetMaturity",
+    "riskEscalation",
+    "exclude",
+    "staleDetection"
+  ],
+  "specLevelsEnum": [
+    "lightweight",
+    "standard",
+    "full",
+    "auto"
+  ],
+  "targetMaturityEnum": [
+    "concept",
+    "prototype",
+    "uat",
+    "production"
+  ],
+  "riskEscalationEnum": [
+    "warn",
+    "block",
+    "off"
   ]
 }

@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { ROOT, parseArgs, findEntityByCode, writeMarkdownEntity } from '../lib/common.mjs';
 import { evaluateGate, featureContext, featureContextHash, listWorkplans, loadWorkplan, saveWorkplan, validateWorkplan, workplanPath } from '../lib/governance.mjs';
+import { resolveSpec } from '../lib/specification.mjs';
 
 const action = process.argv[2] || 'help';
 const args = parseArgs(process.argv.slice(3));
@@ -21,9 +22,12 @@ function scaffold() {
   const id = String(args.id || nextPlanId(featureCode));
   if (fs.existsSync(workplanPath(id))) throw new Error(`WorkPlan already exists: ${id}`);
   const related = context.feature.related || {};
+  const spec = resolveSpec(featureCode);
   const created = now();
   const plan = {
-    id, schemaVersion:'1.0', featureCode, title:String(args.title || `Implementation plan for ${context.feature.title}`),
+    id, schemaVersion:'1.1', featureCode, title:String(args.title || `Implementation plan for ${context.feature.title}`),
+    specLevel:spec.effectiveLevel, requestedSpecLevel:spec.requestedLevel, targetMaturity:spec.targetMaturity, recommendedSpecLevel:spec.recommendedLevel,
+    specAssessment:{belowRecommended:spec.belowRecommended,enforcement:spec.enforcement,riskMatches:spec.riskMatches},
     status:'draft', createdAt:created, updatedAt:created, requiresAuthoring:true,
     assumptions:[], risks:[], acceptanceCriteria:[`Implement ${context.feature.title} according to approved documentation.`,`Pass all linked test cases and satisfy the Done gate.`],
     context, submittedContextHash:null, review:{},
@@ -34,6 +38,8 @@ function scaffold() {
   };
   saveWorkplan(plan);
   console.log(`Scaffolded ${id} at ${path.relative(ROOT,workplanPath(id)).replaceAll(path.sep,'/')}`);
+  console.log(`Spec level: ${spec.effectiveLevel} (requested=${spec.requestedLevel}, maturity=${spec.targetMaturity}, recommended=${spec.recommendedLevel})`);
+  if(spec.belowRecommended) console.log(`WARNING: selected spec level is below recommendation; enforcement=${spec.enforcement}.`);
   console.log('requiresAuthoring=true: review assumptions, risks, acceptance criteria and task breakdown before author-complete/submit.');
 }
 function validate() {
@@ -55,6 +61,7 @@ function submit() {
   if(plan.requiresAuthoring) throw new Error('WorkPlan still requires authoring; review it and run author-complete first.');
   const gate=evaluateGate('ready',plan.featureCode);
   if(!gate.pass) throw new Error(`READY_GATE_FAILED: ${gate.checks.filter(x=>!x.pass).map(x=>x.code).join(', ')}`);
+  const spec=resolveSpec(plan.featureCode); plan.specLevel=spec.effectiveLevel; plan.requestedSpecLevel=spec.requestedLevel; plan.targetMaturity=spec.targetMaturity; plan.recommendedSpecLevel=spec.recommendedLevel; plan.specAssessment={belowRecommended:spec.belowRecommended,enforcement:spec.enforcement,riskMatches:spec.riskMatches};
   plan.status='submitted'; plan.submittedAt=now(); plan.submittedContextHash=featureContextHash(plan.featureCode); plan.context=featureContext(plan.featureCode); saveWorkplan(plan);
   console.log(`Submitted ${id}; context hash ${plan.submittedContextHash}`);
 }

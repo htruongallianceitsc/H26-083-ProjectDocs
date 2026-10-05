@@ -20,7 +20,10 @@
       "pattern": "^WP-[A-Z0-9-]+$"
     },
     "schemaVersion": {
-      "const": "1.0"
+      "enum": [
+        "1.0",
+        "1.1"
+      ]
     },
     "featureCode": {
       "type": "string"
@@ -113,6 +116,39 @@
       "items": {
         "type": "string"
       }
+    },
+    "specLevel": {
+      "enum": [
+        "lightweight",
+        "standard",
+        "full"
+      ]
+    },
+    "requestedSpecLevel": {
+      "enum": [
+        "lightweight",
+        "standard",
+        "full",
+        "auto"
+      ]
+    },
+    "targetMaturity": {
+      "enum": [
+        "concept",
+        "prototype",
+        "uat",
+        "production"
+      ]
+    },
+    "recommendedSpecLevel": {
+      "enum": [
+        "lightweight",
+        "standard",
+        "full"
+      ]
+    },
+    "specAssessment": {
+      "type": "object"
     }
   }
 }

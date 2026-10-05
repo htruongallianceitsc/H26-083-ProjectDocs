@@ -1,6 +1,6 @@
 {
   "projectCode": "STARTER",
-  "projectName": "Production Project Documentation Starter Kit v5.1",
+  "projectName": "Production Project Documentation Starter Kit v5.2",
   "projectTypes": [],
   "technologyStacks": [],
   "implementationGate": {
@@ -12,5 +12,10 @@
     "requireApprovedWorkPlan": true,
     "blockOnStaleWorkPlanContext": true,
     "blockOnStaleDocumentation": true
+  },
+  "documentation": {
+    "defaultSpecLevel": "standard",
+    "targetMaturity": "production",
+    "riskEscalation": "warn"
   }
 }
