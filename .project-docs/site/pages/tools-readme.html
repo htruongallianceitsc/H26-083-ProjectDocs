@@ -1,4 +1,4 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>tools/README.md</title><link rel="stylesheet" href="../assets/style.css"></head><body><header><strong>Project Docs v5.6</strong><nav><a class="" href="../index.html">Dashboard</a><a class="" href="../profile.html">Profile</a><a class="" href="../standards.html">Standards</a><a class="" href="../source.html">Source</a><a class="" href="../packs.html">Reuse</a><a class="" href="../catalog.html">Catalog</a><a class="" href="../traceability.html">Traceability</a><a class="" href="../graph.html">Graph</a><a class="" href="../governance.html">Governance</a><a class="" href="../specification.html">Spec Levels</a><a class="" href="../flows.html">Diagrams</a></nav></header><main><h1>tools/README.md</h1><p><small>tools/README.md</small></p><h1>Documentation Toolchain v5.6</h1><p>Requires Node.js 20+. The runtime uses only Node.js standard-library modules.</p><h2>Full QA</h2><pre><code class="language-bash">npm ci
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>tools/README.md</title><link rel="stylesheet" href="../assets/style.css"></head><body><header><strong>Project Docs v5.7</strong><nav><a class="" href="../index.html">Dashboard</a><a class="" href="../profile.html">Profile</a><a class="" href="../standards.html">Standards</a><a class="" href="../source.html">Source</a><a class="" href="../brownfield.html">Brownfield</a><a class="" href="../packs.html">Reuse</a><a class="" href="../catalog.html">Catalog</a><a class="" href="../traceability.html">Traceability</a><a class="" href="../graph.html">Graph</a><a class="" href="../governance.html">Governance</a><a class="" href="../specification.html">Spec Levels</a><a class="" href="../flows.html">Diagrams</a></nav></header><main><h1>tools/README.md</h1><p><small>tools/README.md</small></p><h1>Documentation Toolchain v5.7</h1><p>Requires Node.js 20+. The runtime uses only Node.js standard-library modules.</p><h2>Full QA</h2><pre><code class="language-bash">npm ci
 npm run qa</code></pre><p>The QA pipeline validates workspace layout, registries, source bases, source workspace, source intelligence, progressive specs, documentation, local indexes, Doctor, freshness, generated docs/site, and E2E regression.</p><h2>Workspace layout</h2><pre><code class="language-bash">npm run layout:check
 npm run layout:migrate
 npm run layout:migrate -- --apply</code></pre><p><code>layout:migrate</code> previews by default. v5.6 resolves canonical paths from <code>starter-kit.json.workspaceLayout</code>; legacy v5.5 root names remain accepted as migration aliases by the common path resolver.</p><h2>Entity model hardening</h2><pre><code class="language-bash">npm run entity:identity-status
@@ -11,7 +11,15 @@ npm run source:init -- --code APP-WEB --profile react-spa --variant production
 npm run source:adopt -- --code APP-WEB --profile react-spa --root frontend
 npm run source:check
 npm run source:status
-npm run source:upgrade-check -- --app APP-WEB</code></pre><h2>Source intelligence and Git impact</h2><pre><code class="language-bash">npm run source:scan
+npm run source:upgrade-check -- --app APP-WEB</code></pre><h2>Brownfield adoption and reverse engineering</h2><pre><code class="language-bash">npm run brownfield:inventory -- --app APP-WEB
+npm run brownfield:candidates -- --app APP-WEB
+npm run brownfield:status
+npm run brownfield:review -- --candidate CAND-... --decision accepted --reviewer &quot;Reviewer&quot;
+npm run brownfield:promote -- --candidate CAND-... --reviewer &quot;Reviewer&quot;
+npm run brownfield:reconcile -- --app APP-WEB
+npm run gate:baseline -- --app APP-WEB
+npm run brownfield:baseline -- --app APP-WEB --actor &quot;Team&quot;
+npm run brownfield:refactor-plan -- --app APP-WEB</code></pre><p>Inventory/candidates/reconciliation/refactor plans are derived runtime evidence. Candidate promotion is review-gated. <code>brownfield:refactor-plan</code> never moves source; use a reviewed WorkPlan for physical normalization.</p><h2>Source intelligence and Git impact</h2><pre><code class="language-bash">npm run source:scan
 npm run source:map -- --path apps/web/src/features/auth/Login.tsx
 npm run source:map -- --entity FEAT-AUTH-LOGIN
 npm run git:status

@@ -1,7 +1,7 @@
 {
   "name": "production-project-docs-tools",
   "private": true,
-  "version": "5.6.0",
+  "version": "5.7.0",
   "type": "module",
   "engines": {
     "node": ">=20"
@@ -62,6 +62,15 @@
     "source:recommend": "node scripts/source-tool.mjs recommend",
     "source:init": "node scripts/source-tool.mjs init",
     "source:adopt": "node scripts/source-tool.mjs adopt",
+    "brownfield:inventory": "node scripts/brownfield-tool.mjs inventory",
+    "brownfield:candidates": "node scripts/brownfield-tool.mjs candidates",
+    "brownfield:review": "node scripts/brownfield-tool.mjs review",
+    "brownfield:promote": "node scripts/brownfield-tool.mjs promote",
+    "brownfield:reconcile": "node scripts/brownfield-tool.mjs reconcile",
+    "brownfield:status": "node scripts/brownfield-tool.mjs status",
+    "brownfield:refactor-plan": "node scripts/brownfield-tool.mjs refactor-plan",
+    "brownfield:baseline": "node scripts/brownfield-tool.mjs baseline-create",
+    "gate:baseline": "node scripts/brownfield-tool.mjs baseline-gate",
     "source:check": "node scripts/source-tool.mjs check",
     "source:status": "node scripts/source-tool.mjs status",
     "source:upgrade-check": "node scripts/source-tool.mjs upgrade-check",

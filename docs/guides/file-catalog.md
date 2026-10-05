@@ -1,4 +1,4 @@
-# File Catalog — v5.6
+# File Catalog — v5.7
 
 Counts exclude generated `.project-docs/site/`, `docs/_generated/`, and `tools/node_modules/` because they are reproducible artifacts.
 
@@ -103,3 +103,16 @@ Historical release/upgrade artifacts and general guides do not belong at root.
 - `tools/scripts/layout-tool.mjs` — layout validation and preview/apply migration.
 - `tools/lib/common.mjs` — centralized workspace path resolution and legacy alias compatibility.
 - `docs/history/V5_6_UPGRADE_NOTES.md` and `docs/history/V5_6_QA_REPORT.md`.
+
+## v5.7 Brownfield files
+
+| Path | Role | Canonical? |
+|---|---|---|
+| `kit/registry/brownfield.json` | Brownfield policy, confidence thresholds, adapter hints and normalization safety | Yes, framework policy |
+| `kit/standards/brownfield-adoption.md` | Adoption/reconciliation standard | Yes, framework standard |
+| `kit/workflows/18-brownfield-adoption.md` | End-to-end existing-project workflow | Yes, framework workflow |
+| `kit/templates/brownfield/` | Candidate/reconciliation/refactor review templates | Yes, framework templates |
+| `.project-docs/brownfield/inventory.json` | Source inventory evidence | No, derived |
+| `.project-docs/brownfield/candidates.json` | Reviewable candidate graph and review/promotion state | Governance runtime; not domain truth |
+| `.project-docs/brownfield/reconciliation.json` | Brownfield mismatch/gate evidence | No, derived |
+| `.project-docs/brownfield/refactor-plan.json` | Non-executing source-normalization proposal | No, planning evidence |

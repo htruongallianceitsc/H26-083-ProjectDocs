@@ -1,0 +1,21 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>kit/workflows/18-brownfield-adoption.md</title><link rel="stylesheet" href="../assets/style.css"></head><body><header><strong>Project Docs v5.7</strong><nav><a class="" href="../index.html">Dashboard</a><a class="" href="../profile.html">Profile</a><a class="" href="../standards.html">Standards</a><a class="" href="../source.html">Source</a><a class="" href="../brownfield.html">Brownfield</a><a class="" href="../packs.html">Reuse</a><a class="" href="../catalog.html">Catalog</a><a class="" href="../traceability.html">Traceability</a><a class="" href="../graph.html">Graph</a><a class="" href="../governance.html">Governance</a><a class="" href="../specification.html">Spec Levels</a><a class="" href="../flows.html">Diagrams</a></nav></header><main><h1>kit/workflows/18-brownfield-adoption.md</h1><p><small>kit/workflows/18-brownfield-adoption.md</small></p><h1>Workflow 18 — Brownfield Adoption &amp; Reverse Engineering</h1><pre><code class="language-text">Existing repository/application
+   ↓
+source:adopt
+   ↓
+brownfield:inventory
+   ↓
+brownfield:candidates
+   ↓
+brownfield:review
+   ↓
+brownfield:promote
+   ↓
+brownfield:reconcile
+   ↓
+gate:baseline
+   ↓
+brownfield:baseline
+   ↓
+Optional brownfield:refactor-plan → reviewed WorkPlan
+   ↓
+Normal Ready → WorkPlan → implementation → Done</code></pre><h2>Adopt in place first</h2><p>Prefer adopting the existing root first. Do not force a physical migration to <code>apps/</code>, <code>packages/</code>, <code>tests/</code> or <code>infra/</code> before the system is understood.</p><h2>Candidate graph</h2><p>Candidates are review objects backed by source evidence. They are not domain entities and live under <code>.project-docs/brownfield/</code>.</p><h2>Source normalization</h2><p><code>brownfield:refactor-plan</code> proposes target roots but does not mutate source. Convert the proposal into a reviewed WorkPlan before moving files or updating imports/build paths.</p></main><script src="assets/app.js"></script><script type="module">if(document.querySelector('.mermaid')){import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs').then(m=>{m.default.initialize({startOnLoad:true,securityLevel:'loose'});});}</script></body></html>

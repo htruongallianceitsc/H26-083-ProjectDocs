@@ -76,6 +76,17 @@ Track blockers and accepted decisions explicitly; do not hide assumptions in pro
 > Requests explain why change entered the project. WorkPlans explain the reviewed implementation plan. Tasks execute the plan. None of these replace canonical Feature/Requirement/Rule/API/Screen/DB/Test documentation.
 
 
+## v5.7 Brownfield Adoption
+
+For projects with existing source, record the onboarding state explicitly:
+
+- Adoption mode: `<greenfield|brownfield>`
+- Strategy: `<native|adopt-in-place|normalize>`
+- Baseline status: `<not-required|in-progress|reconciled>`
+- Initial brownfield baseline: `<baseline id>`
+
+Brownfield runtime evidence lives under `.project-docs/brownfield/` and is not canonical until reviewed/promoted. Track unresolved candidate/reconciliation findings before establishing the initial baseline. Source normalization proposals must become reviewed WorkPlans before physical file moves.
+
 ## v5.6 Workspace Layout
 
 The repository separates five concerns explicitly:

@@ -1,0 +1,154 @@
+# GENERATED FILE - DO NOT EDIT
+# Source: kit/registry/brownfield.json
+schemaVersion: 1.0
+runtimeDirectory: .project-docs/brownfield
+candidatePolicy:
+  autoPromote: false
+  highConfidence: 0.85
+  mediumConfidence: 0.6
+  requireReviewBeforePromote: true
+  requireReviewer: true
+adoption:
+  allowExistingRoots: true
+  requireApplicationBoundary: true
+  defaultStrategy: adopt-in-place
+reconciliation:
+  requireInventory: true
+  requireCandidateReview: true
+  requireAcceptedCandidatesPromoted: true
+  blockSeverities:
+    - high
+  warnOnLowConfidence: true
+normalization:
+  requireReviewedPlan: true
+  requireBaselineBeforeExecution: true
+  allowDirectMove: false
+  canonicalRoots:
+    - apps
+    - packages
+    - tests
+    - infra
+adapters:
+  react-spa:
+    featureDirectories:
+      - features
+      - modules
+    screenDirectories:
+      - pages
+      - screens
+      - views
+    apiDirectories:
+      - api
+      - services
+    testPatterns:
+      - .test.
+      - .spec.
+      - /tests/
+      - /__tests__/
+    databaseDirectories:
+      - models
+      - entities
+      - migrations
+      - database
+      - db
+  nextjs:
+    featureDirectories:
+      - features
+      - modules
+    screenDirectories:
+      - app
+      - pages
+    apiDirectories:
+      - api
+      - server
+    testPatterns:
+      - .test.
+      - .spec.
+      - /tests/
+      - /__tests__/
+    databaseDirectories:
+      - models
+      - entities
+      - migrations
+      - prisma
+      - database
+      - db
+  react-native-expo:
+    featureDirectories:
+      - features
+      - modules
+    screenDirectories:
+      - screens
+      - pages
+    apiDirectories:
+      - services
+      - api
+    testPatterns:
+      - .test.
+      - .spec.
+      - /tests/
+      - /__tests__/
+    databaseDirectories:
+      - storage
+      - database
+      - db
+  flutter-bloc:
+    featureDirectories:
+      - features
+      - modules
+    screenDirectories:
+      - screens
+      - pages
+      - presentation
+    apiDirectories:
+      - services
+      - api
+      - data
+    testPatterns:
+      - _test.dart
+      - /test/
+    databaseDirectories:
+      - storage
+      - database
+      - db
+      - drift
+  aspnet-core-api:
+    featureDirectories:
+      - Features
+      - Modules
+      - Application
+    screenDirectories: []
+    apiDirectories:
+      - Controllers
+      - Endpoints
+    testPatterns:
+      - .Tests/
+      - .Test/
+      - Tests/
+      - Test/
+    databaseDirectories:
+      - Entities
+      - Models
+      - Migrations
+      - Persistence
+      - Database
+  nodejs-api:
+    featureDirectories:
+      - features
+      - modules
+    screenDirectories: []
+    apiDirectories:
+      - routes
+      - controllers
+      - api
+    testPatterns:
+      - .test.
+      - .spec.
+      - /tests/
+      - /__tests__/
+    databaseDirectories:
+      - models
+      - entities
+      - migrations
+      - database
+      - db

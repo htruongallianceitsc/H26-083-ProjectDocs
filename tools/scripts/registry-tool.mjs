@@ -16,7 +16,8 @@ const sources = [
   ['entity-policy.json', 'entity-policy.yaml'],
   ['source-intelligence.json', 'source-intelligence.yaml'],
   ['local-engine.json', 'local-engine.yaml'],
-  ['views.json', 'views.yaml']
+  ['views.json', 'views.yaml'],
+  ['brownfield.json', 'brownfield.yaml']
 ];
 
 function quote(value) {
@@ -77,7 +78,12 @@ function check() {
   const spec = loadJson('registry/spec-profiles.json', {levels:[],profiles:{}});
   const sourceProfiles = loadJson('registry/source-profiles.json', {profiles:{}});
   const entityPolicy = loadJson('registry/entity-policy.json', {});
+  const brownfield = loadJson('registry/brownfield.json', {});
   const legacy = ['entity-types.yaml','relation-map.yaml','quality-rules.yaml','status-lifecycle.yaml'];
+  for (const id of Object.keys(brownfield.adapters || {})) if (!sourceProfiles.profiles?.[id]) errors.push(`brownfield: adapter references unknown source profile ${id}`);
+  if (brownfield.candidatePolicy?.autoPromote !== false) errors.push('brownfield: candidatePolicy.autoPromote must default to false');
+  if (!brownfield.runtimeDirectory) errors.push('brownfield: runtimeDirectory is required');
+  if (brownfield.normalization?.allowDirectMove !== false) errors.push('brownfield: normalization.allowDirectMove must default to false');
   for (const f of legacy) if (fs.existsSync(workspaceAbs('registry', f))) errors.push(`Legacy hand-maintained registry mirror still exists: ${workspaceRel('registry', f)}`);
   for (const r of relations) {
     if (r.from !== '*' && !types[r.from]) errors.push(`relation-map: unknown from type ${r.from}`);
@@ -145,7 +151,7 @@ function check() {
   if (!fs.existsSync(statusPath)) errors.push(`Missing generated mirror ${workspaceRel('registry','_generated','status-lifecycle.yaml')}; run npm run registry:sync`);
   else if (fs.readFileSync(statusPath,'utf8') !== statusLifecycleText()) errors.push(`Generated mirror drift: ${workspaceRel('registry','_generated','status-lifecycle.yaml')}`);
   const starter = loadJson('starter-kit.json',{});
-  if (starter.version !== '5.6.0' || starter.schemaVersion !== '5.6.0') errors.push(`starter-kit.json expected version/schemaVersion 5.6.0, got ${starter.version}/${starter.schemaVersion}`);
+  if (starter.version !== '5.7.0' || starter.schemaVersion !== '5.7.0') errors.push(`starter-kit.json expected version/schemaVersion 5.7.0, got ${starter.version}/${starter.schemaVersion}`);
   const layout = starter.documentationLayout || {};
   if (!layout.historyDirectory) errors.push('starter-kit.json documentationLayout.historyDirectory is required');
   else if (!fs.existsSync(path.join(ROOT, layout.historyDirectory))) errors.push(`Configured history directory does not exist: ${layout.historyDirectory}`);

@@ -1,6 +1,6 @@
 {
   "projectCode": "STARTER",
-  "projectName": "Production Project Documentation Starter Kit v5.6",
+  "projectName": "Production Project Documentation Starter Kit v5.7",
   "projectTypes": [],
   "technologyStacks": [],
   "implementationGate": {
@@ -17,5 +17,10 @@
     "defaultSpecLevel": "standard",
     "targetMaturity": "production",
     "riskEscalation": "warn"
+  },
+  "adoption": {
+    "mode": "greenfield",
+    "strategy": "native",
+    "baselineStatus": "not-required"
   }
 }

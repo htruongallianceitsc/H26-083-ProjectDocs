@@ -43,5 +43,26 @@
     "warn",
     "block",
     "off"
+  ],
+  "adoptionFields": [
+    "mode",
+    "strategy",
+    "baselineStatus",
+    "baselineId",
+    "reconciledAt"
+  ],
+  "adoptionModeEnum": [
+    "greenfield",
+    "brownfield"
+  ],
+  "adoptionStrategyEnum": [
+    "native",
+    "adopt-in-place",
+    "normalize"
+  ],
+  "baselineStatusEnum": [
+    "not-required",
+    "in-progress",
+    "reconciled"
   ]
 }

@@ -5,12 +5,12 @@
     "text": "PROJECT_BLUEPRINT.md"
   },
   {
-    "title": "Production Project Documentation Starter Kit v5.6",
+    "title": "Production Project Documentation Starter Kit v5.7",
     "path": "pages/readme.html",
     "text": "README.md"
   },
   {
-    "title": "START HERE - v5.6",
+    "title": "START HERE - v5.7",
     "path": "pages/start-here.html",
     "text": "START_HERE.md"
   },
@@ -235,12 +235,12 @@
     "text": "docs/guides/capability-packs.md"
   },
   {
-    "title": "Documentation Governance v5.6",
+    "title": "Documentation Governance v5.7",
     "path": "pages/docs-guides-docs-governance.html",
     "text": "docs/guides/docs-governance.md"
   },
   {
-    "title": "File Catalog — v5.6",
+    "title": "File Catalog — v5.7",
     "path": "pages/docs-guides-file-catalog.html",
     "text": "docs/guides/file-catalog.md"
   },
@@ -345,6 +345,16 @@
     "text": "docs/history/V5_6_UPGRADE_NOTES.md"
   },
   {
+    "title": "v5.7 QA Report",
+    "path": "pages/docs-history-v5-7-qa-report.html",
+    "text": "docs/history/V5_7_QA_REPORT.md"
+  },
+  {
+    "title": "v5.7 Upgrade Notes — Brownfield Adoption & Reverse Engineering",
+    "path": "pages/docs-history-v5-7-upgrade-notes.html",
+    "text": "docs/history/V5_7_UPGRADE_NOTES.md"
+  },
+  {
     "title": "v5.0 QA Report",
     "path": "pages/docs-history-v5-qa-report.html",
     "text": "docs/history/V5_QA_REPORT.md"
@@ -360,7 +370,7 @@
     "text": "kit/README.md"
   },
   {
-    "title": "Master Prompt — Documentation-First Project Orchestrator v5.6",
+    "title": "Master Prompt — Documentation-First Project Orchestrator v5.7",
     "path": "pages/kit-prompts-00-master-orchestrator-prompt.html",
     "text": "kit/prompts/00-master-orchestrator-prompt.md"
   },
@@ -580,7 +590,12 @@
     "text": "kit/prompts/43-existing-source-adoption.md"
   },
   {
-    "title": "Registry Governance — v5.6",
+    "title": "Brownfield Reverse Engineering",
+    "path": "pages/kit-prompts-44-brownfield-reverse-engineering.html",
+    "text": "kit/prompts/44-brownfield-reverse-engineering.md"
+  },
+  {
+    "title": "Registry Governance — v5.7",
     "path": "pages/kit-registry-readme.html",
     "text": "kit/registry/README.md"
   },
@@ -605,7 +620,7 @@
     "text": "kit/standards/ADDING_A_STACK.md"
   },
   {
-    "title": "Standards Architecture v5.6",
+    "title": "Standards Architecture v5.7",
     "path": "pages/kit-standards-readme.html",
     "text": "kit/standards/README.md"
   },
@@ -618,6 +633,11 @@
     "title": "AI Agent Rules — v5.3",
     "path": "pages/kit-standards-ai-agent-rules.html",
     "text": "kit/standards/ai-agent-rules.md"
+  },
+  {
+    "title": "Brownfield Adoption Standard",
+    "path": "pages/kit-standards-brownfield-adoption.html",
+    "text": "kit/standards/brownfield-adoption.md"
   },
   {
     "title": "Authentication Feature Standard",
@@ -1185,6 +1205,21 @@
     "text": "kit/templates/background-mobile-template.md"
   },
   {
+    "title": "Brownfield Candidate Review",
+    "path": "pages/kit-templates-brownfield-candidate-review.html",
+    "text": "kit/templates/brownfield/candidate-review.md"
+  },
+  {
+    "title": "Brownfield Reconciliation Report",
+    "path": "pages/kit-templates-brownfield-reconciliation-report.html",
+    "text": "kit/templates/brownfield/reconciliation-report.md"
+  },
+  {
+    "title": "Brownfield Source Normalization Plan",
+    "path": "pages/kit-templates-brownfield-refactor-plan.html",
+    "text": "kit/templates/brownfield/refactor-plan.md"
+  },
+  {
     "title": "Bug title",
     "path": "pages/kit-templates-bug-template.html",
     "text": "kit/templates/bug-template.md"
@@ -1445,12 +1480,17 @@
     "text": "kit/workflows/17-source-workspace-bootstrap.md"
   },
   {
+    "title": "Workflow 18 — Brownfield Adoption & Reverse Engineering",
+    "path": "pages/kit-workflows-18-brownfield-adoption.html",
+    "text": "kit/workflows/18-brownfield-adoption.md"
+  },
+  {
     "title": "End-to-End Documentation Checklist",
     "path": "pages/kit-workflows-end-to-end-checklist.html",
     "text": "kit/workflows/END_TO_END_CHECKLIST.md"
   },
   {
-    "title": "Documentation Toolchain v5.6",
+    "title": "Documentation Toolchain v5.7",
     "path": "pages/tools-readme.html",
     "text": "tools/README.md"
   },

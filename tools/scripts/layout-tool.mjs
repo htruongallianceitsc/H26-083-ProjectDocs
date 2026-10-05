@@ -82,8 +82,8 @@ function migrate() {
     fs.renameSync(src, dst);
   }
   const starter = loadJson('starter-kit.json', {});
-  starter.version = '5.6.0';
-  starter.schemaVersion = '5.6.0';
+  starter.version = '5.7.0';
+  starter.schemaVersion = '5.7.0';
   starter.workspaceLayoutVersion = '1.0';
   starter.workspaceLayout = {
     docs: 'docs', runtime: '.project-docs', kit: 'kit', registry: 'kit/registry', standards: 'kit/standards',

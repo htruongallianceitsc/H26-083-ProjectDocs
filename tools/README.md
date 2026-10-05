@@ -1,4 +1,4 @@
-# Documentation Toolchain v5.6
+# Documentation Toolchain v5.7
 
 Requires Node.js 20+. The runtime uses only Node.js standard-library modules.
 
@@ -44,6 +44,22 @@ npm run source:check
 npm run source:status
 npm run source:upgrade-check -- --app APP-WEB
 ```
+
+## Brownfield adoption and reverse engineering
+
+```bash
+npm run brownfield:inventory -- --app APP-WEB
+npm run brownfield:candidates -- --app APP-WEB
+npm run brownfield:status
+npm run brownfield:review -- --candidate CAND-... --decision accepted --reviewer "Reviewer"
+npm run brownfield:promote -- --candidate CAND-... --reviewer "Reviewer"
+npm run brownfield:reconcile -- --app APP-WEB
+npm run gate:baseline -- --app APP-WEB
+npm run brownfield:baseline -- --app APP-WEB --actor "Team"
+npm run brownfield:refactor-plan -- --app APP-WEB
+```
+
+Inventory/candidates/reconciliation/refactor plans are derived runtime evidence. Candidate promotion is review-gated. `brownfield:refactor-plan` never moves source; use a reviewed WorkPlan for physical normalization.
 
 ## Source intelligence and Git impact
 

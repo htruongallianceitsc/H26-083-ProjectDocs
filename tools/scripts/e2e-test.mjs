@@ -8,7 +8,7 @@ const here = path.dirname(fileURLToPath(import.meta.url));
 const toolsDir = path.resolve(here, '..');
 const sourceRoot = path.resolve(toolsDir, '..');
 const fixture = path.join(toolsDir, 'tests/fixtures/valid-project');
-const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'project-docs-v56-'));
+const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'project-docs-v57-'));
 
 function copy(src,dst){ fs.cpSync(src,dst,{recursive:true}); }
 function run(script, action, extra=[], expectOk=true){
@@ -54,6 +54,10 @@ ${sourceInit}`);
   fs.writeFileSync(path.join(tempRoot,'legacy-web/package.json'),'{}\n');
   fs.writeFileSync(path.join(tempRoot,'legacy-web/src/main.tsx'),'export {};\n');
   fs.writeFileSync(path.join(tempRoot,'legacy-web/src/app/App.tsx'),'export {};\n');
+  fs.mkdirSync(path.join(tempRoot,'legacy-web/src/features/auth'),{recursive:true});
+  fs.writeFileSync(path.join(tempRoot,'legacy-web/src/features/auth/LoginPage.tsx'),`export function LoginPage(){ return null; }\n`);
+  fs.writeFileSync(path.join(tempRoot,'legacy-web/src/features/auth/authService.ts'),`export async function login(){ return fetch('/api/auth/login',{method:'POST'}); }\n`);
+  fs.writeFileSync(path.join(tempRoot,'legacy-web/src/features/auth/auth.test.ts'),`export const authTest = true;\n`);
   const sourceAdopt=run('source-tool.mjs','adopt',['--code','APP-LEGACY','--profile','react-spa','--root','legacy-web','--title','Legacy Web']);
   if(!sourceAdopt.includes('Adopted APP-LEGACY')) throw new Error(`Source adopt failed:
 ${sourceAdopt}`);
@@ -71,6 +75,39 @@ ${sourceRecommend}`);
 ${sourceStatus}`);
   const lock=JSON.parse(fs.readFileSync(path.join(tempRoot,'.project-docs/source.lock.json'),'utf8'));
   if(lock.applications?.['APP-WEB']?.sourceBase?.id!=='react-spa' || lock.applications?.['APP-LEGACY']?.origin!=='existing') throw new Error(`Source provenance lock mismatch: ${JSON.stringify(lock)}`);
+  const adoptedProfile=JSON.parse(fs.readFileSync(path.join(tempRoot,'project.profile.json'),'utf8'));
+  if(adoptedProfile.adoption?.mode!=='brownfield' || adoptedProfile.adoption?.baselineStatus!=='in-progress') throw new Error(`Brownfield adoption state not activated: ${JSON.stringify(adoptedProfile.adoption)}`);
+  const bfInventory=run('brownfield-tool.mjs','inventory',['--app','APP-LEGACY']);
+  if(!bfInventory.includes('Brownfield inventory:') || bfInventory.includes('0 file(s)')) throw new Error(`Brownfield inventory failed:
+${bfInventory}`);
+  const bfCandidates=run('brownfield-tool.mjs','candidates',['--app','APP-LEGACY']);
+  if(!bfCandidates.includes('feature')) throw new Error(`Brownfield candidate generation failed:
+${bfCandidates}`);
+  const candidateData=JSON.parse(fs.readFileSync(path.join(tempRoot,'.project-docs/brownfield/candidates.json'),'utf8'));
+  const featureCandidate=candidateData.candidates.find(x=>x.suggestedType==='feature' && x.suggestedTitle.toLowerCase().includes('auth'));
+  if(!featureCandidate) throw new Error(`Expected auth feature candidate: ${JSON.stringify(candidateData.candidates)}`);
+  for(const c of candidateData.candidates){
+    const decision=c.candidateId===featureCandidate.candidateId?'accepted':'rejected';
+    run('brownfield-tool.mjs','review',['--candidate',c.candidateId,'--decision',decision,'--reviewer','E2E Reviewer']);
+  }
+  const bfPromote=run('brownfield-tool.mjs','promote',['--candidate',featureCandidate.candidateId,'--reviewer','E2E Reviewer']);
+  if(!bfPromote.includes(featureCandidate.suggestedCode)) throw new Error(`Brownfield promotion failed:
+${bfPromote}`);
+  const bfReconcile=run('brownfield-tool.mjs','reconcile',['--app','APP-LEGACY']);
+  if(!bfReconcile.includes('Brownfield reconciliation: PASS')) throw new Error(`Brownfield reconciliation failed:
+${bfReconcile}`);
+  const bfGate=run('brownfield-tool.mjs','baseline-gate',['--app','APP-LEGACY']);
+  if(!bfGate.includes('BROWNFIELD BASELINE: PASS')) throw new Error(`Brownfield baseline gate failed:
+${bfGate}`);
+  const refactorPlan=run('brownfield-tool.mjs','refactor-plan',['--app','APP-LEGACY']);
+  if(!refactorPlan.includes('execution disabled until reviewed WorkPlan')) throw new Error(`Brownfield refactor plan safety failed:
+${refactorPlan}`);
+  if(!fs.existsSync(path.join(tempRoot,'legacy-web/src/app/App.tsx'))) throw new Error('Brownfield refactor-plan moved source unexpectedly.');
+  const bfBaseline=run('brownfield-tool.mjs','baseline-create',['--app','APP-LEGACY','--name','BROWNFIELD-INITIAL','--actor','E2E']);
+  if(!bfBaseline.includes('Created brownfield baseline')) throw new Error(`Brownfield baseline creation failed:
+${bfBaseline}`);
+  const reconciledProfile=JSON.parse(fs.readFileSync(path.join(tempRoot,'project.profile.json'),'utf8'));
+  if(reconciledProfile.adoption?.baselineStatus!=='reconciled') throw new Error(`Brownfield baseline state not reconciled: ${JSON.stringify(reconciledProfile.adoption)}`);
   replace('docs/feature.md','  tests: [TC-DEMO-001]','  tests: [TC-DEMO-001]\n  applications: [APP-WEB]');
   run('docs-tool.mjs','validate');
 
@@ -203,7 +240,7 @@ ${doctorStale}`);
   run('plan-tool.mjs','materialize',['--id',planId,'--owner','Engineering']);
   run('docs-tool.mjs','validate');
   const after=run('docs-tool.mjs','sync');
-  if(!/13 entities, 20 typed edges/.test(after)) throw new Error(`Expected 13 entities / 20 edges after source workspace + progressive-spec + governance flow, got:\n${after}`);
+  if(!/14 entities, 21 typed edges/.test(after)) throw new Error(`Expected 14 entities / 21 edges after brownfield + source workspace + progressive-spec + governance flow, got:\n${after}`);
 
   const cs1=run('change-tool.mjs','changeset-scan',['--actor','E2E','--reason','Request to approved WorkPlan and tasks','--related','FEAT-DEMO']);
   if(!/Created CHG-/.test(cs1)) throw new Error(`Expected first ChangeSet:\n${cs1}`);
@@ -237,9 +274,9 @@ ${doctorStale}`);
   run('docs-tool.mjs','build');
   run('docs-tool.mjs','check-site');
   const specification=JSON.parse(fs.readFileSync(path.join(tempRoot,'docs/_generated/specification.json'),'utf8'));
-  if((specification.summary?.lightweight||0)!==1 || (specification.summary?.standard||0)<2) throw new Error(`Specification summary mismatch: ${JSON.stringify(specification.summary)}`);
+  if((specification.summary?.lightweight||0)!==2 || (specification.summary?.standard||0)<2) throw new Error(`Specification summary mismatch: ${JSON.stringify(specification.summary)}`);
   const governance=JSON.parse(fs.readFileSync(path.join(tempRoot,'docs/_generated/governance.json'),'utf8'));
-  if((governance.applications||[]).length!==2 || governance.requests.length!==1 || governance.tasks.length!==2 || governance.workplans.length!==1 || governance.changesets.length!==2 || governance.baselines.length!==1) throw new Error(`Governance summary mismatch: ${JSON.stringify(governance)}`);
+  if((governance.applications||[]).length!==2 || governance.requests.length!==1 || governance.tasks.length!==2 || governance.workplans.length!==1 || governance.changesets.length!==2 || governance.baselines.length!==2) throw new Error(`Governance summary mismatch: ${JSON.stringify(governance)}`);
   const featFresh=governance.freshness.find(x=>x.code==='FEAT-DEMO');
   if(!featFresh || featFresh.status!=='fresh') throw new Error(`Feature freshness summary mismatch: ${JSON.stringify(featFresh)}`);
 
@@ -247,7 +284,7 @@ ${doctorStale}`);
   const negative=run('docs-tool.mjs','validate',[],false);
   if(!negative.includes('BROKEN_RELATION')) throw new Error(`Negative fixture failed for wrong reason:\n${negative}`);
 
-  console.log('E2E regression: PASS (v5.6 workspace layout + v5.5 entity identity/lifecycle + semantic relations + Source Base + source intelligence/Git impact + search/query/context/doctor + Progressive Specs + governance + freshness + ChangeSets/Baselines + broken relation path).');
+  console.log('E2E regression: PASS (v5.7 brownfield adoption/reconciliation + v5.6 workspace layout + v5.5 entity identity/lifecycle + semantic relations + Source Base + source intelligence/Git impact + search/query/context/doctor + Progressive Specs + governance + freshness + ChangeSets/Baselines + broken relation path).');
 } finally {
   fs.rmSync(tempRoot,{recursive:true,force:true});
 }

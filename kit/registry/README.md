@@ -1,4 +1,4 @@
-# Registry Governance — v5.6
+# Registry Governance — v5.7
 
 `kit/registry/*.json` is the canonical machine-readable policy source.
 
@@ -48,3 +48,10 @@ Generated YAML mirrors remain non-authoritative. Edit JSON sources, then run `np
 ## Workspace layout registry (v5.6)
 
 The physical repository layout is configured in root `starter-kit.json.workspaceLayout`. Registry JSON remains under `kit/registry/`; tools should resolve the canonical path through the common workspace-layout helper instead of introducing new hard-coded root paths. `legacyLayoutAliases` exists only for controlled migration compatibility.
+
+
+## Brownfield registry (v5.7)
+
+- `brownfield.json` controls candidate confidence thresholds, review-before-promotion policy, reconciliation blocking severities, technology adapter hints and source-normalization safety.
+- Brownfield inventory/candidates/reconciliation/refactor plans are derived runtime evidence under `.project-docs/brownfield/`; they are not canonical domain entities.
+- `autoPromote` and `allowDirectMove` are intentionally disabled by default.

@@ -23,6 +23,7 @@
     "kit/standards/source-base-governance.md",
     "kit/standards/entity-identity-lifecycle-and-relations.md",
     "kit/standards/source-intelligence.md",
-    "kit/standards/local-knowledge-engine.md"
+    "kit/standards/local-knowledge-engine.md",
+    "kit/standards/brownfield-adoption.md"
   ]
 }

@@ -1,4 +1,4 @@
-# Documentation Governance v5.6
+# Documentation Governance v5.7
 
 ## Principle
 
@@ -82,3 +82,17 @@ Repository root is an entry surface, not a version archive or general documentat
 5. Generated/runtime state belongs under `.project-docs/`; `.project-docs/site/` is rebuildable.
 6. Canonical physical paths come from `starter-kit.json.workspaceLayout`. New tooling must use the shared resolver instead of adding root-path literals.
 7. v5.5 root names are compatibility aliases for migration only and must not be recreated in a healthy v5.6 workspace.
+
+## v5.7 Brownfield Governance
+
+Existing source enters the knowledge model through a controlled evidence lifecycle:
+
+1. `source:adopt` registers the Application boundary and marks adoption `brownfield / in-progress`.
+2. `brownfield:inventory` and `brownfield:candidates` create derived evidence under `.project-docs/brownfield/`.
+3. Candidates remain non-canonical until explicitly reviewed.
+4. `brownfield:promote` may create canonical docs only for accepted candidates.
+5. `brownfield:reconcile` detects unresolved review/promotion/evidence gaps.
+6. `gate:baseline` must pass before `brownfield:baseline` creates the accepted initial baseline.
+7. Physical source normalization is proposal-only until represented by a reviewed WorkPlan.
+
+This is intentionally separate from the normal Ready Gate: Ready asks whether planned work is ready to implement; Brownfield Baseline asks whether already-existing implementation has been sufficiently understood and reconciled to enter normal docs-first governance.

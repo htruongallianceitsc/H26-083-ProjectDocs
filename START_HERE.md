@@ -1,4 +1,4 @@
-# START HERE - v5.6
+# START HERE - v5.7
 
 ## 0. Understand the workspace layout
 
@@ -30,6 +30,34 @@ npm run source:adopt -- --code APP-API --profile aspnet-core-api --root backend
 ```
 
 Features should use `related.applications` to identify implementation boundaries.
+
+
+## 2A. Existing project? Complete brownfield onboarding before normal feature work
+
+After `source:adopt`, v5.7 marks adoption as `brownfield / in-progress`. Build evidence first; do not immediately move legacy source into `apps/`.
+
+```bash
+npm run brownfield:inventory -- --app APP-...
+npm run brownfield:candidates -- --app APP-...
+npm run brownfield:status
+```
+
+Review candidates explicitly:
+
+```bash
+npm run brownfield:review -- --candidate CAND-... --decision accepted --reviewer "Reviewer"
+npm run brownfield:promote -- --candidate CAND-... --reviewer "Reviewer"
+```
+
+Then reconcile and establish the accepted initial baseline:
+
+```bash
+npm run brownfield:reconcile -- --app APP-...
+npm run gate:baseline -- --app APP-...
+npm run brownfield:baseline -- --app APP-... --actor "Team"
+```
+
+Only after this baseline should future changes follow the normal docs-first Ready → WorkPlan → Done flow. If the team wants to normalize legacy folders, run `brownfield:refactor-plan` and convert it to a reviewed WorkPlan; the brownfield tool never moves source automatically.
 
 ## 3. Establish permanent entity identity
 

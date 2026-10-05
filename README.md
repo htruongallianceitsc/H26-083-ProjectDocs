@@ -1,6 +1,7 @@
-# Production Project Documentation Starter Kit v5.6
+# Production Project Documentation Starter Kit v5.7
 
-Documentation-first starter kit for long-lived Web, Mobile and API projects. v5.6 keeps the v5.5 knowledge runtime intact while reorganizing the repository root into a smaller, clearer workspace: project knowledge, implementation source, reusable starter-kit assets, tooling, and generated/runtime state are now separated explicitly.
+
+Documentation-first starter kit for long-lived Web, Mobile and API projects. v5.7 adds a governed brownfield path for projects that already have source code: adopt the existing application boundary, inventory source, generate reviewable semantic candidates, promote only accepted candidates into canonical docs, reconcile source↔docs, create an initial baseline, and optionally plan source normalization into the canonical workspace.
 
 ## Core model
 
@@ -29,46 +30,48 @@ Docs Reconciliation <- Tests <- Source Changes
 Done Gate -> ChangeSet / Baseline
 ```
 
-## What v5.6 adds
+## What v5.7 adds
 
-### 1. Compact root workspace
+### 1. Brownfield adoption is now first-class
 
-The root is now limited to project entry files plus first-class project/source/runtime directories. Framework assets no longer compete visually with project implementation.
+Existing code can enter the docs-first model without pretending the docs came first:
 
 ```text
-/
-├── README.md
-├── START_HERE.md
-├── PROJECT_BLUEPRINT.md
-├── project.profile.json
-├── starter-kit.json
-├── docs/
-├── apps/
-├── packages/
-├── tests/
-├── infra/
-├── kit/
-├── tools/
-├── .project-docs/
-└── .github/
+source:adopt
+  -> brownfield:inventory
+  -> brownfield:candidates
+  -> brownfield:review
+  -> brownfield:promote
+  -> brownfield:reconcile
+  -> gate:baseline
+  -> brownfield:baseline
+  -> normal Ready / WorkPlan / Done lifecycle
 ```
 
-### 2. Unified `kit/` framework surface
+`source:adopt` marks the project adoption state as brownfield/in-progress. Inventory, candidates, reconciliation and refactor proposals live under `.project-docs/brownfield/` and remain derived evidence until reviewed.
 
-- `kit/registry/` — machine-readable governance and model configuration.
-- `kit/standards/` — core, project-type, stack and reuse standards.
-- `kit/prompts/`, `kit/templates/`, `kit/workflows/` — authoring/orchestration assets.
-- `kit/source-bases/` — versioned greenfield source bases.
-- `kit/reuse/` — capability packs, pattern packs and reusable templates.
-- `kit/examples/` — starter examples such as the project profile sample.
+### 2. Candidate review before canonical promotion
 
-### 3. Centralized workspace layout
+`kit/registry/brownfield.json` defines confidence thresholds and safety policy. `autoPromote` is disabled by default. Candidates can represent Features, Screens, APIs, Database Objects and Tests; promotion requires an explicit accepted review. Promoted Features start as lightweight reverse-engineered specs so teams can progressively reconcile business intent without losing source provenance.
 
-`starter-kit.json.workspaceLayout` is the canonical physical-layout map. Tooling exposes layout helpers and a compatibility alias layer so v5.5 logical roots can still be resolved during migration. Use `npm run layout:check` to validate the canonical structure and `npm run layout:migrate -- --apply` when moving a legacy workspace.
+### 3. Brownfield reconciliation and baseline gate
 
-### 4. Generated site moved out of root
+`brownfield:reconcile` checks high-confidence review completion, accepted-but-unpromoted candidates, missing source evidence and other adoption gaps. `gate:baseline` blocks the initial brownfield baseline while high-severity findings remain. `brownfield:baseline` uses the existing Baseline engine and records the reconciled adoption state in `project.profile.json`.
 
-The static documentation site now lives under `.project-docs/site/`, alongside other derived/runtime artifacts. It remains fully rebuildable with `npm run docs:build`.
+### 4. Safe source-normalization planning
+
+`brownfield:refactor-plan` proposes movement from legacy roots toward `apps/`, `packages/`, `tests/` and `infra/`, but never moves files. The generated plan explicitly requires a reviewed WorkPlan before execution and lists build/test/source/QA verification steps.
+
+### 5. Technology-aware discovery hints
+
+The brownfield registry includes adapter hints for React SPA, Next.js, React Native/Expo, Flutter/BLoC, ASP.NET Core API and Node.js API. These adapters classify evidence; they do not decide business truth.
+
+## v5.6 workspace-layout capabilities retained
+
+- Compact root workspace with framework assets under `kit/`.
+- Centralized `starter-kit.json.workspaceLayout`.
+- Static site under `.project-docs/site/`.
+- `layout:check` and controlled `layout:migrate`.
 
 ## v5.5 knowledge runtime retained
 
@@ -143,6 +146,23 @@ npm run source:map -- --entity FEAT-AUTH-LOGIN
 npm run git:impact
 ```
 
+For an existing source project, use the governed brownfield flow:
+
+```bash
+npm run source:adopt -- --code APP-WEB --profile react-spa --root legacy-web
+npm run brownfield:inventory -- --app APP-WEB
+npm run brownfield:candidates -- --app APP-WEB
+npm run brownfield:status
+# review candidate IDs before promotion
+npm run brownfield:review -- --candidate CAND-... --decision accepted --reviewer "Reviewer"
+npm run brownfield:promote -- --candidate CAND-... --reviewer "Reviewer"
+npm run brownfield:reconcile -- --app APP-WEB
+npm run gate:baseline -- --app APP-WEB
+npm run brownfield:baseline -- --app APP-WEB --actor "Team"
+```
+
+If physical normalization is desired, run `brownfield:refactor-plan`; convert the proposal into a reviewed WorkPlan before changing source paths.
+
 ## Sources of truth
 
 - Markdown project entities in `docs/` remain canonical business/project knowledge.
@@ -150,4 +170,4 @@ npm run git:impact
 - Registry JSON files define model and governance behavior.
 - Files under `.project-docs/indexes/`, `.project-docs/reports/`, `docs/_generated/` and `.project-docs/site/` are derived and rebuildable.
 
-See `docs/history/V5_6_UPGRADE_NOTES.md`, `docs/history/V5_5_UPGRADE_NOTES.md`, `kit/standards/entity-identity-lifecycle-and-relations.md`, `kit/standards/source-intelligence.md`, and `kit/standards/local-knowledge-engine.md`.
+See `docs/history/V5_7_UPGRADE_NOTES.md`, `docs/history/V5_6_UPGRADE_NOTES.md`, `docs/history/V5_5_UPGRADE_NOTES.md`, `kit/standards/entity-identity-lifecycle-and-relations.md`, `kit/standards/source-intelligence.md`, and `kit/standards/local-knowledge-engine.md`.

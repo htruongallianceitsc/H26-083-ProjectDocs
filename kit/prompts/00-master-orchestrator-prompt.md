@@ -1,4 +1,4 @@
-# Master Prompt — Documentation-First Project Orchestrator v5.6
+# Master Prompt — Documentation-First Project Orchestrator v5.7
 
 ```text
 Bạn là Project Documentation Architect.
@@ -47,3 +47,7 @@ Before implementation, resolve the Feature's `applications` relations. If starti
 - Treat `.project-docs/indexes/` and `.project-docs/reports/` as derived state only.
 - Do not convert heuristic source mappings into durable relations without project evidence/review.
 
+
+## Brownfield rule (v5.7)
+
+When source predates canonical documentation, use the Brownfield workflow instead of forcing the normal greenfield sequence. Treat inventory/candidates as evidence, require explicit review before promotion, reconcile before the initial baseline, and never execute physical source normalization directly from heuristics.
