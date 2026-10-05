@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-05T07:10:23.106Z",
+  "generatedAt": "2026-10-05T09:10:54.798Z",
   "documents": [
     {
       "path": "PROJECT_BLUEPRINT.md",
@@ -12,7 +12,7 @@
     },
     {
       "path": "README.md",
-      "title": "Production Project Documentation Starter Kit v5.7",
+      "title": "Production Project Documentation Starter Kit v5.8",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -21,7 +21,7 @@
     },
     {
       "path": "START_HERE.md",
-      "title": "START HERE - v5.7",
+      "title": "START HERE - v5.8",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -426,7 +426,7 @@
     },
     {
       "path": "docs/guides/docs-governance.md",
-      "title": "Documentation Governance v5.7",
+      "title": "Documentation Governance v5.8",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -435,7 +435,7 @@
     },
     {
       "path": "docs/guides/file-catalog.md",
-      "title": "File Catalog — v5.7",
+      "title": "File Catalog — v5.8",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -641,6 +641,24 @@
       "status": null
     },
     {
+      "path": "docs/history/V5_8_QA_REPORT.md",
+      "title": "v5.8 QA Report",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/history/V5_8_UPGRADE_NOTES.md",
+      "title": "v5.8 Upgrade Notes — Acceptance & Verification Traceability",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
       "path": "docs/history/V5_QA_REPORT.md",
       "title": "v5.0 QA Report",
       "uid": null,
@@ -669,7 +687,7 @@
     },
     {
       "path": "kit/prompts/00-master-orchestrator-prompt.md",
-      "title": "Master Prompt — Documentation-First Project Orchestrator v5.7",
+      "title": "Master Prompt — Documentation-First Project Orchestrator v5.8",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -1037,6 +1055,15 @@
       "status": null
     },
     {
+      "path": "kit/prompts/41-acceptance-verification-traceability.md",
+      "title": "Prompt 41 — Acceptance & Verification Traceability",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
       "path": "kit/prompts/41-source-profile-selection.md",
       "title": "Source Profile Selection",
       "uid": null,
@@ -1074,7 +1101,7 @@
     },
     {
       "path": "kit/registry/README.md",
-      "title": "Registry Governance — v5.7",
+      "title": "Registry Governance — v5.8",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -1119,7 +1146,7 @@
     },
     {
       "path": "kit/standards/README.md",
-      "title": "Standards Architecture v5.7",
+      "title": "Standards Architecture v5.8",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -1129,6 +1156,15 @@
     {
       "path": "kit/standards/STANDARD_CATALOG.md",
       "title": "Standard Catalog",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/acceptance-and-verification-traceability.md",
+      "title": "Acceptance & Verification Traceability Standard",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -1173,7 +1209,7 @@
     },
     {
       "path": "kit/standards/definition-of-ready-done.md",
-      "title": "Definition of Ready / Done — v5.3",
+      "title": "Definition of Ready / Done — v5.8",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -2675,6 +2711,15 @@
       "status": null
     },
     {
+      "path": "kit/workflows/19-acceptance-verification.md",
+      "title": "Workflow 19 — Acceptance & Verification Traceability",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
       "path": "kit/workflows/END_TO_END_CHECKLIST.md",
       "title": "End-to-End Documentation Checklist",
       "uid": null,
@@ -2685,7 +2730,7 @@
     },
     {
       "path": "tools/README.md",
-      "title": "Documentation Toolchain v5.7",
+      "title": "Documentation Toolchain v5.8",
       "uid": null,
       "code": null,
       "revision": 0,

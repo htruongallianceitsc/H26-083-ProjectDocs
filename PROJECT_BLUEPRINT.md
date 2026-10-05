@@ -76,6 +76,21 @@ Track blockers and accepted decisions explicitly; do not hide assumptions in pro
 > Requests explain why change entered the project. WorkPlans explain the reviewed implementation plan. Tasks execute the plan. None of these replace canonical Feature/Requirement/Rule/API/Screen/DB/Test documentation.
 
 
+## v5.8 Acceptance & Verification Traceability
+
+Track verification quality explicitly:
+
+- Requirement AC format: stable `AC-*` rows under `## Acceptance Criteria`.
+- Fine-grained test mapping: `REQ-CODE#AC-ID`.
+- Critical Business Rule coverage: positive + negative cases.
+- Generated verification evidence: `docs/_generated/verification.json` and `.project-docs/reports/verification-report.json`.
+- Ready/Done gates consume verification findings for the Feature context.
+
+### Verification Summary
+| Requirement / Rule | Acceptance / Polarity | Test Coverage | Status |
+|---|---|---|---|
+| | | | |
+
 ## v5.7 Brownfield Adoption
 
 For projects with existing source, record the onboarding state explicitly:

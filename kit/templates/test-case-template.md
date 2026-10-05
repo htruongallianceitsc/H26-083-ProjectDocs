@@ -10,6 +10,8 @@ created_at: YYYY-MM-DD
 updated_at: YYYY-MM-DD
 last_reviewed_at: YYYY-MM-DD
 tags: []
+acceptance_criteria: []
+business_rule_cases: []
 related:
   modules: []
   features: []
@@ -28,6 +30,14 @@ related:
 ## Objective
 
 ## Verifies
+
+Use stable references in frontmatter:
+
+- `acceptance_criteria: [REQ-AUTH-001#AC-01]`
+- `business_rule_cases: [BR-AUTH-001#positive]`
+- negative rule coverage uses `BR-AUTH-001#negative`
+
+Keep the normal entity relationships in `related.requirements` and `related.business_rules` as well so graph traceability and verification traceability remain aligned.
 
 ## Preconditions
 

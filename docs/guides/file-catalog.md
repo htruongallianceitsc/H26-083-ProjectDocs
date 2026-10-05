@@ -1,4 +1,4 @@
-# File Catalog — v5.7
+# File Catalog — v5.8
 
 Counts exclude generated `.project-docs/site/`, `docs/_generated/`, and `tools/node_modules/` because they are reproducible artifacts.
 
@@ -116,3 +116,14 @@ Historical release/upgrade artifacts and general guides do not belong at root.
 | `.project-docs/brownfield/candidates.json` | Reviewable candidate graph and review/promotion state | Governance runtime; not domain truth |
 | `.project-docs/brownfield/reconciliation.json` | Brownfield mismatch/gate evidence | No, derived |
 | `.project-docs/brownfield/refactor-plan.json` | Non-executing source-normalization proposal | No, planning evidence |
+
+
+## v5.8 Verification files
+
+- `kit/standards/acceptance-and-verification-traceability.md` — canonical verification standard.
+- `kit/workflows/19-acceptance-verification.md` — BA→QA workflow.
+- `kit/prompts/41-acceptance-verification-traceability.md` — authoring/review prompt.
+- `tools/lib/verification.mjs` — AC and Business Rule coverage engine.
+- `tools/scripts/verification-tool.mjs` — status/check CLI.
+- `docs/_generated/verification.json` — derived documentation view.
+- `.project-docs/reports/verification-report.json` — derived QA report.

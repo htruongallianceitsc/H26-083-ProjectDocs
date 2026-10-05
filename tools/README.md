@@ -1,4 +1,4 @@
-# Documentation Toolchain v5.7
+# Documentation Toolchain v5.8
 
 Requires Node.js 20+. The runtime uses only Node.js standard-library modules.
 
@@ -132,3 +132,13 @@ npm run registry:check
 npm run pack:list
 npm run pack:validate
 ```
+
+
+## v5.8 verification commands
+
+```bash
+npm run verification:status
+npm run verification:check
+```
+
+These commands validate stable Requirement Acceptance Criteria references and critical Business Rule positive/negative coverage.

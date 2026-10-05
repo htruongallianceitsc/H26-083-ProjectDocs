@@ -5,12 +5,12 @@
     "text": "PROJECT_BLUEPRINT.md"
   },
   {
-    "title": "Production Project Documentation Starter Kit v5.7",
+    "title": "Production Project Documentation Starter Kit v5.8",
     "path": "pages/readme.html",
     "text": "README.md"
   },
   {
-    "title": "START HERE - v5.7",
+    "title": "START HERE - v5.8",
     "path": "pages/start-here.html",
     "text": "START_HERE.md"
   },
@@ -235,12 +235,12 @@
     "text": "docs/guides/capability-packs.md"
   },
   {
-    "title": "Documentation Governance v5.7",
+    "title": "Documentation Governance v5.8",
     "path": "pages/docs-guides-docs-governance.html",
     "text": "docs/guides/docs-governance.md"
   },
   {
-    "title": "File Catalog — v5.7",
+    "title": "File Catalog — v5.8",
     "path": "pages/docs-guides-file-catalog.html",
     "text": "docs/guides/file-catalog.md"
   },
@@ -355,6 +355,16 @@
     "text": "docs/history/V5_7_UPGRADE_NOTES.md"
   },
   {
+    "title": "v5.8 QA Report",
+    "path": "pages/docs-history-v5-8-qa-report.html",
+    "text": "docs/history/V5_8_QA_REPORT.md"
+  },
+  {
+    "title": "v5.8 Upgrade Notes — Acceptance & Verification Traceability",
+    "path": "pages/docs-history-v5-8-upgrade-notes.html",
+    "text": "docs/history/V5_8_UPGRADE_NOTES.md"
+  },
+  {
     "title": "v5.0 QA Report",
     "path": "pages/docs-history-v5-qa-report.html",
     "text": "docs/history/V5_QA_REPORT.md"
@@ -370,7 +380,7 @@
     "text": "kit/README.md"
   },
   {
-    "title": "Master Prompt — Documentation-First Project Orchestrator v5.7",
+    "title": "Master Prompt — Documentation-First Project Orchestrator v5.8",
     "path": "pages/kit-prompts-00-master-orchestrator-prompt.html",
     "text": "kit/prompts/00-master-orchestrator-prompt.md"
   },
@@ -575,6 +585,11 @@
     "text": "kit/prompts/40-spec-promotion-review.md"
   },
   {
+    "title": "Prompt 41 — Acceptance & Verification Traceability",
+    "path": "pages/kit-prompts-41-acceptance-verification-traceability.html",
+    "text": "kit/prompts/41-acceptance-verification-traceability.md"
+  },
+  {
     "title": "Source Profile Selection",
     "path": "pages/kit-prompts-41-source-profile-selection.html",
     "text": "kit/prompts/41-source-profile-selection.md"
@@ -595,7 +610,7 @@
     "text": "kit/prompts/44-brownfield-reverse-engineering.md"
   },
   {
-    "title": "Registry Governance — v5.7",
+    "title": "Registry Governance — v5.8",
     "path": "pages/kit-registry-readme.html",
     "text": "kit/registry/README.md"
   },
@@ -620,7 +635,7 @@
     "text": "kit/standards/ADDING_A_STACK.md"
   },
   {
-    "title": "Standards Architecture v5.7",
+    "title": "Standards Architecture v5.8",
     "path": "pages/kit-standards-readme.html",
     "text": "kit/standards/README.md"
   },
@@ -628,6 +643,11 @@
     "title": "Standard Catalog",
     "path": "pages/kit-standards-standard-catalog.html",
     "text": "kit/standards/STANDARD_CATALOG.md"
+  },
+  {
+    "title": "Acceptance & Verification Traceability Standard",
+    "path": "pages/kit-standards-acceptance-and-verification-traceability.html",
+    "text": "kit/standards/acceptance-and-verification-traceability.md"
   },
   {
     "title": "AI Agent Rules — v5.3",
@@ -650,7 +670,7 @@
     "text": "kit/standards/change-history-and-baselines.md"
   },
   {
-    "title": "Definition of Ready / Done — v5.3",
+    "title": "Definition of Ready / Done — v5.8",
     "path": "pages/kit-standards-definition-of-ready-done.html",
     "text": "kit/standards/definition-of-ready-done.md"
   },
@@ -1485,12 +1505,17 @@
     "text": "kit/workflows/18-brownfield-adoption.md"
   },
   {
+    "title": "Workflow 19 — Acceptance & Verification Traceability",
+    "path": "pages/kit-workflows-19-acceptance-verification.html",
+    "text": "kit/workflows/19-acceptance-verification.md"
+  },
+  {
     "title": "End-to-End Documentation Checklist",
     "path": "pages/kit-workflows-end-to-end-checklist.html",
     "text": "kit/workflows/END_TO_END_CHECKLIST.md"
   },
   {
-    "title": "Documentation Toolchain v5.7",
+    "title": "Documentation Toolchain v5.8",
     "path": "pages/tools-readme.html",
     "text": "tools/README.md"
   },

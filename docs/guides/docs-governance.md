@@ -1,4 +1,4 @@
-# Documentation Governance v5.7
+# Documentation Governance v5.8
 
 ## Principle
 
@@ -96,3 +96,8 @@ Existing source enters the knowledge model through a controlled evidence lifecyc
 7. Physical source normalization is proposal-only until represented by a reviewed WorkPlan.
 
 This is intentionally separate from the normal Ready Gate: Ready asks whether planned work is ready to implement; Brownfield Baseline asks whether already-existing implementation has been sufficiently understood and reconciled to enter normal docs-first governance.
+
+
+## v5.8 Acceptance & Verification Governance
+
+Acceptance Criteria use stable Requirement-local IDs and are verified by exact Test Case references. Critical Business Rules require positive/negative evidence according to registry policy. Generated verification reports are derived; Requirement, Business Rule, and Test Case docs remain canonical.

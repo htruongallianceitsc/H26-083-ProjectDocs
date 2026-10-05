@@ -8,7 +8,7 @@ const here = path.dirname(fileURLToPath(import.meta.url));
 const toolsDir = path.resolve(here, '..');
 const sourceRoot = path.resolve(toolsDir, '..');
 const fixture = path.join(toolsDir, 'tests/fixtures/valid-project');
-const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'project-docs-v57-'));
+const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'project-docs-v58-'));
 
 function copy(src,dst){ fs.cpSync(src,dst,{recursive:true}); }
 function run(script, action, extra=[], expectOk=true){
@@ -43,8 +43,59 @@ try {
   if(!rootHistoryNegative.includes('ROOT_HISTORY_DOC')) throw new Error(`Root history hygiene negative test failed:\n${rootHistoryNegative}`);
   fs.rmSync(path.join(tempRoot,'V99_UPGRADE_NOTES.md'));
   run('docs-tool.mjs','validate');
+  const verificationInitial=run('verification-tool.mjs','check');
+  if(!verificationInitial.includes('0 error(s)')) throw new Error(`Initial verification check failed:\n${verificationInitial}`);
+  const verificationStatus=run('verification-tool.mjs','status');
+  if(!verificationStatus.includes('1/1 AC covered')) throw new Error(`Acceptance coverage status mismatch:\n${verificationStatus}`);
   const initial=run('docs-tool.mjs','sync');
-  if(!/6 entities, 6 typed edges/.test(initial)) throw new Error(`Expected initial 6 entities / 6 edges, got:\n${initial}`);
+  if(!/6 entities, 7 typed edges/.test(initial)) throw new Error(`Expected initial 6 entities / 7 edges, got:\n${initial}`);
+  replace('docs/test.md','acceptance_criteria: [REQ-DEMO-001#AC-01]','acceptance_criteria: [REQ-DEMO-001#AC-99]');
+  const badAc=run('verification-tool.mjs','check',[],false);
+  if(!badAc.includes('invalid-acceptance-reference')) throw new Error(`Invalid AC reference negative test failed:\n${badAc}`);
+  replace('docs/test.md','acceptance_criteria: [REQ-DEMO-001#AC-99]','acceptance_criteria: [REQ-DEMO-001#AC-01]');
+  run('verification-tool.mjs','check');
+  fs.writeFileSync(path.join(tempRoot,'docs/br-v58.md'),`---
+code: BR-V58-001
+type: business-rule
+title: Critical Verification Rule
+status: approved
+criticality: critical
+verification_profile: positive-negative
+---
+# Critical Verification Rule
+`);
+  fs.writeFileSync(path.join(tempRoot,'docs/tc-v58-positive.md'),`---
+code: TC-V58-POS
+type: test-case
+title: Positive BR Test
+status: ready
+business_rule_cases: [BR-V58-001#positive]
+related:
+  business_rules: [BR-V58-001]
+---
+# Positive BR Test
+`);
+  fs.writeFileSync(path.join(tempRoot,'docs/tc-v58-negative.md'),`---
+code: TC-V58-NEG
+type: test-case
+title: Negative BR Test
+status: ready
+business_rule_cases: [BR-V58-001#negative]
+related:
+  business_rules: [BR-V58-001]
+---
+# Negative BR Test
+`);
+  const brCoverage=run('verification-tool.mjs','status');
+  if(!brCoverage.includes('1/1 critical Business Rules fully covered')) throw new Error(`Critical Business Rule coverage mismatch:\n${brCoverage}`);
+  replace('docs/tc-v58-negative.md','BR-V58-001#negative','BR-V58-001#positive');
+  const brNegative=run('verification-tool.mjs','check',[],false);
+  if(!brNegative.includes('critical-business-rule-verification')) throw new Error(`Business Rule polarity negative test failed:\n${brNegative}`);
+  replace('docs/tc-v58-negative.md','BR-V58-001#positive','BR-V58-001#negative');
+  run('verification-tool.mjs','check');
+  fs.rmSync(path.join(tempRoot,'docs/br-v58.md'));
+  fs.rmSync(path.join(tempRoot,'docs/tc-v58-positive.md'));
+  fs.rmSync(path.join(tempRoot,'docs/tc-v58-negative.md'));
 
   run('source-tool.mjs','validate');
   const sourceInit=run('source-tool.mjs','init',['--code','APP-WEB','--profile','react-spa','--variant','minimal','--title','Demo Web']);
@@ -240,7 +291,7 @@ ${doctorStale}`);
   run('plan-tool.mjs','materialize',['--id',planId,'--owner','Engineering']);
   run('docs-tool.mjs','validate');
   const after=run('docs-tool.mjs','sync');
-  if(!/14 entities, 21 typed edges/.test(after)) throw new Error(`Expected 14 entities / 21 edges after brownfield + source workspace + progressive-spec + governance flow, got:\n${after}`);
+  if(!/14 entities, 22 typed edges/.test(after)) throw new Error(`Expected 14 entities / 22 edges after brownfield + source workspace + progressive-spec + governance flow, got:\n${after}`);
 
   const cs1=run('change-tool.mjs','changeset-scan',['--actor','E2E','--reason','Request to approved WorkPlan and tasks','--related','FEAT-DEMO']);
   if(!/Created CHG-/.test(cs1)) throw new Error(`Expected first ChangeSet:\n${cs1}`);
@@ -284,7 +335,7 @@ ${doctorStale}`);
   const negative=run('docs-tool.mjs','validate',[],false);
   if(!negative.includes('BROKEN_RELATION')) throw new Error(`Negative fixture failed for wrong reason:\n${negative}`);
 
-  console.log('E2E regression: PASS (v5.7 brownfield adoption/reconciliation + v5.6 workspace layout + v5.5 entity identity/lifecycle + semantic relations + Source Base + source intelligence/Git impact + search/query/context/doctor + Progressive Specs + governance + freshness + ChangeSets/Baselines + broken relation path).');
+  console.log('E2E regression: PASS (v5.8 acceptance/verification traceability + v5.7 brownfield adoption/reconciliation + v5.6 workspace layout + v5.5 entity identity/lifecycle + semantic relations + Source Base + source intelligence/Git impact + search/query/context/doctor + Progressive Specs + governance + freshness + ChangeSets/Baselines + broken relation path).');
 } finally {
   fs.rmSync(tempRoot,{recursive:true,force:true});
 }

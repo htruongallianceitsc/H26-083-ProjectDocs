@@ -16,6 +16,28 @@ rules:
     field: tests
     min: 1
     minSpecLevel: standard
+  - id: requirement-acceptance-coverage
+    severity: error
+    type: requirement-acceptance-coverage
+    entityType: requirement
+    statusIn:
+      - approved
+      - in_progress
+      - implemented
+    requireStableIds: true
+    requireTests: true
+    requireEveryCriterionCovered: true
+  - id: critical-business-rule-verification
+    severity: error
+    type: business-rule-polarity-coverage
+    entityType: business-rule
+    statusIn:
+      - approved
+    criticalityIn:
+      - critical
+    polarities:
+      - positive
+      - negative
   - id: mobile-screen-states
     severity: warning
     type: body-contains

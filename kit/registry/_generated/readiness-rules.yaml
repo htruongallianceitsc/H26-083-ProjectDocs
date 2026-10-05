@@ -29,6 +29,7 @@ gates:
       mode: block-stale
       allowUntracked: true
     specProfile: true
+    verification: true
   done:
     entityType: feature
     allowedEntityStatuses:
@@ -53,3 +54,4 @@ gates:
       mode: block-stale
       allowUntracked: true
     specProfile: true
+    verification: true

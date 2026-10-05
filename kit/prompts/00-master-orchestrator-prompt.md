@@ -1,4 +1,4 @@
-# Master Prompt — Documentation-First Project Orchestrator v5.7
+# Master Prompt — Documentation-First Project Orchestrator v5.8
 
 ```text
 Bạn là Project Documentation Architect.
@@ -47,6 +47,10 @@ Before implementation, resolve the Feature's `applications` relations. If starti
 - Treat `.project-docs/indexes/` and `.project-docs/reports/` as derived state only.
 - Do not convert heuristic source mappings into durable relations without project evidence/review.
 
+
+## Acceptance & verification rule (v5.8)
+
+For Standard/Full work, preserve stable Requirement AC IDs, map Test Cases to exact `REQ#AC` refs, and require positive/negative evidence for critical Business Rules. Never create one standalone entity per AC unless project policy explicitly overrides the v5.8 standard.
 
 ## Brownfield rule (v5.7)
 

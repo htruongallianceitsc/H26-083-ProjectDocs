@@ -1,7 +1,7 @@
-# Production Project Documentation Starter Kit v5.7
+# Production Project Documentation Starter Kit v5.8
 
 
-Documentation-first starter kit for long-lived Web, Mobile and API projects. v5.7 adds a governed brownfield path for projects that already have source code: adopt the existing application boundary, inventory source, generate reviewable semantic candidates, promote only accepted candidates into canonical docs, reconcile source↔docs, create an initial baseline, and optionally plan source normalization into the canonical workspace.
+Documentation-first starter kit for long-lived Web, Mobile and API projects. v5.8 adds first-class Acceptance & Verification Traceability: stable Acceptance Criteria sub-IDs, exact Test Case mappings, critical Business Rule positive/negative coverage, quality gates, reports, and a Verification dashboard while keeping Acceptance Criteria lightweight inside Requirement documents.
 
 ## Core model
 
@@ -30,9 +30,31 @@ Docs Reconciliation <- Tests <- Source Changes
 Done Gate -> ChangeSet / Baseline
 ```
 
-## What v5.7 adds
+## What v5.8 adds
 
-### 1. Brownfield adoption is now first-class
+### 1. Stable Acceptance Criteria without AC entity explosion
+
+Requirements now use stable `AC-*` rows under `## Acceptance Criteria`. The permanent address is `REQ-CODE#AC-ID`; Acceptance Criteria remain sub-addresses of the Requirement rather than standalone Markdown entities.
+
+### 2. Exact Test → Acceptance mapping
+
+Test Cases use `acceptance_criteria: [REQ-...#AC-01]` while retaining normal `related.requirements` graph links. Invalid or uncovered AC references are detected automatically.
+
+### 3. Business Rule verification polarity
+
+Critical Business Rules can require both positive and negative evidence. Test Cases declare `business_rule_cases: [BR-...#positive]` or `BR-...#negative`; approved critical rules missing either side fail verification.
+
+### 4. Verification quality gate and dashboard
+
+`verification:status` and `verification:check` generate `.project-docs/reports/verification-report.json`, feed `docs/_generated/verification.json`, appear in the static Verification page, and participate in Ready/Done evaluation for related Feature context. `npm run qa` includes verification checking.
+
+### 5. Explicit verification relations
+
+The relation registry now includes explicit Requirement → Business Rule, Test Case → Business Rule, and Business Rule → Test Case mappings so verification links no longer depend on broad fallback rules.
+
+## v5.7 Brownfield capabilities retained
+
+### Brownfield adoption is first-class
 
 Existing code can enter the docs-first model without pretending the docs came first:
 
@@ -50,19 +72,19 @@ source:adopt
 
 `source:adopt` marks the project adoption state as brownfield/in-progress. Inventory, candidates, reconciliation and refactor proposals live under `.project-docs/brownfield/` and remain derived evidence until reviewed.
 
-### 2. Candidate review before canonical promotion
+### Candidate review before canonical promotion
 
 `kit/registry/brownfield.json` defines confidence thresholds and safety policy. `autoPromote` is disabled by default. Candidates can represent Features, Screens, APIs, Database Objects and Tests; promotion requires an explicit accepted review. Promoted Features start as lightweight reverse-engineered specs so teams can progressively reconcile business intent without losing source provenance.
 
-### 3. Brownfield reconciliation and baseline gate
+### Brownfield reconciliation and baseline gate
 
 `brownfield:reconcile` checks high-confidence review completion, accepted-but-unpromoted candidates, missing source evidence and other adoption gaps. `gate:baseline` blocks the initial brownfield baseline while high-severity findings remain. `brownfield:baseline` uses the existing Baseline engine and records the reconciled adoption state in `project.profile.json`.
 
-### 4. Safe source-normalization planning
+### Safe source-normalization planning
 
 `brownfield:refactor-plan` proposes movement from legacy roots toward `apps/`, `packages/`, `tests/` and `infra/`, but never moves files. The generated plan explicitly requires a reviewed WorkPlan before execution and lists build/test/source/QA verification steps.
 
-### 5. Technology-aware discovery hints
+### Technology-aware discovery hints
 
 The brownfield registry includes adapter hints for React SPA, Next.js, React Native/Expo, Flutter/BLoC, ASP.NET Core API and Node.js API. These adapters classify evidence; they do not decide business truth.
 
@@ -134,6 +156,13 @@ Then build local engineering intelligence:
 npm run source:scan
 npm run knowledge:reindex
 npm run doctor
+```
+
+Acceptance and verification commands:
+
+```bash
+npm run verification:status
+npm run verification:check
 ```
 
 Typical discovery commands:

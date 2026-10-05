@@ -24,6 +24,7 @@
     "kit/standards/entity-identity-lifecycle-and-relations.md",
     "kit/standards/source-intelligence.md",
     "kit/standards/local-knowledge-engine.md",
-    "kit/standards/brownfield-adoption.md"
+    "kit/standards/brownfield-adoption.md",
+    "kit/standards/acceptance-and-verification-traceability.md"
   ]
 }

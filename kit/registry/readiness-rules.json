@@ -40,7 +40,8 @@
         "mode": "block-stale",
         "allowUntracked": true
       },
-      "specProfile": true
+      "specProfile": true,
+      "verification": true
     },
     "done": {
       "entityType": "feature",
@@ -79,7 +80,8 @@
         "mode": "block-stale",
         "allowUntracked": true
       },
-      "specProfile": true
+      "specProfile": true,
+      "verification": true
     }
   }
 }

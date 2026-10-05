@@ -1,4 +1,4 @@
-# Registry Governance — v5.7
+# Registry Governance — v5.8
 
 `kit/registry/*.json` is the canonical machine-readable policy source.
 
@@ -55,3 +55,8 @@ The physical repository layout is configured in root `starter-kit.json.workspace
 - `brownfield.json` controls candidate confidence thresholds, review-before-promotion policy, reconciliation blocking severities, technology adapter hints and source-normalization safety.
 - Brownfield inventory/candidates/reconciliation/refactor plans are derived runtime evidence under `.project-docs/brownfield/`; they are not canonical domain entities.
 - `autoPromote` and `allowDirectMove` are intentionally disabled by default.
+
+
+## Acceptance / verification registry (v5.8)
+
+`quality-rules.json` now contains machine rules for Requirement AC coverage and critical Business Rule polarity coverage. `relation-map.json` includes explicit Requirement/Test/Business Rule verification relations. Generated YAML mirrors remain derived.

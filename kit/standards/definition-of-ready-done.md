@@ -1,4 +1,4 @@
-# Definition of Ready / Done — v5.3
+# Definition of Ready / Done — v5.8
 
 ## Mode-aware Documentation Ready
 
@@ -29,6 +29,8 @@ Profile-specific minimums are defined in `kit/registry/spec-profiles.json`:
 - At least one linked Test Case exists.
 - Linked Requirements are `approved` or `implemented`.
 - Linked Tests are `ready` or `passed`.
+- Approved/in-progress/implemented Requirements have stable AC IDs and every AC is covered by at least one exact Test Case reference.
+- Critical approved Business Rules have required positive/negative verification coverage.
 
 ### Full
 
@@ -65,6 +67,7 @@ Common machine minimum:
 - all incoming implementation Tasks are `done`.
 - no linked Open Question remains blocking.
 - known stale documentation is reconciled.
+- verification traceability for linked Requirements/Business Rules remains valid.
 
 If linked tests exist, they must satisfy the configured Done status rules. Standard/Full normally have explicit linked tests because their Ready profiles require them.
 

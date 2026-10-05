@@ -1,4 +1,4 @@
-# START HERE - v5.7
+# START HERE - v5.8
 
 ## 0. Understand the workspace layout
 
@@ -34,7 +34,7 @@ Features should use `related.applications` to identify implementation boundaries
 
 ## 2A. Existing project? Complete brownfield onboarding before normal feature work
 
-After `source:adopt`, v5.7 marks adoption as `brownfield / in-progress`. Build evidence first; do not immediately move legacy source into `apps/`.
+After `source:adopt`, v5.8 retains the v5.7 brownfield behavior and marks adoption as `brownfield / in-progress`. Build evidence first; do not immediately move legacy source into `apps/`.
 
 ```bash
 npm run brownfield:inventory -- --app APP-...
@@ -74,6 +74,33 @@ Use `entity:transition` for governed lifecycle changes instead of arbitrary stat
 ## 4. Build documentation first
 
 Create the Module -> Feature -> Requirement/Rule -> Screen/API/DB/Test knowledge required by the selected Spec Level. Exact typed relations are preferred; broad fallback relations should be reviewed.
+
+## 4A. Make acceptance and verification traceable
+
+For each Standard/Full Requirement, use stable AC rows:
+
+```markdown
+| ID | Type | Scenario | Criterion |
+|---|---|---|---|
+| AC-01 | happy-path | Valid action | Given ... When ... Then ... |
+```
+
+Map Test Cases precisely:
+
+```yaml
+acceptance_criteria: [REQ-...#AC-01]
+business_rule_cases: [BR-...#positive]
+related:
+  requirements: [REQ-...]
+  business_rules: [BR-...]
+```
+
+Critical approved Business Rules should have both positive and negative Test Case coverage. Validate before planning:
+
+```bash
+npm run verification:status
+npm run verification:check
+```
 
 ## 5. Build source and knowledge indexes
 

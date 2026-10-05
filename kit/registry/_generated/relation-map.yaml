@@ -302,6 +302,42 @@ relations:
     required: false
     allowUnresolved: false
     fallback: false
+  - from: requirement
+    field: business_rules
+    to: business-rule
+    cardinality: many-to-many
+    key: requirement.business_rules.business-rule
+    relation: constrained_by_rule
+    reverse: constrains_requirement
+    min: 0
+    max: null
+    required: false
+    allowUnresolved: false
+    fallback: false
+  - from: test-case
+    field: business_rules
+    to: business-rule
+    cardinality: many-to-many
+    key: test-case.business_rules.business-rule
+    relation: verifies_rule
+    reverse: verified_by_test
+    min: 0
+    max: null
+    required: false
+    allowUnresolved: false
+    fallback: false
+  - from: business-rule
+    field: tests
+    to: test-case
+    cardinality: many-to-many
+    key: business-rule.tests.test-case
+    relation: verified_by
+    reverse: verifies_rule
+    min: 0
+    max: null
+    required: false
+    allowUnresolved: false
+    fallback: false
   - from: "*"
     field: decisions
     to: decision

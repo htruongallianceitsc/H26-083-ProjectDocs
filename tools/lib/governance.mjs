@@ -3,6 +3,7 @@ import path from 'node:path';
 import { ROOT, loadJson, scanEntities, sha256 } from './common.mjs';
 import { checkFreshness } from './freshness.mjs';
 import { evaluateSpec, resolveSpec } from './specification.mjs';
+import { verificationFindings } from './verification.mjs';
 
 export function entityIndex() {
   const { entities } = scanEntities();
@@ -65,6 +66,15 @@ export function evaluateGate(gateName, entityCode) {
       checks[checks.length - 1].severity = c.severity || (pass ? 'info' : 'error');
       checks[checks.length - 1].specLevel = spec.effectiveLevel;
     }
+  }
+
+  if (config.verification && entity.type === 'feature') {
+    const quality = loadJson('registry/quality-rules.json', { rules: [] });
+    const verification = verificationFindings(entities, quality.rules || []);
+    const scopedCodes = new Set([entity.code, ...normalizeList(entity.meta.related?.requirements), ...normalizeList(entity.meta.related?.business_rules), ...normalizeList(entity.meta.related?.tests)]);
+    const scopedPaths = new Set([...scopedCodes].map(code => byCode.get(code)?.path).filter(Boolean));
+    const blocking = verification.findings.filter(f => f.severity === 'error' && (scopedPaths.has(f.file) || [...scopedCodes].some(code => String(f.message).includes(code))));
+    add(blocking.length === 0, 'VERIFICATION_TRACEABILITY', blocking.length ? blocking.map(x => x.message).join('; ') : 'Acceptance Criteria and Business Rule verification coverage is valid.');
   }
 
   if (config.freshness) {

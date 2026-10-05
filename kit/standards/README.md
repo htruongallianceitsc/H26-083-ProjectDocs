@@ -1,4 +1,4 @@
-# Standards Architecture v5.7
+# Standards Architecture v5.8
 
 Standards resolve in this order:
 
