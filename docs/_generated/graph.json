@@ -1,4 +1,7011 @@
 {
-  "nodes": [],
-  "edges": []
+  "nodes": [
+    {
+      "id": "DOC-ASSUMPTIONS",
+      "label": "Assumptions and Constraints",
+      "type": "document",
+      "path": "docs/00-project/assumptions-constraints.md"
+    },
+    {
+      "id": "DOC-GLOSSARY",
+      "label": "Glossary",
+      "type": "document",
+      "path": "docs/00-project/glossary.md"
+    },
+    {
+      "id": "DOC-SCOPE",
+      "label": "Product Scope",
+      "type": "document",
+      "path": "docs/00-project/product-scope.md"
+    },
+    {
+      "id": "PRJ-KANBAN",
+      "label": "KanbanFlow - Project Overview",
+      "type": "project",
+      "path": "docs/00-project/project-overview.md"
+    },
+    {
+      "id": "DOC-STAKEHOLDERS",
+      "label": "Stakeholders",
+      "type": "document",
+      "path": "docs/00-project/stakeholders.md"
+    },
+    {
+      "id": "DOC-FUNCTIONAL-OVERVIEW",
+      "label": "Functional Overview",
+      "type": "document",
+      "path": "docs/01-product/functional-overview.md"
+    },
+    {
+      "id": "DOC-PERSONAS",
+      "label": "Personas",
+      "type": "document",
+      "path": "docs/01-product/personas.md"
+    },
+    {
+      "id": "DOC-ROLES-PERMISSIONS",
+      "label": "Roles and Permissions",
+      "type": "document",
+      "path": "docs/01-product/roles-permissions.md"
+    },
+    {
+      "id": "DOC-USER-JOURNEYS",
+      "label": "User Journeys",
+      "type": "document",
+      "path": "docs/01-product/user-journeys.md"
+    },
+    {
+      "id": "DOC-VISION",
+      "label": "Product Vision",
+      "type": "document",
+      "path": "docs/01-product/vision.md"
+    },
+    {
+      "id": "FEAT-AUTH-FORGOT-PASSWORD",
+      "label": "Forgot / Reset Password",
+      "type": "feature",
+      "path": "docs/02-modules/MOD-AUTH/FEAT-AUTH-FORGOT-PASSWORD/feature.md"
+    },
+    {
+      "id": "FEAT-AUTH-LOGIN",
+      "label": "Login / Logout",
+      "type": "feature",
+      "path": "docs/02-modules/MOD-AUTH/FEAT-AUTH-LOGIN/feature.md"
+    },
+    {
+      "id": "FEAT-AUTH-REGISTER",
+      "label": "Register",
+      "type": "feature",
+      "path": "docs/02-modules/MOD-AUTH/FEAT-AUTH-REGISTER/feature.md"
+    },
+    {
+      "id": "MOD-AUTH",
+      "label": "Authentication & Account",
+      "type": "module",
+      "path": "docs/02-modules/MOD-AUTH/module.md"
+    },
+    {
+      "id": "FEAT-BOARD-CREATE",
+      "label": "Create Board",
+      "type": "feature",
+      "path": "docs/02-modules/MOD-BOARD/FEAT-BOARD-CREATE/feature.md"
+    },
+    {
+      "id": "FEAT-BOARD-MANAGE",
+      "label": "Manage Board Settings",
+      "type": "feature",
+      "path": "docs/02-modules/MOD-BOARD/FEAT-BOARD-MANAGE/feature.md"
+    },
+    {
+      "id": "MOD-BOARD",
+      "label": "Board Management",
+      "type": "module",
+      "path": "docs/02-modules/MOD-BOARD/module.md"
+    },
+    {
+      "id": "FEAT-CARD-ARCHIVE",
+      "label": "Archive Card",
+      "type": "feature",
+      "path": "docs/02-modules/MOD-CARD/FEAT-CARD-ARCHIVE/feature.md"
+    },
+    {
+      "id": "FEAT-CARD-CREATE",
+      "label": "Create Card",
+      "type": "feature",
+      "path": "docs/02-modules/MOD-CARD/FEAT-CARD-CREATE/feature.md"
+    },
+    {
+      "id": "FEAT-CARD-EDIT-DETAIL",
+      "label": "Edit Card Detail",
+      "type": "feature",
+      "path": "docs/02-modules/MOD-CARD/FEAT-CARD-EDIT-DETAIL/feature.md"
+    },
+    {
+      "id": "FEAT-CARD-MOVE",
+      "label": "Move Card (drag-and-drop)",
+      "type": "feature",
+      "path": "docs/02-modules/MOD-CARD/FEAT-CARD-MOVE/feature.md"
+    },
+    {
+      "id": "MOD-CARD",
+      "label": "Card Management",
+      "type": "module",
+      "path": "docs/02-modules/MOD-CARD/module.md"
+    },
+    {
+      "id": "FEAT-ACTIVITY-LOG",
+      "label": "Card Activity Log",
+      "type": "feature",
+      "path": "docs/02-modules/MOD-COMMENT/FEAT-ACTIVITY-LOG/feature.md"
+    },
+    {
+      "id": "FEAT-COMMENT-ADD",
+      "label": "Add / Edit / Delete Comment",
+      "type": "feature",
+      "path": "docs/02-modules/MOD-COMMENT/FEAT-COMMENT-ADD/feature.md"
+    },
+    {
+      "id": "MOD-COMMENT",
+      "label": "Comments & Activity",
+      "type": "module",
+      "path": "docs/02-modules/MOD-COMMENT/module.md"
+    },
+    {
+      "id": "FEAT-LABEL-ASSIGN",
+      "label": "Assign Label to Card",
+      "type": "feature",
+      "path": "docs/02-modules/MOD-LABEL/FEAT-LABEL-ASSIGN/feature.md"
+    },
+    {
+      "id": "FEAT-LABEL-MANAGE",
+      "label": "Manage Board Labels",
+      "type": "feature",
+      "path": "docs/02-modules/MOD-LABEL/FEAT-LABEL-MANAGE/feature.md"
+    },
+    {
+      "id": "MOD-LABEL",
+      "label": "Labels",
+      "type": "module",
+      "path": "docs/02-modules/MOD-LABEL/module.md"
+    },
+    {
+      "id": "FEAT-LIST-MANAGE",
+      "label": "Manage Lists",
+      "type": "feature",
+      "path": "docs/02-modules/MOD-LIST/FEAT-LIST-MANAGE/feature.md"
+    },
+    {
+      "id": "FEAT-LIST-REORDER",
+      "label": "Reorder Lists (drag-and-drop)",
+      "type": "feature",
+      "path": "docs/02-modules/MOD-LIST/FEAT-LIST-REORDER/feature.md"
+    },
+    {
+      "id": "MOD-LIST",
+      "label": "List Management",
+      "type": "module",
+      "path": "docs/02-modules/MOD-LIST/module.md"
+    },
+    {
+      "id": "FEAT-MEMBER-ASSIGN-CARD",
+      "label": "Assign Card Member",
+      "type": "feature",
+      "path": "docs/02-modules/MOD-MEMBER/FEAT-MEMBER-ASSIGN-CARD/feature.md"
+    },
+    {
+      "id": "MOD-MEMBER",
+      "label": "Card Members",
+      "type": "module",
+      "path": "docs/02-modules/MOD-MEMBER/module.md"
+    },
+    {
+      "id": "FEAT-WORKSPACE-CREATE",
+      "label": "Create Workspace",
+      "type": "feature",
+      "path": "docs/02-modules/MOD-WORKSPACE/FEAT-WORKSPACE-CREATE/feature.md"
+    },
+    {
+      "id": "FEAT-WORKSPACE-MANAGE-MEMBERS",
+      "label": "Manage Workspace Members",
+      "type": "feature",
+      "path": "docs/02-modules/MOD-WORKSPACE/FEAT-WORKSPACE-MANAGE-MEMBERS/feature.md"
+    },
+    {
+      "id": "MOD-WORKSPACE",
+      "label": "Workspace & Membership",
+      "type": "module",
+      "path": "docs/02-modules/MOD-WORKSPACE/module.md"
+    },
+    {
+      "id": "REQ-AUTH-001",
+      "label": "User Registration",
+      "type": "requirement",
+      "path": "docs/03-requirements/functional/REQ-AUTH-001.md"
+    },
+    {
+      "id": "REQ-AUTH-002",
+      "label": "Login and Logout",
+      "type": "requirement",
+      "path": "docs/03-requirements/functional/REQ-AUTH-002.md"
+    },
+    {
+      "id": "REQ-AUTH-003",
+      "label": "Forgot and Reset Password",
+      "type": "requirement",
+      "path": "docs/03-requirements/functional/REQ-AUTH-003.md"
+    },
+    {
+      "id": "REQ-BOARD-001",
+      "label": "Create Board with Default Lists",
+      "type": "requirement",
+      "path": "docs/03-requirements/functional/REQ-BOARD-001.md"
+    },
+    {
+      "id": "REQ-BOARD-002",
+      "label": "Manage Board Settings and Archive",
+      "type": "requirement",
+      "path": "docs/03-requirements/functional/REQ-BOARD-002.md"
+    },
+    {
+      "id": "REQ-CARD-001",
+      "label": "Create Card",
+      "type": "requirement",
+      "path": "docs/03-requirements/functional/REQ-CARD-001.md"
+    },
+    {
+      "id": "REQ-CARD-002",
+      "label": "Move Card via Drag-and-Drop",
+      "type": "requirement",
+      "path": "docs/03-requirements/functional/REQ-CARD-002.md"
+    },
+    {
+      "id": "REQ-CARD-003",
+      "label": "Edit Card Detail",
+      "type": "requirement",
+      "path": "docs/03-requirements/functional/REQ-CARD-003.md"
+    },
+    {
+      "id": "REQ-CARD-004",
+      "label": "Archive Card",
+      "type": "requirement",
+      "path": "docs/03-requirements/functional/REQ-CARD-004.md"
+    },
+    {
+      "id": "REQ-COMMENT-001",
+      "label": "Add, Edit, and Delete Comments",
+      "type": "requirement",
+      "path": "docs/03-requirements/functional/REQ-COMMENT-001.md"
+    },
+    {
+      "id": "REQ-COMMENT-002",
+      "label": "View Card Activity Log",
+      "type": "requirement",
+      "path": "docs/03-requirements/functional/REQ-COMMENT-002.md"
+    },
+    {
+      "id": "REQ-LABEL-001",
+      "label": "Manage Board Labels",
+      "type": "requirement",
+      "path": "docs/03-requirements/functional/REQ-LABEL-001.md"
+    },
+    {
+      "id": "REQ-LABEL-002",
+      "label": "Assign or Remove a Label on a Card",
+      "type": "requirement",
+      "path": "docs/03-requirements/functional/REQ-LABEL-002.md"
+    },
+    {
+      "id": "REQ-LIST-001",
+      "label": "Manage Lists",
+      "type": "requirement",
+      "path": "docs/03-requirements/functional/REQ-LIST-001.md"
+    },
+    {
+      "id": "REQ-LIST-002",
+      "label": "Reorder Lists via Drag-and-Drop",
+      "type": "requirement",
+      "path": "docs/03-requirements/functional/REQ-LIST-002.md"
+    },
+    {
+      "id": "REQ-MEMBER-001",
+      "label": "Assign or Remove a Card Member",
+      "type": "requirement",
+      "path": "docs/03-requirements/functional/REQ-MEMBER-001.md"
+    },
+    {
+      "id": "REQ-WORKSPACE-001",
+      "label": "Create Workspace",
+      "type": "requirement",
+      "path": "docs/03-requirements/functional/REQ-WORKSPACE-001.md"
+    },
+    {
+      "id": "REQ-WORKSPACE-002",
+      "label": "Manage Workspace Members and Roles",
+      "type": "requirement",
+      "path": "docs/03-requirements/functional/REQ-WORKSPACE-002.md"
+    },
+    {
+      "id": "NFR-A11Y-001",
+      "label": "Keyboard-Accessible Core Interactions",
+      "type": "nfr",
+      "path": "docs/03-requirements/non-functional/NFR-A11Y-001.md"
+    },
+    {
+      "id": "NFR-AVAIL-001",
+      "label": "Service Availability",
+      "type": "nfr",
+      "path": "docs/03-requirements/non-functional/NFR-AVAIL-001.md"
+    },
+    {
+      "id": "NFR-BACKUP-001",
+      "label": "Database Backup and Recovery",
+      "type": "nfr",
+      "path": "docs/03-requirements/non-functional/NFR-BACKUP-001.md"
+    },
+    {
+      "id": "NFR-BROWSER-001",
+      "label": "Supported Browsers and Viewport",
+      "type": "nfr",
+      "path": "docs/03-requirements/non-functional/NFR-BROWSER-001.md"
+    },
+    {
+      "id": "NFR-PERF-001",
+      "label": "API Response Time",
+      "type": "nfr",
+      "path": "docs/03-requirements/non-functional/NFR-PERF-001.md"
+    },
+    {
+      "id": "NFR-PERF-002",
+      "label": "Realtime Board Sync Latency",
+      "type": "nfr",
+      "path": "docs/03-requirements/non-functional/NFR-PERF-002.md"
+    },
+    {
+      "id": "NFR-SCALE-001",
+      "label": "Target Scale for MVP",
+      "type": "nfr",
+      "path": "docs/03-requirements/non-functional/NFR-SCALE-001.md"
+    },
+    {
+      "id": "NFR-SEC-001",
+      "label": "Session Token Lifetime",
+      "type": "nfr",
+      "path": "docs/03-requirements/non-functional/NFR-SEC-001.md"
+    },
+    {
+      "id": "BR-AUTH-001",
+      "label": "Password Policy",
+      "type": "business-rule",
+      "path": "docs/04-business-rules/BR-AUTH-001.md"
+    },
+    {
+      "id": "BR-AUTH-002",
+      "label": "Account Lockout After Failed Logins",
+      "type": "business-rule",
+      "path": "docs/04-business-rules/BR-AUTH-002.md"
+    },
+    {
+      "id": "BR-BOARD-001",
+      "label": "Only Workspace Members Can Create Boards",
+      "type": "business-rule",
+      "path": "docs/04-business-rules/BR-BOARD-001.md"
+    },
+    {
+      "id": "BR-BOARD-002",
+      "label": "Archived Board is Read-Only",
+      "type": "business-rule",
+      "path": "docs/04-business-rules/BR-BOARD-002.md"
+    },
+    {
+      "id": "BR-CARD-001",
+      "label": "Card Move Scope and Optimistic Concurrency",
+      "type": "business-rule",
+      "path": "docs/04-business-rules/BR-CARD-001.md"
+    },
+    {
+      "id": "BR-CARD-002",
+      "label": "Due Date Must Not Precede Card Creation",
+      "type": "business-rule",
+      "path": "docs/04-business-rules/BR-CARD-002.md"
+    },
+    {
+      "id": "BR-CARD-003",
+      "label": "Archived Card is Hidden and Read-Only",
+      "type": "business-rule",
+      "path": "docs/04-business-rules/BR-CARD-003.md"
+    },
+    {
+      "id": "BR-COMMENT-001",
+      "label": "Comment Edit/Delete Permission and Soft Delete",
+      "type": "business-rule",
+      "path": "docs/04-business-rules/BR-COMMENT-001.md"
+    },
+    {
+      "id": "BR-LABEL-001",
+      "label": "Label Name Uniqueness and Board Limit",
+      "type": "business-rule",
+      "path": "docs/04-business-rules/BR-LABEL-001.md"
+    },
+    {
+      "id": "BR-LIST-001",
+      "label": "Archived List Cannot Accept New Cards",
+      "type": "business-rule",
+      "path": "docs/04-business-rules/BR-LIST-001.md"
+    },
+    {
+      "id": "BR-LIST-002",
+      "label": "Fractional Position Ordering and Rebalancing",
+      "type": "business-rule",
+      "path": "docs/04-business-rules/BR-LIST-002.md"
+    },
+    {
+      "id": "BR-MEMBER-001",
+      "label": "Only Workspace Members Can Be Assigned to a Card",
+      "type": "business-rule",
+      "path": "docs/04-business-rules/BR-MEMBER-001.md"
+    },
+    {
+      "id": "BR-WORKSPACE-001",
+      "label": "Workspace Role Permission Matrix",
+      "type": "business-rule",
+      "path": "docs/04-business-rules/BR-WORKSPACE-001.md"
+    },
+    {
+      "id": "BR-WORKSPACE-002",
+      "label": "Single Membership per Workspace",
+      "type": "business-rule",
+      "path": "docs/04-business-rules/BR-WORKSPACE-002.md"
+    },
+    {
+      "id": "SCR-BOARD-SETTINGS",
+      "label": "Board Settings",
+      "type": "screen",
+      "path": "docs/05-screens/SCR-BOARD-SETTINGS.md"
+    },
+    {
+      "id": "SCR-BOARD",
+      "label": "Board",
+      "type": "screen",
+      "path": "docs/05-screens/SCR-BOARD.md"
+    },
+    {
+      "id": "SCR-CARD-DETAIL",
+      "label": "Card Detail",
+      "type": "screen",
+      "path": "docs/05-screens/SCR-CARD-DETAIL.md"
+    },
+    {
+      "id": "SCR-FORGOT-PASSWORD",
+      "label": "Forgot / Reset Password",
+      "type": "screen",
+      "path": "docs/05-screens/SCR-FORGOT-PASSWORD.md"
+    },
+    {
+      "id": "SCR-LOGIN",
+      "label": "Login",
+      "type": "screen",
+      "path": "docs/05-screens/SCR-LOGIN.md"
+    },
+    {
+      "id": "SCR-REGISTER",
+      "label": "Register",
+      "type": "screen",
+      "path": "docs/05-screens/SCR-REGISTER.md"
+    },
+    {
+      "id": "SCR-WORKSPACE-HOME",
+      "label": "Workspace Home",
+      "type": "screen",
+      "path": "docs/05-screens/SCR-WORKSPACE-HOME.md"
+    },
+    {
+      "id": "SCR-WORKSPACE-SETTINGS",
+      "label": "Workspace Settings",
+      "type": "screen",
+      "path": "docs/05-screens/SCR-WORKSPACE-SETTINGS.md"
+    },
+    {
+      "id": "FLOW-COMMENT-ACTIVITY",
+      "label": "Comment Creation Triggers Activity Log Entry",
+      "type": "flow",
+      "path": "docs/06-flows/business/FLOW-COMMENT-ACTIVITY.md"
+    },
+    {
+      "id": "FLOW-WORKSPACE-INVITE-MEMBER",
+      "label": "Workspace Invite Member",
+      "type": "flow",
+      "path": "docs/06-flows/business/FLOW-WORKSPACE-INVITE-MEMBER.md"
+    },
+    {
+      "id": "FLOW-AUTH-LOGIN",
+      "label": "Login Sequence",
+      "type": "flow",
+      "path": "docs/06-flows/sequence/FLOW-AUTH-LOGIN.md"
+    },
+    {
+      "id": "FLOW-CARD-MOVE-DRAGDROP",
+      "label": "Card Drag-and-Drop Move (Optimistic UI + Realtime Sync)",
+      "type": "flow",
+      "path": "docs/06-flows/system/FLOW-CARD-MOVE-DRAGDROP.md"
+    },
+    {
+      "id": "FLOW-CARD-LIFECYCLE",
+      "label": "Card Lifecycle (Create to Archive)",
+      "type": "flow",
+      "path": "docs/06-flows/user/FLOW-CARD-LIFECYCLE.md"
+    },
+    {
+      "id": "API-ACTIVITY-LIST",
+      "label": "List Card Activity",
+      "type": "api",
+      "path": "docs/07-api/API-ACTIVITY-LIST.md"
+    },
+    {
+      "id": "API-AUTH-FORGOT-PASSWORD",
+      "label": "Forgot Password (Request Reset)",
+      "type": "api",
+      "path": "docs/07-api/API-AUTH-FORGOT-PASSWORD.md"
+    },
+    {
+      "id": "API-AUTH-LOGIN",
+      "label": "Login",
+      "type": "api",
+      "path": "docs/07-api/API-AUTH-LOGIN.md"
+    },
+    {
+      "id": "API-AUTH-LOGOUT",
+      "label": "Logout",
+      "type": "api",
+      "path": "docs/07-api/API-AUTH-LOGOUT.md"
+    },
+    {
+      "id": "API-AUTH-REGISTER",
+      "label": "Register",
+      "type": "api",
+      "path": "docs/07-api/API-AUTH-REGISTER.md"
+    },
+    {
+      "id": "API-AUTH-RESET-PASSWORD",
+      "label": "Reset Password",
+      "type": "api",
+      "path": "docs/07-api/API-AUTH-RESET-PASSWORD.md"
+    },
+    {
+      "id": "API-BOARD-ARCHIVE",
+      "label": "Archive Board",
+      "type": "api",
+      "path": "docs/07-api/API-BOARD-ARCHIVE.md"
+    },
+    {
+      "id": "API-BOARD-CREATE",
+      "label": "Create Board",
+      "type": "api",
+      "path": "docs/07-api/API-BOARD-CREATE.md"
+    },
+    {
+      "id": "API-BOARD-GET-DETAIL",
+      "label": "Get Board Detail",
+      "type": "api",
+      "path": "docs/07-api/API-BOARD-GET-DETAIL.md"
+    },
+    {
+      "id": "API-BOARD-UPDATE",
+      "label": "Update Board",
+      "type": "api",
+      "path": "docs/07-api/API-BOARD-UPDATE.md"
+    },
+    {
+      "id": "API-CARD-ARCHIVE",
+      "label": "Archive Card",
+      "type": "api",
+      "path": "docs/07-api/API-CARD-ARCHIVE.md"
+    },
+    {
+      "id": "API-CARD-CREATE",
+      "label": "Create Card",
+      "type": "api",
+      "path": "docs/07-api/API-CARD-CREATE.md"
+    },
+    {
+      "id": "API-CARD-GET-DETAIL",
+      "label": "Get Card Detail",
+      "type": "api",
+      "path": "docs/07-api/API-CARD-GET-DETAIL.md"
+    },
+    {
+      "id": "API-CARD-MEMBER-ASSIGN",
+      "label": "Assign Card Member",
+      "type": "api",
+      "path": "docs/07-api/API-CARD-MEMBER-ASSIGN.md"
+    },
+    {
+      "id": "API-CARD-MEMBER-REMOVE",
+      "label": "Remove Card Member",
+      "type": "api",
+      "path": "docs/07-api/API-CARD-MEMBER-REMOVE.md"
+    },
+    {
+      "id": "API-CARD-MOVE",
+      "label": "Move Card",
+      "type": "api",
+      "path": "docs/07-api/API-CARD-MOVE.md"
+    },
+    {
+      "id": "API-CARD-UPDATE",
+      "label": "Update Card Detail",
+      "type": "api",
+      "path": "docs/07-api/API-CARD-UPDATE.md"
+    },
+    {
+      "id": "API-COMMENT-CREATE",
+      "label": "Add Comment",
+      "type": "api",
+      "path": "docs/07-api/API-COMMENT-CREATE.md"
+    },
+    {
+      "id": "API-COMMENT-DELETE",
+      "label": "Delete Comment",
+      "type": "api",
+      "path": "docs/07-api/API-COMMENT-DELETE.md"
+    },
+    {
+      "id": "API-COMMENT-UPDATE",
+      "label": "Edit Comment",
+      "type": "api",
+      "path": "docs/07-api/API-COMMENT-UPDATE.md"
+    },
+    {
+      "id": "API-LABEL-ASSIGN",
+      "label": "Assign Label to Card",
+      "type": "api",
+      "path": "docs/07-api/API-LABEL-ASSIGN.md"
+    },
+    {
+      "id": "API-LABEL-CREATE",
+      "label": "Create Board Label",
+      "type": "api",
+      "path": "docs/07-api/API-LABEL-CREATE.md"
+    },
+    {
+      "id": "API-LABEL-DELETE",
+      "label": "Delete Board Label",
+      "type": "api",
+      "path": "docs/07-api/API-LABEL-DELETE.md"
+    },
+    {
+      "id": "API-LABEL-REMOVE",
+      "label": "Remove Label from Card",
+      "type": "api",
+      "path": "docs/07-api/API-LABEL-REMOVE.md"
+    },
+    {
+      "id": "API-LABEL-UPDATE",
+      "label": "Update Board Label",
+      "type": "api",
+      "path": "docs/07-api/API-LABEL-UPDATE.md"
+    },
+    {
+      "id": "API-LIST-CREATE",
+      "label": "Create List",
+      "type": "api",
+      "path": "docs/07-api/API-LIST-CREATE.md"
+    },
+    {
+      "id": "API-LIST-REORDER",
+      "label": "Reorder List",
+      "type": "api",
+      "path": "docs/07-api/API-LIST-REORDER.md"
+    },
+    {
+      "id": "API-LIST-UPDATE",
+      "label": "Update / Archive List",
+      "type": "api",
+      "path": "docs/07-api/API-LIST-UPDATE.md"
+    },
+    {
+      "id": "API-WORKSPACE-CREATE",
+      "label": "Create Workspace",
+      "type": "api",
+      "path": "docs/07-api/API-WORKSPACE-CREATE.md"
+    },
+    {
+      "id": "API-WORKSPACE-INVITE-MEMBER",
+      "label": "Invite Workspace Member",
+      "type": "api",
+      "path": "docs/07-api/API-WORKSPACE-INVITE-MEMBER.md"
+    },
+    {
+      "id": "API-WORKSPACE-LIST",
+      "label": "List My Workspaces",
+      "type": "api",
+      "path": "docs/07-api/API-WORKSPACE-LIST.md"
+    },
+    {
+      "id": "API-WORKSPACE-REMOVE-MEMBER",
+      "label": "Remove Workspace Member",
+      "type": "api",
+      "path": "docs/07-api/API-WORKSPACE-REMOVE-MEMBER.md"
+    },
+    {
+      "id": "API-WORKSPACE-UPDATE-MEMBER-ROLE",
+      "label": "Update Workspace Member Role",
+      "type": "api",
+      "path": "docs/07-api/API-WORKSPACE-UPDATE-MEMBER-ROLE.md"
+    },
+    {
+      "id": "DOC-API-CONVENTIONS",
+      "label": "API Conventions",
+      "type": "document",
+      "path": "docs/07-api/conventions.md"
+    },
+    {
+      "id": "DOC-DATABASE-OVERVIEW",
+      "label": "Database Overview",
+      "type": "document",
+      "path": "docs/08-database/database-overview.md"
+    },
+    {
+      "id": "DB-ACTIVITY-LOG",
+      "label": "Activity Log",
+      "type": "database-object",
+      "path": "docs/08-database/tables/DB-ACTIVITY-LOG.md"
+    },
+    {
+      "id": "DB-BOARD",
+      "label": "Board",
+      "type": "database-object",
+      "path": "docs/08-database/tables/DB-BOARD.md"
+    },
+    {
+      "id": "DB-CARD-LABEL",
+      "label": "Card Label",
+      "type": "database-object",
+      "path": "docs/08-database/tables/DB-CARD-LABEL.md"
+    },
+    {
+      "id": "DB-CARD-MEMBER",
+      "label": "Card Member",
+      "type": "database-object",
+      "path": "docs/08-database/tables/DB-CARD-MEMBER.md"
+    },
+    {
+      "id": "DB-CARD",
+      "label": "Card",
+      "type": "database-object",
+      "path": "docs/08-database/tables/DB-CARD.md"
+    },
+    {
+      "id": "DB-COMMENT",
+      "label": "Comment",
+      "type": "database-object",
+      "path": "docs/08-database/tables/DB-COMMENT.md"
+    },
+    {
+      "id": "DB-LABEL",
+      "label": "Label",
+      "type": "database-object",
+      "path": "docs/08-database/tables/DB-LABEL.md"
+    },
+    {
+      "id": "DB-LIST",
+      "label": "List",
+      "type": "database-object",
+      "path": "docs/08-database/tables/DB-LIST.md"
+    },
+    {
+      "id": "DB-PASSWORD-RESET-TOKEN",
+      "label": "Password Reset Token",
+      "type": "database-object",
+      "path": "docs/08-database/tables/DB-PASSWORD-RESET-TOKEN.md"
+    },
+    {
+      "id": "DB-REFRESH-TOKEN",
+      "label": "Refresh Token",
+      "type": "database-object",
+      "path": "docs/08-database/tables/DB-REFRESH-TOKEN.md"
+    },
+    {
+      "id": "DB-USER",
+      "label": "User",
+      "type": "database-object",
+      "path": "docs/08-database/tables/DB-USER.md"
+    },
+    {
+      "id": "DB-WORKSPACE-MEMBER",
+      "label": "Workspace Member",
+      "type": "database-object",
+      "path": "docs/08-database/tables/DB-WORKSPACE-MEMBER.md"
+    },
+    {
+      "id": "DB-WORKSPACE",
+      "label": "Workspace",
+      "type": "database-object",
+      "path": "docs/08-database/tables/DB-WORKSPACE.md"
+    },
+    {
+      "id": "ARCH-003",
+      "label": "Backend Architecture",
+      "type": "document",
+      "path": "docs/09-architecture/backend-architecture.md"
+    },
+    {
+      "id": "ARCH-002",
+      "label": "Frontend Architecture",
+      "type": "document",
+      "path": "docs/09-architecture/frontend-architecture.md"
+    },
+    {
+      "id": "INT-EMAIL",
+      "label": "Transactional Email Provider",
+      "type": "integration",
+      "path": "docs/09-architecture/integrations/INT-EMAIL.md"
+    },
+    {
+      "id": "ARCH-004",
+      "label": "Realtime Architecture",
+      "type": "document",
+      "path": "docs/09-architecture/realtime-architecture.md"
+    },
+    {
+      "id": "ARCH-001",
+      "label": "System Context",
+      "type": "document",
+      "path": "docs/09-architecture/system-context.md"
+    },
+    {
+      "id": "DOC-SEC-AUTHENTICATION",
+      "label": "Authentication",
+      "type": "document",
+      "path": "docs/10-security/authentication.md"
+    },
+    {
+      "id": "DOC-SEC-AUTHORIZATION",
+      "label": "Authorization",
+      "type": "document",
+      "path": "docs/10-security/authorization.md"
+    },
+    {
+      "id": "DOC-SEC-DATA-SECURITY",
+      "label": "Data Security",
+      "type": "document",
+      "path": "docs/10-security/data-security.md"
+    },
+    {
+      "id": "DOC-SEC-CHECKLIST",
+      "label": "Security Checklist",
+      "type": "document",
+      "path": "docs/10-security/security-checklist.md"
+    },
+    {
+      "id": "TC-ACTIVITY-LOG-001",
+      "label": "Activity feed reflects create, move, and comment events in order",
+      "type": "test-case",
+      "path": "docs/11-quality/test-cases/TC-ACTIVITY-LOG-001.md"
+    },
+    {
+      "id": "TC-AUTH-FORGOT-PASSWORD-001",
+      "label": "Reset password with a valid token, then reject reuse",
+      "type": "test-case",
+      "path": "docs/11-quality/test-cases/TC-AUTH-FORGOT-PASSWORD-001.md"
+    },
+    {
+      "id": "TC-AUTH-LOGIN-001",
+      "label": "Account locks out after 5 failed login attempts",
+      "type": "test-case",
+      "path": "docs/11-quality/test-cases/TC-AUTH-LOGIN-001.md"
+    },
+    {
+      "id": "TC-AUTH-REGISTER-001",
+      "label": "Register with duplicate email is rejected",
+      "type": "test-case",
+      "path": "docs/11-quality/test-cases/TC-AUTH-REGISTER-001.md"
+    },
+    {
+      "id": "TC-BOARD-CREATE-001",
+      "label": "Create board seeds 3 default lists",
+      "type": "test-case",
+      "path": "docs/11-quality/test-cases/TC-BOARD-CREATE-001.md"
+    },
+    {
+      "id": "TC-BOARD-MANAGE-001",
+      "label": "Archived board rejects card creation",
+      "type": "test-case",
+      "path": "docs/11-quality/test-cases/TC-BOARD-MANAGE-001.md"
+    },
+    {
+      "id": "TC-CARD-ARCHIVE-001",
+      "label": "Archived card disappears from board and rejects further edits",
+      "type": "test-case",
+      "path": "docs/11-quality/test-cases/TC-CARD-ARCHIVE-001.md"
+    },
+    {
+      "id": "TC-CARD-CREATE-001",
+      "label": "Create card appends at end of list",
+      "type": "test-case",
+      "path": "docs/11-quality/test-cases/TC-CARD-CREATE-001.md"
+    },
+    {
+      "id": "TC-CARD-EDIT-DETAIL-001",
+      "label": "Due date before creation date is rejected",
+      "type": "test-case",
+      "path": "docs/11-quality/test-cases/TC-CARD-EDIT-DETAIL-001.md"
+    },
+    {
+      "id": "TC-CARD-MOVE-001",
+      "label": "Drag card to another list syncs to a second connected client",
+      "type": "test-case",
+      "path": "docs/11-quality/test-cases/TC-CARD-MOVE-001.md"
+    },
+    {
+      "id": "TC-CARD-MOVE-002",
+      "label": "Concurrent moves on the same card produce a conflict",
+      "type": "test-case",
+      "path": "docs/11-quality/test-cases/TC-CARD-MOVE-002.md"
+    },
+    {
+      "id": "TC-COMMENT-ADD-001",
+      "label": "Only author or admin can edit/delete a comment",
+      "type": "test-case",
+      "path": "docs/11-quality/test-cases/TC-COMMENT-ADD-001.md"
+    },
+    {
+      "id": "TC-LABEL-ASSIGN-001",
+      "label": "Toggle a label on and off a card",
+      "type": "test-case",
+      "path": "docs/11-quality/test-cases/TC-LABEL-ASSIGN-001.md"
+    },
+    {
+      "id": "TC-LABEL-MANAGE-001",
+      "label": "Create label with duplicate name is rejected",
+      "type": "test-case",
+      "path": "docs/11-quality/test-cases/TC-LABEL-MANAGE-001.md"
+    },
+    {
+      "id": "TC-LIST-MANAGE-001",
+      "label": "Cannot create a card in an archived list",
+      "type": "test-case",
+      "path": "docs/11-quality/test-cases/TC-LIST-MANAGE-001.md"
+    },
+    {
+      "id": "TC-LIST-REORDER-001",
+      "label": "Reorder a list between two siblings",
+      "type": "test-case",
+      "path": "docs/11-quality/test-cases/TC-LIST-REORDER-001.md"
+    },
+    {
+      "id": "TC-MEMBER-ASSIGN-CARD-001",
+      "label": "Cannot assign a non-workspace-member to a card",
+      "type": "test-case",
+      "path": "docs/11-quality/test-cases/TC-MEMBER-ASSIGN-CARD-001.md"
+    },
+    {
+      "id": "TC-WORKSPACE-CREATE-001",
+      "label": "Create workspace grants creator owner role",
+      "type": "test-case",
+      "path": "docs/11-quality/test-cases/TC-WORKSPACE-CREATE-001.md"
+    },
+    {
+      "id": "TC-WORKSPACE-MANAGE-MEMBERS-001",
+      "label": "Admin cannot remove or demote the workspace owner",
+      "type": "test-case",
+      "path": "docs/11-quality/test-cases/TC-WORKSPACE-MANAGE-MEMBERS-001.md"
+    },
+    {
+      "id": "DOC-TESTING-STRATEGY",
+      "label": "Testing Strategy",
+      "type": "document",
+      "path": "docs/11-quality/testing-strategy.md"
+    },
+    {
+      "id": "DOC-ENVIRONMENTS",
+      "label": "Environments",
+      "type": "document",
+      "path": "docs/12-devops/environments.md"
+    },
+    {
+      "id": "DOC-RELEASE-PROCESS",
+      "label": "Release Process",
+      "type": "document",
+      "path": "docs/12-devops/release-process.md"
+    },
+    {
+      "id": "DOC-INCIDENT-RESPONSE",
+      "label": "Incident Response",
+      "type": "document",
+      "path": "docs/13-operations/incident-response.md"
+    },
+    {
+      "id": "DOC-MONITORING",
+      "label": "Monitoring",
+      "type": "document",
+      "path": "docs/13-operations/monitoring.md"
+    },
+    {
+      "id": "DOC-PERFORMANCE-REQUIREMENTS",
+      "label": "Performance Requirements",
+      "type": "document",
+      "path": "docs/14-performance/performance-requirements.md"
+    },
+    {
+      "id": "ADR-001",
+      "label": "Use PostgreSQL as the Primary Database",
+      "type": "decision",
+      "path": "docs/15-decisions/ADR-001.md"
+    },
+    {
+      "id": "ADR-002",
+      "label": "JWT Access Token + httpOnly Refresh Token Cookie for Sessions",
+      "type": "decision",
+      "path": "docs/15-decisions/ADR-002.md"
+    },
+    {
+      "id": "ADR-003",
+      "label": "Fractional-Index Positions for List and Card Ordering",
+      "type": "decision",
+      "path": "docs/15-decisions/ADR-003.md"
+    },
+    {
+      "id": "ADR-004",
+      "label": "WebSocket Channel for Realtime Board Sync",
+      "type": "decision",
+      "path": "docs/15-decisions/ADR-004.md"
+    },
+    {
+      "id": "ADR-005",
+      "label": "Soft Delete (Archive) Instead of Hard Delete",
+      "type": "decision",
+      "path": "docs/15-decisions/ADR-005.md"
+    },
+    {
+      "id": "ADR-006",
+      "label": "React SPA + REST API (No SSR) for the MVP",
+      "type": "decision",
+      "path": "docs/15-decisions/ADR-006.md"
+    },
+    {
+      "id": "RELEASE-001",
+      "label": "v1.0 MVP Release",
+      "type": "release",
+      "path": "docs/16-release/releases/RELEASE-001.md"
+    },
+    {
+      "id": "DOC-PRODUCT-CHANGELOG",
+      "label": "Product Changelog",
+      "type": "document",
+      "path": "docs/18-changelog/product-changelog.md"
+    },
+    {
+      "id": "OQ-001",
+      "label": "Billing / Subscription Model for Future Monetization",
+      "type": "open-question",
+      "path": "docs/19-open-items/OQ-001.md"
+    },
+    {
+      "id": "OQ-002",
+      "label": "Deeper Conflict-Resolution UX for Concurrent Card Moves",
+      "type": "open-question",
+      "path": "docs/19-open-items/OQ-002.md"
+    },
+    {
+      "id": "OQ-003",
+      "label": "File Attachment Storage Provider",
+      "type": "open-question",
+      "path": "docs/19-open-items/OQ-003.md"
+    },
+    {
+      "id": "OQ-004",
+      "label": "Checklists as a First-Class Card Sub-Entity",
+      "type": "open-question",
+      "path": "docs/19-open-items/OQ-004.md"
+    },
+    {
+      "id": "OQ-005",
+      "label": "Transactional Email / Notification Provider Selection",
+      "type": "open-question",
+      "path": "docs/19-open-items/OQ-005.md"
+    },
+    {
+      "id": "OQ-006",
+      "label": "Future Native Mobile App",
+      "type": "open-question",
+      "path": "docs/19-open-items/OQ-006.md"
+    }
+  ],
+  "edges": [
+    {
+      "from": "DOC-ASSUMPTIONS",
+      "to": "ADR-001",
+      "field": "decisions"
+    },
+    {
+      "from": "DOC-ASSUMPTIONS",
+      "to": "ADR-002",
+      "field": "decisions"
+    },
+    {
+      "from": "DOC-ASSUMPTIONS",
+      "to": "ADR-003",
+      "field": "decisions"
+    },
+    {
+      "from": "DOC-ASSUMPTIONS",
+      "to": "ADR-004",
+      "field": "decisions"
+    },
+    {
+      "from": "DOC-ASSUMPTIONS",
+      "to": "ADR-005",
+      "field": "decisions"
+    },
+    {
+      "from": "DOC-ASSUMPTIONS",
+      "to": "ADR-006",
+      "field": "decisions"
+    },
+    {
+      "from": "DOC-SCOPE",
+      "to": "MOD-AUTH",
+      "field": "modules"
+    },
+    {
+      "from": "DOC-SCOPE",
+      "to": "MOD-WORKSPACE",
+      "field": "modules"
+    },
+    {
+      "from": "DOC-SCOPE",
+      "to": "MOD-BOARD",
+      "field": "modules"
+    },
+    {
+      "from": "DOC-SCOPE",
+      "to": "MOD-LIST",
+      "field": "modules"
+    },
+    {
+      "from": "DOC-SCOPE",
+      "to": "MOD-CARD",
+      "field": "modules"
+    },
+    {
+      "from": "DOC-SCOPE",
+      "to": "MOD-LABEL",
+      "field": "modules"
+    },
+    {
+      "from": "DOC-SCOPE",
+      "to": "MOD-MEMBER",
+      "field": "modules"
+    },
+    {
+      "from": "DOC-SCOPE",
+      "to": "MOD-COMMENT",
+      "field": "modules"
+    },
+    {
+      "from": "DOC-SCOPE",
+      "to": "OQ-001",
+      "field": "open_questions"
+    },
+    {
+      "from": "DOC-SCOPE",
+      "to": "OQ-002",
+      "field": "open_questions"
+    },
+    {
+      "from": "DOC-SCOPE",
+      "to": "OQ-003",
+      "field": "open_questions"
+    },
+    {
+      "from": "DOC-SCOPE",
+      "to": "OQ-004",
+      "field": "open_questions"
+    },
+    {
+      "from": "DOC-SCOPE",
+      "to": "OQ-005",
+      "field": "open_questions"
+    },
+    {
+      "from": "DOC-SCOPE",
+      "to": "OQ-006",
+      "field": "open_questions"
+    },
+    {
+      "from": "PRJ-KANBAN",
+      "to": "MOD-AUTH",
+      "field": "modules"
+    },
+    {
+      "from": "PRJ-KANBAN",
+      "to": "MOD-WORKSPACE",
+      "field": "modules"
+    },
+    {
+      "from": "PRJ-KANBAN",
+      "to": "MOD-BOARD",
+      "field": "modules"
+    },
+    {
+      "from": "PRJ-KANBAN",
+      "to": "MOD-LIST",
+      "field": "modules"
+    },
+    {
+      "from": "PRJ-KANBAN",
+      "to": "MOD-CARD",
+      "field": "modules"
+    },
+    {
+      "from": "PRJ-KANBAN",
+      "to": "MOD-LABEL",
+      "field": "modules"
+    },
+    {
+      "from": "PRJ-KANBAN",
+      "to": "MOD-MEMBER",
+      "field": "modules"
+    },
+    {
+      "from": "PRJ-KANBAN",
+      "to": "MOD-COMMENT",
+      "field": "modules"
+    },
+    {
+      "from": "DOC-FUNCTIONAL-OVERVIEW",
+      "to": "MOD-AUTH",
+      "field": "modules"
+    },
+    {
+      "from": "DOC-FUNCTIONAL-OVERVIEW",
+      "to": "MOD-WORKSPACE",
+      "field": "modules"
+    },
+    {
+      "from": "DOC-FUNCTIONAL-OVERVIEW",
+      "to": "MOD-BOARD",
+      "field": "modules"
+    },
+    {
+      "from": "DOC-FUNCTIONAL-OVERVIEW",
+      "to": "MOD-LIST",
+      "field": "modules"
+    },
+    {
+      "from": "DOC-FUNCTIONAL-OVERVIEW",
+      "to": "MOD-CARD",
+      "field": "modules"
+    },
+    {
+      "from": "DOC-FUNCTIONAL-OVERVIEW",
+      "to": "MOD-LABEL",
+      "field": "modules"
+    },
+    {
+      "from": "DOC-FUNCTIONAL-OVERVIEW",
+      "to": "MOD-MEMBER",
+      "field": "modules"
+    },
+    {
+      "from": "DOC-FUNCTIONAL-OVERVIEW",
+      "to": "MOD-COMMENT",
+      "field": "modules"
+    },
+    {
+      "from": "DOC-ROLES-PERMISSIONS",
+      "to": "MOD-WORKSPACE",
+      "field": "modules"
+    },
+    {
+      "from": "DOC-ROLES-PERMISSIONS",
+      "to": "MOD-BOARD",
+      "field": "modules"
+    },
+    {
+      "from": "DOC-ROLES-PERMISSIONS",
+      "to": "BR-WORKSPACE-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "DOC-USER-JOURNEYS",
+      "to": "FEAT-AUTH-REGISTER",
+      "field": "features"
+    },
+    {
+      "from": "DOC-USER-JOURNEYS",
+      "to": "FEAT-WORKSPACE-CREATE",
+      "field": "features"
+    },
+    {
+      "from": "DOC-USER-JOURNEYS",
+      "to": "FEAT-BOARD-CREATE",
+      "field": "features"
+    },
+    {
+      "from": "DOC-USER-JOURNEYS",
+      "to": "FEAT-LIST-MANAGE",
+      "field": "features"
+    },
+    {
+      "from": "DOC-USER-JOURNEYS",
+      "to": "FEAT-CARD-CREATE",
+      "field": "features"
+    },
+    {
+      "from": "DOC-USER-JOURNEYS",
+      "to": "FEAT-CARD-MOVE",
+      "field": "features"
+    },
+    {
+      "from": "DOC-USER-JOURNEYS",
+      "to": "FLOW-CARD-LIFECYCLE",
+      "field": "flows"
+    },
+    {
+      "from": "FEAT-AUTH-FORGOT-PASSWORD",
+      "to": "MOD-AUTH",
+      "field": "modules"
+    },
+    {
+      "from": "FEAT-AUTH-FORGOT-PASSWORD",
+      "to": "REQ-AUTH-003",
+      "field": "requirements"
+    },
+    {
+      "from": "FEAT-AUTH-FORGOT-PASSWORD",
+      "to": "BR-AUTH-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "FEAT-AUTH-FORGOT-PASSWORD",
+      "to": "SCR-FORGOT-PASSWORD",
+      "field": "screens"
+    },
+    {
+      "from": "FEAT-AUTH-FORGOT-PASSWORD",
+      "to": "API-AUTH-FORGOT-PASSWORD",
+      "field": "apis"
+    },
+    {
+      "from": "FEAT-AUTH-FORGOT-PASSWORD",
+      "to": "API-AUTH-RESET-PASSWORD",
+      "field": "apis"
+    },
+    {
+      "from": "FEAT-AUTH-FORGOT-PASSWORD",
+      "to": "DB-USER",
+      "field": "database_objects"
+    },
+    {
+      "from": "FEAT-AUTH-FORGOT-PASSWORD",
+      "to": "DB-PASSWORD-RESET-TOKEN",
+      "field": "database_objects"
+    },
+    {
+      "from": "FEAT-AUTH-FORGOT-PASSWORD",
+      "to": "TC-AUTH-FORGOT-PASSWORD-001",
+      "field": "tests"
+    },
+    {
+      "from": "FEAT-AUTH-LOGIN",
+      "to": "MOD-AUTH",
+      "field": "modules"
+    },
+    {
+      "from": "FEAT-AUTH-LOGIN",
+      "to": "REQ-AUTH-002",
+      "field": "requirements"
+    },
+    {
+      "from": "FEAT-AUTH-LOGIN",
+      "to": "BR-AUTH-002",
+      "field": "business_rules"
+    },
+    {
+      "from": "FEAT-AUTH-LOGIN",
+      "to": "SCR-LOGIN",
+      "field": "screens"
+    },
+    {
+      "from": "FEAT-AUTH-LOGIN",
+      "to": "FLOW-AUTH-LOGIN",
+      "field": "flows"
+    },
+    {
+      "from": "FEAT-AUTH-LOGIN",
+      "to": "API-AUTH-LOGIN",
+      "field": "apis"
+    },
+    {
+      "from": "FEAT-AUTH-LOGIN",
+      "to": "API-AUTH-LOGOUT",
+      "field": "apis"
+    },
+    {
+      "from": "FEAT-AUTH-LOGIN",
+      "to": "DB-USER",
+      "field": "database_objects"
+    },
+    {
+      "from": "FEAT-AUTH-LOGIN",
+      "to": "DB-REFRESH-TOKEN",
+      "field": "database_objects"
+    },
+    {
+      "from": "FEAT-AUTH-LOGIN",
+      "to": "TC-AUTH-LOGIN-001",
+      "field": "tests"
+    },
+    {
+      "from": "FEAT-AUTH-LOGIN",
+      "to": "ADR-002",
+      "field": "decisions"
+    },
+    {
+      "from": "FEAT-AUTH-REGISTER",
+      "to": "MOD-AUTH",
+      "field": "modules"
+    },
+    {
+      "from": "FEAT-AUTH-REGISTER",
+      "to": "REQ-AUTH-001",
+      "field": "requirements"
+    },
+    {
+      "from": "FEAT-AUTH-REGISTER",
+      "to": "BR-AUTH-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "FEAT-AUTH-REGISTER",
+      "to": "SCR-REGISTER",
+      "field": "screens"
+    },
+    {
+      "from": "FEAT-AUTH-REGISTER",
+      "to": "API-AUTH-REGISTER",
+      "field": "apis"
+    },
+    {
+      "from": "FEAT-AUTH-REGISTER",
+      "to": "DB-USER",
+      "field": "database_objects"
+    },
+    {
+      "from": "FEAT-AUTH-REGISTER",
+      "to": "TC-AUTH-REGISTER-001",
+      "field": "tests"
+    },
+    {
+      "from": "MOD-AUTH",
+      "to": "FEAT-AUTH-REGISTER",
+      "field": "features"
+    },
+    {
+      "from": "MOD-AUTH",
+      "to": "FEAT-AUTH-LOGIN",
+      "field": "features"
+    },
+    {
+      "from": "MOD-AUTH",
+      "to": "FEAT-AUTH-FORGOT-PASSWORD",
+      "field": "features"
+    },
+    {
+      "from": "MOD-AUTH",
+      "to": "DB-USER",
+      "field": "database_objects"
+    },
+    {
+      "from": "MOD-AUTH",
+      "to": "DB-REFRESH-TOKEN",
+      "field": "database_objects"
+    },
+    {
+      "from": "MOD-AUTH",
+      "to": "DB-PASSWORD-RESET-TOKEN",
+      "field": "database_objects"
+    },
+    {
+      "from": "MOD-AUTH",
+      "to": "ADR-002",
+      "field": "decisions"
+    },
+    {
+      "from": "FEAT-BOARD-CREATE",
+      "to": "MOD-BOARD",
+      "field": "modules"
+    },
+    {
+      "from": "FEAT-BOARD-CREATE",
+      "to": "REQ-BOARD-001",
+      "field": "requirements"
+    },
+    {
+      "from": "FEAT-BOARD-CREATE",
+      "to": "BR-BOARD-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "FEAT-BOARD-CREATE",
+      "to": "SCR-WORKSPACE-HOME",
+      "field": "screens"
+    },
+    {
+      "from": "FEAT-BOARD-CREATE",
+      "to": "SCR-BOARD",
+      "field": "screens"
+    },
+    {
+      "from": "FEAT-BOARD-CREATE",
+      "to": "API-BOARD-CREATE",
+      "field": "apis"
+    },
+    {
+      "from": "FEAT-BOARD-CREATE",
+      "to": "DB-BOARD",
+      "field": "database_objects"
+    },
+    {
+      "from": "FEAT-BOARD-CREATE",
+      "to": "DB-LIST",
+      "field": "database_objects"
+    },
+    {
+      "from": "FEAT-BOARD-CREATE",
+      "to": "TC-BOARD-CREATE-001",
+      "field": "tests"
+    },
+    {
+      "from": "FEAT-BOARD-MANAGE",
+      "to": "MOD-BOARD",
+      "field": "modules"
+    },
+    {
+      "from": "FEAT-BOARD-MANAGE",
+      "to": "REQ-BOARD-002",
+      "field": "requirements"
+    },
+    {
+      "from": "FEAT-BOARD-MANAGE",
+      "to": "BR-BOARD-002",
+      "field": "business_rules"
+    },
+    {
+      "from": "FEAT-BOARD-MANAGE",
+      "to": "SCR-BOARD-SETTINGS",
+      "field": "screens"
+    },
+    {
+      "from": "FEAT-BOARD-MANAGE",
+      "to": "API-BOARD-GET-DETAIL",
+      "field": "apis"
+    },
+    {
+      "from": "FEAT-BOARD-MANAGE",
+      "to": "API-BOARD-UPDATE",
+      "field": "apis"
+    },
+    {
+      "from": "FEAT-BOARD-MANAGE",
+      "to": "API-BOARD-ARCHIVE",
+      "field": "apis"
+    },
+    {
+      "from": "FEAT-BOARD-MANAGE",
+      "to": "DB-BOARD",
+      "field": "database_objects"
+    },
+    {
+      "from": "FEAT-BOARD-MANAGE",
+      "to": "TC-BOARD-MANAGE-001",
+      "field": "tests"
+    },
+    {
+      "from": "FEAT-BOARD-MANAGE",
+      "to": "ADR-005",
+      "field": "decisions"
+    },
+    {
+      "from": "MOD-BOARD",
+      "to": "FEAT-BOARD-CREATE",
+      "field": "features"
+    },
+    {
+      "from": "MOD-BOARD",
+      "to": "FEAT-BOARD-MANAGE",
+      "field": "features"
+    },
+    {
+      "from": "MOD-BOARD",
+      "to": "DB-BOARD",
+      "field": "database_objects"
+    },
+    {
+      "from": "MOD-BOARD",
+      "to": "ADR-005",
+      "field": "decisions"
+    },
+    {
+      "from": "FEAT-CARD-ARCHIVE",
+      "to": "MOD-CARD",
+      "field": "modules"
+    },
+    {
+      "from": "FEAT-CARD-ARCHIVE",
+      "to": "REQ-CARD-004",
+      "field": "requirements"
+    },
+    {
+      "from": "FEAT-CARD-ARCHIVE",
+      "to": "BR-CARD-003",
+      "field": "business_rules"
+    },
+    {
+      "from": "FEAT-CARD-ARCHIVE",
+      "to": "SCR-CARD-DETAIL",
+      "field": "screens"
+    },
+    {
+      "from": "FEAT-CARD-ARCHIVE",
+      "to": "SCR-BOARD",
+      "field": "screens"
+    },
+    {
+      "from": "FEAT-CARD-ARCHIVE",
+      "to": "FLOW-CARD-LIFECYCLE",
+      "field": "flows"
+    },
+    {
+      "from": "FEAT-CARD-ARCHIVE",
+      "to": "API-CARD-ARCHIVE",
+      "field": "apis"
+    },
+    {
+      "from": "FEAT-CARD-ARCHIVE",
+      "to": "DB-CARD",
+      "field": "database_objects"
+    },
+    {
+      "from": "FEAT-CARD-ARCHIVE",
+      "to": "TC-CARD-ARCHIVE-001",
+      "field": "tests"
+    },
+    {
+      "from": "FEAT-CARD-ARCHIVE",
+      "to": "ADR-005",
+      "field": "decisions"
+    },
+    {
+      "from": "FEAT-CARD-CREATE",
+      "to": "MOD-CARD",
+      "field": "modules"
+    },
+    {
+      "from": "FEAT-CARD-CREATE",
+      "to": "REQ-CARD-001",
+      "field": "requirements"
+    },
+    {
+      "from": "FEAT-CARD-CREATE",
+      "to": "BR-LIST-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "FEAT-CARD-CREATE",
+      "to": "BR-BOARD-002",
+      "field": "business_rules"
+    },
+    {
+      "from": "FEAT-CARD-CREATE",
+      "to": "SCR-BOARD",
+      "field": "screens"
+    },
+    {
+      "from": "FEAT-CARD-CREATE",
+      "to": "FLOW-CARD-LIFECYCLE",
+      "field": "flows"
+    },
+    {
+      "from": "FEAT-CARD-CREATE",
+      "to": "API-CARD-CREATE",
+      "field": "apis"
+    },
+    {
+      "from": "FEAT-CARD-CREATE",
+      "to": "DB-CARD",
+      "field": "database_objects"
+    },
+    {
+      "from": "FEAT-CARD-CREATE",
+      "to": "TC-CARD-CREATE-001",
+      "field": "tests"
+    },
+    {
+      "from": "FEAT-CARD-EDIT-DETAIL",
+      "to": "MOD-CARD",
+      "field": "modules"
+    },
+    {
+      "from": "FEAT-CARD-EDIT-DETAIL",
+      "to": "REQ-CARD-003",
+      "field": "requirements"
+    },
+    {
+      "from": "FEAT-CARD-EDIT-DETAIL",
+      "to": "BR-CARD-002",
+      "field": "business_rules"
+    },
+    {
+      "from": "FEAT-CARD-EDIT-DETAIL",
+      "to": "BR-CARD-003",
+      "field": "business_rules"
+    },
+    {
+      "from": "FEAT-CARD-EDIT-DETAIL",
+      "to": "SCR-CARD-DETAIL",
+      "field": "screens"
+    },
+    {
+      "from": "FEAT-CARD-EDIT-DETAIL",
+      "to": "API-CARD-GET-DETAIL",
+      "field": "apis"
+    },
+    {
+      "from": "FEAT-CARD-EDIT-DETAIL",
+      "to": "API-CARD-UPDATE",
+      "field": "apis"
+    },
+    {
+      "from": "FEAT-CARD-EDIT-DETAIL",
+      "to": "DB-CARD",
+      "field": "database_objects"
+    },
+    {
+      "from": "FEAT-CARD-EDIT-DETAIL",
+      "to": "TC-CARD-EDIT-DETAIL-001",
+      "field": "tests"
+    },
+    {
+      "from": "FEAT-CARD-MOVE",
+      "to": "MOD-CARD",
+      "field": "modules"
+    },
+    {
+      "from": "FEAT-CARD-MOVE",
+      "to": "REQ-CARD-002",
+      "field": "requirements"
+    },
+    {
+      "from": "FEAT-CARD-MOVE",
+      "to": "BR-CARD-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "FEAT-CARD-MOVE",
+      "to": "BR-LIST-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "FEAT-CARD-MOVE",
+      "to": "BR-LIST-002",
+      "field": "business_rules"
+    },
+    {
+      "from": "FEAT-CARD-MOVE",
+      "to": "BR-BOARD-002",
+      "field": "business_rules"
+    },
+    {
+      "from": "FEAT-CARD-MOVE",
+      "to": "SCR-BOARD",
+      "field": "screens"
+    },
+    {
+      "from": "FEAT-CARD-MOVE",
+      "to": "FLOW-CARD-MOVE-DRAGDROP",
+      "field": "flows"
+    },
+    {
+      "from": "FEAT-CARD-MOVE",
+      "to": "API-CARD-MOVE",
+      "field": "apis"
+    },
+    {
+      "from": "FEAT-CARD-MOVE",
+      "to": "DB-CARD",
+      "field": "database_objects"
+    },
+    {
+      "from": "FEAT-CARD-MOVE",
+      "to": "TC-CARD-MOVE-001",
+      "field": "tests"
+    },
+    {
+      "from": "FEAT-CARD-MOVE",
+      "to": "TC-CARD-MOVE-002",
+      "field": "tests"
+    },
+    {
+      "from": "FEAT-CARD-MOVE",
+      "to": "ADR-003",
+      "field": "decisions"
+    },
+    {
+      "from": "FEAT-CARD-MOVE",
+      "to": "ADR-004",
+      "field": "decisions"
+    },
+    {
+      "from": "MOD-CARD",
+      "to": "FEAT-CARD-CREATE",
+      "field": "features"
+    },
+    {
+      "from": "MOD-CARD",
+      "to": "FEAT-CARD-MOVE",
+      "field": "features"
+    },
+    {
+      "from": "MOD-CARD",
+      "to": "FEAT-CARD-EDIT-DETAIL",
+      "field": "features"
+    },
+    {
+      "from": "MOD-CARD",
+      "to": "FEAT-CARD-ARCHIVE",
+      "field": "features"
+    },
+    {
+      "from": "MOD-CARD",
+      "to": "DB-CARD",
+      "field": "database_objects"
+    },
+    {
+      "from": "MOD-CARD",
+      "to": "ADR-003",
+      "field": "decisions"
+    },
+    {
+      "from": "MOD-CARD",
+      "to": "ADR-005",
+      "field": "decisions"
+    },
+    {
+      "from": "FEAT-ACTIVITY-LOG",
+      "to": "MOD-COMMENT",
+      "field": "modules"
+    },
+    {
+      "from": "FEAT-ACTIVITY-LOG",
+      "to": "REQ-COMMENT-002",
+      "field": "requirements"
+    },
+    {
+      "from": "FEAT-ACTIVITY-LOG",
+      "to": "SCR-CARD-DETAIL",
+      "field": "screens"
+    },
+    {
+      "from": "FEAT-ACTIVITY-LOG",
+      "to": "FLOW-CARD-MOVE-DRAGDROP",
+      "field": "flows"
+    },
+    {
+      "from": "FEAT-ACTIVITY-LOG",
+      "to": "FLOW-COMMENT-ACTIVITY",
+      "field": "flows"
+    },
+    {
+      "from": "FEAT-ACTIVITY-LOG",
+      "to": "API-ACTIVITY-LIST",
+      "field": "apis"
+    },
+    {
+      "from": "FEAT-ACTIVITY-LOG",
+      "to": "DB-ACTIVITY-LOG",
+      "field": "database_objects"
+    },
+    {
+      "from": "FEAT-ACTIVITY-LOG",
+      "to": "TC-ACTIVITY-LOG-001",
+      "field": "tests"
+    },
+    {
+      "from": "FEAT-COMMENT-ADD",
+      "to": "MOD-COMMENT",
+      "field": "modules"
+    },
+    {
+      "from": "FEAT-COMMENT-ADD",
+      "to": "REQ-COMMENT-001",
+      "field": "requirements"
+    },
+    {
+      "from": "FEAT-COMMENT-ADD",
+      "to": "BR-COMMENT-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "FEAT-COMMENT-ADD",
+      "to": "SCR-CARD-DETAIL",
+      "field": "screens"
+    },
+    {
+      "from": "FEAT-COMMENT-ADD",
+      "to": "FLOW-COMMENT-ACTIVITY",
+      "field": "flows"
+    },
+    {
+      "from": "FEAT-COMMENT-ADD",
+      "to": "API-COMMENT-CREATE",
+      "field": "apis"
+    },
+    {
+      "from": "FEAT-COMMENT-ADD",
+      "to": "API-COMMENT-UPDATE",
+      "field": "apis"
+    },
+    {
+      "from": "FEAT-COMMENT-ADD",
+      "to": "API-COMMENT-DELETE",
+      "field": "apis"
+    },
+    {
+      "from": "FEAT-COMMENT-ADD",
+      "to": "DB-COMMENT",
+      "field": "database_objects"
+    },
+    {
+      "from": "FEAT-COMMENT-ADD",
+      "to": "TC-COMMENT-ADD-001",
+      "field": "tests"
+    },
+    {
+      "from": "MOD-COMMENT",
+      "to": "FEAT-COMMENT-ADD",
+      "field": "features"
+    },
+    {
+      "from": "MOD-COMMENT",
+      "to": "FEAT-ACTIVITY-LOG",
+      "field": "features"
+    },
+    {
+      "from": "MOD-COMMENT",
+      "to": "DB-COMMENT",
+      "field": "database_objects"
+    },
+    {
+      "from": "MOD-COMMENT",
+      "to": "DB-ACTIVITY-LOG",
+      "field": "database_objects"
+    },
+    {
+      "from": "FEAT-LABEL-ASSIGN",
+      "to": "MOD-LABEL",
+      "field": "modules"
+    },
+    {
+      "from": "FEAT-LABEL-ASSIGN",
+      "to": "REQ-LABEL-002",
+      "field": "requirements"
+    },
+    {
+      "from": "FEAT-LABEL-ASSIGN",
+      "to": "SCR-CARD-DETAIL",
+      "field": "screens"
+    },
+    {
+      "from": "FEAT-LABEL-ASSIGN",
+      "to": "API-LABEL-ASSIGN",
+      "field": "apis"
+    },
+    {
+      "from": "FEAT-LABEL-ASSIGN",
+      "to": "API-LABEL-REMOVE",
+      "field": "apis"
+    },
+    {
+      "from": "FEAT-LABEL-ASSIGN",
+      "to": "DB-CARD-LABEL",
+      "field": "database_objects"
+    },
+    {
+      "from": "FEAT-LABEL-ASSIGN",
+      "to": "TC-LABEL-ASSIGN-001",
+      "field": "tests"
+    },
+    {
+      "from": "FEAT-LABEL-MANAGE",
+      "to": "MOD-LABEL",
+      "field": "modules"
+    },
+    {
+      "from": "FEAT-LABEL-MANAGE",
+      "to": "REQ-LABEL-001",
+      "field": "requirements"
+    },
+    {
+      "from": "FEAT-LABEL-MANAGE",
+      "to": "BR-LABEL-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "FEAT-LABEL-MANAGE",
+      "to": "SCR-BOARD-SETTINGS",
+      "field": "screens"
+    },
+    {
+      "from": "FEAT-LABEL-MANAGE",
+      "to": "API-LABEL-CREATE",
+      "field": "apis"
+    },
+    {
+      "from": "FEAT-LABEL-MANAGE",
+      "to": "API-LABEL-UPDATE",
+      "field": "apis"
+    },
+    {
+      "from": "FEAT-LABEL-MANAGE",
+      "to": "API-LABEL-DELETE",
+      "field": "apis"
+    },
+    {
+      "from": "FEAT-LABEL-MANAGE",
+      "to": "DB-LABEL",
+      "field": "database_objects"
+    },
+    {
+      "from": "FEAT-LABEL-MANAGE",
+      "to": "DB-CARD-LABEL",
+      "field": "database_objects"
+    },
+    {
+      "from": "FEAT-LABEL-MANAGE",
+      "to": "TC-LABEL-MANAGE-001",
+      "field": "tests"
+    },
+    {
+      "from": "MOD-LABEL",
+      "to": "FEAT-LABEL-MANAGE",
+      "field": "features"
+    },
+    {
+      "from": "MOD-LABEL",
+      "to": "FEAT-LABEL-ASSIGN",
+      "field": "features"
+    },
+    {
+      "from": "MOD-LABEL",
+      "to": "DB-LABEL",
+      "field": "database_objects"
+    },
+    {
+      "from": "MOD-LABEL",
+      "to": "DB-CARD-LABEL",
+      "field": "database_objects"
+    },
+    {
+      "from": "FEAT-LIST-MANAGE",
+      "to": "MOD-LIST",
+      "field": "modules"
+    },
+    {
+      "from": "FEAT-LIST-MANAGE",
+      "to": "REQ-LIST-001",
+      "field": "requirements"
+    },
+    {
+      "from": "FEAT-LIST-MANAGE",
+      "to": "BR-LIST-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "FEAT-LIST-MANAGE",
+      "to": "SCR-BOARD",
+      "field": "screens"
+    },
+    {
+      "from": "FEAT-LIST-MANAGE",
+      "to": "API-LIST-CREATE",
+      "field": "apis"
+    },
+    {
+      "from": "FEAT-LIST-MANAGE",
+      "to": "API-LIST-UPDATE",
+      "field": "apis"
+    },
+    {
+      "from": "FEAT-LIST-MANAGE",
+      "to": "DB-LIST",
+      "field": "database_objects"
+    },
+    {
+      "from": "FEAT-LIST-MANAGE",
+      "to": "TC-LIST-MANAGE-001",
+      "field": "tests"
+    },
+    {
+      "from": "FEAT-LIST-REORDER",
+      "to": "MOD-LIST",
+      "field": "modules"
+    },
+    {
+      "from": "FEAT-LIST-REORDER",
+      "to": "REQ-LIST-002",
+      "field": "requirements"
+    },
+    {
+      "from": "FEAT-LIST-REORDER",
+      "to": "BR-LIST-002",
+      "field": "business_rules"
+    },
+    {
+      "from": "FEAT-LIST-REORDER",
+      "to": "SCR-BOARD",
+      "field": "screens"
+    },
+    {
+      "from": "FEAT-LIST-REORDER",
+      "to": "API-LIST-REORDER",
+      "field": "apis"
+    },
+    {
+      "from": "FEAT-LIST-REORDER",
+      "to": "DB-LIST",
+      "field": "database_objects"
+    },
+    {
+      "from": "FEAT-LIST-REORDER",
+      "to": "TC-LIST-REORDER-001",
+      "field": "tests"
+    },
+    {
+      "from": "FEAT-LIST-REORDER",
+      "to": "ADR-003",
+      "field": "decisions"
+    },
+    {
+      "from": "MOD-LIST",
+      "to": "FEAT-LIST-MANAGE",
+      "field": "features"
+    },
+    {
+      "from": "MOD-LIST",
+      "to": "FEAT-LIST-REORDER",
+      "field": "features"
+    },
+    {
+      "from": "MOD-LIST",
+      "to": "DB-LIST",
+      "field": "database_objects"
+    },
+    {
+      "from": "MOD-LIST",
+      "to": "ADR-003",
+      "field": "decisions"
+    },
+    {
+      "from": "FEAT-MEMBER-ASSIGN-CARD",
+      "to": "MOD-MEMBER",
+      "field": "modules"
+    },
+    {
+      "from": "FEAT-MEMBER-ASSIGN-CARD",
+      "to": "REQ-MEMBER-001",
+      "field": "requirements"
+    },
+    {
+      "from": "FEAT-MEMBER-ASSIGN-CARD",
+      "to": "BR-MEMBER-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "FEAT-MEMBER-ASSIGN-CARD",
+      "to": "SCR-CARD-DETAIL",
+      "field": "screens"
+    },
+    {
+      "from": "FEAT-MEMBER-ASSIGN-CARD",
+      "to": "API-CARD-MEMBER-ASSIGN",
+      "field": "apis"
+    },
+    {
+      "from": "FEAT-MEMBER-ASSIGN-CARD",
+      "to": "API-CARD-MEMBER-REMOVE",
+      "field": "apis"
+    },
+    {
+      "from": "FEAT-MEMBER-ASSIGN-CARD",
+      "to": "DB-CARD-MEMBER",
+      "field": "database_objects"
+    },
+    {
+      "from": "FEAT-MEMBER-ASSIGN-CARD",
+      "to": "TC-MEMBER-ASSIGN-CARD-001",
+      "field": "tests"
+    },
+    {
+      "from": "MOD-MEMBER",
+      "to": "FEAT-MEMBER-ASSIGN-CARD",
+      "field": "features"
+    },
+    {
+      "from": "MOD-MEMBER",
+      "to": "DB-CARD-MEMBER",
+      "field": "database_objects"
+    },
+    {
+      "from": "FEAT-WORKSPACE-CREATE",
+      "to": "MOD-WORKSPACE",
+      "field": "modules"
+    },
+    {
+      "from": "FEAT-WORKSPACE-CREATE",
+      "to": "REQ-WORKSPACE-001",
+      "field": "requirements"
+    },
+    {
+      "from": "FEAT-WORKSPACE-CREATE",
+      "to": "SCR-WORKSPACE-HOME",
+      "field": "screens"
+    },
+    {
+      "from": "FEAT-WORKSPACE-CREATE",
+      "to": "API-WORKSPACE-CREATE",
+      "field": "apis"
+    },
+    {
+      "from": "FEAT-WORKSPACE-CREATE",
+      "to": "API-WORKSPACE-LIST",
+      "field": "apis"
+    },
+    {
+      "from": "FEAT-WORKSPACE-CREATE",
+      "to": "DB-WORKSPACE",
+      "field": "database_objects"
+    },
+    {
+      "from": "FEAT-WORKSPACE-CREATE",
+      "to": "DB-WORKSPACE-MEMBER",
+      "field": "database_objects"
+    },
+    {
+      "from": "FEAT-WORKSPACE-CREATE",
+      "to": "TC-WORKSPACE-CREATE-001",
+      "field": "tests"
+    },
+    {
+      "from": "FEAT-WORKSPACE-MANAGE-MEMBERS",
+      "to": "MOD-WORKSPACE",
+      "field": "modules"
+    },
+    {
+      "from": "FEAT-WORKSPACE-MANAGE-MEMBERS",
+      "to": "REQ-WORKSPACE-002",
+      "field": "requirements"
+    },
+    {
+      "from": "FEAT-WORKSPACE-MANAGE-MEMBERS",
+      "to": "BR-WORKSPACE-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "FEAT-WORKSPACE-MANAGE-MEMBERS",
+      "to": "BR-WORKSPACE-002",
+      "field": "business_rules"
+    },
+    {
+      "from": "FEAT-WORKSPACE-MANAGE-MEMBERS",
+      "to": "SCR-WORKSPACE-SETTINGS",
+      "field": "screens"
+    },
+    {
+      "from": "FEAT-WORKSPACE-MANAGE-MEMBERS",
+      "to": "FLOW-WORKSPACE-INVITE-MEMBER",
+      "field": "flows"
+    },
+    {
+      "from": "FEAT-WORKSPACE-MANAGE-MEMBERS",
+      "to": "API-WORKSPACE-INVITE-MEMBER",
+      "field": "apis"
+    },
+    {
+      "from": "FEAT-WORKSPACE-MANAGE-MEMBERS",
+      "to": "API-WORKSPACE-UPDATE-MEMBER-ROLE",
+      "field": "apis"
+    },
+    {
+      "from": "FEAT-WORKSPACE-MANAGE-MEMBERS",
+      "to": "API-WORKSPACE-REMOVE-MEMBER",
+      "field": "apis"
+    },
+    {
+      "from": "FEAT-WORKSPACE-MANAGE-MEMBERS",
+      "to": "DB-WORKSPACE-MEMBER",
+      "field": "database_objects"
+    },
+    {
+      "from": "FEAT-WORKSPACE-MANAGE-MEMBERS",
+      "to": "TC-WORKSPACE-MANAGE-MEMBERS-001",
+      "field": "tests"
+    },
+    {
+      "from": "MOD-WORKSPACE",
+      "to": "FEAT-WORKSPACE-CREATE",
+      "field": "features"
+    },
+    {
+      "from": "MOD-WORKSPACE",
+      "to": "FEAT-WORKSPACE-MANAGE-MEMBERS",
+      "field": "features"
+    },
+    {
+      "from": "MOD-WORKSPACE",
+      "to": "DB-WORKSPACE",
+      "field": "database_objects"
+    },
+    {
+      "from": "MOD-WORKSPACE",
+      "to": "DB-WORKSPACE-MEMBER",
+      "field": "database_objects"
+    },
+    {
+      "from": "REQ-AUTH-001",
+      "to": "MOD-AUTH",
+      "field": "modules"
+    },
+    {
+      "from": "REQ-AUTH-001",
+      "to": "FEAT-AUTH-REGISTER",
+      "field": "features"
+    },
+    {
+      "from": "REQ-AUTH-001",
+      "to": "BR-AUTH-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "REQ-AUTH-001",
+      "to": "TC-AUTH-REGISTER-001",
+      "field": "tests"
+    },
+    {
+      "from": "REQ-AUTH-002",
+      "to": "MOD-AUTH",
+      "field": "modules"
+    },
+    {
+      "from": "REQ-AUTH-002",
+      "to": "FEAT-AUTH-LOGIN",
+      "field": "features"
+    },
+    {
+      "from": "REQ-AUTH-002",
+      "to": "BR-AUTH-002",
+      "field": "business_rules"
+    },
+    {
+      "from": "REQ-AUTH-002",
+      "to": "TC-AUTH-LOGIN-001",
+      "field": "tests"
+    },
+    {
+      "from": "REQ-AUTH-002",
+      "to": "ADR-002",
+      "field": "decisions"
+    },
+    {
+      "from": "REQ-AUTH-003",
+      "to": "MOD-AUTH",
+      "field": "modules"
+    },
+    {
+      "from": "REQ-AUTH-003",
+      "to": "FEAT-AUTH-FORGOT-PASSWORD",
+      "field": "features"
+    },
+    {
+      "from": "REQ-AUTH-003",
+      "to": "BR-AUTH-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "REQ-AUTH-003",
+      "to": "TC-AUTH-FORGOT-PASSWORD-001",
+      "field": "tests"
+    },
+    {
+      "from": "REQ-BOARD-001",
+      "to": "MOD-BOARD",
+      "field": "modules"
+    },
+    {
+      "from": "REQ-BOARD-001",
+      "to": "FEAT-BOARD-CREATE",
+      "field": "features"
+    },
+    {
+      "from": "REQ-BOARD-001",
+      "to": "BR-BOARD-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "REQ-BOARD-001",
+      "to": "TC-BOARD-CREATE-001",
+      "field": "tests"
+    },
+    {
+      "from": "REQ-BOARD-002",
+      "to": "MOD-BOARD",
+      "field": "modules"
+    },
+    {
+      "from": "REQ-BOARD-002",
+      "to": "FEAT-BOARD-MANAGE",
+      "field": "features"
+    },
+    {
+      "from": "REQ-BOARD-002",
+      "to": "BR-BOARD-002",
+      "field": "business_rules"
+    },
+    {
+      "from": "REQ-BOARD-002",
+      "to": "TC-BOARD-MANAGE-001",
+      "field": "tests"
+    },
+    {
+      "from": "REQ-CARD-001",
+      "to": "MOD-CARD",
+      "field": "modules"
+    },
+    {
+      "from": "REQ-CARD-001",
+      "to": "FEAT-CARD-CREATE",
+      "field": "features"
+    },
+    {
+      "from": "REQ-CARD-001",
+      "to": "BR-LIST-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "REQ-CARD-001",
+      "to": "TC-CARD-CREATE-001",
+      "field": "tests"
+    },
+    {
+      "from": "REQ-CARD-002",
+      "to": "MOD-CARD",
+      "field": "modules"
+    },
+    {
+      "from": "REQ-CARD-002",
+      "to": "FEAT-CARD-MOVE",
+      "field": "features"
+    },
+    {
+      "from": "REQ-CARD-002",
+      "to": "BR-CARD-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "REQ-CARD-002",
+      "to": "TC-CARD-MOVE-001",
+      "field": "tests"
+    },
+    {
+      "from": "REQ-CARD-002",
+      "to": "TC-CARD-MOVE-002",
+      "field": "tests"
+    },
+    {
+      "from": "REQ-CARD-002",
+      "to": "ADR-003",
+      "field": "decisions"
+    },
+    {
+      "from": "REQ-CARD-002",
+      "to": "ADR-004",
+      "field": "decisions"
+    },
+    {
+      "from": "REQ-CARD-003",
+      "to": "MOD-CARD",
+      "field": "modules"
+    },
+    {
+      "from": "REQ-CARD-003",
+      "to": "FEAT-CARD-EDIT-DETAIL",
+      "field": "features"
+    },
+    {
+      "from": "REQ-CARD-003",
+      "to": "BR-CARD-002",
+      "field": "business_rules"
+    },
+    {
+      "from": "REQ-CARD-003",
+      "to": "TC-CARD-EDIT-DETAIL-001",
+      "field": "tests"
+    },
+    {
+      "from": "REQ-CARD-004",
+      "to": "MOD-CARD",
+      "field": "modules"
+    },
+    {
+      "from": "REQ-CARD-004",
+      "to": "FEAT-CARD-ARCHIVE",
+      "field": "features"
+    },
+    {
+      "from": "REQ-CARD-004",
+      "to": "BR-CARD-003",
+      "field": "business_rules"
+    },
+    {
+      "from": "REQ-CARD-004",
+      "to": "TC-CARD-ARCHIVE-001",
+      "field": "tests"
+    },
+    {
+      "from": "REQ-CARD-004",
+      "to": "ADR-005",
+      "field": "decisions"
+    },
+    {
+      "from": "REQ-COMMENT-001",
+      "to": "MOD-COMMENT",
+      "field": "modules"
+    },
+    {
+      "from": "REQ-COMMENT-001",
+      "to": "FEAT-COMMENT-ADD",
+      "field": "features"
+    },
+    {
+      "from": "REQ-COMMENT-001",
+      "to": "BR-COMMENT-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "REQ-COMMENT-001",
+      "to": "TC-COMMENT-ADD-001",
+      "field": "tests"
+    },
+    {
+      "from": "REQ-COMMENT-002",
+      "to": "MOD-COMMENT",
+      "field": "modules"
+    },
+    {
+      "from": "REQ-COMMENT-002",
+      "to": "FEAT-ACTIVITY-LOG",
+      "field": "features"
+    },
+    {
+      "from": "REQ-COMMENT-002",
+      "to": "TC-ACTIVITY-LOG-001",
+      "field": "tests"
+    },
+    {
+      "from": "REQ-LABEL-001",
+      "to": "MOD-LABEL",
+      "field": "modules"
+    },
+    {
+      "from": "REQ-LABEL-001",
+      "to": "FEAT-LABEL-MANAGE",
+      "field": "features"
+    },
+    {
+      "from": "REQ-LABEL-001",
+      "to": "BR-LABEL-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "REQ-LABEL-001",
+      "to": "TC-LABEL-MANAGE-001",
+      "field": "tests"
+    },
+    {
+      "from": "REQ-LABEL-002",
+      "to": "MOD-LABEL",
+      "field": "modules"
+    },
+    {
+      "from": "REQ-LABEL-002",
+      "to": "FEAT-LABEL-ASSIGN",
+      "field": "features"
+    },
+    {
+      "from": "REQ-LABEL-002",
+      "to": "TC-LABEL-ASSIGN-001",
+      "field": "tests"
+    },
+    {
+      "from": "REQ-LIST-001",
+      "to": "MOD-LIST",
+      "field": "modules"
+    },
+    {
+      "from": "REQ-LIST-001",
+      "to": "FEAT-LIST-MANAGE",
+      "field": "features"
+    },
+    {
+      "from": "REQ-LIST-001",
+      "to": "BR-LIST-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "REQ-LIST-001",
+      "to": "TC-LIST-MANAGE-001",
+      "field": "tests"
+    },
+    {
+      "from": "REQ-LIST-002",
+      "to": "MOD-LIST",
+      "field": "modules"
+    },
+    {
+      "from": "REQ-LIST-002",
+      "to": "FEAT-LIST-REORDER",
+      "field": "features"
+    },
+    {
+      "from": "REQ-LIST-002",
+      "to": "BR-LIST-002",
+      "field": "business_rules"
+    },
+    {
+      "from": "REQ-LIST-002",
+      "to": "TC-LIST-REORDER-001",
+      "field": "tests"
+    },
+    {
+      "from": "REQ-LIST-002",
+      "to": "ADR-003",
+      "field": "decisions"
+    },
+    {
+      "from": "REQ-MEMBER-001",
+      "to": "MOD-MEMBER",
+      "field": "modules"
+    },
+    {
+      "from": "REQ-MEMBER-001",
+      "to": "FEAT-MEMBER-ASSIGN-CARD",
+      "field": "features"
+    },
+    {
+      "from": "REQ-MEMBER-001",
+      "to": "BR-MEMBER-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "REQ-MEMBER-001",
+      "to": "TC-MEMBER-ASSIGN-CARD-001",
+      "field": "tests"
+    },
+    {
+      "from": "REQ-WORKSPACE-001",
+      "to": "MOD-WORKSPACE",
+      "field": "modules"
+    },
+    {
+      "from": "REQ-WORKSPACE-001",
+      "to": "FEAT-WORKSPACE-CREATE",
+      "field": "features"
+    },
+    {
+      "from": "REQ-WORKSPACE-001",
+      "to": "TC-WORKSPACE-CREATE-001",
+      "field": "tests"
+    },
+    {
+      "from": "REQ-WORKSPACE-002",
+      "to": "MOD-WORKSPACE",
+      "field": "modules"
+    },
+    {
+      "from": "REQ-WORKSPACE-002",
+      "to": "FEAT-WORKSPACE-MANAGE-MEMBERS",
+      "field": "features"
+    },
+    {
+      "from": "REQ-WORKSPACE-002",
+      "to": "BR-WORKSPACE-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "REQ-WORKSPACE-002",
+      "to": "BR-WORKSPACE-002",
+      "field": "business_rules"
+    },
+    {
+      "from": "REQ-WORKSPACE-002",
+      "to": "TC-WORKSPACE-MANAGE-MEMBERS-001",
+      "field": "tests"
+    },
+    {
+      "from": "NFR-A11Y-001",
+      "to": "MOD-CARD",
+      "field": "modules"
+    },
+    {
+      "from": "NFR-A11Y-001",
+      "to": "FEAT-CARD-MOVE",
+      "field": "features"
+    },
+    {
+      "from": "NFR-A11Y-001",
+      "to": "SCR-BOARD",
+      "field": "screens"
+    },
+    {
+      "from": "NFR-BACKUP-001",
+      "to": "ADR-001",
+      "field": "decisions"
+    },
+    {
+      "from": "NFR-BROWSER-001",
+      "to": "ADR-006",
+      "field": "decisions"
+    },
+    {
+      "from": "NFR-PERF-001",
+      "to": "API-BOARD-GET-DETAIL",
+      "field": "apis"
+    },
+    {
+      "from": "NFR-PERF-001",
+      "to": "API-CARD-MOVE",
+      "field": "apis"
+    },
+    {
+      "from": "NFR-PERF-002",
+      "to": "MOD-CARD",
+      "field": "modules"
+    },
+    {
+      "from": "NFR-PERF-002",
+      "to": "ADR-004",
+      "field": "decisions"
+    },
+    {
+      "from": "NFR-SCALE-001",
+      "to": "ADR-001",
+      "field": "decisions"
+    },
+    {
+      "from": "NFR-SEC-001",
+      "to": "MOD-AUTH",
+      "field": "modules"
+    },
+    {
+      "from": "NFR-SEC-001",
+      "to": "API-AUTH-LOGIN",
+      "field": "apis"
+    },
+    {
+      "from": "NFR-SEC-001",
+      "to": "DB-REFRESH-TOKEN",
+      "field": "database_objects"
+    },
+    {
+      "from": "NFR-SEC-001",
+      "to": "ADR-002",
+      "field": "decisions"
+    },
+    {
+      "from": "BR-AUTH-001",
+      "to": "MOD-AUTH",
+      "field": "modules"
+    },
+    {
+      "from": "BR-AUTH-001",
+      "to": "FEAT-AUTH-REGISTER",
+      "field": "features"
+    },
+    {
+      "from": "BR-AUTH-001",
+      "to": "FEAT-AUTH-FORGOT-PASSWORD",
+      "field": "features"
+    },
+    {
+      "from": "BR-AUTH-001",
+      "to": "REQ-AUTH-001",
+      "field": "requirements"
+    },
+    {
+      "from": "BR-AUTH-001",
+      "to": "REQ-AUTH-003",
+      "field": "requirements"
+    },
+    {
+      "from": "BR-AUTH-001",
+      "to": "API-AUTH-REGISTER",
+      "field": "apis"
+    },
+    {
+      "from": "BR-AUTH-001",
+      "to": "API-AUTH-RESET-PASSWORD",
+      "field": "apis"
+    },
+    {
+      "from": "BR-AUTH-001",
+      "to": "DB-USER",
+      "field": "database_objects"
+    },
+    {
+      "from": "BR-AUTH-001",
+      "to": "TC-AUTH-REGISTER-001",
+      "field": "tests"
+    },
+    {
+      "from": "BR-AUTH-002",
+      "to": "MOD-AUTH",
+      "field": "modules"
+    },
+    {
+      "from": "BR-AUTH-002",
+      "to": "FEAT-AUTH-LOGIN",
+      "field": "features"
+    },
+    {
+      "from": "BR-AUTH-002",
+      "to": "REQ-AUTH-002",
+      "field": "requirements"
+    },
+    {
+      "from": "BR-AUTH-002",
+      "to": "SCR-LOGIN",
+      "field": "screens"
+    },
+    {
+      "from": "BR-AUTH-002",
+      "to": "API-AUTH-LOGIN",
+      "field": "apis"
+    },
+    {
+      "from": "BR-AUTH-002",
+      "to": "DB-USER",
+      "field": "database_objects"
+    },
+    {
+      "from": "BR-AUTH-002",
+      "to": "TC-AUTH-LOGIN-001",
+      "field": "tests"
+    },
+    {
+      "from": "BR-BOARD-001",
+      "to": "MOD-BOARD",
+      "field": "modules"
+    },
+    {
+      "from": "BR-BOARD-001",
+      "to": "FEAT-BOARD-CREATE",
+      "field": "features"
+    },
+    {
+      "from": "BR-BOARD-001",
+      "to": "REQ-BOARD-001",
+      "field": "requirements"
+    },
+    {
+      "from": "BR-BOARD-001",
+      "to": "API-BOARD-CREATE",
+      "field": "apis"
+    },
+    {
+      "from": "BR-BOARD-001",
+      "to": "DB-BOARD",
+      "field": "database_objects"
+    },
+    {
+      "from": "BR-BOARD-001",
+      "to": "TC-BOARD-CREATE-001",
+      "field": "tests"
+    },
+    {
+      "from": "BR-BOARD-002",
+      "to": "MOD-BOARD",
+      "field": "modules"
+    },
+    {
+      "from": "BR-BOARD-002",
+      "to": "FEAT-BOARD-MANAGE",
+      "field": "features"
+    },
+    {
+      "from": "BR-BOARD-002",
+      "to": "REQ-BOARD-002",
+      "field": "requirements"
+    },
+    {
+      "from": "BR-BOARD-002",
+      "to": "API-LIST-CREATE",
+      "field": "apis"
+    },
+    {
+      "from": "BR-BOARD-002",
+      "to": "API-LIST-UPDATE",
+      "field": "apis"
+    },
+    {
+      "from": "BR-BOARD-002",
+      "to": "API-LIST-REORDER",
+      "field": "apis"
+    },
+    {
+      "from": "BR-BOARD-002",
+      "to": "API-CARD-CREATE",
+      "field": "apis"
+    },
+    {
+      "from": "BR-BOARD-002",
+      "to": "API-CARD-UPDATE",
+      "field": "apis"
+    },
+    {
+      "from": "BR-BOARD-002",
+      "to": "API-CARD-MOVE",
+      "field": "apis"
+    },
+    {
+      "from": "BR-BOARD-002",
+      "to": "API-CARD-ARCHIVE",
+      "field": "apis"
+    },
+    {
+      "from": "BR-BOARD-002",
+      "to": "DB-BOARD",
+      "field": "database_objects"
+    },
+    {
+      "from": "BR-BOARD-002",
+      "to": "TC-BOARD-MANAGE-001",
+      "field": "tests"
+    },
+    {
+      "from": "BR-BOARD-002",
+      "to": "ADR-005",
+      "field": "decisions"
+    },
+    {
+      "from": "BR-CARD-001",
+      "to": "MOD-CARD",
+      "field": "modules"
+    },
+    {
+      "from": "BR-CARD-001",
+      "to": "FEAT-CARD-MOVE",
+      "field": "features"
+    },
+    {
+      "from": "BR-CARD-001",
+      "to": "REQ-CARD-002",
+      "field": "requirements"
+    },
+    {
+      "from": "BR-CARD-001",
+      "to": "SCR-BOARD",
+      "field": "screens"
+    },
+    {
+      "from": "BR-CARD-001",
+      "to": "FLOW-CARD-MOVE-DRAGDROP",
+      "field": "flows"
+    },
+    {
+      "from": "BR-CARD-001",
+      "to": "API-CARD-MOVE",
+      "field": "apis"
+    },
+    {
+      "from": "BR-CARD-001",
+      "to": "DB-CARD",
+      "field": "database_objects"
+    },
+    {
+      "from": "BR-CARD-001",
+      "to": "TC-CARD-MOVE-001",
+      "field": "tests"
+    },
+    {
+      "from": "BR-CARD-001",
+      "to": "TC-CARD-MOVE-002",
+      "field": "tests"
+    },
+    {
+      "from": "BR-CARD-002",
+      "to": "MOD-CARD",
+      "field": "modules"
+    },
+    {
+      "from": "BR-CARD-002",
+      "to": "FEAT-CARD-EDIT-DETAIL",
+      "field": "features"
+    },
+    {
+      "from": "BR-CARD-002",
+      "to": "REQ-CARD-003",
+      "field": "requirements"
+    },
+    {
+      "from": "BR-CARD-002",
+      "to": "SCR-CARD-DETAIL",
+      "field": "screens"
+    },
+    {
+      "from": "BR-CARD-002",
+      "to": "API-CARD-UPDATE",
+      "field": "apis"
+    },
+    {
+      "from": "BR-CARD-002",
+      "to": "DB-CARD",
+      "field": "database_objects"
+    },
+    {
+      "from": "BR-CARD-002",
+      "to": "TC-CARD-EDIT-DETAIL-001",
+      "field": "tests"
+    },
+    {
+      "from": "BR-CARD-003",
+      "to": "MOD-CARD",
+      "field": "modules"
+    },
+    {
+      "from": "BR-CARD-003",
+      "to": "FEAT-CARD-ARCHIVE",
+      "field": "features"
+    },
+    {
+      "from": "BR-CARD-003",
+      "to": "REQ-CARD-004",
+      "field": "requirements"
+    },
+    {
+      "from": "BR-CARD-003",
+      "to": "SCR-BOARD",
+      "field": "screens"
+    },
+    {
+      "from": "BR-CARD-003",
+      "to": "SCR-CARD-DETAIL",
+      "field": "screens"
+    },
+    {
+      "from": "BR-CARD-003",
+      "to": "API-CARD-UPDATE",
+      "field": "apis"
+    },
+    {
+      "from": "BR-CARD-003",
+      "to": "API-CARD-MOVE",
+      "field": "apis"
+    },
+    {
+      "from": "BR-CARD-003",
+      "to": "API-LABEL-ASSIGN",
+      "field": "apis"
+    },
+    {
+      "from": "BR-CARD-003",
+      "to": "API-LABEL-REMOVE",
+      "field": "apis"
+    },
+    {
+      "from": "BR-CARD-003",
+      "to": "API-CARD-MEMBER-ASSIGN",
+      "field": "apis"
+    },
+    {
+      "from": "BR-CARD-003",
+      "to": "API-CARD-MEMBER-REMOVE",
+      "field": "apis"
+    },
+    {
+      "from": "BR-CARD-003",
+      "to": "API-COMMENT-CREATE",
+      "field": "apis"
+    },
+    {
+      "from": "BR-CARD-003",
+      "to": "DB-CARD",
+      "field": "database_objects"
+    },
+    {
+      "from": "BR-CARD-003",
+      "to": "TC-CARD-ARCHIVE-001",
+      "field": "tests"
+    },
+    {
+      "from": "BR-CARD-003",
+      "to": "ADR-005",
+      "field": "decisions"
+    },
+    {
+      "from": "BR-COMMENT-001",
+      "to": "MOD-COMMENT",
+      "field": "modules"
+    },
+    {
+      "from": "BR-COMMENT-001",
+      "to": "FEAT-COMMENT-ADD",
+      "field": "features"
+    },
+    {
+      "from": "BR-COMMENT-001",
+      "to": "REQ-COMMENT-001",
+      "field": "requirements"
+    },
+    {
+      "from": "BR-COMMENT-001",
+      "to": "SCR-CARD-DETAIL",
+      "field": "screens"
+    },
+    {
+      "from": "BR-COMMENT-001",
+      "to": "API-COMMENT-UPDATE",
+      "field": "apis"
+    },
+    {
+      "from": "BR-COMMENT-001",
+      "to": "API-COMMENT-DELETE",
+      "field": "apis"
+    },
+    {
+      "from": "BR-COMMENT-001",
+      "to": "DB-COMMENT",
+      "field": "database_objects"
+    },
+    {
+      "from": "BR-COMMENT-001",
+      "to": "TC-COMMENT-ADD-001",
+      "field": "tests"
+    },
+    {
+      "from": "BR-LABEL-001",
+      "to": "MOD-LABEL",
+      "field": "modules"
+    },
+    {
+      "from": "BR-LABEL-001",
+      "to": "FEAT-LABEL-MANAGE",
+      "field": "features"
+    },
+    {
+      "from": "BR-LABEL-001",
+      "to": "REQ-LABEL-001",
+      "field": "requirements"
+    },
+    {
+      "from": "BR-LABEL-001",
+      "to": "API-LABEL-CREATE",
+      "field": "apis"
+    },
+    {
+      "from": "BR-LABEL-001",
+      "to": "API-LABEL-UPDATE",
+      "field": "apis"
+    },
+    {
+      "from": "BR-LABEL-001",
+      "to": "DB-LABEL",
+      "field": "database_objects"
+    },
+    {
+      "from": "BR-LABEL-001",
+      "to": "TC-LABEL-MANAGE-001",
+      "field": "tests"
+    },
+    {
+      "from": "BR-LIST-001",
+      "to": "MOD-LIST",
+      "field": "modules"
+    },
+    {
+      "from": "BR-LIST-001",
+      "to": "FEAT-LIST-MANAGE",
+      "field": "features"
+    },
+    {
+      "from": "BR-LIST-001",
+      "to": "REQ-LIST-001",
+      "field": "requirements"
+    },
+    {
+      "from": "BR-LIST-001",
+      "to": "SCR-BOARD",
+      "field": "screens"
+    },
+    {
+      "from": "BR-LIST-001",
+      "to": "API-LIST-UPDATE",
+      "field": "apis"
+    },
+    {
+      "from": "BR-LIST-001",
+      "to": "API-CARD-CREATE",
+      "field": "apis"
+    },
+    {
+      "from": "BR-LIST-001",
+      "to": "API-CARD-MOVE",
+      "field": "apis"
+    },
+    {
+      "from": "BR-LIST-001",
+      "to": "DB-LIST",
+      "field": "database_objects"
+    },
+    {
+      "from": "BR-LIST-001",
+      "to": "TC-LIST-MANAGE-001",
+      "field": "tests"
+    },
+    {
+      "from": "BR-LIST-002",
+      "to": "MOD-LIST",
+      "field": "modules"
+    },
+    {
+      "from": "BR-LIST-002",
+      "to": "FEAT-LIST-REORDER",
+      "field": "features"
+    },
+    {
+      "from": "BR-LIST-002",
+      "to": "REQ-LIST-002",
+      "field": "requirements"
+    },
+    {
+      "from": "BR-LIST-002",
+      "to": "SCR-BOARD",
+      "field": "screens"
+    },
+    {
+      "from": "BR-LIST-002",
+      "to": "FLOW-CARD-MOVE-DRAGDROP",
+      "field": "flows"
+    },
+    {
+      "from": "BR-LIST-002",
+      "to": "API-LIST-REORDER",
+      "field": "apis"
+    },
+    {
+      "from": "BR-LIST-002",
+      "to": "API-CARD-MOVE",
+      "field": "apis"
+    },
+    {
+      "from": "BR-LIST-002",
+      "to": "DB-LIST",
+      "field": "database_objects"
+    },
+    {
+      "from": "BR-LIST-002",
+      "to": "DB-CARD",
+      "field": "database_objects"
+    },
+    {
+      "from": "BR-LIST-002",
+      "to": "TC-LIST-REORDER-001",
+      "field": "tests"
+    },
+    {
+      "from": "BR-LIST-002",
+      "to": "ADR-003",
+      "field": "decisions"
+    },
+    {
+      "from": "BR-MEMBER-001",
+      "to": "MOD-MEMBER",
+      "field": "modules"
+    },
+    {
+      "from": "BR-MEMBER-001",
+      "to": "FEAT-MEMBER-ASSIGN-CARD",
+      "field": "features"
+    },
+    {
+      "from": "BR-MEMBER-001",
+      "to": "REQ-MEMBER-001",
+      "field": "requirements"
+    },
+    {
+      "from": "BR-MEMBER-001",
+      "to": "SCR-CARD-DETAIL",
+      "field": "screens"
+    },
+    {
+      "from": "BR-MEMBER-001",
+      "to": "API-CARD-MEMBER-ASSIGN",
+      "field": "apis"
+    },
+    {
+      "from": "BR-MEMBER-001",
+      "to": "DB-CARD-MEMBER",
+      "field": "database_objects"
+    },
+    {
+      "from": "BR-MEMBER-001",
+      "to": "TC-MEMBER-ASSIGN-CARD-001",
+      "field": "tests"
+    },
+    {
+      "from": "BR-WORKSPACE-001",
+      "to": "MOD-WORKSPACE",
+      "field": "modules"
+    },
+    {
+      "from": "BR-WORKSPACE-001",
+      "to": "FEAT-WORKSPACE-MANAGE-MEMBERS",
+      "field": "features"
+    },
+    {
+      "from": "BR-WORKSPACE-001",
+      "to": "REQ-WORKSPACE-002",
+      "field": "requirements"
+    },
+    {
+      "from": "BR-WORKSPACE-001",
+      "to": "SCR-WORKSPACE-SETTINGS",
+      "field": "screens"
+    },
+    {
+      "from": "BR-WORKSPACE-001",
+      "to": "API-WORKSPACE-INVITE-MEMBER",
+      "field": "apis"
+    },
+    {
+      "from": "BR-WORKSPACE-001",
+      "to": "API-WORKSPACE-UPDATE-MEMBER-ROLE",
+      "field": "apis"
+    },
+    {
+      "from": "BR-WORKSPACE-001",
+      "to": "API-WORKSPACE-REMOVE-MEMBER",
+      "field": "apis"
+    },
+    {
+      "from": "BR-WORKSPACE-001",
+      "to": "DB-WORKSPACE-MEMBER",
+      "field": "database_objects"
+    },
+    {
+      "from": "BR-WORKSPACE-001",
+      "to": "TC-WORKSPACE-MANAGE-MEMBERS-001",
+      "field": "tests"
+    },
+    {
+      "from": "BR-WORKSPACE-002",
+      "to": "MOD-WORKSPACE",
+      "field": "modules"
+    },
+    {
+      "from": "BR-WORKSPACE-002",
+      "to": "FEAT-WORKSPACE-MANAGE-MEMBERS",
+      "field": "features"
+    },
+    {
+      "from": "BR-WORKSPACE-002",
+      "to": "REQ-WORKSPACE-002",
+      "field": "requirements"
+    },
+    {
+      "from": "BR-WORKSPACE-002",
+      "to": "SCR-WORKSPACE-SETTINGS",
+      "field": "screens"
+    },
+    {
+      "from": "BR-WORKSPACE-002",
+      "to": "FLOW-WORKSPACE-INVITE-MEMBER",
+      "field": "flows"
+    },
+    {
+      "from": "BR-WORKSPACE-002",
+      "to": "API-WORKSPACE-INVITE-MEMBER",
+      "field": "apis"
+    },
+    {
+      "from": "BR-WORKSPACE-002",
+      "to": "DB-WORKSPACE-MEMBER",
+      "field": "database_objects"
+    },
+    {
+      "from": "BR-WORKSPACE-002",
+      "to": "TC-WORKSPACE-MANAGE-MEMBERS-001",
+      "field": "tests"
+    },
+    {
+      "from": "SCR-BOARD-SETTINGS",
+      "to": "MOD-BOARD",
+      "field": "modules"
+    },
+    {
+      "from": "SCR-BOARD-SETTINGS",
+      "to": "FEAT-BOARD-MANAGE",
+      "field": "features"
+    },
+    {
+      "from": "SCR-BOARD-SETTINGS",
+      "to": "FEAT-LABEL-MANAGE",
+      "field": "features"
+    },
+    {
+      "from": "SCR-BOARD-SETTINGS",
+      "to": "BR-BOARD-002",
+      "field": "business_rules"
+    },
+    {
+      "from": "SCR-BOARD-SETTINGS",
+      "to": "API-BOARD-GET-DETAIL",
+      "field": "apis"
+    },
+    {
+      "from": "SCR-BOARD-SETTINGS",
+      "to": "API-BOARD-UPDATE",
+      "field": "apis"
+    },
+    {
+      "from": "SCR-BOARD-SETTINGS",
+      "to": "API-BOARD-ARCHIVE",
+      "field": "apis"
+    },
+    {
+      "from": "SCR-BOARD-SETTINGS",
+      "to": "API-LABEL-CREATE",
+      "field": "apis"
+    },
+    {
+      "from": "SCR-BOARD-SETTINGS",
+      "to": "API-LABEL-UPDATE",
+      "field": "apis"
+    },
+    {
+      "from": "SCR-BOARD-SETTINGS",
+      "to": "API-LABEL-DELETE",
+      "field": "apis"
+    },
+    {
+      "from": "SCR-BOARD-SETTINGS",
+      "to": "TC-BOARD-MANAGE-001",
+      "field": "tests"
+    },
+    {
+      "from": "SCR-BOARD",
+      "to": "MOD-BOARD",
+      "field": "modules"
+    },
+    {
+      "from": "SCR-BOARD",
+      "to": "FEAT-BOARD-CREATE",
+      "field": "features"
+    },
+    {
+      "from": "SCR-BOARD",
+      "to": "FEAT-LIST-MANAGE",
+      "field": "features"
+    },
+    {
+      "from": "SCR-BOARD",
+      "to": "FEAT-LIST-REORDER",
+      "field": "features"
+    },
+    {
+      "from": "SCR-BOARD",
+      "to": "FEAT-CARD-CREATE",
+      "field": "features"
+    },
+    {
+      "from": "SCR-BOARD",
+      "to": "FEAT-CARD-MOVE",
+      "field": "features"
+    },
+    {
+      "from": "SCR-BOARD",
+      "to": "BR-BOARD-002",
+      "field": "business_rules"
+    },
+    {
+      "from": "SCR-BOARD",
+      "to": "FLOW-CARD-MOVE-DRAGDROP",
+      "field": "flows"
+    },
+    {
+      "from": "SCR-BOARD",
+      "to": "API-BOARD-GET-DETAIL",
+      "field": "apis"
+    },
+    {
+      "from": "SCR-BOARD",
+      "to": "API-LIST-CREATE",
+      "field": "apis"
+    },
+    {
+      "from": "SCR-BOARD",
+      "to": "API-LIST-REORDER",
+      "field": "apis"
+    },
+    {
+      "from": "SCR-BOARD",
+      "to": "API-CARD-CREATE",
+      "field": "apis"
+    },
+    {
+      "from": "SCR-BOARD",
+      "to": "API-CARD-MOVE",
+      "field": "apis"
+    },
+    {
+      "from": "SCR-CARD-DETAIL",
+      "to": "MOD-CARD",
+      "field": "modules"
+    },
+    {
+      "from": "SCR-CARD-DETAIL",
+      "to": "FEAT-CARD-EDIT-DETAIL",
+      "field": "features"
+    },
+    {
+      "from": "SCR-CARD-DETAIL",
+      "to": "FEAT-CARD-ARCHIVE",
+      "field": "features"
+    },
+    {
+      "from": "SCR-CARD-DETAIL",
+      "to": "FEAT-LABEL-ASSIGN",
+      "field": "features"
+    },
+    {
+      "from": "SCR-CARD-DETAIL",
+      "to": "FEAT-MEMBER-ASSIGN-CARD",
+      "field": "features"
+    },
+    {
+      "from": "SCR-CARD-DETAIL",
+      "to": "FEAT-COMMENT-ADD",
+      "field": "features"
+    },
+    {
+      "from": "SCR-CARD-DETAIL",
+      "to": "FEAT-ACTIVITY-LOG",
+      "field": "features"
+    },
+    {
+      "from": "SCR-CARD-DETAIL",
+      "to": "BR-CARD-003",
+      "field": "business_rules"
+    },
+    {
+      "from": "SCR-CARD-DETAIL",
+      "to": "API-CARD-GET-DETAIL",
+      "field": "apis"
+    },
+    {
+      "from": "SCR-CARD-DETAIL",
+      "to": "API-CARD-UPDATE",
+      "field": "apis"
+    },
+    {
+      "from": "SCR-CARD-DETAIL",
+      "to": "API-CARD-ARCHIVE",
+      "field": "apis"
+    },
+    {
+      "from": "SCR-FORGOT-PASSWORD",
+      "to": "MOD-AUTH",
+      "field": "modules"
+    },
+    {
+      "from": "SCR-FORGOT-PASSWORD",
+      "to": "FEAT-AUTH-FORGOT-PASSWORD",
+      "field": "features"
+    },
+    {
+      "from": "SCR-FORGOT-PASSWORD",
+      "to": "BR-AUTH-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "SCR-FORGOT-PASSWORD",
+      "to": "API-AUTH-FORGOT-PASSWORD",
+      "field": "apis"
+    },
+    {
+      "from": "SCR-FORGOT-PASSWORD",
+      "to": "API-AUTH-RESET-PASSWORD",
+      "field": "apis"
+    },
+    {
+      "from": "SCR-FORGOT-PASSWORD",
+      "to": "TC-AUTH-FORGOT-PASSWORD-001",
+      "field": "tests"
+    },
+    {
+      "from": "SCR-LOGIN",
+      "to": "MOD-AUTH",
+      "field": "modules"
+    },
+    {
+      "from": "SCR-LOGIN",
+      "to": "FEAT-AUTH-LOGIN",
+      "field": "features"
+    },
+    {
+      "from": "SCR-LOGIN",
+      "to": "BR-AUTH-002",
+      "field": "business_rules"
+    },
+    {
+      "from": "SCR-LOGIN",
+      "to": "FLOW-AUTH-LOGIN",
+      "field": "flows"
+    },
+    {
+      "from": "SCR-LOGIN",
+      "to": "API-AUTH-LOGIN",
+      "field": "apis"
+    },
+    {
+      "from": "SCR-LOGIN",
+      "to": "TC-AUTH-LOGIN-001",
+      "field": "tests"
+    },
+    {
+      "from": "SCR-REGISTER",
+      "to": "MOD-AUTH",
+      "field": "modules"
+    },
+    {
+      "from": "SCR-REGISTER",
+      "to": "FEAT-AUTH-REGISTER",
+      "field": "features"
+    },
+    {
+      "from": "SCR-REGISTER",
+      "to": "BR-AUTH-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "SCR-REGISTER",
+      "to": "API-AUTH-REGISTER",
+      "field": "apis"
+    },
+    {
+      "from": "SCR-REGISTER",
+      "to": "TC-AUTH-REGISTER-001",
+      "field": "tests"
+    },
+    {
+      "from": "SCR-WORKSPACE-HOME",
+      "to": "MOD-WORKSPACE",
+      "field": "modules"
+    },
+    {
+      "from": "SCR-WORKSPACE-HOME",
+      "to": "FEAT-WORKSPACE-CREATE",
+      "field": "features"
+    },
+    {
+      "from": "SCR-WORKSPACE-HOME",
+      "to": "FEAT-BOARD-CREATE",
+      "field": "features"
+    },
+    {
+      "from": "SCR-WORKSPACE-HOME",
+      "to": "API-WORKSPACE-LIST",
+      "field": "apis"
+    },
+    {
+      "from": "SCR-WORKSPACE-HOME",
+      "to": "API-BOARD-CREATE",
+      "field": "apis"
+    },
+    {
+      "from": "SCR-WORKSPACE-SETTINGS",
+      "to": "MOD-WORKSPACE",
+      "field": "modules"
+    },
+    {
+      "from": "SCR-WORKSPACE-SETTINGS",
+      "to": "FEAT-WORKSPACE-MANAGE-MEMBERS",
+      "field": "features"
+    },
+    {
+      "from": "SCR-WORKSPACE-SETTINGS",
+      "to": "BR-WORKSPACE-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "SCR-WORKSPACE-SETTINGS",
+      "to": "API-WORKSPACE-INVITE-MEMBER",
+      "field": "apis"
+    },
+    {
+      "from": "SCR-WORKSPACE-SETTINGS",
+      "to": "API-WORKSPACE-UPDATE-MEMBER-ROLE",
+      "field": "apis"
+    },
+    {
+      "from": "SCR-WORKSPACE-SETTINGS",
+      "to": "API-WORKSPACE-REMOVE-MEMBER",
+      "field": "apis"
+    },
+    {
+      "from": "SCR-WORKSPACE-SETTINGS",
+      "to": "TC-WORKSPACE-MANAGE-MEMBERS-001",
+      "field": "tests"
+    },
+    {
+      "from": "FLOW-COMMENT-ACTIVITY",
+      "to": "MOD-COMMENT",
+      "field": "modules"
+    },
+    {
+      "from": "FLOW-COMMENT-ACTIVITY",
+      "to": "FEAT-COMMENT-ADD",
+      "field": "features"
+    },
+    {
+      "from": "FLOW-COMMENT-ACTIVITY",
+      "to": "FEAT-ACTIVITY-LOG",
+      "field": "features"
+    },
+    {
+      "from": "FLOW-COMMENT-ACTIVITY",
+      "to": "SCR-CARD-DETAIL",
+      "field": "screens"
+    },
+    {
+      "from": "FLOW-COMMENT-ACTIVITY",
+      "to": "API-COMMENT-CREATE",
+      "field": "apis"
+    },
+    {
+      "from": "FLOW-COMMENT-ACTIVITY",
+      "to": "API-ACTIVITY-LIST",
+      "field": "apis"
+    },
+    {
+      "from": "FLOW-COMMENT-ACTIVITY",
+      "to": "DB-COMMENT",
+      "field": "database_objects"
+    },
+    {
+      "from": "FLOW-COMMENT-ACTIVITY",
+      "to": "DB-ACTIVITY-LOG",
+      "field": "database_objects"
+    },
+    {
+      "from": "FLOW-COMMENT-ACTIVITY",
+      "to": "TC-COMMENT-ADD-001",
+      "field": "tests"
+    },
+    {
+      "from": "FLOW-COMMENT-ACTIVITY",
+      "to": "TC-ACTIVITY-LOG-001",
+      "field": "tests"
+    },
+    {
+      "from": "FLOW-WORKSPACE-INVITE-MEMBER",
+      "to": "MOD-WORKSPACE",
+      "field": "modules"
+    },
+    {
+      "from": "FLOW-WORKSPACE-INVITE-MEMBER",
+      "to": "FEAT-WORKSPACE-MANAGE-MEMBERS",
+      "field": "features"
+    },
+    {
+      "from": "FLOW-WORKSPACE-INVITE-MEMBER",
+      "to": "BR-WORKSPACE-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "FLOW-WORKSPACE-INVITE-MEMBER",
+      "to": "BR-WORKSPACE-002",
+      "field": "business_rules"
+    },
+    {
+      "from": "FLOW-WORKSPACE-INVITE-MEMBER",
+      "to": "SCR-WORKSPACE-SETTINGS",
+      "field": "screens"
+    },
+    {
+      "from": "FLOW-WORKSPACE-INVITE-MEMBER",
+      "to": "API-WORKSPACE-INVITE-MEMBER",
+      "field": "apis"
+    },
+    {
+      "from": "FLOW-WORKSPACE-INVITE-MEMBER",
+      "to": "DB-WORKSPACE-MEMBER",
+      "field": "database_objects"
+    },
+    {
+      "from": "FLOW-WORKSPACE-INVITE-MEMBER",
+      "to": "TC-WORKSPACE-MANAGE-MEMBERS-001",
+      "field": "tests"
+    },
+    {
+      "from": "FLOW-AUTH-LOGIN",
+      "to": "MOD-AUTH",
+      "field": "modules"
+    },
+    {
+      "from": "FLOW-AUTH-LOGIN",
+      "to": "FEAT-AUTH-LOGIN",
+      "field": "features"
+    },
+    {
+      "from": "FLOW-AUTH-LOGIN",
+      "to": "BR-AUTH-002",
+      "field": "business_rules"
+    },
+    {
+      "from": "FLOW-AUTH-LOGIN",
+      "to": "SCR-LOGIN",
+      "field": "screens"
+    },
+    {
+      "from": "FLOW-AUTH-LOGIN",
+      "to": "API-AUTH-LOGIN",
+      "field": "apis"
+    },
+    {
+      "from": "FLOW-AUTH-LOGIN",
+      "to": "DB-USER",
+      "field": "database_objects"
+    },
+    {
+      "from": "FLOW-AUTH-LOGIN",
+      "to": "DB-REFRESH-TOKEN",
+      "field": "database_objects"
+    },
+    {
+      "from": "FLOW-AUTH-LOGIN",
+      "to": "TC-AUTH-LOGIN-001",
+      "field": "tests"
+    },
+    {
+      "from": "FLOW-AUTH-LOGIN",
+      "to": "ADR-002",
+      "field": "decisions"
+    },
+    {
+      "from": "FLOW-CARD-MOVE-DRAGDROP",
+      "to": "MOD-CARD",
+      "field": "modules"
+    },
+    {
+      "from": "FLOW-CARD-MOVE-DRAGDROP",
+      "to": "FEAT-CARD-MOVE",
+      "field": "features"
+    },
+    {
+      "from": "FLOW-CARD-MOVE-DRAGDROP",
+      "to": "REQ-CARD-002",
+      "field": "requirements"
+    },
+    {
+      "from": "FLOW-CARD-MOVE-DRAGDROP",
+      "to": "BR-CARD-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "FLOW-CARD-MOVE-DRAGDROP",
+      "to": "BR-LIST-002",
+      "field": "business_rules"
+    },
+    {
+      "from": "FLOW-CARD-MOVE-DRAGDROP",
+      "to": "SCR-BOARD",
+      "field": "screens"
+    },
+    {
+      "from": "FLOW-CARD-MOVE-DRAGDROP",
+      "to": "API-CARD-MOVE",
+      "field": "apis"
+    },
+    {
+      "from": "FLOW-CARD-MOVE-DRAGDROP",
+      "to": "DB-CARD",
+      "field": "database_objects"
+    },
+    {
+      "from": "FLOW-CARD-MOVE-DRAGDROP",
+      "to": "DB-ACTIVITY-LOG",
+      "field": "database_objects"
+    },
+    {
+      "from": "FLOW-CARD-MOVE-DRAGDROP",
+      "to": "TC-CARD-MOVE-001",
+      "field": "tests"
+    },
+    {
+      "from": "FLOW-CARD-MOVE-DRAGDROP",
+      "to": "TC-CARD-MOVE-002",
+      "field": "tests"
+    },
+    {
+      "from": "FLOW-CARD-MOVE-DRAGDROP",
+      "to": "ADR-003",
+      "field": "decisions"
+    },
+    {
+      "from": "FLOW-CARD-MOVE-DRAGDROP",
+      "to": "ADR-004",
+      "field": "decisions"
+    },
+    {
+      "from": "FLOW-CARD-LIFECYCLE",
+      "to": "MOD-CARD",
+      "field": "modules"
+    },
+    {
+      "from": "FLOW-CARD-LIFECYCLE",
+      "to": "FEAT-CARD-CREATE",
+      "field": "features"
+    },
+    {
+      "from": "FLOW-CARD-LIFECYCLE",
+      "to": "FEAT-CARD-MOVE",
+      "field": "features"
+    },
+    {
+      "from": "FLOW-CARD-LIFECYCLE",
+      "to": "FEAT-CARD-EDIT-DETAIL",
+      "field": "features"
+    },
+    {
+      "from": "FLOW-CARD-LIFECYCLE",
+      "to": "FEAT-CARD-ARCHIVE",
+      "field": "features"
+    },
+    {
+      "from": "FLOW-CARD-LIFECYCLE",
+      "to": "SCR-BOARD",
+      "field": "screens"
+    },
+    {
+      "from": "FLOW-CARD-LIFECYCLE",
+      "to": "SCR-CARD-DETAIL",
+      "field": "screens"
+    },
+    {
+      "from": "FLOW-CARD-LIFECYCLE",
+      "to": "API-CARD-CREATE",
+      "field": "apis"
+    },
+    {
+      "from": "FLOW-CARD-LIFECYCLE",
+      "to": "API-CARD-UPDATE",
+      "field": "apis"
+    },
+    {
+      "from": "FLOW-CARD-LIFECYCLE",
+      "to": "API-CARD-MOVE",
+      "field": "apis"
+    },
+    {
+      "from": "FLOW-CARD-LIFECYCLE",
+      "to": "API-CARD-ARCHIVE",
+      "field": "apis"
+    },
+    {
+      "from": "FLOW-CARD-LIFECYCLE",
+      "to": "DB-CARD",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-ACTIVITY-LIST",
+      "to": "MOD-COMMENT",
+      "field": "modules"
+    },
+    {
+      "from": "API-ACTIVITY-LIST",
+      "to": "FEAT-ACTIVITY-LOG",
+      "field": "features"
+    },
+    {
+      "from": "API-ACTIVITY-LIST",
+      "to": "REQ-COMMENT-002",
+      "field": "requirements"
+    },
+    {
+      "from": "API-ACTIVITY-LIST",
+      "to": "SCR-CARD-DETAIL",
+      "field": "screens"
+    },
+    {
+      "from": "API-ACTIVITY-LIST",
+      "to": "FLOW-CARD-MOVE-DRAGDROP",
+      "field": "flows"
+    },
+    {
+      "from": "API-ACTIVITY-LIST",
+      "to": "FLOW-COMMENT-ACTIVITY",
+      "field": "flows"
+    },
+    {
+      "from": "API-ACTIVITY-LIST",
+      "to": "DB-ACTIVITY-LOG",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-ACTIVITY-LIST",
+      "to": "TC-ACTIVITY-LOG-001",
+      "field": "tests"
+    },
+    {
+      "from": "API-AUTH-FORGOT-PASSWORD",
+      "to": "MOD-AUTH",
+      "field": "modules"
+    },
+    {
+      "from": "API-AUTH-FORGOT-PASSWORD",
+      "to": "FEAT-AUTH-FORGOT-PASSWORD",
+      "field": "features"
+    },
+    {
+      "from": "API-AUTH-FORGOT-PASSWORD",
+      "to": "REQ-AUTH-003",
+      "field": "requirements"
+    },
+    {
+      "from": "API-AUTH-FORGOT-PASSWORD",
+      "to": "SCR-FORGOT-PASSWORD",
+      "field": "screens"
+    },
+    {
+      "from": "API-AUTH-FORGOT-PASSWORD",
+      "to": "DB-USER",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-AUTH-FORGOT-PASSWORD",
+      "to": "DB-PASSWORD-RESET-TOKEN",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-AUTH-FORGOT-PASSWORD",
+      "to": "TC-AUTH-FORGOT-PASSWORD-001",
+      "field": "tests"
+    },
+    {
+      "from": "API-AUTH-LOGIN",
+      "to": "MOD-AUTH",
+      "field": "modules"
+    },
+    {
+      "from": "API-AUTH-LOGIN",
+      "to": "FEAT-AUTH-LOGIN",
+      "field": "features"
+    },
+    {
+      "from": "API-AUTH-LOGIN",
+      "to": "REQ-AUTH-002",
+      "field": "requirements"
+    },
+    {
+      "from": "API-AUTH-LOGIN",
+      "to": "BR-AUTH-002",
+      "field": "business_rules"
+    },
+    {
+      "from": "API-AUTH-LOGIN",
+      "to": "SCR-LOGIN",
+      "field": "screens"
+    },
+    {
+      "from": "API-AUTH-LOGIN",
+      "to": "FLOW-AUTH-LOGIN",
+      "field": "flows"
+    },
+    {
+      "from": "API-AUTH-LOGIN",
+      "to": "DB-USER",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-AUTH-LOGIN",
+      "to": "DB-REFRESH-TOKEN",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-AUTH-LOGIN",
+      "to": "TC-AUTH-LOGIN-001",
+      "field": "tests"
+    },
+    {
+      "from": "API-AUTH-LOGIN",
+      "to": "ADR-002",
+      "field": "decisions"
+    },
+    {
+      "from": "API-AUTH-LOGOUT",
+      "to": "MOD-AUTH",
+      "field": "modules"
+    },
+    {
+      "from": "API-AUTH-LOGOUT",
+      "to": "FEAT-AUTH-LOGIN",
+      "field": "features"
+    },
+    {
+      "from": "API-AUTH-LOGOUT",
+      "to": "REQ-AUTH-002",
+      "field": "requirements"
+    },
+    {
+      "from": "API-AUTH-LOGOUT",
+      "to": "SCR-LOGIN",
+      "field": "screens"
+    },
+    {
+      "from": "API-AUTH-LOGOUT",
+      "to": "DB-REFRESH-TOKEN",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-AUTH-LOGOUT",
+      "to": "TC-AUTH-LOGIN-001",
+      "field": "tests"
+    },
+    {
+      "from": "API-AUTH-LOGOUT",
+      "to": "ADR-002",
+      "field": "decisions"
+    },
+    {
+      "from": "API-AUTH-REGISTER",
+      "to": "MOD-AUTH",
+      "field": "modules"
+    },
+    {
+      "from": "API-AUTH-REGISTER",
+      "to": "FEAT-AUTH-REGISTER",
+      "field": "features"
+    },
+    {
+      "from": "API-AUTH-REGISTER",
+      "to": "REQ-AUTH-001",
+      "field": "requirements"
+    },
+    {
+      "from": "API-AUTH-REGISTER",
+      "to": "BR-AUTH-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "API-AUTH-REGISTER",
+      "to": "SCR-REGISTER",
+      "field": "screens"
+    },
+    {
+      "from": "API-AUTH-REGISTER",
+      "to": "DB-USER",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-AUTH-REGISTER",
+      "to": "TC-AUTH-REGISTER-001",
+      "field": "tests"
+    },
+    {
+      "from": "API-AUTH-REGISTER",
+      "to": "ADR-002",
+      "field": "decisions"
+    },
+    {
+      "from": "API-AUTH-RESET-PASSWORD",
+      "to": "MOD-AUTH",
+      "field": "modules"
+    },
+    {
+      "from": "API-AUTH-RESET-PASSWORD",
+      "to": "FEAT-AUTH-FORGOT-PASSWORD",
+      "field": "features"
+    },
+    {
+      "from": "API-AUTH-RESET-PASSWORD",
+      "to": "REQ-AUTH-003",
+      "field": "requirements"
+    },
+    {
+      "from": "API-AUTH-RESET-PASSWORD",
+      "to": "BR-AUTH-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "API-AUTH-RESET-PASSWORD",
+      "to": "SCR-FORGOT-PASSWORD",
+      "field": "screens"
+    },
+    {
+      "from": "API-AUTH-RESET-PASSWORD",
+      "to": "DB-USER",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-AUTH-RESET-PASSWORD",
+      "to": "DB-PASSWORD-RESET-TOKEN",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-AUTH-RESET-PASSWORD",
+      "to": "TC-AUTH-FORGOT-PASSWORD-001",
+      "field": "tests"
+    },
+    {
+      "from": "API-BOARD-ARCHIVE",
+      "to": "MOD-BOARD",
+      "field": "modules"
+    },
+    {
+      "from": "API-BOARD-ARCHIVE",
+      "to": "FEAT-BOARD-MANAGE",
+      "field": "features"
+    },
+    {
+      "from": "API-BOARD-ARCHIVE",
+      "to": "REQ-BOARD-002",
+      "field": "requirements"
+    },
+    {
+      "from": "API-BOARD-ARCHIVE",
+      "to": "BR-BOARD-002",
+      "field": "business_rules"
+    },
+    {
+      "from": "API-BOARD-ARCHIVE",
+      "to": "SCR-BOARD-SETTINGS",
+      "field": "screens"
+    },
+    {
+      "from": "API-BOARD-ARCHIVE",
+      "to": "DB-BOARD",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-BOARD-ARCHIVE",
+      "to": "TC-BOARD-MANAGE-001",
+      "field": "tests"
+    },
+    {
+      "from": "API-BOARD-ARCHIVE",
+      "to": "ADR-005",
+      "field": "decisions"
+    },
+    {
+      "from": "API-BOARD-CREATE",
+      "to": "MOD-BOARD",
+      "field": "modules"
+    },
+    {
+      "from": "API-BOARD-CREATE",
+      "to": "FEAT-BOARD-CREATE",
+      "field": "features"
+    },
+    {
+      "from": "API-BOARD-CREATE",
+      "to": "REQ-BOARD-001",
+      "field": "requirements"
+    },
+    {
+      "from": "API-BOARD-CREATE",
+      "to": "BR-BOARD-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "API-BOARD-CREATE",
+      "to": "SCR-WORKSPACE-HOME",
+      "field": "screens"
+    },
+    {
+      "from": "API-BOARD-CREATE",
+      "to": "DB-BOARD",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-BOARD-CREATE",
+      "to": "DB-LIST",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-BOARD-CREATE",
+      "to": "TC-BOARD-CREATE-001",
+      "field": "tests"
+    },
+    {
+      "from": "API-BOARD-GET-DETAIL",
+      "to": "MOD-BOARD",
+      "field": "modules"
+    },
+    {
+      "from": "API-BOARD-GET-DETAIL",
+      "to": "FEAT-BOARD-MANAGE",
+      "field": "features"
+    },
+    {
+      "from": "API-BOARD-GET-DETAIL",
+      "to": "REQ-BOARD-002",
+      "field": "requirements"
+    },
+    {
+      "from": "API-BOARD-GET-DETAIL",
+      "to": "SCR-BOARD",
+      "field": "screens"
+    },
+    {
+      "from": "API-BOARD-GET-DETAIL",
+      "to": "SCR-BOARD-SETTINGS",
+      "field": "screens"
+    },
+    {
+      "from": "API-BOARD-GET-DETAIL",
+      "to": "DB-BOARD",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-BOARD-GET-DETAIL",
+      "to": "DB-LIST",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-BOARD-GET-DETAIL",
+      "to": "DB-CARD",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-BOARD-GET-DETAIL",
+      "to": "DB-LABEL",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-BOARD-UPDATE",
+      "to": "MOD-BOARD",
+      "field": "modules"
+    },
+    {
+      "from": "API-BOARD-UPDATE",
+      "to": "FEAT-BOARD-MANAGE",
+      "field": "features"
+    },
+    {
+      "from": "API-BOARD-UPDATE",
+      "to": "REQ-BOARD-002",
+      "field": "requirements"
+    },
+    {
+      "from": "API-BOARD-UPDATE",
+      "to": "BR-BOARD-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "API-BOARD-UPDATE",
+      "to": "SCR-BOARD-SETTINGS",
+      "field": "screens"
+    },
+    {
+      "from": "API-BOARD-UPDATE",
+      "to": "DB-BOARD",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-BOARD-UPDATE",
+      "to": "TC-BOARD-MANAGE-001",
+      "field": "tests"
+    },
+    {
+      "from": "API-CARD-ARCHIVE",
+      "to": "MOD-CARD",
+      "field": "modules"
+    },
+    {
+      "from": "API-CARD-ARCHIVE",
+      "to": "FEAT-CARD-ARCHIVE",
+      "field": "features"
+    },
+    {
+      "from": "API-CARD-ARCHIVE",
+      "to": "REQ-CARD-004",
+      "field": "requirements"
+    },
+    {
+      "from": "API-CARD-ARCHIVE",
+      "to": "BR-CARD-003",
+      "field": "business_rules"
+    },
+    {
+      "from": "API-CARD-ARCHIVE",
+      "to": "SCR-CARD-DETAIL",
+      "field": "screens"
+    },
+    {
+      "from": "API-CARD-ARCHIVE",
+      "to": "SCR-BOARD",
+      "field": "screens"
+    },
+    {
+      "from": "API-CARD-ARCHIVE",
+      "to": "DB-CARD",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-CARD-ARCHIVE",
+      "to": "DB-ACTIVITY-LOG",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-CARD-ARCHIVE",
+      "to": "TC-CARD-ARCHIVE-001",
+      "field": "tests"
+    },
+    {
+      "from": "API-CARD-ARCHIVE",
+      "to": "ADR-005",
+      "field": "decisions"
+    },
+    {
+      "from": "API-CARD-CREATE",
+      "to": "MOD-CARD",
+      "field": "modules"
+    },
+    {
+      "from": "API-CARD-CREATE",
+      "to": "FEAT-CARD-CREATE",
+      "field": "features"
+    },
+    {
+      "from": "API-CARD-CREATE",
+      "to": "REQ-CARD-001",
+      "field": "requirements"
+    },
+    {
+      "from": "API-CARD-CREATE",
+      "to": "BR-LIST-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "API-CARD-CREATE",
+      "to": "BR-BOARD-002",
+      "field": "business_rules"
+    },
+    {
+      "from": "API-CARD-CREATE",
+      "to": "SCR-BOARD",
+      "field": "screens"
+    },
+    {
+      "from": "API-CARD-CREATE",
+      "to": "FLOW-CARD-LIFECYCLE",
+      "field": "flows"
+    },
+    {
+      "from": "API-CARD-CREATE",
+      "to": "DB-CARD",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-CARD-CREATE",
+      "to": "DB-ACTIVITY-LOG",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-CARD-CREATE",
+      "to": "TC-CARD-CREATE-001",
+      "field": "tests"
+    },
+    {
+      "from": "API-CARD-GET-DETAIL",
+      "to": "MOD-CARD",
+      "field": "modules"
+    },
+    {
+      "from": "API-CARD-GET-DETAIL",
+      "to": "FEAT-CARD-EDIT-DETAIL",
+      "field": "features"
+    },
+    {
+      "from": "API-CARD-GET-DETAIL",
+      "to": "REQ-CARD-003",
+      "field": "requirements"
+    },
+    {
+      "from": "API-CARD-GET-DETAIL",
+      "to": "SCR-CARD-DETAIL",
+      "field": "screens"
+    },
+    {
+      "from": "API-CARD-GET-DETAIL",
+      "to": "DB-CARD",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-CARD-GET-DETAIL",
+      "to": "DB-CARD-LABEL",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-CARD-GET-DETAIL",
+      "to": "DB-CARD-MEMBER",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-CARD-MEMBER-ASSIGN",
+      "to": "MOD-MEMBER",
+      "field": "modules"
+    },
+    {
+      "from": "API-CARD-MEMBER-ASSIGN",
+      "to": "FEAT-MEMBER-ASSIGN-CARD",
+      "field": "features"
+    },
+    {
+      "from": "API-CARD-MEMBER-ASSIGN",
+      "to": "REQ-MEMBER-001",
+      "field": "requirements"
+    },
+    {
+      "from": "API-CARD-MEMBER-ASSIGN",
+      "to": "BR-MEMBER-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "API-CARD-MEMBER-ASSIGN",
+      "to": "SCR-CARD-DETAIL",
+      "field": "screens"
+    },
+    {
+      "from": "API-CARD-MEMBER-ASSIGN",
+      "to": "DB-CARD-MEMBER",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-CARD-MEMBER-ASSIGN",
+      "to": "DB-ACTIVITY-LOG",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-CARD-MEMBER-ASSIGN",
+      "to": "TC-MEMBER-ASSIGN-CARD-001",
+      "field": "tests"
+    },
+    {
+      "from": "API-CARD-MEMBER-REMOVE",
+      "to": "MOD-MEMBER",
+      "field": "modules"
+    },
+    {
+      "from": "API-CARD-MEMBER-REMOVE",
+      "to": "FEAT-MEMBER-ASSIGN-CARD",
+      "field": "features"
+    },
+    {
+      "from": "API-CARD-MEMBER-REMOVE",
+      "to": "REQ-MEMBER-001",
+      "field": "requirements"
+    },
+    {
+      "from": "API-CARD-MEMBER-REMOVE",
+      "to": "BR-MEMBER-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "API-CARD-MEMBER-REMOVE",
+      "to": "SCR-CARD-DETAIL",
+      "field": "screens"
+    },
+    {
+      "from": "API-CARD-MEMBER-REMOVE",
+      "to": "DB-CARD-MEMBER",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-CARD-MEMBER-REMOVE",
+      "to": "DB-ACTIVITY-LOG",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-CARD-MEMBER-REMOVE",
+      "to": "TC-MEMBER-ASSIGN-CARD-001",
+      "field": "tests"
+    },
+    {
+      "from": "API-CARD-MOVE",
+      "to": "MOD-CARD",
+      "field": "modules"
+    },
+    {
+      "from": "API-CARD-MOVE",
+      "to": "FEAT-CARD-MOVE",
+      "field": "features"
+    },
+    {
+      "from": "API-CARD-MOVE",
+      "to": "REQ-CARD-002",
+      "field": "requirements"
+    },
+    {
+      "from": "API-CARD-MOVE",
+      "to": "BR-CARD-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "API-CARD-MOVE",
+      "to": "BR-LIST-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "API-CARD-MOVE",
+      "to": "BR-LIST-002",
+      "field": "business_rules"
+    },
+    {
+      "from": "API-CARD-MOVE",
+      "to": "BR-BOARD-002",
+      "field": "business_rules"
+    },
+    {
+      "from": "API-CARD-MOVE",
+      "to": "SCR-BOARD",
+      "field": "screens"
+    },
+    {
+      "from": "API-CARD-MOVE",
+      "to": "FLOW-CARD-MOVE-DRAGDROP",
+      "field": "flows"
+    },
+    {
+      "from": "API-CARD-MOVE",
+      "to": "DB-CARD",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-CARD-MOVE",
+      "to": "DB-ACTIVITY-LOG",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-CARD-MOVE",
+      "to": "TC-CARD-MOVE-001",
+      "field": "tests"
+    },
+    {
+      "from": "API-CARD-MOVE",
+      "to": "TC-CARD-MOVE-002",
+      "field": "tests"
+    },
+    {
+      "from": "API-CARD-MOVE",
+      "to": "ADR-003",
+      "field": "decisions"
+    },
+    {
+      "from": "API-CARD-MOVE",
+      "to": "ADR-004",
+      "field": "decisions"
+    },
+    {
+      "from": "API-CARD-UPDATE",
+      "to": "MOD-CARD",
+      "field": "modules"
+    },
+    {
+      "from": "API-CARD-UPDATE",
+      "to": "FEAT-CARD-EDIT-DETAIL",
+      "field": "features"
+    },
+    {
+      "from": "API-CARD-UPDATE",
+      "to": "REQ-CARD-003",
+      "field": "requirements"
+    },
+    {
+      "from": "API-CARD-UPDATE",
+      "to": "BR-CARD-002",
+      "field": "business_rules"
+    },
+    {
+      "from": "API-CARD-UPDATE",
+      "to": "BR-CARD-003",
+      "field": "business_rules"
+    },
+    {
+      "from": "API-CARD-UPDATE",
+      "to": "SCR-CARD-DETAIL",
+      "field": "screens"
+    },
+    {
+      "from": "API-CARD-UPDATE",
+      "to": "DB-CARD",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-CARD-UPDATE",
+      "to": "TC-CARD-EDIT-DETAIL-001",
+      "field": "tests"
+    },
+    {
+      "from": "API-COMMENT-CREATE",
+      "to": "MOD-COMMENT",
+      "field": "modules"
+    },
+    {
+      "from": "API-COMMENT-CREATE",
+      "to": "FEAT-COMMENT-ADD",
+      "field": "features"
+    },
+    {
+      "from": "API-COMMENT-CREATE",
+      "to": "REQ-COMMENT-001",
+      "field": "requirements"
+    },
+    {
+      "from": "API-COMMENT-CREATE",
+      "to": "BR-CARD-003",
+      "field": "business_rules"
+    },
+    {
+      "from": "API-COMMENT-CREATE",
+      "to": "SCR-CARD-DETAIL",
+      "field": "screens"
+    },
+    {
+      "from": "API-COMMENT-CREATE",
+      "to": "FLOW-COMMENT-ACTIVITY",
+      "field": "flows"
+    },
+    {
+      "from": "API-COMMENT-CREATE",
+      "to": "DB-COMMENT",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-COMMENT-CREATE",
+      "to": "DB-ACTIVITY-LOG",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-COMMENT-CREATE",
+      "to": "TC-COMMENT-ADD-001",
+      "field": "tests"
+    },
+    {
+      "from": "API-COMMENT-DELETE",
+      "to": "MOD-COMMENT",
+      "field": "modules"
+    },
+    {
+      "from": "API-COMMENT-DELETE",
+      "to": "FEAT-COMMENT-ADD",
+      "field": "features"
+    },
+    {
+      "from": "API-COMMENT-DELETE",
+      "to": "REQ-COMMENT-001",
+      "field": "requirements"
+    },
+    {
+      "from": "API-COMMENT-DELETE",
+      "to": "BR-COMMENT-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "API-COMMENT-DELETE",
+      "to": "SCR-CARD-DETAIL",
+      "field": "screens"
+    },
+    {
+      "from": "API-COMMENT-DELETE",
+      "to": "DB-COMMENT",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-COMMENT-DELETE",
+      "to": "TC-COMMENT-ADD-001",
+      "field": "tests"
+    },
+    {
+      "from": "API-COMMENT-UPDATE",
+      "to": "MOD-COMMENT",
+      "field": "modules"
+    },
+    {
+      "from": "API-COMMENT-UPDATE",
+      "to": "FEAT-COMMENT-ADD",
+      "field": "features"
+    },
+    {
+      "from": "API-COMMENT-UPDATE",
+      "to": "REQ-COMMENT-001",
+      "field": "requirements"
+    },
+    {
+      "from": "API-COMMENT-UPDATE",
+      "to": "BR-COMMENT-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "API-COMMENT-UPDATE",
+      "to": "SCR-CARD-DETAIL",
+      "field": "screens"
+    },
+    {
+      "from": "API-COMMENT-UPDATE",
+      "to": "DB-COMMENT",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-COMMENT-UPDATE",
+      "to": "TC-COMMENT-ADD-001",
+      "field": "tests"
+    },
+    {
+      "from": "API-LABEL-ASSIGN",
+      "to": "MOD-LABEL",
+      "field": "modules"
+    },
+    {
+      "from": "API-LABEL-ASSIGN",
+      "to": "FEAT-LABEL-ASSIGN",
+      "field": "features"
+    },
+    {
+      "from": "API-LABEL-ASSIGN",
+      "to": "REQ-LABEL-002",
+      "field": "requirements"
+    },
+    {
+      "from": "API-LABEL-ASSIGN",
+      "to": "SCR-CARD-DETAIL",
+      "field": "screens"
+    },
+    {
+      "from": "API-LABEL-ASSIGN",
+      "to": "DB-CARD-LABEL",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-LABEL-ASSIGN",
+      "to": "TC-LABEL-ASSIGN-001",
+      "field": "tests"
+    },
+    {
+      "from": "API-LABEL-CREATE",
+      "to": "MOD-LABEL",
+      "field": "modules"
+    },
+    {
+      "from": "API-LABEL-CREATE",
+      "to": "FEAT-LABEL-MANAGE",
+      "field": "features"
+    },
+    {
+      "from": "API-LABEL-CREATE",
+      "to": "REQ-LABEL-001",
+      "field": "requirements"
+    },
+    {
+      "from": "API-LABEL-CREATE",
+      "to": "BR-LABEL-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "API-LABEL-CREATE",
+      "to": "SCR-BOARD-SETTINGS",
+      "field": "screens"
+    },
+    {
+      "from": "API-LABEL-CREATE",
+      "to": "DB-LABEL",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-LABEL-CREATE",
+      "to": "TC-LABEL-MANAGE-001",
+      "field": "tests"
+    },
+    {
+      "from": "API-LABEL-DELETE",
+      "to": "MOD-LABEL",
+      "field": "modules"
+    },
+    {
+      "from": "API-LABEL-DELETE",
+      "to": "FEAT-LABEL-MANAGE",
+      "field": "features"
+    },
+    {
+      "from": "API-LABEL-DELETE",
+      "to": "REQ-LABEL-001",
+      "field": "requirements"
+    },
+    {
+      "from": "API-LABEL-DELETE",
+      "to": "BR-LABEL-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "API-LABEL-DELETE",
+      "to": "SCR-BOARD-SETTINGS",
+      "field": "screens"
+    },
+    {
+      "from": "API-LABEL-DELETE",
+      "to": "DB-LABEL",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-LABEL-DELETE",
+      "to": "DB-CARD-LABEL",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-LABEL-DELETE",
+      "to": "TC-LABEL-MANAGE-001",
+      "field": "tests"
+    },
+    {
+      "from": "API-LABEL-REMOVE",
+      "to": "MOD-LABEL",
+      "field": "modules"
+    },
+    {
+      "from": "API-LABEL-REMOVE",
+      "to": "FEAT-LABEL-ASSIGN",
+      "field": "features"
+    },
+    {
+      "from": "API-LABEL-REMOVE",
+      "to": "REQ-LABEL-002",
+      "field": "requirements"
+    },
+    {
+      "from": "API-LABEL-REMOVE",
+      "to": "SCR-CARD-DETAIL",
+      "field": "screens"
+    },
+    {
+      "from": "API-LABEL-REMOVE",
+      "to": "DB-CARD-LABEL",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-LABEL-REMOVE",
+      "to": "TC-LABEL-ASSIGN-001",
+      "field": "tests"
+    },
+    {
+      "from": "API-LABEL-UPDATE",
+      "to": "MOD-LABEL",
+      "field": "modules"
+    },
+    {
+      "from": "API-LABEL-UPDATE",
+      "to": "FEAT-LABEL-MANAGE",
+      "field": "features"
+    },
+    {
+      "from": "API-LABEL-UPDATE",
+      "to": "REQ-LABEL-001",
+      "field": "requirements"
+    },
+    {
+      "from": "API-LABEL-UPDATE",
+      "to": "BR-LABEL-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "API-LABEL-UPDATE",
+      "to": "SCR-BOARD-SETTINGS",
+      "field": "screens"
+    },
+    {
+      "from": "API-LABEL-UPDATE",
+      "to": "DB-LABEL",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-LABEL-UPDATE",
+      "to": "TC-LABEL-MANAGE-001",
+      "field": "tests"
+    },
+    {
+      "from": "API-LIST-CREATE",
+      "to": "MOD-LIST",
+      "field": "modules"
+    },
+    {
+      "from": "API-LIST-CREATE",
+      "to": "FEAT-LIST-MANAGE",
+      "field": "features"
+    },
+    {
+      "from": "API-LIST-CREATE",
+      "to": "REQ-LIST-001",
+      "field": "requirements"
+    },
+    {
+      "from": "API-LIST-CREATE",
+      "to": "BR-BOARD-002",
+      "field": "business_rules"
+    },
+    {
+      "from": "API-LIST-CREATE",
+      "to": "SCR-BOARD",
+      "field": "screens"
+    },
+    {
+      "from": "API-LIST-CREATE",
+      "to": "DB-LIST",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-LIST-CREATE",
+      "to": "TC-LIST-MANAGE-001",
+      "field": "tests"
+    },
+    {
+      "from": "API-LIST-CREATE",
+      "to": "ADR-003",
+      "field": "decisions"
+    },
+    {
+      "from": "API-LIST-REORDER",
+      "to": "MOD-LIST",
+      "field": "modules"
+    },
+    {
+      "from": "API-LIST-REORDER",
+      "to": "FEAT-LIST-REORDER",
+      "field": "features"
+    },
+    {
+      "from": "API-LIST-REORDER",
+      "to": "REQ-LIST-002",
+      "field": "requirements"
+    },
+    {
+      "from": "API-LIST-REORDER",
+      "to": "BR-LIST-002",
+      "field": "business_rules"
+    },
+    {
+      "from": "API-LIST-REORDER",
+      "to": "BR-BOARD-002",
+      "field": "business_rules"
+    },
+    {
+      "from": "API-LIST-REORDER",
+      "to": "SCR-BOARD",
+      "field": "screens"
+    },
+    {
+      "from": "API-LIST-REORDER",
+      "to": "DB-LIST",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-LIST-REORDER",
+      "to": "TC-LIST-REORDER-001",
+      "field": "tests"
+    },
+    {
+      "from": "API-LIST-REORDER",
+      "to": "ADR-003",
+      "field": "decisions"
+    },
+    {
+      "from": "API-LIST-UPDATE",
+      "to": "MOD-LIST",
+      "field": "modules"
+    },
+    {
+      "from": "API-LIST-UPDATE",
+      "to": "FEAT-LIST-MANAGE",
+      "field": "features"
+    },
+    {
+      "from": "API-LIST-UPDATE",
+      "to": "REQ-LIST-001",
+      "field": "requirements"
+    },
+    {
+      "from": "API-LIST-UPDATE",
+      "to": "BR-LIST-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "API-LIST-UPDATE",
+      "to": "BR-BOARD-002",
+      "field": "business_rules"
+    },
+    {
+      "from": "API-LIST-UPDATE",
+      "to": "SCR-BOARD",
+      "field": "screens"
+    },
+    {
+      "from": "API-LIST-UPDATE",
+      "to": "DB-LIST",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-LIST-UPDATE",
+      "to": "TC-LIST-MANAGE-001",
+      "field": "tests"
+    },
+    {
+      "from": "API-WORKSPACE-CREATE",
+      "to": "MOD-WORKSPACE",
+      "field": "modules"
+    },
+    {
+      "from": "API-WORKSPACE-CREATE",
+      "to": "FEAT-WORKSPACE-CREATE",
+      "field": "features"
+    },
+    {
+      "from": "API-WORKSPACE-CREATE",
+      "to": "REQ-WORKSPACE-001",
+      "field": "requirements"
+    },
+    {
+      "from": "API-WORKSPACE-CREATE",
+      "to": "SCR-WORKSPACE-HOME",
+      "field": "screens"
+    },
+    {
+      "from": "API-WORKSPACE-CREATE",
+      "to": "DB-WORKSPACE",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-WORKSPACE-CREATE",
+      "to": "DB-WORKSPACE-MEMBER",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-WORKSPACE-CREATE",
+      "to": "TC-WORKSPACE-CREATE-001",
+      "field": "tests"
+    },
+    {
+      "from": "API-WORKSPACE-INVITE-MEMBER",
+      "to": "MOD-WORKSPACE",
+      "field": "modules"
+    },
+    {
+      "from": "API-WORKSPACE-INVITE-MEMBER",
+      "to": "FEAT-WORKSPACE-MANAGE-MEMBERS",
+      "field": "features"
+    },
+    {
+      "from": "API-WORKSPACE-INVITE-MEMBER",
+      "to": "REQ-WORKSPACE-002",
+      "field": "requirements"
+    },
+    {
+      "from": "API-WORKSPACE-INVITE-MEMBER",
+      "to": "BR-WORKSPACE-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "API-WORKSPACE-INVITE-MEMBER",
+      "to": "BR-WORKSPACE-002",
+      "field": "business_rules"
+    },
+    {
+      "from": "API-WORKSPACE-INVITE-MEMBER",
+      "to": "SCR-WORKSPACE-SETTINGS",
+      "field": "screens"
+    },
+    {
+      "from": "API-WORKSPACE-INVITE-MEMBER",
+      "to": "FLOW-WORKSPACE-INVITE-MEMBER",
+      "field": "flows"
+    },
+    {
+      "from": "API-WORKSPACE-INVITE-MEMBER",
+      "to": "DB-WORKSPACE-MEMBER",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-WORKSPACE-INVITE-MEMBER",
+      "to": "DB-USER",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-WORKSPACE-INVITE-MEMBER",
+      "to": "TC-WORKSPACE-MANAGE-MEMBERS-001",
+      "field": "tests"
+    },
+    {
+      "from": "API-WORKSPACE-LIST",
+      "to": "MOD-WORKSPACE",
+      "field": "modules"
+    },
+    {
+      "from": "API-WORKSPACE-LIST",
+      "to": "FEAT-WORKSPACE-CREATE",
+      "field": "features"
+    },
+    {
+      "from": "API-WORKSPACE-LIST",
+      "to": "REQ-WORKSPACE-001",
+      "field": "requirements"
+    },
+    {
+      "from": "API-WORKSPACE-LIST",
+      "to": "SCR-WORKSPACE-HOME",
+      "field": "screens"
+    },
+    {
+      "from": "API-WORKSPACE-LIST",
+      "to": "DB-WORKSPACE",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-WORKSPACE-LIST",
+      "to": "DB-WORKSPACE-MEMBER",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-WORKSPACE-LIST",
+      "to": "TC-WORKSPACE-CREATE-001",
+      "field": "tests"
+    },
+    {
+      "from": "API-WORKSPACE-REMOVE-MEMBER",
+      "to": "MOD-WORKSPACE",
+      "field": "modules"
+    },
+    {
+      "from": "API-WORKSPACE-REMOVE-MEMBER",
+      "to": "FEAT-WORKSPACE-MANAGE-MEMBERS",
+      "field": "features"
+    },
+    {
+      "from": "API-WORKSPACE-REMOVE-MEMBER",
+      "to": "REQ-WORKSPACE-002",
+      "field": "requirements"
+    },
+    {
+      "from": "API-WORKSPACE-REMOVE-MEMBER",
+      "to": "BR-WORKSPACE-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "API-WORKSPACE-REMOVE-MEMBER",
+      "to": "SCR-WORKSPACE-SETTINGS",
+      "field": "screens"
+    },
+    {
+      "from": "API-WORKSPACE-REMOVE-MEMBER",
+      "to": "DB-WORKSPACE-MEMBER",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-WORKSPACE-REMOVE-MEMBER",
+      "to": "TC-WORKSPACE-MANAGE-MEMBERS-001",
+      "field": "tests"
+    },
+    {
+      "from": "API-WORKSPACE-UPDATE-MEMBER-ROLE",
+      "to": "MOD-WORKSPACE",
+      "field": "modules"
+    },
+    {
+      "from": "API-WORKSPACE-UPDATE-MEMBER-ROLE",
+      "to": "FEAT-WORKSPACE-MANAGE-MEMBERS",
+      "field": "features"
+    },
+    {
+      "from": "API-WORKSPACE-UPDATE-MEMBER-ROLE",
+      "to": "REQ-WORKSPACE-002",
+      "field": "requirements"
+    },
+    {
+      "from": "API-WORKSPACE-UPDATE-MEMBER-ROLE",
+      "to": "BR-WORKSPACE-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "API-WORKSPACE-UPDATE-MEMBER-ROLE",
+      "to": "SCR-WORKSPACE-SETTINGS",
+      "field": "screens"
+    },
+    {
+      "from": "API-WORKSPACE-UPDATE-MEMBER-ROLE",
+      "to": "DB-WORKSPACE-MEMBER",
+      "field": "database_objects"
+    },
+    {
+      "from": "API-WORKSPACE-UPDATE-MEMBER-ROLE",
+      "to": "TC-WORKSPACE-MANAGE-MEMBERS-001",
+      "field": "tests"
+    },
+    {
+      "from": "DOC-API-CONVENTIONS",
+      "to": "ADR-002",
+      "field": "decisions"
+    },
+    {
+      "from": "DOC-API-CONVENTIONS",
+      "to": "NFR-PERF-001",
+      "field": "nfrs"
+    },
+    {
+      "from": "DOC-DATABASE-OVERVIEW",
+      "to": "DB-USER",
+      "field": "database_objects"
+    },
+    {
+      "from": "DOC-DATABASE-OVERVIEW",
+      "to": "DB-WORKSPACE",
+      "field": "database_objects"
+    },
+    {
+      "from": "DOC-DATABASE-OVERVIEW",
+      "to": "DB-WORKSPACE-MEMBER",
+      "field": "database_objects"
+    },
+    {
+      "from": "DOC-DATABASE-OVERVIEW",
+      "to": "DB-BOARD",
+      "field": "database_objects"
+    },
+    {
+      "from": "DOC-DATABASE-OVERVIEW",
+      "to": "DB-LIST",
+      "field": "database_objects"
+    },
+    {
+      "from": "DOC-DATABASE-OVERVIEW",
+      "to": "DB-CARD",
+      "field": "database_objects"
+    },
+    {
+      "from": "DOC-DATABASE-OVERVIEW",
+      "to": "DB-CARD-MEMBER",
+      "field": "database_objects"
+    },
+    {
+      "from": "DOC-DATABASE-OVERVIEW",
+      "to": "DB-LABEL",
+      "field": "database_objects"
+    },
+    {
+      "from": "DOC-DATABASE-OVERVIEW",
+      "to": "DB-CARD-LABEL",
+      "field": "database_objects"
+    },
+    {
+      "from": "DOC-DATABASE-OVERVIEW",
+      "to": "DB-COMMENT",
+      "field": "database_objects"
+    },
+    {
+      "from": "DOC-DATABASE-OVERVIEW",
+      "to": "DB-ACTIVITY-LOG",
+      "field": "database_objects"
+    },
+    {
+      "from": "DOC-DATABASE-OVERVIEW",
+      "to": "DB-REFRESH-TOKEN",
+      "field": "database_objects"
+    },
+    {
+      "from": "DOC-DATABASE-OVERVIEW",
+      "to": "DB-PASSWORD-RESET-TOKEN",
+      "field": "database_objects"
+    },
+    {
+      "from": "DOC-DATABASE-OVERVIEW",
+      "to": "ADR-001",
+      "field": "decisions"
+    },
+    {
+      "from": "DOC-DATABASE-OVERVIEW",
+      "to": "ADR-003",
+      "field": "decisions"
+    },
+    {
+      "from": "DOC-DATABASE-OVERVIEW",
+      "to": "ADR-005",
+      "field": "decisions"
+    },
+    {
+      "from": "DB-ACTIVITY-LOG",
+      "to": "MOD-COMMENT",
+      "field": "modules"
+    },
+    {
+      "from": "DB-ACTIVITY-LOG",
+      "to": "FEAT-ACTIVITY-LOG",
+      "field": "features"
+    },
+    {
+      "from": "DB-ACTIVITY-LOG",
+      "to": "FLOW-COMMENT-ACTIVITY",
+      "field": "flows"
+    },
+    {
+      "from": "DB-ACTIVITY-LOG",
+      "to": "FLOW-CARD-MOVE-DRAGDROP",
+      "field": "flows"
+    },
+    {
+      "from": "DB-ACTIVITY-LOG",
+      "to": "API-ACTIVITY-LIST",
+      "field": "apis"
+    },
+    {
+      "from": "DB-ACTIVITY-LOG",
+      "to": "DB-CARD",
+      "field": "database_objects"
+    },
+    {
+      "from": "DB-ACTIVITY-LOG",
+      "to": "DB-BOARD",
+      "field": "database_objects"
+    },
+    {
+      "from": "DB-BOARD",
+      "to": "MOD-BOARD",
+      "field": "modules"
+    },
+    {
+      "from": "DB-BOARD",
+      "to": "FEAT-BOARD-CREATE",
+      "field": "features"
+    },
+    {
+      "from": "DB-BOARD",
+      "to": "FEAT-BOARD-MANAGE",
+      "field": "features"
+    },
+    {
+      "from": "DB-BOARD",
+      "to": "BR-BOARD-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "DB-BOARD",
+      "to": "BR-BOARD-002",
+      "field": "business_rules"
+    },
+    {
+      "from": "DB-BOARD",
+      "to": "API-BOARD-CREATE",
+      "field": "apis"
+    },
+    {
+      "from": "DB-BOARD",
+      "to": "API-BOARD-GET-DETAIL",
+      "field": "apis"
+    },
+    {
+      "from": "DB-BOARD",
+      "to": "API-BOARD-UPDATE",
+      "field": "apis"
+    },
+    {
+      "from": "DB-BOARD",
+      "to": "API-BOARD-ARCHIVE",
+      "field": "apis"
+    },
+    {
+      "from": "DB-BOARD",
+      "to": "DB-WORKSPACE",
+      "field": "database_objects"
+    },
+    {
+      "from": "DB-BOARD",
+      "to": "ADR-005",
+      "field": "decisions"
+    },
+    {
+      "from": "DB-CARD-LABEL",
+      "to": "MOD-LABEL",
+      "field": "modules"
+    },
+    {
+      "from": "DB-CARD-LABEL",
+      "to": "FEAT-LABEL-ASSIGN",
+      "field": "features"
+    },
+    {
+      "from": "DB-CARD-LABEL",
+      "to": "API-LABEL-ASSIGN",
+      "field": "apis"
+    },
+    {
+      "from": "DB-CARD-LABEL",
+      "to": "API-LABEL-REMOVE",
+      "field": "apis"
+    },
+    {
+      "from": "DB-CARD-LABEL",
+      "to": "DB-CARD",
+      "field": "database_objects"
+    },
+    {
+      "from": "DB-CARD-LABEL",
+      "to": "DB-LABEL",
+      "field": "database_objects"
+    },
+    {
+      "from": "DB-CARD-MEMBER",
+      "to": "MOD-MEMBER",
+      "field": "modules"
+    },
+    {
+      "from": "DB-CARD-MEMBER",
+      "to": "FEAT-MEMBER-ASSIGN-CARD",
+      "field": "features"
+    },
+    {
+      "from": "DB-CARD-MEMBER",
+      "to": "BR-MEMBER-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "DB-CARD-MEMBER",
+      "to": "API-CARD-MEMBER-ASSIGN",
+      "field": "apis"
+    },
+    {
+      "from": "DB-CARD-MEMBER",
+      "to": "API-CARD-MEMBER-REMOVE",
+      "field": "apis"
+    },
+    {
+      "from": "DB-CARD-MEMBER",
+      "to": "DB-CARD",
+      "field": "database_objects"
+    },
+    {
+      "from": "DB-CARD-MEMBER",
+      "to": "DB-USER",
+      "field": "database_objects"
+    },
+    {
+      "from": "DB-CARD",
+      "to": "MOD-CARD",
+      "field": "modules"
+    },
+    {
+      "from": "DB-CARD",
+      "to": "FEAT-CARD-CREATE",
+      "field": "features"
+    },
+    {
+      "from": "DB-CARD",
+      "to": "FEAT-CARD-MOVE",
+      "field": "features"
+    },
+    {
+      "from": "DB-CARD",
+      "to": "FEAT-CARD-EDIT-DETAIL",
+      "field": "features"
+    },
+    {
+      "from": "DB-CARD",
+      "to": "FEAT-CARD-ARCHIVE",
+      "field": "features"
+    },
+    {
+      "from": "DB-CARD",
+      "to": "BR-CARD-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "DB-CARD",
+      "to": "BR-CARD-002",
+      "field": "business_rules"
+    },
+    {
+      "from": "DB-CARD",
+      "to": "BR-CARD-003",
+      "field": "business_rules"
+    },
+    {
+      "from": "DB-CARD",
+      "to": "BR-LIST-002",
+      "field": "business_rules"
+    },
+    {
+      "from": "DB-CARD",
+      "to": "FLOW-CARD-MOVE-DRAGDROP",
+      "field": "flows"
+    },
+    {
+      "from": "DB-CARD",
+      "to": "FLOW-CARD-LIFECYCLE",
+      "field": "flows"
+    },
+    {
+      "from": "DB-CARD",
+      "to": "API-CARD-CREATE",
+      "field": "apis"
+    },
+    {
+      "from": "DB-CARD",
+      "to": "API-CARD-GET-DETAIL",
+      "field": "apis"
+    },
+    {
+      "from": "DB-CARD",
+      "to": "API-CARD-UPDATE",
+      "field": "apis"
+    },
+    {
+      "from": "DB-CARD",
+      "to": "API-CARD-MOVE",
+      "field": "apis"
+    },
+    {
+      "from": "DB-CARD",
+      "to": "API-CARD-ARCHIVE",
+      "field": "apis"
+    },
+    {
+      "from": "DB-CARD",
+      "to": "DB-LIST",
+      "field": "database_objects"
+    },
+    {
+      "from": "DB-CARD",
+      "to": "ADR-003",
+      "field": "decisions"
+    },
+    {
+      "from": "DB-CARD",
+      "to": "ADR-005",
+      "field": "decisions"
+    },
+    {
+      "from": "DB-COMMENT",
+      "to": "MOD-COMMENT",
+      "field": "modules"
+    },
+    {
+      "from": "DB-COMMENT",
+      "to": "FEAT-COMMENT-ADD",
+      "field": "features"
+    },
+    {
+      "from": "DB-COMMENT",
+      "to": "BR-COMMENT-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "DB-COMMENT",
+      "to": "FLOW-COMMENT-ACTIVITY",
+      "field": "flows"
+    },
+    {
+      "from": "DB-COMMENT",
+      "to": "API-COMMENT-CREATE",
+      "field": "apis"
+    },
+    {
+      "from": "DB-COMMENT",
+      "to": "API-COMMENT-UPDATE",
+      "field": "apis"
+    },
+    {
+      "from": "DB-COMMENT",
+      "to": "API-COMMENT-DELETE",
+      "field": "apis"
+    },
+    {
+      "from": "DB-COMMENT",
+      "to": "DB-CARD",
+      "field": "database_objects"
+    },
+    {
+      "from": "DB-COMMENT",
+      "to": "ADR-005",
+      "field": "decisions"
+    },
+    {
+      "from": "DB-LABEL",
+      "to": "MOD-LABEL",
+      "field": "modules"
+    },
+    {
+      "from": "DB-LABEL",
+      "to": "FEAT-LABEL-MANAGE",
+      "field": "features"
+    },
+    {
+      "from": "DB-LABEL",
+      "to": "BR-LABEL-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "DB-LABEL",
+      "to": "API-LABEL-CREATE",
+      "field": "apis"
+    },
+    {
+      "from": "DB-LABEL",
+      "to": "API-LABEL-UPDATE",
+      "field": "apis"
+    },
+    {
+      "from": "DB-LABEL",
+      "to": "API-LABEL-DELETE",
+      "field": "apis"
+    },
+    {
+      "from": "DB-LABEL",
+      "to": "DB-BOARD",
+      "field": "database_objects"
+    },
+    {
+      "from": "DB-LIST",
+      "to": "MOD-LIST",
+      "field": "modules"
+    },
+    {
+      "from": "DB-LIST",
+      "to": "FEAT-LIST-MANAGE",
+      "field": "features"
+    },
+    {
+      "from": "DB-LIST",
+      "to": "FEAT-LIST-REORDER",
+      "field": "features"
+    },
+    {
+      "from": "DB-LIST",
+      "to": "BR-LIST-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "DB-LIST",
+      "to": "BR-LIST-002",
+      "field": "business_rules"
+    },
+    {
+      "from": "DB-LIST",
+      "to": "API-LIST-CREATE",
+      "field": "apis"
+    },
+    {
+      "from": "DB-LIST",
+      "to": "API-LIST-UPDATE",
+      "field": "apis"
+    },
+    {
+      "from": "DB-LIST",
+      "to": "API-LIST-REORDER",
+      "field": "apis"
+    },
+    {
+      "from": "DB-LIST",
+      "to": "DB-BOARD",
+      "field": "database_objects"
+    },
+    {
+      "from": "DB-LIST",
+      "to": "ADR-003",
+      "field": "decisions"
+    },
+    {
+      "from": "DB-LIST",
+      "to": "ADR-005",
+      "field": "decisions"
+    },
+    {
+      "from": "DB-PASSWORD-RESET-TOKEN",
+      "to": "MOD-AUTH",
+      "field": "modules"
+    },
+    {
+      "from": "DB-PASSWORD-RESET-TOKEN",
+      "to": "FEAT-AUTH-FORGOT-PASSWORD",
+      "field": "features"
+    },
+    {
+      "from": "DB-PASSWORD-RESET-TOKEN",
+      "to": "BR-AUTH-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "DB-PASSWORD-RESET-TOKEN",
+      "to": "API-AUTH-FORGOT-PASSWORD",
+      "field": "apis"
+    },
+    {
+      "from": "DB-PASSWORD-RESET-TOKEN",
+      "to": "API-AUTH-RESET-PASSWORD",
+      "field": "apis"
+    },
+    {
+      "from": "DB-PASSWORD-RESET-TOKEN",
+      "to": "DB-USER",
+      "field": "database_objects"
+    },
+    {
+      "from": "DB-REFRESH-TOKEN",
+      "to": "MOD-AUTH",
+      "field": "modules"
+    },
+    {
+      "from": "DB-REFRESH-TOKEN",
+      "to": "FEAT-AUTH-LOGIN",
+      "field": "features"
+    },
+    {
+      "from": "DB-REFRESH-TOKEN",
+      "to": "FLOW-AUTH-LOGIN",
+      "field": "flows"
+    },
+    {
+      "from": "DB-REFRESH-TOKEN",
+      "to": "API-AUTH-LOGIN",
+      "field": "apis"
+    },
+    {
+      "from": "DB-REFRESH-TOKEN",
+      "to": "API-AUTH-LOGOUT",
+      "field": "apis"
+    },
+    {
+      "from": "DB-REFRESH-TOKEN",
+      "to": "DB-USER",
+      "field": "database_objects"
+    },
+    {
+      "from": "DB-REFRESH-TOKEN",
+      "to": "ADR-002",
+      "field": "decisions"
+    },
+    {
+      "from": "DB-USER",
+      "to": "MOD-AUTH",
+      "field": "modules"
+    },
+    {
+      "from": "DB-USER",
+      "to": "FEAT-AUTH-REGISTER",
+      "field": "features"
+    },
+    {
+      "from": "DB-USER",
+      "to": "FEAT-AUTH-LOGIN",
+      "field": "features"
+    },
+    {
+      "from": "DB-USER",
+      "to": "BR-AUTH-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "DB-USER",
+      "to": "API-AUTH-REGISTER",
+      "field": "apis"
+    },
+    {
+      "from": "DB-USER",
+      "to": "API-AUTH-LOGIN",
+      "field": "apis"
+    },
+    {
+      "from": "DB-WORKSPACE-MEMBER",
+      "to": "MOD-WORKSPACE",
+      "field": "modules"
+    },
+    {
+      "from": "DB-WORKSPACE-MEMBER",
+      "to": "FEAT-WORKSPACE-MANAGE-MEMBERS",
+      "field": "features"
+    },
+    {
+      "from": "DB-WORKSPACE-MEMBER",
+      "to": "BR-WORKSPACE-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "DB-WORKSPACE-MEMBER",
+      "to": "BR-WORKSPACE-002",
+      "field": "business_rules"
+    },
+    {
+      "from": "DB-WORKSPACE-MEMBER",
+      "to": "FLOW-WORKSPACE-INVITE-MEMBER",
+      "field": "flows"
+    },
+    {
+      "from": "DB-WORKSPACE-MEMBER",
+      "to": "API-WORKSPACE-INVITE-MEMBER",
+      "field": "apis"
+    },
+    {
+      "from": "DB-WORKSPACE-MEMBER",
+      "to": "API-WORKSPACE-UPDATE-MEMBER-ROLE",
+      "field": "apis"
+    },
+    {
+      "from": "DB-WORKSPACE-MEMBER",
+      "to": "API-WORKSPACE-REMOVE-MEMBER",
+      "field": "apis"
+    },
+    {
+      "from": "DB-WORKSPACE-MEMBER",
+      "to": "DB-WORKSPACE",
+      "field": "database_objects"
+    },
+    {
+      "from": "DB-WORKSPACE-MEMBER",
+      "to": "DB-USER",
+      "field": "database_objects"
+    },
+    {
+      "from": "DB-WORKSPACE",
+      "to": "MOD-WORKSPACE",
+      "field": "modules"
+    },
+    {
+      "from": "DB-WORKSPACE",
+      "to": "FEAT-WORKSPACE-CREATE",
+      "field": "features"
+    },
+    {
+      "from": "DB-WORKSPACE",
+      "to": "API-WORKSPACE-CREATE",
+      "field": "apis"
+    },
+    {
+      "from": "DB-WORKSPACE",
+      "to": "API-WORKSPACE-LIST",
+      "field": "apis"
+    },
+    {
+      "from": "DB-WORKSPACE",
+      "to": "DB-USER",
+      "field": "database_objects"
+    },
+    {
+      "from": "ARCH-003",
+      "to": "ADR-001",
+      "field": "decisions"
+    },
+    {
+      "from": "ARCH-003",
+      "to": "ADR-002",
+      "field": "decisions"
+    },
+    {
+      "from": "ARCH-003",
+      "to": "ADR-003",
+      "field": "decisions"
+    },
+    {
+      "from": "ARCH-003",
+      "to": "ADR-004",
+      "field": "decisions"
+    },
+    {
+      "from": "ARCH-003",
+      "to": "INT-EMAIL",
+      "field": "integrations"
+    },
+    {
+      "from": "ARCH-003",
+      "to": "NFR-PERF-001",
+      "field": "nfrs"
+    },
+    {
+      "from": "ARCH-003",
+      "to": "NFR-SCALE-001",
+      "field": "nfrs"
+    },
+    {
+      "from": "ARCH-002",
+      "to": "ADR-004",
+      "field": "decisions"
+    },
+    {
+      "from": "ARCH-002",
+      "to": "ADR-006",
+      "field": "decisions"
+    },
+    {
+      "from": "ARCH-002",
+      "to": "NFR-BROWSER-001",
+      "field": "nfrs"
+    },
+    {
+      "from": "ARCH-002",
+      "to": "NFR-A11Y-001",
+      "field": "nfrs"
+    },
+    {
+      "from": "INT-EMAIL",
+      "to": "MOD-AUTH",
+      "field": "modules"
+    },
+    {
+      "from": "INT-EMAIL",
+      "to": "MOD-WORKSPACE",
+      "field": "modules"
+    },
+    {
+      "from": "INT-EMAIL",
+      "to": "FEAT-AUTH-FORGOT-PASSWORD",
+      "field": "features"
+    },
+    {
+      "from": "INT-EMAIL",
+      "to": "FEAT-WORKSPACE-MANAGE-MEMBERS",
+      "field": "features"
+    },
+    {
+      "from": "INT-EMAIL",
+      "to": "FLOW-WORKSPACE-INVITE-MEMBER",
+      "field": "flows"
+    },
+    {
+      "from": "INT-EMAIL",
+      "to": "API-AUTH-FORGOT-PASSWORD",
+      "field": "apis"
+    },
+    {
+      "from": "INT-EMAIL",
+      "to": "API-WORKSPACE-INVITE-MEMBER",
+      "field": "apis"
+    },
+    {
+      "from": "ARCH-004",
+      "to": "MOD-BOARD",
+      "field": "modules"
+    },
+    {
+      "from": "ARCH-004",
+      "to": "MOD-LIST",
+      "field": "modules"
+    },
+    {
+      "from": "ARCH-004",
+      "to": "MOD-CARD",
+      "field": "modules"
+    },
+    {
+      "from": "ARCH-004",
+      "to": "MOD-LABEL",
+      "field": "modules"
+    },
+    {
+      "from": "ARCH-004",
+      "to": "MOD-MEMBER",
+      "field": "modules"
+    },
+    {
+      "from": "ARCH-004",
+      "to": "MOD-COMMENT",
+      "field": "modules"
+    },
+    {
+      "from": "ARCH-004",
+      "to": "FLOW-CARD-MOVE-DRAGDROP",
+      "field": "flows"
+    },
+    {
+      "from": "ARCH-004",
+      "to": "ADR-004",
+      "field": "decisions"
+    },
+    {
+      "from": "ARCH-004",
+      "to": "NFR-PERF-002",
+      "field": "nfrs"
+    },
+    {
+      "from": "ARCH-001",
+      "to": "ADR-001",
+      "field": "decisions"
+    },
+    {
+      "from": "ARCH-001",
+      "to": "ADR-002",
+      "field": "decisions"
+    },
+    {
+      "from": "ARCH-001",
+      "to": "ADR-004",
+      "field": "decisions"
+    },
+    {
+      "from": "ARCH-001",
+      "to": "ADR-006",
+      "field": "decisions"
+    },
+    {
+      "from": "ARCH-001",
+      "to": "INT-EMAIL",
+      "field": "integrations"
+    },
+    {
+      "from": "DOC-SEC-AUTHENTICATION",
+      "to": "MOD-AUTH",
+      "field": "modules"
+    },
+    {
+      "from": "DOC-SEC-AUTHENTICATION",
+      "to": "BR-AUTH-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "DOC-SEC-AUTHENTICATION",
+      "to": "BR-AUTH-002",
+      "field": "business_rules"
+    },
+    {
+      "from": "DOC-SEC-AUTHENTICATION",
+      "to": "ADR-002",
+      "field": "decisions"
+    },
+    {
+      "from": "DOC-SEC-AUTHENTICATION",
+      "to": "NFR-SEC-001",
+      "field": "nfrs"
+    },
+    {
+      "from": "DOC-SEC-AUTHORIZATION",
+      "to": "MOD-WORKSPACE",
+      "field": "modules"
+    },
+    {
+      "from": "DOC-SEC-AUTHORIZATION",
+      "to": "MOD-BOARD",
+      "field": "modules"
+    },
+    {
+      "from": "DOC-SEC-AUTHORIZATION",
+      "to": "BR-WORKSPACE-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "DOC-SEC-AUTHORIZATION",
+      "to": "BR-BOARD-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "DOC-SEC-AUTHORIZATION",
+      "to": "BR-MEMBER-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "DOC-SEC-DATA-SECURITY",
+      "to": "DB-USER",
+      "field": "database_objects"
+    },
+    {
+      "from": "DOC-SEC-DATA-SECURITY",
+      "to": "DB-COMMENT",
+      "field": "database_objects"
+    },
+    {
+      "from": "DOC-SEC-DATA-SECURITY",
+      "to": "ADR-001",
+      "field": "decisions"
+    },
+    {
+      "from": "DOC-SEC-DATA-SECURITY",
+      "to": "NFR-BACKUP-001",
+      "field": "nfrs"
+    },
+    {
+      "from": "TC-ACTIVITY-LOG-001",
+      "to": "MOD-COMMENT",
+      "field": "modules"
+    },
+    {
+      "from": "TC-ACTIVITY-LOG-001",
+      "to": "FEAT-ACTIVITY-LOG",
+      "field": "features"
+    },
+    {
+      "from": "TC-ACTIVITY-LOG-001",
+      "to": "REQ-COMMENT-002",
+      "field": "requirements"
+    },
+    {
+      "from": "TC-ACTIVITY-LOG-001",
+      "to": "API-ACTIVITY-LIST",
+      "field": "apis"
+    },
+    {
+      "from": "TC-AUTH-FORGOT-PASSWORD-001",
+      "to": "MOD-AUTH",
+      "field": "modules"
+    },
+    {
+      "from": "TC-AUTH-FORGOT-PASSWORD-001",
+      "to": "FEAT-AUTH-FORGOT-PASSWORD",
+      "field": "features"
+    },
+    {
+      "from": "TC-AUTH-FORGOT-PASSWORD-001",
+      "to": "REQ-AUTH-003",
+      "field": "requirements"
+    },
+    {
+      "from": "TC-AUTH-FORGOT-PASSWORD-001",
+      "to": "BR-AUTH-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "TC-AUTH-FORGOT-PASSWORD-001",
+      "to": "API-AUTH-FORGOT-PASSWORD",
+      "field": "apis"
+    },
+    {
+      "from": "TC-AUTH-FORGOT-PASSWORD-001",
+      "to": "API-AUTH-RESET-PASSWORD",
+      "field": "apis"
+    },
+    {
+      "from": "TC-AUTH-LOGIN-001",
+      "to": "MOD-AUTH",
+      "field": "modules"
+    },
+    {
+      "from": "TC-AUTH-LOGIN-001",
+      "to": "FEAT-AUTH-LOGIN",
+      "field": "features"
+    },
+    {
+      "from": "TC-AUTH-LOGIN-001",
+      "to": "REQ-AUTH-002",
+      "field": "requirements"
+    },
+    {
+      "from": "TC-AUTH-LOGIN-001",
+      "to": "BR-AUTH-002",
+      "field": "business_rules"
+    },
+    {
+      "from": "TC-AUTH-LOGIN-001",
+      "to": "FLOW-AUTH-LOGIN",
+      "field": "flows"
+    },
+    {
+      "from": "TC-AUTH-LOGIN-001",
+      "to": "API-AUTH-LOGIN",
+      "field": "apis"
+    },
+    {
+      "from": "TC-AUTH-REGISTER-001",
+      "to": "MOD-AUTH",
+      "field": "modules"
+    },
+    {
+      "from": "TC-AUTH-REGISTER-001",
+      "to": "FEAT-AUTH-REGISTER",
+      "field": "features"
+    },
+    {
+      "from": "TC-AUTH-REGISTER-001",
+      "to": "REQ-AUTH-001",
+      "field": "requirements"
+    },
+    {
+      "from": "TC-AUTH-REGISTER-001",
+      "to": "BR-AUTH-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "TC-AUTH-REGISTER-001",
+      "to": "API-AUTH-REGISTER",
+      "field": "apis"
+    },
+    {
+      "from": "TC-BOARD-CREATE-001",
+      "to": "MOD-BOARD",
+      "field": "modules"
+    },
+    {
+      "from": "TC-BOARD-CREATE-001",
+      "to": "FEAT-BOARD-CREATE",
+      "field": "features"
+    },
+    {
+      "from": "TC-BOARD-CREATE-001",
+      "to": "REQ-BOARD-001",
+      "field": "requirements"
+    },
+    {
+      "from": "TC-BOARD-CREATE-001",
+      "to": "BR-BOARD-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "TC-BOARD-CREATE-001",
+      "to": "API-BOARD-CREATE",
+      "field": "apis"
+    },
+    {
+      "from": "TC-BOARD-MANAGE-001",
+      "to": "MOD-BOARD",
+      "field": "modules"
+    },
+    {
+      "from": "TC-BOARD-MANAGE-001",
+      "to": "FEAT-BOARD-MANAGE",
+      "field": "features"
+    },
+    {
+      "from": "TC-BOARD-MANAGE-001",
+      "to": "REQ-BOARD-002",
+      "field": "requirements"
+    },
+    {
+      "from": "TC-BOARD-MANAGE-001",
+      "to": "BR-BOARD-002",
+      "field": "business_rules"
+    },
+    {
+      "from": "TC-BOARD-MANAGE-001",
+      "to": "API-BOARD-ARCHIVE",
+      "field": "apis"
+    },
+    {
+      "from": "TC-BOARD-MANAGE-001",
+      "to": "API-CARD-CREATE",
+      "field": "apis"
+    },
+    {
+      "from": "TC-CARD-ARCHIVE-001",
+      "to": "MOD-CARD",
+      "field": "modules"
+    },
+    {
+      "from": "TC-CARD-ARCHIVE-001",
+      "to": "FEAT-CARD-ARCHIVE",
+      "field": "features"
+    },
+    {
+      "from": "TC-CARD-ARCHIVE-001",
+      "to": "REQ-CARD-004",
+      "field": "requirements"
+    },
+    {
+      "from": "TC-CARD-ARCHIVE-001",
+      "to": "BR-CARD-003",
+      "field": "business_rules"
+    },
+    {
+      "from": "TC-CARD-ARCHIVE-001",
+      "to": "API-CARD-ARCHIVE",
+      "field": "apis"
+    },
+    {
+      "from": "TC-CARD-ARCHIVE-001",
+      "to": "API-CARD-UPDATE",
+      "field": "apis"
+    },
+    {
+      "from": "TC-CARD-CREATE-001",
+      "to": "MOD-CARD",
+      "field": "modules"
+    },
+    {
+      "from": "TC-CARD-CREATE-001",
+      "to": "FEAT-CARD-CREATE",
+      "field": "features"
+    },
+    {
+      "from": "TC-CARD-CREATE-001",
+      "to": "REQ-CARD-001",
+      "field": "requirements"
+    },
+    {
+      "from": "TC-CARD-CREATE-001",
+      "to": "BR-LIST-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "TC-CARD-CREATE-001",
+      "to": "API-CARD-CREATE",
+      "field": "apis"
+    },
+    {
+      "from": "TC-CARD-EDIT-DETAIL-001",
+      "to": "MOD-CARD",
+      "field": "modules"
+    },
+    {
+      "from": "TC-CARD-EDIT-DETAIL-001",
+      "to": "FEAT-CARD-EDIT-DETAIL",
+      "field": "features"
+    },
+    {
+      "from": "TC-CARD-EDIT-DETAIL-001",
+      "to": "REQ-CARD-003",
+      "field": "requirements"
+    },
+    {
+      "from": "TC-CARD-EDIT-DETAIL-001",
+      "to": "BR-CARD-002",
+      "field": "business_rules"
+    },
+    {
+      "from": "TC-CARD-EDIT-DETAIL-001",
+      "to": "API-CARD-UPDATE",
+      "field": "apis"
+    },
+    {
+      "from": "TC-CARD-MOVE-001",
+      "to": "MOD-CARD",
+      "field": "modules"
+    },
+    {
+      "from": "TC-CARD-MOVE-001",
+      "to": "FEAT-CARD-MOVE",
+      "field": "features"
+    },
+    {
+      "from": "TC-CARD-MOVE-001",
+      "to": "REQ-CARD-002",
+      "field": "requirements"
+    },
+    {
+      "from": "TC-CARD-MOVE-001",
+      "to": "BR-CARD-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "TC-CARD-MOVE-001",
+      "to": "FLOW-CARD-MOVE-DRAGDROP",
+      "field": "flows"
+    },
+    {
+      "from": "TC-CARD-MOVE-001",
+      "to": "API-CARD-MOVE",
+      "field": "apis"
+    },
+    {
+      "from": "TC-CARD-MOVE-002",
+      "to": "MOD-CARD",
+      "field": "modules"
+    },
+    {
+      "from": "TC-CARD-MOVE-002",
+      "to": "FEAT-CARD-MOVE",
+      "field": "features"
+    },
+    {
+      "from": "TC-CARD-MOVE-002",
+      "to": "REQ-CARD-002",
+      "field": "requirements"
+    },
+    {
+      "from": "TC-CARD-MOVE-002",
+      "to": "BR-CARD-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "TC-CARD-MOVE-002",
+      "to": "FLOW-CARD-MOVE-DRAGDROP",
+      "field": "flows"
+    },
+    {
+      "from": "TC-CARD-MOVE-002",
+      "to": "API-CARD-MOVE",
+      "field": "apis"
+    },
+    {
+      "from": "TC-COMMENT-ADD-001",
+      "to": "MOD-COMMENT",
+      "field": "modules"
+    },
+    {
+      "from": "TC-COMMENT-ADD-001",
+      "to": "FEAT-COMMENT-ADD",
+      "field": "features"
+    },
+    {
+      "from": "TC-COMMENT-ADD-001",
+      "to": "REQ-COMMENT-001",
+      "field": "requirements"
+    },
+    {
+      "from": "TC-COMMENT-ADD-001",
+      "to": "BR-COMMENT-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "TC-COMMENT-ADD-001",
+      "to": "API-COMMENT-CREATE",
+      "field": "apis"
+    },
+    {
+      "from": "TC-COMMENT-ADD-001",
+      "to": "API-COMMENT-UPDATE",
+      "field": "apis"
+    },
+    {
+      "from": "TC-COMMENT-ADD-001",
+      "to": "API-COMMENT-DELETE",
+      "field": "apis"
+    },
+    {
+      "from": "TC-LABEL-ASSIGN-001",
+      "to": "MOD-LABEL",
+      "field": "modules"
+    },
+    {
+      "from": "TC-LABEL-ASSIGN-001",
+      "to": "FEAT-LABEL-ASSIGN",
+      "field": "features"
+    },
+    {
+      "from": "TC-LABEL-ASSIGN-001",
+      "to": "REQ-LABEL-002",
+      "field": "requirements"
+    },
+    {
+      "from": "TC-LABEL-ASSIGN-001",
+      "to": "SCR-CARD-DETAIL",
+      "field": "screens"
+    },
+    {
+      "from": "TC-LABEL-ASSIGN-001",
+      "to": "API-LABEL-ASSIGN",
+      "field": "apis"
+    },
+    {
+      "from": "TC-LABEL-ASSIGN-001",
+      "to": "API-LABEL-REMOVE",
+      "field": "apis"
+    },
+    {
+      "from": "TC-LABEL-MANAGE-001",
+      "to": "MOD-LABEL",
+      "field": "modules"
+    },
+    {
+      "from": "TC-LABEL-MANAGE-001",
+      "to": "FEAT-LABEL-MANAGE",
+      "field": "features"
+    },
+    {
+      "from": "TC-LABEL-MANAGE-001",
+      "to": "REQ-LABEL-001",
+      "field": "requirements"
+    },
+    {
+      "from": "TC-LABEL-MANAGE-001",
+      "to": "BR-LABEL-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "TC-LABEL-MANAGE-001",
+      "to": "API-LABEL-CREATE",
+      "field": "apis"
+    },
+    {
+      "from": "TC-LIST-MANAGE-001",
+      "to": "MOD-LIST",
+      "field": "modules"
+    },
+    {
+      "from": "TC-LIST-MANAGE-001",
+      "to": "FEAT-LIST-MANAGE",
+      "field": "features"
+    },
+    {
+      "from": "TC-LIST-MANAGE-001",
+      "to": "REQ-LIST-001",
+      "field": "requirements"
+    },
+    {
+      "from": "TC-LIST-MANAGE-001",
+      "to": "BR-LIST-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "TC-LIST-MANAGE-001",
+      "to": "API-LIST-UPDATE",
+      "field": "apis"
+    },
+    {
+      "from": "TC-LIST-MANAGE-001",
+      "to": "API-CARD-CREATE",
+      "field": "apis"
+    },
+    {
+      "from": "TC-LIST-REORDER-001",
+      "to": "MOD-LIST",
+      "field": "modules"
+    },
+    {
+      "from": "TC-LIST-REORDER-001",
+      "to": "FEAT-LIST-REORDER",
+      "field": "features"
+    },
+    {
+      "from": "TC-LIST-REORDER-001",
+      "to": "REQ-LIST-002",
+      "field": "requirements"
+    },
+    {
+      "from": "TC-LIST-REORDER-001",
+      "to": "BR-LIST-002",
+      "field": "business_rules"
+    },
+    {
+      "from": "TC-LIST-REORDER-001",
+      "to": "API-LIST-REORDER",
+      "field": "apis"
+    },
+    {
+      "from": "TC-MEMBER-ASSIGN-CARD-001",
+      "to": "MOD-MEMBER",
+      "field": "modules"
+    },
+    {
+      "from": "TC-MEMBER-ASSIGN-CARD-001",
+      "to": "FEAT-MEMBER-ASSIGN-CARD",
+      "field": "features"
+    },
+    {
+      "from": "TC-MEMBER-ASSIGN-CARD-001",
+      "to": "REQ-MEMBER-001",
+      "field": "requirements"
+    },
+    {
+      "from": "TC-MEMBER-ASSIGN-CARD-001",
+      "to": "BR-MEMBER-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "TC-MEMBER-ASSIGN-CARD-001",
+      "to": "API-CARD-MEMBER-ASSIGN",
+      "field": "apis"
+    },
+    {
+      "from": "TC-MEMBER-ASSIGN-CARD-001",
+      "to": "API-CARD-MEMBER-REMOVE",
+      "field": "apis"
+    },
+    {
+      "from": "TC-WORKSPACE-CREATE-001",
+      "to": "MOD-WORKSPACE",
+      "field": "modules"
+    },
+    {
+      "from": "TC-WORKSPACE-CREATE-001",
+      "to": "FEAT-WORKSPACE-CREATE",
+      "field": "features"
+    },
+    {
+      "from": "TC-WORKSPACE-CREATE-001",
+      "to": "REQ-WORKSPACE-001",
+      "field": "requirements"
+    },
+    {
+      "from": "TC-WORKSPACE-CREATE-001",
+      "to": "API-WORKSPACE-CREATE",
+      "field": "apis"
+    },
+    {
+      "from": "TC-WORKSPACE-CREATE-001",
+      "to": "API-WORKSPACE-LIST",
+      "field": "apis"
+    },
+    {
+      "from": "TC-WORKSPACE-MANAGE-MEMBERS-001",
+      "to": "MOD-WORKSPACE",
+      "field": "modules"
+    },
+    {
+      "from": "TC-WORKSPACE-MANAGE-MEMBERS-001",
+      "to": "FEAT-WORKSPACE-MANAGE-MEMBERS",
+      "field": "features"
+    },
+    {
+      "from": "TC-WORKSPACE-MANAGE-MEMBERS-001",
+      "to": "REQ-WORKSPACE-002",
+      "field": "requirements"
+    },
+    {
+      "from": "TC-WORKSPACE-MANAGE-MEMBERS-001",
+      "to": "BR-WORKSPACE-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "TC-WORKSPACE-MANAGE-MEMBERS-001",
+      "to": "BR-WORKSPACE-002",
+      "field": "business_rules"
+    },
+    {
+      "from": "TC-WORKSPACE-MANAGE-MEMBERS-001",
+      "to": "API-WORKSPACE-INVITE-MEMBER",
+      "field": "apis"
+    },
+    {
+      "from": "TC-WORKSPACE-MANAGE-MEMBERS-001",
+      "to": "API-WORKSPACE-UPDATE-MEMBER-ROLE",
+      "field": "apis"
+    },
+    {
+      "from": "TC-WORKSPACE-MANAGE-MEMBERS-001",
+      "to": "API-WORKSPACE-REMOVE-MEMBER",
+      "field": "apis"
+    },
+    {
+      "from": "DOC-INCIDENT-RESPONSE",
+      "to": "NFR-AVAIL-001",
+      "field": "nfrs"
+    },
+    {
+      "from": "DOC-MONITORING",
+      "to": "NFR-PERF-001",
+      "field": "nfrs"
+    },
+    {
+      "from": "DOC-MONITORING",
+      "to": "NFR-PERF-002",
+      "field": "nfrs"
+    },
+    {
+      "from": "DOC-MONITORING",
+      "to": "NFR-AVAIL-001",
+      "field": "nfrs"
+    },
+    {
+      "from": "DOC-PERFORMANCE-REQUIREMENTS",
+      "to": "SCR-BOARD",
+      "field": "screens"
+    },
+    {
+      "from": "DOC-PERFORMANCE-REQUIREMENTS",
+      "to": "API-BOARD-GET-DETAIL",
+      "field": "apis"
+    },
+    {
+      "from": "DOC-PERFORMANCE-REQUIREMENTS",
+      "to": "API-CARD-MOVE",
+      "field": "apis"
+    },
+    {
+      "from": "DOC-PERFORMANCE-REQUIREMENTS",
+      "to": "DB-CARD",
+      "field": "database_objects"
+    },
+    {
+      "from": "DOC-PERFORMANCE-REQUIREMENTS",
+      "to": "NFR-PERF-001",
+      "field": "nfrs"
+    },
+    {
+      "from": "DOC-PERFORMANCE-REQUIREMENTS",
+      "to": "NFR-PERF-002",
+      "field": "nfrs"
+    },
+    {
+      "from": "DOC-PERFORMANCE-REQUIREMENTS",
+      "to": "NFR-SCALE-001",
+      "field": "nfrs"
+    },
+    {
+      "from": "ADR-002",
+      "to": "MOD-AUTH",
+      "field": "modules"
+    },
+    {
+      "from": "ADR-003",
+      "to": "MOD-LIST",
+      "field": "modules"
+    },
+    {
+      "from": "ADR-003",
+      "to": "MOD-CARD",
+      "field": "modules"
+    },
+    {
+      "from": "ADR-004",
+      "to": "MOD-BOARD",
+      "field": "modules"
+    },
+    {
+      "from": "ADR-004",
+      "to": "MOD-CARD",
+      "field": "modules"
+    },
+    {
+      "from": "ADR-004",
+      "to": "MOD-LIST",
+      "field": "modules"
+    },
+    {
+      "from": "ADR-005",
+      "to": "MOD-BOARD",
+      "field": "modules"
+    },
+    {
+      "from": "ADR-005",
+      "to": "MOD-LIST",
+      "field": "modules"
+    },
+    {
+      "from": "ADR-005",
+      "to": "MOD-CARD",
+      "field": "modules"
+    },
+    {
+      "from": "ADR-005",
+      "to": "MOD-COMMENT",
+      "field": "modules"
+    },
+    {
+      "from": "RELEASE-001",
+      "to": "MOD-AUTH",
+      "field": "modules"
+    },
+    {
+      "from": "RELEASE-001",
+      "to": "MOD-WORKSPACE",
+      "field": "modules"
+    },
+    {
+      "from": "RELEASE-001",
+      "to": "MOD-BOARD",
+      "field": "modules"
+    },
+    {
+      "from": "RELEASE-001",
+      "to": "MOD-LIST",
+      "field": "modules"
+    },
+    {
+      "from": "RELEASE-001",
+      "to": "MOD-CARD",
+      "field": "modules"
+    },
+    {
+      "from": "RELEASE-001",
+      "to": "MOD-LABEL",
+      "field": "modules"
+    },
+    {
+      "from": "RELEASE-001",
+      "to": "MOD-MEMBER",
+      "field": "modules"
+    },
+    {
+      "from": "RELEASE-001",
+      "to": "MOD-COMMENT",
+      "field": "modules"
+    },
+    {
+      "from": "OQ-002",
+      "to": "MOD-CARD",
+      "field": "modules"
+    },
+    {
+      "from": "OQ-002",
+      "to": "FEAT-CARD-MOVE",
+      "field": "features"
+    },
+    {
+      "from": "OQ-002",
+      "to": "BR-CARD-001",
+      "field": "business_rules"
+    },
+    {
+      "from": "OQ-002",
+      "to": "SCR-BOARD",
+      "field": "screens"
+    },
+    {
+      "from": "OQ-002",
+      "to": "FLOW-CARD-MOVE-DRAGDROP",
+      "field": "flows"
+    },
+    {
+      "from": "OQ-002",
+      "to": "API-CARD-MOVE",
+      "field": "apis"
+    },
+    {
+      "from": "OQ-003",
+      "to": "MOD-CARD",
+      "field": "modules"
+    },
+    {
+      "from": "OQ-003",
+      "to": "FEAT-CARD-EDIT-DETAIL",
+      "field": "features"
+    },
+    {
+      "from": "OQ-003",
+      "to": "SCR-CARD-DETAIL",
+      "field": "screens"
+    },
+    {
+      "from": "OQ-004",
+      "to": "MOD-CARD",
+      "field": "modules"
+    },
+    {
+      "from": "OQ-004",
+      "to": "FEAT-CARD-EDIT-DETAIL",
+      "field": "features"
+    },
+    {
+      "from": "OQ-004",
+      "to": "SCR-CARD-DETAIL",
+      "field": "screens"
+    },
+    {
+      "from": "OQ-005",
+      "to": "MOD-AUTH",
+      "field": "modules"
+    },
+    {
+      "from": "OQ-005",
+      "to": "MOD-WORKSPACE",
+      "field": "modules"
+    },
+    {
+      "from": "OQ-005",
+      "to": "MOD-COMMENT",
+      "field": "modules"
+    },
+    {
+      "from": "OQ-005",
+      "to": "FEAT-AUTH-FORGOT-PASSWORD",
+      "field": "features"
+    },
+    {
+      "from": "OQ-005",
+      "to": "FEAT-WORKSPACE-MANAGE-MEMBERS",
+      "field": "features"
+    },
+    {
+      "from": "OQ-005",
+      "to": "FEAT-COMMENT-ADD",
+      "field": "features"
+    },
+    {
+      "from": "OQ-005",
+      "to": "FLOW-WORKSPACE-INVITE-MEMBER",
+      "field": "flows"
+    },
+    {
+      "from": "OQ-005",
+      "to": "API-AUTH-FORGOT-PASSWORD",
+      "field": "apis"
+    },
+    {
+      "from": "OQ-005",
+      "to": "API-WORKSPACE-INVITE-MEMBER",
+      "field": "apis"
+    },
+    {
+      "from": "OQ-005",
+      "to": "INT-EMAIL",
+      "field": "integrations"
+    }
+  ]
 }

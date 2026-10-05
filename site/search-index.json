@@ -5,12 +5,1102 @@
     "text": "CAPABILITY_PACKS.md"
   },
   {
+    "title": "Assumptions and Constraints",
+    "path": "pages/docs-00-project-assumptions-constraints.html",
+    "text": "docs/00-project/assumptions-constraints.md"
+  },
+  {
+    "title": "Glossary",
+    "path": "pages/docs-00-project-glossary.html",
+    "text": "docs/00-project/glossary.md"
+  },
+  {
+    "title": "Product Scope",
+    "path": "pages/docs-00-project-product-scope.html",
+    "text": "docs/00-project/product-scope.md"
+  },
+  {
+    "title": "KanbanFlow - Project Overview",
+    "path": "pages/docs-00-project-project-overview.html",
+    "text": "docs/00-project/project-overview.md"
+  },
+  {
+    "title": "project",
+    "path": "pages/docs-00-project-readme.html",
+    "text": "docs/00-project/README.md"
+  },
+  {
+    "title": "Stakeholders",
+    "path": "pages/docs-00-project-stakeholders.html",
+    "text": "docs/00-project/stakeholders.md"
+  },
+  {
+    "title": "Functional Overview",
+    "path": "pages/docs-01-product-functional-overview.html",
+    "text": "docs/01-product/functional-overview.md"
+  },
+  {
+    "title": "Personas",
+    "path": "pages/docs-01-product-personas.html",
+    "text": "docs/01-product/personas.md"
+  },
+  {
+    "title": "product",
+    "path": "pages/docs-01-product-readme.html",
+    "text": "docs/01-product/README.md"
+  },
+  {
+    "title": "Roles and Permissions",
+    "path": "pages/docs-01-product-roles-permissions.html",
+    "text": "docs/01-product/roles-permissions.md"
+  },
+  {
+    "title": "User Journeys",
+    "path": "pages/docs-01-product-user-journeys.html",
+    "text": "docs/01-product/user-journeys.md"
+  },
+  {
+    "title": "Product Vision",
+    "path": "pages/docs-01-product-vision.html",
+    "text": "docs/01-product/vision.md"
+  },
+  {
+    "title": "Forgot / Reset Password",
+    "path": "pages/docs-02-modules-mod-auth-feat-auth-forgot-password-feature.html",
+    "text": "docs/02-modules/MOD-AUTH/FEAT-AUTH-FORGOT-PASSWORD/feature.md"
+  },
+  {
+    "title": "Login / Logout",
+    "path": "pages/docs-02-modules-mod-auth-feat-auth-login-feature.html",
+    "text": "docs/02-modules/MOD-AUTH/FEAT-AUTH-LOGIN/feature.md"
+  },
+  {
+    "title": "Register",
+    "path": "pages/docs-02-modules-mod-auth-feat-auth-register-feature.html",
+    "text": "docs/02-modules/MOD-AUTH/FEAT-AUTH-REGISTER/feature.md"
+  },
+  {
+    "title": "Authentication & Account",
+    "path": "pages/docs-02-modules-mod-auth-module.html",
+    "text": "docs/02-modules/MOD-AUTH/module.md"
+  },
+  {
+    "title": "Create Board",
+    "path": "pages/docs-02-modules-mod-board-feat-board-create-feature.html",
+    "text": "docs/02-modules/MOD-BOARD/FEAT-BOARD-CREATE/feature.md"
+  },
+  {
+    "title": "Manage Board Settings",
+    "path": "pages/docs-02-modules-mod-board-feat-board-manage-feature.html",
+    "text": "docs/02-modules/MOD-BOARD/FEAT-BOARD-MANAGE/feature.md"
+  },
+  {
+    "title": "Board Management",
+    "path": "pages/docs-02-modules-mod-board-module.html",
+    "text": "docs/02-modules/MOD-BOARD/module.md"
+  },
+  {
+    "title": "Archive Card",
+    "path": "pages/docs-02-modules-mod-card-feat-card-archive-feature.html",
+    "text": "docs/02-modules/MOD-CARD/FEAT-CARD-ARCHIVE/feature.md"
+  },
+  {
+    "title": "Create Card",
+    "path": "pages/docs-02-modules-mod-card-feat-card-create-feature.html",
+    "text": "docs/02-modules/MOD-CARD/FEAT-CARD-CREATE/feature.md"
+  },
+  {
+    "title": "Edit Card Detail",
+    "path": "pages/docs-02-modules-mod-card-feat-card-edit-detail-feature.html",
+    "text": "docs/02-modules/MOD-CARD/FEAT-CARD-EDIT-DETAIL/feature.md"
+  },
+  {
+    "title": "Move Card (drag-and-drop)",
+    "path": "pages/docs-02-modules-mod-card-feat-card-move-feature.html",
+    "text": "docs/02-modules/MOD-CARD/FEAT-CARD-MOVE/feature.md"
+  },
+  {
+    "title": "Card Management",
+    "path": "pages/docs-02-modules-mod-card-module.html",
+    "text": "docs/02-modules/MOD-CARD/module.md"
+  },
+  {
+    "title": "Card Activity Log",
+    "path": "pages/docs-02-modules-mod-comment-feat-activity-log-feature.html",
+    "text": "docs/02-modules/MOD-COMMENT/FEAT-ACTIVITY-LOG/feature.md"
+  },
+  {
+    "title": "Add / Edit / Delete Comment",
+    "path": "pages/docs-02-modules-mod-comment-feat-comment-add-feature.html",
+    "text": "docs/02-modules/MOD-COMMENT/FEAT-COMMENT-ADD/feature.md"
+  },
+  {
+    "title": "Comments & Activity",
+    "path": "pages/docs-02-modules-mod-comment-module.html",
+    "text": "docs/02-modules/MOD-COMMENT/module.md"
+  },
+  {
+    "title": "Assign Label to Card",
+    "path": "pages/docs-02-modules-mod-label-feat-label-assign-feature.html",
+    "text": "docs/02-modules/MOD-LABEL/FEAT-LABEL-ASSIGN/feature.md"
+  },
+  {
+    "title": "Manage Board Labels",
+    "path": "pages/docs-02-modules-mod-label-feat-label-manage-feature.html",
+    "text": "docs/02-modules/MOD-LABEL/FEAT-LABEL-MANAGE/feature.md"
+  },
+  {
+    "title": "Labels",
+    "path": "pages/docs-02-modules-mod-label-module.html",
+    "text": "docs/02-modules/MOD-LABEL/module.md"
+  },
+  {
+    "title": "Manage Lists",
+    "path": "pages/docs-02-modules-mod-list-feat-list-manage-feature.html",
+    "text": "docs/02-modules/MOD-LIST/FEAT-LIST-MANAGE/feature.md"
+  },
+  {
+    "title": "Reorder Lists (drag-and-drop)",
+    "path": "pages/docs-02-modules-mod-list-feat-list-reorder-feature.html",
+    "text": "docs/02-modules/MOD-LIST/FEAT-LIST-REORDER/feature.md"
+  },
+  {
+    "title": "List Management",
+    "path": "pages/docs-02-modules-mod-list-module.html",
+    "text": "docs/02-modules/MOD-LIST/module.md"
+  },
+  {
+    "title": "Assign Card Member",
+    "path": "pages/docs-02-modules-mod-member-feat-member-assign-card-feature.html",
+    "text": "docs/02-modules/MOD-MEMBER/FEAT-MEMBER-ASSIGN-CARD/feature.md"
+  },
+  {
+    "title": "Card Members",
+    "path": "pages/docs-02-modules-mod-member-module.html",
+    "text": "docs/02-modules/MOD-MEMBER/module.md"
+  },
+  {
+    "title": "Create Workspace",
+    "path": "pages/docs-02-modules-mod-workspace-feat-workspace-create-feature.html",
+    "text": "docs/02-modules/MOD-WORKSPACE/FEAT-WORKSPACE-CREATE/feature.md"
+  },
+  {
+    "title": "Manage Workspace Members",
+    "path": "pages/docs-02-modules-mod-workspace-feat-workspace-manage-members-feature.html",
+    "text": "docs/02-modules/MOD-WORKSPACE/FEAT-WORKSPACE-MANAGE-MEMBERS/feature.md"
+  },
+  {
+    "title": "Workspace & Membership",
+    "path": "pages/docs-02-modules-mod-workspace-module.html",
+    "text": "docs/02-modules/MOD-WORKSPACE/module.md"
+  },
+  {
+    "title": "modules",
+    "path": "pages/docs-02-modules-readme.html",
+    "text": "docs/02-modules/README.md"
+  },
+  {
+    "title": "User Registration",
+    "path": "pages/docs-03-requirements-functional-req-auth-001.html",
+    "text": "docs/03-requirements/functional/REQ-AUTH-001.md"
+  },
+  {
+    "title": "Login and Logout",
+    "path": "pages/docs-03-requirements-functional-req-auth-002.html",
+    "text": "docs/03-requirements/functional/REQ-AUTH-002.md"
+  },
+  {
+    "title": "Forgot and Reset Password",
+    "path": "pages/docs-03-requirements-functional-req-auth-003.html",
+    "text": "docs/03-requirements/functional/REQ-AUTH-003.md"
+  },
+  {
+    "title": "Create Board with Default Lists",
+    "path": "pages/docs-03-requirements-functional-req-board-001.html",
+    "text": "docs/03-requirements/functional/REQ-BOARD-001.md"
+  },
+  {
+    "title": "Manage Board Settings and Archive",
+    "path": "pages/docs-03-requirements-functional-req-board-002.html",
+    "text": "docs/03-requirements/functional/REQ-BOARD-002.md"
+  },
+  {
+    "title": "Create Card",
+    "path": "pages/docs-03-requirements-functional-req-card-001.html",
+    "text": "docs/03-requirements/functional/REQ-CARD-001.md"
+  },
+  {
+    "title": "Move Card via Drag-and-Drop",
+    "path": "pages/docs-03-requirements-functional-req-card-002.html",
+    "text": "docs/03-requirements/functional/REQ-CARD-002.md"
+  },
+  {
+    "title": "Edit Card Detail",
+    "path": "pages/docs-03-requirements-functional-req-card-003.html",
+    "text": "docs/03-requirements/functional/REQ-CARD-003.md"
+  },
+  {
+    "title": "Archive Card",
+    "path": "pages/docs-03-requirements-functional-req-card-004.html",
+    "text": "docs/03-requirements/functional/REQ-CARD-004.md"
+  },
+  {
+    "title": "Add, Edit, and Delete Comments",
+    "path": "pages/docs-03-requirements-functional-req-comment-001.html",
+    "text": "docs/03-requirements/functional/REQ-COMMENT-001.md"
+  },
+  {
+    "title": "View Card Activity Log",
+    "path": "pages/docs-03-requirements-functional-req-comment-002.html",
+    "text": "docs/03-requirements/functional/REQ-COMMENT-002.md"
+  },
+  {
+    "title": "Manage Board Labels",
+    "path": "pages/docs-03-requirements-functional-req-label-001.html",
+    "text": "docs/03-requirements/functional/REQ-LABEL-001.md"
+  },
+  {
+    "title": "Assign or Remove a Label on a Card",
+    "path": "pages/docs-03-requirements-functional-req-label-002.html",
+    "text": "docs/03-requirements/functional/REQ-LABEL-002.md"
+  },
+  {
+    "title": "Manage Lists",
+    "path": "pages/docs-03-requirements-functional-req-list-001.html",
+    "text": "docs/03-requirements/functional/REQ-LIST-001.md"
+  },
+  {
+    "title": "Reorder Lists via Drag-and-Drop",
+    "path": "pages/docs-03-requirements-functional-req-list-002.html",
+    "text": "docs/03-requirements/functional/REQ-LIST-002.md"
+  },
+  {
+    "title": "Assign or Remove a Card Member",
+    "path": "pages/docs-03-requirements-functional-req-member-001.html",
+    "text": "docs/03-requirements/functional/REQ-MEMBER-001.md"
+  },
+  {
+    "title": "Create Workspace",
+    "path": "pages/docs-03-requirements-functional-req-workspace-001.html",
+    "text": "docs/03-requirements/functional/REQ-WORKSPACE-001.md"
+  },
+  {
+    "title": "Manage Workspace Members and Roles",
+    "path": "pages/docs-03-requirements-functional-req-workspace-002.html",
+    "text": "docs/03-requirements/functional/REQ-WORKSPACE-002.md"
+  },
+  {
+    "title": "Keyboard-Accessible Core Interactions",
+    "path": "pages/docs-03-requirements-non-functional-nfr-a11y-001.html",
+    "text": "docs/03-requirements/non-functional/NFR-A11Y-001.md"
+  },
+  {
+    "title": "Service Availability",
+    "path": "pages/docs-03-requirements-non-functional-nfr-avail-001.html",
+    "text": "docs/03-requirements/non-functional/NFR-AVAIL-001.md"
+  },
+  {
+    "title": "Database Backup and Recovery",
+    "path": "pages/docs-03-requirements-non-functional-nfr-backup-001.html",
+    "text": "docs/03-requirements/non-functional/NFR-BACKUP-001.md"
+  },
+  {
+    "title": "Supported Browsers and Viewport",
+    "path": "pages/docs-03-requirements-non-functional-nfr-browser-001.html",
+    "text": "docs/03-requirements/non-functional/NFR-BROWSER-001.md"
+  },
+  {
+    "title": "API Response Time",
+    "path": "pages/docs-03-requirements-non-functional-nfr-perf-001.html",
+    "text": "docs/03-requirements/non-functional/NFR-PERF-001.md"
+  },
+  {
+    "title": "Realtime Board Sync Latency",
+    "path": "pages/docs-03-requirements-non-functional-nfr-perf-002.html",
+    "text": "docs/03-requirements/non-functional/NFR-PERF-002.md"
+  },
+  {
+    "title": "Target Scale for MVP",
+    "path": "pages/docs-03-requirements-non-functional-nfr-scale-001.html",
+    "text": "docs/03-requirements/non-functional/NFR-SCALE-001.md"
+  },
+  {
+    "title": "Session Token Lifetime",
+    "path": "pages/docs-03-requirements-non-functional-nfr-sec-001.html",
+    "text": "docs/03-requirements/non-functional/NFR-SEC-001.md"
+  },
+  {
+    "title": "requirements",
+    "path": "pages/docs-03-requirements-readme.html",
+    "text": "docs/03-requirements/README.md"
+  },
+  {
+    "title": "Password Policy",
+    "path": "pages/docs-04-business-rules-br-auth-001.html",
+    "text": "docs/04-business-rules/BR-AUTH-001.md"
+  },
+  {
+    "title": "Account Lockout After Failed Logins",
+    "path": "pages/docs-04-business-rules-br-auth-002.html",
+    "text": "docs/04-business-rules/BR-AUTH-002.md"
+  },
+  {
+    "title": "Only Workspace Members Can Create Boards",
+    "path": "pages/docs-04-business-rules-br-board-001.html",
+    "text": "docs/04-business-rules/BR-BOARD-001.md"
+  },
+  {
+    "title": "Archived Board is Read-Only",
+    "path": "pages/docs-04-business-rules-br-board-002.html",
+    "text": "docs/04-business-rules/BR-BOARD-002.md"
+  },
+  {
+    "title": "Card Move Scope and Optimistic Concurrency",
+    "path": "pages/docs-04-business-rules-br-card-001.html",
+    "text": "docs/04-business-rules/BR-CARD-001.md"
+  },
+  {
+    "title": "Due Date Must Not Precede Card Creation",
+    "path": "pages/docs-04-business-rules-br-card-002.html",
+    "text": "docs/04-business-rules/BR-CARD-002.md"
+  },
+  {
+    "title": "Archived Card is Hidden and Read-Only",
+    "path": "pages/docs-04-business-rules-br-card-003.html",
+    "text": "docs/04-business-rules/BR-CARD-003.md"
+  },
+  {
+    "title": "Comment Edit/Delete Permission and Soft Delete",
+    "path": "pages/docs-04-business-rules-br-comment-001.html",
+    "text": "docs/04-business-rules/BR-COMMENT-001.md"
+  },
+  {
+    "title": "Label Name Uniqueness and Board Limit",
+    "path": "pages/docs-04-business-rules-br-label-001.html",
+    "text": "docs/04-business-rules/BR-LABEL-001.md"
+  },
+  {
+    "title": "Archived List Cannot Accept New Cards",
+    "path": "pages/docs-04-business-rules-br-list-001.html",
+    "text": "docs/04-business-rules/BR-LIST-001.md"
+  },
+  {
+    "title": "Fractional Position Ordering and Rebalancing",
+    "path": "pages/docs-04-business-rules-br-list-002.html",
+    "text": "docs/04-business-rules/BR-LIST-002.md"
+  },
+  {
+    "title": "Only Workspace Members Can Be Assigned to a Card",
+    "path": "pages/docs-04-business-rules-br-member-001.html",
+    "text": "docs/04-business-rules/BR-MEMBER-001.md"
+  },
+  {
+    "title": "Workspace Role Permission Matrix",
+    "path": "pages/docs-04-business-rules-br-workspace-001.html",
+    "text": "docs/04-business-rules/BR-WORKSPACE-001.md"
+  },
+  {
+    "title": "Single Membership per Workspace",
+    "path": "pages/docs-04-business-rules-br-workspace-002.html",
+    "text": "docs/04-business-rules/BR-WORKSPACE-002.md"
+  },
+  {
+    "title": "business rules",
+    "path": "pages/docs-04-business-rules-readme.html",
+    "text": "docs/04-business-rules/README.md"
+  },
+  {
+    "title": "screens",
+    "path": "pages/docs-05-screens-readme.html",
+    "text": "docs/05-screens/README.md"
+  },
+  {
+    "title": "Board Settings",
+    "path": "pages/docs-05-screens-scr-board-settings.html",
+    "text": "docs/05-screens/SCR-BOARD-SETTINGS.md"
+  },
+  {
+    "title": "Board",
+    "path": "pages/docs-05-screens-scr-board.html",
+    "text": "docs/05-screens/SCR-BOARD.md"
+  },
+  {
+    "title": "Card Detail",
+    "path": "pages/docs-05-screens-scr-card-detail.html",
+    "text": "docs/05-screens/SCR-CARD-DETAIL.md"
+  },
+  {
+    "title": "Forgot / Reset Password",
+    "path": "pages/docs-05-screens-scr-forgot-password.html",
+    "text": "docs/05-screens/SCR-FORGOT-PASSWORD.md"
+  },
+  {
+    "title": "Login",
+    "path": "pages/docs-05-screens-scr-login.html",
+    "text": "docs/05-screens/SCR-LOGIN.md"
+  },
+  {
+    "title": "Register",
+    "path": "pages/docs-05-screens-scr-register.html",
+    "text": "docs/05-screens/SCR-REGISTER.md"
+  },
+  {
+    "title": "Workspace Home",
+    "path": "pages/docs-05-screens-scr-workspace-home.html",
+    "text": "docs/05-screens/SCR-WORKSPACE-HOME.md"
+  },
+  {
+    "title": "Workspace Settings",
+    "path": "pages/docs-05-screens-scr-workspace-settings.html",
+    "text": "docs/05-screens/SCR-WORKSPACE-SETTINGS.md"
+  },
+  {
+    "title": "Comment Creation Triggers Activity Log Entry",
+    "path": "pages/docs-06-flows-business-flow-comment-activity.html",
+    "text": "docs/06-flows/business/FLOW-COMMENT-ACTIVITY.md"
+  },
+  {
+    "title": "Workspace Invite Member",
+    "path": "pages/docs-06-flows-business-flow-workspace-invite-member.html",
+    "text": "docs/06-flows/business/FLOW-WORKSPACE-INVITE-MEMBER.md"
+  },
+  {
+    "title": "flows",
+    "path": "pages/docs-06-flows-readme.html",
+    "text": "docs/06-flows/README.md"
+  },
+  {
+    "title": "Login Sequence",
+    "path": "pages/docs-06-flows-sequence-flow-auth-login.html",
+    "text": "docs/06-flows/sequence/FLOW-AUTH-LOGIN.md"
+  },
+  {
+    "title": "Card Drag-and-Drop Move (Optimistic UI + Realtime Sync)",
+    "path": "pages/docs-06-flows-system-flow-card-move-dragdrop.html",
+    "text": "docs/06-flows/system/FLOW-CARD-MOVE-DRAGDROP.md"
+  },
+  {
+    "title": "Card Lifecycle (Create to Archive)",
+    "path": "pages/docs-06-flows-user-flow-card-lifecycle.html",
+    "text": "docs/06-flows/user/FLOW-CARD-LIFECYCLE.md"
+  },
+  {
+    "title": "List Card Activity",
+    "path": "pages/docs-07-api-api-activity-list.html",
+    "text": "docs/07-api/API-ACTIVITY-LIST.md"
+  },
+  {
+    "title": "Forgot Password (Request Reset)",
+    "path": "pages/docs-07-api-api-auth-forgot-password.html",
+    "text": "docs/07-api/API-AUTH-FORGOT-PASSWORD.md"
+  },
+  {
+    "title": "Login",
+    "path": "pages/docs-07-api-api-auth-login.html",
+    "text": "docs/07-api/API-AUTH-LOGIN.md"
+  },
+  {
+    "title": "Logout",
+    "path": "pages/docs-07-api-api-auth-logout.html",
+    "text": "docs/07-api/API-AUTH-LOGOUT.md"
+  },
+  {
+    "title": "Register",
+    "path": "pages/docs-07-api-api-auth-register.html",
+    "text": "docs/07-api/API-AUTH-REGISTER.md"
+  },
+  {
+    "title": "Reset Password",
+    "path": "pages/docs-07-api-api-auth-reset-password.html",
+    "text": "docs/07-api/API-AUTH-RESET-PASSWORD.md"
+  },
+  {
+    "title": "Archive Board",
+    "path": "pages/docs-07-api-api-board-archive.html",
+    "text": "docs/07-api/API-BOARD-ARCHIVE.md"
+  },
+  {
+    "title": "Create Board",
+    "path": "pages/docs-07-api-api-board-create.html",
+    "text": "docs/07-api/API-BOARD-CREATE.md"
+  },
+  {
+    "title": "Get Board Detail",
+    "path": "pages/docs-07-api-api-board-get-detail.html",
+    "text": "docs/07-api/API-BOARD-GET-DETAIL.md"
+  },
+  {
+    "title": "Update Board",
+    "path": "pages/docs-07-api-api-board-update.html",
+    "text": "docs/07-api/API-BOARD-UPDATE.md"
+  },
+  {
+    "title": "Archive Card",
+    "path": "pages/docs-07-api-api-card-archive.html",
+    "text": "docs/07-api/API-CARD-ARCHIVE.md"
+  },
+  {
+    "title": "Create Card",
+    "path": "pages/docs-07-api-api-card-create.html",
+    "text": "docs/07-api/API-CARD-CREATE.md"
+  },
+  {
+    "title": "Get Card Detail",
+    "path": "pages/docs-07-api-api-card-get-detail.html",
+    "text": "docs/07-api/API-CARD-GET-DETAIL.md"
+  },
+  {
+    "title": "Assign Card Member",
+    "path": "pages/docs-07-api-api-card-member-assign.html",
+    "text": "docs/07-api/API-CARD-MEMBER-ASSIGN.md"
+  },
+  {
+    "title": "Remove Card Member",
+    "path": "pages/docs-07-api-api-card-member-remove.html",
+    "text": "docs/07-api/API-CARD-MEMBER-REMOVE.md"
+  },
+  {
+    "title": "Move Card",
+    "path": "pages/docs-07-api-api-card-move.html",
+    "text": "docs/07-api/API-CARD-MOVE.md"
+  },
+  {
+    "title": "Update Card Detail",
+    "path": "pages/docs-07-api-api-card-update.html",
+    "text": "docs/07-api/API-CARD-UPDATE.md"
+  },
+  {
+    "title": "Add Comment",
+    "path": "pages/docs-07-api-api-comment-create.html",
+    "text": "docs/07-api/API-COMMENT-CREATE.md"
+  },
+  {
+    "title": "Delete Comment",
+    "path": "pages/docs-07-api-api-comment-delete.html",
+    "text": "docs/07-api/API-COMMENT-DELETE.md"
+  },
+  {
+    "title": "Edit Comment",
+    "path": "pages/docs-07-api-api-comment-update.html",
+    "text": "docs/07-api/API-COMMENT-UPDATE.md"
+  },
+  {
+    "title": "Assign Label to Card",
+    "path": "pages/docs-07-api-api-label-assign.html",
+    "text": "docs/07-api/API-LABEL-ASSIGN.md"
+  },
+  {
+    "title": "Create Board Label",
+    "path": "pages/docs-07-api-api-label-create.html",
+    "text": "docs/07-api/API-LABEL-CREATE.md"
+  },
+  {
+    "title": "Delete Board Label",
+    "path": "pages/docs-07-api-api-label-delete.html",
+    "text": "docs/07-api/API-LABEL-DELETE.md"
+  },
+  {
+    "title": "Remove Label from Card",
+    "path": "pages/docs-07-api-api-label-remove.html",
+    "text": "docs/07-api/API-LABEL-REMOVE.md"
+  },
+  {
+    "title": "Update Board Label",
+    "path": "pages/docs-07-api-api-label-update.html",
+    "text": "docs/07-api/API-LABEL-UPDATE.md"
+  },
+  {
+    "title": "Create List",
+    "path": "pages/docs-07-api-api-list-create.html",
+    "text": "docs/07-api/API-LIST-CREATE.md"
+  },
+  {
+    "title": "Reorder List",
+    "path": "pages/docs-07-api-api-list-reorder.html",
+    "text": "docs/07-api/API-LIST-REORDER.md"
+  },
+  {
+    "title": "Update / Archive List",
+    "path": "pages/docs-07-api-api-list-update.html",
+    "text": "docs/07-api/API-LIST-UPDATE.md"
+  },
+  {
+    "title": "Create Workspace",
+    "path": "pages/docs-07-api-api-workspace-create.html",
+    "text": "docs/07-api/API-WORKSPACE-CREATE.md"
+  },
+  {
+    "title": "Invite Workspace Member",
+    "path": "pages/docs-07-api-api-workspace-invite-member.html",
+    "text": "docs/07-api/API-WORKSPACE-INVITE-MEMBER.md"
+  },
+  {
+    "title": "List My Workspaces",
+    "path": "pages/docs-07-api-api-workspace-list.html",
+    "text": "docs/07-api/API-WORKSPACE-LIST.md"
+  },
+  {
+    "title": "Remove Workspace Member",
+    "path": "pages/docs-07-api-api-workspace-remove-member.html",
+    "text": "docs/07-api/API-WORKSPACE-REMOVE-MEMBER.md"
+  },
+  {
+    "title": "Update Workspace Member Role",
+    "path": "pages/docs-07-api-api-workspace-update-member-role.html",
+    "text": "docs/07-api/API-WORKSPACE-UPDATE-MEMBER-ROLE.md"
+  },
+  {
+    "title": "API Conventions",
+    "path": "pages/docs-07-api-conventions.html",
+    "text": "docs/07-api/conventions.md"
+  },
+  {
+    "title": "api",
+    "path": "pages/docs-07-api-readme.html",
+    "text": "docs/07-api/README.md"
+  },
+  {
+    "title": "Database Overview",
+    "path": "pages/docs-08-database-database-overview.html",
+    "text": "docs/08-database/database-overview.md"
+  },
+  {
+    "title": "database",
+    "path": "pages/docs-08-database-readme.html",
+    "text": "docs/08-database/README.md"
+  },
+  {
+    "title": "Activity Log",
+    "path": "pages/docs-08-database-tables-db-activity-log.html",
+    "text": "docs/08-database/tables/DB-ACTIVITY-LOG.md"
+  },
+  {
+    "title": "Board",
+    "path": "pages/docs-08-database-tables-db-board.html",
+    "text": "docs/08-database/tables/DB-BOARD.md"
+  },
+  {
+    "title": "Card Label",
+    "path": "pages/docs-08-database-tables-db-card-label.html",
+    "text": "docs/08-database/tables/DB-CARD-LABEL.md"
+  },
+  {
+    "title": "Card Member",
+    "path": "pages/docs-08-database-tables-db-card-member.html",
+    "text": "docs/08-database/tables/DB-CARD-MEMBER.md"
+  },
+  {
+    "title": "Card",
+    "path": "pages/docs-08-database-tables-db-card.html",
+    "text": "docs/08-database/tables/DB-CARD.md"
+  },
+  {
+    "title": "Comment",
+    "path": "pages/docs-08-database-tables-db-comment.html",
+    "text": "docs/08-database/tables/DB-COMMENT.md"
+  },
+  {
+    "title": "Label",
+    "path": "pages/docs-08-database-tables-db-label.html",
+    "text": "docs/08-database/tables/DB-LABEL.md"
+  },
+  {
+    "title": "List",
+    "path": "pages/docs-08-database-tables-db-list.html",
+    "text": "docs/08-database/tables/DB-LIST.md"
+  },
+  {
+    "title": "Password Reset Token",
+    "path": "pages/docs-08-database-tables-db-password-reset-token.html",
+    "text": "docs/08-database/tables/DB-PASSWORD-RESET-TOKEN.md"
+  },
+  {
+    "title": "Refresh Token",
+    "path": "pages/docs-08-database-tables-db-refresh-token.html",
+    "text": "docs/08-database/tables/DB-REFRESH-TOKEN.md"
+  },
+  {
+    "title": "User",
+    "path": "pages/docs-08-database-tables-db-user.html",
+    "text": "docs/08-database/tables/DB-USER.md"
+  },
+  {
+    "title": "Workspace Member",
+    "path": "pages/docs-08-database-tables-db-workspace-member.html",
+    "text": "docs/08-database/tables/DB-WORKSPACE-MEMBER.md"
+  },
+  {
+    "title": "Workspace",
+    "path": "pages/docs-08-database-tables-db-workspace.html",
+    "text": "docs/08-database/tables/DB-WORKSPACE.md"
+  },
+  {
+    "title": "Backend Architecture",
+    "path": "pages/docs-09-architecture-backend-architecture.html",
+    "text": "docs/09-architecture/backend-architecture.md"
+  },
+  {
+    "title": "Frontend Architecture",
+    "path": "pages/docs-09-architecture-frontend-architecture.html",
+    "text": "docs/09-architecture/frontend-architecture.md"
+  },
+  {
+    "title": "Transactional Email Provider",
+    "path": "pages/docs-09-architecture-integrations-int-email.html",
+    "text": "docs/09-architecture/integrations/INT-EMAIL.md"
+  },
+  {
+    "title": "architecture",
+    "path": "pages/docs-09-architecture-readme.html",
+    "text": "docs/09-architecture/README.md"
+  },
+  {
+    "title": "Realtime Architecture",
+    "path": "pages/docs-09-architecture-realtime-architecture.html",
+    "text": "docs/09-architecture/realtime-architecture.md"
+  },
+  {
+    "title": "System Context",
+    "path": "pages/docs-09-architecture-system-context.html",
+    "text": "docs/09-architecture/system-context.md"
+  },
+  {
+    "title": "Authentication",
+    "path": "pages/docs-10-security-authentication.html",
+    "text": "docs/10-security/authentication.md"
+  },
+  {
+    "title": "Authorization",
+    "path": "pages/docs-10-security-authorization.html",
+    "text": "docs/10-security/authorization.md"
+  },
+  {
+    "title": "Data Security",
+    "path": "pages/docs-10-security-data-security.html",
+    "text": "docs/10-security/data-security.md"
+  },
+  {
+    "title": "security",
+    "path": "pages/docs-10-security-readme.html",
+    "text": "docs/10-security/README.md"
+  },
+  {
+    "title": "Security Checklist",
+    "path": "pages/docs-10-security-security-checklist.html",
+    "text": "docs/10-security/security-checklist.md"
+  },
+  {
+    "title": "quality",
+    "path": "pages/docs-11-quality-readme.html",
+    "text": "docs/11-quality/README.md"
+  },
+  {
+    "title": "Activity feed reflects create, move, and comment events in order",
+    "path": "pages/docs-11-quality-test-cases-tc-activity-log-001.html",
+    "text": "docs/11-quality/test-cases/TC-ACTIVITY-LOG-001.md"
+  },
+  {
+    "title": "Reset password with a valid token, then reject reuse",
+    "path": "pages/docs-11-quality-test-cases-tc-auth-forgot-password-001.html",
+    "text": "docs/11-quality/test-cases/TC-AUTH-FORGOT-PASSWORD-001.md"
+  },
+  {
+    "title": "Account locks out after 5 failed login attempts",
+    "path": "pages/docs-11-quality-test-cases-tc-auth-login-001.html",
+    "text": "docs/11-quality/test-cases/TC-AUTH-LOGIN-001.md"
+  },
+  {
+    "title": "Register with duplicate email is rejected",
+    "path": "pages/docs-11-quality-test-cases-tc-auth-register-001.html",
+    "text": "docs/11-quality/test-cases/TC-AUTH-REGISTER-001.md"
+  },
+  {
+    "title": "Create board seeds 3 default lists",
+    "path": "pages/docs-11-quality-test-cases-tc-board-create-001.html",
+    "text": "docs/11-quality/test-cases/TC-BOARD-CREATE-001.md"
+  },
+  {
+    "title": "Archived board rejects card creation",
+    "path": "pages/docs-11-quality-test-cases-tc-board-manage-001.html",
+    "text": "docs/11-quality/test-cases/TC-BOARD-MANAGE-001.md"
+  },
+  {
+    "title": "Archived card disappears from board and rejects further edits",
+    "path": "pages/docs-11-quality-test-cases-tc-card-archive-001.html",
+    "text": "docs/11-quality/test-cases/TC-CARD-ARCHIVE-001.md"
+  },
+  {
+    "title": "Create card appends at end of list",
+    "path": "pages/docs-11-quality-test-cases-tc-card-create-001.html",
+    "text": "docs/11-quality/test-cases/TC-CARD-CREATE-001.md"
+  },
+  {
+    "title": "Due date before creation date is rejected",
+    "path": "pages/docs-11-quality-test-cases-tc-card-edit-detail-001.html",
+    "text": "docs/11-quality/test-cases/TC-CARD-EDIT-DETAIL-001.md"
+  },
+  {
+    "title": "Drag card to another list syncs to a second connected client",
+    "path": "pages/docs-11-quality-test-cases-tc-card-move-001.html",
+    "text": "docs/11-quality/test-cases/TC-CARD-MOVE-001.md"
+  },
+  {
+    "title": "Concurrent moves on the same card produce a conflict",
+    "path": "pages/docs-11-quality-test-cases-tc-card-move-002.html",
+    "text": "docs/11-quality/test-cases/TC-CARD-MOVE-002.md"
+  },
+  {
+    "title": "Only author or admin can edit/delete a comment",
+    "path": "pages/docs-11-quality-test-cases-tc-comment-add-001.html",
+    "text": "docs/11-quality/test-cases/TC-COMMENT-ADD-001.md"
+  },
+  {
+    "title": "Toggle a label on and off a card",
+    "path": "pages/docs-11-quality-test-cases-tc-label-assign-001.html",
+    "text": "docs/11-quality/test-cases/TC-LABEL-ASSIGN-001.md"
+  },
+  {
+    "title": "Create label with duplicate name is rejected",
+    "path": "pages/docs-11-quality-test-cases-tc-label-manage-001.html",
+    "text": "docs/11-quality/test-cases/TC-LABEL-MANAGE-001.md"
+  },
+  {
+    "title": "Cannot create a card in an archived list",
+    "path": "pages/docs-11-quality-test-cases-tc-list-manage-001.html",
+    "text": "docs/11-quality/test-cases/TC-LIST-MANAGE-001.md"
+  },
+  {
+    "title": "Reorder a list between two siblings",
+    "path": "pages/docs-11-quality-test-cases-tc-list-reorder-001.html",
+    "text": "docs/11-quality/test-cases/TC-LIST-REORDER-001.md"
+  },
+  {
+    "title": "Cannot assign a non-workspace-member to a card",
+    "path": "pages/docs-11-quality-test-cases-tc-member-assign-card-001.html",
+    "text": "docs/11-quality/test-cases/TC-MEMBER-ASSIGN-CARD-001.md"
+  },
+  {
+    "title": "Create workspace grants creator owner role",
+    "path": "pages/docs-11-quality-test-cases-tc-workspace-create-001.html",
+    "text": "docs/11-quality/test-cases/TC-WORKSPACE-CREATE-001.md"
+  },
+  {
+    "title": "Admin cannot remove or demote the workspace owner",
+    "path": "pages/docs-11-quality-test-cases-tc-workspace-manage-members-001.html",
+    "text": "docs/11-quality/test-cases/TC-WORKSPACE-MANAGE-MEMBERS-001.md"
+  },
+  {
+    "title": "Testing Strategy",
+    "path": "pages/docs-11-quality-testing-strategy.html",
+    "text": "docs/11-quality/testing-strategy.md"
+  },
+  {
+    "title": "Environments",
+    "path": "pages/docs-12-devops-environments.html",
+    "text": "docs/12-devops/environments.md"
+  },
+  {
+    "title": "devops",
+    "path": "pages/docs-12-devops-readme.html",
+    "text": "docs/12-devops/README.md"
+  },
+  {
+    "title": "Release Process",
+    "path": "pages/docs-12-devops-release-process.html",
+    "text": "docs/12-devops/release-process.md"
+  },
+  {
+    "title": "Incident Response",
+    "path": "pages/docs-13-operations-incident-response.html",
+    "text": "docs/13-operations/incident-response.md"
+  },
+  {
+    "title": "Monitoring",
+    "path": "pages/docs-13-operations-monitoring.html",
+    "text": "docs/13-operations/monitoring.md"
+  },
+  {
+    "title": "operations",
+    "path": "pages/docs-13-operations-readme.html",
+    "text": "docs/13-operations/README.md"
+  },
+  {
+    "title": "Performance Requirements",
+    "path": "pages/docs-14-performance-performance-requirements.html",
+    "text": "docs/14-performance/performance-requirements.md"
+  },
+  {
+    "title": "performance",
+    "path": "pages/docs-14-performance-readme.html",
+    "text": "docs/14-performance/README.md"
+  },
+  {
+    "title": "Use PostgreSQL as the Primary Database",
+    "path": "pages/docs-15-decisions-adr-001.html",
+    "text": "docs/15-decisions/ADR-001.md"
+  },
+  {
+    "title": "JWT Access Token + httpOnly Refresh Token Cookie for Sessions",
+    "path": "pages/docs-15-decisions-adr-002.html",
+    "text": "docs/15-decisions/ADR-002.md"
+  },
+  {
+    "title": "Fractional-Index Positions for List and Card Ordering",
+    "path": "pages/docs-15-decisions-adr-003.html",
+    "text": "docs/15-decisions/ADR-003.md"
+  },
+  {
+    "title": "WebSocket Channel for Realtime Board Sync",
+    "path": "pages/docs-15-decisions-adr-004.html",
+    "text": "docs/15-decisions/ADR-004.md"
+  },
+  {
+    "title": "Soft Delete (Archive) Instead of Hard Delete",
+    "path": "pages/docs-15-decisions-adr-005.html",
+    "text": "docs/15-decisions/ADR-005.md"
+  },
+  {
+    "title": "React SPA + REST API (No SSR) for the MVP",
+    "path": "pages/docs-15-decisions-adr-006.html",
+    "text": "docs/15-decisions/ADR-006.md"
+  },
+  {
+    "title": "decisions",
+    "path": "pages/docs-15-decisions-readme.html",
+    "text": "docs/15-decisions/README.md"
+  },
+  {
+    "title": "release",
+    "path": "pages/docs-16-release-readme.html",
+    "text": "docs/16-release/README.md"
+  },
+  {
+    "title": "v1.0 MVP Release",
+    "path": "pages/docs-16-release-releases-release-001.html",
+    "text": "docs/16-release/releases/RELEASE-001.md"
+  },
+  {
+    "title": "Feature Traceability Matrix",
+    "path": "pages/docs-17-traceability-feature-matrix.html",
+    "text": "docs/17-traceability/feature-matrix.md"
+  },
+  {
+    "title": "traceability",
+    "path": "pages/docs-17-traceability-readme.html",
+    "text": "docs/17-traceability/README.md"
+  },
+  {
+    "title": "Product Changelog",
+    "path": "pages/docs-18-changelog-product-changelog.html",
+    "text": "docs/18-changelog/product-changelog.md"
+  },
+  {
+    "title": "changelog",
+    "path": "pages/docs-18-changelog-readme.html",
+    "text": "docs/18-changelog/README.md"
+  },
+  {
+    "title": "Open Questions",
+    "path": "pages/docs-19-open-items-open-questions.html",
+    "text": "docs/19-open-items/open-questions.md"
+  },
+  {
+    "title": "Billing / Subscription Model for Future Monetization",
+    "path": "pages/docs-19-open-items-oq-001.html",
+    "text": "docs/19-open-items/OQ-001.md"
+  },
+  {
+    "title": "Deeper Conflict-Resolution UX for Concurrent Card Moves",
+    "path": "pages/docs-19-open-items-oq-002.html",
+    "text": "docs/19-open-items/OQ-002.md"
+  },
+  {
+    "title": "File Attachment Storage Provider",
+    "path": "pages/docs-19-open-items-oq-003.html",
+    "text": "docs/19-open-items/OQ-003.md"
+  },
+  {
+    "title": "Checklists as a First-Class Card Sub-Entity",
+    "path": "pages/docs-19-open-items-oq-004.html",
+    "text": "docs/19-open-items/OQ-004.md"
+  },
+  {
+    "title": "Transactional Email / Notification Provider Selection",
+    "path": "pages/docs-19-open-items-oq-005.html",
+    "text": "docs/19-open-items/OQ-005.md"
+  },
+  {
+    "title": "Future Native Mobile App",
+    "path": "pages/docs-19-open-items-oq-006.html",
+    "text": "docs/19-open-items/OQ-006.md"
+  },
+  {
+    "title": "open items",
+    "path": "pages/docs-19-open-items-readme.html",
+    "text": "docs/19-open-items/README.md"
+  },
+  {
+    "title": "analytics-events",
+    "path": "pages/docs-20-mobile-analytics-events-readme.html",
+    "text": "docs/20-mobile/analytics-events/README.md"
+  },
+  {
+    "title": "background-work",
+    "path": "pages/docs-20-mobile-background-work-readme.html",
+    "text": "docs/20-mobile/background-work/README.md"
+  },
+  {
+    "title": "deep-links",
+    "path": "pages/docs-20-mobile-deep-links-readme.html",
+    "text": "docs/20-mobile/deep-links/README.md"
+  },
+  {
+    "title": "device-test-profiles",
+    "path": "pages/docs-20-mobile-device-test-profiles-readme.html",
+    "text": "docs/20-mobile/device-test-profiles/README.md"
+  },
+  {
+    "title": "feature-flags",
+    "path": "pages/docs-20-mobile-feature-flags-readme.html",
+    "text": "docs/20-mobile/feature-flags/README.md"
+  },
+  {
+    "title": "local-storage",
+    "path": "pages/docs-20-mobile-local-storage-readme.html",
+    "text": "docs/20-mobile/local-storage/README.md"
+  },
+  {
+    "title": "native-capabilities",
+    "path": "pages/docs-20-mobile-native-capabilities-readme.html",
+    "text": "docs/20-mobile/native-capabilities/README.md"
+  },
+  {
+    "title": "permissions",
+    "path": "pages/docs-20-mobile-permissions-readme.html",
+    "text": "docs/20-mobile/permissions/README.md"
+  },
+  {
+    "title": "push-events",
+    "path": "pages/docs-20-mobile-push-events-readme.html",
+    "text": "docs/20-mobile/push-events/README.md"
+  },
+  {
+    "title": "sync-policies",
+    "path": "pages/docs-20-mobile-sync-policies-readme.html",
+    "text": "docs/20-mobile/sync-policies/README.md"
+  },
+  {
+    "title": "Project Documentation Source",
+    "path": "pages/docs-readme.html",
+    "text": "docs/README.md"
+  },
+  {
     "title": "Documentation Governance v4",
     "path": "pages/docs-governance.html",
     "text": "DOCS_GOVERNANCE.md"
   },
   {
-    "title": "FILE CATALOG — Starter Kit v3",
+    "title": "File Catalog - v4",
     "path": "pages/file-catalog.html",
     "text": "FILE_CATALOG.md"
   },
@@ -18,41 +1108,6 @@
     "title": "Project Blueprint",
     "path": "pages/project-blueprint.html",
     "text": "PROJECT_BLUEPRINT.md"
-  },
-  {
-    "title": "Production Project Documentation Starter Kit v4",
-    "path": "pages/readme.html",
-    "text": "README.md"
-  },
-  {
-    "title": "V4 Reuse Strategy",
-    "path": "pages/reuse-strategy-v4.html",
-    "text": "REUSE_STRATEGY_V4.md"
-  },
-  {
-    "title": "Review Upgrade Notes — React Native Trial",
-    "path": "pages/review-upgrade-notes.html",
-    "text": "REVIEW_UPGRADE_NOTES.md"
-  },
-  {
-    "title": "Start Here - v4",
-    "path": "pages/start-here.html",
-    "text": "START_HERE.md"
-  },
-  {
-    "title": "Starter Kit v3 — Capability Pack Upgrade",
-    "path": "pages/v3-capability-pack-upgrade.html",
-    "text": "V3_CAPABILITY_PACK_UPGRADE.md"
-  },
-  {
-    "title": "Starter Kit v4 Upgrade Notes",
-    "path": "pages/v4-upgrade-notes.html",
-    "text": "V4_UPGRADE_NOTES.md"
-  },
-  {
-    "title": "Project Documentation Source",
-    "path": "pages/docs-readme.html",
-    "text": "docs/README.md"
   },
   {
     "title": "Master Prompt — Documentation-First Project Orchestrator",
@@ -215,24 +1270,29 @@
     "text": "prompts/31-pattern-pack-design.md"
   },
   {
+    "title": "Production Project Documentation Starter Kit v4",
+    "path": "pages/readme.html",
+    "text": "README.md"
+  },
+  {
     "title": "Reusable Templates",
     "path": "pages/reusable-templates-readme.html",
     "text": "reusable-templates/README.md"
   },
   {
+    "title": "V4 Reuse Strategy",
+    "path": "pages/reuse-strategy-v4.html",
+    "text": "REUSE_STRATEGY_V4.md"
+  },
+  {
+    "title": "Review Upgrade Notes — React Native Trial",
+    "path": "pages/review-upgrade-notes.html",
+    "text": "REVIEW_UPGRADE_NOTES.md"
+  },
+  {
     "title": "Adding a New Technology Stack",
     "path": "pages/standards-adding-a-stack.html",
     "text": "standards/ADDING_A_STACK.md"
-  },
-  {
-    "title": "Standards Architecture v4",
-    "path": "pages/standards-readme.html",
-    "text": "standards/README.md"
-  },
-  {
-    "title": "Standard Catalog",
-    "path": "pages/standards-standard-catalog.html",
-    "text": "standards/STANDARD_CATALOG.md"
   },
   {
     "title": "AI Agent Rules",
@@ -288,6 +1348,11 @@
     "title": "Background Jobs",
     "path": "pages/standards-project-types-api-background-jobs.html",
     "text": "standards/project-types/api/background-jobs.md"
+  },
+  {
+    "title": "API Contract & Versioning Standard",
+    "path": "pages/standards-project-types-api-contract-versioning.html",
+    "text": "standards/project-types/api/contract-versioning.md"
   },
   {
     "title": "Data Transaction",
@@ -400,14 +1465,29 @@
     "text": "standards/project-types/mobile/push-notification.md"
   },
   {
+    "title": "Mobile Time & Timezone Standard",
+    "path": "pages/standards-project-types-mobile-time-timezone.html",
+    "text": "standards/project-types/mobile/time-timezone.md"
+  },
+  {
     "title": "Timezone Server Time",
     "path": "pages/standards-project-types-mobile-timezone-server-time.html",
     "text": "standards/project-types/mobile/timezone-server-time.md"
   },
   {
+    "title": "Project Type Standards",
+    "path": "pages/standards-project-types-readme.html",
+    "text": "standards/project-types/README.md"
+  },
+  {
     "title": "Browser Runtime",
     "path": "pages/standards-project-types-web-browser-runtime.html",
     "text": "standards/project-types/web/browser-runtime.md"
+  },
+  {
+    "title": "Web Application Standard",
+    "path": "pages/standards-project-types-web-web-application-standard.html",
+    "text": "standards/project-types/web/web-application-standard.md"
   },
   {
     "title": "Web Architecture",
@@ -433,6 +1513,11 @@
     "title": "Web Ui Ux",
     "path": "pages/standards-project-types-web-web-ui-ux.html",
     "text": "standards/project-types/web/web-ui-ux.md"
+  },
+  {
+    "title": "Standards Architecture v4",
+    "path": "pages/standards-readme.html",
+    "text": "standards/README.md"
   },
   {
     "title": "Capability Pack Standard",
@@ -480,9 +1565,19 @@
     "text": "standards/stacks/api/dotnet-core/background-services.md"
   },
   {
+    "title": "ASP.NET Core Coding Standard",
+    "path": "pages/standards-stacks-api-dotnet-core-coding-standard.html",
+    "text": "standards/stacks/api/dotnet-core/coding-standard.md"
+  },
+  {
     "title": "Data Access",
     "path": "pages/standards-stacks-api-dotnet-core-data-access.html",
     "text": "standards/stacks/api/dotnet-core/data-access.md"
+  },
+  {
+    "title": "ASP.NET Core DI & Configuration",
+    "path": "pages/standards-stacks-api-dotnet-core-dependency-injection-config.html",
+    "text": "standards/stacks/api/dotnet-core/dependency-injection-config.md"
   },
   {
     "title": "Security",
@@ -500,6 +1595,11 @@
     "text": "standards/stacks/api/nodejs/architecture.md"
   },
   {
+    "title": "NodeJS Async & Resilience",
+    "path": "pages/standards-stacks-api-nodejs-async-resilience.html",
+    "text": "standards/stacks/api/nodejs/async-resilience.md"
+  },
+  {
     "title": "Coding Standard",
     "path": "pages/standards-stacks-api-nodejs-coding-standard.html",
     "text": "standards/stacks/api/nodejs/coding-standard.md"
@@ -508,6 +1608,11 @@
     "title": "Deployment",
     "path": "pages/standards-stacks-api-nodejs-deployment.html",
     "text": "standards/stacks/api/nodejs/deployment.md"
+  },
+  {
+    "title": "NodeJS HTTP Contract",
+    "path": "pages/standards-stacks-api-nodejs-http-contract.html",
+    "text": "standards/stacks/api/nodejs/http-contract.md"
   },
   {
     "title": "Testing Observability",
@@ -555,6 +1660,11 @@
     "text": "standards/stacks/mobile/flutter/state-management-bloc-cubit.md"
   },
   {
+    "title": "Flutter State Management",
+    "path": "pages/standards-stacks-mobile-flutter-state-management.html",
+    "text": "standards/stacks/mobile/flutter/state-management.md"
+  },
+  {
     "title": "Storage Networking",
     "path": "pages/standards-stacks-mobile-flutter-storage-networking.html",
     "text": "standards/stacks/mobile/flutter/storage-networking.md"
@@ -600,9 +1710,19 @@
     "text": "standards/stacks/mobile/react-native/testing-release.md"
   },
   {
+    "title": "Technology Stack Standards",
+    "path": "pages/standards-stacks-readme.html",
+    "text": "standards/stacks/README.md"
+  },
+  {
     "title": "Architecture",
     "path": "pages/standards-stacks-web-reactjs-architecture.html",
     "text": "standards/stacks/web/reactjs/architecture.md"
+  },
+  {
+    "title": "ReactJS Coding Standard",
+    "path": "pages/standards-stacks-web-reactjs-coding-standard.html",
+    "text": "standards/stacks/web/reactjs/coding-standard.md"
   },
   {
     "title": "Forms Validation",
@@ -625,9 +1745,24 @@
     "text": "standards/stacks/web/reactjs/testing.md"
   },
   {
+    "title": "Standard Catalog",
+    "path": "pages/standards-standard-catalog.html",
+    "text": "standards/STANDARD_CATALOG.md"
+  },
+  {
     "title": "Documentation Tooling & Static Site Standard",
     "path": "pages/standards-tooling-and-static-site.html",
     "text": "standards/tooling-and-static-site.md"
+  },
+  {
+    "title": "Start Here - v4",
+    "path": "pages/start-here.html",
+    "text": "START_HERE.md"
+  },
+  {
+    "title": "2. File quan trọng nhất: `PROJECT_BLUEPRINT.md`",
+    "path": "pages/structure.html",
+    "text": "STRUCTURE.md"
   },
   {
     "title": "<TITLE>",
@@ -808,6 +1943,21 @@
     "title": "Documentation Toolchain v4",
     "path": "pages/tools-readme.html",
     "text": "tools/README.md"
+  },
+  {
+    "title": "Starter Kit v3 — Capability Pack Upgrade",
+    "path": "pages/v3-capability-pack-upgrade.html",
+    "text": "V3_CAPABILITY_PACK_UPGRADE.md"
+  },
+  {
+    "title": "V4 QA Report",
+    "path": "pages/v4-qa-report.html",
+    "text": "V4_QA_REPORT.md"
+  },
+  {
+    "title": "Starter Kit v4 Upgrade Notes",
+    "path": "pages/v4-upgrade-notes.html",
+    "text": "V4_UPGRADE_NOTES.md"
   },
   {
     "title": "Workflow 01 — Idea -> Scope",

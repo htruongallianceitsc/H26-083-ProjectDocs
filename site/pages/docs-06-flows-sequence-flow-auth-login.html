@@ -1,0 +1,27 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Login Sequence</title><link rel="stylesheet" href="../assets/style.css"></head><body><header><strong>Project Docs v4</strong><nav><a class="" href="../index.html">Dashboard</a><a class="" href="../profile.html">Profile</a><a class="" href="../standards.html">Standards</a><a class="" href="../packs.html">Reuse</a><a class="" href="../catalog.html">Catalog</a><a class="" href="../traceability.html">Traceability</a><a class="" href="../graph.html">Graph</a><a class="" href="../flows.html">Diagrams</a></nav></header><main><h1>Login Sequence</h1><p><small>docs/06-flows/sequence/FLOW-AUTH-LOGIN.md</small></p><h1>Flow</h1><h2>Purpose</h2><p>Show the full login sequence, including the account-lockout check and session issuance.</p><h2>Actors / Systems</h2><p>User (browser), React SPA, Node.js API, PostgreSQL.</p><h2>Preconditions</h2><p>User has a registered account and is not currently locked out.</p><h2>Flow Diagram</h2><div class="mermaid">sequenceDiagram
+  participant U as User
+  participant SPA as React SPA
+  participant API as Node.js API
+  participant DB as PostgreSQL
+
+  U-&gt;&gt;SPA: Submit email + password
+  SPA-&gt;&gt;API: POST /api/auth/login
+  API-&gt;&gt;DB: Check failed-attempt count for email
+  alt Locked out
+    API--&gt;&gt;SPA: 423 ACCOUNT_LOCKED
+    SPA--&gt;&gt;U: Show lockout message
+  else Not locked out
+    API-&gt;&gt;DB: Look up user by email
+    API-&gt;&gt;API: Verify password hash
+    alt Invalid credentials
+      API-&gt;&gt;DB: Increment failed-attempt count
+      API--&gt;&gt;SPA: 401 INVALID_CREDENTIALS
+      SPA--&gt;&gt;U: Show generic error
+    else Valid credentials
+      API-&gt;&gt;DB: Reset failed-attempt count
+      API-&gt;&gt;DB: Insert refresh_tokens row
+      API--&gt;&gt;SPA: 200 OK, accessToken + Set-Cookie refresh_token
+      SPA-&gt;&gt;SPA: Store accessToken in memory
+      SPA--&gt;&gt;U: Redirect to last workspace
+    end
+  end</div><h2>Step Details</h2><table><tr><th>Step</th><th>Actor/System</th><th>Action</th><th>Rule/API/Screen</th><th>Result</th></tr><tr><td>1</td><td>User</td><td>Submits credentials</td><td>SCR-LOGIN</td><td>Form submitted</td></tr><tr><td>2</td><td>API</td><td>Checks lockout state</td><td>BR-AUTH-002</td><td>Proceed or reject</td></tr><tr><td>3</td><td>API</td><td>Verifies password</td><td>API-AUTH-LOGIN</td><td>Success/failure branch</td></tr><tr><td>4</td><td>API</td><td>Issues session</td><td>ADR-002, DB-REFRESH-TOKEN</td><td>Access token + refresh cookie</td></tr><tr><td>5</td><td>SPA</td><td>Redirects user</td><td>SCR-WORKSPACE-HOME</td><td>Authenticated session active</td></tr></table><h2>Error / Retry Paths</h2><p>Invalid credentials and lockout are terminal for that request; the user retries the form. No automatic retry on the client for <code>401</code>/<code>423</code>.</p><h2>End States</h2><p>Authenticated session established (success) or user remains on <code>SCR-LOGIN</code> with an inline error (failure).</p></main><script src="assets/app.js"></script><script type="module">if(document.querySelector('.mermaid')){import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs').then(m=>{m.default.initialize({startOnLoad:true,securityLevel:'loose'});});}</script></body></html>

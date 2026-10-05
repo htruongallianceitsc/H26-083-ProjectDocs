@@ -1,8 +1,15 @@
 {
-  "generatedAt": "2026-10-05T00:30:35.850Z",
+  "generatedAt": "2026-10-05T02:27:25.014Z",
   "summary": {
     "errors": 0,
-    "warnings": 0
+    "warnings": 1
   },
-  "issues": []
+  "issues": [
+    {
+      "level": "warning",
+      "code": "UNMAPPED_RELATION",
+      "message": "DOC-SCOPE.open_questions has no relation-map rule",
+      "file": "docs/00-project/product-scope.md"
+    }
+  ]
 }

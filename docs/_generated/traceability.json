@@ -1,3 +1,495 @@
 {
-  "rows": []
+  "rows": [
+    {
+      "feature": "FEAT-AUTH-FORGOT-PASSWORD",
+      "module": [
+        "MOD-AUTH"
+      ],
+      "requirements": [
+        "REQ-AUTH-003"
+      ],
+      "rules": [
+        "BR-AUTH-001"
+      ],
+      "screens": [
+        "SCR-FORGOT-PASSWORD"
+      ],
+      "apis": [
+        "API-AUTH-FORGOT-PASSWORD",
+        "API-AUTH-RESET-PASSWORD"
+      ],
+      "database": [
+        "DB-USER",
+        "DB-PASSWORD-RESET-TOKEN"
+      ],
+      "permissions": [],
+      "deepLinks": [],
+      "tests": [
+        "TC-AUTH-FORGOT-PASSWORD-001"
+      ]
+    },
+    {
+      "feature": "FEAT-AUTH-LOGIN",
+      "module": [
+        "MOD-AUTH"
+      ],
+      "requirements": [
+        "REQ-AUTH-002"
+      ],
+      "rules": [
+        "BR-AUTH-002"
+      ],
+      "screens": [
+        "SCR-LOGIN"
+      ],
+      "apis": [
+        "API-AUTH-LOGIN",
+        "API-AUTH-LOGOUT"
+      ],
+      "database": [
+        "DB-USER",
+        "DB-REFRESH-TOKEN"
+      ],
+      "permissions": [],
+      "deepLinks": [],
+      "tests": [
+        "TC-AUTH-LOGIN-001"
+      ]
+    },
+    {
+      "feature": "FEAT-AUTH-REGISTER",
+      "module": [
+        "MOD-AUTH"
+      ],
+      "requirements": [
+        "REQ-AUTH-001"
+      ],
+      "rules": [
+        "BR-AUTH-001"
+      ],
+      "screens": [
+        "SCR-REGISTER"
+      ],
+      "apis": [
+        "API-AUTH-REGISTER"
+      ],
+      "database": [
+        "DB-USER"
+      ],
+      "permissions": [],
+      "deepLinks": [],
+      "tests": [
+        "TC-AUTH-REGISTER-001"
+      ]
+    },
+    {
+      "feature": "FEAT-BOARD-CREATE",
+      "module": [
+        "MOD-BOARD"
+      ],
+      "requirements": [
+        "REQ-BOARD-001"
+      ],
+      "rules": [
+        "BR-BOARD-001"
+      ],
+      "screens": [
+        "SCR-WORKSPACE-HOME",
+        "SCR-BOARD"
+      ],
+      "apis": [
+        "API-BOARD-CREATE"
+      ],
+      "database": [
+        "DB-BOARD",
+        "DB-LIST"
+      ],
+      "permissions": [],
+      "deepLinks": [],
+      "tests": [
+        "TC-BOARD-CREATE-001"
+      ]
+    },
+    {
+      "feature": "FEAT-BOARD-MANAGE",
+      "module": [
+        "MOD-BOARD"
+      ],
+      "requirements": [
+        "REQ-BOARD-002"
+      ],
+      "rules": [
+        "BR-BOARD-002"
+      ],
+      "screens": [
+        "SCR-BOARD-SETTINGS"
+      ],
+      "apis": [
+        "API-BOARD-GET-DETAIL",
+        "API-BOARD-UPDATE",
+        "API-BOARD-ARCHIVE"
+      ],
+      "database": [
+        "DB-BOARD"
+      ],
+      "permissions": [],
+      "deepLinks": [],
+      "tests": [
+        "TC-BOARD-MANAGE-001"
+      ]
+    },
+    {
+      "feature": "FEAT-CARD-ARCHIVE",
+      "module": [
+        "MOD-CARD"
+      ],
+      "requirements": [
+        "REQ-CARD-004"
+      ],
+      "rules": [
+        "BR-CARD-003"
+      ],
+      "screens": [
+        "SCR-CARD-DETAIL",
+        "SCR-BOARD"
+      ],
+      "apis": [
+        "API-CARD-ARCHIVE"
+      ],
+      "database": [
+        "DB-CARD"
+      ],
+      "permissions": [],
+      "deepLinks": [],
+      "tests": [
+        "TC-CARD-ARCHIVE-001"
+      ]
+    },
+    {
+      "feature": "FEAT-CARD-CREATE",
+      "module": [
+        "MOD-CARD"
+      ],
+      "requirements": [
+        "REQ-CARD-001"
+      ],
+      "rules": [
+        "BR-LIST-001",
+        "BR-BOARD-002"
+      ],
+      "screens": [
+        "SCR-BOARD"
+      ],
+      "apis": [
+        "API-CARD-CREATE"
+      ],
+      "database": [
+        "DB-CARD"
+      ],
+      "permissions": [],
+      "deepLinks": [],
+      "tests": [
+        "TC-CARD-CREATE-001"
+      ]
+    },
+    {
+      "feature": "FEAT-CARD-EDIT-DETAIL",
+      "module": [
+        "MOD-CARD"
+      ],
+      "requirements": [
+        "REQ-CARD-003"
+      ],
+      "rules": [
+        "BR-CARD-002",
+        "BR-CARD-003"
+      ],
+      "screens": [
+        "SCR-CARD-DETAIL"
+      ],
+      "apis": [
+        "API-CARD-GET-DETAIL",
+        "API-CARD-UPDATE"
+      ],
+      "database": [
+        "DB-CARD"
+      ],
+      "permissions": [],
+      "deepLinks": [],
+      "tests": [
+        "TC-CARD-EDIT-DETAIL-001"
+      ]
+    },
+    {
+      "feature": "FEAT-CARD-MOVE",
+      "module": [
+        "MOD-CARD"
+      ],
+      "requirements": [
+        "REQ-CARD-002"
+      ],
+      "rules": [
+        "BR-CARD-001",
+        "BR-LIST-001",
+        "BR-LIST-002",
+        "BR-BOARD-002"
+      ],
+      "screens": [
+        "SCR-BOARD"
+      ],
+      "apis": [
+        "API-CARD-MOVE"
+      ],
+      "database": [
+        "DB-CARD"
+      ],
+      "permissions": [],
+      "deepLinks": [],
+      "tests": [
+        "TC-CARD-MOVE-001",
+        "TC-CARD-MOVE-002"
+      ]
+    },
+    {
+      "feature": "FEAT-ACTIVITY-LOG",
+      "module": [
+        "MOD-COMMENT"
+      ],
+      "requirements": [
+        "REQ-COMMENT-002"
+      ],
+      "rules": [],
+      "screens": [
+        "SCR-CARD-DETAIL"
+      ],
+      "apis": [
+        "API-ACTIVITY-LIST"
+      ],
+      "database": [
+        "DB-ACTIVITY-LOG"
+      ],
+      "permissions": [],
+      "deepLinks": [],
+      "tests": [
+        "TC-ACTIVITY-LOG-001"
+      ]
+    },
+    {
+      "feature": "FEAT-COMMENT-ADD",
+      "module": [
+        "MOD-COMMENT"
+      ],
+      "requirements": [
+        "REQ-COMMENT-001"
+      ],
+      "rules": [
+        "BR-COMMENT-001"
+      ],
+      "screens": [
+        "SCR-CARD-DETAIL"
+      ],
+      "apis": [
+        "API-COMMENT-CREATE",
+        "API-COMMENT-UPDATE",
+        "API-COMMENT-DELETE"
+      ],
+      "database": [
+        "DB-COMMENT"
+      ],
+      "permissions": [],
+      "deepLinks": [],
+      "tests": [
+        "TC-COMMENT-ADD-001"
+      ]
+    },
+    {
+      "feature": "FEAT-LABEL-ASSIGN",
+      "module": [
+        "MOD-LABEL"
+      ],
+      "requirements": [
+        "REQ-LABEL-002"
+      ],
+      "rules": [],
+      "screens": [
+        "SCR-CARD-DETAIL"
+      ],
+      "apis": [
+        "API-LABEL-ASSIGN",
+        "API-LABEL-REMOVE"
+      ],
+      "database": [
+        "DB-CARD-LABEL"
+      ],
+      "permissions": [],
+      "deepLinks": [],
+      "tests": [
+        "TC-LABEL-ASSIGN-001"
+      ]
+    },
+    {
+      "feature": "FEAT-LABEL-MANAGE",
+      "module": [
+        "MOD-LABEL"
+      ],
+      "requirements": [
+        "REQ-LABEL-001"
+      ],
+      "rules": [
+        "BR-LABEL-001"
+      ],
+      "screens": [
+        "SCR-BOARD-SETTINGS"
+      ],
+      "apis": [
+        "API-LABEL-CREATE",
+        "API-LABEL-UPDATE",
+        "API-LABEL-DELETE"
+      ],
+      "database": [
+        "DB-LABEL",
+        "DB-CARD-LABEL"
+      ],
+      "permissions": [],
+      "deepLinks": [],
+      "tests": [
+        "TC-LABEL-MANAGE-001"
+      ]
+    },
+    {
+      "feature": "FEAT-LIST-MANAGE",
+      "module": [
+        "MOD-LIST"
+      ],
+      "requirements": [
+        "REQ-LIST-001"
+      ],
+      "rules": [
+        "BR-LIST-001"
+      ],
+      "screens": [
+        "SCR-BOARD"
+      ],
+      "apis": [
+        "API-LIST-CREATE",
+        "API-LIST-UPDATE"
+      ],
+      "database": [
+        "DB-LIST"
+      ],
+      "permissions": [],
+      "deepLinks": [],
+      "tests": [
+        "TC-LIST-MANAGE-001"
+      ]
+    },
+    {
+      "feature": "FEAT-LIST-REORDER",
+      "module": [
+        "MOD-LIST"
+      ],
+      "requirements": [
+        "REQ-LIST-002"
+      ],
+      "rules": [
+        "BR-LIST-002"
+      ],
+      "screens": [
+        "SCR-BOARD"
+      ],
+      "apis": [
+        "API-LIST-REORDER"
+      ],
+      "database": [
+        "DB-LIST"
+      ],
+      "permissions": [],
+      "deepLinks": [],
+      "tests": [
+        "TC-LIST-REORDER-001"
+      ]
+    },
+    {
+      "feature": "FEAT-MEMBER-ASSIGN-CARD",
+      "module": [
+        "MOD-MEMBER"
+      ],
+      "requirements": [
+        "REQ-MEMBER-001"
+      ],
+      "rules": [
+        "BR-MEMBER-001"
+      ],
+      "screens": [
+        "SCR-CARD-DETAIL"
+      ],
+      "apis": [
+        "API-CARD-MEMBER-ASSIGN",
+        "API-CARD-MEMBER-REMOVE"
+      ],
+      "database": [
+        "DB-CARD-MEMBER"
+      ],
+      "permissions": [],
+      "deepLinks": [],
+      "tests": [
+        "TC-MEMBER-ASSIGN-CARD-001"
+      ]
+    },
+    {
+      "feature": "FEAT-WORKSPACE-CREATE",
+      "module": [
+        "MOD-WORKSPACE"
+      ],
+      "requirements": [
+        "REQ-WORKSPACE-001"
+      ],
+      "rules": [],
+      "screens": [
+        "SCR-WORKSPACE-HOME"
+      ],
+      "apis": [
+        "API-WORKSPACE-CREATE",
+        "API-WORKSPACE-LIST"
+      ],
+      "database": [
+        "DB-WORKSPACE",
+        "DB-WORKSPACE-MEMBER"
+      ],
+      "permissions": [],
+      "deepLinks": [],
+      "tests": [
+        "TC-WORKSPACE-CREATE-001"
+      ]
+    },
+    {
+      "feature": "FEAT-WORKSPACE-MANAGE-MEMBERS",
+      "module": [
+        "MOD-WORKSPACE"
+      ],
+      "requirements": [
+        "REQ-WORKSPACE-002"
+      ],
+      "rules": [
+        "BR-WORKSPACE-001",
+        "BR-WORKSPACE-002"
+      ],
+      "screens": [
+        "SCR-WORKSPACE-SETTINGS"
+      ],
+      "apis": [
+        "API-WORKSPACE-INVITE-MEMBER",
+        "API-WORKSPACE-UPDATE-MEMBER-ROLE",
+        "API-WORKSPACE-REMOVE-MEMBER"
+      ],
+      "database": [
+        "DB-WORKSPACE-MEMBER"
+      ],
+      "permissions": [],
+      "deepLinks": [],
+      "tests": [
+        "TC-WORKSPACE-MANAGE-MEMBERS-001"
+      ]
+    }
+  ]
 }

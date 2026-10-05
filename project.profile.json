@@ -1,10 +1,16 @@
 {
-  "projectCode": "STARTER",
-  "projectName": "Production Project Documentation Starter Kit v4",
-  "projectTypes": [],
-  "technologyStacks": [],
+  "projectCode": "KANBAN",
+  "projectName": "KanbanFlow - Trello-like Board Management Web App",
+  "projectTypes": ["web", "api"],
+  "technologyStacks": ["reactjs", "nodejs-api", "postgresql"],
+  "implementationGate": {
+    "blockOnOpenQuestions": false,
+    "blockOnValidationErrors": true,
+    "blockOnQualityErrors": false,
+    "blockOnPackReviewPending": true
+  },
   "documentation": {
-    "blockOnPackReviewPending": true,
-    "exclude": ["site/**","docs/_generated/**","reusable-modules/**","reusable-patterns/**"]
+    "exclude": ["site/**", "docs/_generated/**", "reusable-modules/**", "reusable-patterns/**"],
+    "staleDetection": "dependency-hash"
   }
 }
