@@ -1,40 +1,33 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>README.md</title><link rel="stylesheet" href="../assets/style.css"></head><body><header><strong>Project Docs v5.3</strong><nav><a class="" href="../index.html">Dashboard</a><a class="" href="../profile.html">Profile</a><a class="" href="../standards.html">Standards</a><a class="" href="../packs.html">Reuse</a><a class="" href="../catalog.html">Catalog</a><a class="" href="../traceability.html">Traceability</a><a class="" href="../graph.html">Graph</a><a class="" href="../governance.html">Governance</a><a class="" href="../specification.html">Spec Levels</a><a class="" href="../flows.html">Diagrams</a></nav></header><main><h1>README.md</h1><p><small>README.md</small></p><h1>Production Project Documentation Starter Kit v5.3</h1><p>Documentation-first starter kit for long-lived Web, Mobile and API projects, with progressive documentation depth for prototypes through production.</p><h2>Core model</h2><pre><code class="language-text">Idea / Request
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>README.md</title><link rel="stylesheet" href="../assets/style.css"></head><body><header><strong>Project Docs v5.4</strong><nav><a class="" href="../index.html">Dashboard</a><a class="" href="../profile.html">Profile</a><a class="" href="../standards.html">Standards</a><a class="" href="../source.html">Source</a><a class="" href="../packs.html">Reuse</a><a class="" href="../catalog.html">Catalog</a><a class="" href="../traceability.html">Traceability</a><a class="" href="../graph.html">Graph</a><a class="" href="../governance.html">Governance</a><a class="" href="../specification.html">Spec Levels</a><a class="" href="../flows.html">Diagrams</a></nav></header><main><h1>README.md</h1><p><small>README.md</small></p><h1>Production Project Documentation Starter Kit v5.4</h1><p>Documentation-first starter kit for long-lived Web, Mobile and API projects, now with a governed source workspace and versioned Source Base bootstrap profiles.</p><h2>Core model</h2><pre><code class="language-text">Idea / Request
       ↓
-Select Spec Level (Lightweight / Standard / Full / Auto)
+Select Spec Level
       ↓
-Project-local canonical documentation
+Canonical Docs + Application Boundaries
       ↓
-Typed traceability + impact analysis
+Ready Gate
       ↓
-Dependency freshness review
-      ↓
-Mode-aware Ready Gate
-      ↓
-Reviewed WorkPlan
+Reviewed WorkPlan (with application/source scope)
       ↓
 Implementation Tasks
       ↓
-Documentation reconciliation
+apps/* / adopted source roots
       ↓
-Mode-aware Done Gate
+Documentation reconciliation + Done Gate
       ↓
-Semantic ChangeSet / Baseline</code></pre><h2>What v5.3 changes</h2><p>v5.3 is a repository-entry cleanup release. Historical upgrade and QA records no longer compete with the documents people should open first.</p><ul><li><code>docs/history/</code> is now the canonical home for version upgrade notes, QA reports and historical upgrade/migration reviews.</li><li>Prior <code>V3_*</code>, <code>V4_*</code>, <code>V5_*</code> upgrade/QA records were moved there.</li><li><code>REVIEW_UPGRADE_NOTES.md</code> was moved there as historical transition material.</li><li>Current reference material such as <code>REUSE_STRATEGY_V4.md</code> stays at root when it is still an active strategy document; classification is based on purpose, not just a version-looking filename.</li><li><code>standards/repository-entry-hygiene.md</code> defines the root/history rule.</li><li><code>starter-kit.json.documentationLayout</code> carries machine-readable history placement policy.</li><li><code>docs:validate</code> now fails with <code>ROOT_HISTORY_DOC</code> if historical release/upgrade files matching configured patterns return to root.</li><li>E2E regression covers the negative root-history case.</li></ul><h2>Progressive Specification inherited from v5.2</h2><p>The v5.2 Lightweight/Standard/Full/Auto model remains unchanged:</p><ul><li>project default <code>documentation.defaultSpecLevel</code>;</li><li>Feature-level <code>spec_level</code> override;</li><li><code>target_maturity</code>: concept / prototype / UAT / production;</li><li>policy-driven <code>registry/spec-profiles.json</code>;</li><li>Lightweight Feature template with minimum viable documentation;</li><li>mode-aware Ready/Done gates;</li><li>risk/maturity recommendation and configurable escalation (<code>warn|block|off</code>);</li><li><code>spec:status</code>, <code>spec:check</code>, <code>spec:recommend</code>, <code>spec:promote</code>;</li><li>promotion gap reports without inventing missing requirements;</li><li>WorkPlans snapshot effective spec level and maturity.</li></ul><p>v5.3 also keeps all v5.1 freshness, impact, ChangeSet and Baseline governance.</p><h2>Start</h2><ul><li>Read <code>START_HERE.md</code>.</li><li>Configure <code>project.profile.json</code>.</li><li>Choose the default documentation depth intentionally.</li><li>Run <code>cd tools &amp;&amp; npm ci &amp;&amp; npm run qa</code>.</li><li>Build documentation at the current maturity instead of maximizing detail by default.</li><li>Promote a Feature only when its delivery maturity/risk requires deeper specification.</li><li>Put future version upgrade/QA records directly under <code>docs/history/</code>, never at root.</li></ul><h2>Sources of truth</h2><ul><li>Project/domain truth: project-local Markdown under <code>docs/</code>.</li><li>Historical release/upgrade records: <code>docs/history/</code>.</li><li>Machine-readable policy: canonical JSON under <code>registry/</code> plus layout policy in <code>starter-kit.json</code>.</li><li>Spec promotion reports: <code>.project-docs/spec-promotions/</code>.</li><li>WorkPlan state: <code>.project-docs/workplans/</code>.</li><li>Freshness review state: <code>.project-docs/freshness/</code>.</li><li>Semantic history: <code>.project-docs/changesets/</code> and <code>.project-docs/audit-state.json</code>.</li><li>Named snapshots: <code>.project-docs/baselines/</code>.</li><li>Reuse state: <code>.project-docs/packs.lock.json</code>, snapshots and proposals.</li><li>Generated site/reports: derived and rebuildable.</li></ul><h2>Key commands</h2><pre><code class="language-bash">cd tools
+ChangeSet / Baseline</code></pre><h2>What v5.4 adds</h2><ul><li><code>application</code> is a first-class typed entity under <code>docs/24-applications/</code>.</li><li><code>applications</code> is a typed relation that can connect Features/Tasks to deployable app boundaries.</li><li><code>registry/source-profiles.json</code> defines stack-specific source conventions.</li><li><code>source-bases/</code> contains versioned bootstrap skeletons for React SPA, Next.js, React Native/Expo, Flutter/BLoC, iOS/SwiftUI and Android/Compose.</li><li><code>.project-docs/source.lock.json</code> records source-base/adoption provenance.</li><li><code>source:init</code> materializes a Source Base into project source.</li><li><code>source:adopt</code> registers an existing codebase without forcing a move.</li><li><code>source:check</code> validates application roots against their selected Source Profile/Base.</li><li><code>source:upgrade-check</code> reports newer base versions but never overwrites project source.</li><li>WorkPlan schema <code>1.2</code> snapshots <code>applicationScope</code>.</li><li>Static docs add a <strong>Source Workspace</strong> page.</li></ul><h2>Source workspace convention</h2><p>For new projects prefer:</p><pre><code class="language-text">apps/
+├── web/
+├── api/
+├── mobile/
+└── ...
+packages/
+├── shared/
+├── contracts/
+└── ...</code></pre><p>The root layout is stable across stacks; the internal layout of each app is selected by its Source Profile. Existing projects may keep <code>frontend/</code>, <code>mobile/</code>, or other roots and register them with <code>source:adopt</code>.</p><h2>Source Base vs Capability Pack</h2><ul><li><strong>Source Base</strong> = technology/application bootstrap skeleton.</li><li><strong>Capability Pack</strong> = reusable product/domain capability documentation.</li><li><strong>Pattern Pack</strong> = reusable implementation/documentation pattern.</li><li><strong>Standard</strong> = rules and constraints.</li></ul><p>After <code>source:init</code>, the copied code becomes project-owned canonical source. Source Bases are not live dependencies.</p><h2>Start</h2><ul><li>Read <code>START_HERE.md</code>.</li><li>Configure documentation depth in <code>project.profile.json</code>.</li><li>Choose application/source profile(s).</li><li>For a new app run <code>source:init</code>; for existing code run <code>source:adopt</code>.</li><li>Map Features to application entities using <code>related.applications</code>.</li><li>Run <code>cd tools &amp;&amp; npm ci &amp;&amp; npm run qa</code>.</li><li>Use Ready → WorkPlan → Tasks before implementation.</li></ul><h2>Key source commands</h2><pre><code class="language-bash">cd tools
 
-npm run spec:status
-npm run spec:recommend -- --feature FEAT-DASHBOARD
-npm run spec:check -- --feature FEAT-DASHBOARD
-npm run spec:promote -- --feature FEAT-DASHBOARD --to standard
-
-npm run impact -- --entity REQ-AUTH-001
-npm run doc:check -- --entity FEAT-AUTH-LOGIN
-npm run doc:reconcile -- --entity FEAT-AUTH-LOGIN --reviewer &quot;Reviewer&quot;
-
-npm run gate:ready -- --feature FEAT-AUTH-LOGIN
-npm run plan:scaffold -- --feature FEAT-AUTH-LOGIN
-npm run plan:author-complete -- --id WP-... --actor &quot;Author&quot;
-npm run plan:submit -- --id WP-...
-npm run plan:approve -- --id WP-... --reviewer &quot;Reviewer&quot;
-npm run plan:materialize -- --id WP-... --owner &quot;Engineering&quot;
-npm run gate:done -- --feature FEAT-AUTH-LOGIN
-
-npm run qa</code></pre><p>See <code>docs/history/V5_3_UPGRADE_NOTES.md</code>, <code>docs/history/V5_3_QA_REPORT.md</code>, <code>docs/history/README.md</code>, and <code>standards/repository-entry-hygiene.md</code> for v5.3 details.</p></main><script src="assets/app.js"></script><script type="module">if(document.querySelector('.mermaid')){import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs').then(m=>{m.default.initialize({startOnLoad:true,securityLevel:'loose'});});}</script></body></html>
+npm run source:list
+npm run source:recommend -- --type web --stack reactjs
+npm run source:init -- --code APP-WEB --profile react-spa --variant production
+npm run source:adopt -- --code APP-WEB --profile react-spa --root frontend
+npm run source:check
+npm run source:status
+npm run source:upgrade-check -- --app APP-WEB</code></pre><p>All v5.0-v5.3 governance remains: Request/WorkPlan/Task, Progressive Specification, freshness, impact analysis, ChangeSets, Baselines and root-history hygiene.</p><p>See <code>docs/history/V5_4_UPGRADE_NOTES.md</code>, <code>docs/history/V5_4_QA_REPORT.md</code>, <code>standards/source-workspace.md</code> and <code>standards/source-base-governance.md</code>.</p></main><script src="assets/app.js"></script><script type="module">if(document.querySelector('.mermaid')){import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs').then(m=>{m.default.initialize({startOnLoad:true,securityLevel:'loose'});});}</script></body></html>

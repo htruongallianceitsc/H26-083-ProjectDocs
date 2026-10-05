@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "1.0",
+  "sourceBaseId": "react-spa",
+  "version": "1.0.0",
+  "sourceProfile": "react-spa",
+  "applicationType": "web",
+  "technologyStack": "reactjs",
+  "description": "v5.4 starter source base for react-spa.",
+  "variants": {
+    "minimal": {
+      "template": "variants/minimal/template",
+      "requiredPaths": [
+        "package.json",
+        "src/main.tsx",
+        "src/app/App.tsx",
+        "index.html",
+        "tsconfig.json",
+        "vite.config.ts"
+      ],
+      "commands": {
+        "install": "npm install",
+        "dev": "npm run dev",
+        "build": "npm run build"
+      }
+    },
+    "production": {
+      "template": "variants/production/template",
+      "requiredPaths": [
+        "package.json",
+        "src/main.tsx",
+        "src/app/App.tsx",
+        "src/features",
+        "src/services/http/client.ts",
+        "src/app/queryClient.ts",
+        "index.html",
+        "tsconfig.json",
+        "vite.config.ts"
+      ],
+      "commands": {
+        "install": "npm install",
+        "dev": "npm run dev",
+        "build": "npm run build",
+        "test": "npm test"
+      }
+    }
+  }
+}

@@ -1,4 +1,4 @@
-# Documentation Toolchain v5.3
+# Documentation Toolchain v5.4
 
 Requires Node.js 20+. No third-party npm runtime dependencies are required.
 
@@ -61,3 +61,19 @@ npm run pack:validate
 ## Root/history hygiene
 
 Historical version upgrade/QA records live in `docs/history/`. `docs:validate` reads `starter-kit.json.documentationLayout.rootHistoryPatterns` and fails with `ROOT_HISTORY_DOC` if a matching historical file is placed at repository root.
+
+
+## Source workspace commands (v5.4)
+
+```bash
+npm run source:list
+npm run source:validate
+npm run source:recommend -- --type web --stack reactjs
+npm run source:init -- --code APP-WEB --profile react-spa --variant production
+npm run source:adopt -- --code APP-WEB --profile react-spa --root frontend
+npm run source:check
+npm run source:status
+npm run source:upgrade-check -- --app APP-WEB
+```
+
+`source:validate` validates bundled Source Base manifests/templates. `source:check` validates configured project applications.

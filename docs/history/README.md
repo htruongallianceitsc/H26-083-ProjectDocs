@@ -20,3 +20,8 @@ Historical files may keep their original filenames so old citations and release 
 ## Validation
 
 `npm run docs:validate` enforces the configured root-history patterns from `starter-kit.json`. A historical release/upgrade file matching those patterns at repository root is a validation error.
+
+## v5.4
+
+- `V5_4_UPGRADE_NOTES.md` — Source Workspace & Starter Code Profiles.
+- `V5_4_QA_REPORT.md` — source bootstrap/adoption and regression evidence.

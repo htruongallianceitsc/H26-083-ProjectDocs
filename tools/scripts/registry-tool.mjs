@@ -11,7 +11,8 @@ const sources = [
   ['readiness-rules.json', 'readiness-rules.yaml'],
   ['freshness-rules.json', 'freshness-rules.yaml'],
   ['impact-rules.json', 'impact-rules.yaml'],
-  ['spec-profiles.json', 'spec-profiles.yaml']
+  ['spec-profiles.json', 'spec-profiles.yaml'],
+  ['source-profiles.json', 'source-profiles.yaml']
 ];
 
 function quote(value) {
@@ -70,6 +71,7 @@ function check() {
   const freshness = loadJson('registry/freshness-rules.json', {tracking:{}});
   const impact = loadJson('registry/impact-rules.json', {relations:[]});
   const spec = loadJson('registry/spec-profiles.json', {levels:[],profiles:{}});
+  const sourceProfiles = loadJson('registry/source-profiles.json', {profiles:{}});
   const legacy = ['entity-types.yaml','relation-map.yaml','quality-rules.yaml','status-lifecycle.yaml'];
   for (const f of legacy) if (fs.existsSync(path.join(ROOT,'registry',f))) errors.push(`Legacy hand-maintained registry mirror still exists: registry/${f}`);
   for (const r of relations) {
@@ -110,6 +112,14 @@ function check() {
   }
   for (const rule of spec.riskEscalation?.rules || []) if (!specLevels.has(rule.minimumLevel)) errors.push(`spec-profiles: risk rule ${rule.id} has invalid minimumLevel ${rule.minimumLevel}`);
 
+  const technologyStacks = loadJson('registry/technology-stacks.json', {stacks:{}}).stacks || {};
+  for (const [id, cfg] of Object.entries(sourceProfiles.profiles || {})) {
+    if (!cfg.applicationType) errors.push(`source-profiles: ${id} missing applicationType`);
+    if (!cfg.technologyStack || !technologyStacks[cfg.technologyStack]) errors.push(`source-profiles: ${id} references unknown technologyStack ${cfg.technologyStack}`);
+    if (!cfg.defaultRoot) errors.push(`source-profiles: ${id} missing defaultRoot`);
+    if (cfg.sourceBase && !fs.existsSync(path.join(ROOT, 'source-bases', cfg.sourceBase))) errors.push(`source-profiles: ${id} sourceBase not found ${cfg.sourceBase}`);
+  }
+
   for (const [source,target] of sources) {
     const p = path.join(generatedDir,target);
     if (!fs.existsSync(p)) errors.push(`Missing generated mirror registry/_generated/${target}; run npm run registry:sync`);
@@ -119,7 +129,7 @@ function check() {
   if (!fs.existsSync(statusPath)) errors.push('Missing generated mirror registry/_generated/status-lifecycle.yaml; run npm run registry:sync');
   else if (fs.readFileSync(statusPath,'utf8') !== statusLifecycleText()) errors.push('Generated mirror drift: registry/_generated/status-lifecycle.yaml');
   const starter = loadJson('starter-kit.json',{});
-  if (starter.version !== '5.3.0' || starter.schemaVersion !== '5.3.0') errors.push(`starter-kit.json expected version/schemaVersion 5.3.0, got ${starter.version}/${starter.schemaVersion}`);
+  if (starter.version !== '5.4.0' || starter.schemaVersion !== '5.4.0') errors.push(`starter-kit.json expected version/schemaVersion 5.4.0, got ${starter.version}/${starter.schemaVersion}`);
   const layout = starter.documentationLayout || {};
   if (!layout.historyDirectory) errors.push('starter-kit.json documentationLayout.historyDirectory is required');
   else if (!fs.existsSync(path.join(ROOT, layout.historyDirectory))) errors.push(`Configured history directory does not exist: ${layout.historyDirectory}`);

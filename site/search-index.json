@@ -5,12 +5,12 @@
     "text": "CAPABILITY_PACKS.md"
   },
   {
-    "title": "Documentation Governance v5.3",
+    "title": "Documentation Governance v5.4",
     "path": "pages/docs-governance.html",
     "text": "DOCS_GOVERNANCE.md"
   },
   {
-    "title": "File Catalog — v5.3",
+    "title": "File Catalog — v5.4",
     "path": "pages/file-catalog.html",
     "text": "FILE_CATALOG.md"
   },
@@ -20,7 +20,7 @@
     "text": "PROJECT_BLUEPRINT.md"
   },
   {
-    "title": "Production Project Documentation Starter Kit v5.3",
+    "title": "Production Project Documentation Starter Kit v5.4",
     "path": "pages/readme.html",
     "text": "README.md"
   },
@@ -30,7 +30,7 @@
     "text": "REUSE_STRATEGY_V4.md"
   },
   {
-    "title": "START HERE — v5.3",
+    "title": "START HERE — v5.4",
     "path": "pages/start-here.html",
     "text": "START_HERE.md"
   },
@@ -245,6 +245,11 @@
     "text": "docs/23-bugs/README.md"
   },
   {
+    "title": "Applications",
+    "path": "pages/docs-24-applications-readme.html",
+    "text": "docs/24-applications/README.md"
+  },
+  {
     "title": "Project Documentation Source",
     "path": "pages/docs-readme.html",
     "text": "docs/README.md"
@@ -315,6 +320,16 @@
     "text": "docs/history/V5_3_UPGRADE_NOTES.md"
   },
   {
+    "title": "v5.4 QA Report",
+    "path": "pages/docs-history-v5-4-qa-report.html",
+    "text": "docs/history/V5_4_QA_REPORT.md"
+  },
+  {
+    "title": "v5.4 Upgrade Notes — Source Workspace & Starter Code Profiles",
+    "path": "pages/docs-history-v5-4-upgrade-notes.html",
+    "text": "docs/history/V5_4_UPGRADE_NOTES.md"
+  },
+  {
     "title": "v5.0 QA Report",
     "path": "pages/docs-history-v5-qa-report.html",
     "text": "docs/history/V5_QA_REPORT.md"
@@ -325,7 +340,7 @@
     "text": "docs/history/V5_UPGRADE_NOTES.md"
   },
   {
-    "title": "Master Prompt — Documentation-First Project Orchestrator v5.3",
+    "title": "Master Prompt — Documentation-First Project Orchestrator v5.4",
     "path": "pages/prompts-00-master-orchestrator-prompt.html",
     "text": "prompts/00-master-orchestrator-prompt.md"
   },
@@ -530,7 +545,22 @@
     "text": "prompts/40-spec-promotion-review.md"
   },
   {
-    "title": "Registry Governance — v5.3",
+    "title": "Source Profile Selection",
+    "path": "pages/prompts-41-source-profile-selection.html",
+    "text": "prompts/41-source-profile-selection.md"
+  },
+  {
+    "title": "Source Bootstrap",
+    "path": "pages/prompts-42-source-bootstrap.html",
+    "text": "prompts/42-source-bootstrap.md"
+  },
+  {
+    "title": "Existing Source Adoption",
+    "path": "pages/prompts-43-existing-source-adoption.html",
+    "text": "prompts/43-existing-source-adoption.md"
+  },
+  {
+    "title": "Registry Governance — v5.4",
     "path": "pages/registry-readme.html",
     "text": "registry/README.md"
   },
@@ -550,7 +580,7 @@
     "text": "standards/ADDING_A_STACK.md"
   },
   {
-    "title": "Standards Architecture v5.3",
+    "title": "Standards Architecture v5.4",
     "path": "pages/standards-readme.html",
     "text": "standards/README.md"
   },
@@ -835,9 +865,19 @@
     "text": "standards/security-and-secrets.md"
   },
   {
+    "title": "Source Base Governance",
+    "path": "pages/standards-source-base-governance.html",
+    "text": "standards/source-base-governance.md"
+  },
+  {
     "title": "Source of Truth Rules",
     "path": "pages/standards-source-of-truth.html",
     "text": "standards/source-of-truth.md"
+  },
+  {
+    "title": "Source Workspace Standard",
+    "path": "pages/standards-source-workspace.html",
+    "text": "standards/source-workspace.md"
   },
   {
     "title": "Technology Stack Standards",
@@ -935,6 +975,16 @@
     "text": "standards/stacks/database/postgresql/schema-conventions.md"
   },
   {
+    "title": "Android Compose Architecture",
+    "path": "pages/standards-stacks-mobile-android-compose-architecture.html",
+    "text": "standards/stacks/mobile/android-compose/architecture.md"
+  },
+  {
+    "title": "Android Compose Lifecycle, Navigation and Storage",
+    "path": "pages/standards-stacks-mobile-android-compose-lifecycle-navigation-storage.html",
+    "text": "standards/stacks/mobile/android-compose/lifecycle-navigation-storage.md"
+  },
+  {
     "title": "Architecture",
     "path": "pages/standards-stacks-mobile-flutter-architecture.html",
     "text": "standards/stacks/mobile/flutter/architecture.md"
@@ -970,6 +1020,16 @@
     "text": "standards/stacks/mobile/flutter/testing-release.md"
   },
   {
+    "title": "iOS SwiftUI Architecture",
+    "path": "pages/standards-stacks-mobile-ios-swiftui-architecture.html",
+    "text": "standards/stacks/mobile/ios-swiftui/architecture.md"
+  },
+  {
+    "title": "iOS SwiftUI Lifecycle, Navigation and Storage",
+    "path": "pages/standards-stacks-mobile-ios-swiftui-lifecycle-navigation-storage.html",
+    "text": "standards/stacks/mobile/ios-swiftui/lifecycle-navigation-storage.md"
+  },
+  {
     "title": "Architecture",
     "path": "pages/standards-stacks-mobile-react-native-architecture.html",
     "text": "standards/stacks/mobile/react-native/architecture.md"
@@ -1003,6 +1063,21 @@
     "title": "Testing Release",
     "path": "pages/standards-stacks-mobile-react-native-testing-release.html",
     "text": "standards/stacks/mobile/react-native/testing-release.md"
+  },
+  {
+    "title": "Next.js Architecture Standard",
+    "path": "pages/standards-stacks-web-nextjs-architecture.html",
+    "text": "standards/stacks/web/nextjs/architecture.md"
+  },
+  {
+    "title": "Next.js Rendering and Routing",
+    "path": "pages/standards-stacks-web-nextjs-rendering-routing.html",
+    "text": "standards/stacks/web/nextjs/rendering-routing.md"
+  },
+  {
+    "title": "Next.js Testing and Deployment",
+    "path": "pages/standards-stacks-web-nextjs-testing-deployment.html",
+    "text": "standards/stacks/web/nextjs/testing-deployment.md"
   },
   {
     "title": "Architecture",
@@ -1053,6 +1128,11 @@
     "title": "<TITLE>",
     "path": "pages/templates-api-template.html",
     "text": "templates/api-template.md"
+  },
+  {
+    "title": "Web Application",
+    "path": "pages/templates-application-template.html",
+    "text": "templates/application-template.md"
   },
   {
     "title": "<Architecture Document>",
@@ -1235,7 +1315,7 @@
     "text": "templates/test-case-template.md"
   },
   {
-    "title": "Documentation Toolchain v5.3",
+    "title": "Documentation Toolchain v5.4",
     "path": "pages/tools-readme.html",
     "text": "tools/README.md"
   },
@@ -1353,6 +1433,11 @@
     "title": "Workflow 16 — Progressive Specification / Lightweight Mode",
     "path": "pages/workflows-16-progressive-specification.html",
     "text": "workflows/16-progressive-specification.md"
+  },
+  {
+    "title": "Workflow 17 — Source Workspace Bootstrap / Adoption",
+    "path": "pages/workflows-17-source-workspace-bootstrap.html",
+    "text": "workflows/17-source-workspace-bootstrap.md"
   },
   {
     "title": "End-to-End Documentation Checklist",

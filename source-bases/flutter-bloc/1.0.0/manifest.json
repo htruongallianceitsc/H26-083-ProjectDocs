@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "1.0",
+  "sourceBaseId": "flutter-bloc",
+  "version": "1.0.0",
+  "sourceProfile": "flutter-bloc",
+  "applicationType": "mobile",
+  "technologyStack": "flutter",
+  "description": "v5.4 starter source base for flutter-bloc.",
+  "variants": {
+    "minimal": {
+      "template": "variants/minimal/template",
+      "requiredPaths": [
+        "pubspec.yaml",
+        "lib/main.dart",
+        "lib/app/app.dart"
+      ],
+      "commands": {
+        "install": "flutter pub get",
+        "dev": "flutter run",
+        "test": "flutter test"
+      }
+    },
+    "production": {
+      "template": "variants/production/template",
+      "requiredPaths": [
+        "pubspec.yaml",
+        "lib/main.dart",
+        "lib/app/app.dart",
+        "lib/features",
+        "lib/core/network",
+        "lib/core/storage",
+        "lib/core/navigation"
+      ],
+      "commands": {
+        "install": "flutter pub get",
+        "dev": "flutter run",
+        "test": "flutter test"
+      }
+    }
+  }
+}

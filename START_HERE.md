@@ -1,88 +1,62 @@
-# START HERE — v5.3
+# START HERE — v5.4
 
-## 1. Configure the project and documentation depth
+## 1. Decide documentation maturity
 
-Fill `project.profile.json` from `PROJECT_PROFILE.example.json`.
+Configure `project.profile.json` with project type, technology stacks, default Spec Level and target maturity.
 
-Recommended starting point:
+## 2. Decide application boundaries
 
-```json
-{
-  "documentation": {
-    "defaultSpecLevel": "standard",
-    "targetMaturity": "production",
-    "riskEscalation": "warn"
-  }
-}
-```
+A deployable application should have an `application` entity. Typical examples:
 
-For a mock/POC project, use `lightweight` + `prototype`. For mixed projects, keep a project default and override individual Features.
+- `APP-WEB` → React SPA or Next.js
+- `APP-API` → ASP.NET Core / Node.js API
+- `APP-MOBILE` → React Native / Flutter
+- `APP-IOS` / `APP-ANDROID` → native mobile apps
 
-## 2. Choose depth before generating detailed docs
+## 3. Bootstrap or adopt source
+
+New project:
 
 ```bash
 cd tools
-npm run spec:status
-npm run spec:recommend -- --feature FEAT-...
+npm run source:list
+npm run source:init -- --code APP-WEB --profile react-spa --variant production
 ```
 
-Use:
-
-- Lightweight — low-risk mock/POC/prototype.
-- Standard — normal product delivery.
-- Full — sensitive/high-impact production work.
-- Auto — tooling recommends effective depth from maturity and risk.
-
-## 3. Lightweight still means documented
-
-Use `templates/lightweight-feature-template.md`. Capture Goal, Actors, Main Flow, Key Rules, Acceptance and known impact. Do not create Requirement/Test/API/DB documents merely to fill folders.
-
-## 4. Build documentation before tasks
-
-```text
-Idea → Discovery → Scope → Blueprint → Reuse decision
-→ Select Spec Level
-→ Canonical Feature documentation at current depth
-→ Freshness / Mode-aware Ready Gate → WorkPlan → Tasks
-→ Implementation → Documentation reconciliation
-→ Done Gate → ChangeSet / Baseline
-```
-
-## 5. Validate the selected depth
+Existing project:
 
 ```bash
+npm run source:adopt -- --code APP-WEB --profile react-spa --root frontend
+```
+
+`source:init` copies a versioned Source Base. `source:adopt` registers existing code in place. Both create an Application entity and source provenance lock.
+
+## 4. Build documentation first
+
+Create/confirm Module → Feature → Requirements/Rules → Screen/API/DB/Test as required by the selected Spec Level. Add `related.applications` to Features that have an implementation boundary.
+
+## 5. Check readiness and source workspace
+
+```bash
+npm run source:check
 npm run spec:check -- --feature FEAT-...
 npm run gate:ready -- --feature FEAT-...
 ```
 
-## 6. Promote only when needed
+## 6. Create reviewed WorkPlan
 
-Before UAT/production hardening or when risk increases:
+`plan:scaffold` now snapshots `applicationScope`, so implementation tasks know which app boundary they belong to.
 
-```bash
-npm run spec:promote -- --feature FEAT-... --to standard
-```
+## 7. Implement and reconcile
 
-The command creates a gap report under `.project-docs/spec-promotions/` and does not invent missing behaviour. After gaps are resolved:
+Implement only against the approved WorkPlan, then reconcile docs/freshness and pass the Done Gate.
 
-```bash
-npm run spec:promote -- --feature FEAT-... --to standard --apply
-```
+## 8. Never auto-upgrade Source Base
 
-## 7. Continue v5.1 governance
+Use `source:upgrade-check`. A Source Base upgrade is a reviewed migration, not an overwrite operation.
 
-Before significant edits, run impact analysis. Reconcile important Feature docs for freshness tracking. Capture durable Requests, use reviewed WorkPlans, reconcile after implementation, and record ChangeSets/Baselines at meaningful boundaries.
-
-## 8. Run full QA
+## 9. Run full QA
 
 ```bash
 npm run qa
 ```
-
-QA covers registry drift, spec profile compliance, mode-aware gates, reuse, traceability, freshness, impact, change history and the static documentation site.
-
-## 9. Keep root as an entry surface
-
-Historical upgrade notes, QA reports and transition records belong in `docs/history/`. Do not create future `V*_UPGRADE_NOTES.md` or `V*_QA_REPORT.md` files at repository root.
-
-`npm run docs:validate` enforces the configured history patterns and reports `ROOT_HISTORY_DOC` if such files reappear at root.

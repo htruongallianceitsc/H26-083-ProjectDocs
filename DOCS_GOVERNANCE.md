@@ -1,4 +1,4 @@
-# Documentation Governance v5.3
+# Documentation Governance v5.4
 
 ## Principle
 
@@ -49,3 +49,15 @@ Do not weaken spec, freshness, Ready/Done, WorkPlan or reuse policies just to cl
 Repository root is an entry surface, not a version archive. Version upgrade notes, QA reports and historical migration/review notes belong in `docs/history/`. Current reference documents may remain at root even when their filenames contain an older version marker if they are still active guidance.
 
 `starter-kit.json.documentationLayout` defines the canonical history directory and root-history filename patterns. `docs:validate` blocks matching historical files at root.
+
+
+## v5.4 Source Workspace Governance
+
+1. Documentation and source may live in the same project workspace.
+2. `application` entities are the canonical deployable-boundary records.
+3. Feature-to-source ownership uses typed `related.applications` relations.
+4. `.project-docs/source.lock.json` stores provenance, not business truth.
+5. Source Bases are copied once; project source becomes canonical after materialization.
+6. Existing code is adopted in place with `source:adopt`; source movement is not required.
+7. Source Base upgrades must be reviewed migrations and must not overwrite project source automatically.
+8. v6 source/Git intelligence should build on Application boundaries rather than inventing source ownership from filenames.

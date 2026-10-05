@@ -1,4 +1,4 @@
-# Standards Architecture v5.3
+# Standards Architecture v5.4
 
 Standards resolve in this order:
 
@@ -11,3 +11,6 @@ Standards resolve in this order:
 v5.2 introduced Progressive Specification as core governance. v5.3 keeps that behavior and adds repository-entry hygiene so chronological upgrade/QA history no longer dilutes the root entry surface.
 
 Standards define rules. Capability Packs must still comply with applicable standards and the selected spec level must not be used to bypass safety/production requirements.
+
+
+v5.4 adds `source-workspace.md` and `source-base-governance.md` so implementation roots and bootstrap templates are governed alongside documentation.

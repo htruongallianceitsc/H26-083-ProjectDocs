@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Source Base Manifest",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "sourceBaseId",
+    "version",
+    "sourceProfile",
+    "applicationType",
+    "variants"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "string"
+    },
+    "sourceBaseId": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "sourceProfile": {
+      "type": "string"
+    },
+    "applicationType": {
+      "type": "string"
+    },
+    "technologyStack": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "variants": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "template",
+          "requiredPaths"
+        ],
+        "properties": {
+          "template": {
+            "type": "string"
+          },
+          "requiredPaths": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "commands": {
+            "type": "object"
+          }
+        }
+      }
+    }
+  }
+}

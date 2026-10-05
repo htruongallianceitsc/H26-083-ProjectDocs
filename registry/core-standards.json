@@ -18,6 +18,8 @@
     "standards/change-history-and-baselines.md",
     "standards/impact-analysis.md",
     "standards/progressive-specification.md",
-    "standards/repository-entry-hygiene.md"
+    "standards/repository-entry-hygiene.md",
+    "standards/source-workspace.md",
+    "standards/source-base-governance.md"
   ]
 }

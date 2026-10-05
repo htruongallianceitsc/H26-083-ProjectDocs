@@ -1,109 +1,94 @@
-# Production Project Documentation Starter Kit v5.3
+# Production Project Documentation Starter Kit v5.4
 
-Documentation-first starter kit for long-lived Web, Mobile and API projects, with progressive documentation depth for prototypes through production.
+Documentation-first starter kit for long-lived Web, Mobile and API projects, now with a governed source workspace and versioned Source Base bootstrap profiles.
 
 ## Core model
 
 ```text
 Idea / Request
       ↓
-Select Spec Level (Lightweight / Standard / Full / Auto)
+Select Spec Level
       ↓
-Project-local canonical documentation
+Canonical Docs + Application Boundaries
       ↓
-Typed traceability + impact analysis
+Ready Gate
       ↓
-Dependency freshness review
-      ↓
-Mode-aware Ready Gate
-      ↓
-Reviewed WorkPlan
+Reviewed WorkPlan (with application/source scope)
       ↓
 Implementation Tasks
       ↓
-Documentation reconciliation
+apps/* / adopted source roots
       ↓
-Mode-aware Done Gate
+Documentation reconciliation + Done Gate
       ↓
-Semantic ChangeSet / Baseline
+ChangeSet / Baseline
 ```
 
-## What v5.3 changes
+## What v5.4 adds
 
-v5.3 is a repository-entry cleanup release. Historical upgrade and QA records no longer compete with the documents people should open first.
+- `application` is a first-class typed entity under `docs/24-applications/`.
+- `applications` is a typed relation that can connect Features/Tasks to deployable app boundaries.
+- `registry/source-profiles.json` defines stack-specific source conventions.
+- `source-bases/` contains versioned bootstrap skeletons for React SPA, Next.js, React Native/Expo, Flutter/BLoC, iOS/SwiftUI and Android/Compose.
+- `.project-docs/source.lock.json` records source-base/adoption provenance.
+- `source:init` materializes a Source Base into project source.
+- `source:adopt` registers an existing codebase without forcing a move.
+- `source:check` validates application roots against their selected Source Profile/Base.
+- `source:upgrade-check` reports newer base versions but never overwrites project source.
+- WorkPlan schema `1.2` snapshots `applicationScope`.
+- Static docs add a **Source Workspace** page.
 
-- `docs/history/` is now the canonical home for version upgrade notes, QA reports and historical upgrade/migration reviews.
-- Prior `V3_*`, `V4_*`, `V5_*` upgrade/QA records were moved there.
-- `REVIEW_UPGRADE_NOTES.md` was moved there as historical transition material.
-- Current reference material such as `REUSE_STRATEGY_V4.md` stays at root when it is still an active strategy document; classification is based on purpose, not just a version-looking filename.
-- `standards/repository-entry-hygiene.md` defines the root/history rule.
-- `starter-kit.json.documentationLayout` carries machine-readable history placement policy.
-- `docs:validate` now fails with `ROOT_HISTORY_DOC` if historical release/upgrade files matching configured patterns return to root.
-- E2E regression covers the negative root-history case.
+## Source workspace convention
 
-## Progressive Specification inherited from v5.2
+For new projects prefer:
 
-The v5.2 Lightweight/Standard/Full/Auto model remains unchanged:
+```text
+apps/
+├── web/
+├── api/
+├── mobile/
+└── ...
+packages/
+├── shared/
+├── contracts/
+└── ...
+```
 
-- project default `documentation.defaultSpecLevel`;
-- Feature-level `spec_level` override;
-- `target_maturity`: concept / prototype / UAT / production;
-- policy-driven `registry/spec-profiles.json`;
-- Lightweight Feature template with minimum viable documentation;
-- mode-aware Ready/Done gates;
-- risk/maturity recommendation and configurable escalation (`warn|block|off`);
-- `spec:status`, `spec:check`, `spec:recommend`, `spec:promote`;
-- promotion gap reports without inventing missing requirements;
-- WorkPlans snapshot effective spec level and maturity.
+The root layout is stable across stacks; the internal layout of each app is selected by its Source Profile. Existing projects may keep `frontend/`, `mobile/`, or other roots and register them with `source:adopt`.
 
-v5.3 also keeps all v5.1 freshness, impact, ChangeSet and Baseline governance.
+## Source Base vs Capability Pack
+
+- **Source Base** = technology/application bootstrap skeleton.
+- **Capability Pack** = reusable product/domain capability documentation.
+- **Pattern Pack** = reusable implementation/documentation pattern.
+- **Standard** = rules and constraints.
+
+After `source:init`, the copied code becomes project-owned canonical source. Source Bases are not live dependencies.
 
 ## Start
 
 1. Read `START_HERE.md`.
-2. Configure `project.profile.json`.
-3. Choose the default documentation depth intentionally.
-4. Run `cd tools && npm ci && npm run qa`.
-5. Build documentation at the current maturity instead of maximizing detail by default.
-6. Promote a Feature only when its delivery maturity/risk requires deeper specification.
-7. Put future version upgrade/QA records directly under `docs/history/`, never at root.
+2. Configure documentation depth in `project.profile.json`.
+3. Choose application/source profile(s).
+4. For a new app run `source:init`; for existing code run `source:adopt`.
+5. Map Features to application entities using `related.applications`.
+6. Run `cd tools && npm ci && npm run qa`.
+7. Use Ready → WorkPlan → Tasks before implementation.
 
-## Sources of truth
-
-- Project/domain truth: project-local Markdown under `docs/`.
-- Historical release/upgrade records: `docs/history/`.
-- Machine-readable policy: canonical JSON under `registry/` plus layout policy in `starter-kit.json`.
-- Spec promotion reports: `.project-docs/spec-promotions/`.
-- WorkPlan state: `.project-docs/workplans/`.
-- Freshness review state: `.project-docs/freshness/`.
-- Semantic history: `.project-docs/changesets/` and `.project-docs/audit-state.json`.
-- Named snapshots: `.project-docs/baselines/`.
-- Reuse state: `.project-docs/packs.lock.json`, snapshots and proposals.
-- Generated site/reports: derived and rebuildable.
-
-## Key commands
+## Key source commands
 
 ```bash
 cd tools
 
-npm run spec:status
-npm run spec:recommend -- --feature FEAT-DASHBOARD
-npm run spec:check -- --feature FEAT-DASHBOARD
-npm run spec:promote -- --feature FEAT-DASHBOARD --to standard
-
-npm run impact -- --entity REQ-AUTH-001
-npm run doc:check -- --entity FEAT-AUTH-LOGIN
-npm run doc:reconcile -- --entity FEAT-AUTH-LOGIN --reviewer "Reviewer"
-
-npm run gate:ready -- --feature FEAT-AUTH-LOGIN
-npm run plan:scaffold -- --feature FEAT-AUTH-LOGIN
-npm run plan:author-complete -- --id WP-... --actor "Author"
-npm run plan:submit -- --id WP-...
-npm run plan:approve -- --id WP-... --reviewer "Reviewer"
-npm run plan:materialize -- --id WP-... --owner "Engineering"
-npm run gate:done -- --feature FEAT-AUTH-LOGIN
-
-npm run qa
+npm run source:list
+npm run source:recommend -- --type web --stack reactjs
+npm run source:init -- --code APP-WEB --profile react-spa --variant production
+npm run source:adopt -- --code APP-WEB --profile react-spa --root frontend
+npm run source:check
+npm run source:status
+npm run source:upgrade-check -- --app APP-WEB
 ```
 
-See `docs/history/V5_3_UPGRADE_NOTES.md`, `docs/history/V5_3_QA_REPORT.md`, `docs/history/README.md`, and `standards/repository-entry-hygiene.md` for v5.3 details.
+All v5.0-v5.3 governance remains: Request/WorkPlan/Task, Progressive Specification, freshness, impact analysis, ChangeSets, Baselines and root-history hygiene.
+
+See `docs/history/V5_4_UPGRADE_NOTES.md`, `docs/history/V5_4_QA_REPORT.md`, `standards/source-workspace.md` and `standards/source-base-governance.md`.

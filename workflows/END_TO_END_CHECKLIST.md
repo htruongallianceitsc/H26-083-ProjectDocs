@@ -108,3 +108,13 @@
 - [ ] Ready gate is evaluated against the effective spec profile.
 - [ ] Before maturity increases, `spec:promote` gap report is reviewed and resolved.
 - [ ] Promotion preserves Feature identity and does not invent requirements.
+
+
+## Source workspace
+
+- [ ] Application boundaries documented
+- [ ] New apps bootstrapped from an approved Source Profile/Base or existing source adopted
+- [ ] `.project-docs/source.lock.json` reviewed
+- [ ] `source:check` passes
+- [ ] Features map to the correct Applications
+- [ ] WorkPlan applicationScope matches intended implementation boundaries

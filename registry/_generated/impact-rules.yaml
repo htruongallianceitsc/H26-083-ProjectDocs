@@ -5,6 +5,9 @@ defaults:
   maxDepth: 3
   maxNodes: 100
 relations:
+  - field: applications
+    weight: 4
+    direction: both
   - field: requirements
     weight: 5
     direction: both

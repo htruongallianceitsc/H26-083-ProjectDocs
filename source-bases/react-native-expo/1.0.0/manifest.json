@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "1.0",
+  "sourceBaseId": "react-native-expo",
+  "version": "1.0.0",
+  "sourceProfile": "react-native-expo",
+  "applicationType": "mobile",
+  "technologyStack": "react-native",
+  "description": "v5.4 starter source base for react-native-expo.",
+  "variants": {
+    "minimal": {
+      "template": "variants/minimal/template",
+      "requiredPaths": [
+        "package.json",
+        "app.json",
+        "src/app/App.tsx",
+        "App.tsx"
+      ],
+      "commands": {
+        "install": "npm install",
+        "dev": "npm start"
+      }
+    },
+    "production": {
+      "template": "variants/production/template",
+      "requiredPaths": [
+        "package.json",
+        "app.json",
+        "src/app/App.tsx",
+        "src/features",
+        "src/navigation",
+        "src/services",
+        "src/storage",
+        "src/connectivity",
+        "src/notifications",
+        "App.tsx"
+      ],
+      "commands": {
+        "install": "npm install",
+        "dev": "npm start"
+      }
+    }
+  }
+}

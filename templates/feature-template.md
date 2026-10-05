@@ -11,6 +11,7 @@ spec_level: standard
 target_maturity: production
 tags: []
 related:
+  applications: []
   modules: []
   features: []
   requirements: []

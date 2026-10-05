@@ -70,7 +70,7 @@ export function parseFrontmatter(text) {
   return { data, body, raw, hasFrontmatter: true };
 }
 export function markdownFiles({ includeGenerated = false } = {}) {
-  const excluded = ['site/', 'node_modules/', 'tools/vendor/', 'reusable-modules/', 'reusable-patterns/', '.project-docs/'];
+  const excluded = ['site/', 'node_modules/', 'tools/vendor/', 'reusable-modules/', 'reusable-patterns/', '.project-docs/', 'apps/', 'packages/', 'tests/', 'infra/', 'source-bases/'];
   if (!includeGenerated) excluded.push('docs/_generated/');
   return walk(ROOT, p => p.endsWith('.md')).filter(p => !excluded.some(x => rel(p).startsWith(x)));
 }

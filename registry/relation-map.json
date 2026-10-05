@@ -216,6 +216,12 @@
       "field": "open_questions",
       "to": "open-question",
       "cardinality": "many-to-many"
+    },
+    {
+      "from": "*",
+      "field": "applications",
+      "to": "application",
+      "cardinality": "many-to-many"
     }
   ]
 }

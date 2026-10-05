@@ -1,0 +1,137 @@
+{
+  "generatedAt": "2026-10-05T02:42:47.021Z",
+  "applications": [],
+  "profiles": {
+    "react-spa": {
+      "applicationType": "web",
+      "technologyStack": "reactjs",
+      "defaultRoot": "apps/web",
+      "sourceBase": "react-spa",
+      "defaultVariant": "production",
+      "variants": [
+        "minimal",
+        "production"
+      ],
+      "projectType": "web",
+      "requiredPaths": [
+        "package.json",
+        "src/main.tsx",
+        "src/app/App.tsx"
+      ]
+    },
+    "nextjs": {
+      "applicationType": "web",
+      "technologyStack": "nextjs",
+      "defaultRoot": "apps/web",
+      "sourceBase": "nextjs",
+      "defaultVariant": "production",
+      "variants": [
+        "minimal",
+        "production"
+      ],
+      "projectType": "web",
+      "requiredPaths": [
+        "package.json",
+        "src/app/layout.tsx",
+        "src/app/page.tsx"
+      ]
+    },
+    "react-native-expo": {
+      "applicationType": "mobile",
+      "technologyStack": "react-native",
+      "defaultRoot": "apps/mobile",
+      "sourceBase": "react-native-expo",
+      "defaultVariant": "production",
+      "variants": [
+        "minimal",
+        "production"
+      ],
+      "projectType": "mobile",
+      "requiredPaths": [
+        "package.json",
+        "app.json",
+        "src/app/App.tsx"
+      ]
+    },
+    "flutter-bloc": {
+      "applicationType": "mobile",
+      "technologyStack": "flutter",
+      "defaultRoot": "apps/mobile",
+      "sourceBase": "flutter-bloc",
+      "defaultVariant": "production",
+      "variants": [
+        "minimal",
+        "production"
+      ],
+      "projectType": "mobile",
+      "requiredPaths": [
+        "pubspec.yaml",
+        "lib/main.dart",
+        "lib/app/app.dart"
+      ]
+    },
+    "ios-swiftui": {
+      "applicationType": "mobile",
+      "technologyStack": "ios-swiftui",
+      "defaultRoot": "apps/mobile-ios",
+      "sourceBase": "ios-swiftui",
+      "defaultVariant": "production",
+      "variants": [
+        "minimal",
+        "production"
+      ],
+      "projectType": "mobile",
+      "requiredPaths": [
+        "Sources/App/App.swift",
+        "Sources/Features/.gitkeep"
+      ]
+    },
+    "android-compose": {
+      "applicationType": "mobile",
+      "technologyStack": "android-compose",
+      "defaultRoot": "apps/mobile-android",
+      "sourceBase": "android-compose",
+      "defaultVariant": "production",
+      "variants": [
+        "minimal",
+        "production"
+      ],
+      "projectType": "mobile",
+      "requiredPaths": [
+        "settings.gradle.kts",
+        "app/build.gradle.kts",
+        "app/src/main/java/com/example/app/MainActivity.kt"
+      ]
+    },
+    "aspnet-core-api": {
+      "applicationType": "api",
+      "technologyStack": "dotnet-core-api",
+      "defaultRoot": "apps/api",
+      "sourceBase": null,
+      "defaultVariant": "production",
+      "variants": [
+        "minimal",
+        "production"
+      ],
+      "projectType": "api",
+      "requiredPaths": []
+    },
+    "nodejs-api": {
+      "applicationType": "api",
+      "technologyStack": "nodejs-api",
+      "defaultRoot": "apps/api",
+      "sourceBase": null,
+      "defaultVariant": "production",
+      "variants": [
+        "minimal",
+        "production"
+      ],
+      "projectType": "api",
+      "requiredPaths": []
+    }
+  },
+  "lock": {
+    "schemaVersion": "1.0",
+    "applications": {}
+  }
+}

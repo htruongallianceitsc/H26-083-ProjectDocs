@@ -41,6 +41,14 @@
     "estimate": "string",
     "source_request": "string",
     "spec_level": "string",
-    "target_maturity": "string"
+    "target_maturity": "string",
+    "application_type": "string",
+    "source_profile": "string",
+    "technology_stack": "string",
+    "source_root": "string",
+    "source_base": "string",
+    "source_base_version": "string",
+    "source_variant": "string",
+    "source_origin": "string"
   }
 }

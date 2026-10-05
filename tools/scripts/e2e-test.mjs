@@ -8,7 +8,7 @@ const here = path.dirname(fileURLToPath(import.meta.url));
 const toolsDir = path.resolve(here, '..');
 const sourceRoot = path.resolve(toolsDir, '..');
 const fixture = path.join(toolsDir, 'tests/fixtures/valid-project');
-const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'project-docs-v53-'));
+const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'project-docs-v54-'));
 
 function copy(src,dst){ fs.cpSync(src,dst,{recursive:true}); }
 function run(script, action, extra=[], expectOk=true){
@@ -28,12 +28,14 @@ try {
   copy(fixture,tempRoot);
   copy(path.join(sourceRoot,'registry'),path.join(tempRoot,'registry'));
   copy(path.join(sourceRoot,'starter-kit.json'),path.join(tempRoot,'starter-kit.json'));
+  copy(path.join(sourceRoot,'source-bases'),path.join(tempRoot,'source-bases'));
   fs.mkdirSync(path.join(tempRoot,'docs/history'),{recursive:true});
   fs.mkdirSync(path.join(tempRoot,'.project-docs/workplans'),{recursive:true});
   fs.mkdirSync(path.join(tempRoot,'.project-docs/freshness'),{recursive:true});
   fs.mkdirSync(path.join(tempRoot,'.project-docs/changesets'),{recursive:true});
   fs.mkdirSync(path.join(tempRoot,'.project-docs/baselines'),{recursive:true});
   fs.writeFileSync(path.join(tempRoot,'.project-docs/packs.lock.json'),'{'+'"schemaVersion":"1.0","packs":{}'+'}\n');
+  fs.writeFileSync(path.join(tempRoot,'.project-docs/source.lock.json'),'{'+'"schemaVersion":"1.0","applications":{}'+'}\n');
 
   run('docs-tool.mjs','validate');
   fs.writeFileSync(path.join(tempRoot,'V99_UPGRADE_NOTES.md'),'# Historical file in wrong location\n');
@@ -43,6 +45,34 @@ try {
   run('docs-tool.mjs','validate');
   const initial=run('docs-tool.mjs','sync');
   if(!/6 entities, 6 typed edges/.test(initial)) throw new Error(`Expected initial 6 entities / 6 edges, got:\n${initial}`);
+
+  run('source-tool.mjs','validate');
+  const sourceInit=run('source-tool.mjs','init',['--code','APP-WEB','--profile','react-spa','--variant','minimal','--title','Demo Web']);
+  if(!sourceInit.includes('Initialized APP-WEB')) throw new Error(`Source init failed:
+${sourceInit}`);
+  fs.mkdirSync(path.join(tempRoot,'legacy-web/src/app'),{recursive:true});
+  fs.writeFileSync(path.join(tempRoot,'legacy-web/package.json'),'{}\n');
+  fs.writeFileSync(path.join(tempRoot,'legacy-web/src/main.tsx'),'export {};\n');
+  fs.writeFileSync(path.join(tempRoot,'legacy-web/src/app/App.tsx'),'export {};\n');
+  const sourceAdopt=run('source-tool.mjs','adopt',['--code','APP-LEGACY','--profile','react-spa','--root','legacy-web','--title','Legacy Web']);
+  if(!sourceAdopt.includes('Adopted APP-LEGACY')) throw new Error(`Source adopt failed:
+${sourceAdopt}`);
+  const sourceCheck=run('source-tool.mjs','check');
+  if(!sourceCheck.includes('2 application(s)')) throw new Error(`Source check did not cover both apps:
+${sourceCheck}`);
+  const requiredSource=path.join(tempRoot,'apps/web/src/main.tsx'); const requiredSourceText=fs.readFileSync(requiredSource,'utf8'); fs.rmSync(requiredSource); const sourceNegative=run('source-tool.mjs','check',['--app','APP-WEB'],false); if(!sourceNegative.includes('Missing required path')) throw new Error(`Source required-path negative test failed:
+${sourceNegative}`); fs.writeFileSync(requiredSource,requiredSourceText); run('source-tool.mjs','check',['--app','APP-WEB']);
+  const sourceUpgrade=run('source-tool.mjs','upgrade-check',['--app','APP-WEB']); if(!sourceUpgrade.includes('UP_TO_DATE')) throw new Error(`Source Base upgrade check mismatch:
+${sourceUpgrade}`);
+  const sourceRecommend=run('source-tool.mjs','recommend',['--type','web','--stack','reactjs']); if(!sourceRecommend.includes('recommendedVariant=production')) throw new Error(`Source recommendation mismatch:
+${sourceRecommend}`);
+  const sourceStatus=run('source-tool.mjs','status');
+  if(!sourceStatus.includes('APP-WEB') || !sourceStatus.includes('APP-LEGACY')) throw new Error(`Source status missing application:
+${sourceStatus}`);
+  const lock=JSON.parse(fs.readFileSync(path.join(tempRoot,'.project-docs/source.lock.json'),'utf8'));
+  if(lock.applications?.['APP-WEB']?.sourceBase?.id!=='react-spa' || lock.applications?.['APP-LEGACY']?.origin!=='existing') throw new Error(`Source provenance lock mismatch: ${JSON.stringify(lock)}`);
+  replace('docs/feature.md','  tests: [TC-DEMO-001]','  tests: [TC-DEMO-001]\n  applications: [APP-WEB]');
+  run('docs-tool.mjs','validate');
 
   const lightBody = (code,title) => `---\ncode: ${code}\ntype: feature\ntitle: ${title}\nstatus: planned\nspec_level: lightweight\ntarget_maturity: prototype\nrelated:\n  requirements: []\n  tests: []\n---\n# ${title}\n\n## Business Goal\nPrototype the workflow quickly.\n\n## Actors\nInternal user.\n\n## Main Flow\n1. Open the mock.\n2. Complete the basic action.\n\n## Key Rules\n- Keep behaviour intentionally minimal.\n\n## Acceptance Summary\n- The prototype demonstrates the expected happy path.\n\n## Open Questions\n- Production hardening is deferred.\n`;
   fs.writeFileSync(path.join(tempRoot,'docs/lightweight.md'), lightBody('FEAT-LITE','Lightweight Demo'));
@@ -109,6 +139,7 @@ try {
   const planId='WP-FEAT-DEMO-E2E';
   const scaffoldOut=run('plan-tool.mjs','scaffold',['--feature','FEAT-DEMO','--id',planId]);
   if(!scaffoldOut.includes('Spec level: standard')) throw new Error(`WorkPlan did not snapshot Standard spec level:\n${scaffoldOut}`);
+  const planScaffold=JSON.parse(fs.readFileSync(path.join(tempRoot,'.project-docs/workplans',planId+'.json'),'utf8')); if(planScaffold.schemaVersion!=='1.2'||!planScaffold.applicationScope?.includes('APP-WEB')) throw new Error(`WorkPlan application scope mismatch: ${JSON.stringify(planScaffold.applicationScope)}`);
   run('plan-tool.mjs','validate',['--id',planId]);
   run('plan-tool.mjs','author-complete',['--id',planId,'--actor','E2E Author']);
   run('plan-tool.mjs','submit',['--id',planId]);
@@ -122,7 +153,7 @@ try {
   run('plan-tool.mjs','materialize',['--id',planId,'--owner','Engineering']);
   run('docs-tool.mjs','validate');
   const after=run('docs-tool.mjs','sync');
-  if(!/11 entities, 17 typed edges/.test(after)) throw new Error(`Expected 11 entities / 17 edges after progressive-spec + governance flow, got:\n${after}`);
+  if(!/13 entities, 20 typed edges/.test(after)) throw new Error(`Expected 13 entities / 20 edges after source workspace + progressive-spec + governance flow, got:\n${after}`);
 
   const cs1=run('change-tool.mjs','changeset-scan',['--actor','E2E','--reason','Request to approved WorkPlan and tasks','--related','FEAT-DEMO']);
   if(!/Created CHG-/.test(cs1)) throw new Error(`Expected first ChangeSet:\n${cs1}`);
@@ -158,7 +189,7 @@ try {
   const specification=JSON.parse(fs.readFileSync(path.join(tempRoot,'docs/_generated/specification.json'),'utf8'));
   if((specification.summary?.lightweight||0)!==1 || (specification.summary?.standard||0)<2) throw new Error(`Specification summary mismatch: ${JSON.stringify(specification.summary)}`);
   const governance=JSON.parse(fs.readFileSync(path.join(tempRoot,'docs/_generated/governance.json'),'utf8'));
-  if(governance.requests.length!==1 || governance.tasks.length!==2 || governance.workplans.length!==1 || governance.changesets.length!==2 || governance.baselines.length!==1) throw new Error(`Governance summary mismatch: ${JSON.stringify(governance)}`);
+  if((governance.applications||[]).length!==2 || governance.requests.length!==1 || governance.tasks.length!==2 || governance.workplans.length!==1 || governance.changesets.length!==2 || governance.baselines.length!==1) throw new Error(`Governance summary mismatch: ${JSON.stringify(governance)}`);
   const featFresh=governance.freshness.find(x=>x.code==='FEAT-DEMO');
   if(!featFresh || featFresh.status!=='fresh') throw new Error(`Feature freshness summary mismatch: ${JSON.stringify(featFresh)}`);
 
@@ -166,7 +197,7 @@ try {
   const negative=run('docs-tool.mjs','validate',[],false);
   if(!negative.includes('BROKEN_RELATION')) throw new Error(`Negative fixture failed for wrong reason:\n${negative}`);
 
-  console.log('E2E regression: PASS (root history hygiene + Lightweight/Standard progressive specs + promotion gaps + risk escalation + mode-aware gates + dependency freshness + Request/WorkPlan/Task + impact + ChangeSets + Baselines + broken relation path).');
+  console.log('E2E regression: PASS (Source Base init/adopt/check + application traceability + WorkPlan source scope + root history hygiene + Progressive Specs + mode-aware gates + freshness + Request/WorkPlan/Task + impact + ChangeSets + Baselines + broken relation path).');
 } finally {
   fs.rmSync(tempRoot,{recursive:true,force:true});
 }

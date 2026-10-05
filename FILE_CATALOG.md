@@ -1,4 +1,4 @@
-# File Catalog — v5.3
+# File Catalog — v5.4
 
 Counts exclude generated `site/`, `docs/_generated/`, and `tools/node_modules/` because they are reproducible artifacts.
 
@@ -65,3 +65,17 @@ Historical release/upgrade artifacts do not belong at root.
 - `workflows/16-progressive-specification.md`
 - `tools/lib/specification.mjs`
 - `tools/scripts/spec-tool.mjs`
+
+
+## v5.4 key files
+
+- `registry/source-profiles.json` — canonical stack/application source profiles.
+- `registry/source-base.schema.json` — Source Base manifest contract.
+- `source-bases/` — versioned bootstrap skeleton library.
+- `docs/24-applications/` — canonical Application entities.
+- `.project-docs/source.lock.json` — source provenance/materialization state.
+- `standards/source-workspace.md` — common workspace rules.
+- `standards/source-base-governance.md` — Source Base lifecycle.
+- `workflows/17-source-workspace-bootstrap.md` — greenfield/adoption workflow.
+- `prompts/41-source-profile-selection.md` through `43-existing-source-adoption.md`.
+- `docs/history/V5_4_UPGRADE_NOTES.md` and `docs/history/V5_4_QA_REPORT.md`.

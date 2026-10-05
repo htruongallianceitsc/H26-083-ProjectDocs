@@ -25,15 +25,16 @@ function scaffold() {
   const spec = resolveSpec(featureCode);
   const created = now();
   const plan = {
-    id, schemaVersion:'1.1', featureCode, title:String(args.title || `Implementation plan for ${context.feature.title}`),
+    id, schemaVersion:'1.2', featureCode, title:String(args.title || `Implementation plan for ${context.feature.title}`),
     specLevel:spec.effectiveLevel, requestedSpecLevel:spec.requestedLevel, targetMaturity:spec.targetMaturity, recommendedSpecLevel:spec.recommendedLevel,
     specAssessment:{belowRecommended:spec.belowRecommended,enforcement:spec.enforcement,riskMatches:spec.riskMatches},
+    applicationScope:related.applications||[],
     status:'draft', createdAt:created, updatedAt:created, requiresAuthoring:true,
     assumptions:[], risks:[], acceptanceCriteria:[`Implement ${context.feature.title} according to approved documentation.`,`Pass all linked test cases and satisfy the Done gate.`],
     context, submittedContextHash:null, review:{},
     tasks:[
-      {code:taskCode(featureCode,'IMPL-001'),title:`Implement ${context.feature.title}`,kind:'implementation',description:'Implement the approved feature scope. Split this task further when multiple independently reviewable technical changes are required.',related:{features:[featureCode],requirements:related.requirements||[],screens:related.screens||[],apis:related.apis||[],database_objects:related.database_objects||[],requests:context.requests.map(x=>x.code)}},
-      {code:taskCode(featureCode,'VERIFY-001'),title:`Verify ${context.feature.title}`,kind:'verification',description:'Run and reconcile the linked acceptance/test coverage, then update documentation before closing the feature.',related:{features:[featureCode],tests:related.tests||[],requests:context.requests.map(x=>x.code)}}
+      {code:taskCode(featureCode,'IMPL-001'),title:`Implement ${context.feature.title}`,kind:'implementation',description:'Implement the approved feature scope. Split this task further when multiple independently reviewable technical changes are required.',related:{features:[featureCode],requirements:related.requirements||[],screens:related.screens||[],apis:related.apis||[],database_objects:related.database_objects||[],applications:related.applications||[],requests:context.requests.map(x=>x.code)}},
+      {code:taskCode(featureCode,'VERIFY-001'),title:`Verify ${context.feature.title}`,kind:'verification',description:'Run and reconcile the linked acceptance/test coverage, then update documentation before closing the feature.',related:{features:[featureCode],tests:related.tests||[],applications:related.applications||[],requests:context.requests.map(x=>x.code)}}
     ], materializedTaskCodes:[]
   };
   saveWorkplan(plan);
@@ -62,7 +63,7 @@ function submit() {
   const gate=evaluateGate('ready',plan.featureCode);
   if(!gate.pass) throw new Error(`READY_GATE_FAILED: ${gate.checks.filter(x=>!x.pass).map(x=>x.code).join(', ')}`);
   const spec=resolveSpec(plan.featureCode); plan.specLevel=spec.effectiveLevel; plan.requestedSpecLevel=spec.requestedLevel; plan.targetMaturity=spec.targetMaturity; plan.recommendedSpecLevel=spec.recommendedLevel; plan.specAssessment={belowRecommended:spec.belowRecommended,enforcement:spec.enforcement,riskMatches:spec.riskMatches};
-  plan.status='submitted'; plan.submittedAt=now(); plan.submittedContextHash=featureContextHash(plan.featureCode); plan.context=featureContext(plan.featureCode); saveWorkplan(plan);
+  plan.applicationScope=(featureContext(plan.featureCode).feature.related?.applications)||[]; plan.status='submitted'; plan.submittedAt=now(); plan.submittedContextHash=featureContextHash(plan.featureCode); plan.context=featureContext(plan.featureCode); saveWorkplan(plan);
   console.log(`Submitted ${id}; context hash ${plan.submittedContextHash}`);
 }
 function approve() {

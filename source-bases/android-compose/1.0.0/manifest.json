@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0",
+  "sourceBaseId": "android-compose",
+  "version": "1.0.0",
+  "sourceProfile": "android-compose",
+  "applicationType": "mobile",
+  "technologyStack": "android-compose",
+  "description": "v5.4 starter source base for android-compose.",
+  "variants": {
+    "minimal": {
+      "template": "variants/minimal/template",
+      "requiredPaths": [
+        "settings.gradle.kts",
+        "app/build.gradle.kts",
+        "app/src/main/java/com/example/app/MainActivity.kt"
+      ],
+      "commands": {}
+    },
+    "production": {
+      "template": "variants/production/template",
+      "requiredPaths": [
+        "settings.gradle.kts",
+        "app/build.gradle.kts",
+        "app/src/main/java/com/example/app/MainActivity.kt",
+        "app/src/main/java/com/example/app/features",
+        "app/src/main/java/com/example/app/core"
+      ],
+      "commands": {}
+    }
+  }
+}

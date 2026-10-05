@@ -7,7 +7,15 @@ This is the inventory map for a real project created from the starter. Every imp
 - Target maturity: `<concept|prototype|uat|production>`
 - Project code: `<PROJECT_CODE>`
 - Project types: `<web|mobile|api>`
-- Technology stacks: `<reactjs|react-native|flutter|nodejs-api|dotnet-core-api|postgresql>`
+- Technology stacks: `<reactjs|nextjs|react-native|flutter|ios-swiftui|android-compose|nodejs-api|dotnet-core-api|postgresql>`
+
+
+## Applications / Source Boundaries
+| Code | Type | Source Profile | Technology Stack | Source Root | Origin/Base |
+|---|---|---|---|---|---|
+| APP-WEB | web | react-spa | reactjs | `apps/web` | `react-spa@1.0.0/production` |
+
+Every deployable app should have a canonical `application` document in `docs/24-applications/`. Source Base provenance belongs in `.project-docs/source.lock.json`.
 
 ## Reuse Inventory
 | Capability | Decision | Package/Standard | Version | Review |
@@ -19,8 +27,8 @@ This is the inventory map for a real project created from the starter. Every imp
 |---|---|---|---|
 
 ## Features
-| Code | Module | Feature | Spec Level | Maturity | Requirements | Screens | APIs | Tests |
-|---|---|---|---|---|---|---|---|---|
+| Code | Module | Feature | Applications | Spec Level | Maturity | Requirements | Screens | APIs | Tests |
+|---|---|---|---|---|---|---|---|---|---|
 
 ## Screens / Routes
 | Code | Route | Feature | Platform |
@@ -58,8 +66,8 @@ Track blockers and accepted decisions explicitly; do not hide assumptions in pro
 |---|---|---|---|
 
 ### WorkPlans
-| ID | Feature | Spec Level | Maturity | Status | Context Review |
-|---|---|---|---|---|---|
+| ID | Feature | Applications | Spec Level | Maturity | Status | Context Review |
+|---|---|---|---|---|---|---|
 
 ### Implementation Tasks
 | Code | Feature | WorkPlan | Status |

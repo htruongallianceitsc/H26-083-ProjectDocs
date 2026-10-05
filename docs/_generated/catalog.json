@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-05T02:06:27.168Z",
+  "generatedAt": "2026-10-05T02:42:47.020Z",
   "documents": [
     {
       "path": "CAPABILITY_PACKS.md",
@@ -10,14 +10,14 @@
     },
     {
       "path": "DOCS_GOVERNANCE.md",
-      "title": "Documentation Governance v5.3",
+      "title": "Documentation Governance v5.4",
       "code": null,
       "type": null,
       "status": null
     },
     {
       "path": "FILE_CATALOG.md",
-      "title": "File Catalog — v5.3",
+      "title": "File Catalog — v5.4",
       "code": null,
       "type": null,
       "status": null
@@ -31,7 +31,7 @@
     },
     {
       "path": "README.md",
-      "title": "Production Project Documentation Starter Kit v5.3",
+      "title": "Production Project Documentation Starter Kit v5.4",
       "code": null,
       "type": null,
       "status": null
@@ -45,7 +45,7 @@
     },
     {
       "path": "START_HERE.md",
-      "title": "START HERE — v5.3",
+      "title": "START HERE — v5.4",
       "code": null,
       "type": null,
       "status": null
@@ -345,6 +345,13 @@
       "status": null
     },
     {
+      "path": "docs/24-applications/README.md",
+      "title": "Applications",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
       "path": "docs/README.md",
       "title": "Project Documentation Source",
       "code": null,
@@ -443,6 +450,20 @@
       "status": null
     },
     {
+      "path": "docs/history/V5_4_QA_REPORT.md",
+      "title": "v5.4 QA Report",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/history/V5_4_UPGRADE_NOTES.md",
+      "title": "v5.4 Upgrade Notes — Source Workspace & Starter Code Profiles",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
       "path": "docs/history/V5_QA_REPORT.md",
       "title": "v5.0 QA Report",
       "code": null,
@@ -458,7 +479,7 @@
     },
     {
       "path": "prompts/00-master-orchestrator-prompt.md",
-      "title": "Master Prompt — Documentation-First Project Orchestrator v5.3",
+      "title": "Master Prompt — Documentation-First Project Orchestrator v5.4",
       "code": null,
       "type": null,
       "status": null
@@ -744,8 +765,29 @@
       "status": null
     },
     {
+      "path": "prompts/41-source-profile-selection.md",
+      "title": "Source Profile Selection",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "prompts/42-source-bootstrap.md",
+      "title": "Source Bootstrap",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "prompts/43-existing-source-adoption.md",
+      "title": "Existing Source Adoption",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
       "path": "registry/README.md",
-      "title": "Registry Governance — v5.3",
+      "title": "Registry Governance — v5.4",
       "code": null,
       "type": null,
       "status": null
@@ -773,7 +815,7 @@
     },
     {
       "path": "standards/README.md",
-      "title": "Standards Architecture v5.3",
+      "title": "Standards Architecture v5.4",
       "code": null,
       "type": null,
       "status": null
@@ -1171,8 +1213,22 @@
       "status": null
     },
     {
+      "path": "standards/source-base-governance.md",
+      "title": "Source Base Governance",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
       "path": "standards/source-of-truth.md",
       "title": "Source of Truth Rules",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/source-workspace.md",
+      "title": "Source Workspace Standard",
       "code": null,
       "type": null,
       "status": null
@@ -1311,6 +1367,20 @@
       "status": null
     },
     {
+      "path": "standards/stacks/mobile/android-compose/architecture.md",
+      "title": "Android Compose Architecture",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/stacks/mobile/android-compose/lifecycle-navigation-storage.md",
+      "title": "Android Compose Lifecycle, Navigation and Storage",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
       "path": "standards/stacks/mobile/flutter/architecture.md",
       "title": "Architecture",
       "code": null,
@@ -1360,6 +1430,20 @@
       "status": null
     },
     {
+      "path": "standards/stacks/mobile/ios-swiftui/architecture.md",
+      "title": "iOS SwiftUI Architecture",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/stacks/mobile/ios-swiftui/lifecycle-navigation-storage.md",
+      "title": "iOS SwiftUI Lifecycle, Navigation and Storage",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
       "path": "standards/stacks/mobile/react-native/architecture.md",
       "title": "Architecture",
       "code": null,
@@ -1404,6 +1488,27 @@
     {
       "path": "standards/stacks/mobile/react-native/testing-release.md",
       "title": "Testing Release",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/stacks/web/nextjs/architecture.md",
+      "title": "Next.js Architecture Standard",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/stacks/web/nextjs/rendering-routing.md",
+      "title": "Next.js Rendering and Routing",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/stacks/web/nextjs/testing-deployment.md",
+      "title": "Next.js Testing and Deployment",
       "code": null,
       "type": null,
       "status": null
@@ -1477,6 +1582,13 @@
       "code": "<CODE>",
       "type": "api",
       "status": "draft"
+    },
+    {
+      "path": "templates/application-template.md",
+      "title": "Web Application",
+      "code": "APP-WEB",
+      "type": "application",
+      "status": "planned"
     },
     {
       "path": "templates/architecture-template.md",
@@ -1732,7 +1844,7 @@
     },
     {
       "path": "tools/README.md",
-      "title": "Documentation Toolchain v5.3",
+      "title": "Documentation Toolchain v5.4",
       "code": null,
       "type": null,
       "status": null
@@ -1894,6 +2006,13 @@
     {
       "path": "workflows/16-progressive-specification.md",
       "title": "Workflow 16 — Progressive Specification / Lightweight Mode",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "workflows/17-source-workspace-bootstrap.md",
+      "title": "Workflow 17 — Source Workspace Bootstrap / Adoption",
       "code": null,
       "type": null,
       "status": null

@@ -1600,3 +1600,26 @@ Rules:
 - `starter-kit.json.documentationLayout` định nghĩa history directory và filename patterns;
 - `docs:validate` fail với `ROOT_HISTORY_DOC` nếu historical file quay lại root;
 - generated catalog/site vẫn index `docs/history/`, nên giảm noise ở root nhưng không làm mất discoverability.
+
+
+# v5.4 — Source Workspace & Source Base Profiles
+
+The project is now intended to hold documentation/governance and implementation source in one portable workspace.
+
+```text
+project/
+├── docs/
+├── .project-docs/
+├── registry/
+├── standards/
+├── source-bases/
+├── apps/
+├── packages/
+├── tests/
+├── infra/
+└── tools/
+```
+
+`apps/` is the preferred home for deployable applications. `packages/` is for reusable project-local libraries. Existing repositories may adopt source in place. `source-bases/` contains bootstrap templates only and is excluded from normal documentation indexing.
+
+A stack changes the structure **inside** an Application boundary, not the workspace root model.

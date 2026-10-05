@@ -40,3 +40,12 @@ Architecture, conventions, auth/authz, resilience, transaction, background jobs,
 - Authentication
 
 The machine-readable source is `registry/core-standards.json`, `registry/project-types.json` and `registry/technology-stacks.json`.
+
+
+## Source Workspace
+
+- `source-workspace.md`
+- `source-base-governance.md`
+- Next.js: `stacks/web/nextjs/*`
+- Native iOS: `stacks/mobile/ios-swiftui/*`
+- Native Android: `stacks/mobile/android-compose/*`

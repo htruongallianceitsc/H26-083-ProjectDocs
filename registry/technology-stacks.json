@@ -2,7 +2,9 @@
   "schemaVersion": "1.0",
   "stacks": {
     "reactjs": {
-      "projectTypes": ["web"],
+      "projectTypes": [
+        "web"
+      ],
       "standards": [
         "standards/stacks/web/reactjs/architecture.md",
         "standards/stacks/web/reactjs/routing.md",
@@ -12,7 +14,9 @@
       ]
     },
     "react-native": {
-      "projectTypes": ["mobile"],
+      "projectTypes": [
+        "mobile"
+      ],
       "standards": [
         "standards/stacks/mobile/react-native/architecture.md",
         "standards/stacks/mobile/react-native/coding-standard.md",
@@ -24,7 +28,9 @@
       ]
     },
     "flutter": {
-      "projectTypes": ["mobile"],
+      "projectTypes": [
+        "mobile"
+      ],
       "standards": [
         "standards/stacks/mobile/flutter/architecture.md",
         "standards/stacks/mobile/flutter/coding-standard.md",
@@ -35,7 +41,9 @@
       ]
     },
     "nodejs-api": {
-      "projectTypes": ["api"],
+      "projectTypes": [
+        "api"
+      ],
       "standards": [
         "standards/stacks/api/nodejs/architecture.md",
         "standards/stacks/api/nodejs/coding-standard.md",
@@ -45,7 +53,9 @@
       ]
     },
     "dotnet-core-api": {
-      "projectTypes": ["api"],
+      "projectTypes": [
+        "api"
+      ],
       "standards": [
         "standards/stacks/api/dotnet-core/architecture.md",
         "standards/stacks/api/dotnet-core/api-conventions.md",
@@ -56,11 +66,43 @@
       ]
     },
     "postgresql": {
-      "projectTypes": ["api", "web", "mobile"],
+      "projectTypes": [
+        "api",
+        "web",
+        "mobile"
+      ],
       "standards": [
         "standards/stacks/database/postgresql/schema-conventions.md",
         "standards/stacks/database/postgresql/query-performance.md",
         "standards/stacks/database/postgresql/migration-operations.md"
+      ]
+    },
+    "nextjs": {
+      "projectTypes": [
+        "web"
+      ],
+      "standards": [
+        "standards/stacks/web/nextjs/architecture.md",
+        "standards/stacks/web/nextjs/rendering-routing.md",
+        "standards/stacks/web/nextjs/testing-deployment.md"
+      ]
+    },
+    "ios-swiftui": {
+      "projectTypes": [
+        "mobile"
+      ],
+      "standards": [
+        "standards/stacks/mobile/ios-swiftui/architecture.md",
+        "standards/stacks/mobile/ios-swiftui/lifecycle-navigation-storage.md"
+      ]
+    },
+    "android-compose": {
+      "projectTypes": [
+        "mobile"
+      ],
+      "standards": [
+        "standards/stacks/mobile/android-compose/architecture.md",
+        "standards/stacks/mobile/android-compose/lifecycle-navigation-storage.md"
       ]
     }
   }

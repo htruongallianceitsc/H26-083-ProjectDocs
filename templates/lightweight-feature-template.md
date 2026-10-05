@@ -11,6 +11,7 @@ spec_level: lightweight
 target_maturity: prototype
 tags: []
 related:
+  applications: []
   modules: []
   requirements: []
   business_rules: []

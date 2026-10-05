@@ -1,7 +1,7 @@
 {
   "name": "production-project-docs-tools",
   "private": true,
-  "version": "5.3.0",
+  "version": "5.4.0",
   "type": "module",
   "engines": {
     "node": ">=20"
@@ -26,7 +26,7 @@
     "docs:clean": "node scripts/docs-tool.mjs clean",
     "docs:dev": "node scripts/docs-tool.mjs watch",
     "test:e2e": "node scripts/e2e-test.mjs",
-    "docs:all": "npm run registry:check && npm run profile:check && npm run pack:validate && npm run spec:check && npm run docs:validate && npm run doc:check && npm run docs:sync && npm run docs:build && npm run docs:check-site",
+    "docs:all": "npm run registry:check && npm run profile:check && npm run pack:validate && npm run source:validate && npm run source:check && npm run spec:check && npm run docs:validate && npm run doc:check && npm run docs:sync && npm run docs:build && npm run docs:check-site",
     "qa": "npm run docs:all && npm run test:e2e",
     "request:create": "node scripts/request-tool.mjs create",
     "request:list": "node scripts/request-tool.mjs list",
@@ -56,6 +56,14 @@
     "spec:status": "node scripts/spec-tool.mjs status",
     "spec:check": "node scripts/spec-tool.mjs check",
     "spec:recommend": "node scripts/spec-tool.mjs recommend",
-    "spec:promote": "node scripts/spec-tool.mjs promote"
+    "spec:promote": "node scripts/spec-tool.mjs promote",
+    "source:list": "node scripts/source-tool.mjs list",
+    "source:validate": "node scripts/source-tool.mjs validate",
+    "source:recommend": "node scripts/source-tool.mjs recommend",
+    "source:init": "node scripts/source-tool.mjs init",
+    "source:adopt": "node scripts/source-tool.mjs adopt",
+    "source:check": "node scripts/source-tool.mjs check",
+    "source:status": "node scripts/source-tool.mjs status",
+    "source:upgrade-check": "node scripts/source-tool.mjs upgrade-check"
   }
 }

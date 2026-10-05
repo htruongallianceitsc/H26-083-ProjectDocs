@@ -10,6 +10,7 @@ last_reviewed_at: YYYY-MM-DD
 task_kind: implementation
 workplan_id: WP-FEAT-YYYYMMDD
 related:
+  applications: []
   features: [FEAT-EXAMPLE]
   requirements: []
   screens: []

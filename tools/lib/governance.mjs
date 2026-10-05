@@ -127,7 +127,7 @@ export function listWorkplans() {
 export function validateWorkplan(plan) {
   const errors = [];
   for (const key of ['id','schemaVersion','featureCode','title','status','createdAt','updatedAt','requiresAuthoring','tasks']) if (plan[key] === undefined || plan[key] === null || plan[key] === '') errors.push(`Missing ${key}`);
-  if (!['1.0','1.1'].includes(plan.schemaVersion)) errors.push(`schemaVersion must be 1.0 or 1.1`);
+  if (!['1.0','1.1','1.2'].includes(plan.schemaVersion)) errors.push(`schemaVersion must be 1.0, 1.1 or 1.2`);
   if (!/^WP-[A-Z0-9-]+$/.test(String(plan.id || ''))) errors.push(`id must match WP-[A-Z0-9-]+`);
   if (!['draft','submitted','approved','rejected','materialized','cancelled'].includes(plan.status)) errors.push(`Invalid status ${plan.status}`);
   if (!Array.isArray(plan.tasks) || !plan.tasks.length) errors.push('tasks must contain at least one task');

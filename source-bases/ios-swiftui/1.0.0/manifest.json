@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0",
+  "sourceBaseId": "ios-swiftui",
+  "version": "1.0.0",
+  "sourceProfile": "ios-swiftui",
+  "applicationType": "mobile",
+  "technologyStack": "ios-swiftui",
+  "description": "v5.4 starter source base for ios-swiftui.",
+  "variants": {
+    "minimal": {
+      "template": "variants/minimal/template",
+      "requiredPaths": [
+        "Sources/App/App.swift",
+        "Sources/Features"
+      ],
+      "commands": {}
+    },
+    "production": {
+      "template": "variants/production/template",
+      "requiredPaths": [
+        "Sources/App/App.swift",
+        "Sources/Features",
+        "Sources/Core",
+        "Sources/Services",
+        "Tests"
+      ],
+      "commands": {}
+    }
+  }
+}

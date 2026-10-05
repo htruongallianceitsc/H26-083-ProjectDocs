@@ -194,3 +194,9 @@ types:
       - resolved
       - closed
       - wont_fix
+  application:
+    statuses:
+      - draft
+      - planned
+      - active
+      - deprecated

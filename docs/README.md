@@ -13,3 +13,8 @@
 
 `docs/history/` stores starter-kit upgrade notes, QA reports and historical transition reviews. Keep these records searchable here instead of placing chronological release artifacts at repository root.
 
+
+
+## Applications (v5.4)
+
+`24-applications/` contains canonical deployable application boundaries such as APP-WEB, APP-API and APP-MOBILE. Features may link them through `related.applications`.

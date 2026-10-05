@@ -1,5 +1,5 @@
 # Traceability Matrix
 
-| Feature | Module | Requirements | Screens | APIs | Tests | Tasks |
-|---|---|---|---|---|---|---|
+| Feature | Applications | Module | Requirements | Screens | APIs | Tests | Tasks |
+|---|---|---|---|---|---|---|---|
 

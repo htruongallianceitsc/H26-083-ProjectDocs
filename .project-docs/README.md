@@ -18,3 +18,9 @@ Do not manually edit hashes to bypass stale detection. Keep product/domain behav
 - `spec-promotions/` stores generated Lightweight → Standard → Full gap reports.
 - Promotion reports are review evidence, not canonical product truth.
 - Effective spec level remains on the Feature/project profile; WorkPlans snapshot it at planning time.
+
+
+## Source workspace state (v5.4)
+
+- `source.lock.json` — application source provenance: adopted vs Source Base, base id/version/variant and source root.
+- This file is governance state. The `application` entity remains the canonical app-boundary description and the source tree remains canonical implementation.

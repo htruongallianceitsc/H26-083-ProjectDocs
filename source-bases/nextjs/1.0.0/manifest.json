@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "1.0",
+  "sourceBaseId": "nextjs",
+  "version": "1.0.0",
+  "sourceProfile": "nextjs",
+  "applicationType": "web",
+  "technologyStack": "nextjs",
+  "description": "v5.4 starter source base for nextjs.",
+  "variants": {
+    "minimal": {
+      "template": "variants/minimal/template",
+      "requiredPaths": [
+        "package.json",
+        "src/app/layout.tsx",
+        "src/app/page.tsx"
+      ],
+      "commands": {
+        "install": "npm install",
+        "dev": "npm run dev",
+        "build": "npm run build"
+      }
+    },
+    "production": {
+      "template": "variants/production/template",
+      "requiredPaths": [
+        "package.json",
+        "src/app/layout.tsx",
+        "src/app/page.tsx",
+        "src/features",
+        "src/server",
+        "src/lib"
+      ],
+      "commands": {
+        "install": "npm install",
+        "dev": "npm run dev",
+        "build": "npm run build",
+        "test": "npm test"
+      }
+    }
+  }
+}
