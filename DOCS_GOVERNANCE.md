@@ -1,4 +1,4 @@
-# Documentation Governance v5.2
+# Documentation Governance v5.3
 
 ## Principle
 
@@ -43,3 +43,9 @@ All v5.1 rules remain: use typed impact before material changes, reconcile track
 ## No-bypass rule
 
 Do not weaken spec, freshness, Ready/Done, WorkPlan or reuse policies just to clear a gate. Change depth only because project maturity/risk changed or because the team explicitly accepted the trade-off.
+
+## Repository entry hygiene
+
+Repository root is an entry surface, not a version archive. Version upgrade notes, QA reports and historical migration/review notes belong in `docs/history/`. Current reference documents may remain at root even when their filenames contain an older version marker if they are still active guidance.
+
+`starter-kit.json.documentationLayout` defines the canonical history directory and root-history filename patterns. `docs:validate` blocks matching historical files at root.

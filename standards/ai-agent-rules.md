@@ -1,4 +1,4 @@
-# AI Agent Rules — v5.2
+# AI Agent Rules — v5.3
 
 1. Documentation first; do not produce implementation code unless implementation is explicitly requested and allowed.
 2. Resolve documentation depth before expanding a Feature. Do not assume Full detail is always better.

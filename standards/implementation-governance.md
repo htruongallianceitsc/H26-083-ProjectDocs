@@ -1,4 +1,4 @@
-# Implementation Governance Standard — v5.2
+# Implementation Governance Standard — v5.3
 
 ## Purpose
 

@@ -1,4 +1,4 @@
-# Progressive Specification Standard — v5.2
+# Progressive Specification Standard — v5.3
 
 ## Purpose
 

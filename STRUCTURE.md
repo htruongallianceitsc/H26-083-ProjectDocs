@@ -1568,3 +1568,35 @@ lightweight -> standard -> full
 - Risk rules có thể recommend Standard/Full nếu payment/privacy/security/migration/integration làm Lightweight trở nên không phù hợp.
 
 Mục tiêu là **progressive normalization**: tài liệu ngắn nhưng đủ dùng ở giai đoạn đầu, sau đó extract thành Requirement/Test/API/Screen/NFR khi maturity thực sự cần, không viết lại Feature từ đầu.
+
+---
+
+# v5.3 — Root Entry & Version History Hygiene
+
+Repository root được giữ như **entry surface** thay vì chronological archive.
+
+```text
+project-root/
+├── README.md
+├── START_HERE.md
+├── PROJECT_BLUEPRINT.md
+├── DOCS_GOVERNANCE.md
+├── FILE_CATALOG.md
+├── STRUCTURE.md
+├── current strategy/reference docs
+└── docs/
+    └── history/
+        ├── README.md
+        ├── V3_...
+        ├── V4_...
+        ├── V5_...
+        └── future version upgrade / QA records
+```
+
+Rules:
+
+- version upgrade notes, QA reports và historical transition reviews nằm trong `docs/history/`;
+- current strategy/reference documents không bị move chỉ vì tên có version marker;
+- `starter-kit.json.documentationLayout` định nghĩa history directory và filename patterns;
+- `docs:validate` fail với `ROOT_HISTORY_DOC` nếu historical file quay lại root;
+- generated catalog/site vẫn index `docs/history/`, nên giảm noise ở root nhưng không làm mất discoverability.

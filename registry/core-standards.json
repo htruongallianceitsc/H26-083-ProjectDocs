@@ -17,6 +17,7 @@
     "standards/document-freshness.md",
     "standards/change-history-and-baselines.md",
     "standards/impact-analysis.md",
-    "standards/progressive-specification.md"
+    "standards/progressive-specification.md",
+    "standards/repository-entry-hygiene.md"
   ]
 }

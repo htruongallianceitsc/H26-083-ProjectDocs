@@ -8,7 +8,7 @@ const here = path.dirname(fileURLToPath(import.meta.url));
 const toolsDir = path.resolve(here, '..');
 const sourceRoot = path.resolve(toolsDir, '..');
 const fixture = path.join(toolsDir, 'tests/fixtures/valid-project');
-const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'project-docs-v52-'));
+const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'project-docs-v53-'));
 
 function copy(src,dst){ fs.cpSync(src,dst,{recursive:true}); }
 function run(script, action, extra=[], expectOk=true){
@@ -28,12 +28,18 @@ try {
   copy(fixture,tempRoot);
   copy(path.join(sourceRoot,'registry'),path.join(tempRoot,'registry'));
   copy(path.join(sourceRoot,'starter-kit.json'),path.join(tempRoot,'starter-kit.json'));
+  fs.mkdirSync(path.join(tempRoot,'docs/history'),{recursive:true});
   fs.mkdirSync(path.join(tempRoot,'.project-docs/workplans'),{recursive:true});
   fs.mkdirSync(path.join(tempRoot,'.project-docs/freshness'),{recursive:true});
   fs.mkdirSync(path.join(tempRoot,'.project-docs/changesets'),{recursive:true});
   fs.mkdirSync(path.join(tempRoot,'.project-docs/baselines'),{recursive:true});
   fs.writeFileSync(path.join(tempRoot,'.project-docs/packs.lock.json'),'{'+'"schemaVersion":"1.0","packs":{}'+'}\n');
 
+  run('docs-tool.mjs','validate');
+  fs.writeFileSync(path.join(tempRoot,'V99_UPGRADE_NOTES.md'),'# Historical file in wrong location\n');
+  const rootHistoryNegative=run('docs-tool.mjs','validate',[],false);
+  if(!rootHistoryNegative.includes('ROOT_HISTORY_DOC')) throw new Error(`Root history hygiene negative test failed:\n${rootHistoryNegative}`);
+  fs.rmSync(path.join(tempRoot,'V99_UPGRADE_NOTES.md'));
   run('docs-tool.mjs','validate');
   const initial=run('docs-tool.mjs','sync');
   if(!/6 entities, 6 typed edges/.test(initial)) throw new Error(`Expected initial 6 entities / 6 edges, got:\n${initial}`);
@@ -160,7 +166,7 @@ try {
   const negative=run('docs-tool.mjs','validate',[],false);
   if(!negative.includes('BROKEN_RELATION')) throw new Error(`Negative fixture failed for wrong reason:\n${negative}`);
 
-  console.log('E2E regression: PASS (Lightweight/Standard progressive specs + promotion gaps + risk escalation + mode-aware gates + dependency freshness + Request/WorkPlan/Task + impact + ChangeSets + Baselines + broken relation path).');
+  console.log('E2E regression: PASS (root history hygiene + Lightweight/Standard progressive specs + promotion gaps + risk escalation + mode-aware gates + dependency freshness + Request/WorkPlan/Task + impact + ChangeSets + Baselines + broken relation path).');
 } finally {
   fs.rmSync(tempRoot,{recursive:true,force:true});
 }

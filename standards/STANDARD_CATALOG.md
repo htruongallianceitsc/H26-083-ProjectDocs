@@ -13,6 +13,12 @@
 - reuse/capability-pack-standard
 - reuse/pattern-pack-standard
 - reuse/promotion-policy
+- implementation-governance
+- document-freshness
+- change-history-and-baselines
+- impact-analysis
+- progressive-specification
+- repository-entry-hygiene
 
 ## Project Type
 ### Web

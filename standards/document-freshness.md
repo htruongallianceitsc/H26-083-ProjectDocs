@@ -1,4 +1,4 @@
-# Document Freshness Standard — v5.2
+# Document Freshness Standard — v5.3
 
 ## Purpose
 
@@ -32,7 +32,7 @@ FRESH
 3. Feature freshness includes direct related entities and Requests promoted into that Feature.
 4. Task/Bug operational edges are excluded from Feature freshness by default to avoid circular implementation noise.
 5. `STALE` blocks Ready/Done when `implementationGate.blockOnStaleDocumentation=true`.
-6. `UNTRACKED` is non-blocking by default so existing projects can adopt v5.2 progressively.
+6. `UNTRACKED` is non-blocking by default so existing projects can adopt v5.3 progressively.
 7. Reconcile only after a human/AI review has actually checked whether the document remains correct.
 
 ## Commands

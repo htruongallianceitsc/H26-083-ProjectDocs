@@ -1,4 +1,4 @@
-# Definition of Ready / Done — v5.2
+# Definition of Ready / Done — v5.3
 
 ## Mode-aware Documentation Ready
 

@@ -1,4 +1,4 @@
-# Standards Architecture v5.2
+# Standards Architecture v5.3
 
 Standards resolve in this order:
 
@@ -8,6 +8,6 @@ Standards resolve in this order:
 4. **Capability Standard** — cross-project rules such as Authentication.
 5. **Project ADR/Exception** — explicit project-specific deviation.
 
-v5.2 adds Progressive Specification as core governance: documentation depth is resolved before detailed decomposition, while freshness, impact, ChangeSet/Baseline and reuse governance remain active at every depth.
+v5.2 introduced Progressive Specification as core governance. v5.3 keeps that behavior and adds repository-entry hygiene so chronological upgrade/QA history no longer dilutes the root entry surface.
 
 Standards define rules. Capability Packs must still comply with applicable standards and the selected spec level must not be used to bypass safety/production requirements.

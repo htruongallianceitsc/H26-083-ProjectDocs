@@ -119,7 +119,11 @@ function check() {
   if (!fs.existsSync(statusPath)) errors.push('Missing generated mirror registry/_generated/status-lifecycle.yaml; run npm run registry:sync');
   else if (fs.readFileSync(statusPath,'utf8') !== statusLifecycleText()) errors.push('Generated mirror drift: registry/_generated/status-lifecycle.yaml');
   const starter = loadJson('starter-kit.json',{});
-  if (starter.version !== '5.2.0' || starter.schemaVersion !== '5.2.0') errors.push(`starter-kit.json expected version/schemaVersion 5.2.0, got ${starter.version}/${starter.schemaVersion}`);
+  if (starter.version !== '5.3.0' || starter.schemaVersion !== '5.3.0') errors.push(`starter-kit.json expected version/schemaVersion 5.3.0, got ${starter.version}/${starter.schemaVersion}`);
+  const layout = starter.documentationLayout || {};
+  if (!layout.historyDirectory) errors.push('starter-kit.json documentationLayout.historyDirectory is required');
+  else if (!fs.existsSync(path.join(ROOT, layout.historyDirectory))) errors.push(`Configured history directory does not exist: ${layout.historyDirectory}`);
+  for (const raw of layout.rootHistoryPatterns || []) { try { new RegExp(raw); } catch { errors.push(`Invalid documentationLayout.rootHistoryPatterns regex: ${raw}`); } }
   console.log(`Registry check: ${errors.length} error(s); ${Object.keys(types).length} entity type(s), ${relations.length} relation rule(s), ${quality.length} quality rule(s).`);
   for (const e of errors) console.log(`[ERROR] ${e}`);
   return errors.length === 0;

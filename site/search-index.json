@@ -5,12 +5,12 @@
     "text": "CAPABILITY_PACKS.md"
   },
   {
-    "title": "Documentation Governance v5.2",
+    "title": "Documentation Governance v5.3",
     "path": "pages/docs-governance.html",
     "text": "DOCS_GOVERNANCE.md"
   },
   {
-    "title": "File Catalog — v5.2",
+    "title": "File Catalog — v5.3",
     "path": "pages/file-catalog.html",
     "text": "FILE_CATALOG.md"
   },
@@ -20,7 +20,7 @@
     "text": "PROJECT_BLUEPRINT.md"
   },
   {
-    "title": "Production Project Documentation Starter Kit v5.2",
+    "title": "Production Project Documentation Starter Kit v5.3",
     "path": "pages/readme.html",
     "text": "README.md"
   },
@@ -30,12 +30,7 @@
     "text": "REUSE_STRATEGY_V4.md"
   },
   {
-    "title": "Review Upgrade Notes — React Native Trial",
-    "path": "pages/review-upgrade-notes.html",
-    "text": "REVIEW_UPGRADE_NOTES.md"
-  },
-  {
-    "title": "START HERE — v5.2",
+    "title": "START HERE — v5.3",
     "path": "pages/start-here.html",
     "text": "START_HERE.md"
   },
@@ -43,61 +38,6 @@
     "title": "2. File quan trọng nhất: `PROJECT_BLUEPRINT.md`",
     "path": "pages/structure.html",
     "text": "STRUCTURE.md"
-  },
-  {
-    "title": "Starter Kit v3 — Capability Pack Upgrade",
-    "path": "pages/v3-capability-pack-upgrade.html",
-    "text": "V3_CAPABILITY_PACK_UPGRADE.md"
-  },
-  {
-    "title": "Starter Kit v4.1 QA Report",
-    "path": "pages/v4-1-qa-report.html",
-    "text": "V4_1_QA_REPORT.md"
-  },
-  {
-    "title": "Starter Kit v4.1 Upgrade Notes",
-    "path": "pages/v4-1-upgrade-notes.html",
-    "text": "V4_1_UPGRADE_NOTES.md"
-  },
-  {
-    "title": "V4 QA Report",
-    "path": "pages/v4-qa-report.html",
-    "text": "V4_QA_REPORT.md"
-  },
-  {
-    "title": "Starter Kit v4 Upgrade Notes",
-    "path": "pages/v4-upgrade-notes.html",
-    "text": "V4_UPGRADE_NOTES.md"
-  },
-  {
-    "title": "v5.1 QA Report",
-    "path": "pages/v5-1-qa-report.html",
-    "text": "V5_1_QA_REPORT.md"
-  },
-  {
-    "title": "v5.1 Upgrade Notes",
-    "path": "pages/v5-1-upgrade-notes.html",
-    "text": "V5_1_UPGRADE_NOTES.md"
-  },
-  {
-    "title": "v5.2 QA Report",
-    "path": "pages/v5-2-qa-report.html",
-    "text": "V5_2_QA_REPORT.md"
-  },
-  {
-    "title": "v5.2 Upgrade Notes — Progressive Specification",
-    "path": "pages/v5-2-upgrade-notes.html",
-    "text": "V5_2_UPGRADE_NOTES.md"
-  },
-  {
-    "title": "v5.0 QA Report",
-    "path": "pages/v5-qa-report.html",
-    "text": "V5_QA_REPORT.md"
-  },
-  {
-    "title": "v5.0 Upgrade Notes",
-    "path": "pages/v5-upgrade-notes.html",
-    "text": "V5_UPGRADE_NOTES.md"
   },
   {
     "title": "project",
@@ -310,7 +250,82 @@
     "text": "docs/README.md"
   },
   {
-    "title": "Master Prompt — Documentation-First Project Orchestrator v5.2",
+    "title": "Version History",
+    "path": "pages/docs-history-readme.html",
+    "text": "docs/history/README.md"
+  },
+  {
+    "title": "Review Upgrade Notes — React Native Trial",
+    "path": "pages/docs-history-review-upgrade-notes.html",
+    "text": "docs/history/REVIEW_UPGRADE_NOTES.md"
+  },
+  {
+    "title": "Starter Kit v3 — Capability Pack Upgrade",
+    "path": "pages/docs-history-v3-capability-pack-upgrade.html",
+    "text": "docs/history/V3_CAPABILITY_PACK_UPGRADE.md"
+  },
+  {
+    "title": "Starter Kit v4.1 QA Report",
+    "path": "pages/docs-history-v4-1-qa-report.html",
+    "text": "docs/history/V4_1_QA_REPORT.md"
+  },
+  {
+    "title": "Starter Kit v4.1 Upgrade Notes",
+    "path": "pages/docs-history-v4-1-upgrade-notes.html",
+    "text": "docs/history/V4_1_UPGRADE_NOTES.md"
+  },
+  {
+    "title": "V4 QA Report",
+    "path": "pages/docs-history-v4-qa-report.html",
+    "text": "docs/history/V4_QA_REPORT.md"
+  },
+  {
+    "title": "Starter Kit v4 Upgrade Notes",
+    "path": "pages/docs-history-v4-upgrade-notes.html",
+    "text": "docs/history/V4_UPGRADE_NOTES.md"
+  },
+  {
+    "title": "v5.1 QA Report",
+    "path": "pages/docs-history-v5-1-qa-report.html",
+    "text": "docs/history/V5_1_QA_REPORT.md"
+  },
+  {
+    "title": "v5.1 Upgrade Notes",
+    "path": "pages/docs-history-v5-1-upgrade-notes.html",
+    "text": "docs/history/V5_1_UPGRADE_NOTES.md"
+  },
+  {
+    "title": "v5.2 QA Report",
+    "path": "pages/docs-history-v5-2-qa-report.html",
+    "text": "docs/history/V5_2_QA_REPORT.md"
+  },
+  {
+    "title": "v5.2 Upgrade Notes — Progressive Specification",
+    "path": "pages/docs-history-v5-2-upgrade-notes.html",
+    "text": "docs/history/V5_2_UPGRADE_NOTES.md"
+  },
+  {
+    "title": "v5.3 QA Report",
+    "path": "pages/docs-history-v5-3-qa-report.html",
+    "text": "docs/history/V5_3_QA_REPORT.md"
+  },
+  {
+    "title": "v5.3 Upgrade Notes — Root History Hygiene",
+    "path": "pages/docs-history-v5-3-upgrade-notes.html",
+    "text": "docs/history/V5_3_UPGRADE_NOTES.md"
+  },
+  {
+    "title": "v5.0 QA Report",
+    "path": "pages/docs-history-v5-qa-report.html",
+    "text": "docs/history/V5_QA_REPORT.md"
+  },
+  {
+    "title": "v5.0 Upgrade Notes",
+    "path": "pages/docs-history-v5-upgrade-notes.html",
+    "text": "docs/history/V5_UPGRADE_NOTES.md"
+  },
+  {
+    "title": "Master Prompt — Documentation-First Project Orchestrator v5.3",
     "path": "pages/prompts-00-master-orchestrator-prompt.html",
     "text": "prompts/00-master-orchestrator-prompt.md"
   },
@@ -515,7 +530,7 @@
     "text": "prompts/40-spec-promotion-review.md"
   },
   {
-    "title": "Registry Governance — v5.2",
+    "title": "Registry Governance — v5.3",
     "path": "pages/registry-readme.html",
     "text": "registry/README.md"
   },
@@ -535,7 +550,7 @@
     "text": "standards/ADDING_A_STACK.md"
   },
   {
-    "title": "Standards Architecture v5.2",
+    "title": "Standards Architecture v5.3",
     "path": "pages/standards-readme.html",
     "text": "standards/README.md"
   },
@@ -545,7 +560,7 @@
     "text": "standards/STANDARD_CATALOG.md"
   },
   {
-    "title": "AI Agent Rules — v5.2",
+    "title": "AI Agent Rules — v5.3",
     "path": "pages/standards-ai-agent-rules.html",
     "text": "standards/ai-agent-rules.md"
   },
@@ -555,12 +570,12 @@
     "text": "standards/capabilities/authentication.md"
   },
   {
-    "title": "Semantic Change History and Baselines — v5.2",
+    "title": "Semantic Change History and Baselines — v5.3",
     "path": "pages/standards-change-history-and-baselines.html",
     "text": "standards/change-history-and-baselines.md"
   },
   {
-    "title": "Definition of Ready / Done — v5.2",
+    "title": "Definition of Ready / Done — v5.3",
     "path": "pages/standards-definition-of-ready-done.html",
     "text": "standards/definition-of-ready-done.md"
   },
@@ -570,7 +585,7 @@
     "text": "standards/diagram-guidelines.md"
   },
   {
-    "title": "Document Freshness Standard — v5.2",
+    "title": "Document Freshness Standard — v5.3",
     "path": "pages/standards-document-freshness.html",
     "text": "standards/document-freshness.md"
   },
@@ -580,12 +595,12 @@
     "text": "standards/documentation-standard.md"
   },
   {
-    "title": "Graph Impact Analysis Standard — v5.2",
+    "title": "Graph Impact Analysis Standard — v5.3",
     "path": "pages/standards-impact-analysis.html",
     "text": "standards/impact-analysis.md"
   },
   {
-    "title": "Implementation Governance Standard — v5.2",
+    "title": "Implementation Governance Standard — v5.3",
     "path": "pages/standards-implementation-governance.html",
     "text": "standards/implementation-governance.md"
   },
@@ -600,7 +615,7 @@
     "text": "standards/naming-and-id-convention.md"
   },
   {
-    "title": "Progressive Specification Standard — v5.2",
+    "title": "Progressive Specification Standard — v5.3",
     "path": "pages/standards-progressive-specification.html",
     "text": "standards/progressive-specification.md"
   },
@@ -788,6 +803,11 @@
     "title": "Web Ui Ux",
     "path": "pages/standards-project-types-web-web-ui-ux.html",
     "text": "standards/project-types/web/web-ui-ux.md"
+  },
+  {
+    "title": "Repository Entry & History Hygiene Standard — v5.3",
+    "path": "pages/standards-repository-entry-hygiene.html",
+    "text": "standards/repository-entry-hygiene.md"
   },
   {
     "title": "Capability Pack Standard",
@@ -1215,7 +1235,7 @@
     "text": "templates/test-case-template.md"
   },
   {
-    "title": "Documentation Toolchain v5.2",
+    "title": "Documentation Toolchain v5.3",
     "path": "pages/tools-readme.html",
     "text": "tools/README.md"
   },

@@ -1,4 +1,4 @@
-# Registry Governance — v5.2
+# Registry Governance — v5.3
 
 `registry/*.json` is the canonical machine-readable policy source.
 

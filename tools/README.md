@@ -1,4 +1,4 @@
-# Documentation Toolchain v5.2
+# Documentation Toolchain v5.3
 
 Requires Node.js 20+. No third-party npm runtime dependencies are required.
 
@@ -57,3 +57,7 @@ npm run registry:check
 npm run pack:list
 npm run pack:validate
 ```
+
+## Root/history hygiene
+
+Historical version upgrade/QA records live in `docs/history/`. `docs:validate` reads `starter-kit.json.documentationLayout.rootHistoryPatterns` and fails with `ROOT_HISTORY_DOC` if a matching historical file is placed at repository root.

@@ -1,4 +1,4 @@
-# START HERE — v5.2
+# START HERE — v5.3
 
 ## 1. Configure the project and documentation depth
 
@@ -80,3 +80,9 @@ npm run qa
 ```
 
 QA covers registry drift, spec profile compliance, mode-aware gates, reuse, traceability, freshness, impact, change history and the static documentation site.
+
+## 9. Keep root as an entry surface
+
+Historical upgrade notes, QA reports and transition records belong in `docs/history/`. Do not create future `V*_UPGRADE_NOTES.md` or `V*_QA_REPORT.md` files at repository root.
+
+`npm run docs:validate` enforces the configured history patterns and reports `ROOT_HISTORY_DOC` if such files reappear at root.

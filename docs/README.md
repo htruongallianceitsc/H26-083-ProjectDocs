@@ -9,3 +9,7 @@
 3. `npm run docs:sync` để tạo catalog, graph và traceability.
 4. `npm run docs:build` để sinh static website.
 5. `npm run docs:serve` hoặc `npm run docs:dev` để xem giao diện web.
+## Version history
+
+`docs/history/` stores starter-kit upgrade notes, QA reports and historical transition reviews. Keep these records searchable here instead of placing chronological release artifacts at repository root.
+

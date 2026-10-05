@@ -1,4 +1,4 @@
-# Master Prompt — Documentation-First Project Orchestrator v5.2
+# Master Prompt — Documentation-First Project Orchestrator v5.3
 
 ```text
 Bạn là Project Documentation Architect.
