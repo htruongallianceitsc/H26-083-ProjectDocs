@@ -1,45 +1,5 @@
 [
   {
-    "title": "Reuse Model in v4",
-    "path": "pages/capability-packs.html",
-    "text": "CAPABILITY_PACKS.md"
-  },
-  {
-    "title": "Documentation Governance v5.5",
-    "path": "pages/docs-governance.html",
-    "text": "DOCS_GOVERNANCE.md"
-  },
-  {
-    "title": "File Catalog — v5.5",
-    "path": "pages/file-catalog.html",
-    "text": "FILE_CATALOG.md"
-  },
-  {
-    "title": "Project Blueprint",
-    "path": "pages/project-blueprint.html",
-    "text": "PROJECT_BLUEPRINT.md"
-  },
-  {
-    "title": "Production Project Documentation Starter Kit v5.5",
-    "path": "pages/readme.html",
-    "text": "README.md"
-  },
-  {
-    "title": "V4 Reuse Strategy",
-    "path": "pages/reuse-strategy-v4.html",
-    "text": "REUSE_STRATEGY_V4.md"
-  },
-  {
-    "title": "START HERE - v5.5",
-    "path": "pages/start-here.html",
-    "text": "START_HERE.md"
-  },
-  {
-    "title": "2. File quan trọng nhất: `PROJECT_BLUEPRINT.md`",
-    "path": "pages/structure.html",
-    "text": "STRUCTURE.md"
-  },
-  {
     "title": "project",
     "path": "pages/docs-00-project-readme.html",
     "text": "docs/00-project/README.md"
@@ -75,24 +35,24 @@
     "text": "docs/06-flows/README.md"
   },
   {
-    "title": "api",
-    "path": "pages/docs-07-api-readme.html",
-    "text": "docs/07-api/README.md"
-  },
-  {
     "title": "API Conventions",
     "path": "pages/docs-07-api-conventions.html",
     "text": "docs/07-api/conventions.md"
   },
   {
-    "title": "database",
-    "path": "pages/docs-08-database-readme.html",
-    "text": "docs/08-database/README.md"
+    "title": "api",
+    "path": "pages/docs-07-api-readme.html",
+    "text": "docs/07-api/README.md"
   },
   {
     "title": "Database Overview",
     "path": "pages/docs-08-database-database-overview.html",
     "text": "docs/08-database/database-overview.md"
+  },
+  {
+    "title": "database",
+    "path": "pages/docs-08-database-readme.html",
+    "text": "docs/08-database/README.md"
   },
   {
     "title": "architecture",
@@ -110,24 +70,19 @@
     "text": "docs/11-quality/README.md"
   },
   {
-    "title": "devops",
-    "path": "pages/docs-12-devops-readme.html",
-    "text": "docs/12-devops/README.md"
-  },
-  {
     "title": "Environments",
     "path": "pages/docs-12-devops-environments.html",
     "text": "docs/12-devops/environments.md"
   },
   {
+    "title": "devops",
+    "path": "pages/docs-12-devops-readme.html",
+    "text": "docs/12-devops/README.md"
+  },
+  {
     "title": "Release Process",
     "path": "pages/docs-12-devops-release-process.html",
     "text": "docs/12-devops/release-process.md"
-  },
-  {
-    "title": "operations",
-    "path": "pages/docs-13-operations-readme.html",
-    "text": "docs/13-operations/README.md"
   },
   {
     "title": "Incident Response",
@@ -138,6 +93,11 @@
     "title": "Monitoring",
     "path": "pages/docs-13-operations-monitoring.html",
     "text": "docs/13-operations/monitoring.md"
+  },
+  {
+    "title": "operations",
+    "path": "pages/docs-13-operations-readme.html",
+    "text": "docs/13-operations/README.md"
   },
   {
     "title": "performance",
@@ -155,14 +115,14 @@
     "text": "docs/16-release/README.md"
   },
   {
-    "title": "traceability",
-    "path": "pages/docs-17-traceability-readme.html",
-    "text": "docs/17-traceability/README.md"
-  },
-  {
     "title": "Feature Traceability Matrix",
     "path": "pages/docs-17-traceability-feature-matrix.html",
     "text": "docs/17-traceability/feature-matrix.md"
+  },
+  {
+    "title": "traceability",
+    "path": "pages/docs-17-traceability-readme.html",
+    "text": "docs/17-traceability/README.md"
   },
   {
     "title": "changelog",
@@ -170,14 +130,14 @@
     "text": "docs/18-changelog/README.md"
   },
   {
-    "title": "open items",
-    "path": "pages/docs-19-open-items-readme.html",
-    "text": "docs/19-open-items/README.md"
-  },
-  {
     "title": "Open Questions",
     "path": "pages/docs-19-open-items-open-questions.html",
     "text": "docs/19-open-items/open-questions.md"
+  },
+  {
+    "title": "open items",
+    "path": "pages/docs-19-open-items-readme.html",
+    "text": "docs/19-open-items/README.md"
   },
   {
     "title": "analytics-events",
@@ -250,9 +210,24 @@
     "text": "docs/24-applications/README.md"
   },
   {
-    "title": "Project Documentation Source",
-    "path": "pages/docs-readme.html",
-    "text": "docs/README.md"
+    "title": "Capability & Pattern Pack Overview",
+    "path": "pages/docs-guides-capability-packs.html",
+    "text": "docs/guides/capability-packs.md"
+  },
+  {
+    "title": "Documentation Governance v5.5",
+    "path": "pages/docs-guides-docs-governance.html",
+    "text": "docs/guides/docs-governance.md"
+  },
+  {
+    "title": "File Catalog — v5.5",
+    "path": "pages/docs-guides-file-catalog.html",
+    "text": "docs/guides/file-catalog.md"
+  },
+  {
+    "title": "2. File quan trọng nhất: `PROJECT_BLUEPRINT.md`",
+    "path": "pages/docs-guides-project-structure.html",
+    "text": "docs/guides/project-structure.md"
   },
   {
     "title": "Version History",
@@ -348,6 +323,16 @@
     "title": "v5.0 Upgrade Notes",
     "path": "pages/docs-history-v5-upgrade-notes.html",
     "text": "docs/history/V5_UPGRADE_NOTES.md"
+  },
+  {
+    "title": "Project Documentation Source",
+    "path": "pages/docs-readme.html",
+    "text": "docs/README.md"
+  },
+  {
+    "title": "Project Blueprint",
+    "path": "pages/project-blueprint.html",
+    "text": "PROJECT_BLUEPRINT.md"
   },
   {
     "title": "Master Prompt — Documentation-First Project Orchestrator v5.5",
@@ -570,6 +555,11 @@
     "text": "prompts/43-existing-source-adoption.md"
   },
   {
+    "title": "Production Project Documentation Starter Kit v5.5",
+    "path": "pages/readme.html",
+    "text": "README.md"
+  },
+  {
     "title": "Registry Governance — v5.5",
     "path": "pages/registry-readme.html",
     "text": "registry/README.md"
@@ -588,16 +578,6 @@
     "title": "Adding a New Technology Stack",
     "path": "pages/standards-adding-a-stack.html",
     "text": "standards/ADDING_A_STACK.md"
-  },
-  {
-    "title": "Standards Architecture v5.5",
-    "path": "pages/standards-readme.html",
-    "text": "standards/README.md"
-  },
-  {
-    "title": "Standard Catalog",
-    "path": "pages/standards-standard-catalog.html",
-    "text": "standards/STANDARD_CATALOG.md"
   },
   {
     "title": "AI Agent Rules — v5.3",
@@ -668,11 +648,6 @@
     "title": "Progressive Specification Standard — v5.3",
     "path": "pages/standards-progressive-specification.html",
     "text": "standards/progressive-specification.md"
-  },
-  {
-    "title": "Project Type Standards",
-    "path": "pages/standards-project-types-readme.html",
-    "text": "standards/project-types/README.md"
   },
   {
     "title": "Api Architecture",
@@ -820,6 +795,11 @@
     "text": "standards/project-types/mobile/timezone-server-time.md"
   },
   {
+    "title": "Project Type Standards",
+    "path": "pages/standards-project-types-readme.html",
+    "text": "standards/project-types/README.md"
+  },
+  {
     "title": "Browser Runtime",
     "path": "pages/standards-project-types-web-browser-runtime.html",
     "text": "standards/project-types/web/browser-runtime.md"
@@ -855,7 +835,12 @@
     "text": "standards/project-types/web/web-ui-ux.md"
   },
   {
-    "title": "Repository Entry & History Hygiene Standard — v5.3",
+    "title": "Standards Architecture v5.5",
+    "path": "pages/standards-readme.html",
+    "text": "standards/README.md"
+  },
+  {
+    "title": "Repository Entry & History Hygiene Standard — v5.5",
     "path": "pages/standards-repository-entry-hygiene.html",
     "text": "standards/repository-entry-hygiene.md"
   },
@@ -903,11 +888,6 @@
     "title": "Source Workspace Standard",
     "path": "pages/standards-source-workspace.html",
     "text": "standards/source-workspace.md"
-  },
-  {
-    "title": "Technology Stack Standards",
-    "path": "pages/standards-stacks-readme.html",
-    "text": "standards/stacks/README.md"
   },
   {
     "title": "Api Conventions",
@@ -1090,6 +1070,11 @@
     "text": "standards/stacks/mobile/react-native/testing-release.md"
   },
   {
+    "title": "Technology Stack Standards",
+    "path": "pages/standards-stacks-readme.html",
+    "text": "standards/stacks/README.md"
+  },
+  {
     "title": "Next.js Architecture Standard",
     "path": "pages/standards-stacks-web-nextjs-architecture.html",
     "text": "standards/stacks/web/nextjs/architecture.md"
@@ -1135,9 +1120,19 @@
     "text": "standards/stacks/web/reactjs/testing.md"
   },
   {
+    "title": "Standard Catalog",
+    "path": "pages/standards-standard-catalog.html",
+    "text": "standards/STANDARD_CATALOG.md"
+  },
+  {
     "title": "Documentation Tooling & Static Site Standard",
     "path": "pages/standards-tooling-and-static-site.html",
     "text": "standards/tooling-and-static-site.md"
+  },
+  {
+    "title": "START HERE - v5.5",
+    "path": "pages/start-here.html",
+    "text": "START_HERE.md"
   },
   {
     "title": "<TITLE>",

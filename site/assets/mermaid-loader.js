@@ -1,1 +1,0 @@
-const local='./mermaid.esm.min.mjs'; async function run(){try{let m;try{m=await import(local)}catch{m=await import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs')}m.default.initialize({startOnLoad:true,securityLevel:'loose',theme:'neutral'})}catch(e){console.warn('Mermaid unavailable; source remains visible.',e)}}run();

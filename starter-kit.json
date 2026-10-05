@@ -13,10 +13,12 @@
   "documentationLayoutVersion": "1.0",
   "documentationLayout": {
     "historyDirectory": "docs/history",
+    "guidesDirectory": "docs/guides",
     "rootHistoryPatterns": [
       "^V\\d+(?:_\\d+)*_(?:UPGRADE_NOTES|QA_REPORT)\\.md$",
       "^V\\d+_.*_UPGRADE\\.md$",
-      "^REVIEW_UPGRADE_NOTES\\.md$"
+      "^REVIEW_UPGRADE_NOTES\\.md$",
+      "^REUSE_STRATEGY_.*\\.md$"
     ]
   },
   "sourceProfilesVersion": "1.0",
