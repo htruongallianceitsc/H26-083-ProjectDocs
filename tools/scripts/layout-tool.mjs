@@ -82,9 +82,10 @@ function migrate() {
     fs.renameSync(src, dst);
   }
   const starter = loadJson('starter-kit.json', {});
-  starter.version = '5.8.0';
-  starter.schemaVersion = '5.8.0';
+  starter.version = '5.9.0';
+  starter.schemaVersion = '5.9.0';
   starter.workspaceLayoutVersion = '1.0';
+  starter.blueprintProjectionVersion = starter.blueprintProjectionVersion || '1.0';
   starter.workspaceLayout = {
     docs: 'docs', runtime: '.project-docs', kit: 'kit', registry: 'kit/registry', standards: 'kit/standards',
     prompts: 'kit/prompts', templates: 'kit/templates', workflows: 'kit/workflows', sourceBases: 'kit/source-bases',

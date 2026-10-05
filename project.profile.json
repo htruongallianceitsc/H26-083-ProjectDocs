@@ -1,6 +1,6 @@
 {
   "projectCode": "STARTER",
-  "projectName": "Production Project Documentation Starter Kit v5.8",
+  "projectName": "Production Project Documentation Starter Kit v5.9",
   "projectTypes": [],
   "technologyStacks": [],
   "implementationGate": {
@@ -22,5 +22,10 @@
     "mode": "greenfield",
     "strategy": "native",
     "baselineStatus": "not-required"
+  },
+  "blueprint": {
+    "defaultProfile": "standard",
+    "defaultAudience": "general",
+    "ownershipPolicy": "progressive"
   }
 }

@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-10-05T11:01:54.349Z",
+  "blueprintExists": true,
+  "summary": {
+    "inline": 0,
+    "linked": 0,
+    "generated": 1,
+    "canonicalEntities": 0,
+    "pendingCandidates": 0,
+    "stale": 0,
+    "conflicts": 0,
+    "missing": 0
+  },
+  "diff": []
+}

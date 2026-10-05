@@ -64,5 +64,25 @@
     "not-required",
     "in-progress",
     "reconciled"
+  ],
+  "blueprintFields": [
+    "defaultProfile",
+    "defaultAudience",
+    "ownershipPolicy"
+  ],
+  "blueprintProfilesEnum": [
+    "overview",
+    "lightweight",
+    "standard",
+    "full"
+  ],
+  "blueprintAudiencesEnum": [
+    "general",
+    "business",
+    "developer",
+    "qa"
+  ],
+  "blueprintOwnershipPolicyEnum": [
+    "progressive"
   ]
 }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-05T09:10:55.215Z",
+  "generatedAt": "2026-10-05T11:01:54.280Z",
   "summary": {
     "requirements": 0,
     "acceptanceCriteria": 0,
@@ -19,6 +19,5 @@
   "invalidAcceptanceRefs": [],
   "invalidBusinessRuleCases": [],
   "duplicateAcceptanceIds": [],
-  "relationAlignment": [],
-  "findings": []
+  "relationAlignment": []
 }

@@ -1,7 +1,7 @@
-# Production Project Documentation Starter Kit v5.8
+# Production Project Documentation Starter Kit v5.9
 
 
-Documentation-first starter kit for long-lived Web, Mobile and API projects. v5.8 adds first-class Acceptance & Verification Traceability: stable Acceptance Criteria sub-IDs, exact Test Case mappings, critical Business Rule positive/negative coverage, quality gates, reports, and a Verification dashboard while keeping Acceptance Criteria lightweight inside Requirement documents.
+Documentation-first starter kit for long-lived Web, Mobile and API projects. v5.9 adds Blueprint Projection & Progressive Documentation: start from one `PROJECT_BLUEPRINT.md`, promote reviewed detail into canonical documents only when needed, and compile/render the current knowledge graph back into Blueprint views by detail level and audience.
 
 ## Core model
 
@@ -30,7 +30,33 @@ Docs Reconciliation <- Tests <- Source Changes
 Done Gate -> ChangeSet / Baseline
 ```
 
-## What v5.8 adds
+
+## What v5.9 adds
+
+### 1. One-file progressive project entry point
+
+`PROJECT_BLUEPRINT.md` can begin as the canonical lightweight seed for Modules, Features, Requirements, Business Rules, Screens, APIs, Database Objects and Test Cases. `blueprint:expand` turns seed rows into reviewable candidates instead of silently creating documents.
+
+### 2. Progressive ownership instead of duplicate truth
+
+Blueprint items use `inline`, `linked` or `generated` ownership. Before promotion, the inline Blueprint seed owns the knowledge. After reviewed promotion, the detailed document under `docs/` owns it and the Blueprint becomes a generated summary/reference. Generated projections are never canonical.
+
+### 3. Docs → Blueprint compilation
+
+`blueprint:compile` reads canonical typed entities, relations and verification coverage, then refreshes only the managed projection block in `PROJECT_BLUEPRINT.md`. Human-authored seed sections outside that block are preserved.
+
+### 4. Independent detail and audience projections
+
+`blueprint:render` supports detail profiles `overview`, `lightweight`, `standard`, `full` and audiences `general`, `business`, `developer`, `qa`. Derived files live under `.project-docs/blueprint/rendered/`.
+
+### 5. Round-trip drift and conflict protection
+
+`blueprint:diff`, `blueprint:check` and `blueprint:reconcile` track linked source hashes and Blueprint seed hashes. Editing both a promoted seed row and its linked canonical document is reported as a conflict; automatic reconciliation only prefers the linked canonical document.
+
+## v5.8 Acceptance & Verification capabilities retained
+
+### Stable Acceptance Criteria and exact verification
+
 
 ### 1. Stable Acceptance Criteria without AC entity explosion
 
@@ -158,6 +184,22 @@ npm run knowledge:reindex
 npm run doctor
 ```
 
+
+Blueprint commands:
+
+```bash
+npm run blueprint:init
+npm run blueprint:expand -- --profile standard
+npm run blueprint:status
+# review candidate IDs before promotion
+npm run blueprint:review -- --candidate BP-... --decision accepted --reviewer "Reviewer"
+npm run blueprint:promote -- --candidate BP-... --reviewer "Reviewer"
+npm run blueprint:compile -- --profile standard --audience general
+npm run blueprint:render -- --profile overview --audience business
+npm run blueprint:diff
+npm run blueprint:check
+```
+
 Acceptance and verification commands:
 
 ```bash
@@ -194,9 +236,9 @@ If physical normalization is desired, run `brownfield:refactor-plan`; convert th
 
 ## Sources of truth
 
-- Markdown project entities in `docs/` remain canonical business/project knowledge.
+- Before promotion, an `inline` item in `PROJECT_BLUEPRINT.md` may be canonical lightweight knowledge. After promotion, the linked Markdown project entity in `docs/` becomes canonical for that item.
 - Real implementation under `apps/`, `packages/`, `tests/` and adopted source roots remains canonical source code.
 - Registry JSON files define model and governance behavior.
 - Files under `.project-docs/indexes/`, `.project-docs/reports/`, `docs/_generated/` and `.project-docs/site/` are derived and rebuildable.
 
-See `docs/history/V5_7_UPGRADE_NOTES.md`, `docs/history/V5_6_UPGRADE_NOTES.md`, `docs/history/V5_5_UPGRADE_NOTES.md`, `kit/standards/entity-identity-lifecycle-and-relations.md`, `kit/standards/source-intelligence.md`, and `kit/standards/local-knowledge-engine.md`.
+See `docs/history/V5_9_UPGRADE_NOTES.md`, `docs/history/V5_8_UPGRADE_NOTES.md`, `docs/history/V5_7_UPGRADE_NOTES.md`, `docs/history/V5_6_UPGRADE_NOTES.md`, `docs/history/V5_5_UPGRADE_NOTES.md`, `kit/standards/entity-identity-lifecycle-and-relations.md`, `kit/standards/source-intelligence.md`, and `kit/standards/local-knowledge-engine.md`.

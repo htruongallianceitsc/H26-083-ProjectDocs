@@ -1,4 +1,4 @@
-# Documentation Toolchain v5.8
+# Documentation Toolchain v5.9
 
 Requires Node.js 20+. The runtime uses only Node.js standard-library modules.
 
@@ -133,6 +133,23 @@ npm run pack:list
 npm run pack:validate
 ```
 
+
+## v5.9 Blueprint projection commands
+
+```bash
+npm run blueprint:init
+npm run blueprint:expand -- --profile standard
+npm run blueprint:review -- --candidate BP-... --decision accepted --reviewer "Reviewer"
+npm run blueprint:promote -- --candidate BP-... --reviewer "Reviewer"
+npm run blueprint:compile -- --profile standard --audience general
+npm run blueprint:render -- --profile overview --audience business
+npm run blueprint:status
+npm run blueprint:diff
+npm run blueprint:reconcile -- --prefer linked
+npm run blueprint:check
+```
+
+Blueprint runtime state lives under `.project-docs/blueprint/`. Promotion is review-gated; generated projections are derived.
 
 ## v5.8 verification commands
 

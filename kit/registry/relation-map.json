@@ -700,6 +700,76 @@
       "required": false,
       "allowUnresolved": false,
       "fallback": true
+    },
+    {
+      "from": "module",
+      "field": "features",
+      "to": "feature",
+      "cardinality": "one-to-many",
+      "key": "module.features.feature",
+      "relation": "contains_feature",
+      "reverse": "belongs_to_module",
+      "min": 0,
+      "max": null,
+      "required": false,
+      "allowUnresolved": false,
+      "fallback": false
+    },
+    {
+      "from": "requirement",
+      "field": "features",
+      "to": "feature",
+      "cardinality": "many-to-many",
+      "key": "requirement.features.feature",
+      "relation": "specifies_feature",
+      "reverse": "specified_by_requirement",
+      "min": 0,
+      "max": null,
+      "required": false,
+      "allowUnresolved": false,
+      "fallback": false
+    },
+    {
+      "from": "business-rule",
+      "field": "features",
+      "to": "feature",
+      "cardinality": "many-to-many",
+      "key": "business-rule.features.feature",
+      "relation": "governs_feature",
+      "reverse": "governed_by_rule",
+      "min": 0,
+      "max": null,
+      "required": false,
+      "allowUnresolved": false,
+      "fallback": false
+    },
+    {
+      "from": "database-object",
+      "field": "features",
+      "to": "feature",
+      "cardinality": "many-to-many",
+      "key": "database-object.features.feature",
+      "relation": "supports_feature",
+      "reverse": "supported_by_database_object",
+      "min": 0,
+      "max": null,
+      "required": false,
+      "allowUnresolved": false,
+      "fallback": false
+    },
+    {
+      "from": "test-case",
+      "field": "features",
+      "to": "feature",
+      "cardinality": "many-to-many",
+      "key": "test-case.features.feature",
+      "relation": "verifies_feature",
+      "reverse": "verified_by_test",
+      "min": 0,
+      "max": null,
+      "required": false,
+      "allowUnresolved": false,
+      "fallback": false
     }
   ]
 }

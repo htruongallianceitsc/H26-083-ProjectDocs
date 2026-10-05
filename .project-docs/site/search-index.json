@@ -5,12 +5,12 @@
     "text": "PROJECT_BLUEPRINT.md"
   },
   {
-    "title": "Production Project Documentation Starter Kit v5.8",
+    "title": "Production Project Documentation Starter Kit v5.9",
     "path": "pages/readme.html",
     "text": "README.md"
   },
   {
-    "title": "START HERE - v5.8",
+    "title": "START HERE - v5.9",
     "path": "pages/start-here.html",
     "text": "START_HERE.md"
   },
@@ -230,6 +230,11 @@
     "text": "docs/README.md"
   },
   {
+    "title": "Blueprint Projection Guide",
+    "path": "pages/docs-guides-blueprint-projection.html",
+    "text": "docs/guides/blueprint-projection.md"
+  },
+  {
     "title": "Capability & Pattern Pack Overview",
     "path": "pages/docs-guides-capability-packs.html",
     "text": "docs/guides/capability-packs.md"
@@ -365,6 +370,16 @@
     "text": "docs/history/V5_8_UPGRADE_NOTES.md"
   },
   {
+    "title": "v5.9 QA Report",
+    "path": "pages/docs-history-v5-9-qa-report.html",
+    "text": "docs/history/V5_9_QA_REPORT.md"
+  },
+  {
+    "title": "v5.9 Upgrade Notes — Blueprint Projection & Progressive Documentation",
+    "path": "pages/docs-history-v5-9-upgrade-notes.html",
+    "text": "docs/history/V5_9_UPGRADE_NOTES.md"
+  },
+  {
     "title": "v5.0 QA Report",
     "path": "pages/docs-history-v5-qa-report.html",
     "text": "docs/history/V5_QA_REPORT.md"
@@ -380,7 +395,7 @@
     "text": "kit/README.md"
   },
   {
-    "title": "Master Prompt — Documentation-First Project Orchestrator v5.8",
+    "title": "Master Prompt — Documentation-First Project Orchestrator v5.9",
     "path": "pages/kit-prompts-00-master-orchestrator-prompt.html",
     "text": "kit/prompts/00-master-orchestrator-prompt.md"
   },
@@ -610,7 +625,12 @@
     "text": "kit/prompts/44-brownfield-reverse-engineering.md"
   },
   {
-    "title": "Registry Governance — v5.8",
+    "title": "Prompt 45 — Blueprint Projection",
+    "path": "pages/kit-prompts-45-blueprint-projection.html",
+    "text": "kit/prompts/45-blueprint-projection.md"
+  },
+  {
+    "title": "Registry Governance — v5.9",
     "path": "pages/kit-registry-readme.html",
     "text": "kit/registry/README.md"
   },
@@ -635,7 +655,7 @@
     "text": "kit/standards/ADDING_A_STACK.md"
   },
   {
-    "title": "Standards Architecture v5.8",
+    "title": "Standards Architecture v5.9",
     "path": "pages/kit-standards-readme.html",
     "text": "kit/standards/README.md"
   },
@@ -655,6 +675,11 @@
     "text": "kit/standards/ai-agent-rules.md"
   },
   {
+    "title": "Blueprint Projection & Progressive Documentation Standard",
+    "path": "pages/kit-standards-blueprint-projection-and-progressive-documentation.html",
+    "text": "kit/standards/blueprint-projection-and-progressive-documentation.md"
+  },
+  {
     "title": "Brownfield Adoption Standard",
     "path": "pages/kit-standards-brownfield-adoption.html",
     "text": "kit/standards/brownfield-adoption.md"
@@ -670,7 +695,7 @@
     "text": "kit/standards/change-history-and-baselines.md"
   },
   {
-    "title": "Definition of Ready / Done — v5.8",
+    "title": "Definition of Ready / Done — v5.9",
     "path": "pages/kit-standards-definition-of-ready-done.html",
     "text": "kit/standards/definition-of-ready-done.md"
   },
@@ -1225,6 +1250,11 @@
     "text": "kit/templates/background-mobile-template.md"
   },
   {
+    "title": "Project Blueprint Seed",
+    "path": "pages/kit-templates-blueprint-blueprint-seed-template.html",
+    "text": "kit/templates/blueprint/blueprint-seed-template.md"
+  },
+  {
     "title": "Brownfield Candidate Review",
     "path": "pages/kit-templates-brownfield-candidate-review.html",
     "text": "kit/templates/brownfield/candidate-review.md"
@@ -1510,12 +1540,17 @@
     "text": "kit/workflows/19-acceptance-verification.md"
   },
   {
+    "title": "Workflow 20 — Blueprint Projection & Progressive Documentation",
+    "path": "pages/kit-workflows-20-blueprint-projection.html",
+    "text": "kit/workflows/20-blueprint-projection.md"
+  },
+  {
     "title": "End-to-End Documentation Checklist",
     "path": "pages/kit-workflows-end-to-end-checklist.html",
     "text": "kit/workflows/END_TO_END_CHECKLIST.md"
   },
   {
-    "title": "Documentation Toolchain v5.8",
+    "title": "Documentation Toolchain v5.9",
     "path": "pages/tools-readme.html",
     "text": "tools/README.md"
   },

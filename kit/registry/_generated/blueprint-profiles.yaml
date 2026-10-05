@@ -1,0 +1,117 @@
+# GENERATED FILE - DO NOT EDIT
+# Source: kit/registry/blueprint-profiles.json
+schemaVersion: 1.0
+runtimeDirectory: .project-docs/blueprint
+managedBlock:
+  start: "<!-- BLUEPRINT_PROJECTION:START -->"
+  end: "<!-- BLUEPRINT_PROJECTION:END -->"
+ownership:
+  values:
+    - inline
+    - linked
+    - generated
+  default: inline
+  linkedSourceOfTruth: canonical-document
+  generatedEditable: false
+profiles:
+  overview:
+    includeTypes:
+      - application
+      - module
+      - feature
+    bodyMode: summary
+  lightweight:
+    extends: overview
+    includeTypes:
+      - business-rule
+      - open-question
+    bodyMode: summary
+  standard:
+    extends: lightweight
+    includeTypes:
+      - requirement
+      - screen
+      - flow
+      - api
+      - test-case
+      - decision
+    bodyMode: summary
+  full:
+    extends: standard
+    includeTypes:
+      - database-object
+      - nfr
+      - integration
+      - runbook
+      - release
+      - permission
+      - deep-link
+      - push-event
+      - local-storage
+      - sync-policy
+      - background-job-mobile
+      - analytics-event
+      - feature-flag
+      - device-test-profile
+      - native-capability
+    bodyMode: full
+audiences:
+  general:
+    includeTypes:
+      - "*"
+  business:
+    includeTypes:
+      - application
+      - module
+      - feature
+      - requirement
+      - business-rule
+      - screen
+      - flow
+      - decision
+      - open-question
+  developer:
+    includeTypes:
+      - application
+      - module
+      - feature
+      - requirement
+      - business-rule
+      - screen
+      - flow
+      - api
+      - database-object
+      - nfr
+      - integration
+      - decision
+      - permission
+      - deep-link
+      - push-event
+      - local-storage
+      - sync-policy
+      - background-job-mobile
+      - feature-flag
+      - native-capability
+  qa:
+    includeTypes:
+      - module
+      - feature
+      - requirement
+      - business-rule
+      - screen
+      - flow
+      - api
+      - test-case
+      - device-test-profile
+seedSections:
+  Modules: module
+  Features: feature
+  Requirements: requirement
+  Business Rules: business-rule
+  Screens / Routes: screen
+  APIs: api
+  Database Objects: database-object
+  Test Cases: test-case
+promotion:
+  requireReview: true
+  allowOverwriteLinked: false

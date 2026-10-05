@@ -1,7 +1,7 @@
 {
   "name": "production-project-docs-starter-kit",
-  "version": "5.8.0",
-  "schemaVersion": "5.8.0",
+  "version": "5.9.0",
+  "schemaVersion": "5.9.0",
   "registrySchemaVersion": "1.0",
   "capabilityPackSchemaVersion": "1.0",
   "workPlanSchemaVersion": "1.2",
@@ -68,5 +68,6 @@
     "examples.profile": "PROJECT_PROFILE.example.json",
     "site": "site"
   },
-  "brownfieldVersion": "1.0"
+  "brownfieldVersion": "1.0",
+  "blueprintProjectionVersion": "1.0"
 }

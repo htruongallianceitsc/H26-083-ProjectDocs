@@ -1,4 +1,4 @@
-# START HERE - v5.8
+# START HERE - v5.9
 
 ## 0. Understand the workspace layout
 
@@ -19,6 +19,34 @@ npm run layout:check
 
 Set project type, technology stacks, default Spec Level and target maturity in `project.profile.json`.
 
+
+## 1A. Start from one Blueprint when that is the fastest path
+
+For an early-stage project, you may keep Modules/Features and selected supporting artifacts in `PROJECT_BLUEPRINT.md` first:
+
+```bash
+npm run blueprint:init
+npm run blueprint:expand -- --profile lightweight
+npm run blueprint:status
+```
+
+When an item needs its own lifecycle, relations, verification or implementation planning, review and promote it:
+
+```bash
+npm run blueprint:review -- --candidate BP-... --decision accepted --reviewer "Reviewer"
+npm run blueprint:promote -- --candidate BP-... --reviewer "Reviewer"
+```
+
+After promotion, edit the linked canonical document rather than maintaining duplicate detail in the Blueprint. Refresh summaries and audience views with:
+
+```bash
+npm run blueprint:compile -- --profile standard --audience general
+npm run blueprint:render -- --profile overview --audience business
+npm run blueprint:diff
+```
+
+`overview`, `lightweight`, `standard` and `full` control detail. `general`, `business`, `developer` and `qa` control audience.
+
 ## 2. Establish application boundaries
 
 Create or adopt each deployable application:
@@ -34,7 +62,7 @@ Features should use `related.applications` to identify implementation boundaries
 
 ## 2A. Existing project? Complete brownfield onboarding before normal feature work
 
-After `source:adopt`, v5.8 retains the v5.7 brownfield behavior and marks adoption as `brownfield / in-progress`. Build evidence first; do not immediately move legacy source into `apps/`.
+After `source:adopt`, v5.9 retains the v5.7 brownfield behavior and marks adoption as `brownfield / in-progress`. Build evidence first; do not immediately move legacy source into `apps/`.
 
 ```bash
 npm run brownfield:inventory -- --app APP-...

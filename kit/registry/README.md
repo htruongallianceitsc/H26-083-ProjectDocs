@@ -1,4 +1,4 @@
-# Registry Governance — v5.8
+# Registry Governance — v5.9
 
 `kit/registry/*.json` is the canonical machine-readable policy source.
 
@@ -60,3 +60,10 @@ The physical repository layout is configured in root `starter-kit.json.workspace
 ## Acceptance / verification registry (v5.8)
 
 `quality-rules.json` now contains machine rules for Requirement AC coverage and critical Business Rule polarity coverage. `relation-map.json` includes explicit Requirement/Test/Business Rule verification relations. Generated YAML mirrors remain derived.
+
+
+## Blueprint projection registry (v5.9)
+
+- `blueprint-profiles.json` defines detail profiles, audience filters, seed sections, managed block markers and progressive ownership policy.
+- Blueprint runtime state/candidates/renders live under `.project-docs/blueprint/`; they do not replace canonical typed entities.
+- Promotion requires review by default; generated Blueprint content is non-editable/rebuildable.
