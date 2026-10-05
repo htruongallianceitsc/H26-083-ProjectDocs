@@ -25,3 +25,9 @@ Historical files may keep their original filenames so old citations and release 
 
 - `V5_4_UPGRADE_NOTES.md` — Source Workspace & Starter Code Profiles.
 - `V5_4_QA_REPORT.md` — source bootstrap/adoption and regression evidence.
+
+## v5.5
+
+- `V5_5_UPGRADE_NOTES.md` - entity/relation hardening, source/Git intelligence, local knowledge runtime.
+- `V5_5_QA_REPORT.md` - regression and E2E evidence for the v5.5 runtime.
+

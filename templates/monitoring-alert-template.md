@@ -1,5 +1,7 @@
 ---
+uid: <GENERATE-UUID>
 code: <ALERT-XXX>
+revision: 1
 type: monitoring-alert
 title: <Monitoring / Alert>
 status: draft

@@ -1,5 +1,7 @@
 ---
+uid: <GENERATE-UUID>
 code: <CODE>
+revision: 1
 type: integration
 title: <TITLE>
 status: draft

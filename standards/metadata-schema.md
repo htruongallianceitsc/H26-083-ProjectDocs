@@ -4,7 +4,9 @@ Entity frontmatter được validator kiểm theo `registry/frontmatter-schema.j
 
 ```yaml
 ---
-code: <stable-id>
+uid: <permanent-uuid>
+code: <stable-human-id>
+revision: 1
 type: <entity-type-from-registry>
 title: <title>
 status: draft
@@ -48,6 +50,9 @@ related:
 ```
 
 ## Rules
+- `uid` is the permanent machine identity; `code` is the stable human-readable reference.
+- New typed entities must receive a UUID and `revision: 1`; legacy entities may be backfilled with `entity:identity-backfill`.
+- Status changes performed by tooling must follow configured lifecycle transitions in `registry/entity-types.json`.
 - `type` và `status` phải tồn tại trong entity registry.
 - Relation key phải tồn tại trong relation map và target code phải resolve được.
 - Relation phải hợp lệ cho source type -> relation key -> target type và cardinality.

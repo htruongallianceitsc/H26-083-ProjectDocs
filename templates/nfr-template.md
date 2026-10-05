@@ -1,5 +1,7 @@
 ---
+uid: <GENERATE-UUID>
 code: <CODE>
+revision: 1
 type: nfr
 title: <TITLE>
 status: draft

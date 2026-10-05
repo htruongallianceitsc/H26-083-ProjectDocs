@@ -1,5 +1,7 @@
 ---
+uid: <GENERATE-UUID>
 code: TASK-MOD-FEATURE-001
+revision: 1
 type: task
 title: Task title
 status: ready

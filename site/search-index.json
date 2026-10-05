@@ -5,12 +5,12 @@
     "text": "CAPABILITY_PACKS.md"
   },
   {
-    "title": "Documentation Governance v5.4",
+    "title": "Documentation Governance v5.5",
     "path": "pages/docs-governance.html",
     "text": "DOCS_GOVERNANCE.md"
   },
   {
-    "title": "File Catalog — v5.4",
+    "title": "File Catalog — v5.5",
     "path": "pages/file-catalog.html",
     "text": "FILE_CATALOG.md"
   },
@@ -20,7 +20,7 @@
     "text": "PROJECT_BLUEPRINT.md"
   },
   {
-    "title": "Production Project Documentation Starter Kit v5.4",
+    "title": "Production Project Documentation Starter Kit v5.5",
     "path": "pages/readme.html",
     "text": "README.md"
   },
@@ -30,7 +30,7 @@
     "text": "REUSE_STRATEGY_V4.md"
   },
   {
-    "title": "START HERE — v5.4",
+    "title": "START HERE - v5.5",
     "path": "pages/start-here.html",
     "text": "START_HERE.md"
   },
@@ -330,6 +330,16 @@
     "text": "docs/history/V5_4_UPGRADE_NOTES.md"
   },
   {
+    "title": "v5.5 QA Report",
+    "path": "pages/docs-history-v5-5-qa-report.html",
+    "text": "docs/history/V5_5_QA_REPORT.md"
+  },
+  {
+    "title": "v5.5 Upgrade Notes - Knowledge Runtime Foundations",
+    "path": "pages/docs-history-v5-5-upgrade-notes.html",
+    "text": "docs/history/V5_5_UPGRADE_NOTES.md"
+  },
+  {
     "title": "v5.0 QA Report",
     "path": "pages/docs-history-v5-qa-report.html",
     "text": "docs/history/V5_QA_REPORT.md"
@@ -340,7 +350,7 @@
     "text": "docs/history/V5_UPGRADE_NOTES.md"
   },
   {
-    "title": "Master Prompt — Documentation-First Project Orchestrator v5.4",
+    "title": "Master Prompt — Documentation-First Project Orchestrator v5.5",
     "path": "pages/prompts-00-master-orchestrator-prompt.html",
     "text": "prompts/00-master-orchestrator-prompt.md"
   },
@@ -560,7 +570,7 @@
     "text": "prompts/43-existing-source-adoption.md"
   },
   {
-    "title": "Registry Governance — v5.4",
+    "title": "Registry Governance — v5.5",
     "path": "pages/registry-readme.html",
     "text": "registry/README.md"
   },
@@ -580,7 +590,7 @@
     "text": "standards/ADDING_A_STACK.md"
   },
   {
-    "title": "Standards Architecture v5.4",
+    "title": "Standards Architecture v5.5",
     "path": "pages/standards-readme.html",
     "text": "standards/README.md"
   },
@@ -625,6 +635,11 @@
     "text": "standards/documentation-standard.md"
   },
   {
+    "title": "Entity Identity, Lifecycle and Relation Semantics",
+    "path": "pages/standards-entity-identity-lifecycle-and-relations.html",
+    "text": "standards/entity-identity-lifecycle-and-relations.md"
+  },
+  {
     "title": "Graph Impact Analysis Standard — v5.3",
     "path": "pages/standards-impact-analysis.html",
     "text": "standards/impact-analysis.md"
@@ -635,12 +650,17 @@
     "text": "standards/implementation-governance.md"
   },
   {
+    "title": "Local Knowledge Engine Standard",
+    "path": "pages/standards-local-knowledge-engine.html",
+    "text": "standards/local-knowledge-engine.md"
+  },
+  {
     "title": "Metadata Schema",
     "path": "pages/standards-metadata-schema.html",
     "text": "standards/metadata-schema.md"
   },
   {
-    "title": "Naming & ID Convention",
+    "title": "Naming, Code & UID Convention",
     "path": "pages/standards-naming-and-id-convention.html",
     "text": "standards/naming-and-id-convention.md"
   },
@@ -868,6 +888,11 @@
     "title": "Source Base Governance",
     "path": "pages/standards-source-base-governance.html",
     "text": "standards/source-base-governance.md"
+  },
+  {
+    "title": "Source Intelligence Standard",
+    "path": "pages/standards-source-intelligence.html",
+    "text": "standards/source-intelligence.md"
   },
   {
     "title": "Source of Truth Rules",
@@ -1315,7 +1340,7 @@
     "text": "templates/test-case-template.md"
   },
   {
-    "title": "Documentation Toolchain v5.4",
+    "title": "Documentation Toolchain v5.5",
     "path": "pages/tools-readme.html",
     "text": "tools/README.md"
   },

@@ -1,59 +1,79 @@
-# START HERE — v5.4
+# START HERE - v5.5
 
-## 1. Decide documentation maturity
+## 1. Configure the project
 
-Configure `project.profile.json` with project type, technology stacks, default Spec Level and target maturity.
+Set project type, technology stacks, default Spec Level and target maturity in `project.profile.json`.
 
-## 2. Decide application boundaries
+## 2. Establish application boundaries
 
-A deployable application should have an `application` entity. Typical examples:
-
-- `APP-WEB` → React SPA or Next.js
-- `APP-API` → ASP.NET Core / Node.js API
-- `APP-MOBILE` → React Native / Flutter
-- `APP-IOS` / `APP-ANDROID` → native mobile apps
-
-## 3. Bootstrap or adopt source
-
-New project:
+Create or adopt each deployable application:
 
 ```bash
 cd tools
-npm run source:list
 npm run source:init -- --code APP-WEB --profile react-spa --variant production
+npm run source:adopt -- --code APP-API --profile aspnet-core-api --root backend
 ```
 
-Existing project:
+Features should use `related.applications` to identify implementation boundaries.
+
+## 3. Establish permanent entity identity
+
+New entities automatically receive `uid` and `revision`. For an upgraded project:
 
 ```bash
-npm run source:adopt -- --code APP-WEB --profile react-spa --root frontend
+npm run entity:identity-status
+npm run entity:identity-backfill
+npm run entity:identity-backfill -- --apply
 ```
 
-`source:init` copies a versioned Source Base. `source:adopt` registers existing code in place. Both create an Application entity and source provenance lock.
+Use `entity:transition` for governed lifecycle changes instead of arbitrary status jumps.
 
 ## 4. Build documentation first
 
-Create/confirm Module → Feature → Requirements/Rules → Screen/API/DB/Test as required by the selected Spec Level. Add `related.applications` to Features that have an implementation boundary.
+Create the Module -> Feature -> Requirement/Rule -> Screen/API/DB/Test knowledge required by the selected Spec Level. Exact typed relations are preferred; broad fallback relations should be reviewed.
 
-## 5. Check readiness and source workspace
+## 5. Build source and knowledge indexes
 
 ```bash
-npm run source:check
-npm run spec:check -- --feature FEAT-...
-npm run gate:ready -- --feature FEAT-...
+npm run source:scan
+npm run knowledge:reindex
+npm run doctor
 ```
 
-## 6. Create reviewed WorkPlan
+Indexes are derived caches and may be rebuilt at any time.
 
-`plan:scaffold` now snapshots `applicationScope`, so implementation tasks know which app boundary they belong to.
+## 6. Discover focused context
 
-## 7. Implement and reconcile
+```bash
+npm run search -- --text "withdrawal fifo"
+npm run query -- --expr "type=requirement AND status=approved"
+npm run context -- --entity FEAT-WITHDRAW
+npm run source:map -- --entity FEAT-WITHDRAW
+```
 
-Implement only against the approved WorkPlan, then reconcile docs/freshness and pass the Done Gate.
+Use bounded context instead of asking an AI agent to scan the entire repository.
 
-## 8. Never auto-upgrade Source Base
+## 7. Check change impact before implementation
 
-Use `source:upgrade-check`. A Source Base upgrade is a reviewed migration, not an overwrite operation.
+Inside a Git repository:
+
+```bash
+npm run git:status
+npm run git:impact
+npm run git:impact -- --commit HEAD
+```
+
+Git impact is potential impact derived from source evidence plus the project graph.
+
+## 8. Follow the documentation-first gate
+
+```bash
+npm run spec:check -- --feature FEAT-...
+npm run gate:ready -- --feature FEAT-...
+npm run plan:scaffold -- --feature FEAT-...
+```
+
+Review and approve the WorkPlan before implementation. Reconcile documentation and pass the Done Gate after source/test changes.
 
 ## 9. Run full QA
 

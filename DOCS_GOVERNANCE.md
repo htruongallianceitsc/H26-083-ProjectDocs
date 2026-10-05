@@ -1,4 +1,4 @@
-# Documentation Governance v5.4
+# Documentation Governance v5.5
 
 ## Principle
 
@@ -61,3 +61,15 @@ Repository root is an entry surface, not a version archive. Version upgrade note
 6. Existing code is adopted in place with `source:adopt`; source movement is not required.
 7. Source Base upgrades must be reviewed migrations and must not overwrite project source automatically.
 8. v6 source/Git intelligence should build on Application boundaries rather than inventing source ownership from filenames.
+
+## v5.5 Knowledge Runtime Governance
+
+1. Every new typed entity receives a permanent UUID `uid`; `code` remains the human-readable project reference.
+2. Governed status changes must follow lifecycle transitions from `registry/entity-types.json`.
+3. Exact typed relation rules take precedence over wildcard compatibility rules. Fallback use is reviewable evidence, not an ideal steady state.
+4. Source indexes and knowledge indexes are derived caches. They can never replace canonical Markdown entities or real source files.
+5. Source-to-entity matches based on code/technical identifier scanning are evidence only; they do not create durable graph relations automatically.
+6. Git impact is potential impact based on current mapping evidence and graph rules. Human review remains required for implementation/release decisions.
+7. AI agents should prefer bounded `context` packs over unbounded repository scans.
+8. `doctor --fix` is limited to safe derived-state repair and must not silently change business meaning.
+

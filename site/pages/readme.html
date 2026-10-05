@@ -1,33 +1,31 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>README.md</title><link rel="stylesheet" href="../assets/style.css"></head><body><header><strong>Project Docs v5.4</strong><nav><a class="" href="../index.html">Dashboard</a><a class="" href="../profile.html">Profile</a><a class="" href="../standards.html">Standards</a><a class="" href="../source.html">Source</a><a class="" href="../packs.html">Reuse</a><a class="" href="../catalog.html">Catalog</a><a class="" href="../traceability.html">Traceability</a><a class="" href="../graph.html">Graph</a><a class="" href="../governance.html">Governance</a><a class="" href="../specification.html">Spec Levels</a><a class="" href="../flows.html">Diagrams</a></nav></header><main><h1>README.md</h1><p><small>README.md</small></p><h1>Production Project Documentation Starter Kit v5.4</h1><p>Documentation-first starter kit for long-lived Web, Mobile and API projects, now with a governed source workspace and versioned Source Base bootstrap profiles.</p><h2>Core model</h2><pre><code class="language-text">Idea / Request
-      ↓
-Select Spec Level
-      ↓
-Canonical Docs + Application Boundaries
-      ↓
-Ready Gate
-      ↓
-Reviewed WorkPlan (with application/source scope)
-      ↓
-Implementation Tasks
-      ↓
-apps/* / adopted source roots
-      ↓
-Documentation reconciliation + Done Gate
-      ↓
-ChangeSet / Baseline</code></pre><h2>What v5.4 adds</h2><ul><li><code>application</code> is a first-class typed entity under <code>docs/24-applications/</code>.</li><li><code>applications</code> is a typed relation that can connect Features/Tasks to deployable app boundaries.</li><li><code>registry/source-profiles.json</code> defines stack-specific source conventions.</li><li><code>source-bases/</code> contains versioned bootstrap skeletons for React SPA, Next.js, React Native/Expo, Flutter/BLoC, iOS/SwiftUI and Android/Compose.</li><li><code>.project-docs/source.lock.json</code> records source-base/adoption provenance.</li><li><code>source:init</code> materializes a Source Base into project source.</li><li><code>source:adopt</code> registers an existing codebase without forcing a move.</li><li><code>source:check</code> validates application roots against their selected Source Profile/Base.</li><li><code>source:upgrade-check</code> reports newer base versions but never overwrites project source.</li><li>WorkPlan schema <code>1.2</code> snapshots <code>applicationScope</code>.</li><li>Static docs add a <strong>Source Workspace</strong> page.</li></ul><h2>Source workspace convention</h2><p>For new projects prefer:</p><pre><code class="language-text">apps/
-├── web/
-├── api/
-├── mobile/
-└── ...
-packages/
-├── shared/
-├── contracts/
-└── ...</code></pre><p>The root layout is stable across stacks; the internal layout of each app is selected by its Source Profile. Existing projects may keep <code>frontend/</code>, <code>mobile/</code>, or other roots and register them with <code>source:adopt</code>.</p><h2>Source Base vs Capability Pack</h2><ul><li><strong>Source Base</strong> = technology/application bootstrap skeleton.</li><li><strong>Capability Pack</strong> = reusable product/domain capability documentation.</li><li><strong>Pattern Pack</strong> = reusable implementation/documentation pattern.</li><li><strong>Standard</strong> = rules and constraints.</li></ul><p>After <code>source:init</code>, the copied code becomes project-owned canonical source. Source Bases are not live dependencies.</p><h2>Start</h2><ul><li>Read <code>START_HERE.md</code>.</li><li>Configure documentation depth in <code>project.profile.json</code>.</li><li>Choose application/source profile(s).</li><li>For a new app run <code>source:init</code>; for existing code run <code>source:adopt</code>.</li><li>Map Features to application entities using <code>related.applications</code>.</li><li>Run <code>cd tools &amp;&amp; npm ci &amp;&amp; npm run qa</code>.</li><li>Use Ready → WorkPlan → Tasks before implementation.</li></ul><h2>Key source commands</h2><pre><code class="language-bash">cd tools
-
-npm run source:list
-npm run source:recommend -- --type web --stack reactjs
-npm run source:init -- --code APP-WEB --profile react-spa --variant production
-npm run source:adopt -- --code APP-WEB --profile react-spa --root frontend
-npm run source:check
-npm run source:status
-npm run source:upgrade-check -- --app APP-WEB</code></pre><p>All v5.0-v5.3 governance remains: Request/WorkPlan/Task, Progressive Specification, freshness, impact analysis, ChangeSets, Baselines and root-history hygiene.</p><p>See <code>docs/history/V5_4_UPGRADE_NOTES.md</code>, <code>docs/history/V5_4_QA_REPORT.md</code>, <code>standards/source-workspace.md</code> and <code>standards/source-base-governance.md</code>.</p></main><script src="assets/app.js"></script><script type="module">if(document.querySelector('.mermaid')){import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs').then(m=>{m.default.initialize({startOnLoad:true,securityLevel:'loose'});});}</script></body></html>
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>README.md</title><link rel="stylesheet" href="../assets/style.css"></head><body><header><strong>Project Docs v5.5</strong><nav><a class="" href="../index.html">Dashboard</a><a class="" href="../profile.html">Profile</a><a class="" href="../standards.html">Standards</a><a class="" href="../source.html">Source</a><a class="" href="../packs.html">Reuse</a><a class="" href="../catalog.html">Catalog</a><a class="" href="../traceability.html">Traceability</a><a class="" href="../graph.html">Graph</a><a class="" href="../governance.html">Governance</a><a class="" href="../specification.html">Spec Levels</a><a class="" href="../flows.html">Diagrams</a></nav></header><main><h1>README.md</h1><p><small>README.md</small></p><h1>Production Project Documentation Starter Kit v5.5</h1><p>Documentation-first starter kit for long-lived Web, Mobile and API projects. v5.5 turns the v5.4 source workspace into a local project knowledge runtime by hardening entity identity/relations, adding source and Git intelligence, and adding fast local search/query/context/doctor commands.</p><h2>Core model</h2><pre><code class="language-text">Idea / Request
+      |
+      v
+Progressive Specification
+      |
+      v
+Canonical Docs + Typed Project Graph
+      |
+      +----&gt; Local Search / Query / Context
+      |
+      +----&gt; Source Intelligence &lt;---- Git Changes
+      |              |
+      |              v
+      |         Potential Impact
+      v
+Ready Gate -&gt; Reviewed WorkPlan -&gt; Implementation
+      ^                               |
+      |                               v
+Docs Reconciliation &lt;- Tests &lt;- Source Changes
+      |
+      v
+Done Gate -&gt; ChangeSet / Baseline</code></pre><h2>What v5.5 adds</h2><h3>1. Hardened entity and relation model</h3><ul><li>Permanent UUID <code>uid</code> for machine identity.</li><li>Local semantic <code>revision</code> for governed edits.</li><li>Explicit <code>initialStatus</code>, lifecycle transitions and terminal statuses for all 32 entity types.</li><li>Semantic relation metadata with exact-rule precedence, min/max cardinality, unresolved-target policy and compatibility fallbacks.</li><li><code>entity:identity-backfill</code> for legacy Markdown entities.</li><li><code>entity:transition</code> for lifecycle-safe status changes.</li></ul><h3>2. Source intelligence and Git impact</h3><ul><li><code>registry/source-intelligence.json</code> defines scan and mapping behavior.</li><li><code>.project-docs/indexes/source-index.json</code> is a disposable derived source index.</li><li>Lightweight symbol/import/dependency/dependent extraction.</li><li>Source file -&gt; entity evidence through application roots, explicit mappings, entity-code mentions and technical identifiers.</li><li><code>source:map</code> explains why a file maps to an entity.</li><li><code>git:status</code> and <code>git:impact</code> map changed files into graph-based potential impact.</li></ul><h3>3. Local knowledge engine and Doctor</h3><ul><li>Rebuildable entity/relation/search indexes under <code>.project-docs/indexes/</code>.</li><li>Full-text <code>search</code> across metadata and document bodies.</li><li>Field-aware <code>query</code> with boolean expressions and graph scope.</li><li>Bounded <code>context</code> packs that combine project graph and source evidence for AI agents.</li><li>Reusable views in <code>registry/views.json</code>.</li><li><code>doctor</code> detects identity, relation and stale-index problems; <code>doctor --fix</code> performs safe derived-state repairs.</li></ul><h2>v5.4 capabilities retained</h2><ul><li>Progressive Specification: Lightweight / Standard / Full.</li><li>Application entities and governed source roots.</li><li>Versioned Source Bases for React SPA, Next.js, React Native/Expo, Flutter/BLoC, iOS/SwiftUI and Android/Compose.</li><li>Capability Packs, Pattern Packs and reuse governance.</li><li>Request -&gt; Ready Gate -&gt; reviewed WorkPlan -&gt; Task workflow.</li><li>Documentation freshness, impact analysis, ChangeSets and Baselines.</li><li>Static offline documentation site and CI-ready QA.</li></ul><h2>Start</h2><pre><code class="language-bash">cd tools
+npm ci
+npm run qa</code></pre><p>For an existing project, backfill permanent entity identities once:</p><pre><code class="language-bash">npm run entity:identity-backfill
+npm run entity:identity-backfill -- --apply</code></pre><p>Then build local engineering intelligence:</p><pre><code class="language-bash">npm run source:scan
+npm run knowledge:reindex
+npm run doctor</code></pre><p>Typical discovery commands:</p><pre><code class="language-bash">npm run search -- --text &quot;reset password&quot;
+npm run query -- --expr &quot;type=feature AND status=in_progress&quot;
+npm run context -- --entity FEAT-AUTH-LOGIN
+npm run source:map -- --entity FEAT-AUTH-LOGIN
+npm run git:impact</code></pre><h2>Sources of truth</h2><ul><li>Markdown project entities in <code>docs/</code> remain canonical business/project knowledge.</li><li>Real implementation under <code>apps/</code>, <code>packages/</code>, <code>tests/</code> and adopted source roots remains canonical source code.</li><li>Registry JSON files define model and governance behavior.</li><li>Files under <code>.project-docs/indexes/</code>, <code>.project-docs/reports/</code>, <code>docs/_generated/</code> and <code>site/</code> are derived and rebuildable.</li></ul><p>See <code>docs/history/V5_5_UPGRADE_NOTES.md</code>, <code>standards/entity-identity-lifecycle-and-relations.md</code>, <code>standards/source-intelligence.md</code>, and <code>standards/local-knowledge-engine.md</code>.</p></main><script src="assets/app.js"></script><script type="module">if(document.querySelector('.mermaid')){import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs').then(m=>{m.default.initialize({startOnLoad:true,securityLevel:'loose'});});}</script></body></html>

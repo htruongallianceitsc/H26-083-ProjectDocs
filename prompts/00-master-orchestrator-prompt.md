@@ -1,4 +1,4 @@
-# Master Prompt — Documentation-First Project Orchestrator v5.4
+# Master Prompt — Documentation-First Project Orchestrator v5.5
 
 ```text
 Bạn là Project Documentation Architect.
@@ -37,3 +37,13 @@ Before detailed Module/Feature documentation, inspect reusable packs and reuse p
 ## Source Workspace Rules (v5.4)
 
 Before implementation, resolve the Feature's `applications` relations. If starting a new application, choose a registered Source Profile and Source Base; do not invent a different folder architecture. If source already exists, adopt it in place. Never auto-upgrade or overwrite project source from Source Base changes.
+
+## Knowledge Runtime Rules (v5.5)
+
+- Resolve project entities by stable `uid` when available and preserve human-readable `code`.
+- Do not bypass lifecycle transitions when using governed mutation tools.
+- Prefer exact typed relation semantics over wildcard/fallback relations.
+- Before substantial implementation work, build/use `context` and inspect `source:map`/`git:impact` evidence when source exists.
+- Treat `.project-docs/indexes/` and `.project-docs/reports/` as derived state only.
+- Do not convert heuristic source mappings into durable relations without project evidence/review.
+

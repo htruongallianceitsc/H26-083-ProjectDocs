@@ -8,7 +8,7 @@ const here = path.dirname(fileURLToPath(import.meta.url));
 const toolsDir = path.resolve(here, '..');
 const sourceRoot = path.resolve(toolsDir, '..');
 const fixture = path.join(toolsDir, 'tests/fixtures/valid-project');
-const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'project-docs-v54-'));
+const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'project-docs-v55-'));
 
 function copy(src,dst){ fs.cpSync(src,dst,{recursive:true}); }
 function run(script, action, extra=[], expectOk=true){
@@ -77,6 +77,56 @@ ${sourceStatus}`);
   const lightBody = (code,title) => `---\ncode: ${code}\ntype: feature\ntitle: ${title}\nstatus: planned\nspec_level: lightweight\ntarget_maturity: prototype\nrelated:\n  requirements: []\n  tests: []\n---\n# ${title}\n\n## Business Goal\nPrototype the workflow quickly.\n\n## Actors\nInternal user.\n\n## Main Flow\n1. Open the mock.\n2. Complete the basic action.\n\n## Key Rules\n- Keep behaviour intentionally minimal.\n\n## Acceptance Summary\n- The prototype demonstrates the expected happy path.\n\n## Open Questions\n- Production hardening is deferred.\n`;
   fs.writeFileSync(path.join(tempRoot,'docs/lightweight.md'), lightBody('FEAT-LITE','Lightweight Demo'));
   fs.writeFileSync(path.join(tempRoot,'docs/promote.md'), lightBody('FEAT-PROMO','Promotion Demo'));
+
+  const identityPlan=run('entity-tool.mjs','identity-backfill');
+  if(!identityPlan.includes('mode=dry-run')) throw new Error(`Identity backfill dry-run missing:
+${identityPlan}`);
+  run('entity-tool.mjs','identity-backfill',['--apply']);
+  const identityStatus=run('entity-tool.mjs','identity-status');
+  if(!identityStatus.includes('0 missing uid') || !identityStatus.includes('0 invalid uid') || !identityStatus.includes('0 duplicate uid')) throw new Error(`Identity hardening failed:
+${identityStatus}`);
+  const invalidTransition=run('entity-tool.mjs','transition',['--entity','FEAT-LITE','--to','implemented'],false);
+  if(!invalidTransition.includes('is not allowed')) throw new Error(`Lifecycle transition guard failed:
+${invalidTransition}`);
+  const validTransition=run('entity-tool.mjs','transition',['--entity','FEAT-LITE','--to','in_progress']);
+  if(!validTransition.includes('planned -> in_progress')) throw new Error(`Valid lifecycle transition failed:
+${validTransition}`);
+
+  const mappedSource=path.join(tempRoot,'apps/web/src/app/App.tsx');
+  fs.appendFileSync(mappedSource,'\n// Project refs: FEAT-DEMO API-DEMO\n');
+  const sourceScan=run('source-intelligence-tool.mjs','scan');
+  if(!sourceScan.includes('indexed') || sourceScan.includes('indexed 0 file')) throw new Error(`Source intelligence scan did not index app source:
+${sourceScan}`);
+  const sourceMap=run('source-intelligence-tool.mjs','map',['--entity','FEAT-DEMO']);
+  if(!sourceMap.includes('apps/web/src/app/App.tsx') || !sourceMap.includes('code-mention')) throw new Error(`Source-to-doc mapping failed:
+${sourceMap}`);
+
+  const reindex=run('knowledge-tool.mjs','reindex');
+  if(!reindex.includes('Knowledge indexes:')) throw new Error(`Knowledge reindex failed:
+${reindex}`);
+  const search=run('knowledge-tool.mjs','search',['--text','Demo Feature']);
+  if(!search.includes('FEAT-DEMO')) throw new Error(`Knowledge search did not find FEAT-DEMO:
+${search}`);
+  const query=run('knowledge-tool.mjs','query',['--expr','type=feature AND status=planned']);
+  if(!query.includes('FEAT-DEMO') || !query.includes('FEAT-PROMO')) throw new Error(`Knowledge query mismatch:
+${query}`);
+  const context=run('knowledge-tool.mjs','context',['--entity','FEAT-DEMO','--max-depth','2']);
+  if(!context.includes('sourceEvidence') || !context.includes('APP-WEB')) throw new Error(`Context pack missing graph/source evidence:
+${context}`);
+  const doctor=run('doctor-tool.mjs','run');
+  if(!doctor.includes('Doctor: 0 error(s)')) throw new Error(`Doctor reported unexpected errors:
+${doctor}`);
+
+  const gitRun=(argv)=>{const r=spawnSync('git',['-C',tempRoot,...argv],{encoding:'utf8'});if(r.status!==0)throw new Error(`git ${argv.join(' ')} failed\n${r.stdout||''}${r.stderr||''}`);return (r.stdout||'')+(r.stderr||'');};
+  gitRun(['init']); gitRun(['config','user.email','e2e@example.invalid']); gitRun(['config','user.name','E2E']); gitRun(['add','.']); gitRun(['commit','-m','baseline']);
+  fs.appendFileSync(mappedSource,'// source intelligence change probe\n');
+  const gitImpact=run('source-intelligence-tool.mjs','git-impact');
+  if(!gitImpact.includes('FEAT-DEMO') || !gitImpact.includes('APP-WEB')) throw new Error(`Git impact did not propagate source mappings into project graph:
+${gitImpact}`);
+  const doctorStale=run('doctor-tool.mjs','run');
+  if(!doctorStale.includes('SOURCE_INDEX_STALE')) throw new Error(`Doctor did not detect stale source index:
+${doctorStale}`);
+  run('doctor-tool.mjs','run',['--fix']);
 
   const lightCheck=run('spec-tool.mjs','check',['--feature','FEAT-LITE']);
   if(!lightCheck.includes('effective=lightweight') || !lightCheck.includes('SPEC FEAT-LITE: PASS')) throw new Error(`Lightweight spec did not pass minimal profile:\n${lightCheck}`);
@@ -197,7 +247,7 @@ ${sourceStatus}`);
   const negative=run('docs-tool.mjs','validate',[],false);
   if(!negative.includes('BROKEN_RELATION')) throw new Error(`Negative fixture failed for wrong reason:\n${negative}`);
 
-  console.log('E2E regression: PASS (Source Base init/adopt/check + application traceability + WorkPlan source scope + root history hygiene + Progressive Specs + mode-aware gates + freshness + Request/WorkPlan/Task + impact + ChangeSets + Baselines + broken relation path).');
+  console.log('E2E regression: PASS (v5.5 entity identity/lifecycle + semantic relations + Source Base + source intelligence/Git impact + search/query/context/doctor + Progressive Specs + governance + freshness + ChangeSets/Baselines + broken relation path).');
 } finally {
   fs.rmSync(tempRoot,{recursive:true,force:true});
 }

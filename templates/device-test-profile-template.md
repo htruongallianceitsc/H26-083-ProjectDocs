@@ -1,5 +1,7 @@
 ---
+uid: <GENERATE-UUID>
 code: <DTP-XXX>
+revision: 1
 type: device-test-profile
 title: <Device / OS Test Profile>
 status: draft

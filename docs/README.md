@@ -18,3 +18,8 @@
 ## Applications (v5.4)
 
 `24-applications/` contains canonical deployable application boundaries such as APP-WEB, APP-API and APP-MOBILE. Features may link them through `related.applications`.
+
+## Local knowledge/runtime indexes (v5.5)
+
+Canonical docs stay here. Search, graph and source indexes are generated under `.project-docs/indexes/` and can be rebuilt with `npm run knowledge:reindex` and `npm run source:scan`.
+

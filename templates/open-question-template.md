@@ -1,5 +1,7 @@
 ---
+uid: <GENERATE-UUID>
 code: <OQ-XXX>
+revision: 1
 type: open-question
 title: <Open Question>
 status: draft

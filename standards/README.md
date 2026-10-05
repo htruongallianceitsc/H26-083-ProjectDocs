@@ -1,4 +1,4 @@
-# Standards Architecture v5.4
+# Standards Architecture v5.5
 
 Standards resolve in this order:
 
@@ -14,3 +14,12 @@ Standards define rules. Capability Packs must still comply with applicable stand
 
 
 v5.4 adds `source-workspace.md` and `source-base-governance.md` so implementation roots and bootstrap templates are governed alongside documentation.
+
+## v5.5 additions
+
+- `entity-identity-lifecycle-and-relations.md`
+- `source-intelligence.md`
+- `local-knowledge-engine.md`
+
+These standards govern permanent entity identity, semantic graph behavior, source evidence, Git impact, local search/query/context, and Doctor repairs.
+

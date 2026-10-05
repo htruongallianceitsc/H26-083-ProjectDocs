@@ -49,6 +49,8 @@
     "source_base": "string",
     "source_base_version": "string",
     "source_variant": "string",
-    "source_origin": "string"
+    "source_origin": "string",
+    "uid": "string",
+    "revision": "number"
   }
 }

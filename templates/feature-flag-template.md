@@ -1,5 +1,7 @@
 ---
+uid: <GENERATE-UUID>
 code: <FLAG-XXX>
+revision: 1
 type: feature-flag
 title: <Feature Flag>
 status: draft

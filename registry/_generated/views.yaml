@@ -1,0 +1,19 @@
+# GENERATED FILE - DO NOT EDIT
+# Source: registry/views.json
+schemaVersion: 1.0
+views:
+  open-work-items:
+    expression: "(type=task AND status!=done AND status!=cancelled) OR (type=bug AND status!=closed AND status!=wont_fix)"
+    columns:
+      - code
+      - type
+      - title
+      - status
+    limit: 100
+  planned-features:
+    expression: "type=feature AND (status=planned OR status=in_progress)"
+    columns:
+      - code
+      - title
+      - status
+    limit: 100

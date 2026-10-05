@@ -1,5 +1,7 @@
 ---
+uid: <GENERATE-UUID>
 code: <SYNC-XXX>
+revision: 1
 type: sync-policy
 title: <Offline Sync Policy>
 status: draft

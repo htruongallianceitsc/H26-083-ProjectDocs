@@ -1,7 +1,7 @@
 {
   "name": "production-project-docs-starter-kit",
-  "version": "5.4.0",
-  "schemaVersion": "5.4.0",
+  "version": "5.5.0",
+  "schemaVersion": "5.5.0",
   "registrySchemaVersion": "1.0",
   "capabilityPackSchemaVersion": "1.0",
   "workPlanSchemaVersion": "1.2",
@@ -21,5 +21,10 @@
   },
   "sourceProfilesVersion": "1.0",
   "sourceBaseSchemaVersion": "1.0",
-  "sourceWorkspaceVersion": "1.0"
+  "sourceWorkspaceVersion": "1.0",
+  "entityModelVersion": "1.1",
+  "relationModelVersion": "1.1",
+  "sourceIntelligenceVersion": "1.0",
+  "localKnowledgeEngineVersion": "1.0",
+  "doctorVersion": "1.0"
 }

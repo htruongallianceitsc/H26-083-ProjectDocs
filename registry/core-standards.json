@@ -20,6 +20,9 @@
     "standards/progressive-specification.md",
     "standards/repository-entry-hygiene.md",
     "standards/source-workspace.md",
-    "standards/source-base-governance.md"
+    "standards/source-base-governance.md",
+    "standards/entity-identity-lifecycle-and-relations.md",
+    "standards/source-intelligence.md",
+    "standards/local-knowledge-engine.md"
   ]
 }

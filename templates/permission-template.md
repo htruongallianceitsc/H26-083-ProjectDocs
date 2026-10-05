@@ -1,5 +1,7 @@
 ---
+uid: <GENERATE-UUID>
 code: <PERM-XXX>
+revision: 1
 type: permission
 title: <Native Permission Contract>
 status: draft

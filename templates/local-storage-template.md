@@ -1,5 +1,7 @@
 ---
+uid: <GENERATE-UUID>
 code: <LS-XXX>
+revision: 1
 type: local-storage
 title: <Local Storage Contract>
 status: draft

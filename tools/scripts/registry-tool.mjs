@@ -12,7 +12,11 @@ const sources = [
   ['freshness-rules.json', 'freshness-rules.yaml'],
   ['impact-rules.json', 'impact-rules.yaml'],
   ['spec-profiles.json', 'spec-profiles.yaml'],
-  ['source-profiles.json', 'source-profiles.yaml']
+  ['source-profiles.json', 'source-profiles.yaml'],
+  ['entity-policy.json', 'entity-policy.yaml'],
+  ['source-intelligence.json', 'source-intelligence.yaml'],
+  ['local-engine.json', 'local-engine.yaml'],
+  ['views.json', 'views.yaml']
 ];
 
 function quote(value) {
@@ -72,13 +76,25 @@ function check() {
   const impact = loadJson('registry/impact-rules.json', {relations:[]});
   const spec = loadJson('registry/spec-profiles.json', {levels:[],profiles:{}});
   const sourceProfiles = loadJson('registry/source-profiles.json', {profiles:{}});
+  const entityPolicy = loadJson('registry/entity-policy.json', {});
   const legacy = ['entity-types.yaml','relation-map.yaml','quality-rules.yaml','status-lifecycle.yaml'];
   for (const f of legacy) if (fs.existsSync(path.join(ROOT,'registry',f))) errors.push(`Legacy hand-maintained registry mirror still exists: registry/${f}`);
   for (const r of relations) {
     if (r.from !== '*' && !types[r.from]) errors.push(`relation-map: unknown from type ${r.from}`);
     if (r.to !== '*' && !types[r.to]) errors.push(`relation-map: unknown to type ${r.to}`);
     if (!r.field) errors.push('relation-map: relation missing field');
+    if (!r.key) errors.push(`relation-map: ${r.from}.${r.field}.${r.to} missing key`);
+    if (!r.relation || !r.reverse) errors.push(`relation-map: ${r.key || r.field} missing semantic relation/reverse`);
+    if (r.max !== null && r.max !== undefined && Number(r.max) < Number(r.min || 0)) errors.push(`relation-map: ${r.key || r.field} max < min`);
   }
+  for (const [typeName,cfg] of Object.entries(types)) {
+    if (!cfg.initialStatus || !(cfg.statuses || []).includes(cfg.initialStatus)) errors.push(`entity-types: ${typeName} has invalid initialStatus`);
+    for (const status of cfg.statuses || []) {
+      if (!Array.isArray(cfg.transitions?.[status])) errors.push(`entity-types: ${typeName}.${status} missing transitions array`);
+      for (const target of cfg.transitions?.[status] || []) if (!(cfg.statuses || []).includes(target)) errors.push(`entity-types: ${typeName}.${status} transitions to unknown status ${target}`);
+    }
+  }
+  if (entityPolicy.identity?.uidFormat !== 'uuid') errors.push('entity-policy: identity.uidFormat must be uuid');
   for (const [gateName, gate] of Object.entries(readiness)) {
     if (gate.entityType && !types[gate.entityType]) errors.push(`readiness-rules: ${gateName} references unknown entity type ${gate.entityType}`);
     for (const r of gate.incomingRelations || []) if (r.sourceType && !types[r.sourceType]) errors.push(`readiness-rules: ${gateName} incoming source type ${r.sourceType} is unknown`);
@@ -129,7 +145,7 @@ function check() {
   if (!fs.existsSync(statusPath)) errors.push('Missing generated mirror registry/_generated/status-lifecycle.yaml; run npm run registry:sync');
   else if (fs.readFileSync(statusPath,'utf8') !== statusLifecycleText()) errors.push('Generated mirror drift: registry/_generated/status-lifecycle.yaml');
   const starter = loadJson('starter-kit.json',{});
-  if (starter.version !== '5.4.0' || starter.schemaVersion !== '5.4.0') errors.push(`starter-kit.json expected version/schemaVersion 5.4.0, got ${starter.version}/${starter.schemaVersion}`);
+  if (starter.version !== '5.5.0' || starter.schemaVersion !== '5.5.0') errors.push(`starter-kit.json expected version/schemaVersion 5.5.0, got ${starter.version}/${starter.schemaVersion}`);
   const layout = starter.documentationLayout || {};
   if (!layout.historyDirectory) errors.push('starter-kit.json documentationLayout.historyDirectory is required');
   else if (!fs.existsSync(path.join(ROOT, layout.historyDirectory))) errors.push(`Configured history directory does not exist: ${layout.historyDirectory}`);

@@ -1,5 +1,7 @@
 ---
+uid: <GENERATE-UUID>
 code: <REL-MOB-XXX>
+revision: 1
 type: release
 title: <Mobile Release>
 status: draft

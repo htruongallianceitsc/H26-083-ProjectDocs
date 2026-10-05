@@ -1,5 +1,7 @@
 ---
+uid: <GENERATE-UUID>
 code: BUG-MOD-001
+revision: 1
 type: bug
 title: Bug title
 status: open

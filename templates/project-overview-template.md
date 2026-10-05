@@ -1,5 +1,7 @@
 ---
+uid: <GENERATE-UUID>
 code: <PRJ-XXX>
+revision: 1
 type: project
 title: <Project Overview>
 status: draft

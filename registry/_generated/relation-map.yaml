@@ -1,152 +1,568 @@
 # GENERATED FILE - DO NOT EDIT
 # Source: registry/relation-map.json
-schemaVersion: 1.0
+schemaVersion: 1.1
 relations:
   - from: feature
     field: modules
     to: module
     cardinality: many-to-one
+    key: feature.modules.module
+    relation: belongs_to
+    reverse: contains
+    min: 0
+    max: 1
+    required: false
+    allowUnresolved: false
+    fallback: false
   - from: feature
     field: requirements
     to: requirement
     cardinality: many-to-many
+    key: feature.requirements.requirement
+    relation: has_requirement
+    reverse: requirement_of
+    min: 0
+    max: null
+    required: false
+    allowUnresolved: false
+    fallback: false
   - from: feature
     field: business_rules
     to: business-rule
     cardinality: many-to-many
+    key: feature.business_rules.business-rule
+    relation: governed_by
+    reverse: governs
+    min: 0
+    max: null
+    required: false
+    allowUnresolved: false
+    fallback: false
   - from: feature
     field: screens
     to: screen
     cardinality: many-to-many
+    key: feature.screens.screen
+    relation: surfaced_by
+    reverse: surface_for
+    min: 0
+    max: null
+    required: false
+    allowUnresolved: false
+    fallback: false
   - from: feature
     field: flows
     to: flow
     cardinality: many-to-many
+    key: feature.flows.flow
+    relation: described_by
+    reverse: describes
+    min: 0
+    max: null
+    required: false
+    allowUnresolved: false
+    fallback: false
   - from: feature
     field: apis
     to: api
     cardinality: many-to-many
+    key: feature.apis.api
+    relation: implemented_by_api
+    reverse: implements_feature
+    min: 0
+    max: null
+    required: false
+    allowUnresolved: false
+    fallback: false
   - from: feature
     field: database_objects
     to: database-object
     cardinality: many-to-many
+    key: feature.database_objects.database-object
+    relation: persists_in
+    reverse: persistence_for
+    min: 0
+    max: null
+    required: false
+    allowUnresolved: false
+    fallback: false
   - from: feature
     field: tests
     to: test-case
     cardinality: many-to-many
+    key: feature.tests.test-case
+    relation: verified_by
+    reverse: verifies
+    min: 0
+    max: null
+    required: false
+    allowUnresolved: false
+    fallback: false
   - from: feature
     field: permissions
     to: permission
     cardinality: many-to-many
+    key: feature.permissions.permission
+    relation: controlled_by
+    reverse: controls
+    min: 0
+    max: null
+    required: false
+    allowUnresolved: false
+    fallback: false
   - from: feature
     field: deep_links
     to: deep-link
     cardinality: many-to-many
+    key: feature.deep_links.deep-link
+    relation: navigated_by
+    reverse: navigates_to
+    min: 0
+    max: null
+    required: false
+    allowUnresolved: false
+    fallback: false
   - from: feature
     field: sync_policies
     to: sync-policy
     cardinality: many-to-many
+    key: feature.sync_policies.sync-policy
+    relation: sync_governed_by
+    reverse: governs_sync
+    min: 0
+    max: null
+    required: false
+    allowUnresolved: false
+    fallback: false
   - from: requirement
     field: tests
     to: test-case
     cardinality: many-to-many
+    key: requirement.tests.test-case
+    relation: verified_by
+    reverse: verifies
+    min: 0
+    max: null
+    required: false
+    allowUnresolved: false
+    fallback: false
   - from: permission
     field: features
     to: feature
     cardinality: many-to-many
+    key: permission.features.feature
+    relation: relates_to_feature
+    reverse: feature_relation
+    min: 0
+    max: null
+    required: false
+    allowUnresolved: false
+    fallback: false
   - from: deep-link
     field: screens
     to: screen
     cardinality: many-to-many
+    key: deep-link.screens.screen
+    relation: surfaced_by
+    reverse: surface_for
+    min: 0
+    max: null
+    required: false
+    allowUnresolved: false
+    fallback: false
   - from: push-event
     field: deep_links
     to: deep-link
     cardinality: many-to-many
+    key: push-event.deep_links.deep-link
+    relation: navigated_by
+    reverse: navigates_to
+    min: 0
+    max: null
+    required: false
+    allowUnresolved: false
+    fallback: false
+  - from: feature
+    field: applications
+    to: application
+    cardinality: many-to-many
+    key: feature.applications.application
+    relation: implemented_in
+    reverse: implements
+    min: 0
+    max: null
+    required: false
+    allowUnresolved: false
+    fallback: false
+  - from: task
+    field: features
+    to: feature
+    cardinality: many-to-many
+    key: task.features.feature
+    relation: implements
+    reverse: implemented_by_task
+    min: 0
+    max: null
+    required: false
+    allowUnresolved: false
+    fallback: false
+  - from: task
+    field: applications
+    to: application
+    cardinality: many-to-many
+    key: task.applications.application
+    relation: implemented_in
+    reverse: implements_task
+    min: 0
+    max: null
+    required: false
+    allowUnresolved: false
+    fallback: false
+  - from: bug
+    field: features
+    to: feature
+    cardinality: many-to-many
+    key: bug.features.feature
+    relation: affects
+    reverse: affected_by_bug
+    min: 0
+    max: null
+    required: false
+    allowUnresolved: false
+    fallback: false
+  - from: api
+    field: requirements
+    to: requirement
+    cardinality: many-to-many
+    key: api.requirements.requirement
+    relation: implements_requirement
+    reverse: implemented_by_api
+    min: 0
+    max: null
+    required: false
+    allowUnresolved: false
+    fallback: false
+  - from: api
+    field: features
+    to: feature
+    cardinality: many-to-many
+    key: api.features.feature
+    relation: implements_feature
+    reverse: implemented_by_api
+    min: 0
+    max: null
+    required: false
+    allowUnresolved: false
+    fallback: false
+  - from: screen
+    field: features
+    to: feature
+    cardinality: many-to-many
+    key: screen.features.feature
+    relation: surfaces_feature
+    reverse: surfaced_by_screen
+    min: 0
+    max: null
+    required: false
+    allowUnresolved: false
+    fallback: false
+  - from: database-object
+    field: requirements
+    to: requirement
+    cardinality: many-to-many
+    key: database-object.requirements.requirement
+    relation: supports_requirement
+    reverse: supported_by_database
+    min: 0
+    max: null
+    required: false
+    allowUnresolved: false
+    fallback: false
+  - from: test-case
+    field: requirements
+    to: requirement
+    cardinality: many-to-many
+    key: test-case.requirements.requirement
+    relation: verifies_requirement
+    reverse: verified_by_test
+    min: 0
+    max: null
+    required: false
+    allowUnresolved: false
+    fallback: false
+  - from: application
+    field: features
+    to: feature
+    cardinality: many-to-many
+    key: application.features.feature
+    relation: implements_feature
+    reverse: implemented_in_application
+    min: 0
+    max: null
+    required: false
+    allowUnresolved: false
+    fallback: false
   - from: "*"
     field: decisions
     to: decision
     cardinality: many-to-many
+    key: "*.decisions.decision"
+    relation: decided_by
+    reverse: decision_for
+    min: 0
+    max: null
+    required: false
+    allowUnresolved: false
+    fallback: true
   - from: "*"
     field: integrations
     to: integration
     cardinality: many-to-many
+    key: "*.integrations.integration"
+    relation: integrates_with
+    reverse: integrated_by
+    min: 0
+    max: null
+    required: false
+    allowUnresolved: false
+    fallback: true
   - from: "*"
     field: nfrs
     to: nfr
     cardinality: many-to-many
+    key: "*.nfrs.nfr"
+    relation: constrained_by
+    reverse: constraint_for
+    min: 0
+    max: null
+    required: false
+    allowUnresolved: false
+    fallback: true
   - from: "*"
     field: runbooks
     to: runbook
     cardinality: many-to-many
+    key: "*.runbooks.runbook"
+    relation: operated_by
+    reverse: runbook_for
+    min: 0
+    max: null
+    required: false
+    allowUnresolved: false
+    fallback: true
   - from: "*"
     field: modules
     to: module
     cardinality: many-to-many
+    key: "*.modules.module"
+    relation: belongs_to
+    reverse: contains
+    min: 0
+    max: null
+    required: false
+    allowUnresolved: false
+    fallback: true
   - from: "*"
     field: features
     to: feature
     cardinality: many-to-many
+    key: "*.features.feature"
+    relation: relates_to_feature
+    reverse: feature_relation
+    min: 0
+    max: null
+    required: false
+    allowUnresolved: false
+    fallback: true
   - from: "*"
     field: requirements
     to: requirement
     cardinality: many-to-many
+    key: "*.requirements.requirement"
+    relation: has_requirement
+    reverse: requirement_of
+    min: 0
+    max: null
+    required: false
+    allowUnresolved: false
+    fallback: true
   - from: "*"
     field: business_rules
     to: business-rule
     cardinality: many-to-many
+    key: "*.business_rules.business-rule"
+    relation: governed_by
+    reverse: governs
+    min: 0
+    max: null
+    required: false
+    allowUnresolved: false
+    fallback: true
   - from: "*"
     field: screens
     to: screen
     cardinality: many-to-many
+    key: "*.screens.screen"
+    relation: surfaced_by
+    reverse: surface_for
+    min: 0
+    max: null
+    required: false
+    allowUnresolved: false
+    fallback: true
   - from: "*"
     field: flows
     to: flow
     cardinality: many-to-many
+    key: "*.flows.flow"
+    relation: described_by
+    reverse: describes
+    min: 0
+    max: null
+    required: false
+    allowUnresolved: false
+    fallback: true
   - from: "*"
     field: apis
     to: api
     cardinality: many-to-many
+    key: "*.apis.api"
+    relation: implemented_by_api
+    reverse: implements_feature
+    min: 0
+    max: null
+    required: false
+    allowUnresolved: false
+    fallback: true
   - from: "*"
     field: database_objects
     to: database-object
     cardinality: many-to-many
+    key: "*.database_objects.database-object"
+    relation: persists_in
+    reverse: persistence_for
+    min: 0
+    max: null
+    required: false
+    allowUnresolved: false
+    fallback: true
   - from: "*"
     field: tests
     to: test-case
     cardinality: many-to-many
+    key: "*.tests.test-case"
+    relation: verified_by
+    reverse: verifies
+    min: 0
+    max: null
+    required: false
+    allowUnresolved: false
+    fallback: true
   - from: "*"
     field: permissions
     to: permission
     cardinality: many-to-many
+    key: "*.permissions.permission"
+    relation: controlled_by
+    reverse: controls
+    min: 0
+    max: null
+    required: false
+    allowUnresolved: false
+    fallback: true
   - from: "*"
     field: deep_links
     to: deep-link
     cardinality: many-to-many
+    key: "*.deep_links.deep-link"
+    relation: navigated_by
+    reverse: navigates_to
+    min: 0
+    max: null
+    required: false
+    allowUnresolved: false
+    fallback: true
   - from: "*"
     field: sync_policies
     to: sync-policy
     cardinality: many-to-many
+    key: "*.sync_policies.sync-policy"
+    relation: sync_governed_by
+    reverse: governs_sync
+    min: 0
+    max: null
+    required: false
+    allowUnresolved: false
+    fallback: true
   - from: request
     field: promoted_to
     to: "*"
     cardinality: many-to-many
+    key: "request.promoted_to.*"
+    relation: promotes_to
+    reverse: promoted_from
+    min: 0
+    max: null
+    required: false
+    allowUnresolved: false
+    fallback: false
   - from: "*"
     field: requests
     to: request
     cardinality: many-to-many
+    key: "*.requests.request"
+    relation: originated_from
+    reverse: request_for
+    min: 0
+    max: null
+    required: false
+    allowUnresolved: false
+    fallback: true
   - from: "*"
     field: tasks
     to: task
     cardinality: many-to-many
+    key: "*.tasks.task"
+    relation: implemented_by_task
+    reverse: task_for
+    min: 0
+    max: null
+    required: false
+    allowUnresolved: false
+    fallback: true
   - from: "*"
     field: bugs
     to: bug
     cardinality: many-to-many
+    key: "*.bugs.bug"
+    relation: affected_by_bug
+    reverse: bug_for
+    min: 0
+    max: null
+    required: false
+    allowUnresolved: false
+    fallback: true
   - from: "*"
     field: open_questions
     to: open-question
     cardinality: many-to-many
+    key: "*.open_questions.open-question"
+    relation: has_open_question
+    reverse: question_for
+    min: 0
+    max: null
+    required: false
+    allowUnresolved: false
+    fallback: true
   - from: "*"
     field: applications
     to: application
     cardinality: many-to-many
+    key: "*.applications.application"
+    relation: implemented_in
+    reverse: implements
+    min: 0
+    max: null
+    required: false
+    allowUnresolved: false
+    fallback: true

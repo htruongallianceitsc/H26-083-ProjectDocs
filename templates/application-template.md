@@ -1,5 +1,7 @@
 ---
+uid: <GENERATE-UUID>
 code: APP-WEB
+revision: 1
 type: application
 title: Web Application
 status: planned

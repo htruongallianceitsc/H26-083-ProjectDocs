@@ -74,3 +74,23 @@ Track blockers and accepted decisions explicitly; do not hide assumptions in pro
 |---|---|---|---|
 
 > Requests explain why change entered the project. WorkPlans explain the reviewed implementation plan. Tasks execute the plan. None of these replace canonical Feature/Requirement/Rule/API/Screen/DB/Test documentation.
+
+## v5.5 Engineering Knowledge Runtime
+
+The blueprint now includes a local intelligence layer:
+
+```text
+Canonical Markdown Entities <-> Typed Relation Graph
+          |                         |
+          v                         v
+     Search / Query             Context Packs
+          ^                         ^
+          |                         |
+       Source Index <--- Source Files / Git Diff
+          |
+          v
+   Potential Impact
+```
+
+This layer is intentionally derived. Canonical project knowledge stays in `docs/`; implementation truth stays in project source roots.
+

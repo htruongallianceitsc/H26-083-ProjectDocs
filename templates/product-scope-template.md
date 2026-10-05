@@ -1,5 +1,7 @@
 ---
+uid: <GENERATE-UUID>
 code: <DOC-SCOPE>
+revision: 1
 type: document
 title: <Product Scope>
 status: draft

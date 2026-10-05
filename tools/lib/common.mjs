@@ -82,7 +82,7 @@ export function scanEntities() {
     const parsed = parseFrontmatter(text);
     const item = { path: rel(p), title: parsed.data.title || firstHeading(parsed.body) || path.basename(p), text, body: parsed.body, meta: parsed.data };
     docs.push(item);
-    if (item.path.startsWith('docs/') && !item.path.startsWith('docs/_generated/') && parsed.data.code && parsed.data.type) entities.push({ ...item, code: String(parsed.data.code), type: String(parsed.data.type), status: String(parsed.data.status || '') });
+    if (item.path.startsWith('docs/') && !item.path.startsWith('docs/_generated/') && parsed.data.code && parsed.data.type) entities.push({ ...item, code: String(parsed.data.code), uid: parsed.data.uid ? String(parsed.data.uid) : '', revision: Number(parsed.data.revision || 0), type: String(parsed.data.type), status: String(parsed.data.status || '') });
   }
   return { docs, entities };
 }
@@ -164,8 +164,13 @@ export function serializeFrontmatter(data) {
 
 export function writeMarkdownEntity(relPath, meta, body) {
   const p = path.isAbsolute(relPath) ? relPath : path.join(ROOT, relPath);
+  const next = structuredClone(meta || {});
+  if (next.code && next.type) {
+    if (!next.uid) next.uid = crypto.randomUUID();
+    if (!Number.isFinite(Number(next.revision)) || Number(next.revision) < 1) next.revision = 1;
+  }
   fs.mkdirSync(path.dirname(p), { recursive: true });
-  fs.writeFileSync(p, `${serializeFrontmatter(meta)}\n\n${String(body || '').trim()}\n`);
+  fs.writeFileSync(p, `${serializeFrontmatter(next)}\n\n${String(body || '').trim()}\n`);
   return p;
 }
 

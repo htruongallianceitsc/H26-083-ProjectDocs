@@ -1,6 +1,68 @@
-# Documentation Toolchain v5.4
+# Documentation Toolchain v5.5
 
-Requires Node.js 20+. No third-party npm runtime dependencies are required.
+Requires Node.js 20+. The runtime uses only Node.js standard-library modules.
+
+## Full QA
+
+```bash
+npm ci
+npm run qa
+```
+
+The QA pipeline validates registries, source bases, source workspace, source intelligence, progressive specs, documentation, local indexes, Doctor, freshness, generated docs/site, and E2E regression.
+
+## Entity model hardening
+
+```bash
+npm run entity:identity-status
+npm run entity:identity-backfill
+npm run entity:identity-backfill -- --apply
+npm run entity:transition -- --entity FEAT-AUTH-LOGIN --to in_progress
+```
+
+`identity-backfill` is dry-run unless `--apply` is supplied. `entity:transition` enforces configured lifecycle transitions.
+
+## Source workspace
+
+```bash
+npm run source:list
+npm run source:validate
+npm run source:recommend -- --type web --stack reactjs
+npm run source:init -- --code APP-WEB --profile react-spa --variant production
+npm run source:adopt -- --code APP-WEB --profile react-spa --root frontend
+npm run source:check
+npm run source:status
+npm run source:upgrade-check -- --app APP-WEB
+```
+
+## Source intelligence and Git impact
+
+```bash
+npm run source:scan
+npm run source:map -- --path apps/web/src/features/auth/Login.tsx
+npm run source:map -- --entity FEAT-AUTH-LOGIN
+npm run git:status
+npm run git:impact
+npm run git:impact -- --commit HEAD
+npm run git:impact -- --from v1.0.0 --to HEAD
+```
+
+Source indexes are disposable. Mapping evidence is retained in the index so humans and agents can inspect confidence and reason.
+
+## Local knowledge engine
+
+```bash
+npm run knowledge:reindex
+npm run search -- --text "reset password"
+npm run search -- --text withdrawal --type api
+npm run query -- --expr "type=bug AND status!=closed"
+npm run query -- --expr "type=test-case" --related-to FEAT-AUTH-LOGIN --max-depth 2
+npm run context -- --entity FEAT-AUTH-LOGIN
+npm run view:list
+npm run view:run -- --view open-work-items
+npm run doctor
+npm run doctor -- --fix
+```
 
 ## Progressive specification
 
@@ -11,17 +73,6 @@ npm run spec:recommend -- --feature FEAT-...
 npm run spec:promote -- --feature FEAT-... --to standard
 npm run spec:promote -- --feature FEAT-... --to standard --apply
 ```
-
-`spec:promote` writes a gap report under `.project-docs/spec-promotions/`. `--apply` is rejected while target-level gaps remain.
-
-## Full QA
-
-```bash
-npm ci
-npm run qa
-```
-
-`docs:all` now runs `spec:check` before graph validation/build.
 
 ## Request / Ready / WorkPlan / Task
 
@@ -34,8 +85,6 @@ npm run plan:approve -- --id WP-... --reviewer "Reviewer"
 npm run plan:materialize -- --id WP-... --owner "Engineering"
 npm run gate:done -- --feature FEAT-...
 ```
-
-WorkPlan schema 1.1 snapshots effective spec level, target maturity and risk recommendation while remaining backward-compatible with v1.0 plans.
 
 ## Freshness / impact / history
 
@@ -57,23 +106,3 @@ npm run registry:check
 npm run pack:list
 npm run pack:validate
 ```
-
-## Root/history hygiene
-
-Historical version upgrade/QA records live in `docs/history/`. `docs:validate` reads `starter-kit.json.documentationLayout.rootHistoryPatterns` and fails with `ROOT_HISTORY_DOC` if a matching historical file is placed at repository root.
-
-
-## Source workspace commands (v5.4)
-
-```bash
-npm run source:list
-npm run source:validate
-npm run source:recommend -- --type web --stack reactjs
-npm run source:init -- --code APP-WEB --profile react-spa --variant production
-npm run source:adopt -- --code APP-WEB --profile react-spa --root frontend
-npm run source:check
-npm run source:status
-npm run source:upgrade-check -- --app APP-WEB
-```
-
-`source:validate` validates bundled Source Base manifests/templates. `source:check` validates configured project applications.

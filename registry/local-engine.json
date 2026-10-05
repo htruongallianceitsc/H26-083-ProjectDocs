@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0",
+  "indexes": {
+    "directory": ".project-docs/indexes",
+    "includeBody": true,
+    "maxBodyChars": 200000
+  },
+  "search": {
+    "defaultLimit": 20,
+    "minTokenLength": 2
+  },
+  "query": {
+    "defaultLimit": 100
+  },
+  "context": {
+    "defaultMaxDepth": 2,
+    "defaultMaxEntities": 40,
+    "includeSourceEvidence": true,
+    "includeBody": "summary"
+  }
+}

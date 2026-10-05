@@ -1623,3 +1623,40 @@ project/
 `apps/` is the preferred home for deployable applications. `packages/` is for reusable project-local libraries. Existing repositories may adopt source in place. `source-bases/` contains bootstrap templates only and is excluded from normal documentation indexing.
 
 A stack changes the structure **inside** an Application boundary, not the workspace root model.
+
+# v5.5 - Entity Hardening, Source Intelligence and Local Knowledge Runtime
+
+New governance/configuration:
+
+```text
+registry/
+├── entity-policy.json
+├── source-intelligence.json
+├── local-engine.json
+└── views.json
+```
+
+New derived runtime state:
+
+```text
+.project-docs/
+├── indexes/
+│   ├── entity-index.json
+│   ├── relation-index.json
+│   ├── search-index.json
+│   └── source-index.json
+└── reports/
+    ├── context-pack.json
+    └── git-impact.json
+```
+
+New tool surfaces:
+
+```text
+entity:identity-status / entity:identity-backfill / entity:transition
+source:scan / source:map / git:status / git:impact
+knowledge:reindex / search / query / context / view:list / view:run / doctor
+```
+
+All indexes and reports above are rebuildable. They are not project sources of truth.
+

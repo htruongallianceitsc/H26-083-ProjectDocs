@@ -1,5 +1,7 @@
 ---
+uid: <GENERATE-UUID>
 code: <SCR-MOB-XXX>
+revision: 1
 type: screen
 title: <Mobile Screen>
 status: draft

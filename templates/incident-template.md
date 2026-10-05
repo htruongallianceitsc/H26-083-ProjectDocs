@@ -1,5 +1,7 @@
 ---
+uid: <GENERATE-UUID>
 code: <INC-XXX>
+revision: 1
 type: incident
 title: <Incident Record>
 status: draft

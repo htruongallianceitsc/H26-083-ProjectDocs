@@ -1,4 +1,4 @@
-# File Catalog — v5.4
+# File Catalog — v5.5
 
 Counts exclude generated `site/`, `docs/_generated/`, and `tools/node_modules/` because they are reproducible artifacts.
 
@@ -79,3 +79,18 @@ Historical release/upgrade artifacts do not belong at root.
 - `workflows/17-source-workspace-bootstrap.md` — greenfield/adoption workflow.
 - `prompts/41-source-profile-selection.md` through `43-existing-source-adoption.md`.
 - `docs/history/V5_4_UPGRADE_NOTES.md` and `docs/history/V5_4_QA_REPORT.md`.
+
+## v5.5 key files
+
+- `registry/entity-policy.json` - permanent identity, lifecycle and relation enforcement policy.
+- `registry/source-intelligence.json` - source scan and mapping configuration.
+- `registry/local-engine.json` - local index/search/query/context configuration.
+- `registry/views.json` - reusable query views.
+- `tools/scripts/entity-tool.mjs` - UID backfill and lifecycle transition commands.
+- `tools/scripts/source-intelligence-tool.mjs` - source scan/map and Git impact commands.
+- `tools/scripts/knowledge-tool.mjs` - reindex/search/query/context/view commands.
+- `tools/scripts/doctor-tool.mjs` - workspace diagnostics and safe index repair.
+- `.project-docs/indexes/` - disposable local entity/relation/search/source indexes.
+- `.project-docs/reports/` - generated context and Git-impact reports.
+- `docs/history/V5_5_UPGRADE_NOTES.md` and `docs/history/V5_5_QA_REPORT.md`.
+

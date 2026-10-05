@@ -1,5 +1,7 @@
 ---
+uid: <GENERATE-UUID>
 code: <EVT-XXX>
+revision: 1
 type: analytics-event
 title: <Analytics Event>
 status: draft

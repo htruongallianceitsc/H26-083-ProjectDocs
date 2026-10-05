@@ -1,5 +1,7 @@
 ---
+uid: <GENERATE-UUID>
 code: <PUSH-XXX>
+revision: 1
 type: push-event
 title: <Push Event Contract>
 status: draft

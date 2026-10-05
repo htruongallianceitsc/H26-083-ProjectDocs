@@ -5,6 +5,7 @@ import { ROOT, loadJson, writeJson, ensureDir, scanEntities, markdownFiles, pars
 import { freshnessSummary } from '../lib/freshness.mjs';
 import { listJsonRecords, changesetDir, baselineDir } from '../lib/change-history.mjs';
 import { allSpecSummaries, resolveSpec } from '../lib/specification.mjs';
+import { entityPolicy, isUuid, resolveRelationMapping } from '../lib/model-governance.mjs';
 
 const cmd=process.argv[2]||'help';
 const profile=loadJson('project.profile.json',{});
@@ -15,7 +16,7 @@ const starterKit=loadJson('starter-kit.json',{});
 
 function issue(level,code,message,file=''){return {level,code,message,file};}
 function validate(){
-  const issues=[]; const {entities}=scanEntities(); const byCode=new Map();
+  const issues=[]; const {entities}=scanEntities(); const byCode=new Map(); const byUid=new Map(); const modelPolicy=entityPolicy();
   const layout=starterKit.documentationLayout||{};
   const historyDir=layout.historyDirectory;
   if(historyDir && !fs.existsSync(path.join(ROOT,historyDir))) issues.push(issue('error','HISTORY_DIR_MISSING',`Configured history directory ${historyDir} does not exist`,'starter-kit.json'));
@@ -32,6 +33,11 @@ function validate(){
   const escalation=profile.documentation?.riskEscalation; if(escalation && !['warn','block','off'].includes(escalation)) issues.push(issue('error','PROFILE_RISK_ESCALATION',`Unknown riskEscalation ${escalation}`,'project.profile.json'));
   for(const e of entities){
     if(byCode.has(e.code)) issues.push(issue('error','DUPLICATE_CODE',`Duplicate code ${e.code}`,e.path)); else byCode.set(e.code,e);
+    if (!e.uid) issues.push(issue(modelPolicy.identity?.legacyMissingUidSeverity || 'warning','MISSING_UID',`${e.code} has no permanent uid; run npm run entity:identity-backfill -- --apply`,e.path));
+    else if (!isUuid(e.uid)) issues.push(issue('error','INVALID_UID',`${e.code}: uid is not a UUID`,e.path));
+    else if (byUid.has(e.uid)) issues.push(issue('error','DUPLICATE_UID',`${e.code} duplicates uid used by ${byUid.get(e.uid).code}`,e.path));
+    else byUid.set(e.uid,e);
+    if (e.uid && (!Number.isFinite(e.revision) || e.revision < 1)) issues.push(issue('warning','MISSING_REVISION',`${e.code} has uid but no valid revision`,e.path));
     const def=registry.types[e.type]; if(!def) issues.push(issue('error','UNKNOWN_TYPE',`Unknown entity type ${e.type}`,e.path)); else if(e.status && !(def.statuses||[]).includes(e.status)) issues.push(issue('error','INVALID_STATUS',`${e.code}: status ${e.status} not allowed for ${e.type}`,e.path));
     if(!e.meta.title) issues.push(issue('warning','MISSING_TITLE',`${e.code} has no title`,e.path));
     if(e.type==='feature'){
@@ -50,12 +56,20 @@ function validate(){
   for(const e of entities){
     const related=e.meta.related||{};
     for(const [field,vals0] of Object.entries(related)){
-      const vals=Array.isArray(vals0)?vals0:(vals0?[vals0]:[]); if(!vals.length)continue;
-      const mapping=relationMap.relations.find(r=>(r.from==='*'||r.from===e.type)&&r.field===field);
-      if(!mapping){issues.push(issue('warning','UNMAPPED_RELATION',`${e.code}.${field} has no relation-map rule`,e.path));continue;}
-      if(mapping.cardinality==='many-to-one'&&vals.length>1) issues.push(issue('error','CARDINALITY',`${e.code}.${field} allows at most one target`,e.path));
-      for(const code of vals){const target=byCode.get(String(code)); if(!target) issues.push(issue('error','BROKEN_RELATION',`${e.code}.${field} -> ${code} not found`,e.path)); else if(mapping.to!=='*'&&target.type!==mapping.to) issues.push(issue('error','RELATION_TYPE',`${e.code}.${field} expects ${mapping.to}, got ${target.type} (${code})`,e.path));}
+      const vals=Array.isArray(vals0)?vals0:(vals0?[vals0]:[]);
+      const fieldMapping=resolveRelationMapping(e.type,field);
+      if(!fieldMapping && vals.length){issues.push(issue('warning','UNMAPPED_RELATION',`${e.code}.${field} has no relation-map rule`,e.path));continue;}
+      const max=fieldMapping?.max ?? (fieldMapping?.cardinality==='many-to-one'||fieldMapping?.cardinality==='one-to-one'?1:null);
+      if(max!==null && max!==undefined && vals.length>Number(max)) issues.push(issue('error','CARDINALITY',`${e.code}.${field} allows at most ${max} target(s)`,e.path));
+      for(const code of vals){
+        const target=byCode.get(String(code)); const mapping=resolveRelationMapping(e.type,field,target?.type||null) || fieldMapping;
+        if(!target){ if(!mapping?.allowUnresolved) issues.push(issue('error','BROKEN_RELATION',`${e.code}.${field} -> ${code} not found`,e.path)); else issues.push(issue('warning','UNRESOLVED_RELATION',`${e.code}.${field} -> ${code} is unresolved`,e.path)); continue; }
+        if(!mapping){issues.push(issue('error','RELATION_TYPE',`${e.code}.${field} cannot target ${target.type} (${code})`,e.path));continue;}
+        if(mapping.to!=='*'&&target.type!==mapping.to) issues.push(issue('error','RELATION_TYPE',`${e.code}.${field} expects ${mapping.to}, got ${target.type} (${code})`,e.path));
+        if(mapping.fallback && modelPolicy.relations?.warnOnFallbackMappings) issues.push(issue('warning','BROAD_RELATION',`${e.code}.${field} -> ${code} uses fallback relation rule ${mapping.key||mapping.field}`,e.path));
+      }
     }
+    for(const mapping of relationMap.relations.filter(r=>!r.fallback&&r.from===e.type&&r.required)){ const vals=Array.isArray(related[mapping.field])?related[mapping.field]:[]; const min=Number(mapping.min||1); if(vals.length<min)issues.push(issue('error','REQUIRED_RELATION',`${e.code}.${mapping.field} requires at least ${min} target(s)`,e.path)); }
   }
   for(const rule of quality.rules||[]){
     if(rule.projectType && !(profile.projectTypes||[]).includes(rule.projectType)) continue;
@@ -72,7 +86,7 @@ function validate(){
 }
 function sync(){
   const {docs,entities}=scanEntities(); const byCode=new Map(entities.map(e=>[e.code,e])); const edges=[];
-  for(const e of entities) for(const [field,vals0] of Object.entries(e.meta.related||{})) for(const target of (Array.isArray(vals0)?vals0:[])) if(byCode.has(String(target))) edges.push({from:e.code,to:String(target),field});
+  for(const e of entities) for(const [field,vals0] of Object.entries(e.meta.related||{})) for(const target of (Array.isArray(vals0)?vals0:[])) if(byCode.has(String(target))){ const targetEntity=byCode.get(String(target)); const mapping=resolveRelationMapping(e.type,field,targetEntity.type); edges.push({from:e.code,to:String(target),fromUid:e.uid||null,toUid:targetEntity.uid||null,field,relation:mapping?.relation||field,reverse:mapping?.reverse||null,fallback:Boolean(mapping?.fallback)}); }
   const rows=entities.filter(e=>e.type==='feature').map(f=>{
     const direct=(field)=>Array.isArray(f.meta.related?.[field])?f.meta.related[field]:[];
     const reqs=direct('requirements'); const reqTests=reqs.flatMap(c=>Array.isArray(byCode.get(c)?.meta.related?.tests)?byCode.get(c).meta.related.tests:[]);
@@ -80,8 +94,8 @@ function sync(){
   });
   const installed=loadJson('.project-docs/packs.lock.json',{packs:{}}); const libraries=listPackLibraries();
   ensureDir(path.join(ROOT,'docs/_generated'));
-  writeJson('docs/_generated/catalog.json',{generatedAt:new Date().toISOString(),documents:docs.map(d=>({path:d.path,title:d.title,code:d.meta.code||null,type:d.meta.type||null,status:d.meta.status||null})),entities:entities.map(e=>({path:e.path,title:e.title,code:e.code,type:e.type,status:e.status,specLevel:e.type==='feature'?resolveSpec(e).effectiveLevel:null,targetMaturity:e.type==='feature'?resolveSpec(e).targetMaturity:null}))});
-  writeJson('docs/_generated/graph.json',{nodes:entities.map(e=>({id:e.code,label:e.title,type:e.type,path:e.path})),edges});
+  writeJson('docs/_generated/catalog.json',{generatedAt:new Date().toISOString(),documents:docs.map(d=>({path:d.path,title:d.title,uid:d.meta.uid||null,code:d.meta.code||null,revision:Number(d.meta.revision||0),type:d.meta.type||null,status:d.meta.status||null})),entities:entities.map(e=>({path:e.path,title:e.title,uid:e.uid||null,code:e.code,revision:e.revision||0,type:e.type,status:e.status,specLevel:e.type==='feature'?resolveSpec(e).effectiveLevel:null,targetMaturity:e.type==='feature'?resolveSpec(e).targetMaturity:null}))});
+  writeJson('docs/_generated/graph.json',{nodes:entities.map(e=>({id:e.code,uid:e.uid||null,label:e.title,type:e.type,path:e.path,revision:e.revision||0})),edges});
   writeJson('docs/_generated/traceability.json',{rows}); writeJson('docs/_generated/reuse.json',{installed:installed.packs||{},libraries});
   const sourceLock=loadJson('.project-docs/source.lock.json',{schemaVersion:'1.0',applications:{}}); const sourceProfiles=loadJson('registry/source-profiles.json',{profiles:{}}); const appEntities=entities.filter(e=>e.type==='application').map(e=>({code:e.code,title:e.title,status:e.status,path:e.path,applicationType:e.meta.application_type||null,sourceProfile:e.meta.source_profile||null,technologyStack:e.meta.technology_stack||null,sourceRoot:e.meta.source_root||null,sourceBase:e.meta.source_base||null,sourceBaseVersion:e.meta.source_base_version||null,sourceVariant:e.meta.source_variant||null,sourceOrigin:e.meta.source_origin||null,lock:sourceLock.applications?.[e.code]||null})); writeJson('docs/_generated/source-workspace.json',{generatedAt:new Date().toISOString(),applications:appEntities,profiles:sourceProfiles.profiles||{},lock:sourceLock});
   const workplanDir=path.join(ROOT,'.project-docs/workplans'); const workplans=fs.existsSync(workplanDir)?fs.readdirSync(workplanDir).filter(x=>x.endsWith('.json')).map(x=>JSON.parse(fs.readFileSync(path.join(workplanDir,x),'utf8'))):[];
@@ -96,7 +110,7 @@ function sync(){
 function listPackLibraries(){
   const result=[]; for(const dir of ['reusable-modules','reusable-patterns']){const abs=path.join(ROOT,dir);if(!fs.existsSync(abs))continue;for(const name of fs.readdirSync(abs)){const m=path.join(abs,name,'manifest.json');if(fs.existsSync(m)){const j=JSON.parse(fs.readFileSync(m,'utf8'));result.push({packageId:j.packageId,packageType:j.packageType,version:j.version,path:`${dir}/${name}`});}}} return result;
 }
-function shell(title,body,active='',base=''){ const nav=[['index.html','Dashboard'],['profile.html','Profile'],['standards.html','Standards'],['source.html','Source'],['packs.html','Reuse'],['catalog.html','Catalog'],['traceability.html','Traceability'],['graph.html','Graph'],['governance.html','Governance'],['specification.html','Spec Levels'],['flows.html','Diagrams']];return `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escapeHtml(title)}</title><link rel="stylesheet" href="${base}assets/style.css"></head><body><header><strong>Project Docs v5.4</strong><nav>${nav.map(([u,l])=>`<a class="${active===u?'active':''}" href="${base}${u}">${l}</a>`).join('')}</nav></header><main><h1>${escapeHtml(title)}</h1>${body}</main><script src="assets/app.js"></script><script type="module">if(document.querySelector('.mermaid')){import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs').then(m=>{m.default.initialize({startOnLoad:true,securityLevel:'loose'});});}</script></body></html>`; }
+function shell(title,body,active='',base=''){ const nav=[['index.html','Dashboard'],['profile.html','Profile'],['standards.html','Standards'],['source.html','Source'],['packs.html','Reuse'],['catalog.html','Catalog'],['traceability.html','Traceability'],['graph.html','Graph'],['governance.html','Governance'],['specification.html','Spec Levels'],['flows.html','Diagrams']];return `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escapeHtml(title)}</title><link rel="stylesheet" href="${base}assets/style.css"></head><body><header><strong>Project Docs v5.5</strong><nav>${nav.map(([u,l])=>`<a class="${active===u?'active':''}" href="${base}${u}">${l}</a>`).join('')}</nav></header><main><h1>${escapeHtml(title)}</h1>${body}</main><script src="assets/app.js"></script><script type="module">if(document.querySelector('.mermaid')){import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs').then(m=>{m.default.initialize({startOnLoad:true,securityLevel:'loose'});});}</script></body></html>`; }
 function build(){
   sync(); const site=path.join(ROOT,'site'); fs.rmSync(site,{recursive:true,force:true}); ensureDir(path.join(site,'pages')); ensureDir(path.join(site,'assets'));
   fs.writeFileSync(path.join(site,'assets/style.css'),`body{margin:0;font:15px system-ui,sans-serif;background:#f7f7f8;color:#1d1d1f}header{position:sticky;top:0;background:#fff;border-bottom:1px solid #ddd;padding:12px 20px;display:flex;gap:24px;align-items:center;z-index:10}nav{display:flex;gap:10px;flex-wrap:wrap}nav a{color:#444;text-decoration:none;padding:6px 9px;border-radius:8px}nav a.active,nav a:hover{background:#eee}main{max-width:1200px;margin:0 auto;padding:24px}.card{background:#fff;border:1px solid #ddd;border-radius:12px;padding:16px;margin:12px 0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}table{border-collapse:collapse;width:100%;background:#fff}th,td{border:1px solid #ddd;padding:8px;text-align:left;vertical-align:top}pre{overflow:auto;background:#171717;color:#f5f5f5;padding:14px;border-radius:10px}code{background:#eee;padding:1px 4px;border-radius:4px}pre code{background:transparent}a{color:#0957d0}.badge{display:inline-block;padding:2px 7px;border-radius:999px;background:#eee;margin:2px}.search{width:100%;padding:10px;border:1px solid #bbb;border-radius:9px}svg{background:#fff;border:1px solid #ddd;border-radius:12px}`);

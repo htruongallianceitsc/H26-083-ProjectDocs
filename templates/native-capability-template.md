@@ -1,5 +1,7 @@
 ---
+uid: <GENERATE-UUID>
 code: <NCAP-XXX>
+revision: 1
 type: native-capability
 title: <Native Capability>
 status: draft

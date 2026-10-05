@@ -24,3 +24,8 @@ Do not manually edit hashes to bypass stale detection. Keep product/domain behav
 
 - `source.lock.json` — application source provenance: adopted vs Source Base, base id/version/variant and source root.
 - This file is governance state. The `application` entity remains the canonical app-boundary description and the source tree remains canonical implementation.
+
+## Local intelligence state (v5.5)
+
+`indexes/` contains rebuildable entity, relation, search and source indexes. `reports/` contains generated context/Git-impact outputs. These files are operational caches/evidence and are never canonical business truth.
+

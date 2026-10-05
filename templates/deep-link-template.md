@@ -1,5 +1,7 @@
 ---
+uid: <GENERATE-UUID>
 code: <DL-XXX>
+revision: 1
 type: deep-link
 title: <Deep Link Contract>
 status: draft

@@ -1,5 +1,7 @@
 ---
+uid: <GENERATE-UUID>
 code: <MBG-XXX>
+revision: 1
 type: background-job-mobile
 title: <Mobile Background Work>
 status: draft

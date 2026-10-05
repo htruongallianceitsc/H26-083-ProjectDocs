@@ -1,5 +1,7 @@
 ---
+uid: <GENERATE-UUID>
 code: REVIEW-REUSE-<CAPABILITY>
+revision: 1
 type: review
 title: Reuse Assessment - <Capability>
 status: draft

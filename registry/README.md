@@ -1,4 +1,4 @@
-# Registry Governance — v5.4
+# Registry Governance — v5.5
 
 `registry/*.json` is the canonical machine-readable policy source.
 
@@ -32,3 +32,15 @@ Ready/Done, spec depth, freshness, impact and reuse semantics remain policy-driv
 - `source-profiles.json` — canonical stack/application bootstrap profiles.
 - `source-base.schema.json` — Source Base manifest contract.
 - `source-profiles.yaml` under `_generated/` is derived and must not be edited manually.
+
+## Model and intelligence registry (v5.5)
+
+- `entity-policy.json` defines permanent UID, revision, lifecycle and relation enforcement policy.
+- `entity-types.json` now contains explicit `initialStatus`, `transitions` and `terminalStatuses`.
+- `relation-map.json` now contains semantic relation/reverse names, min/max cardinality, unresolved-target policy and fallback markers.
+- `source-intelligence.json` controls source scan/mapping/Git defaults.
+- `local-engine.json` controls derived local indexes, search/query and context defaults.
+- `views.json` stores reusable local query views.
+
+Generated YAML mirrors remain non-authoritative. Edit JSON sources, then run `npm run registry:sync`.
+

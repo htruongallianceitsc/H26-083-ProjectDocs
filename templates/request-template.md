@@ -1,5 +1,7 @@
 ---
+uid: <GENERATE-UUID>
 code: REQST-YYYYMMDD-001
+revision: 1
 type: request
 title: Request title
 status: captured

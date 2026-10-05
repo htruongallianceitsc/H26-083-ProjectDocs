@@ -1,5 +1,7 @@
 ---
+uid: <GENERATE-UUID>
 code: <ARCH-XXX>
+revision: 1
 type: architecture
 title: <Architecture Document>
 status: draft
