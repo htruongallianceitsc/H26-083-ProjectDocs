@@ -3,7 +3,7 @@
   "packageId": "auth-standard",
   "packageType": "capability",
   "version": "1.0.0",
-  "starterSchemaVersion": "4.1.0",
+  "starterSchemaVersion": "5.1.0",
   "moduleCode": "AUTH",
   "summary": "Reusable production authentication documentation baseline.",
   "features": {
@@ -352,7 +352,7 @@
     }
   ],
   "provenance": {
-    "source": "starter-kit-v4.1",
+    "source": "starter-kit-v5.1",
     "maintainer": "Product & Engineering"
   },
   "upgradePolicy": "manual-review"

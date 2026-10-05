@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "workplan.schema.json",
+  "title": "Documentation-First WorkPlan",
+  "type": "object",
+  "required": [
+    "id",
+    "schemaVersion",
+    "featureCode",
+    "title",
+    "status",
+    "createdAt",
+    "updatedAt",
+    "requiresAuthoring",
+    "tasks"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^WP-[A-Z0-9-]+$"
+    },
+    "schemaVersion": {
+      "const": "1.0"
+    },
+    "featureCode": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "submitted",
+        "approved",
+        "rejected",
+        "materialized",
+        "cancelled"
+      ]
+    },
+    "createdAt": {
+      "type": "string"
+    },
+    "updatedAt": {
+      "type": "string"
+    },
+    "requiresAuthoring": {
+      "type": "boolean"
+    },
+    "assumptions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "risks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "acceptanceCriteria": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "context": {
+      "type": "object"
+    },
+    "submittedContextHash": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "review": {
+      "type": "object"
+    },
+    "tasks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "code",
+          "title",
+          "kind",
+          "description",
+          "related"
+        ],
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "related": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "materializedTaskCodes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

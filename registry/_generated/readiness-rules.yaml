@@ -1,0 +1,57 @@
+# GENERATED FILE - DO NOT EDIT
+# Source: registry/readiness-rules.json
+schemaVersion: 1.0
+gates:
+  ready:
+    entityType: feature
+    allowedEntityStatuses:
+      - planned
+      - in_progress
+      - implemented
+    requiredRelations:
+      - field: requirements
+        min: 1
+      - field: tests
+        min: 1
+    relatedStatuses:
+      - field: requirements
+        allowed:
+          - approved
+          - implemented
+      - field: tests
+        allowed:
+          - ready
+          - passed
+    blockingRelated:
+      - field: open_questions
+        statuses:
+          - open
+          - blocked
+    requireApprovedPackReviews: true
+    freshness:
+      scope: feature-context
+      mode: block-stale
+      allowUntracked: true
+  done:
+    entityType: feature
+    allowedEntityStatuses:
+      - implemented
+    relatedStatuses:
+      - field: tests
+        allowed:
+          - passed
+    blockingRelated:
+      - field: open_questions
+        statuses:
+          - open
+          - blocked
+    incomingRelations:
+      - sourceType: task
+        field: features
+        min: 1
+        allowedStatuses:
+          - done
+    freshness:
+      scope: feature-context
+      mode: block-stale
+      allowUntracked: true

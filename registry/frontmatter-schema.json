@@ -33,6 +33,12 @@
     "project_types": "array",
     "technology_stacks": "array",
     "implementation_ready": "boolean",
-    "privacy_sensitive": "boolean"
+    "privacy_sensitive": "boolean",
+    "request_kind": "string",
+    "requested_by": "string",
+    "workplan_id": "string",
+    "task_kind": "string",
+    "estimate": "string",
+    "source_request": "string"
   }
 }

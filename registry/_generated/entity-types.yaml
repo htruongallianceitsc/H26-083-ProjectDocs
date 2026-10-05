@@ -170,3 +170,27 @@ types:
       - approved
       - active
       - deprecated
+  request:
+    statuses:
+      - captured
+      - analyzed
+      - accepted
+      - rejected
+      - promoted
+      - closed
+  task:
+    statuses:
+      - draft
+      - ready
+      - in_progress
+      - blocked
+      - done
+      - cancelled
+  bug:
+    statuses:
+      - open
+      - triaged
+      - in_progress
+      - resolved
+      - closed
+      - wont_fix

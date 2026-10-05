@@ -14,6 +14,10 @@
     "blockOnOpenQuestions",
     "blockOnValidationErrors",
     "blockOnQualityErrors",
-    "blockOnPackReviewPending"
+    "blockOnPackReviewPending",
+    "blockOnReadyGateFailure",
+    "requireApprovedWorkPlan",
+    "blockOnStaleWorkPlanContext",
+    "blockOnStaleDocumentation"
   ]
 }

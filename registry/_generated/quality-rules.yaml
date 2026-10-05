@@ -41,3 +41,21 @@ rules:
   - id: pack-review-pending
     severity: error
     type: pack-review-pending
+  - id: task-feature-link
+    severity: warning
+    type: relation-min
+    entityType: task
+    field: features
+    min: 1
+  - id: accepted-request-promotion
+    severity: warning
+    type: relation-min
+    entityType: request
+    field: promoted_to
+    min: 1
+    statusIn:
+      - accepted
+      - promoted
+  - id: stale-documentation
+    severity: error
+    type: freshness-stale

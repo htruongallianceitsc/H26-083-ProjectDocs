@@ -126,3 +126,23 @@ relations:
     field: sync_policies
     to: sync-policy
     cardinality: many-to-many
+  - from: request
+    field: promoted_to
+    to: "*"
+    cardinality: many-to-many
+  - from: "*"
+    field: requests
+    to: request
+    cardinality: many-to-many
+  - from: "*"
+    field: tasks
+    to: task
+    cardinality: many-to-many
+  - from: "*"
+    field: bugs
+    to: bug
+    cardinality: many-to-many
+  - from: "*"
+    field: open_questions
+    to: open-question
+    cardinality: many-to-many

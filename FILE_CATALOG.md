@@ -1,39 +1,54 @@
-# File Catalog - v4.1
+# File Catalog — v5.1
 
-## Source inventory
+Counts exclude generated `site/`, `docs/_generated/`, and `tools/node_modules/` because they are reproducible artifacts.
 
-Counts below exclude generated `site/` pages and `docs/_generated/` output because those are reproducible artifacts.
-
-- Source files: approximately **337**
-- Source Markdown files: approximately **285**
-- Standard documents: **93**
-- Canonical registry JSON files: **11**
-- Generated registry YAML mirrors: **4**
+- Source files: **383**
+- Source Markdown files: **308**
+- Standard documents: **97**
+- Canonical registry JSON files: **15**
+- Generated registry YAML mirrors: **7**
 - Reusable pack manifests: **2**
 
 ## Key directories
 
-- `registry/` - canonical machine-readable project types, stacks, entity/relation/quality/reuse policies and schemas.
-- `registry/_generated/` - generated YAML views; never edit directly.
-- `standards/` - core, project-type, technology and capability standards.
-- `templates/` - document templates plus reuse assessment/manifest/review templates.
-- `prompts/` - AI prompts including capability detection and reuse promotion.
-- `workflows/` - end-to-end documentation, production and reuse governance workflows.
-- `reusable-modules/` - Capability Packs; AUTH is the reference implementation.
-- `reusable-patterns/` - Pattern Packs; COMMON CRUD is the reference implementation.
-- `tools/` - single zero-dependency NodeJS runtime plus E2E tests.
-- `tools/tests/fixtures/` - isolated regression project fixtures.
-- `.project-docs/` - project-local pack lock/snapshot/proposal governance state.
-- `.github/workflows/` - executable CI quality gate.
-- `docs/_generated/` - generated catalog/graph/traceability output.
-- `site/` - generated static documentation portal.
+- `docs/` — canonical project/domain documentation.
+- `docs/21-requests/` — durable request/change intake.
+- `docs/22-tasks/` — implementation tasks materialized from reviewed WorkPlans.
+- `docs/23-bugs/` — durable defect records.
+- `registry/` — canonical entity/relation/quality/readiness/freshness/impact/reuse policy.
+- `registry/_generated/` — generated YAML mirrors; never edit directly.
+- `standards/` — governance, project-type, stack, reuse and implementation standards.
+- `templates/` — documentation/Request/Task/Bug/WorkPlan templates.
+- `prompts/` — AI orchestration/review prompts.
+- `workflows/` — docs-first lifecycle, reuse, implementation and maintenance workflows.
+- `reusable-modules/` — Capability Packs.
+- `reusable-patterns/` — Pattern Packs.
+- `tools/` — zero-dependency NodeJS runtime and regression tests.
+- `.project-docs/workplans/` — reviewed WorkPlans and context hashes.
+- `.project-docs/freshness/` — dependency reconciliation snapshots.
+- `.project-docs/changesets/` — semantic change records.
+- `.project-docs/baselines/` — named milestone fingerprints.
+- `.project-docs/audit-state.json` — local direct-edit detection state.
+- `.project-docs/pack-*` — reusable-pack governance state.
+- `.github/workflows/` — executable CI quality gate.
+- `docs/_generated/` — derived catalog/graph/traceability/freshness/governance output.
+- `site/` — generated static documentation portal.
 
-## v4.1 key files
+## v5.1 key files
 
-- `starter-kit.json` - canonical starter/version schema metadata.
-- `V4_1_UPGRADE_NOTES.md` - scope and migration notes.
-- `V4_1_QA_REPORT.md` - regression evidence.
-- `registry/README.md` - registry source-of-truth rules.
-- `tools/scripts/registry-tool.mjs` - registry sync/drift checker.
-- `tools/scripts/e2e-test.mjs` - isolated regression runner.
-- `.github/workflows/docs.yml` - real CI workflow running `npm run qa`.
+- `starter-kit.json` — starter/schema version metadata.
+- `registry/readiness-rules.json` — Ready/Done gates.
+- `registry/freshness-rules.json` — dependency freshness policy.
+- `registry/impact-rules.json` — graph impact traversal/weights.
+- `standards/document-freshness.md` — freshness lifecycle/rules.
+- `standards/change-history-and-baselines.md` — ChangeSet/Baseline governance.
+- `standards/impact-analysis.md` — potential-impact rules.
+- `workflows/15-freshness-change-history-impact.md` — v5.1 maintenance workflow.
+- `tools/scripts/freshness-tool.mjs` — freshness check/reconcile.
+- `tools/scripts/impact-tool.mjs` — graph impact analyzer.
+- `tools/scripts/change-tool.mjs` — audit/ChangeSet/Baseline runtime.
+- `tools/lib/freshness.mjs` — dependency fingerprint engine.
+- `tools/lib/impact.mjs` — weighted graph traversal.
+- `tools/lib/change-history.mjs` — semantic snapshot/diff logic.
+- `V5_1_UPGRADE_NOTES.md` — v5.1 scope and behavior.
+- `V5_1_QA_REPORT.md` — regression evidence.

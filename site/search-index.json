@@ -5,12 +5,12 @@
     "text": "CAPABILITY_PACKS.md"
   },
   {
-    "title": "Documentation Governance v4.1",
+    "title": "Documentation Governance v5.1",
     "path": "pages/docs-governance.html",
     "text": "DOCS_GOVERNANCE.md"
   },
   {
-    "title": "File Catalog - v4.1",
+    "title": "File Catalog — v5.1",
     "path": "pages/file-catalog.html",
     "text": "FILE_CATALOG.md"
   },
@@ -20,7 +20,7 @@
     "text": "PROJECT_BLUEPRINT.md"
   },
   {
-    "title": "Production Project Documentation Starter Kit v4.1",
+    "title": "Production Project Documentation Starter Kit v5.1",
     "path": "pages/readme.html",
     "text": "README.md"
   },
@@ -35,7 +35,7 @@
     "text": "REVIEW_UPGRADE_NOTES.md"
   },
   {
-    "title": "Start Here - v4.1",
+    "title": "START HERE — v5.1",
     "path": "pages/start-here.html",
     "text": "START_HERE.md"
   },
@@ -68,6 +68,26 @@
     "title": "Starter Kit v4 Upgrade Notes",
     "path": "pages/v4-upgrade-notes.html",
     "text": "V4_UPGRADE_NOTES.md"
+  },
+  {
+    "title": "v5.1 QA Report",
+    "path": "pages/v5-1-qa-report.html",
+    "text": "V5_1_QA_REPORT.md"
+  },
+  {
+    "title": "v5.1 Upgrade Notes",
+    "path": "pages/v5-1-upgrade-notes.html",
+    "text": "V5_1_UPGRADE_NOTES.md"
+  },
+  {
+    "title": "v5.0 QA Report",
+    "path": "pages/v5-qa-report.html",
+    "text": "V5_QA_REPORT.md"
+  },
+  {
+    "title": "v5.0 Upgrade Notes",
+    "path": "pages/v5-upgrade-notes.html",
+    "text": "V5_UPGRADE_NOTES.md"
   },
   {
     "title": "project",
@@ -260,6 +280,21 @@
     "text": "docs/20-mobile/sync-policies/README.md"
   },
   {
+    "title": "Requests",
+    "path": "pages/docs-21-requests-readme.html",
+    "text": "docs/21-requests/README.md"
+  },
+  {
+    "title": "Tasks",
+    "path": "pages/docs-22-tasks-readme.html",
+    "text": "docs/22-tasks/README.md"
+  },
+  {
+    "title": "Bugs",
+    "path": "pages/docs-23-bugs-readme.html",
+    "text": "docs/23-bugs/README.md"
+  },
+  {
     "title": "Project Documentation Source",
     "path": "pages/docs-readme.html",
     "text": "docs/README.md"
@@ -425,12 +460,42 @@
     "text": "prompts/31-pattern-pack-design.md"
   },
   {
-    "title": "Registry Governance - v4.1",
+    "title": "Prompt 32 — Request Capture and Promotion",
+    "path": "pages/prompts-32-request-capture-and-promotion.html",
+    "text": "prompts/32-request-capture-and-promotion.md"
+  },
+  {
+    "title": "Prompt 33 — Ready Gate Review",
+    "path": "pages/prompts-33-ready-gate-review.html",
+    "text": "prompts/33-ready-gate-review.md"
+  },
+  {
+    "title": "Prompt 34 — WorkPlan and Task Generation",
+    "path": "pages/prompts-34-workplan-and-task-generation.html",
+    "text": "prompts/34-workplan-and-task-generation.md"
+  },
+  {
+    "title": "Prompt 35 — Document Freshness Review",
+    "path": "pages/prompts-35-document-freshness-review.html",
+    "text": "prompts/35-document-freshness-review.md"
+  },
+  {
+    "title": "Prompt 36 — Impact Analysis",
+    "path": "pages/prompts-36-impact-analysis.html",
+    "text": "prompts/36-impact-analysis.md"
+  },
+  {
+    "title": "Prompt 37 — ChangeSet and Baseline Review",
+    "path": "pages/prompts-37-changeset-baseline-review.html",
+    "text": "prompts/37-changeset-baseline-review.md"
+  },
+  {
+    "title": "Registry Governance — v5.1",
     "path": "pages/registry-readme.html",
     "text": "registry/README.md"
   },
   {
-    "title": "Generated Registry Mirrors",
+    "title": "Generated registry mirrors",
     "path": "pages/registry-generated-readme.html",
     "text": "registry/_generated/README.md"
   },
@@ -445,7 +510,7 @@
     "text": "standards/ADDING_A_STACK.md"
   },
   {
-    "title": "Standards Architecture v4.1",
+    "title": "Standards Architecture v5.1",
     "path": "pages/standards-readme.html",
     "text": "standards/README.md"
   },
@@ -455,7 +520,7 @@
     "text": "standards/STANDARD_CATALOG.md"
   },
   {
-    "title": "AI Agent Rules",
+    "title": "AI Agent Rules — v5.1",
     "path": "pages/standards-ai-agent-rules.html",
     "text": "standards/ai-agent-rules.md"
   },
@@ -465,7 +530,12 @@
     "text": "standards/capabilities/authentication.md"
   },
   {
-    "title": "Definition of Ready / Done cho tài liệu",
+    "title": "Semantic Change History and Baselines — v5.1",
+    "path": "pages/standards-change-history-and-baselines.html",
+    "text": "standards/change-history-and-baselines.md"
+  },
+  {
+    "title": "Definition of Ready / Done — v5.1",
     "path": "pages/standards-definition-of-ready-done.html",
     "text": "standards/definition-of-ready-done.md"
   },
@@ -475,9 +545,24 @@
     "text": "standards/diagram-guidelines.md"
   },
   {
+    "title": "Document Freshness Standard — v5.1",
+    "path": "pages/standards-document-freshness.html",
+    "text": "standards/document-freshness.md"
+  },
+  {
     "title": "Documentation Standard",
     "path": "pages/standards-documentation-standard.html",
     "text": "standards/documentation-standard.md"
+  },
+  {
+    "title": "Graph Impact Analysis Standard — v5.1",
+    "path": "pages/standards-impact-analysis.html",
+    "text": "standards/impact-analysis.md"
+  },
+  {
+    "title": "Implementation Governance Standard",
+    "path": "pages/standards-implementation-governance.html",
+    "text": "standards/implementation-governance.md"
   },
   {
     "title": "Metadata Schema",
@@ -930,6 +1015,11 @@
     "text": "templates/background-mobile-template.md"
   },
   {
+    "title": "Bug title",
+    "path": "pages/templates-bug-template.html",
+    "text": "templates/bug-template.md"
+  },
+  {
     "title": "<TITLE>",
     "path": "pages/templates-business-rule-template.html",
     "text": "templates/business-rule-template.md"
@@ -1045,6 +1135,11 @@
     "text": "templates/release-template.md"
   },
   {
+    "title": "Request title",
+    "path": "pages/templates-request-template.html",
+    "text": "templates/request-template.md"
+  },
+  {
     "title": "<TITLE>",
     "path": "pages/templates-requirement-template.html",
     "text": "templates/requirement-template.md"
@@ -1075,12 +1170,17 @@
     "text": "templates/screen-template.md"
   },
   {
+    "title": "Task title",
+    "path": "pages/templates-task-template.html",
+    "text": "templates/task-template.md"
+  },
+  {
     "title": "<TITLE>",
     "path": "pages/templates-test-case-template.html",
     "text": "templates/test-case-template.md"
   },
   {
-    "title": "Documentation Toolchain v4.1",
+    "title": "Documentation Toolchain v5.1",
     "path": "pages/tools-readme.html",
     "text": "tools/README.md"
   },
@@ -1183,6 +1283,16 @@
     "title": "Workflow 13 - Reuse Promotion Governance",
     "path": "pages/workflows-13-reuse-promotion-governance.html",
     "text": "workflows/13-reuse-promotion-governance.md"
+  },
+  {
+    "title": "Workflow 14 — Request to WorkPlan to Task",
+    "path": "pages/workflows-14-request-to-workplan-task.html",
+    "text": "workflows/14-request-to-workplan-task.md"
+  },
+  {
+    "title": "Workflow 15 — Freshness, Impact, ChangeSet and Baseline",
+    "path": "pages/workflows-15-freshness-change-history-impact.html",
+    "text": "workflows/15-freshness-change-history-impact.md"
   },
   {
     "title": "End-to-End Documentation Checklist",

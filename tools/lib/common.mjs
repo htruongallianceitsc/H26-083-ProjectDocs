@@ -140,3 +140,46 @@ export function resolveStandards(profile=loadJson('project.profile.json',{})) {
   for(const s of profile.technologyStacks||[]) for(const p of stacks[s]?.standards||[]) result.push({layer:`stack:${s}`,path:p});
   return result;
 }
+
+function frontmatterScalar(value) {
+  if (Array.isArray(value)) return `[${value.map(frontmatterScalar).join(', ')}]`;
+  if (value === null) return 'null';
+  if (typeof value === 'boolean' || typeof value === 'number') return String(value);
+  const s = String(value ?? '');
+  if (/^[A-Za-z0-9_.\/@:+-]+$/.test(s) && !['true','false','null','yes','no'].includes(s.toLowerCase())) return s;
+  return JSON.stringify(s);
+}
+
+export function serializeFrontmatter(data) {
+  const lines = ['---'];
+  for (const [key, value] of Object.entries(data || {})) {
+    if (value && typeof value === 'object' && !Array.isArray(value)) {
+      lines.push(`${key}:`);
+      for (const [childKey, childValue] of Object.entries(value)) lines.push(`  ${childKey}: ${frontmatterScalar(childValue)}`);
+    } else lines.push(`${key}: ${frontmatterScalar(value)}`);
+  }
+  lines.push('---');
+  return lines.join('\n');
+}
+
+export function writeMarkdownEntity(relPath, meta, body) {
+  const p = path.isAbsolute(relPath) ? relPath : path.join(ROOT, relPath);
+  fs.mkdirSync(path.dirname(p), { recursive: true });
+  fs.writeFileSync(p, `${serializeFrontmatter(meta)}\n\n${String(body || '').trim()}\n`);
+  return p;
+}
+
+export function findEntityByCode(code) {
+  return scanEntities().entities.find(e => e.code === String(code)) || null;
+}
+
+export function updateMarkdownEntityMeta(entityOrCode, mutator) {
+  const entity = typeof entityOrCode === 'string' ? findEntityByCode(entityOrCode) : entityOrCode;
+  if (!entity) throw new Error(`Entity not found: ${entityOrCode}`);
+  const p = path.join(ROOT, entity.path);
+  const parsed = parseFrontmatter(fs.readFileSync(p, 'utf8'));
+  const next = structuredClone(parsed.data);
+  mutator(next);
+  writeMarkdownEntity(p, next, parsed.body);
+  return findEntityByCode(next.code || entity.code);
+}

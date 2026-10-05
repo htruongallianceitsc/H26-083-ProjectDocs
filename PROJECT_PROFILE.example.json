@@ -14,7 +14,11 @@
     "blockOnOpenQuestions": true,
     "blockOnValidationErrors": true,
     "blockOnQualityErrors": true,
-    "blockOnPackReviewPending": true
+    "blockOnPackReviewPending": true,
+    "blockOnReadyGateFailure": true,
+    "requireApprovedWorkPlan": true,
+    "blockOnStaleWorkPlanContext": true,
+    "blockOnStaleDocumentation": true
   },
   "documentation": {
     "exclude": [

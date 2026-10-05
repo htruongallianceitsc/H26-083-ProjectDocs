@@ -1,16 +1,38 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>tools/README.md</title><link rel="stylesheet" href="../assets/style.css"></head><body><header><strong>Project Docs v4.1</strong><nav><a class="" href="../index.html">Dashboard</a><a class="" href="../profile.html">Profile</a><a class="" href="../standards.html">Standards</a><a class="" href="../packs.html">Reuse</a><a class="" href="../catalog.html">Catalog</a><a class="" href="../traceability.html">Traceability</a><a class="" href="../graph.html">Graph</a><a class="" href="../flows.html">Diagrams</a></nav></header><main><h1>tools/README.md</h1><p><small>tools/README.md</small></p><h1>Documentation Toolchain v4.1</h1><p>Requires Node.js 20+. No third-party npm runtime dependencies are required.</p><h2>Runtime architecture</h2><p>There is one supported runtime:</p><pre><code class="language-text">tools/scripts/docs-tool.mjs      documentation/profile/site commands
-tools/scripts/pack-tool.mjs      Pattern/Capability Pack commands
-tools/scripts/registry-tool.mjs  canonical registry sync/check
-tools/scripts/e2e-test.mjs       isolated regression fixture runner
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>tools/README.md</title><link rel="stylesheet" href="../assets/style.css"></head><body><header><strong>Project Docs v5.1</strong><nav><a class="" href="../index.html">Dashboard</a><a class="" href="../profile.html">Profile</a><a class="" href="../standards.html">Standards</a><a class="" href="../packs.html">Reuse</a><a class="" href="../catalog.html">Catalog</a><a class="" href="../traceability.html">Traceability</a><a class="" href="../graph.html">Graph</a><a class="" href="../governance.html">Governance</a><a class="" href="../flows.html">Diagrams</a></nav></header><main><h1>tools/README.md</h1><p><small>tools/README.md</small></p><h1>Documentation Toolchain v5.1</h1><p>Requires Node.js 20+. No third-party npm runtime dependencies are required.</p><h2>Runtime architecture</h2><pre><code class="language-text">tools/scripts/docs-tool.mjs        validation/sync/site
+tools/scripts/pack-tool.mjs        Pattern/Capability Pack lifecycle
+tools/scripts/registry-tool.mjs    canonical registry sync/check
+tools/scripts/request-tool.mjs     Request intake/promotion
+tools/scripts/gate-tool.mjs        Ready/Done gates
+tools/scripts/plan-tool.mjs        WorkPlan lifecycle/task materialization
+tools/scripts/freshness-tool.mjs   dependency freshness check/reconcile
+tools/scripts/impact-tool.mjs      typed graph impact analysis
+tools/scripts/change-tool.mjs      audit/ChangeSet/Baseline commands
+tools/scripts/e2e-test.mjs         isolated regression runner
         ↓
-tools/lib/common.mjs             shared filesystem/frontmatter/render helpers</code></pre><p>Legacy duplicate implementations were removed in v4.1 so package scripts and CI cannot execute different semantics.</p><h2>Normal project validation</h2><pre><code class="language-bash">cd tools
+tools/lib/common.mjs
+tools/lib/governance.mjs
+tools/lib/freshness.mjs
+tools/lib/impact.mjs
+tools/lib/change-history.mjs</code></pre><h2>Full QA</h2><pre><code class="language-bash">cd tools
 npm ci
-npm run docs:all</code></pre><p><code>docs:all</code> performs registry drift check, profile check, pack validation, documentation validation, generated traceability sync, static site build, and site link checking.</p><h2>Full framework QA</h2><pre><code class="language-bash">npm run qa</code></pre><p>In addition to <code>docs:all</code>, this runs the E2E fixture under <code>tools/tests/fixtures/valid-project</code> in a temporary workspace. The fixture must produce 6 typed entities and 6 typed edges, and a deliberately broken relation must fail validation.</p><h2>Registry commands</h2><pre><code class="language-bash">npm run registry:sync
-npm run registry:check</code></pre><p>Only <code>registry/*.json</code> is canonical. YAML mirrors are regenerated under <code>registry/_generated/</code>.</p><h2>Reuse commands</h2><pre><code class="language-bash">npm run pack:list
-npm run pack:validate
-npm run reuse:assess -- --name AUTH --occurrences 4 --similarity 0.8 --stability stable --security-baseline
-npm run pack:import -- ../reusable-modules/auth-standard
-npm run pack:import -- ../reusable-modules/auth-standard --apply --features register,google-login --set GOOGLE_LOGIN_ENABLED=true
-npm run pack:review -- auth-standard --approve --note &quot;Reviewed by Product and Tech Lead&quot;
-npm run pack:diff -- auth-standard --source ../../library/auth-standard-1.1.0
-npm run pack:upgrade -- auth-standard --source ../../library/auth-standard-1.1.0</code></pre><p>Import/upgrade are preview-first. Project-local docs become source of truth. Pack state and snapshots stay under <code>.project-docs/</code>.</p></main><script src="assets/app.js"></script><script type="module">if(document.querySelector('.mermaid')){import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs').then(m=>{m.default.initialize({startOnLoad:true,securityLevel:'loose'});});}</script></body></html>
+npm run qa</code></pre><h2>Freshness</h2><pre><code class="language-bash">npm run doc:check -- --entity FEAT-...
+npm run doc:reconcile -- --entity FEAT-... --reviewer &quot;Reviewer&quot; --note &quot;...&quot;</code></pre><h2>Impact</h2><pre><code class="language-bash">npm run impact -- --entity REQ-...
+npm run impact -- --entity API-... -- --depth 2</code></pre><h2>ChangeSets / Baselines</h2><pre><code class="language-bash">npm run audit:init -- --actor &quot;Team&quot;
+npm run changeset:scan -- --actor &quot;Team&quot; --reason &quot;...&quot; --related FEAT-...
+npm run changeset:list
+npm run changeset:show -- --id CHG-...
+
+npm run baseline:create -- --name UAT-1 --actor &quot;PM&quot; --note &quot;...&quot;
+npm run baseline:list
+npm run baseline:compare -- --name UAT-1</code></pre><h2>Request / Gate / WorkPlan</h2><pre><code class="language-bash">npm run request:create -- --title &quot;...&quot; --kind change --summary &quot;...&quot;
+npm run request:promote -- --request REQST-... --target FEAT-...
+npm run gate:ready -- --feature FEAT-...
+npm run plan:scaffold -- --feature FEAT-...
+npm run plan:author-complete -- --id WP-... --actor &quot;Author&quot;
+npm run plan:submit -- --id WP-...
+npm run plan:approve -- --id WP-... --reviewer &quot;Reviewer&quot;
+npm run plan:materialize -- --id WP-... --owner &quot;Engineering&quot;
+npm run gate:done -- --feature FEAT-...</code></pre><h2>Registry / reuse</h2><pre><code class="language-bash">npm run registry:sync
+npm run registry:check
+npm run pack:list
+npm run pack:validate</code></pre></main><script src="assets/app.js"></script><script type="module">if(document.querySelector('.mermaid')){import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs').then(m=>{m.default.initialize({startOnLoad:true,securityLevel:'loose'});});}</script></body></html>

@@ -1,9 +1,14 @@
-# Project Documentation Governance State
+# Project Documentation Governance State — v5.1
 
-This folder stores non-business governance state for reusable packs.
+This folder stores governance/operational state, not product truth.
 
-- `packs.lock.json`: installed pack version, variables, enabled features, namespace and review state.
-- `pack-snapshots/`: accepted base content for three-way diff.
-- `pack-proposals/`: upgrade proposals.
+- `workplans/`: reviewed implementation plans with context hashes.
+- `freshness/`: dependency fingerprints created by explicit documentation reconciliation.
+- `changesets/`: semantic batches of canonical documentation changes.
+- `audit-state.json`: local comparison state used to detect direct/manual edits.
+- `baselines/`: immutable named milestone fingerprints.
+- `packs.lock.json`: installed reusable-pack state.
+- `pack-snapshots/`: accepted reusable-pack bases for three-way diff.
+- `pack-proposals/`: reusable-pack upgrade proposals.
 
-Do not move product/business facts here. Do not add pack version/provenance to business frontmatter unless it is itself a business fact.
+Do not manually edit hashes to bypass stale detection. Keep product/domain behaviour in `docs/`.

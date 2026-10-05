@@ -1,7 +1,7 @@
 {
   "name": "production-project-docs-tools",
   "private": true,
-  "version": "4.1.0",
+  "version": "5.1.0",
   "type": "module",
   "engines": {
     "node": ">=20"
@@ -26,7 +26,32 @@
     "docs:clean": "node scripts/docs-tool.mjs clean",
     "docs:dev": "node scripts/docs-tool.mjs watch",
     "test:e2e": "node scripts/e2e-test.mjs",
-    "docs:all": "npm run registry:check && npm run profile:check && npm run pack:validate && npm run docs:validate && npm run docs:sync && npm run docs:build && npm run docs:check-site",
-    "qa": "npm run docs:all && npm run test:e2e"
+    "docs:all": "npm run registry:check && npm run profile:check && npm run pack:validate && npm run docs:validate && npm run doc:check && npm run docs:sync && npm run docs:build && npm run docs:check-site",
+    "qa": "npm run docs:all && npm run test:e2e",
+    "request:create": "node scripts/request-tool.mjs create",
+    "request:list": "node scripts/request-tool.mjs list",
+    "request:promote": "node scripts/request-tool.mjs promote",
+    "request:close": "node scripts/request-tool.mjs close",
+    "gate:ready": "node scripts/gate-tool.mjs ready",
+    "gate:done": "node scripts/gate-tool.mjs done",
+    "plan:scaffold": "node scripts/plan-tool.mjs scaffold",
+    "plan:list": "node scripts/plan-tool.mjs list",
+    "plan:show": "node scripts/plan-tool.mjs show",
+    "plan:validate": "node scripts/plan-tool.mjs validate",
+    "plan:submit": "node scripts/plan-tool.mjs submit",
+    "plan:approve": "node scripts/plan-tool.mjs approve",
+    "plan:reject": "node scripts/plan-tool.mjs reject",
+    "plan:materialize": "node scripts/plan-tool.mjs materialize",
+    "plan:author-complete": "node scripts/plan-tool.mjs author-complete",
+    "doc:check": "node scripts/freshness-tool.mjs check",
+    "doc:reconcile": "node scripts/freshness-tool.mjs reconcile",
+    "impact": "node scripts/impact-tool.mjs analyze",
+    "audit:init": "node scripts/change-tool.mjs audit-init",
+    "changeset:scan": "node scripts/change-tool.mjs changeset-scan",
+    "changeset:list": "node scripts/change-tool.mjs changeset-list",
+    "changeset:show": "node scripts/change-tool.mjs changeset-show",
+    "baseline:create": "node scripts/change-tool.mjs baseline-create",
+    "baseline:list": "node scripts/change-tool.mjs baseline-list",
+    "baseline:compare": "node scripts/change-tool.mjs baseline-compare"
   }
 }

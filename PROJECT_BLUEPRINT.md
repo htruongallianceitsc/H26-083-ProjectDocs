@@ -48,3 +48,19 @@ This is the inventory map for a real project created from the starter. Every imp
 
 ## Open Questions / Decisions
 Track blockers and accepted decisions explicitly; do not hide assumptions in prose.
+
+## Change / Implementation Governance
+
+### Active Requests
+| Code | Kind | Status | Promoted To |
+|---|---|---|---|
+
+### WorkPlans
+| ID | Feature | Status | Context Review |
+|---|---|---|---|
+
+### Implementation Tasks
+| Code | Feature | WorkPlan | Status |
+|---|---|---|---|
+
+> Requests explain why change entered the project. WorkPlans explain the reviewed implementation plan. Tasks execute the plan. None of these replace canonical Feature/Requirement/Rule/API/Screen/DB/Test documentation.

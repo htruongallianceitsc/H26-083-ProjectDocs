@@ -8,6 +8,11 @@ on:
       - 'tools/**'
       - 'project.profile.json'
       - 'starter-kit.json'
+      - '.project-docs/workplans/**'
+      - '.project-docs/freshness/**'
+      - '.project-docs/changesets/**'
+      - '.project-docs/baselines/**'
+      - 'templates/**/*.json'
       - 'reusable-modules/**'
       - 'reusable-patterns/**'
   push:
@@ -18,6 +23,11 @@ on:
       - 'tools/**'
       - 'project.profile.json'
       - 'starter-kit.json'
+      - '.project-docs/workplans/**'
+      - '.project-docs/freshness/**'
+      - '.project-docs/changesets/**'
+      - '.project-docs/baselines/**'
+      - 'templates/**/*.json'
       - 'reusable-modules/**'
       - 'reusable-patterns/**'
 

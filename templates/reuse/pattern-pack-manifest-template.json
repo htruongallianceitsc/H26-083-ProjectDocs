@@ -3,7 +3,7 @@
   "packageId": "example-pattern",
   "packageType": "pattern",
   "version": "1.0.0",
-  "starterSchemaVersion": "4.1.0",
+  "starterSchemaVersion": "5.1.0",
   "features": {
     "required": [
       "core"

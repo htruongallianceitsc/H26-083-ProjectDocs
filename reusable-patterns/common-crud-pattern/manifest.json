@@ -3,7 +3,7 @@
   "packageId": "common-crud-pattern",
   "packageType": "pattern",
   "version": "1.0.0",
-  "starterSchemaVersion": "4.1.0",
+  "starterSchemaVersion": "5.1.0",
   "summary": "CRUD documentation skeleton for repeated but project-specific resources.",
   "features": {
     "required": [
@@ -58,7 +58,7 @@
     }
   ],
   "provenance": {
-    "source": "starter-kit-v4.1"
+    "source": "starter-kit-v5.1"
   },
   "upgradePolicy": "fork"
 }

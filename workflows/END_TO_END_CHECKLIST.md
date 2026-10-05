@@ -84,3 +84,17 @@
 - [ ] Pack import/upgrade preview was reviewed before apply.
 - [ ] Pack review status is approved before implementation when the gate is enabled.
 - [ ] Project-local docs are canonical after import.
+
+## V5.0 Request / Implementation Governance
+- [ ] Durable incoming changes were captured as Requests when provenance matters.
+- [ ] Accepted Requests were promoted to existing canonical entities.
+- [ ] Canonical docs were updated before Task generation.
+- [ ] `npm run gate:ready -- --feature <CODE>` passes before WorkPlan submit.
+- [ ] WorkPlan task breakdown, assumptions, risks and acceptance criteria were reviewed.
+- [ ] WorkPlan authoring was explicitly completed before submit.
+- [ ] WorkPlan approval was performed against a non-stale context hash.
+- [ ] Tasks were materialized only from an approved non-stale WorkPlan.
+- [ ] Every implementation Task links to at least one Feature.
+- [ ] Tasks do not redefine product/business truth.
+- [ ] After implementation, linked tests are passed and canonical docs are reconciled.
+- [ ] `npm run gate:done -- --feature <CODE>` passes before considering the feature documentation-complete.

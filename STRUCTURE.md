@@ -1482,3 +1482,66 @@ Monitoring / Runbook
 ```
 
 Đây cũng là cấu trúc rất thuận lợi nếu về sau bạn muốn cho **AI Agent đọc toàn bộ project, tự tạo tài liệu feature mới, kiểm tra thiếu tài liệu, phân tích impact và sau cùng mới sinh task/code**.
+
+---
+
+# V5.0 implementation-governance extension
+
+The canonical documentation tree now continues with:
+
+```text
+docs/
+├── 21-requests/     # durable intake/provenance
+├── 22-tasks/        # implementation execution units
+└── 23-bugs/         # durable defect records
+
+.project-docs/
+└── workplans/       # reviewed plans + context hashes; not domain truth
+
+registry/
+├── readiness-rules.json
+└── workplan.schema.json
+```
+
+The intended execution path is:
+
+```text
+Request
+ -> Canonical docs
+ -> Ready Gate
+ -> WorkPlan
+ -> Approval
+ -> Task
+ -> Implementation
+ -> Documentation reconciliation
+ -> Done Gate
+```
+
+This extends the earlier Module -> Feature -> Requirement -> Screen/API/DB/Test graph; it does not replace it. Feature remains the functional backbone, while Request/WorkPlan/Task provide provenance and controlled execution.
+
+---
+
+# v5.1 Governance Additions
+
+The long-term project structure now also reserves these implementation-governance paths:
+
+```text
+project-root/
+├── docs/
+│   ├── 21-requests/
+│   ├── 22-tasks/
+│   ├── 23-bugs/
+│   └── _generated/
+├── registry/
+│   ├── readiness-rules.json
+│   ├── freshness-rules.json
+│   └── impact-rules.json
+└── .project-docs/
+    ├── workplans/
+    ├── freshness/
+    ├── changesets/
+    ├── baselines/
+    └── audit-state.json
+```
+
+`docs/` remains project/domain truth. `.project-docs/` holds review, planning and history state used to govern that truth.

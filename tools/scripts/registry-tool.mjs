@@ -7,7 +7,10 @@ const generatedDir = path.join(ROOT, 'registry/_generated');
 const sources = [
   ['entity-types.json', 'entity-types.yaml'],
   ['relation-map.json', 'relation-map.yaml'],
-  ['quality-rules.json', 'quality-rules.yaml']
+  ['quality-rules.json', 'quality-rules.yaml'],
+  ['readiness-rules.json', 'readiness-rules.yaml'],
+  ['freshness-rules.json', 'freshness-rules.yaml'],
+  ['impact-rules.json', 'impact-rules.yaml']
 ];
 
 function quote(value) {
@@ -62,12 +65,23 @@ function check() {
   const types = loadJson('registry/entity-types.json', {types:{}}).types || {};
   const relations = loadJson('registry/relation-map.json', {relations:[]}).relations || [];
   const quality = loadJson('registry/quality-rules.json', {rules:[]}).rules || [];
+  const readiness = loadJson('registry/readiness-rules.json', {gates:{}}).gates || {};
+  const freshness = loadJson('registry/freshness-rules.json', {tracking:{}});
+  const impact = loadJson('registry/impact-rules.json', {relations:[]});
   const legacy = ['entity-types.yaml','relation-map.yaml','quality-rules.yaml','status-lifecycle.yaml'];
   for (const f of legacy) if (fs.existsSync(path.join(ROOT,'registry',f))) errors.push(`Legacy hand-maintained registry mirror still exists: registry/${f}`);
   for (const r of relations) {
     if (r.from !== '*' && !types[r.from]) errors.push(`relation-map: unknown from type ${r.from}`);
     if (r.to !== '*' && !types[r.to]) errors.push(`relation-map: unknown to type ${r.to}`);
     if (!r.field) errors.push('relation-map: relation missing field');
+  }
+  for (const [gateName, gate] of Object.entries(readiness)) {
+    if (gate.entityType && !types[gate.entityType]) errors.push(`readiness-rules: ${gateName} references unknown entity type ${gate.entityType}`);
+    for (const r of gate.incomingRelations || []) if (r.sourceType && !types[r.sourceType]) errors.push(`readiness-rules: ${gateName} incoming source type ${r.sourceType} is unknown`);
+    for (const r of [...(gate.requiredRelations || []), ...(gate.relatedStatuses || []), ...(gate.blockingRelated || [])]) {
+      if (!r.field) errors.push(`readiness-rules: ${gateName} rule missing field`);
+      else { const mapped=relations.some(x => (x.from===gate.entityType || x.from==='*') && x.field===r.field); if(!mapped) errors.push(`readiness-rules: ${gateName} uses unmapped relation ${gate.entityType}.${r.field}`); }
+    }
   }
   for (const q of quality) {
     if (q.entityType && !types[q.entityType]) errors.push(`quality-rules: ${q.id} references unknown entity type ${q.entityType}`);
@@ -76,6 +90,14 @@ function check() {
       if (!mapped) errors.push(`quality-rules: ${q.id} uses unmapped relation ${q.entityType}.${q.field}`);
     }
   }
+  for (const [typeName, cfg] of Object.entries(freshness.tracking || {})) {
+    if (typeName !== 'default' && !types[typeName]) errors.push(`freshness-rules: unknown entity type ${typeName}`);
+    for (const incoming of cfg.includeIncoming || []) {
+      if (incoming.sourceType && !types[incoming.sourceType]) errors.push(`freshness-rules: ${typeName} incoming source type ${incoming.sourceType} is unknown`);
+      if (!incoming.field) errors.push(`freshness-rules: ${typeName} incoming rule missing field`);
+    }
+  }
+  for (const r of impact.relations || []) if (!relations.some(x => x.field === r.field)) errors.push(`impact-rules: field ${r.field} is not present in relation-map`);
   for (const [source,target] of sources) {
     const p = path.join(generatedDir,target);
     if (!fs.existsSync(p)) errors.push(`Missing generated mirror registry/_generated/${target}; run npm run registry:sync`);
@@ -85,7 +107,7 @@ function check() {
   if (!fs.existsSync(statusPath)) errors.push('Missing generated mirror registry/_generated/status-lifecycle.yaml; run npm run registry:sync');
   else if (fs.readFileSync(statusPath,'utf8') !== statusLifecycleText()) errors.push('Generated mirror drift: registry/_generated/status-lifecycle.yaml');
   const starter = loadJson('starter-kit.json',{});
-  if (starter.version !== '4.1.0' || starter.schemaVersion !== '4.1.0') errors.push(`starter-kit.json expected version/schemaVersion 4.1.0, got ${starter.version}/${starter.schemaVersion}`);
+  if (starter.version !== '5.1.0' || starter.schemaVersion !== '5.1.0') errors.push(`starter-kit.json expected version/schemaVersion 5.1.0, got ${starter.version}/${starter.schemaVersion}`);
   console.log(`Registry check: ${errors.length} error(s); ${Object.keys(types).length} entity type(s), ${relations.length} relation rule(s), ${quality.length} quality rule(s).`);
   for (const e of errors) console.log(`[ERROR] ${e}`);
   return errors.length === 0;

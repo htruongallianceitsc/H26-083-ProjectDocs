@@ -1,12 +1,16 @@
 {
   "projectCode": "FIXTURE",
-  "projectName": "V4.1 E2E Fixture",
+  "projectName": "V5.1 E2E Fixture",
   "projectTypes": [],
   "technologyStacks": [],
   "implementationGate": {
     "blockOnOpenQuestions": true,
     "blockOnValidationErrors": true,
     "blockOnQualityErrors": true,
-    "blockOnPackReviewPending": true
+    "blockOnPackReviewPending": true,
+    "blockOnReadyGateFailure": true,
+    "requireApprovedWorkPlan": true,
+    "blockOnStaleWorkPlanContext": true,
+    "blockOnStaleDocumentation": true
   }
 }

@@ -8,41 +8,122 @@ const here = path.dirname(fileURLToPath(import.meta.url));
 const toolsDir = path.resolve(here, '..');
 const sourceRoot = path.resolve(toolsDir, '..');
 const fixture = path.join(toolsDir, 'tests/fixtures/valid-project');
-const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'project-docs-v41-'));
+const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'project-docs-v51-'));
 
 function copy(src,dst){ fs.cpSync(src,dst,{recursive:true}); }
-function run(action, expectOk=true){
-  const result=spawnSync(process.execPath,[path.join(here,'docs-tool.mjs'),action],{
+function run(script, action, extra=[], expectOk=true){
+  const result=spawnSync(process.execPath,[path.join(here,script),action,...extra],{
     cwd: toolsDir,
     env:{...process.env,PROJECT_DOCS_ROOT:tempRoot},
     encoding:'utf8'
   });
   const output=(result.stdout||'')+(result.stderr||'');
-  if(expectOk && result.status!==0) throw new Error(`${action} failed\n${output}`);
-  if(!expectOk && result.status===0) throw new Error(`${action} unexpectedly passed\n${output}`);
+  if(expectOk && result.status!==0) throw new Error(`${script} ${action} failed\n${output}`);
+  if(!expectOk && result.status===0) throw new Error(`${script} ${action} unexpectedly passed\n${output}`);
   return output;
 }
+function replace(file,from,to){ const p=path.join(tempRoot,file); fs.writeFileSync(p,fs.readFileSync(p,'utf8').replace(from,to)); }
 
 try {
   copy(fixture,tempRoot);
   copy(path.join(sourceRoot,'registry'),path.join(tempRoot,'registry'));
   copy(path.join(sourceRoot,'starter-kit.json'),path.join(tempRoot,'starter-kit.json'));
-  fs.mkdirSync(path.join(tempRoot,'.project-docs'),{recursive:true});
-  fs.writeFileSync(path.join(tempRoot,'.project-docs/packs.lock.json'),'{"schemaVersion":"1.0","packs":{}}\n');
+  fs.mkdirSync(path.join(tempRoot,'.project-docs/workplans'),{recursive:true});
+  fs.mkdirSync(path.join(tempRoot,'.project-docs/freshness'),{recursive:true});
+  fs.mkdirSync(path.join(tempRoot,'.project-docs/changesets'),{recursive:true});
+  fs.mkdirSync(path.join(tempRoot,'.project-docs/baselines'),{recursive:true});
+  fs.writeFileSync(path.join(tempRoot,'.project-docs/packs.lock.json'),'{'+'"schemaVersion":"1.0","packs":{}'+'}\n');
 
-  run('validate');
-  const syncOutput=run('sync');
-  if(!/6 entities, 6 typed edges/.test(syncOutput)) throw new Error(`Expected 6 entities / 6 edges, got:\n${syncOutput}`);
-  run('build');
-  run('check-site');
-  const graph=JSON.parse(fs.readFileSync(path.join(tempRoot,'docs/_generated/graph.json'),'utf8'));
-  if(graph.nodes.length!==6 || graph.edges.length!==6) throw new Error(`Graph mismatch: ${graph.nodes.length} nodes / ${graph.edges.length} edges`);
+  run('docs-tool.mjs','validate');
+  const initial=run('docs-tool.mjs','sync');
+  if(!/6 entities, 6 typed edges/.test(initial)) throw new Error(`Expected initial 6 entities / 6 edges, got:\n${initial}`);
 
-  const featurePath=path.join(tempRoot,'docs/feature.md');
-  fs.writeFileSync(featurePath,fs.readFileSync(featurePath,'utf8').replace('TC-DEMO-001','TC-DEMO-MISSING'));
-  const negative=run('validate',false);
+  run('freshness-tool.mjs','reconcile',['--entity','FEAT-DEMO','--reviewer','E2E Reviewer']);
+  const fresh=run('freshness-tool.mjs','check',['--entity','FEAT-DEMO']);
+  if(!fresh.includes('FEAT-DEMO: FRESH')) throw new Error(`Expected fresh feature:\n${fresh}`);
+
+  const reqPath=path.join(tempRoot,'docs/requirement.md');
+  const originalReq=fs.readFileSync(reqPath,'utf8');
+  fs.writeFileSync(reqPath,originalReq+'\nDependency drift probe.\n');
+  const staleDoc=run('freshness-tool.mjs','check',['--entity','FEAT-DEMO'],false);
+  if(!staleDoc.includes('FEAT-DEMO: STALE') || !staleDoc.includes('REQ-DEMO-001')) throw new Error(`Expected dependency-aware stale result:\n${staleDoc}`);
+  const staleGate=run('gate-tool.mjs','ready',['--feature','FEAT-DEMO'],false);
+  if(!staleGate.includes('DOCUMENT_FRESHNESS:stale')) throw new Error(`Ready gate did not block stale documentation:\n${staleGate}`);
+  fs.writeFileSync(reqPath,originalReq);
+  run('freshness-tool.mjs','check',['--entity','FEAT-DEMO']);
+
+  const impact=run('impact-tool.mjs','analyze',['--entity','REQ-DEMO-001','--depth','3']);
+  if(!impact.includes('[HIGH] FEAT-DEMO')) throw new Error(`Impact engine did not surface FEAT-DEMO as high impact:\n${impact}`);
+
+  run('change-tool.mjs','audit-init',['--actor','E2E']);
+  const ready=run('gate-tool.mjs','ready',['--feature','FEAT-DEMO']);
+  if(!ready.includes('READY FEAT-DEMO: PASS')) throw new Error(`Ready gate did not pass:\n${ready}`);
+
+  run('request-tool.mjs','create',['--code','REQST-E2E-001','--title','Demo change request','--kind','change','--summary','Trace the source request for the demo feature.']);
+  run('request-tool.mjs','promote',['--request','REQST-E2E-001','--target','FEAT-DEMO']);
+  const requestStale=run('freshness-tool.mjs','check',['--entity','FEAT-DEMO'],false);
+  if(!requestStale.includes('REQST-E2E-001')) throw new Error(`Incoming request did not invalidate freshness:\n${requestStale}`);
+  run('freshness-tool.mjs','reconcile',['--entity','FEAT-DEMO','--reviewer','E2E Reviewer','--note','Request reviewed and absorbed']);
+  run('gate-tool.mjs','ready',['--feature','FEAT-DEMO']);
+
+  const planId='WP-FEAT-DEMO-E2E';
+  run('plan-tool.mjs','scaffold',['--feature','FEAT-DEMO','--id',planId]);
+  run('plan-tool.mjs','validate',['--id',planId]);
+  run('plan-tool.mjs','author-complete',['--id',planId,'--actor','E2E Author']);
+  run('plan-tool.mjs','submit',['--id',planId]);
+
+  fs.writeFileSync(reqPath,originalReq.replace('status: approved','status: draft'));
+  const stalePlan=run('plan-tool.mjs','approve',['--id',planId,'--reviewer','E2E Reviewer'],false);
+  if(!stalePlan.includes('STALE_CONTEXT')) throw new Error(`Expected STALE_CONTEXT, got:\n${stalePlan}`);
+  fs.writeFileSync(reqPath,originalReq);
+
+  run('plan-tool.mjs','approve',['--id',planId,'--reviewer','E2E Reviewer']);
+  run('plan-tool.mjs','materialize',['--id',planId,'--owner','Engineering']);
+  run('docs-tool.mjs','validate');
+  const after=run('docs-tool.mjs','sync');
+  if(!/9 entities, 15 typed edges/.test(after)) throw new Error(`Expected 9 entities / 15 edges after governance flow, got:\n${after}`);
+
+  const cs1=run('change-tool.mjs','changeset-scan',['--actor','E2E','--reason','Request to approved WorkPlan and tasks','--related','FEAT-DEMO']);
+  if(!/Created CHG-/.test(cs1)) throw new Error(`Expected first ChangeSet:\n${cs1}`);
+  const csList=run('change-tool.mjs','changeset-list');
+  if(!/CHG-/.test(csList)) throw new Error(`ChangeSet list is empty:\n${csList}`);
+
+  run('change-tool.mjs','baseline-create',['--name','PRE-COMPLETE','--actor','E2E','--note','Before implementation completion']);
+  const doneFail=run('gate-tool.mjs','done',['--feature','FEAT-DEMO'],false);
+  if(!doneFail.includes('DONE FEAT-DEMO: FAIL')) throw new Error(`Expected Done gate failure before completion:\n${doneFail}`);
+
+  replace('docs/feature.md','status: planned','status: implemented');
+  replace('docs/test.md','status: ready','status: passed');
+  for(const file of fs.readdirSync(path.join(tempRoot,'docs/22-tasks')).filter(x=>x.endsWith('.md'))) replace(`docs/22-tasks/${file}`,'status: ready','status: done');
+
+  const implementationStale=run('freshness-tool.mjs','check',['--entity','FEAT-DEMO'],false);
+  if(!implementationStale.includes('TC-DEMO-001')) throw new Error(`Test status change did not stale feature docs:\n${implementationStale}`);
+  const doneStale=run('gate-tool.mjs','done',['--feature','FEAT-DEMO'],false);
+  if(!doneStale.includes('DOCUMENT_FRESHNESS:stale')) throw new Error(`Done gate did not require documentation reconciliation:\n${doneStale}`);
+
+  const baselineDiff=run('change-tool.mjs','baseline-compare',['--name','PRE-COMPLETE']);
+  if(!/modified [1-9]/.test(baselineDiff)) throw new Error(`Expected baseline drift after completion:\n${baselineDiff}`);
+
+  run('freshness-tool.mjs','reconcile',['--entity','FEAT-DEMO','--reviewer','E2E Reviewer','--note','Implementation and tests reconciled']);
+  const donePass=run('gate-tool.mjs','done',['--feature','FEAT-DEMO']);
+  if(!donePass.includes('DONE FEAT-DEMO: PASS')) throw new Error(`Expected Done gate pass after reconciliation:\n${donePass}`);
+
+  const cs2=run('change-tool.mjs','changeset-scan',['--actor','E2E','--reason','Implementation completion and documentation reconciliation','--related','FEAT-DEMO']);
+  if(!/Created CHG-/.test(cs2)) throw new Error(`Expected second ChangeSet:\n${cs2}`);
+  run('docs-tool.mjs','validate');
+
+  run('docs-tool.mjs','build');
+  run('docs-tool.mjs','check-site');
+  const governance=JSON.parse(fs.readFileSync(path.join(tempRoot,'docs/_generated/governance.json'),'utf8'));
+  if(governance.requests.length!==1 || governance.tasks.length!==2 || governance.workplans.length!==1 || governance.changesets.length!==2 || governance.baselines.length!==1) throw new Error(`Governance summary mismatch: ${JSON.stringify(governance)}`);
+  const featFresh=governance.freshness.find(x=>x.code==='FEAT-DEMO');
+  if(!featFresh || featFresh.status!=='fresh') throw new Error(`Feature freshness summary mismatch: ${JSON.stringify(featFresh)}`);
+
+  replace('docs/feature.md','TC-DEMO-001','TC-DEMO-MISSING');
+  const negative=run('docs-tool.mjs','validate',[],false);
   if(!negative.includes('BROKEN_RELATION')) throw new Error(`Negative fixture failed for wrong reason:\n${negative}`);
-  console.log('E2E regression: PASS (valid graph + broken-relation failure path).');
+
+  console.log('E2E regression: PASS (dependency freshness + Ready/Done freshness gates + Request/WorkPlan/Task flow + stale WorkPlan protection + graph impact + semantic ChangeSets + baseline drift + broken relation path).');
 } finally {
   fs.rmSync(tempRoot,{recursive:true,force:true});
 }

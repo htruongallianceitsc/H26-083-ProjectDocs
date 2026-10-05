@@ -3,11 +3,15 @@
 statuses:
   - accepted
   - active
+  - analyzed
   - approved
   - archived
   - blocked
+  - cancelled
+  - captured
   - closed
   - deprecated
+  - done
   - draft
   - failed
   - implemented
@@ -15,6 +19,7 @@ statuses:
   - open
   - passed
   - planned
+  - promoted
   - proposed
   - ready
   - rejected
@@ -24,3 +29,5 @@ statuses:
   - review
   - rolled_back
   - superseded
+  - triaged
+  - wont_fix

@@ -1,7 +1,12 @@
 {
   "name": "production-project-docs-starter-kit",
-  "version": "4.1.0",
-  "schemaVersion": "4.1.0",
+  "version": "5.1.0",
+  "schemaVersion": "5.1.0",
   "registrySchemaVersion": "1.0",
-  "capabilityPackSchemaVersion": "1.0"
+  "capabilityPackSchemaVersion": "1.0",
+  "workPlanSchemaVersion": "1.0",
+  "readinessRulesVersion": "1.0",
+  "freshnessRulesVersion": "1.0",
+  "impactRulesVersion": "1.0",
+  "changeManagementVersion": "1.0"
 }

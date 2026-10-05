@@ -1,21 +1,24 @@
 # Workflow 07 — Change Management
 
-## Khi có yêu cầu thay đổi
+## When a change request arrives
 
-1. Capture change request + reason.
-2. Xác định entity canonical cần đổi.
-3. Trace incoming/outgoing relations.
-4. Phân tích potential impact.
-5. Update docs canonical.
-6. Reconcile Screen/API/DB/Test/Runbook liên quan.
-7. Tạo ADR nếu decision đáng kể.
-8. Update Blueprint/Traceability/Changelog.
-9. Review Ready gate trước implementation.
-10. Sau release, review Done gate.
+1. Capture a durable Request when provenance/change history matters.
+2. Analyze affected canonical entities and incoming/outgoing relations.
+3. Perform potential impact analysis.
+4. Create/update canonical Feature/Requirement/Rule/Screen/Flow/API/DB/Test docs.
+5. Record a Decision when the change requires a meaningful product/architecture choice.
+6. Update Blueprint/Traceability/Changelog as needed.
+7. Promote the Request to the durable target entities.
+8. Run validation and the Ready gate.
+9. Create/review/approve a WorkPlan.
+10. Materialize implementation Tasks only from the approved non-stale plan.
+11. After implementation, reconcile docs/tests and run the Done gate.
 
-## Không làm
+## Do not
 
-- Sửa feature rồi quên test.
-- Sửa API path nhưng Blueprint vẫn cũ.
-- Rewrite ADR cũ để hợp lý hóa quyết định mới.
-- Copy cùng rule vào nhiều file.
+- Jump from request text directly to code.
+- Treat the Request note as the final requirement.
+- Create implementation Tasks before documentation is Ready.
+- Approve a WorkPlan after documentation changed.
+- Fix a gate failure by weakening policy without review.
+- Put new business rules only inside Task notes.

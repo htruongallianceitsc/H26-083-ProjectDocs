@@ -12,6 +12,10 @@
     "standards/reuse/reuse-strategy.md",
     "standards/reuse/capability-pack-standard.md",
     "standards/reuse/pattern-pack-standard.md",
-    "standards/reuse/promotion-policy.md"
+    "standards/reuse/promotion-policy.md",
+    "standards/implementation-governance.md",
+    "standards/document-freshness.md",
+    "standards/change-history-and-baselines.md",
+    "standards/impact-analysis.md"
   ]
 }

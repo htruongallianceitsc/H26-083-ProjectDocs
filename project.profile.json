@@ -1,12 +1,16 @@
 {
   "projectCode": "STARTER",
-  "projectName": "Production Project Documentation Starter Kit v4.1",
+  "projectName": "Production Project Documentation Starter Kit v5.1",
   "projectTypes": [],
   "technologyStacks": [],
   "implementationGate": {
     "blockOnOpenQuestions": true,
     "blockOnValidationErrors": true,
     "blockOnQualityErrors": true,
-    "blockOnPackReviewPending": true
+    "blockOnPackReviewPending": true,
+    "blockOnReadyGateFailure": true,
+    "requireApprovedWorkPlan": true,
+    "blockOnStaleWorkPlanContext": true,
+    "blockOnStaleDocumentation": true
   }
 }

@@ -1,0 +1,34 @@
+{
+  "id": "WP-FEAT-EXAMPLE-YYYYMMDD",
+  "schemaVersion": "1.0",
+  "featureCode": "FEAT-EXAMPLE",
+  "title": "Implementation plan for Example Feature",
+  "status": "draft",
+  "createdAt": "YYYY-MM-DDTHH:mm:ss.sssZ",
+  "updatedAt": "YYYY-MM-DDTHH:mm:ss.sssZ",
+  "requiresAuthoring": true,
+  "assumptions": [],
+  "risks": [],
+  "acceptanceCriteria": [],
+  "context": {},
+  "submittedContextHash": null,
+  "review": {},
+  "tasks": [
+    {
+      "code": "TASK-FEAT-EXAMPLE-IMPL-001",
+      "title": "Implement Example Feature",
+      "kind": "implementation",
+      "description": "Implement the reviewed feature scope.",
+      "related": {
+        "features": ["FEAT-EXAMPLE"],
+        "requirements": [],
+        "screens": [],
+        "apis": [],
+        "database_objects": [],
+        "tests": [],
+        "requests": []
+      }
+    }
+  ],
+  "materializedTaskCodes": []
+}

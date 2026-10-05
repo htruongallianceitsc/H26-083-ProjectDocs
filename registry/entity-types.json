@@ -1,33 +1,259 @@
 {
-  "schemaVersion":"1.0",
+  "schemaVersion": "1.0",
   "types": {
-    "project":{"statuses":["draft","active","archived"]},
-    "document":{"statuses":["draft","review","approved","deprecated"]},
-    "review":{"statuses":["draft","approved","rejected","superseded"]},
-    "module":{"statuses":["draft","planned","active","deprecated"]},
-    "feature":{"statuses":["draft","planned","in_progress","implemented","deprecated"]},
-    "requirement":{"statuses":["draft","approved","in_progress","implemented","deprecated"]},
-    "business-rule":{"statuses":["draft","approved","deprecated"]},
-    "screen":{"statuses":["draft","approved","implemented","deprecated"]},
-    "flow":{"statuses":["draft","approved","deprecated"]},
-    "api":{"statuses":["draft","approved","implemented","deprecated"]},
-    "database-object":{"statuses":["draft","approved","implemented","deprecated"]},
-    "test-case":{"statuses":["draft","ready","passed","failed","deprecated"]},
-    "decision":{"statuses":["proposed","accepted","rejected","superseded"]},
-    "integration":{"statuses":["draft","approved","active","deprecated"]},
-    "nfr":{"statuses":["draft","approved","implemented","deprecated"]},
-    "runbook":{"statuses":["draft","approved","active","deprecated"]},
-    "release":{"statuses":["draft","ready","released","rolled_back"]},
-    "open-question":{"statuses":["open","blocked","resolved","closed"]},
-    "permission":{"statuses":["draft","approved","implemented","deprecated"]},
-    "native-capability":{"statuses":["draft","approved","implemented","deprecated"]},
-    "deep-link":{"statuses":["draft","approved","implemented","deprecated"]},
-    "push-event":{"statuses":["draft","approved","implemented","deprecated"]},
-    "local-storage":{"statuses":["draft","approved","implemented","deprecated"]},
-    "sync-policy":{"statuses":["draft","approved","implemented","deprecated"]},
-    "background-job-mobile":{"statuses":["draft","approved","implemented","deprecated"]},
-    "analytics-event":{"statuses":["draft","approved","implemented","deprecated"]},
-    "feature-flag":{"statuses":["draft","approved","active","retired"]},
-    "device-test-profile":{"statuses":["draft","approved","active","deprecated"]}
+    "project": {
+      "statuses": [
+        "draft",
+        "active",
+        "archived"
+      ]
+    },
+    "document": {
+      "statuses": [
+        "draft",
+        "review",
+        "approved",
+        "deprecated"
+      ]
+    },
+    "review": {
+      "statuses": [
+        "draft",
+        "approved",
+        "rejected",
+        "superseded"
+      ]
+    },
+    "module": {
+      "statuses": [
+        "draft",
+        "planned",
+        "active",
+        "deprecated"
+      ]
+    },
+    "feature": {
+      "statuses": [
+        "draft",
+        "planned",
+        "in_progress",
+        "implemented",
+        "deprecated"
+      ]
+    },
+    "requirement": {
+      "statuses": [
+        "draft",
+        "approved",
+        "in_progress",
+        "implemented",
+        "deprecated"
+      ]
+    },
+    "business-rule": {
+      "statuses": [
+        "draft",
+        "approved",
+        "deprecated"
+      ]
+    },
+    "screen": {
+      "statuses": [
+        "draft",
+        "approved",
+        "implemented",
+        "deprecated"
+      ]
+    },
+    "flow": {
+      "statuses": [
+        "draft",
+        "approved",
+        "deprecated"
+      ]
+    },
+    "api": {
+      "statuses": [
+        "draft",
+        "approved",
+        "implemented",
+        "deprecated"
+      ]
+    },
+    "database-object": {
+      "statuses": [
+        "draft",
+        "approved",
+        "implemented",
+        "deprecated"
+      ]
+    },
+    "test-case": {
+      "statuses": [
+        "draft",
+        "ready",
+        "passed",
+        "failed",
+        "deprecated"
+      ]
+    },
+    "decision": {
+      "statuses": [
+        "proposed",
+        "accepted",
+        "rejected",
+        "superseded"
+      ]
+    },
+    "integration": {
+      "statuses": [
+        "draft",
+        "approved",
+        "active",
+        "deprecated"
+      ]
+    },
+    "nfr": {
+      "statuses": [
+        "draft",
+        "approved",
+        "implemented",
+        "deprecated"
+      ]
+    },
+    "runbook": {
+      "statuses": [
+        "draft",
+        "approved",
+        "active",
+        "deprecated"
+      ]
+    },
+    "release": {
+      "statuses": [
+        "draft",
+        "ready",
+        "released",
+        "rolled_back"
+      ]
+    },
+    "open-question": {
+      "statuses": [
+        "open",
+        "blocked",
+        "resolved",
+        "closed"
+      ]
+    },
+    "permission": {
+      "statuses": [
+        "draft",
+        "approved",
+        "implemented",
+        "deprecated"
+      ]
+    },
+    "native-capability": {
+      "statuses": [
+        "draft",
+        "approved",
+        "implemented",
+        "deprecated"
+      ]
+    },
+    "deep-link": {
+      "statuses": [
+        "draft",
+        "approved",
+        "implemented",
+        "deprecated"
+      ]
+    },
+    "push-event": {
+      "statuses": [
+        "draft",
+        "approved",
+        "implemented",
+        "deprecated"
+      ]
+    },
+    "local-storage": {
+      "statuses": [
+        "draft",
+        "approved",
+        "implemented",
+        "deprecated"
+      ]
+    },
+    "sync-policy": {
+      "statuses": [
+        "draft",
+        "approved",
+        "implemented",
+        "deprecated"
+      ]
+    },
+    "background-job-mobile": {
+      "statuses": [
+        "draft",
+        "approved",
+        "implemented",
+        "deprecated"
+      ]
+    },
+    "analytics-event": {
+      "statuses": [
+        "draft",
+        "approved",
+        "implemented",
+        "deprecated"
+      ]
+    },
+    "feature-flag": {
+      "statuses": [
+        "draft",
+        "approved",
+        "active",
+        "retired"
+      ]
+    },
+    "device-test-profile": {
+      "statuses": [
+        "draft",
+        "approved",
+        "active",
+        "deprecated"
+      ]
+    },
+    "request": {
+      "statuses": [
+        "captured",
+        "analyzed",
+        "accepted",
+        "rejected",
+        "promoted",
+        "closed"
+      ]
+    },
+    "task": {
+      "statuses": [
+        "draft",
+        "ready",
+        "in_progress",
+        "blocked",
+        "done",
+        "cancelled"
+      ]
+    },
+    "bug": {
+      "statuses": [
+        "open",
+        "triaged",
+        "in_progress",
+        "resolved",
+        "closed",
+        "wont_fix"
+      ]
+    }
   }
 }
