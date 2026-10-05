@@ -1,10 +1,12 @@
 {
   "projectCode": "STARTER",
-  "projectName": "Production Project Documentation Starter Kit v4",
+  "projectName": "Production Project Documentation Starter Kit v4.1",
   "projectTypes": [],
   "technologyStacks": [],
-  "documentation": {
-    "blockOnPackReviewPending": true,
-    "exclude": ["site/**","docs/_generated/**","reusable-modules/**","reusable-patterns/**"]
+  "implementationGate": {
+    "blockOnOpenQuestions": true,
+    "blockOnValidationErrors": true,
+    "blockOnQualityErrors": true,
+    "blockOnPackReviewPending": true
   }
 }

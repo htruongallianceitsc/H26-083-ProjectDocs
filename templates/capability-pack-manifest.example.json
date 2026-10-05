@@ -1,30 +1,46 @@
 {
   "schemaVersion": "1.0",
   "packageId": "example-capability",
+  "packageType": "capability",
   "version": "1.0.0",
-  "starterSchemaRange": ">=3.0.0 <4.0.0",
-  "moduleCode": "MOD-EXAMPLE",
-  "description": "Reusable capability baseline.",
-  "defaultTargetRoot": "docs/02-modules/EXAMPLE",
+  "starterSchemaVersion": "4.1.0",
+  "moduleCode": "EXAMPLE",
+  "summary": "Reusable capability baseline.",
   "features": {
-    "required": ["core-feature"],
-    "optional": {
-      "optional-feature": {"defaultEnabled": false}
-    }
+    "required": [
+      "core-feature"
+    ],
+    "optional": [
+      "optional-feature"
+    ]
   },
   "variables": {
-    "OWNER": {"type": "string", "default": "Product & Engineering"},
-    "POLICY_MODE": {"type": "enum", "allowed": ["a", "b"], "default": "a", "reviewRequired": true}
+    "OWNER": {
+      "type": "string",
+      "default": "Product & Engineering"
+    },
+    "POLICY_MODE": {
+      "type": "enum",
+      "values": [
+        "a",
+        "b"
+      ],
+      "default": "a"
+    }
   },
+  "constraints": [],
   "dependencies": [],
   "files": [
     {
-      "path": "entities/core/module.md",
-      "destination": "module.md",
-      "entityCode": "MOD-EXAMPLE",
-      "feature": "core"
+      "source": "entities/core/module.md",
+      "destination": "docs/02-modules/EXAMPLE/module.md",
+      "code": "MOD-EXAMPLE",
+      "type": "module",
+      "feature": "core-feature"
     }
   ],
-  "provenance": {"source": "capability-library", "commit": null},
-  "upgradePolicy": "track-upstream"
+  "provenance": {
+    "source": "capability-library"
+  },
+  "upgradePolicy": "manual-review"
 }

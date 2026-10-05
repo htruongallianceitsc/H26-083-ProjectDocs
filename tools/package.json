@@ -1,20 +1,21 @@
 {
   "name": "production-project-docs-tools",
   "private": true,
-  "version": "4.0.0",
+  "version": "4.1.0",
   "type": "module",
   "engines": {
     "node": ">=20"
   },
   "scripts": {
     "profile:check": "node scripts/docs-tool.mjs profile",
+    "registry:sync": "node scripts/registry-tool.mjs sync",
+    "registry:check": "node scripts/registry-tool.mjs check",
     "docs:validate": "node scripts/docs-tool.mjs validate",
     "docs:sync": "node scripts/docs-tool.mjs sync",
     "docs:build": "node scripts/docs-tool.mjs build",
     "docs:check-site": "node scripts/docs-tool.mjs check-site",
     "docs:serve": "node scripts/docs-tool.mjs serve",
     "docs:vendor": "node scripts/vendor-mermaid.mjs",
-    "docs:all": "npm run profile:check && npm run pack:validate && npm run docs:validate && npm run docs:sync && npm run docs:build && npm run docs:check-site",
     "pack:validate": "node scripts/pack-tool.mjs validate",
     "pack:list": "node scripts/pack-tool.mjs list",
     "reuse:assess": "node scripts/pack-tool.mjs assess",
@@ -23,6 +24,9 @@
     "pack:diff": "node scripts/pack-tool.mjs diff",
     "pack:upgrade": "node scripts/pack-tool.mjs upgrade",
     "docs:clean": "node scripts/docs-tool.mjs clean",
-    "docs:dev": "node scripts/docs-tool.mjs watch"
+    "docs:dev": "node scripts/docs-tool.mjs watch",
+    "test:e2e": "node scripts/e2e-test.mjs",
+    "docs:all": "npm run registry:check && npm run profile:check && npm run pack:validate && npm run docs:validate && npm run docs:sync && npm run docs:build && npm run docs:check-site",
+    "qa": "npm run docs:all && npm run test:e2e"
   }
 }

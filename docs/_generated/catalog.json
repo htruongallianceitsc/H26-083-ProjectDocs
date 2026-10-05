@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-05T00:30:36.157Z",
+  "generatedAt": "2026-10-05T00:54:45.673Z",
   "documents": [
     {
       "path": "CAPABILITY_PACKS.md",
@@ -10,14 +10,14 @@
     },
     {
       "path": "DOCS_GOVERNANCE.md",
-      "title": "Documentation Governance v4",
+      "title": "Documentation Governance v4.1",
       "code": null,
       "type": null,
       "status": null
     },
     {
       "path": "FILE_CATALOG.md",
-      "title": "FILE CATALOG — Starter Kit v3",
+      "title": "File Catalog - v4.1",
       "code": null,
       "type": null,
       "status": null
@@ -31,7 +31,7 @@
     },
     {
       "path": "README.md",
-      "title": "Production Project Documentation Starter Kit v4",
+      "title": "Production Project Documentation Starter Kit v4.1",
       "code": null,
       "type": null,
       "status": null
@@ -52,7 +52,14 @@
     },
     {
       "path": "START_HERE.md",
-      "title": "Start Here - v4",
+      "title": "Start Here - v4.1",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "STRUCTURE.md",
+      "title": "2. File quan trọng nhất: `PROJECT_BLUEPRINT.md`",
       "code": null,
       "type": null,
       "status": null
@@ -65,8 +72,295 @@
       "status": null
     },
     {
+      "path": "V4_1_QA_REPORT.md",
+      "title": "Starter Kit v4.1 QA Report",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "V4_1_UPGRADE_NOTES.md",
+      "title": "Starter Kit v4.1 Upgrade Notes",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "V4_QA_REPORT.md",
+      "title": "V4 QA Report",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
       "path": "V4_UPGRADE_NOTES.md",
       "title": "Starter Kit v4 Upgrade Notes",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/00-project/README.md",
+      "title": "project",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/01-product/README.md",
+      "title": "product",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/02-modules/README.md",
+      "title": "modules",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/03-requirements/README.md",
+      "title": "requirements",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/04-business-rules/README.md",
+      "title": "business rules",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/05-screens/README.md",
+      "title": "screens",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/06-flows/README.md",
+      "title": "flows",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/07-api/README.md",
+      "title": "api",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/07-api/conventions.md",
+      "title": "API Conventions",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/08-database/README.md",
+      "title": "database",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/08-database/database-overview.md",
+      "title": "Database Overview",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/09-architecture/README.md",
+      "title": "architecture",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/10-security/README.md",
+      "title": "security",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/11-quality/README.md",
+      "title": "quality",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/12-devops/README.md",
+      "title": "devops",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/12-devops/environments.md",
+      "title": "Environments",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/12-devops/release-process.md",
+      "title": "Release Process",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/13-operations/README.md",
+      "title": "operations",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/13-operations/incident-response.md",
+      "title": "Incident Response",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/13-operations/monitoring.md",
+      "title": "Monitoring",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/14-performance/README.md",
+      "title": "performance",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/15-decisions/README.md",
+      "title": "decisions",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/16-release/README.md",
+      "title": "release",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/17-traceability/README.md",
+      "title": "traceability",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/17-traceability/feature-matrix.md",
+      "title": "Feature Traceability Matrix",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/18-changelog/README.md",
+      "title": "changelog",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/19-open-items/README.md",
+      "title": "open items",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/19-open-items/open-questions.md",
+      "title": "Open Questions",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/20-mobile/analytics-events/README.md",
+      "title": "analytics-events",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/20-mobile/background-work/README.md",
+      "title": "background-work",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/20-mobile/deep-links/README.md",
+      "title": "deep-links",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/20-mobile/device-test-profiles/README.md",
+      "title": "device-test-profiles",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/20-mobile/feature-flags/README.md",
+      "title": "feature-flags",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/20-mobile/local-storage/README.md",
+      "title": "local-storage",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/20-mobile/native-capabilities/README.md",
+      "title": "native-capabilities",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/20-mobile/permissions/README.md",
+      "title": "permissions",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/20-mobile/push-events/README.md",
+      "title": "push-events",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/20-mobile/sync-policies/README.md",
+      "title": "sync-policies",
       "code": null,
       "type": null,
       "status": null
@@ -303,6 +597,20 @@
       "status": null
     },
     {
+      "path": "registry/README.md",
+      "title": "Registry Governance - v4.1",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "registry/_generated/README.md",
+      "title": "Generated Registry Mirrors",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
       "path": "reusable-templates/README.md",
       "title": "Reusable Templates",
       "code": null,
@@ -318,7 +626,7 @@
     },
     {
       "path": "standards/README.md",
-      "title": "Standards Architecture v4",
+      "title": "Standards Architecture v4.1",
       "code": null,
       "type": null,
       "status": null
@@ -380,6 +688,13 @@
       "status": null
     },
     {
+      "path": "standards/project-types/README.md",
+      "title": "Project Type Standards",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
       "path": "standards/project-types/api/api-architecture.md",
       "title": "Api Architecture",
       "code": null,
@@ -403,6 +718,13 @@
     {
       "path": "standards/project-types/api/background-jobs.md",
       "title": "Background Jobs",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/project-types/api/contract-versioning.md",
+      "title": "API Contract & Versioning Standard",
       "code": null,
       "type": null,
       "status": null
@@ -562,6 +884,13 @@
       "status": null
     },
     {
+      "path": "standards/project-types/mobile/time-timezone.md",
+      "title": "Mobile Time & Timezone Standard",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
       "path": "standards/project-types/mobile/timezone-server-time.md",
       "title": "Timezone Server Time",
       "code": null,
@@ -571,6 +900,13 @@
     {
       "path": "standards/project-types/web/browser-runtime.md",
       "title": "Browser Runtime",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/project-types/web/web-application-standard.md",
+      "title": "Web Application Standard",
       "code": null,
       "type": null,
       "status": null
@@ -653,6 +989,13 @@
       "status": null
     },
     {
+      "path": "standards/stacks/README.md",
+      "title": "Technology Stack Standards",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
       "path": "standards/stacks/api/dotnet-core/api-conventions.md",
       "title": "Api Conventions",
       "code": null,
@@ -674,8 +1017,22 @@
       "status": null
     },
     {
+      "path": "standards/stacks/api/dotnet-core/coding-standard.md",
+      "title": "ASP.NET Core Coding Standard",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
       "path": "standards/stacks/api/dotnet-core/data-access.md",
       "title": "Data Access",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/stacks/api/dotnet-core/dependency-injection-config.md",
+      "title": "ASP.NET Core DI & Configuration",
       "code": null,
       "type": null,
       "status": null
@@ -702,6 +1059,13 @@
       "status": null
     },
     {
+      "path": "standards/stacks/api/nodejs/async-resilience.md",
+      "title": "NodeJS Async & Resilience",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
       "path": "standards/stacks/api/nodejs/coding-standard.md",
       "title": "Coding Standard",
       "code": null,
@@ -711,6 +1075,13 @@
     {
       "path": "standards/stacks/api/nodejs/deployment.md",
       "title": "Deployment",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/stacks/api/nodejs/http-contract.md",
+      "title": "NodeJS HTTP Contract",
       "code": null,
       "type": null,
       "status": null
@@ -774,6 +1145,13 @@
     {
       "path": "standards/stacks/mobile/flutter/state-management-bloc-cubit.md",
       "title": "State Management Bloc Cubit",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/stacks/mobile/flutter/state-management.md",
+      "title": "Flutter State Management",
       "code": null,
       "type": null,
       "status": null
@@ -844,6 +1222,13 @@
     {
       "path": "standards/stacks/web/reactjs/architecture.md",
       "title": "Architecture",
+      "code": null,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "standards/stacks/web/reactjs/coding-standard.md",
+      "title": "ReactJS Coding Standard",
       "code": null,
       "type": null,
       "status": null
@@ -1130,10 +1515,52 @@
     },
     {
       "path": "tools/README.md",
-      "title": "Documentation Toolchain v4",
+      "title": "Documentation Toolchain v4.1",
       "code": null,
       "type": null,
       "status": null
+    },
+    {
+      "path": "tools/tests/fixtures/valid-project/docs/api.md",
+      "title": "Demo API",
+      "code": "API-DEMO",
+      "type": "api",
+      "status": "approved"
+    },
+    {
+      "path": "tools/tests/fixtures/valid-project/docs/feature.md",
+      "title": "Demo Feature",
+      "code": "FEAT-DEMO",
+      "type": "feature",
+      "status": "planned"
+    },
+    {
+      "path": "tools/tests/fixtures/valid-project/docs/module.md",
+      "title": "Demo Module",
+      "code": "MOD-DEMO",
+      "type": "module",
+      "status": "active"
+    },
+    {
+      "path": "tools/tests/fixtures/valid-project/docs/requirement.md",
+      "title": "Demo Requirement",
+      "code": "REQ-DEMO-001",
+      "type": "requirement",
+      "status": "approved"
+    },
+    {
+      "path": "tools/tests/fixtures/valid-project/docs/screen.md",
+      "title": "Demo Screen",
+      "code": "SCR-DEMO",
+      "type": "screen",
+      "status": "approved"
+    },
+    {
+      "path": "tools/tests/fixtures/valid-project/docs/test.md",
+      "title": "Demo Test",
+      "code": "TC-DEMO-001",
+      "type": "test-case",
+      "status": "ready"
     },
     {
       "path": "workflows/01-idea-to-scope.md",

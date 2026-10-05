@@ -1,6 +1,7 @@
 {
   "name": "production-project-docs-starter-kit",
-  "version": "3.0.0",
-  "schemaVersion": "3.0.0",
+  "version": "4.1.0",
+  "schemaVersion": "4.1.0",
+  "registrySchemaVersion": "1.0",
   "capabilityPackSchemaVersion": "1.0"
 }

@@ -1,0 +1,26 @@
+# GENERATED FILE - DO NOT EDIT
+# Source: registry/entity-types.json
+statuses:
+  - accepted
+  - active
+  - approved
+  - archived
+  - blocked
+  - closed
+  - deprecated
+  - draft
+  - failed
+  - implemented
+  - in_progress
+  - open
+  - passed
+  - planned
+  - proposed
+  - ready
+  - rejected
+  - released
+  - resolved
+  - retired
+  - review
+  - rolled_back
+  - superseded

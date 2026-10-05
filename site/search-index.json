@@ -5,12 +5,12 @@
     "text": "CAPABILITY_PACKS.md"
   },
   {
-    "title": "Documentation Governance v4",
+    "title": "Documentation Governance v4.1",
     "path": "pages/docs-governance.html",
     "text": "DOCS_GOVERNANCE.md"
   },
   {
-    "title": "FILE CATALOG — Starter Kit v3",
+    "title": "File Catalog - v4.1",
     "path": "pages/file-catalog.html",
     "text": "FILE_CATALOG.md"
   },
@@ -20,7 +20,7 @@
     "text": "PROJECT_BLUEPRINT.md"
   },
   {
-    "title": "Production Project Documentation Starter Kit v4",
+    "title": "Production Project Documentation Starter Kit v4.1",
     "path": "pages/readme.html",
     "text": "README.md"
   },
@@ -35,9 +35,14 @@
     "text": "REVIEW_UPGRADE_NOTES.md"
   },
   {
-    "title": "Start Here - v4",
+    "title": "Start Here - v4.1",
     "path": "pages/start-here.html",
     "text": "START_HERE.md"
+  },
+  {
+    "title": "2. File quan trọng nhất: `PROJECT_BLUEPRINT.md`",
+    "path": "pages/structure.html",
+    "text": "STRUCTURE.md"
   },
   {
     "title": "Starter Kit v3 — Capability Pack Upgrade",
@@ -45,9 +50,214 @@
     "text": "V3_CAPABILITY_PACK_UPGRADE.md"
   },
   {
+    "title": "Starter Kit v4.1 QA Report",
+    "path": "pages/v4-1-qa-report.html",
+    "text": "V4_1_QA_REPORT.md"
+  },
+  {
+    "title": "Starter Kit v4.1 Upgrade Notes",
+    "path": "pages/v4-1-upgrade-notes.html",
+    "text": "V4_1_UPGRADE_NOTES.md"
+  },
+  {
+    "title": "V4 QA Report",
+    "path": "pages/v4-qa-report.html",
+    "text": "V4_QA_REPORT.md"
+  },
+  {
     "title": "Starter Kit v4 Upgrade Notes",
     "path": "pages/v4-upgrade-notes.html",
     "text": "V4_UPGRADE_NOTES.md"
+  },
+  {
+    "title": "project",
+    "path": "pages/docs-00-project-readme.html",
+    "text": "docs/00-project/README.md"
+  },
+  {
+    "title": "product",
+    "path": "pages/docs-01-product-readme.html",
+    "text": "docs/01-product/README.md"
+  },
+  {
+    "title": "modules",
+    "path": "pages/docs-02-modules-readme.html",
+    "text": "docs/02-modules/README.md"
+  },
+  {
+    "title": "requirements",
+    "path": "pages/docs-03-requirements-readme.html",
+    "text": "docs/03-requirements/README.md"
+  },
+  {
+    "title": "business rules",
+    "path": "pages/docs-04-business-rules-readme.html",
+    "text": "docs/04-business-rules/README.md"
+  },
+  {
+    "title": "screens",
+    "path": "pages/docs-05-screens-readme.html",
+    "text": "docs/05-screens/README.md"
+  },
+  {
+    "title": "flows",
+    "path": "pages/docs-06-flows-readme.html",
+    "text": "docs/06-flows/README.md"
+  },
+  {
+    "title": "api",
+    "path": "pages/docs-07-api-readme.html",
+    "text": "docs/07-api/README.md"
+  },
+  {
+    "title": "API Conventions",
+    "path": "pages/docs-07-api-conventions.html",
+    "text": "docs/07-api/conventions.md"
+  },
+  {
+    "title": "database",
+    "path": "pages/docs-08-database-readme.html",
+    "text": "docs/08-database/README.md"
+  },
+  {
+    "title": "Database Overview",
+    "path": "pages/docs-08-database-database-overview.html",
+    "text": "docs/08-database/database-overview.md"
+  },
+  {
+    "title": "architecture",
+    "path": "pages/docs-09-architecture-readme.html",
+    "text": "docs/09-architecture/README.md"
+  },
+  {
+    "title": "security",
+    "path": "pages/docs-10-security-readme.html",
+    "text": "docs/10-security/README.md"
+  },
+  {
+    "title": "quality",
+    "path": "pages/docs-11-quality-readme.html",
+    "text": "docs/11-quality/README.md"
+  },
+  {
+    "title": "devops",
+    "path": "pages/docs-12-devops-readme.html",
+    "text": "docs/12-devops/README.md"
+  },
+  {
+    "title": "Environments",
+    "path": "pages/docs-12-devops-environments.html",
+    "text": "docs/12-devops/environments.md"
+  },
+  {
+    "title": "Release Process",
+    "path": "pages/docs-12-devops-release-process.html",
+    "text": "docs/12-devops/release-process.md"
+  },
+  {
+    "title": "operations",
+    "path": "pages/docs-13-operations-readme.html",
+    "text": "docs/13-operations/README.md"
+  },
+  {
+    "title": "Incident Response",
+    "path": "pages/docs-13-operations-incident-response.html",
+    "text": "docs/13-operations/incident-response.md"
+  },
+  {
+    "title": "Monitoring",
+    "path": "pages/docs-13-operations-monitoring.html",
+    "text": "docs/13-operations/monitoring.md"
+  },
+  {
+    "title": "performance",
+    "path": "pages/docs-14-performance-readme.html",
+    "text": "docs/14-performance/README.md"
+  },
+  {
+    "title": "decisions",
+    "path": "pages/docs-15-decisions-readme.html",
+    "text": "docs/15-decisions/README.md"
+  },
+  {
+    "title": "release",
+    "path": "pages/docs-16-release-readme.html",
+    "text": "docs/16-release/README.md"
+  },
+  {
+    "title": "traceability",
+    "path": "pages/docs-17-traceability-readme.html",
+    "text": "docs/17-traceability/README.md"
+  },
+  {
+    "title": "Feature Traceability Matrix",
+    "path": "pages/docs-17-traceability-feature-matrix.html",
+    "text": "docs/17-traceability/feature-matrix.md"
+  },
+  {
+    "title": "changelog",
+    "path": "pages/docs-18-changelog-readme.html",
+    "text": "docs/18-changelog/README.md"
+  },
+  {
+    "title": "open items",
+    "path": "pages/docs-19-open-items-readme.html",
+    "text": "docs/19-open-items/README.md"
+  },
+  {
+    "title": "Open Questions",
+    "path": "pages/docs-19-open-items-open-questions.html",
+    "text": "docs/19-open-items/open-questions.md"
+  },
+  {
+    "title": "analytics-events",
+    "path": "pages/docs-20-mobile-analytics-events-readme.html",
+    "text": "docs/20-mobile/analytics-events/README.md"
+  },
+  {
+    "title": "background-work",
+    "path": "pages/docs-20-mobile-background-work-readme.html",
+    "text": "docs/20-mobile/background-work/README.md"
+  },
+  {
+    "title": "deep-links",
+    "path": "pages/docs-20-mobile-deep-links-readme.html",
+    "text": "docs/20-mobile/deep-links/README.md"
+  },
+  {
+    "title": "device-test-profiles",
+    "path": "pages/docs-20-mobile-device-test-profiles-readme.html",
+    "text": "docs/20-mobile/device-test-profiles/README.md"
+  },
+  {
+    "title": "feature-flags",
+    "path": "pages/docs-20-mobile-feature-flags-readme.html",
+    "text": "docs/20-mobile/feature-flags/README.md"
+  },
+  {
+    "title": "local-storage",
+    "path": "pages/docs-20-mobile-local-storage-readme.html",
+    "text": "docs/20-mobile/local-storage/README.md"
+  },
+  {
+    "title": "native-capabilities",
+    "path": "pages/docs-20-mobile-native-capabilities-readme.html",
+    "text": "docs/20-mobile/native-capabilities/README.md"
+  },
+  {
+    "title": "permissions",
+    "path": "pages/docs-20-mobile-permissions-readme.html",
+    "text": "docs/20-mobile/permissions/README.md"
+  },
+  {
+    "title": "push-events",
+    "path": "pages/docs-20-mobile-push-events-readme.html",
+    "text": "docs/20-mobile/push-events/README.md"
+  },
+  {
+    "title": "sync-policies",
+    "path": "pages/docs-20-mobile-sync-policies-readme.html",
+    "text": "docs/20-mobile/sync-policies/README.md"
   },
   {
     "title": "Project Documentation Source",
@@ -215,6 +425,16 @@
     "text": "prompts/31-pattern-pack-design.md"
   },
   {
+    "title": "Registry Governance - v4.1",
+    "path": "pages/registry-readme.html",
+    "text": "registry/README.md"
+  },
+  {
+    "title": "Generated Registry Mirrors",
+    "path": "pages/registry-generated-readme.html",
+    "text": "registry/_generated/README.md"
+  },
+  {
     "title": "Reusable Templates",
     "path": "pages/reusable-templates-readme.html",
     "text": "reusable-templates/README.md"
@@ -225,7 +445,7 @@
     "text": "standards/ADDING_A_STACK.md"
   },
   {
-    "title": "Standards Architecture v4",
+    "title": "Standards Architecture v4.1",
     "path": "pages/standards-readme.html",
     "text": "standards/README.md"
   },
@@ -270,6 +490,11 @@
     "text": "standards/naming-and-id-convention.md"
   },
   {
+    "title": "Project Type Standards",
+    "path": "pages/standards-project-types-readme.html",
+    "text": "standards/project-types/README.md"
+  },
+  {
     "title": "Api Architecture",
     "path": "pages/standards-project-types-api-api-architecture.html",
     "text": "standards/project-types/api/api-architecture.md"
@@ -288,6 +513,11 @@
     "title": "Background Jobs",
     "path": "pages/standards-project-types-api-background-jobs.html",
     "text": "standards/project-types/api/background-jobs.md"
+  },
+  {
+    "title": "API Contract & Versioning Standard",
+    "path": "pages/standards-project-types-api-contract-versioning.html",
+    "text": "standards/project-types/api/contract-versioning.md"
   },
   {
     "title": "Data Transaction",
@@ -400,6 +630,11 @@
     "text": "standards/project-types/mobile/push-notification.md"
   },
   {
+    "title": "Mobile Time & Timezone Standard",
+    "path": "pages/standards-project-types-mobile-time-timezone.html",
+    "text": "standards/project-types/mobile/time-timezone.md"
+  },
+  {
     "title": "Timezone Server Time",
     "path": "pages/standards-project-types-mobile-timezone-server-time.html",
     "text": "standards/project-types/mobile/timezone-server-time.md"
@@ -408,6 +643,11 @@
     "title": "Browser Runtime",
     "path": "pages/standards-project-types-web-browser-runtime.html",
     "text": "standards/project-types/web/browser-runtime.md"
+  },
+  {
+    "title": "Web Application Standard",
+    "path": "pages/standards-project-types-web-web-application-standard.html",
+    "text": "standards/project-types/web/web-application-standard.md"
   },
   {
     "title": "Web Architecture",
@@ -465,6 +705,11 @@
     "text": "standards/source-of-truth.md"
   },
   {
+    "title": "Technology Stack Standards",
+    "path": "pages/standards-stacks-readme.html",
+    "text": "standards/stacks/README.md"
+  },
+  {
     "title": "Api Conventions",
     "path": "pages/standards-stacks-api-dotnet-core-api-conventions.html",
     "text": "standards/stacks/api/dotnet-core/api-conventions.md"
@@ -480,9 +725,19 @@
     "text": "standards/stacks/api/dotnet-core/background-services.md"
   },
   {
+    "title": "ASP.NET Core Coding Standard",
+    "path": "pages/standards-stacks-api-dotnet-core-coding-standard.html",
+    "text": "standards/stacks/api/dotnet-core/coding-standard.md"
+  },
+  {
     "title": "Data Access",
     "path": "pages/standards-stacks-api-dotnet-core-data-access.html",
     "text": "standards/stacks/api/dotnet-core/data-access.md"
+  },
+  {
+    "title": "ASP.NET Core DI & Configuration",
+    "path": "pages/standards-stacks-api-dotnet-core-dependency-injection-config.html",
+    "text": "standards/stacks/api/dotnet-core/dependency-injection-config.md"
   },
   {
     "title": "Security",
@@ -500,6 +755,11 @@
     "text": "standards/stacks/api/nodejs/architecture.md"
   },
   {
+    "title": "NodeJS Async & Resilience",
+    "path": "pages/standards-stacks-api-nodejs-async-resilience.html",
+    "text": "standards/stacks/api/nodejs/async-resilience.md"
+  },
+  {
     "title": "Coding Standard",
     "path": "pages/standards-stacks-api-nodejs-coding-standard.html",
     "text": "standards/stacks/api/nodejs/coding-standard.md"
@@ -508,6 +768,11 @@
     "title": "Deployment",
     "path": "pages/standards-stacks-api-nodejs-deployment.html",
     "text": "standards/stacks/api/nodejs/deployment.md"
+  },
+  {
+    "title": "NodeJS HTTP Contract",
+    "path": "pages/standards-stacks-api-nodejs-http-contract.html",
+    "text": "standards/stacks/api/nodejs/http-contract.md"
   },
   {
     "title": "Testing Observability",
@@ -553,6 +818,11 @@
     "title": "State Management Bloc Cubit",
     "path": "pages/standards-stacks-mobile-flutter-state-management-bloc-cubit.html",
     "text": "standards/stacks/mobile/flutter/state-management-bloc-cubit.md"
+  },
+  {
+    "title": "Flutter State Management",
+    "path": "pages/standards-stacks-mobile-flutter-state-management.html",
+    "text": "standards/stacks/mobile/flutter/state-management.md"
   },
   {
     "title": "Storage Networking",
@@ -603,6 +873,11 @@
     "title": "Architecture",
     "path": "pages/standards-stacks-web-reactjs-architecture.html",
     "text": "standards/stacks/web/reactjs/architecture.md"
+  },
+  {
+    "title": "ReactJS Coding Standard",
+    "path": "pages/standards-stacks-web-reactjs-coding-standard.html",
+    "text": "standards/stacks/web/reactjs/coding-standard.md"
   },
   {
     "title": "Forms Validation",
@@ -805,9 +1080,39 @@
     "text": "templates/test-case-template.md"
   },
   {
-    "title": "Documentation Toolchain v4",
+    "title": "Documentation Toolchain v4.1",
     "path": "pages/tools-readme.html",
     "text": "tools/README.md"
+  },
+  {
+    "title": "Demo API",
+    "path": "pages/tools-tests-fixtures-valid-project-docs-api.html",
+    "text": "tools/tests/fixtures/valid-project/docs/api.md"
+  },
+  {
+    "title": "Demo Feature",
+    "path": "pages/tools-tests-fixtures-valid-project-docs-feature.html",
+    "text": "tools/tests/fixtures/valid-project/docs/feature.md"
+  },
+  {
+    "title": "Demo Module",
+    "path": "pages/tools-tests-fixtures-valid-project-docs-module.html",
+    "text": "tools/tests/fixtures/valid-project/docs/module.md"
+  },
+  {
+    "title": "Demo Requirement",
+    "path": "pages/tools-tests-fixtures-valid-project-docs-requirement.html",
+    "text": "tools/tests/fixtures/valid-project/docs/requirement.md"
+  },
+  {
+    "title": "Demo Screen",
+    "path": "pages/tools-tests-fixtures-valid-project-docs-screen.html",
+    "text": "tools/tests/fixtures/valid-project/docs/screen.md"
+  },
+  {
+    "title": "Demo Test",
+    "path": "pages/tools-tests-fixtures-valid-project-docs-test.html",
+    "text": "tools/tests/fixtures/valid-project/docs/test.md"
   },
   {
     "title": "Workflow 01 — Idea -> Scope",

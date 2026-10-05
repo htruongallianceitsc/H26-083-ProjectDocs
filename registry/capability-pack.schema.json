@@ -1,14 +1,14 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "capability-pack.schema.json",
-  "title": "Capability Pack Manifest",
+  "title": "Reusable Pack Manifest",
   "type": "object",
   "required": [
     "schemaVersion",
     "packageId",
+    "packageType",
     "version",
-    "starterSchemaRange",
-    "moduleCode",
+    "starterSchemaVersion",
     "features",
     "variables",
     "files",
@@ -22,20 +22,24 @@
       "type": "string",
       "pattern": "^[a-z0-9][a-z0-9-]*$"
     },
+    "packageType": {
+      "enum": [
+        "pattern",
+        "capability"
+      ]
+    },
     "version": {
       "type": "string",
-      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+      "pattern": "^\\d+\\.\\d+\\.\\d+(-[0-9A-Za-z.-]+)?$"
     },
-    "starterSchemaRange": {
-      "type": "string"
+    "starterSchemaVersion": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+(\\.\\d+)?$"
     },
     "moduleCode": {
       "type": "string"
     },
-    "description": {
-      "type": "string"
-    },
-    "defaultTargetRoot": {
+    "summary": {
       "type": "string"
     },
     "features": {
@@ -52,12 +56,18 @@
           }
         },
         "optional": {
-          "type": "object"
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       }
     },
     "variables": {
       "type": "object"
+    },
+    "constraints": {
+      "type": "array"
     },
     "dependencies": {
       "type": "array"
@@ -67,11 +77,26 @@
       "items": {
         "type": "object",
         "required": [
-          "path",
-          "destination",
-          "entityCode",
-          "feature"
-        ]
+          "source",
+          "destination"
+        ],
+        "properties": {
+          "source": {
+            "type": "string"
+          },
+          "destination": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "feature": {
+            "type": "string"
+          }
+        }
       }
     },
     "provenance": {
@@ -83,12 +108,7 @@
         "track-upstream",
         "manual-review"
       ]
-    },
-    "constraints": {
-      "type": "array",
-      "items": {
-        "type": "object"
-      }
     }
-  }
+  },
+  "additionalProperties": true
 }

@@ -1,4 +1,4 @@
-# Documentation Governance v4
+# Documentation Governance v4.1
 
 ## Source of truth
 Project-local canonical docs are authoritative. Generated indexes/site are disposable. Capability/Pattern Pack sources are reusable upstream inputs, not runtime project truth.

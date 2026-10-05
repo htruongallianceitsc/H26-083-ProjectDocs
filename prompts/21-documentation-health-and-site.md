@@ -4,7 +4,7 @@ Bạn đang review một documentation-first software project.
 
 Hãy thực hiện theo thứ tự:
 
-1. Đọc `PROJECT_BLUEPRINT.md`, `DOCS_GOVERNANCE.md`, `standards/` và `tools/docs.config.json`.
+1. Đọc `PROJECT_BLUEPRINT.md`, `DOCS_GOVERNANCE.md`, `project.profile.json`, `registry/*.json` và `standards/`.
 2. Chạy validation trong `tools/`.
 3. Với mỗi error/warning, phân loại:
    - metadata;

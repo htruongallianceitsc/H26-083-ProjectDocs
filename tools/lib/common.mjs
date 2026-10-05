@@ -4,7 +4,7 @@ import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-export const ROOT = path.resolve(__dirname, '..', '..');
+export const ROOT = process.env.PROJECT_DOCS_ROOT ? path.resolve(process.env.PROJECT_DOCS_ROOT) : path.resolve(__dirname, '..', '..');
 
 export function loadJson(rel, fallback = null) {
   const p = path.isAbsolute(rel) ? rel : path.join(ROOT, rel);

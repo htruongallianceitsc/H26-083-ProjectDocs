@@ -1,0 +1,128 @@
+# GENERATED FILE - DO NOT EDIT
+# Source: registry/relation-map.json
+schemaVersion: 1.0
+relations:
+  - from: feature
+    field: modules
+    to: module
+    cardinality: many-to-one
+  - from: feature
+    field: requirements
+    to: requirement
+    cardinality: many-to-many
+  - from: feature
+    field: business_rules
+    to: business-rule
+    cardinality: many-to-many
+  - from: feature
+    field: screens
+    to: screen
+    cardinality: many-to-many
+  - from: feature
+    field: flows
+    to: flow
+    cardinality: many-to-many
+  - from: feature
+    field: apis
+    to: api
+    cardinality: many-to-many
+  - from: feature
+    field: database_objects
+    to: database-object
+    cardinality: many-to-many
+  - from: feature
+    field: tests
+    to: test-case
+    cardinality: many-to-many
+  - from: feature
+    field: permissions
+    to: permission
+    cardinality: many-to-many
+  - from: feature
+    field: deep_links
+    to: deep-link
+    cardinality: many-to-many
+  - from: feature
+    field: sync_policies
+    to: sync-policy
+    cardinality: many-to-many
+  - from: requirement
+    field: tests
+    to: test-case
+    cardinality: many-to-many
+  - from: permission
+    field: features
+    to: feature
+    cardinality: many-to-many
+  - from: deep-link
+    field: screens
+    to: screen
+    cardinality: many-to-many
+  - from: push-event
+    field: deep_links
+    to: deep-link
+    cardinality: many-to-many
+  - from: "*"
+    field: decisions
+    to: decision
+    cardinality: many-to-many
+  - from: "*"
+    field: integrations
+    to: integration
+    cardinality: many-to-many
+  - from: "*"
+    field: nfrs
+    to: nfr
+    cardinality: many-to-many
+  - from: "*"
+    field: runbooks
+    to: runbook
+    cardinality: many-to-many
+  - from: "*"
+    field: modules
+    to: module
+    cardinality: many-to-many
+  - from: "*"
+    field: features
+    to: feature
+    cardinality: many-to-many
+  - from: "*"
+    field: requirements
+    to: requirement
+    cardinality: many-to-many
+  - from: "*"
+    field: business_rules
+    to: business-rule
+    cardinality: many-to-many
+  - from: "*"
+    field: screens
+    to: screen
+    cardinality: many-to-many
+  - from: "*"
+    field: flows
+    to: flow
+    cardinality: many-to-many
+  - from: "*"
+    field: apis
+    to: api
+    cardinality: many-to-many
+  - from: "*"
+    field: database_objects
+    to: database-object
+    cardinality: many-to-many
+  - from: "*"
+    field: tests
+    to: test-case
+    cardinality: many-to-many
+  - from: "*"
+    field: permissions
+    to: permission
+    cardinality: many-to-many
+  - from: "*"
+    field: deep_links
+    to: deep-link
+    cardinality: many-to-many
+  - from: "*"
+    field: sync_policies
+    to: sync-policy
+    cardinality: many-to-many
