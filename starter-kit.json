@@ -1,7 +1,7 @@
 {
   "name": "production-project-docs-starter-kit",
-  "version": "5.11.0",
-  "schemaVersion": "5.11.0",
+  "version": "5.13.0",
+  "schemaVersion": "5.13.0",
   "registrySchemaVersion": "1.0",
   "capabilityPackSchemaVersion": "1.0",
   "workPlanSchemaVersion": "1.2",
@@ -76,5 +76,12 @@
     "assetRoot": "mockups",
     "runtimeDirectory": ".project-docs/mockups",
     "config": "kit/registry/mockup-workflow.json"
+  },
+  "wireframeWorkflowVersion": "1.2",
+  "wireframePromotionVersion": "1.0",
+  "wireframeWorkflow": {
+    "runtimeDirectory": ".project-docs/wireframes",
+    "config": "kit/registry/wireframe-workflow.json",
+    "promotionSchema": "kit/registry/wireframe-promotion.schema.json"
   }
 }

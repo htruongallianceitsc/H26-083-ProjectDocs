@@ -1,4 +1,4 @@
-# START HERE - v5.11
+# START HERE - v5.13
 
 ## 0. Understand the workspace layout
 
@@ -93,13 +93,28 @@ npm run wireframe:start -- --feature FEAT-AUTH-LOGIN
 npm run wireframe:start -- --screens SCR-AUTH-LOGIN,SCR-AUTH-FORGOT-PASSWORD
 ```
 
-Open `docs/_generated/SCREEN_WIREFRAMES.html`. It combines all selected Screens and exposes documented sections, fields, actions, states and navigation. Record anything missing as a governed proposal:
+Open `docs/_generated/SCREEN_WIREFRAMES.html`. v5.13 renders a **platform-aware low-fidelity visual canvas** from `Visual Display Profile`, `Visual Layout Regions` and typed `Visible Components`, while still exposing fields, User/Lifecycle/System/API actions, states and navigation. The main canvas shows one primary visible state; modal/popover/hover-only UI belongs under `Hidden / Secondary UI`. If the canvas is too vague, use `kit/prompts/51-visual-wireframe-layout-enrichment.md` and `kit/templates/screen-visual-spec-template.md`, update the canonical Screen, then rebuild.
+
+Record anything missing as a governed proposal:
 
 ```bash
-npm run wireframe:gap -- --screen SCR-AUTH-LOGIN --kind missing-action --severity high --summary "Forgot Password action is missing"
+npm run wireframe:gap -- --screen SCR-APP-SPLASH --kind startup-flow-gap --severity high --summary "Startup config flow is missing canonical coverage"
+npm run wireframe:resolve -- --proposal WFG-... --status accepted --reviewer "Reviewer"
 ```
 
-Update the proper canonical Screen/Feature/Requirement/Rule/Flow document, resolve the gap, rebuild and close the session:
+If the gap needs new canonical entities, create a review-gated promotion draft:
+
+```bash
+npm run wireframe:promote -- --proposal WFG-... --preset startup-bootstrap
+```
+
+Author exact codes/relations/content in the promotion JSON, set `status=authored` and `requiresAuthoring=false`, then explicitly apply:
+
+```bash
+npm run wireframe:promote -- --proposal WFG-... --plan .project-docs/wireframes/promotions/authored-startup.json --apply --reviewer "Reviewer"
+```
+
+For normal edits to existing canonical docs, update them through the normal governed edit/proposal path, resolve the gap, rebuild and close the session:
 
 ```bash
 npm run wireframe:resolve -- --proposal WFG-... --status resolved --reviewer "Reviewer"
@@ -108,7 +123,7 @@ npm run wireframe:check
 npm run wireframe:close -- --reviewer "Reviewer"
 ```
 
-The HTML/ASCII files are projections only. Never use generated wireframes as a second source of truth.
+The HTML/ASCII files are projections only. Never use generated wireframes as a second source of truth. Visual completeness warnings are expected until the Screen explicitly defines its platform/viewport, primary state, regions and component inventory.
 
 ## 2. Establish application boundaries
 

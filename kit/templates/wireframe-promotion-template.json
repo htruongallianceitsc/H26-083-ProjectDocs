@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "1.0",
+  "proposalId": "WFG-...",
+  "preset": null,
+  "status": "authored",
+  "requiresAuthoring": false,
+  "owner": "Product & Engineering",
+  "authoringQuestions": [],
+  "suggestedEntityTypes": [],
+  "entities": [
+    {
+      "type": "screen",
+      "code": "SCR-APP-SPLASH",
+      "title": "Splash / App Bootstrap",
+      "route": "startup",
+      "related": {
+        "features": ["FEAT-APP-STARTUP"],
+        "requirements": ["REQ-APP-STARTUP-001"],
+        "flows": ["FLOW-APP-STARTUP"],
+        "apis": ["API-APP-GET-CONFIG"]
+      },
+      "body": "# Splash / App Bootstrap\n\n## Purpose\nShow product identity and startup progress while mandatory configuration is loaded.\n"
+    }
+  ]
+}

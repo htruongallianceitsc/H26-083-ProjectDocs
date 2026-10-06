@@ -5,12 +5,12 @@
     "text": "PROJECT_BLUEPRINT.md"
   },
   {
-    "title": "Production Project Documentation Starter Kit v5.11",
+    "title": "Production Project Documentation Starter Kit v5.13",
     "path": "pages/readme.html",
     "text": "README.md"
   },
   {
-    "title": "START HERE - v5.11",
+    "title": "START HERE - v5.13",
     "path": "pages/start-here.html",
     "text": "START_HERE.md"
   },
@@ -255,6 +255,11 @@
     "text": "docs/guides/project-structure.md"
   },
   {
+    "title": "Visual Wireframe Review Guide",
+    "path": "pages/docs-guides-visual-wireframe-review.html",
+    "text": "docs/guides/visual-wireframe-review.md"
+  },
+  {
     "title": "Version History",
     "path": "pages/docs-history-readme.html",
     "text": "docs/history/README.md"
@@ -308,6 +313,26 @@
     "title": "v5.11 Upgrade Notes — Screen-First Wireframe Analysis",
     "path": "pages/docs-history-v5-11-upgrade-notes.html",
     "text": "docs/history/V5_11_UPGRADE_NOTES.md"
+  },
+  {
+    "title": "v5.12 QA Report",
+    "path": "pages/docs-history-v5-12-qa-report.html",
+    "text": "docs/history/V5_12_QA_REPORT.md"
+  },
+  {
+    "title": "v5.12 Upgrade Notes — Screen Lifecycle, Startup Bootstrap & Gap Promotion",
+    "path": "pages/docs-history-v5-12-upgrade-notes.html",
+    "text": "docs/history/V5_12_UPGRADE_NOTES.md"
+  },
+  {
+    "title": "v5.13 QA Report",
+    "path": "pages/docs-history-v5-13-qa-report.html",
+    "text": "docs/history/V5_13_QA_REPORT.md"
+  },
+  {
+    "title": "v5.13 Upgrade Notes — Visual Wireframe Layout Enrichment",
+    "path": "pages/docs-history-v5-13-upgrade-notes.html",
+    "text": "docs/history/V5_13_UPGRADE_NOTES.md"
   },
   {
     "title": "v5.1 QA Report",
@@ -413,6 +438,11 @@
     "title": "Starter Kit Framework",
     "path": "pages/kit-readme.html",
     "text": "kit/README.md"
+  },
+  {
+    "title": "Example — Web Screen Visual Wireframe Specification",
+    "path": "pages/kit-examples-screen-visual-wireframe-example.html",
+    "text": "kit/examples/screen-visual-wireframe-example.md"
   },
   {
     "title": "Master Prompt — Documentation-First Project Orchestrator v5.9",
@@ -670,7 +700,17 @@
     "text": "kit/prompts/49-wireframe-review-to-documentation.md"
   },
   {
-    "title": "Registry Governance — v5.11",
+    "title": "Prompt 50 — Screen Lifecycle / System Behaviour and Gap Promotion",
+    "path": "pages/kit-prompts-50-screen-lifecycle-and-gap-promotion.html",
+    "text": "kit/prompts/50-screen-lifecycle-and-gap-promotion.md"
+  },
+  {
+    "title": "Prompt 51 — Visual Wireframe Layout Enrichment",
+    "path": "pages/kit-prompts-51-visual-wireframe-layout-enrichment.html",
+    "text": "kit/prompts/51-visual-wireframe-layout-enrichment.md"
+  },
+  {
+    "title": "Registry Governance — v5.12",
     "path": "pages/kit-registry-readme.html",
     "text": "kit/registry/README.md"
   },
@@ -695,7 +735,7 @@
     "text": "kit/standards/ADDING_A_STACK.md"
   },
   {
-    "title": "Standards Architecture v5.11",
+    "title": "Standards Architecture v5.12",
     "path": "pages/kit-standards-readme.html",
     "text": "kit/standards/README.md"
   },
@@ -710,7 +750,7 @@
     "text": "kit/standards/acceptance-and-verification-traceability.md"
   },
   {
-    "title": "AI Agent Rules — v5.11",
+    "title": "AI Agent Rules — v5.12",
     "path": "pages/kit-standards-ai-agent-rules.html",
     "text": "kit/standards/ai-agent-rules.md"
   },
@@ -980,7 +1020,7 @@
     "text": "kit/standards/project-types/web/web-ui-ux.md"
   },
   {
-    "title": "Repository Entry & History Hygiene Standard — v5.11",
+    "title": "Repository Entry & History Hygiene Standard — v5.12",
     "path": "pages/kit-standards-repository-entry-hygiene.html",
     "text": "kit/standards/repository-entry-hygiene.md"
   },
@@ -1005,7 +1045,7 @@
     "text": "kit/standards/reuse/reuse-strategy.md"
   },
   {
-    "title": "Screen-First Wireframe Analysis Standard — v5.11",
+    "title": "Screen-First Wireframe Analysis Standard — v5.13",
     "path": "pages/kit-standards-screen-first-wireframe-analysis.html",
     "text": "kit/standards/screen-first-wireframe-analysis.md"
   },
@@ -1480,7 +1520,12 @@
     "text": "kit/templates/screen-template.md"
   },
   {
-    "title": "Screen Wireframe Contract",
+    "title": "Screen Visual Enrichment Template",
+    "path": "pages/kit-templates-screen-visual-spec-template.html",
+    "text": "kit/templates/screen-visual-spec-template.md"
+  },
+  {
+    "title": "Screen Visual Wireframe Contract",
     "path": "pages/kit-templates-screen-wireframe-contract-template.html",
     "text": "kit/templates/screen-wireframe-contract-template.md"
   },
@@ -1610,12 +1655,22 @@
     "text": "kit/workflows/22-screen-first-wireframe-analysis.md"
   },
   {
+    "title": "Workflow 23 — Screen Lifecycle and Gap Promotion",
+    "path": "pages/kit-workflows-23-screen-lifecycle-and-gap-promotion.html",
+    "text": "kit/workflows/23-screen-lifecycle-and-gap-promotion.md"
+  },
+  {
+    "title": "Workflow 24 — Visual Wireframe Layout Enrichment",
+    "path": "pages/kit-workflows-24-visual-wireframe-layout-enrichment.html",
+    "text": "kit/workflows/24-visual-wireframe-layout-enrichment.md"
+  },
+  {
     "title": "End-to-End Documentation Checklist",
     "path": "pages/kit-workflows-end-to-end-checklist.html",
     "text": "kit/workflows/END_TO_END_CHECKLIST.md"
   },
   {
-    "title": "Documentation Toolchain v5.11",
+    "title": "Documentation Toolchain v5.13",
     "path": "pages/tools-readme.html",
     "text": "tools/README.md"
   },

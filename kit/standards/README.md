@@ -1,4 +1,4 @@
-# Standards Architecture v5.11
+# Standards Architecture v5.12
 
 Standards resolve in this order:
 
@@ -31,9 +31,16 @@ These standards govern permanent entity identity, semantic graph behavior, sourc
 - `.project-docs/site/` is the generated static-site location.
 - Root hygiene now distinguishes project truth, source truth, kit assets, tooling, and runtime state.
 
+## v5.12 additions
+
+- `screen-first-wireframe-analysis.md` now distinguishes User Actions, Lifecycle Actions, System Actions and API Interactions.
+- Splash/bootstrap and automatic navigation/loading behaviour can be represented without inventing buttons.
+- Accepted wireframe gaps can create authoring-gated multi-entity promotion plans.
+- Startup/bootstrap preset suggests Feature/Screen/Requirement/Flow/API/Test coverage and unresolved questions.
+- Promotion apply protects existing canonical entity codes by default.
+
 ## v5.11 additions
 
-- `screen-first-wireframe-analysis.md`
 - Screen-first analysis is optional rather than a mandatory stage.
 - Text-based Screen contracts are the semantic projection layer.
 - ASCII and combined HTML are generated views over the same contract.

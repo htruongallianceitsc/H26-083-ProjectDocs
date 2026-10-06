@@ -1,0 +1,32 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>kit/workflows/23-screen-lifecycle-and-gap-promotion.md</title><link rel="stylesheet" href="../assets/style.css"></head><body><header><strong>Project Docs v5.13</strong><nav><a class="" href="../index.html">Dashboard</a><a class="" href="../profile.html">Profile</a><a class="" href="../standards.html">Standards</a><a class="" href="../source.html">Source</a><a class="" href="../blueprint.html">Blueprint</a><a class="" href="../brownfield.html">Brownfield</a><a class="" href="../mockups.html">Mockups</a><a class="" href="../wireframes.html">Wireframes</a><a class="" href="../packs.html">Reuse</a><a class="" href="../catalog.html">Catalog</a><a class="" href="../traceability.html">Traceability</a><a class="" href="../verification.html">Verification</a><a class="" href="../graph.html">Graph</a><a class="" href="../governance.html">Governance</a><a class="" href="../specification.html">Spec Levels</a><a class="" href="../flows.html">Diagrams</a></nav></header><main><h1>kit/workflows/23-screen-lifecycle-and-gap-promotion.md</h1><p><small>kit/workflows/23-screen-lifecycle-and-gap-promotion.md</small></p><h1>Workflow 23 — Screen Lifecycle and Gap Promotion</h1><p>This workflow extends the optional Screen-first review mode for Screens whose important behaviour is automatic rather than button-driven.</p><pre><code class="language-text">Canonical Screen docs
+        |
+        v
+Screen semantic projection
+        |
+        +--&gt; User Actions
+        +--&gt; Lifecycle Actions
+        +--&gt; System Actions
+        +--&gt; API Interactions
+        |
+        v
+Human / AI review
+        |
+        v
+Governed gap proposal
+        |
+        v
+Accept gap
+        |
+        v
+Promotion draft (requires authoring)
+        |
+        v
+Exact Feature / Screen / Requirement / Flow / API / Test plan
+        |
+        v
+Explicit apply
+        |
+        v
+Rebuild wireframe + validation</code></pre><h2>Commands</h2><pre><code class="language-bash">npm run wireframe:gap -- --screen SCR-APP-SPLASH --kind startup-flow-gap --severity high --summary &quot;Startup behaviour is missing canonical coverage&quot;
+npm run wireframe:resolve -- --proposal WFG-... --status accepted --reviewer &quot;Reviewer&quot;
+npm run wireframe:promote -- --proposal WFG-... --preset startup-bootstrap</code></pre><p>The promote command above creates a <strong>draft promotion plan only</strong>. It is not allowed to guess entity codes or business semantics.</p><p>Author the plan (see <code>kit/templates/wireframe-promotion-template.json</code>), set <code>status</code> to <code>authored</code> and <code>requiresAuthoring</code> to <code>false</code>, then explicitly apply:</p><pre><code class="language-bash">npm run wireframe:promote -- --proposal WFG-... --plan .project-docs/wireframes/promotions/my-authored-plan.json --apply --reviewer &quot;Reviewer&quot;</code></pre><p>If an entity code already exists, apply fails by default. Use the normal proposal/edit workflow for existing canonical docs; <code>--overwrite</code> exists only for an explicitly reviewed replacement.</p><h2>Splash / Bootstrap review checklist</h2><ul><li>Is the logo/loading state documented?</li><li>Which lifecycle event starts configuration loading?</li><li>Which API is called and why?</li><li>What state is visible during the call?</li><li>What is persisted/evaluated automatically after success?</li><li>Where does success navigate?</li><li>What happens on API error, timeout, offline, or invalid config?</li><li>Is retry/fallback/cached/default behaviour confirmed or still TBD?</li><li>Are success and error paths covered by Requirements, Flow and Tests?</li></ul></main><script src="assets/app.js"></script><script type="module">if(document.querySelector('.mermaid')){import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs').then(m=>{m.default.initialize({startOnLoad:true,securityLevel:'loose'});});}</script></body></html>

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pm.local/schemas/wireframe-promotion.schema.json",
+  "title": "Wireframe Gap Promotion Plan",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "proposalId", "status", "requiresAuthoring", "entities"],
+  "properties": {
+    "schemaVersion": { "const": "1.0" },
+    "proposalId": { "type": "string", "minLength": 1 },
+    "preset": { "type": ["string", "null"] },
+    "status": { "enum": ["draft", "authored", "applied"] },
+    "requiresAuthoring": { "type": "boolean" },
+    "owner": { "type": "string" },
+    "authoringQuestions": { "type": "array", "items": { "type": "string" } },
+    "suggestedEntityTypes": { "type": "array", "items": { "type": "string" } },
+    "entities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["type", "code", "title"],
+        "properties": {
+          "type": { "enum": ["feature", "requirement", "business-rule", "screen", "flow", "api", "test-case"] },
+          "code": { "type": "string", "minLength": 1 },
+          "title": { "type": "string", "minLength": 1 },
+          "status": { "type": "string" },
+          "owner": { "type": "string" },
+          "path": { "type": "string" },
+          "route": { "type": "string" },
+          "method": { "type": "string" },
+          "apiPath": { "type": "string" },
+          "related": { "type": "object" },
+          "body": { "type": "string" }
+        }
+      }
+    }
+  }
+}

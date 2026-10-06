@@ -28,11 +28,20 @@ Identify gaps visible because the Screen contract is incomplete or contradictory
 - `validation-gap`
 - `content-gap`
 - `accessibility-gap`
+- `missing-display-profile`
+- `viewport-not-defined`
+- `platform-profile-missing`
+- `missing-layout-region`
+- `screen-layout-too-vague`
+- `missing-component`
+- `missing-component-detail`
+- `missing-primary-visible-state`
+- `missing-hidden-interaction-note`
 - `other`
 
 ## Ownership rules
 
-- visible composition/action/state/navigation -> Screen
+- visible composition/layout/component placement/action/state/navigation -> Screen
 - user capability -> Feature
 - behavioural expectation/acceptance -> Requirement
 - constraint/decision logic -> Business Rule

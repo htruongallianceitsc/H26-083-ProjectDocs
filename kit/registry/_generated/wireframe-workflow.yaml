@@ -1,14 +1,15 @@
 # GENERATED FILE - DO NOT EDIT
 # Source: kit/registry/wireframe-workflow.json
-schemaVersion: 1.0
+schemaVersion: 1.2
 runtimeDirectory: .project-docs/wireframes
 generatedDirectory: docs/_generated/wireframes
 combinedHtml: docs/_generated/SCREEN_WIREFRAMES.html
+promotionDirectory: .project-docs/wireframes/promotions
 mode:
   optional: true
   activeByDefault: false
   sourceOfTruth: canonical-docs
-  purpose: screen-first-analysis
+  purpose: screen-first-visual-analysis
 formats:
   default:
     - text
@@ -27,32 +28,140 @@ projection:
   requiredSections:
     - Purpose
     - Route
-    - "Layout / Sections"
+    - "Visual Display Profile"
+    - "Visual Layout Regions"
+    - "Visible Components"
     - Fields
-    - Actions
+    - "User Actions"
+    - "Lifecycle Actions"
+    - "System Actions"
+    - "API Interactions"
     - "UI States"
     - "Navigation Rules"
   unknownValue: TBD
   preserveUnknowns: true
   inferHiddenBusinessLogic: false
   inferApiOrDatabase: false
+  safePlaceholderDerivation: true
+  primaryVisibleStateDefault: "Success / Data Ready"
+visual:
+  renderMode: low-fidelity-placeholder
+  renderOnlyPrimaryVisibleStateOnCanvas: true
+  secondaryUiOutsideCanvas: true
+  defaultPlatformWhenUnknown: web-desktop
+  platformProfiles:
+    web-desktop:
+      width: 1440
+      height: 900
+      frame: browser
+      maxRenderWidth: 1180
+    web-tablet:
+      width: 1024
+      height: 768
+      frame: browser
+      maxRenderWidth: 960
+    mobile:
+      width: 390
+      height: 844
+      frame: device
+      maxRenderWidth: 390
+    mobile-large:
+      width: 430
+      height: 932
+      frame: device
+      maxRenderWidth: 430
+  componentTypes:
+    - logo
+    - image
+    - hero
+    - avatar
+    - heading
+    - text
+    - label
+    - button
+    - link
+    - tabs
+    - input
+    - password
+    - search
+    - select
+    - textarea
+    - checkbox
+    - radio
+    - badge
+    - chip
+    - card
+    - card-grid
+    - list
+    - table
+    - chart
+    - stat
+    - navigation
+    - divider
+    - loading
+    - skeleton
+    - spacer
+    - custom
 review:
   requireCanonicalUpdateForAcceptedGap: true
   autoPatchCanonicalDocs: false
   proposalDirectory: .project-docs/wireframes/proposals
   allowedGapKinds:
+    - missing-screen
     - missing-section
     - missing-field
     - missing-action
+    - missing-lifecycle-action
+    - missing-system-action
+    - missing-api-interaction
     - missing-state
     - navigation-gap
+    - startup-flow-gap
     - feature-gap
     - requirement-gap
     - business-rule-gap
     - validation-gap
+    - test-gap
     - content-gap
     - accessibility-gap
+    - missing-display-profile
+    - viewport-not-defined
+    - platform-profile-missing
+    - missing-layout-region
+    - screen-layout-too-vague
+    - missing-component
+    - missing-component-detail
+    - missing-primary-visible-state
+    - missing-hidden-interaction-note
     - other
+promotion:
+  requireAcceptedGap: true
+  applyRequiresAuthoredPlan: true
+  supportedEntityTypes:
+    - feature
+    - requirement
+    - business-rule
+    - screen
+    - flow
+    - api
+    - test-case
+  presets:
+    startup-bootstrap:
+      suggestedEntityTypes:
+        - feature
+        - screen
+        - requirement
+        - requirement
+        - requirement
+        - flow
+        - api
+        - test-case
+      authoringQuestions:
+        - "What configuration is mandatory before entering the main application?"
+        - "What is the success destination Screen?"
+        - "What should happen when the startup API fails: retry, cached config, bundled defaults, or block?"
+        - "Is there a timeout or minimum splash duration?"
+        - "Which startup states and tests are required?"
 validation:
   checkOnlyWhenSessionActive: true
   staleProjectionSeverity: high
@@ -61,6 +170,12 @@ validation:
   missingRouteSeverity: warning
   screenWithoutActionsSeverity: warning
   screenWithoutNavigationSeverity: warning
+  missingDisplayProfileSeverity: warning
+  missingViewportSeverity: warning
+  missingPrimaryStateSeverity: warning
+  missingVisualRegionsSeverity: warning
+  missingVisibleComponentsSeverity: warning
+  vagueLayoutSeverity: warning
   blockSeverities:
     - high
     - error

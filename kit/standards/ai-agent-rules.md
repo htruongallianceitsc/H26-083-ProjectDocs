@@ -1,4 +1,4 @@
-# AI Agent Rules — v5.11
+# AI Agent Rules — v5.12
 
 1. Documentation first; do not produce implementation code unless implementation is explicitly requested and allowed.
 2. Resolve documentation depth before expanding a Feature. Do not assume Full detail is always better.
@@ -36,3 +36,11 @@
 32. Prefer one semantic Screen contract that can render to text/ASCII/HTML instead of independently maintaining three formats.
 33. Preserve `TBD` when Screen actions, destinations, states or validation are not documented; do not invent UI behaviour to make a wireframe look complete.
 34. When wireframe review reveals a gap, route the accepted change to its canonical owner (Screen, Feature, Requirement, Business Rule or Flow) before rebuilding the projection.
+## v5.12 Screen lifecycle and promotion rules
+
+- Do not model automatic Screen behaviour as fake buttons. Separate user, lifecycle, system and API actions.
+- A Splash/Bootstrap Screen may legitimately have zero user actions.
+- Never infer retry/cache/fallback/timeout behaviour from a loading indicator; keep it TBD/Open Question until confirmed.
+- `wireframe:promote` drafts suggestions from an accepted gap; exact entity codes/relations/content require authoring before apply.
+- Do not overwrite existing canonical entities during gap promotion unless replacement was explicitly reviewed.
+

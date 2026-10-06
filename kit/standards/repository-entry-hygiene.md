@@ -1,4 +1,4 @@
-# Repository Entry & History Hygiene Standard — v5.11
+# Repository Entry & History Hygiene Standard — v5.12
 
 ## Purpose
 

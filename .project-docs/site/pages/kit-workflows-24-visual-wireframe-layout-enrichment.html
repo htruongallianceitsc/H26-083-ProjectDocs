@@ -1,0 +1,31 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>kit/workflows/24-visual-wireframe-layout-enrichment.md</title><link rel="stylesheet" href="../assets/style.css"></head><body><header><strong>Project Docs v5.13</strong><nav><a class="" href="../index.html">Dashboard</a><a class="" href="../profile.html">Profile</a><a class="" href="../standards.html">Standards</a><a class="" href="../source.html">Source</a><a class="" href="../blueprint.html">Blueprint</a><a class="" href="../brownfield.html">Brownfield</a><a class="" href="../mockups.html">Mockups</a><a class="" href="../wireframes.html">Wireframes</a><a class="" href="../packs.html">Reuse</a><a class="" href="../catalog.html">Catalog</a><a class="" href="../traceability.html">Traceability</a><a class="" href="../verification.html">Verification</a><a class="" href="../graph.html">Graph</a><a class="" href="../governance.html">Governance</a><a class="" href="../specification.html">Spec Levels</a><a class="" href="../flows.html">Diagrams</a></nav></header><main><h1>kit/workflows/24-visual-wireframe-layout-enrichment.md</h1><p><small>kit/workflows/24-visual-wireframe-layout-enrichment.md</small></p><h1>Workflow 24 — Visual Wireframe Layout Enrichment</h1><p>Use when <code>SCREEN_WIREFRAMES.html</code> is functionally correct but visually too vague to understand a Screen's real structure.</p><pre><code class="language-text">Canonical Screen
+      |
+      v
+wireframe:build
+      |
+      v
+Platform-aware placeholder canvas
+      |
+      v
+Visual review gaps
+      |
+      v
+Enrich Display Profile / Regions / Components / Secondary UI
+      |
+      v
+Rebuild -&gt; review again</code></pre><h2>1. Start a focused session</h2><pre><code class="language-bash">cd tools
+npm run wireframe:start -- --screens SCR-TODO-LIST
+npm run wireframe:build</code></pre><p>Open <code>docs/_generated/SCREEN_WIREFRAMES.html</code>.</p><h2>2. Review the primary canvas</h2><p>The canvas intentionally renders one state, normally <strong>Success / Data Ready</strong>. Check that you can visually distinguish:</p><ul><li>global/top navigation;</li><li>sidebar or bottom navigation;</li><li>title/header area;</li><li>image/hero/avatar placeholders;</li><li>tabs/filters/search;</li><li>form fields;</li><li>buttons/links;</li><li>cards/list/table/chart/stat blocks;</li><li>main/aside/footer placement.</li></ul><p>Do not expect modal/popover/hover-only UI on this canvas.</p><h2>3. If too vague, record a gap</h2><pre><code class="language-bash">npm run wireframe:gap -- \
+  --screen SCR-TODO-LIST \
+  --kind screen-layout-too-vague \
+  --severity warning \
+  --summary &quot;Todo List does not define regions/component placement clearly enough for visual review&quot;</code></pre><p>Other useful kinds: <code>missing-display-profile</code>, <code>missing-layout-region</code>, <code>missing-component</code>, <code>missing-component-detail</code>, <code>missing-primary-visible-state</code>.</p><h2>4. Enrich the canonical Screen</h2><p>Use <code>kit/templates/screen-visual-spec-template.md</code> and <code>kit/prompts/51-visual-wireframe-layout-enrichment.md</code>.</p><p>Minimum useful Screen visual contract:</p><pre><code class="language-text">Visual Display Profile
+  -&gt; platform + viewport + primary state
+Visual Layout Regions
+  -&gt; header / sidebar / main / aside / footer (only what exists)
+Visible Components
+  -&gt; typed placeholder components assigned to regions
+Hidden / Secondary UI
+  -&gt; modal / popover / hover / expanded UI notes</code></pre><p>This is not final design. Use relative layout (<code>top</code>, <code>left</code>, <code>main</code>, <code>right</code>, <code>bottom</code>; <code>row</code>, <code>column</code>, <code>grid</code>) instead of production CSS.</p><h2>5. Rebuild and review</h2><pre><code class="language-bash">npm run wireframe:build
+npm run wireframe:check</code></pre><p>The HTML renderer uses platform-aware aspect ratios and typed placeholders. If the canonical visual contract is still absent, it may derive safe placeholders from documented Sections/Fields/User Actions, but the report keeps the corresponding visual-completeness warnings visible.</p><h2>6. Resolve the gap</h2><p>After the Screen source is genuinely updated:</p><pre><code class="language-bash">npm run wireframe:resolve -- --proposal WFG-... --status resolved --reviewer &quot;Reviewer&quot; --note &quot;Visual regions/components documented&quot;
+npm run wireframe:build</code></pre><h2>Exit criteria</h2><ul><li>target platform and viewport are explicit;</li><li>primary state is explicit;</li><li>major visible layout regions are named and positioned;</li><li>visible components have recognizable semantic types;</li><li>click/hover-only secondary UI is documented outside the primary canvas;</li><li>no important region is merely <code>content</code>/<code>section</code> without enough detail to review;</li><li>generated HTML is current with the canonical Screen hash.</li></ul></main><script src="assets/app.js"></script><script type="module">if(document.querySelector('.mermaid')){import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs').then(m=>{m.default.initialize({startOnLoad:true,securityLevel:'loose'});});}</script></body></html>

@@ -1,4 +1,4 @@
-# Registry Governance — v5.11
+# Registry Governance — v5.12
 
 `kit/registry/*.json` is the canonical machine-readable policy source.
 
@@ -76,3 +76,9 @@ The physical repository layout is configured in root `starter-kit.json.workspace
 - `wireframe-spec.schema.json` describes the generated semantic Screen projection that feeds both ASCII and HTML renderers.
 
 `wireframe-workflow.json` intentionally keeps `activeByDefault=false` and `autoPatchCanonicalDocs=false`: generated review artifacts must never become a second source of truth.
+## v5.12 Wireframe registries
+
+- `wireframe-spec.schema.json` v1.1 defines User/Lifecycle/System/API projection arrays.
+- `wireframe-workflow.json` v1.2 adds platform-aware low-fidelity visual rendering, representative viewport profiles, typed component placeholders, primary-state canvas rules and visual-completeness gap kinds while retaining v1.1 lifecycle/promotion governance.
+- `wireframe-promotion.schema.json` defines the authored multi-entity promotion plan contract.
+

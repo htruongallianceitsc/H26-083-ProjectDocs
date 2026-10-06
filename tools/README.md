@@ -1,4 +1,4 @@
-# Documentation Toolchain v5.11
+# Documentation Toolchain v5.13
 
 Requires Node.js 20+. The runtime uses only Node.js standard-library modules.
 
@@ -134,7 +134,7 @@ npm run pack:validate
 ```
 
 
-## v5.11 screen-first wireframe commands
+## v5.13 screen-first visual wireframe commands
 
 ```bash
 npm run wireframe:start -- --scope all
@@ -143,13 +143,15 @@ npm run wireframe:start -- --screens SCR-AUTH-LOGIN,SCR-AUTH-FORGOT-PASSWORD
 npm run wireframe:build
 npm run wireframe:gap -- --screen SCR-AUTH-LOGIN --kind missing-action --severity high --summary "Forgot Password action is missing"
 npm run wireframe:resolve -- --proposal WFG-... --status accepted --reviewer "Reviewer"
+npm run wireframe:promote -- --proposal WFG-... --preset startup-bootstrap
+npm run wireframe:promote -- --proposal WFG-... --plan .project-docs/wireframes/promotions/authored-plan.json --apply --reviewer "Reviewer"
 npm run wireframe:resolve -- --proposal WFG-... --status resolved --reviewer "Reviewer" --note "Canonical docs updated"
 npm run wireframe:check
 npm run wireframe:status
 npm run wireframe:close -- --reviewer "Reviewer"
 ```
 
-The workflow is optional. `wireframe:build` projects canonical Screen docs into a semantic JSON/text contract, an ASCII preview and one combined standalone HTML file at `docs/_generated/SCREEN_WIREFRAMES.html`. Accepted gaps must be resolved in canonical docs; the generated HTML is never edited as source of truth.
+The workflow is optional. `wireframe:build` projects canonical Screen docs into semantic JSON/text, ASCII and a combined platform-aware HTML canvas. v5.13 adds Display Profile, viewport, visual regions, typed placeholders and Secondary UI while retaining v5.12 User/Lifecycle/System/API behaviour and governed promotion. Generated artifacts are never source of truth.
 
 ## v5.10 mockup-driven documentation commands
 

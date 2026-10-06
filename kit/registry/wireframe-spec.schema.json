@@ -1,24 +1,52 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://pm.local/schemas/wireframe-spec.schema.json",
-  "title": "Derived Screen Wireframe Spec",
+  "title": "Derived Screen Visual Wireframe Spec",
   "type": "object",
   "additionalProperties": true,
-  "required": ["schemaVersion", "screenCode", "sourceDocument", "sourceHash", "title", "fields", "actions", "states", "navigation"],
+  "required": ["schemaVersion", "screenCode", "sourceDocument", "sourceHash", "title", "displayProfile", "visualRegions", "visibleComponents", "hiddenSecondaryUi", "fields", "userActions", "lifecycleActions", "systemActions", "apiInteractions", "states", "navigation"],
   "properties": {
-    "schemaVersion": { "const": "1.0" },
+    "schemaVersion": { "const": "1.2" },
     "screenCode": { "type": "string", "minLength": 1 },
     "sourceDocument": { "type": "string", "minLength": 1 },
     "sourceHash": { "type": "string", "minLength": 1 },
     "title": { "type": "string", "minLength": 1 },
     "route": { "type": ["string", "null"] },
     "purpose": { "type": "string" },
+    "displayProfile": {
+      "type": "object",
+      "required": ["platform", "viewport", "primaryVisibleState", "source"],
+      "properties": {
+        "platform": { "type": "string" },
+        "viewport": {
+          "type": "object",
+          "required": ["width", "height"],
+          "properties": {
+            "width": { "type": "integer", "minimum": 1 },
+            "height": { "type": "integer", "minimum": 1 }
+          }
+        },
+        "primaryVisibleState": { "type": "string" },
+        "canvasMode": { "type": "string" },
+        "density": { "type": "string" },
+        "source": { "enum": ["explicit", "project-profile", "fallback"] },
+        "explicit": { "type": "boolean" }
+      }
+    },
+    "visualRegions": { "type": "array" },
+    "visibleComponents": { "type": "array" },
+    "hiddenSecondaryUi": { "type": "array" },
     "sections": { "type": "array" },
     "fields": { "type": "array" },
-    "actions": { "type": "array" },
+    "actions": { "type": "array", "description": "Backward-compatible alias of userActions." },
+    "userActions": { "type": "array" },
+    "lifecycleActions": { "type": "array" },
+    "systemActions": { "type": "array" },
+    "apiInteractions": { "type": "array" },
     "states": { "type": "array" },
     "navigation": { "type": "array" },
     "related": { "type": "object" },
-    "unknowns": { "type": "array" }
+    "unknowns": { "type": "array" },
+    "visualCompleteness": { "type": "object" }
   }
 }

@@ -1,7 +1,7 @@
 {
   "name": "production-project-docs-tools",
   "private": true,
-  "version": "5.11.0",
+  "version": "5.13.0",
   "type": "module",
   "engines": {
     "node": ">=20"
@@ -116,6 +116,7 @@
     "wireframe:resolve": "node scripts/wireframe-tool.mjs resolve",
     "wireframe:check": "node scripts/wireframe-tool.mjs check",
     "wireframe:status": "node scripts/wireframe-tool.mjs status",
-    "wireframe:close": "node scripts/wireframe-tool.mjs close"
+    "wireframe:close": "node scripts/wireframe-tool.mjs close",
+    "wireframe:promote": "node scripts/wireframe-tool.mjs promote"
   }
 }

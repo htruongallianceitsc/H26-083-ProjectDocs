@@ -6,7 +6,7 @@ You are reviewing an existing Documentation-First project through its Screens.
 
 ## Objective
 
-For each canonical `screen` document, build a semantic screen contract that can be rendered as text, ASCII and HTML wireframes. Use only information already present in canonical documentation and linked project context.
+For each canonical `screen` document, build a semantic screen contract that can be rendered as text, ASCII and a platform-aware low-fidelity HTML wireframe. Use only information already present in canonical documentation and linked project context.
 
 ## Rules
 
@@ -17,6 +17,14 @@ For each canonical `screen` document, build a semantic screen contract that can 
 5. Distinguish visual/UI state from business/process state.
 6. A wireframe is a projection for review, not a canonical document.
 7. Highlight contradictions and incomplete destinations as review gaps.
+
+## Visual review additions (v5.13)
+
+- Prefer an explicit `Visual Display Profile` with platform, representative viewport and primary visible state.
+- Prefer explicit `Visual Layout Regions` for major placement.
+- Prefer a typed `Visible Components` inventory so image/text/button/tab/input/card/list/table roles are visually distinguishable.
+- Keep modal/popover/hover-only UI under `Hidden / Secondary UI` instead of overlaying the default canvas.
+- If these visual sections are absent, safe placeholders may be derived from documented Sections/Fields/User Actions for review only; treat that as incomplete documentation, not canonical layout.
 
 ## Review checklist per Screen
 

@@ -1,0 +1,72 @@
+{
+  "schemaVersion": "1.0",
+  "proposalId": "WFG-REPLACE-WITH-ACCEPTED-GAP-ID",
+  "preset": "startup-bootstrap",
+  "status": "authored",
+  "requiresAuthoring": false,
+  "owner": "Product & Engineering",
+  "authoringQuestions": [
+    "Confirm the failure strategy before changing this example to implementation-ready."
+  ],
+  "suggestedEntityTypes": ["feature", "screen", "requirement", "flow", "api", "test-case"],
+  "entities": [
+    {
+      "type": "feature",
+      "code": "FEAT-APP-STARTUP",
+      "title": "App Startup & Configuration Bootstrap",
+      "related": {
+        "screens": ["SCR-APP-SPLASH"],
+        "requirements": ["REQ-APP-STARTUP-001"],
+        "flows": ["FLOW-APP-STARTUP"],
+        "apis": ["API-APP-GET-CONFIG"]
+      }
+    },
+    {
+      "type": "screen",
+      "code": "SCR-APP-SPLASH",
+      "title": "Splash / App Bootstrap",
+      "route": "startup",
+      "related": {
+        "features": ["FEAT-APP-STARTUP"],
+        "requirements": ["REQ-APP-STARTUP-001"],
+        "flows": ["FLOW-APP-STARTUP"],
+        "apis": ["API-APP-GET-CONFIG"]
+      }
+    },
+    {
+      "type": "requirement",
+      "code": "REQ-APP-STARTUP-001",
+      "title": "Load mandatory configuration during startup",
+      "related": {
+        "features": ["FEAT-APP-STARTUP"],
+        "screens": ["SCR-APP-SPLASH"],
+        "flows": ["FLOW-APP-STARTUP"],
+        "apis": ["API-APP-GET-CONFIG"]
+      }
+    },
+    {
+      "type": "flow",
+      "code": "FLOW-APP-STARTUP",
+      "title": "App Startup Flow",
+      "related": {
+        "features": ["FEAT-APP-STARTUP"],
+        "requirements": ["REQ-APP-STARTUP-001"],
+        "screens": ["SCR-APP-SPLASH"],
+        "apis": ["API-APP-GET-CONFIG"]
+      }
+    },
+    {
+      "type": "api",
+      "code": "API-APP-GET-CONFIG",
+      "title": "Get App Configuration",
+      "method": "GET",
+      "apiPath": "/config",
+      "related": {
+        "features": ["FEAT-APP-STARTUP"],
+        "requirements": ["REQ-APP-STARTUP-001"],
+        "screens": ["SCR-APP-SPLASH"],
+        "flows": ["FLOW-APP-STARTUP"]
+      }
+    }
+  ]
+}

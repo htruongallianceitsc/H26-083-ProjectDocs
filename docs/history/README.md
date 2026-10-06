@@ -31,3 +31,8 @@ Historical files may keep their original filenames so old citations and release 
 - `V5_5_UPGRADE_NOTES.md` - entity/relation hardening, source/Git intelligence, local knowledge runtime.
 - `V5_5_QA_REPORT.md` - regression and E2E evidence for the v5.5 runtime.
 
+
+## v5.13
+
+- `V5_13_UPGRADE_NOTES.md` — platform-aware visual wireframe layout/component enrichment.
+- `V5_13_QA_REPORT.md` — visual renderer and full regression evidence.

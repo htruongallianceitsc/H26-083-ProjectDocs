@@ -1,7 +1,7 @@
-# Production Project Documentation Starter Kit v5.11
+# Production Project Documentation Starter Kit v5.13
 
 
-Documentation-first starter kit for long-lived Web, Mobile and API projects. v5.11 adds an optional **Screen-First Wireframe Analysis** loop: canonical Screen documentation can be projected into semantic text contracts, quick ASCII previews and one combined interactive HTML wireframe for human review; review gaps then flow back into canonical Screen/Feature/Requirement/Rule/Flow docs without making generated wireframes a second source of truth.
+Documentation-first starter kit for long-lived Web, Mobile and API projects. v5.13 upgrades optional **Screen-First Wireframe Analysis** into a platform-aware visual placeholder workflow: Screen docs can describe viewport, layout regions, typed visible components and secondary UI so the generated HTML looks like a real low-fidelity wireframe while canonical documentation remains the source of truth.
 
 ## Core model
 
@@ -34,6 +34,54 @@ Docs Reconciliation <- Tests <- Source Changes
 Done Gate -> ChangeSet / Baseline
 ```
 
+
+## What v5.13 adds
+
+### 1. Platform-aware visual placeholder canvas
+
+Each Screen can declare `Visual Display Profile` with Web/Mobile platform, representative viewport, canvas mode and primary visible state. The HTML renderer preserves the target aspect ratio (for example 1440x900 web or 390x844 mobile) instead of rendering every Screen as the same generic box.
+
+### 2. Explicit visual layout regions
+
+`Visual Layout Regions` defines the visible hierarchy using semantic placement such as top/left/main/right/bottom and row/column/grid. This is enough to review header/sidebar/main/aside/mobile composition without turning the docs into production CSS.
+
+### 3. Typed component placeholders
+
+`Visible Components` supports low-fidelity roles such as logo, image/hero, heading/text, button/link, tabs, fields, card-grid, list, table, chart, stat and navigation. The generated wireframe therefore makes it visually obvious which block is which.
+
+### 4. One primary state on canvas; secondary UI outside
+
+The main canvas normally shows `Success / Data Ready` (or another explicitly selected state such as Splash `Loading`). Modal, popover, hover/focus UI, expanded dropdowns and confirmation dialogs are documented under `Hidden / Secondary UI` and shown beside the canvas rather than cluttering the default Screen.
+
+### 5. Visual completeness gaps
+
+Active Screen-first sessions now report inferred/missing viewport, display profile, layout regions, primary state and typed component inventory. Safe placeholders may be derived from existing Sections/Fields/User Actions for review, but the warnings remain until the canonical Screen is enriched.
+
+### 6. Visual enrichment workflow
+
+Use `kit/prompts/51-visual-wireframe-layout-enrichment.md`, `kit/templates/screen-visual-spec-template.md` and Workflow 24 to iterate: generate -> inspect -> record visual gap -> enrich Screen -> rebuild. The generated HTML never becomes a second source of truth.
+
+## What v5.12 adds
+
+### 1. Screen behaviour is no longer limited to buttons
+
+Screen contracts now separate **User Actions**, **Lifecycle Actions**, **System Actions** and **API Interactions**. Splash/bootstrap, auto-refresh, redirect and background-driven Screens can therefore describe real behaviour without inventing user controls.
+
+### 2. Startup / bootstrap flows are first-class Screen-first discoveries
+
+A Splash Screen can explicitly document `onEnter -> load config -> loading state -> success navigation / failure state`, while Feature, Requirement, Flow, API and Test remain separate canonical owners for their respective semantics.
+
+### 3. New governed gap kinds
+
+Screen-first review can now record missing Screen, lifecycle action, system action, API interaction, startup-flow and test gaps in addition to existing field/action/state/navigation gaps.
+
+### 4. Gap promotion is authoring-gated
+
+`wireframe:promote` can turn an **accepted** gap into a draft multi-entity promotion plan. Presets such as `startup-bootstrap` suggest the likely entity types and questions, but the plan remains `requiresAuthoring=true` until exact codes, relations and content are reviewed.
+
+### 5. Explicit multi-entity materialization
+
+After a promotion plan is authored, `wireframe:promote --apply` can create new Feature/Requirement/Rule/Screen/Flow/API/Test docs together. Existing entity codes are protected from overwrite by default.
 
 ## What v5.11 adds
 

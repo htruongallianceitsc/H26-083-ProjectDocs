@@ -105,6 +105,9 @@ function check() {
   if (wireframes.mode?.activeByDefault !== false) errors.push('wireframe-workflow: must be inactive by default');
   if (wireframes.review?.autoPatchCanonicalDocs !== false) errors.push('wireframe-workflow: canonical docs must not auto-patch from review output');
   if (wireframes.mode?.sourceOfTruth !== 'canonical-docs') errors.push('wireframe-workflow: sourceOfTruth must remain canonical-docs');
+  if (wireframes.visual?.renderMode !== 'low-fidelity-placeholder') errors.push('wireframe-workflow: visual.renderMode must remain low-fidelity-placeholder');
+  if (wireframes.visual?.secondaryUiOutsideCanvas !== true) errors.push('wireframe-workflow: secondary UI must render outside the primary canvas');
+  if (!wireframes.visual?.platformProfiles?.['web-desktop'] || !wireframes.visual?.platformProfiles?.mobile) errors.push('wireframe-workflow: web-desktop and mobile platform profiles are required');
   for (const f of legacy) if (fs.existsSync(workspaceAbs('registry', f))) errors.push(`Legacy hand-maintained registry mirror still exists: ${workspaceRel('registry', f)}`);
   for (const r of relations) {
     if (r.from !== '*' && !types[r.from]) errors.push(`relation-map: unknown from type ${r.from}`);
@@ -172,7 +175,7 @@ function check() {
   if (!fs.existsSync(statusPath)) errors.push(`Missing generated mirror ${workspaceRel('registry','_generated','status-lifecycle.yaml')}; run npm run registry:sync`);
   else if (fs.readFileSync(statusPath,'utf8') !== statusLifecycleText()) errors.push(`Generated mirror drift: ${workspaceRel('registry','_generated','status-lifecycle.yaml')}`);
   const starter = loadJson('starter-kit.json',{});
-  if (starter.version !== '5.11.0' || starter.schemaVersion !== '5.11.0') errors.push(`starter-kit.json expected version/schemaVersion 5.11.0, got ${starter.version}/${starter.schemaVersion}`);
+  if (starter.version !== '5.13.0' || starter.schemaVersion !== '5.13.0') errors.push(`starter-kit.json expected version/schemaVersion 5.13.0, got ${starter.version}/${starter.schemaVersion}`);
   const layout = starter.documentationLayout || {};
   if (!layout.historyDirectory) errors.push('starter-kit.json documentationLayout.historyDirectory is required');
   else if (!fs.existsSync(path.join(ROOT, layout.historyDirectory))) errors.push(`Configured history directory does not exist: ${layout.historyDirectory}`);
