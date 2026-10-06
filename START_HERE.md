@@ -1,4 +1,4 @@
-# START HERE - v5.10
+# START HERE - v5.11
 
 ## 0. Understand the workspace layout
 
@@ -75,6 +75,40 @@ npm run mockup:check
 ```
 
 Mockups may seed visible Screen structure/state only. Do not infer API, DB, hidden business rules or permissions from pixels; keep them as `TBD` / Open Questions until confirmed.
+
+## 1C. Want to inspect the project Screen-first? Start an optional wireframe review
+
+Use this only when you want to focus on UI completeness before continuing detailed functional/technical authoring.
+
+```bash
+cd tools
+npm run wireframe:start -- --scope all
+npm run wireframe:build
+```
+
+Or scope the review:
+
+```bash
+npm run wireframe:start -- --feature FEAT-AUTH-LOGIN
+npm run wireframe:start -- --screens SCR-AUTH-LOGIN,SCR-AUTH-FORGOT-PASSWORD
+```
+
+Open `docs/_generated/SCREEN_WIREFRAMES.html`. It combines all selected Screens and exposes documented sections, fields, actions, states and navigation. Record anything missing as a governed proposal:
+
+```bash
+npm run wireframe:gap -- --screen SCR-AUTH-LOGIN --kind missing-action --severity high --summary "Forgot Password action is missing"
+```
+
+Update the proper canonical Screen/Feature/Requirement/Rule/Flow document, resolve the gap, rebuild and close the session:
+
+```bash
+npm run wireframe:resolve -- --proposal WFG-... --status resolved --reviewer "Reviewer"
+npm run wireframe:build
+npm run wireframe:check
+npm run wireframe:close -- --reviewer "Reviewer"
+```
+
+The HTML/ASCII files are projections only. Never use generated wireframes as a second source of truth.
 
 ## 2. Establish application boundaries
 

@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "1.0",
+  "active": false,
+  "startedAt": null,
+  "closedAt": null,
+  "scope": {
+    "type": "all",
+    "refs": []
+  },
+  "formats": ["text", "ascii", "html"]
+}

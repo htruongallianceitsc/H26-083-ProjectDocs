@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pm.local/schemas/wireframe-spec.schema.json",
+  "title": "Derived Screen Wireframe Spec",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["schemaVersion", "screenCode", "sourceDocument", "sourceHash", "title", "fields", "actions", "states", "navigation"],
+  "properties": {
+    "schemaVersion": { "const": "1.0" },
+    "screenCode": { "type": "string", "minLength": 1 },
+    "sourceDocument": { "type": "string", "minLength": 1 },
+    "sourceHash": { "type": "string", "minLength": 1 },
+    "title": { "type": "string", "minLength": 1 },
+    "route": { "type": ["string", "null"] },
+    "purpose": { "type": "string" },
+    "sections": { "type": "array" },
+    "fields": { "type": "array" },
+    "actions": { "type": "array" },
+    "states": { "type": "array" },
+    "navigation": { "type": "array" },
+    "related": { "type": "object" },
+    "unknowns": { "type": "array" }
+  }
+}

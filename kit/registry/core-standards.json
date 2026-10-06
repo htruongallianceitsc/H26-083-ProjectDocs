@@ -27,6 +27,7 @@
     "kit/standards/brownfield-adoption.md",
     "kit/standards/acceptance-and-verification-traceability.md",
     "kit/standards/blueprint-projection-and-progressive-documentation.md",
-    "kit/standards/mockup-driven-documentation.md"
+    "kit/standards/mockup-driven-documentation.md",
+    "kit/standards/screen-first-wireframe-analysis.md"
   ]
 }

@@ -42,6 +42,9 @@ related:
 
 ## Layout / Sections
 
+| Order | Region / Section | Component / Content | Visibility / State | Notes |
+|---:|---|---|---|---|
+
 ## Fields
 
 | Field | Type | Required | Validation | Notes |
@@ -49,17 +52,26 @@ related:
 
 ## Actions
 
+| Action | Control | Behaviour | Destination | Condition | Related Requirement |
+|---|---|---|---|---|---|
+
 ## Data Sources
 
 ## UI States
-- Initial
-- Loading
-- Success
-- Empty
-- Error
-- No Permission
+
+| State | Trigger | Visible Difference | Allowed Actions |
+|---|---|---|---|
+| Initial | | | |
+| Loading | | | |
+| Success | | | |
+| Empty | | | |
+| Error | | | |
+| No Permission | | | |
 
 ## Navigation Rules
+
+| Trigger | Destination | Condition | Back Behaviour |
+|---|---|---|---|
 
 ## Validation & Messages
 

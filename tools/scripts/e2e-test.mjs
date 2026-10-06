@@ -335,7 +335,7 @@ ${doctorStale}`);
   const negative=run('docs-tool.mjs','validate',[],false);
   if(!negative.includes('BROKEN_RELATION')) throw new Error(`Negative fixture failed for wrong reason:\n${negative}`);
 
-  console.log('E2E regression: PASS (v5.10 Mockup workflow compatibility + v5.9 Blueprint compatibility + v5.8 acceptance/verification traceability + v5.7 brownfield adoption/reconciliation + v5.6 workspace layout + v5.5 entity identity/lifecycle + semantic relations + Source Base + source intelligence/Git impact + search/query/context/doctor + Progressive Specs + governance + freshness + ChangeSets/Baselines + broken relation path).');
+  console.log('E2E regression: PASS (v5.11 Screen-first wireframe compatibility + v5.10 Mockup workflow compatibility + v5.9 Blueprint compatibility + v5.8 acceptance/verification traceability + v5.7 brownfield adoption/reconciliation + v5.6 workspace layout + v5.5 entity identity/lifecycle + semantic relations + Source Base + source intelligence/Git impact + search/query/context/doctor + Progressive Specs + governance + freshness + ChangeSets/Baselines + broken relation path).');
 } finally {
   fs.rmSync(tempRoot,{recursive:true,force:true});
 }

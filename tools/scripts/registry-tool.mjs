@@ -19,7 +19,8 @@ const sources = [
   ['views.json', 'views.yaml'],
   ['brownfield.json', 'brownfield.yaml'],
   ['blueprint-profiles.json', 'blueprint-profiles.yaml'],
-  ['mockup-workflow.json', 'mockup-workflow.yaml']
+  ['mockup-workflow.json', 'mockup-workflow.yaml'],
+  ['wireframe-workflow.json', 'wireframe-workflow.yaml']
 ];
 
 function quote(value) {
@@ -83,6 +84,7 @@ function check() {
   const brownfield = loadJson('registry/brownfield.json', {});
   const blueprint = loadJson('registry/blueprint-profiles.json', {});
   const mockups = loadJson('registry/mockup-workflow.json', {});
+  const wireframes = loadJson('registry/wireframe-workflow.json', {});
   const legacy = ['entity-types.yaml','relation-map.yaml','quality-rules.yaml','status-lifecycle.yaml'];
   for (const id of Object.keys(brownfield.adapters || {})) if (!sourceProfiles.profiles?.[id]) errors.push(`brownfield: adapter references unknown source profile ${id}`);
   if (brownfield.candidatePolicy?.autoPromote !== false) errors.push('brownfield: candidatePolicy.autoPromote must default to false');
@@ -97,6 +99,12 @@ function check() {
   if (mockups.promotion?.requireReview !== true) errors.push('mockup-workflow: promotion.requireReview must be true');
   if (mockups.promotion?.autoUpdateExistingScreens !== false) errors.push('mockup-workflow: existing screens must not auto-update by default');
   if (mockups.analysis?.requireVisionAnalysisBeforePromotion !== true) errors.push('mockup-workflow: vision analysis must be required before promotion by default');
+  if (!wireframes.runtimeDirectory) errors.push('wireframe-workflow: runtimeDirectory is required');
+  if (!wireframes.generatedDirectory) errors.push('wireframe-workflow: generatedDirectory is required');
+  if (wireframes.mode?.optional !== true) errors.push('wireframe-workflow: mode.optional must be true');
+  if (wireframes.mode?.activeByDefault !== false) errors.push('wireframe-workflow: must be inactive by default');
+  if (wireframes.review?.autoPatchCanonicalDocs !== false) errors.push('wireframe-workflow: canonical docs must not auto-patch from review output');
+  if (wireframes.mode?.sourceOfTruth !== 'canonical-docs') errors.push('wireframe-workflow: sourceOfTruth must remain canonical-docs');
   for (const f of legacy) if (fs.existsSync(workspaceAbs('registry', f))) errors.push(`Legacy hand-maintained registry mirror still exists: ${workspaceRel('registry', f)}`);
   for (const r of relations) {
     if (r.from !== '*' && !types[r.from]) errors.push(`relation-map: unknown from type ${r.from}`);
@@ -164,7 +172,7 @@ function check() {
   if (!fs.existsSync(statusPath)) errors.push(`Missing generated mirror ${workspaceRel('registry','_generated','status-lifecycle.yaml')}; run npm run registry:sync`);
   else if (fs.readFileSync(statusPath,'utf8') !== statusLifecycleText()) errors.push(`Generated mirror drift: ${workspaceRel('registry','_generated','status-lifecycle.yaml')}`);
   const starter = loadJson('starter-kit.json',{});
-  if (starter.version !== '5.10.0' || starter.schemaVersion !== '5.10.0') errors.push(`starter-kit.json expected version/schemaVersion 5.10.0, got ${starter.version}/${starter.schemaVersion}`);
+  if (starter.version !== '5.11.0' || starter.schemaVersion !== '5.11.0') errors.push(`starter-kit.json expected version/schemaVersion 5.11.0, got ${starter.version}/${starter.schemaVersion}`);
   const layout = starter.documentationLayout || {};
   if (!layout.historyDirectory) errors.push('starter-kit.json documentationLayout.historyDirectory is required');
   else if (!fs.existsSync(path.join(ROOT, layout.historyDirectory))) errors.push(`Configured history directory does not exist: ${layout.historyDirectory}`);

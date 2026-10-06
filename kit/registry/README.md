@@ -1,4 +1,4 @@
-# Registry Governance — v5.9
+# Registry Governance — v5.11
 
 `kit/registry/*.json` is the canonical machine-readable policy source.
 
@@ -67,3 +67,12 @@ The physical repository layout is configured in root `starter-kit.json.workspace
 - `blueprint-profiles.json` defines detail profiles, audience filters, seed sections, managed block markers and progressive ownership policy.
 - Blueprint runtime state/candidates/renders live under `.project-docs/blueprint/`; they do not replace canonical typed entities.
 - Promotion requires review by default; generated Blueprint content is non-editable/rebuildable.
+
+
+## Mockup and Screen-first review registry
+
+- `mockup-workflow.json` governs image evidence ingestion, review-gated Screen promotion and visual drift detection.
+- `wireframe-workflow.json` governs the optional Screen-first review mode, projection formats, proposal lifecycle and blocking behavior.
+- `wireframe-spec.schema.json` describes the generated semantic Screen projection that feeds both ASCII and HTML renderers.
+
+`wireframe-workflow.json` intentionally keeps `activeByDefault=false` and `autoPatchCanonicalDocs=false`: generated review artifacts must never become a second source of truth.

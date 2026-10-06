@@ -20,6 +20,7 @@
 - progressive-specification
 - repository-entry-hygiene
 - mockup-driven-documentation
+- screen-first-wireframe-analysis
 
 ## Project Type
 ### Web

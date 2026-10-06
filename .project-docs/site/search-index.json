@@ -5,12 +5,12 @@
     "text": "PROJECT_BLUEPRINT.md"
   },
   {
-    "title": "Production Project Documentation Starter Kit v5.10",
+    "title": "Production Project Documentation Starter Kit v5.11",
     "path": "pages/readme.html",
     "text": "README.md"
   },
   {
-    "title": "START HERE - v5.10",
+    "title": "START HERE - v5.11",
     "path": "pages/start-here.html",
     "text": "START_HERE.md"
   },
@@ -298,6 +298,16 @@
     "title": "v5.10 Upgrade Notes — Mockup-Driven Documentation",
     "path": "pages/docs-history-v5-10-upgrade-notes.html",
     "text": "docs/history/V5_10_UPGRADE_NOTES.md"
+  },
+  {
+    "title": "v5.11 QA Report",
+    "path": "pages/docs-history-v5-11-qa-report.html",
+    "text": "docs/history/V5_11_QA_REPORT.md"
+  },
+  {
+    "title": "v5.11 Upgrade Notes — Screen-First Wireframe Analysis",
+    "path": "pages/docs-history-v5-11-upgrade-notes.html",
+    "text": "docs/history/V5_11_UPGRADE_NOTES.md"
   },
   {
     "title": "v5.1 QA Report",
@@ -650,7 +660,17 @@
     "text": "kit/prompts/47-mockup-functional-coverage.md"
   },
   {
-    "title": "Registry Governance — v5.9",
+    "title": "Prompt 48 — Documentation → Screen Wireframes",
+    "path": "pages/kit-prompts-48-documentation-to-screen-wireframes.html",
+    "text": "kit/prompts/48-documentation-to-screen-wireframes.md"
+  },
+  {
+    "title": "Prompt 49 — Wireframe Review → Documentation Gaps",
+    "path": "pages/kit-prompts-49-wireframe-review-to-documentation.html",
+    "text": "kit/prompts/49-wireframe-review-to-documentation.md"
+  },
+  {
+    "title": "Registry Governance — v5.11",
     "path": "pages/kit-registry-readme.html",
     "text": "kit/registry/README.md"
   },
@@ -675,7 +695,7 @@
     "text": "kit/standards/ADDING_A_STACK.md"
   },
   {
-    "title": "Standards Architecture v5.10",
+    "title": "Standards Architecture v5.11",
     "path": "pages/kit-standards-readme.html",
     "text": "kit/standards/README.md"
   },
@@ -690,7 +710,7 @@
     "text": "kit/standards/acceptance-and-verification-traceability.md"
   },
   {
-    "title": "AI Agent Rules — v5.10",
+    "title": "AI Agent Rules — v5.11",
     "path": "pages/kit-standards-ai-agent-rules.html",
     "text": "kit/standards/ai-agent-rules.md"
   },
@@ -960,7 +980,7 @@
     "text": "kit/standards/project-types/web/web-ui-ux.md"
   },
   {
-    "title": "Repository Entry & History Hygiene Standard — v5.10",
+    "title": "Repository Entry & History Hygiene Standard — v5.11",
     "path": "pages/kit-standards-repository-entry-hygiene.html",
     "text": "kit/standards/repository-entry-hygiene.md"
   },
@@ -983,6 +1003,11 @@
     "title": "Reuse Strategy",
     "path": "pages/kit-standards-reuse-reuse-strategy.html",
     "text": "kit/standards/reuse/reuse-strategy.md"
+  },
+  {
+    "title": "Screen-First Wireframe Analysis Standard — v5.11",
+    "path": "pages/kit-standards-screen-first-wireframe-analysis.html",
+    "text": "kit/standards/screen-first-wireframe-analysis.md"
   },
   {
     "title": "Security & Secrets Documentation Rules",
@@ -1455,6 +1480,11 @@
     "text": "kit/templates/screen-template.md"
   },
   {
+    "title": "Screen Wireframe Contract",
+    "path": "pages/kit-templates-screen-wireframe-contract-template.html",
+    "text": "kit/templates/screen-wireframe-contract-template.md"
+  },
+  {
     "title": "Task title",
     "path": "pages/kit-templates-task-template.html",
     "text": "kit/templates/task-template.md"
@@ -1575,12 +1605,17 @@
     "text": "kit/workflows/21-mockup-to-documentation.md"
   },
   {
+    "title": "Workflow 22 — Screen-First Wireframe Analysis",
+    "path": "pages/kit-workflows-22-screen-first-wireframe-analysis.html",
+    "text": "kit/workflows/22-screen-first-wireframe-analysis.md"
+  },
+  {
     "title": "End-to-End Documentation Checklist",
     "path": "pages/kit-workflows-end-to-end-checklist.html",
     "text": "kit/workflows/END_TO_END_CHECKLIST.md"
   },
   {
-    "title": "Documentation Toolchain v5.10",
+    "title": "Documentation Toolchain v5.11",
     "path": "pages/tools-readme.html",
     "text": "tools/README.md"
   },

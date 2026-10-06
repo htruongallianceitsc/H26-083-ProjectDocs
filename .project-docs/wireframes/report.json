@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-10-06T02:17:49.202Z",
+  "active": false,
+  "scope": {
+    "type": "all",
+    "refs": []
+  },
+  "summary": {
+    "screens": 0,
+    "projected": 0,
+    "proposals": 0,
+    "open": 0,
+    "accepted": 0,
+    "resolved": 0,
+    "findings": 0,
+    "blocking": 0
+  },
+  "findings": [],
+  "screens": [],
+  "proposals": [],
+  "pass": true,
+  "skipped": true
+}

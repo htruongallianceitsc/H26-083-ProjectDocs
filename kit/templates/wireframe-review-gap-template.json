@@ -1,0 +1,10 @@
+{
+  "screenCode": "SCR-...",
+  "kind": "missing-action",
+  "severity": "warning",
+  "summary": "Describe what is missing or unclear on the screen.",
+  "expected": "Describe the expected screen contract.",
+  "evidence": "Reviewer observation from generated wireframe.",
+  "suggestedCanonicalTargets": ["screen", "feature", "requirement", "flow"],
+  "status": "open"
+}

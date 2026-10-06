@@ -1,0 +1,66 @@
+# GENERATED FILE - DO NOT EDIT
+# Source: kit/registry/wireframe-workflow.json
+schemaVersion: 1.0
+runtimeDirectory: .project-docs/wireframes
+generatedDirectory: docs/_generated/wireframes
+combinedHtml: docs/_generated/SCREEN_WIREFRAMES.html
+mode:
+  optional: true
+  activeByDefault: false
+  sourceOfTruth: canonical-docs
+  purpose: screen-first-analysis
+formats:
+  default:
+    - text
+    - ascii
+    - html
+  recommendedReviewFormat: html
+  recommendedMachineReviewFormat: text
+  asciiRole: quick-terminal-preview
+scope:
+  default: all-screens
+  allowFeature: true
+  allowModule: true
+  allowExplicitScreens: true
+projection:
+  screenType: screen
+  requiredSections:
+    - Purpose
+    - Route
+    - "Layout / Sections"
+    - Fields
+    - Actions
+    - "UI States"
+    - "Navigation Rules"
+  unknownValue: TBD
+  preserveUnknowns: true
+  inferHiddenBusinessLogic: false
+  inferApiOrDatabase: false
+review:
+  requireCanonicalUpdateForAcceptedGap: true
+  autoPatchCanonicalDocs: false
+  proposalDirectory: .project-docs/wireframes/proposals
+  allowedGapKinds:
+    - missing-section
+    - missing-field
+    - missing-action
+    - missing-state
+    - navigation-gap
+    - feature-gap
+    - requirement-gap
+    - business-rule-gap
+    - validation-gap
+    - content-gap
+    - accessibility-gap
+    - other
+validation:
+  checkOnlyWhenSessionActive: true
+  staleProjectionSeverity: high
+  acceptedGapUnresolvedSeverity: high
+  openGapSeverity: warning
+  missingRouteSeverity: warning
+  screenWithoutActionsSeverity: warning
+  screenWithoutNavigationSeverity: warning
+  blockSeverities:
+    - high
+    - error

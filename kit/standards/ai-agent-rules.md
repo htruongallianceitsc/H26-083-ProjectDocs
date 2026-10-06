@@ -1,4 +1,4 @@
-# AI Agent Rules — v5.10
+# AI Agent Rules — v5.11
 
 1. Documentation first; do not produce implementation code unless implementation is explicitly requested and allowed.
 2. Resolve documentation depth before expanding a Feature. Do not assume Full detail is always better.
@@ -31,3 +31,8 @@
 29. Existing approved/implemented Screen docs must not be auto-overwritten from mockup analysis; create a reviewable enrichment proposal first.
 30. Treat changed mockup hashes as reconciliation triggers, not automatic truth replacement.
 
+
+31. Treat Screen-first wireframes as generated projections of canonical documentation, never as a second source of truth.
+32. Prefer one semantic Screen contract that can render to text/ASCII/HTML instead of independently maintaining three formats.
+33. Preserve `TBD` when Screen actions, destinations, states or validation are not documented; do not invent UI behaviour to make a wireframe look complete.
+34. When wireframe review reveals a gap, route the accepted change to its canonical owner (Screen, Feature, Requirement, Business Rule or Flow) before rebuilding the projection.

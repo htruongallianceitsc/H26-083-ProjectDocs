@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-06T01:24:32.688Z",
+  "generatedAt": "2026-10-06T02:18:22.501Z",
   "documents": [
     {
       "path": "PROJECT_BLUEPRINT.md",
@@ -12,7 +12,7 @@
     },
     {
       "path": "README.md",
-      "title": "Production Project Documentation Starter Kit v5.10",
+      "title": "Production Project Documentation Starter Kit v5.11",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -21,7 +21,7 @@
     },
     {
       "path": "START_HERE.md",
-      "title": "START HERE - v5.10",
+      "title": "START HERE - v5.11",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -535,6 +535,24 @@
     {
       "path": "docs/history/V5_10_UPGRADE_NOTES.md",
       "title": "v5.10 Upgrade Notes — Mockup-Driven Documentation",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/history/V5_11_QA_REPORT.md",
+      "title": "v5.11 QA Report",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/history/V5_11_UPGRADE_NOTES.md",
+      "title": "v5.11 Upgrade Notes — Screen-First Wireframe Analysis",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -1172,8 +1190,26 @@
       "status": null
     },
     {
+      "path": "kit/prompts/48-documentation-to-screen-wireframes.md",
+      "title": "Prompt 48 — Documentation → Screen Wireframes",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/prompts/49-wireframe-review-to-documentation.md",
+      "title": "Prompt 49 — Wireframe Review → Documentation Gaps",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
       "path": "kit/registry/README.md",
-      "title": "Registry Governance — v5.9",
+      "title": "Registry Governance — v5.11",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -1218,7 +1254,7 @@
     },
     {
       "path": "kit/standards/README.md",
-      "title": "Standards Architecture v5.10",
+      "title": "Standards Architecture v5.11",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -1245,7 +1281,7 @@
     },
     {
       "path": "kit/standards/ai-agent-rules.md",
-      "title": "AI Agent Rules — v5.10",
+      "title": "AI Agent Rules — v5.11",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -1731,7 +1767,7 @@
     },
     {
       "path": "kit/standards/repository-entry-hygiene.md",
-      "title": "Repository Entry & History Hygiene Standard — v5.10",
+      "title": "Repository Entry & History Hygiene Standard — v5.11",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -1768,6 +1804,15 @@
     {
       "path": "kit/standards/reuse/reuse-strategy.md",
       "title": "Reuse Strategy",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/screen-first-wireframe-analysis.md",
+      "title": "Screen-First Wireframe Analysis Standard — v5.11",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -2621,6 +2666,15 @@
       "status": "draft"
     },
     {
+      "path": "kit/templates/screen-wireframe-contract-template.md",
+      "title": "Screen Wireframe Contract",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
       "path": "kit/templates/task-template.md",
       "title": "Task title",
       "uid": "<GENERATE-UUID>",
@@ -2837,6 +2891,15 @@
       "status": null
     },
     {
+      "path": "kit/workflows/22-screen-first-wireframe-analysis.md",
+      "title": "Workflow 22 — Screen-First Wireframe Analysis",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
       "path": "kit/workflows/END_TO_END_CHECKLIST.md",
       "title": "End-to-End Documentation Checklist",
       "uid": null,
@@ -2847,7 +2910,7 @@
     },
     {
       "path": "tools/README.md",
-      "title": "Documentation Toolchain v5.10",
+      "title": "Documentation Toolchain v5.11",
       "uid": null,
       "code": null,
       "revision": 0,

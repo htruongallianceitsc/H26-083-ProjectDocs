@@ -1,4 +1,4 @@
-# Project Documentation Governance & Runtime State — v5.10
+# Project Documentation Governance & Runtime State — v5.11
 
 This folder stores governance/operational/generated state, not product truth.
 
@@ -25,6 +25,15 @@ Do not manually edit hashes to bypass stale detection. Keep product/domain behav
 - `mockups/report.json`: generated mapping/drift findings.
 
 These are governance/evidence records. Canonical behaviour remains in `docs/`.
+
+## Screen-first wireframe review state (v5.11)
+
+- `wireframes/session.json`: optional review-session scope and active/closed status.
+- `wireframes/specs/`: generated semantic Screen projections with source hashes.
+- `wireframes/proposals/`: reviewer gaps that must flow back to canonical docs when accepted.
+- `wireframes/report.json`: stale projection / unresolved-gap findings.
+
+Wireframe state is derived/review governance. `docs/_generated/SCREEN_WIREFRAMES.html` and ASCII/text files may be rebuilt at any time.
 
 
 ## v5.2 Progressive Specification

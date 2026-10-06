@@ -1,7 +1,7 @@
-# Production Project Documentation Starter Kit v5.10
+# Production Project Documentation Starter Kit v5.11
 
 
-Documentation-first starter kit for long-lived Web, Mobile and API projects. v5.10 adds **Mockup-Driven Documentation**: a governed path from a `mockups/` image folder to vision analysis, reviewed Screen candidates, canonical Screen documents, mockup traceability and drift detection — without treating pixels as proof of API/DB/business behaviour.
+Documentation-first starter kit for long-lived Web, Mobile and API projects. v5.11 adds an optional **Screen-First Wireframe Analysis** loop: canonical Screen documentation can be projected into semantic text contracts, quick ASCII previews and one combined interactive HTML wireframe for human review; review gaps then flow back into canonical Screen/Feature/Requirement/Rule/Flow docs without making generated wireframes a second source of truth.
 
 ## Core model
 
@@ -34,6 +34,28 @@ Docs Reconciliation <- Tests <- Source Changes
 Done Gate -> ChangeSet / Baseline
 ```
 
+
+## What v5.11 adds
+
+### 1. Optional Screen-First Analysis Mode
+
+When a team wants to reason from Screens first, start a focused wireframe review session without changing the normal Documentation-First lifecycle. Scope may be all Screens, one Feature, one Module or an explicit Screen list.
+
+### 2. One semantic projection, three review formats
+
+Canonical Screen docs are projected into a structured Screen contract. The same contract renders to text, ASCII and HTML, avoiding three competing truths. Text is optimized for AI/Git review, HTML for humans, ASCII for quick terminal/chat inspection.
+
+### 3. Combined standalone HTML wireframe
+
+`docs/_generated/SCREEN_WIREFRAMES.html` gathers all Screens in scope into one searchable file with route, Feature/Requirement context, fields, actions, states, navigation and visible `TBD` markers. Known Screen-code destinations become clickable anchors for lightweight flow walkthroughs.
+
+### 4. Review gaps flow back to canonical docs
+
+`wireframe:gap` records missing actions, fields, states, navigation, Feature/Requirement ownership and other issues as governed proposals. Accepted gaps must be resolved in canonical documentation; generated HTML is never edited as business truth.
+
+### 5. Stale projection and session gate
+
+While a Screen-first session is active, changed Screen docs make projections stale and accepted unresolved gaps can block session closure. When the mode is inactive, normal project QA is unaffected.
 
 ## What v5.10 adds
 

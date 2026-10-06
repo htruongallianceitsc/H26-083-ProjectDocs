@@ -66,6 +66,7 @@
 
 ## H. Tooling & Visual Review
 - [ ] Nếu `mockups/` có asset: `npm run mockup:check` pass
+- [ ] Nếu đang mở Screen-first review session: `npm run wireframe:check` pass và accepted gaps đã được reconcile vào canonical docs
 - [ ] Mockup Traceability report reviewed
 - [ ] `cd tools && npm run docs:validate` pass
 - [ ] `npm run docs:sync` pass

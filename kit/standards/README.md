@@ -1,4 +1,4 @@
-# Standards Architecture v5.10
+# Standards Architecture v5.11
 
 Standards resolve in this order:
 
@@ -30,6 +30,14 @@ These standards govern permanent entity identity, semantic graph behavior, sourc
 - `starter-kit.json.workspaceLayout` defines canonical workspace paths.
 - `.project-docs/site/` is the generated static-site location.
 - Root hygiene now distinguishes project truth, source truth, kit assets, tooling, and runtime state.
+
+## v5.11 additions
+
+- `screen-first-wireframe-analysis.md`
+- Screen-first analysis is optional rather than a mandatory stage.
+- Text-based Screen contracts are the semantic projection layer.
+- ASCII and combined HTML are generated views over the same contract.
+- Accepted review gaps must update canonical Screen/Feature/Requirement/Rule/Flow docs; generated wireframes never become source of truth.
 
 ## v5.10 additions
 
