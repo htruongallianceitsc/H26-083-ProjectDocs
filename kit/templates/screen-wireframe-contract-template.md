@@ -1,6 +1,6 @@
 # Screen Visual Wireframe Contract
 
-This file describes the derived semantic model rendered by v5.13. The canonical Screen document remains the source of truth. The HTML renderer is intentionally low-fidelity: it shows layout, component roles and hierarchy as placeholders rather than final design.
+This file describes the derived semantic model rendered by v5.14. The canonical Screen document remains the source of truth. The HTML renderer is intentionally low-fidelity: it shows layout, component roles and hierarchy as placeholders rather than final design.
 
 ## Identity
 
@@ -9,6 +9,13 @@ This file describes the derived semantic model rendered by v5.13. The canonical 
 - Purpose: ...
 - Related Feature(s): ...
 - Related Requirement(s): ...
+
+## Shared UI Composition
+
+- Screen Shell: `<UI-SHELL-... | none>`
+- Shared component instances: `<instance -> UI-CMP-...>`
+- Overrides: `<instance.slot=value>`
+- Provenance: `screen-local | screen-shell | shared-component`
 
 ## Visual Display Profile
 

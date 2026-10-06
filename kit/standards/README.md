@@ -53,3 +53,9 @@ These standards govern permanent entity identity, semantic graph behavior, sourc
 - Vision analysis is review-gated before Screen promotion.
 - Existing Screen docs are proposal-first rather than automatically overwritten.
 - Mockup traceability/drift becomes part of QA when images exist.
+
+## v5.14 additions
+
+- `shared-ui-composition.md` defines `ui-component`, `screen-shell`, slot overrides and Screen/shared behaviour ownership.
+- Shared Component → Shell → Screen relations are impact-traceable.
+- Wireframe schema 1.3 records composition provenance and shared dependency hashes.

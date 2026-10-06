@@ -770,6 +770,48 @@
       "required": false,
       "allowUnresolved": false,
       "fallback": false
+    },
+    {
+      "from": "screen",
+      "field": "screen_shells",
+      "to": "screen-shell",
+      "cardinality": "many-to-one",
+      "key": "screen.screen_shells.screen-shell",
+      "relation": "uses_screen_shell",
+      "reverse": "used_by_screen",
+      "min": 0,
+      "max": 1,
+      "required": false,
+      "allowUnresolved": false,
+      "fallback": false
+    },
+    {
+      "from": "screen",
+      "field": "ui_components",
+      "to": "ui-component",
+      "cardinality": "many-to-many",
+      "key": "screen.ui_components.ui-component",
+      "relation": "uses_ui_component",
+      "reverse": "used_by_screen",
+      "min": 0,
+      "max": null,
+      "required": false,
+      "allowUnresolved": false,
+      "fallback": false
+    },
+    {
+      "from": "screen-shell",
+      "field": "ui_components",
+      "to": "ui-component",
+      "cardinality": "many-to-many",
+      "key": "screen-shell.ui_components.ui-component",
+      "relation": "composes_ui_component",
+      "reverse": "used_by_screen_shell",
+      "min": 0,
+      "max": null,
+      "required": false,
+      "allowUnresolved": false,
+      "fallback": false
     }
   ]
 }

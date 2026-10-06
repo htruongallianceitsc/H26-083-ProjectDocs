@@ -1,4 +1,4 @@
-# Registry Governance — v5.12
+# Registry Governance — v5.14
 
 `kit/registry/*.json` is the canonical machine-readable policy source.
 
@@ -82,3 +82,10 @@ The physical repository layout is configured in root `starter-kit.json.workspace
 - `wireframe-workflow.json` v1.2 adds platform-aware low-fidelity visual rendering, representative viewport profiles, typed component placeholders, primary-state canvas rules and visual-completeness gap kinds while retaining v1.1 lifecycle/promotion governance.
 - `wireframe-promotion.schema.json` defines the authored multi-entity promotion plan contract.
 
+
+## v5.14 Shared UI registry
+
+- `entity-types.json` adds `ui-component` and `screen-shell`.
+- `relation-map.json` adds Screen → Shell, Screen → direct UI Component, and Shell → UI Component relations.
+- `impact-rules.json` traverses `screen_shells` and `ui_components` so shared UI changes can reach consuming Screens.
+- `wireframe-spec.schema.json` v1.3 adds composition, effective visual regions/components, provenance and shared source dependencies.

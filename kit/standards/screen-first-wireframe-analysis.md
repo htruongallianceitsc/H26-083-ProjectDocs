@@ -1,10 +1,10 @@
-# Screen-First Wireframe Analysis Standard — v5.13
+# Screen-First Wireframe Analysis Standard — v5.14
 
 ## Purpose
 
 Provide an **optional analysis mode** when a team wants to reason from Screens first, discover gaps, and then push reviewed findings back into canonical documentation. Wireframes remain derived projections, never a second source of truth.
 
-v5.13 keeps the v5.12 lifecycle/system behaviour model and adds a visual placeholder layer so a reviewer can understand the target Web/Mobile viewport, layout hierarchy and visible component roles without turning the generated wireframe into final design.
+v5.14 keeps the v5.13 visual placeholder model and adds Shared UI Composition while preserving the v5.12 lifecycle/system behaviour model. The visual layer so a reviewer can understand the target Web/Mobile viewport, layout hierarchy and visible component roles without turning the generated wireframe into final design.
 
 ## Core loop
 
@@ -164,3 +164,7 @@ inactive
 ```
 
 Normal project QA does not require Screen-first mode. While a session is active, stale projections and accepted unresolved gaps can be blocking findings.
+
+## v5.14 Shared UI Composition
+
+When multiple Screens share common chrome, do not duplicate it in every Screen. Use `ui-component` for reusable building blocks and `screen-shell` for reusable placement. Screen docs own only local content plus slot overrides. The renderer records provenance and shared source hashes so changing a common component invalidates all dependent projections until rebuild. See `shared-ui-composition.md`.

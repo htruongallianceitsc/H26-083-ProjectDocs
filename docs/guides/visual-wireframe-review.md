@@ -1,6 +1,6 @@
 # Visual Wireframe Review Guide
 
-v5.13 adds a low-fidelity visual layer to the optional Screen-first workflow. It exists to answer a practical review question: **can a PM/BA/dev look at the generated Screen and understand the real layout/component hierarchy before implementation?**
+v5.14 extends the low-fidelity visual layer with Shared UI Composition to the optional Screen-first workflow. It exists to answer a practical review question: **can a PM/BA/dev look at the generated Screen and understand the real layout/component hierarchy before implementation?**
 
 ## Source-of-truth rule
 
@@ -43,3 +43,15 @@ Run an active Screen-first session, record visual gaps, then enrich the canonica
 - `kit/workflows/24-visual-wireframe-layout-enrichment.md`.
 
 The renderer can safely derive temporary placeholders from documented functional Sections/Fields/User Actions, but this does not count as a complete visual specification.
+
+## Shared Header / Bottom Navigation
+
+When the same Header or Bottom Navigation appears on multiple Screens:
+
+1. Create one canonical `ui-component`.
+2. Place it in a canonical `screen-shell`.
+3. Reference the Shell from each Screen with `related.screen_shells`.
+4. Put only Screen-specific differences in `Shared UI Overrides`.
+5. Keep actual Header button behaviour in the Screen `User Actions`/`Navigation Rules`.
+
+The generated HTML shows the shared owner and the override values. If a shared source changes, dependent Screen projections are reported stale.

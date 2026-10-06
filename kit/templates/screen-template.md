@@ -18,6 +18,8 @@ related:
   requirements: []
   business_rules: []
   screens: []
+  screen_shells: []
+  ui_components: []
   flows: []
   apis: []
   database_objects: []
@@ -51,6 +53,24 @@ This section controls the low-fidelity HTML wireframe. Keep it semantic: define 
 | Primary Visible State | Success / Data Ready | The state shown on the main wireframe canvas |
 | Canvas Mode | application | Examples: application, centered-form, full-bleed, dashboard |
 | Density | medium | low / medium / high |
+
+## Shared UI Composition
+
+Use this only when the Screen consumes reusable UI. `related.screen_shells` selects the reusable frame; `related.ui_components` lists direct shared components used outside that shell.
+
+### Shared UI Placements
+
+Direct shared components not already placed by the shell.
+
+| Region | Instance ID | Shared Component | Notes |
+|---|---|---|---|
+
+### Shared UI Overrides
+
+Override only slots declared by the referenced `ui-component`. Use the shell `Instance ID` as the target.
+
+| Target Instance | Slot / Property | Value | Notes |
+|---|---|---|---|
 
 ## Visual Layout Regions
 

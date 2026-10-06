@@ -13,6 +13,8 @@
 - Requirement: `REQ-<DOMAIN>-NNN`.
 - Business Rule: `BR-<DOMAIN>-NNN`.
 - Screen: `SCR-<NAME>`.
+- Shared UI Component: `UI-CMP-<PLATFORM>-<NAME>` — `UI-CMP-MOBILE-HEADER`.
+- Screen Shell: `UI-SHELL-<PLATFORM>-<NAME>` — `UI-SHELL-MOBILE-MAIN`.
 - Flow: `FLOW-<DOMAIN>-<NAME>`.
 - API: `API-<DOMAIN>-<NAME>`.
 - DB object: `DB-<OBJECT>`.

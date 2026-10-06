@@ -1,4 +1,4 @@
-# Documentation Toolchain v5.13
+# Documentation Toolchain v5.14
 
 Requires Node.js 20+. The runtime uses only Node.js standard-library modules.
 
@@ -133,6 +133,18 @@ npm run pack:list
 npm run pack:validate
 ```
 
+
+## v5.14 shared UI composition
+
+`wireframe:build` now resolves `screen.related.screen_shells`, Shell `related.ui_components`, `Shell Component Placements`, Screen `Shared UI Placements`, and Screen `Shared UI Overrides`. Generated specs record shared source dependencies so a changed Header/Shell/Bottom Navigation invalidates dependent Screen projections.
+
+Use the canonical templates:
+
+- `kit/templates/ui-component-template.md`
+- `kit/templates/screen-shell-template.md`
+- `kit/templates/mobile-screen-template.md`
+
+The renderer remains backward compatible with v5.13 Screen documents that do not use Shared UI Composition.
 
 ## v5.13 screen-first visual wireframe commands
 

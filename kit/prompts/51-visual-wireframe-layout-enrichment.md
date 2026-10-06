@@ -59,3 +59,7 @@ Use the v5.13 visual gap kinds when needed:
 - `missing-hidden-interaction-note`
 
 Do not auto-patch canonical docs from the generated HTML. Review and update the Screen source, then rebuild.
+
+## v5.14 repeated UI rule
+
+If the same Header/Bottom Navigation/layout frame is repeated across Screens, do not enrich each Screen by copy-paste. Use Prompt 52 to model a Shared UI Component and Screen Shell, then return to the Screen only for local content and declared slot overrides.

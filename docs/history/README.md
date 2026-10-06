@@ -36,3 +36,8 @@ Historical files may keep their original filenames so old citations and release 
 
 - `V5_13_UPGRADE_NOTES.md` — platform-aware visual wireframe layout/component enrichment.
 - `V5_13_QA_REPORT.md` — visual renderer and full regression evidence.
+
+## v5.14
+
+- `V5_14_UPGRADE_NOTES.md` — Shared UI Components, Screen Shells, slot overrides, provenance and impact-aware wireframe composition.
+- `V5_14_QA_REPORT.md` — registry, renderer, dependency-staleness and regression evidence.

@@ -1,4 +1,4 @@
-# START HERE - v5.13
+# START HERE - v5.14
 
 ## 0. Understand the workspace layout
 
@@ -93,7 +93,7 @@ npm run wireframe:start -- --feature FEAT-AUTH-LOGIN
 npm run wireframe:start -- --screens SCR-AUTH-LOGIN,SCR-AUTH-FORGOT-PASSWORD
 ```
 
-Open `docs/_generated/SCREEN_WIREFRAMES.html`. v5.13 renders a **platform-aware low-fidelity visual canvas** from `Visual Display Profile`, `Visual Layout Regions` and typed `Visible Components`, while still exposing fields, User/Lifecycle/System/API actions, states and navigation. The main canvas shows one primary visible state; modal/popover/hover-only UI belongs under `Hidden / Secondary UI`. If the canvas is too vague, use `kit/prompts/51-visual-wireframe-layout-enrichment.md` and `kit/templates/screen-visual-spec-template.md`, update the canonical Screen, then rebuild.
+Open `docs/_generated/SCREEN_WIREFRAMES.html`. v5.14 renders a **composition-aware, platform-aware low-fidelity visual canvas** from Screen-local visual sections plus optional `screen-shell` and `ui-component` sources. Shared Header/Bottom Navigation ownership and Screen slot overrides are visible beside the canvas, while fields, User/Lifecycle/System/API actions, states and navigation remain on the Screen contract. The main canvas shows one primary visible state; modal/popover/hover-only UI belongs under `Hidden / Secondary UI`. If the canvas is too vague, use `kit/prompts/51-visual-wireframe-layout-enrichment.md` and `kit/templates/screen-visual-spec-template.md`, update the canonical Screen, then rebuild.
 
 Record anything missing as a governed proposal:
 
@@ -113,6 +113,16 @@ Author exact codes/relations/content in the promotion JSON, set `status=authored
 ```bash
 npm run wireframe:promote -- --proposal WFG-... --plan .project-docs/wireframes/promotions/authored-startup.json --apply --reviewer "Reviewer"
 ```
+
+For reusable Screen chrome, define shared sources first:
+
+```text
+UI-CMP-MOBILE-HEADER + UI-CMP-MOBILE-BOTTOM-NAV
+                  -> UI-SHELL-MOBILE-MAIN
+                  -> SCR-HOME / SCR-TASK-LIST / SCR-PROJECT-LIST
+```
+
+Then keep only Screen-specific values in `Shared UI Overrides` (for example Header title/right actions and Bottom Tab active item). See `kit/examples/shared-ui-composition/`.
 
 For normal edits to existing canonical docs, update them through the normal governed edit/proposal path, resolve the gap, rebuild and close the session:
 

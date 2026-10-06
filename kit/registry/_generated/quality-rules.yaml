@@ -83,3 +83,16 @@ rules:
   - id: stale-documentation
     severity: error
     type: freshness-stale
+  - id: screen-shell-has-components
+    severity: warning
+    type: relation-min
+    entityType: screen-shell
+    field: ui_components
+    min: 1
+  - id: shared-ui-component-contract
+    severity: warning
+    type: body-contains
+    entityType: ui-component
+    terms:
+      - "Component Display Profile"
+      - Slots

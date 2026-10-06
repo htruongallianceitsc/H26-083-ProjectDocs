@@ -38,6 +38,12 @@ const DEFAULTS = {
     missingVisualRegionsSeverity: 'warning',
     missingVisibleComponentsSeverity: 'warning',
     vagueLayoutSeverity: 'warning',
+    missingScreenShellSeverity: 'high',
+    missingSharedComponentSeverity: 'high',
+    shellPlatformMismatchSeverity: 'warning',
+    invalidSharedSlotSeverity: 'warning',
+    sharedRelationMismatchSeverity: 'warning',
+    undocumentedHeaderActionSeverity: 'warning',
     blockSeverities: ['high','error']
   }
 };
@@ -277,6 +283,84 @@ function normalizeHiddenSecondaryUi(rows){
     related:firstValue(r,['related','action','requirement'])
   })).filter(x=>x.ui);
 }
+function normalizeSharedPlacements(rows){
+  return rows.map((r,i)=>({
+    region:firstValue(r,['region','area'],'main')||'main',
+    instanceId:firstValue(r,['instance id','instance','id'],`shared-${i+1}`),
+    componentCode:firstValue(r,['shared component','component','ref','reference']),
+    required:firstValue(r,['required','mandatory']),
+    notes:firstValue(r,['notes','note','description'])
+  })).filter(x=>x.componentCode);
+}
+function normalizeSharedOverrides(rows){
+  return rows.map(r=>({
+    target:firstValue(r,['target instance','target','instance'],Object.values(r)[0]||''),
+    slot:firstValue(r,['slot','property','slot property']),
+    value:firstValue(r,['value','override']),
+    notes:firstValue(r,['notes','note'])
+  })).filter(x=>x.target&&x.slot);
+}
+function normalizeSlots(rows){
+  return rows.map(r=>({
+    slot:firstValue(r,['slot','name'],Object.values(r)[0]||''),
+    required:firstValue(r,['required','mandatory']),
+    repeatable:firstValue(r,['repeatable','multiple']),
+    allowedTypes:firstValue(r,['allowed types','allowed','type']),
+    defaultValue:firstValue(r,['default','placeholder','value']),
+    notes:firstValue(r,['notes','note'])
+  })).filter(x=>x.slot);
+}
+function normalizeComponentElements(rows){
+  return rows.map((r,i)=>({
+    id:firstValue(r,['element id','id','element'],`element-${i+1}`),
+    type:(firstValue(r,['type'],'custom')||'custom').toLowerCase().replace(/\s+/g,'-'),
+    slot:firstValue(r,['slot']),
+    placeholder:firstValue(r,['placeholder','label','title']),
+    count:Math.max(1,Math.min(12,Number(firstValue(r,['count','repeat'],'1'))||1)),
+    role:firstValue(r,['content','role','purpose','description']),
+    notes:firstValue(r,['notes','note'])
+  })).filter(x=>x.id);
+}
+function normalizeNavigationItems(rows){
+  return rows.map(r=>({
+    item:firstValue(r,['item','label','name'],Object.values(r)[0]||''),
+    destination:firstValue(r,['destination','screen','target','route']),
+    icon:firstValue(r,['icon','role']),
+    notes:firstValue(r,['notes','note'])
+  })).filter(x=>x.item);
+}
+function splitListValue(value){
+  return String(value||'').split(/[;,]/).map(x=>x.trim()).filter(Boolean);
+}
+function parseSharedUiComponent(entity){
+  const raw=section(entity.body,['Component Display Profile','Display Profile']);
+  const props=propertyMap(raw);
+  return {
+    code:entity.code,title:entity.title,path:entity.path,sourceHash:fileHash(abs(entity.path)),
+    platform:props.platform||entity.meta.platform||'cross-platform',
+    kind:(props.kind||'generic').toLowerCase().replace(/\s+/g,'-'),
+    layout:props.layout||'row',defaultRegion:props['default region']||'main',
+    slots:normalizeSlots(parseTable(section(entity.body,'Slots'))),
+    elements:normalizeComponentElements(parseTable(section(entity.body,'Component Elements'))),
+    navigationItems:normalizeNavigationItems(parseTable(section(entity.body,'Navigation Items')))
+  };
+}
+function parseScreenShell(entity){
+  const raw=section(entity.body,['Shell Display Profile','Visual Display Profile']);
+  const props=propertyMap(raw);
+  return {
+    code:entity.code,title:entity.title,path:entity.path,sourceHash:fileHash(abs(entity.path)),
+    platform:props.platform||entity.meta.platform||'cross-platform',
+    viewport:parseViewport(props.viewport||props['viewport size']||props['screen size']),
+    canvasMode:props['canvas mode']||'application',density:props.density||'medium',
+    regions:normalizeVisualRegions(parseTable(section(entity.body,['Shell Layout Regions','Visual Layout Regions']))),
+    placements:normalizeSharedPlacements(parseTable(section(entity.body,['Shell Component Placements','Shared UI Placements']))),
+    relatedUiComponents:unique(arr(entity.meta.related?.ui_components))
+  };
+}
+function dedupeById(base,overrides){
+  const m=new Map(); for(const x of base||[])m.set(slug(x.id),x); for(const x of overrides||[])m.set(slug(x.id),x); return [...m.values()];
+}
 function visualCompleteness(displayProfile,visualRegions,visibleComponents,sections){
   const vagueSection=sections.some(x=>!x.component && !x.notes);
   return {
@@ -293,14 +377,20 @@ function related(meta) {
   const r = meta.related && typeof meta.related === 'object' ? meta.related : {};
   return {
     modules: unique(arr(r.modules)), features: unique(arr(r.features)), requirements: unique(arr(r.requirements)),
-    businessRules: unique(arr(r.business_rules || r.businessRules)), flows: unique(arr(r.flows)), screens: unique(arr(r.screens))
+    businessRules: unique(arr(r.business_rules || r.businessRules)), flows: unique(arr(r.flows)), screens: unique(arr(r.screens)),
+    screenShells: unique(arr(r.screen_shells || r.screenShells)), uiComponents: unique(arr(r.ui_components || r.uiComponents))
   };
 }
-function screenSpec(entity) {
+function screenSpec(entity,{components=new Map(),shells=new Map(),screenCodes=new Set()}={}) {
+  const rel=related(entity.meta);
+  const shellCode=rel.screenShells[0]||null;
+  const shell=shellCode?shells.get(shellCode):null;
   const displayProfile=buildDisplayProfile(entity.body);
   const visualRegionsRaw=section(entity.body,['Visual Layout Regions','Wireframe Layout Regions']);
   const visibleComponentsRaw=section(entity.body,['Visible Components','Primary Visible Components']);
   const hiddenSecondaryRaw=section(entity.body,['Hidden / Secondary UI','Secondary UI','Hidden UI']);
+  const directPlacementRaw=section(entity.body,['Shared UI Placements','Shared Component Placements']);
+  const overrideRaw=section(entity.body,['Shared UI Overrides','Shared Component Overrides']);
   const layoutRaw = section(entity.body, ['Layout / Sections','Screen Composition / Wireframe Regions','Sections']);
   const fieldsRaw = section(entity.body, 'Fields');
   const actionsRaw = section(entity.body, ['User Actions','Actions']);
@@ -311,15 +401,17 @@ function screenSpec(entity) {
   const navRaw = section(entity.body, ['Navigation Rules','Navigation']);
   const unknowns = unique([
     ...bullets(section(entity.body, ['Open Questions / Mockup Gaps','Open Questions','Gaps / TBD'])),
-    ...[visualRegionsRaw,visibleComponentsRaw,hiddenSecondaryRaw,layoutRaw,fieldsRaw,actionsRaw,lifecycleRaw,systemRaw,apiRaw,statesRaw,navRaw].flatMap(x => /\bTBD\b/i.test(x) ? ['TBD remains in source Screen documentation'] : [])
+    ...[visualRegionsRaw,visibleComponentsRaw,hiddenSecondaryRaw,directPlacementRaw,overrideRaw,layoutRaw,fieldsRaw,actionsRaw,lifecycleRaw,systemRaw,apiRaw,statesRaw,navRaw].flatMap(x => /\bTBD\b/i.test(x) ? ['TBD remains in source Screen documentation'] : [])
   ]);
   const routeBody = plainText(section(entity.body, 'Route'));
   const route = String(entity.meta.route || routeBody || '').trim() || null;
   const purpose = plainText(section(entity.body, 'Purpose')) || 'TBD';
   const sections = normalizeSections(parseTable(layoutRaw), layoutRaw);
-  const visualRegions=normalizeVisualRegions(parseTable(visualRegionsRaw));
-  const visibleComponents=normalizeVisibleComponents(parseTable(visibleComponentsRaw));
+  const visualRegions=normalizeVisualRegions(parseTable(visualRegionsRaw)).map(x=>({...x,provenance:'screen-local',ownerCode:entity.code}));
+  const visibleComponents=normalizeVisibleComponents(parseTable(visibleComponentsRaw)).map(x=>({...x,provenance:'screen-local',ownerCode:entity.code}));
   const hiddenSecondaryUi=normalizeHiddenSecondaryUi(parseTable(hiddenSecondaryRaw));
+  const directPlacements=normalizeSharedPlacements(parseTable(directPlacementRaw));
+  const overrides=normalizeSharedOverrides(parseTable(overrideRaw));
   const fields = normalizeFields(normalizedRows(fieldsRaw));
   const userActions = normalizeActions(normalizedRows(actionsRaw));
   const lifecycleActions = normalizeLifecycleActions(normalizedRows(lifecycleRaw));
@@ -327,11 +419,48 @@ function screenSpec(entity) {
   const apiInteractions = normalizeApiInteractions(normalizedRows(apiRaw));
   const states = normalizeStates(parseTable(statesRaw), statesRaw);
   const navigation = normalizeNavigation(normalizedRows(navRaw));
+  const compositionFindings=[];
+  if(rel.screenShells.length>1) compositionFindings.push({severity:'high',code:'MULTIPLE_SCREEN_SHELLS',message:`${entity.code} references more than one Screen Shell; only one primary shell is supported.`});
+  if(shellCode&&!shell) compositionFindings.push({severity:cfg().validation.missingScreenShellSeverity,code:'SCREEN_SHELL_NOT_FOUND',message:`${entity.code} references missing Screen Shell ${shellCode}.`});
+  if(shell&&shell.platform&&shell.platform!=='cross-platform'&&displayProfile.platform&&shell.platform!==displayProfile.platform) compositionFindings.push({severity:cfg().validation.shellPlatformMismatchSeverity,code:'SCREEN_SHELL_PLATFORM_MISMATCH',message:`${entity.code} is ${displayProfile.platform} but ${shell.code} targets ${shell.platform}.`});
+  const inheritedRegions=(shell?.regions||[]).map(x=>({...x,provenance:'screen-shell',ownerCode:shell.code,derived:false}));
+  const effectiveVisualRegions=dedupeById(inheritedRegions,visualRegions);
+  const placements=[...(shell?.placements||[]).map(x=>({...x,source:'screen-shell',shellCode:shell?.code||null})),...directPlacements.map(x=>({...x,source:'screen',shellCode:null}))];
+  const sharedInstances=[];
+  for(const placement of placements){
+    const component=components.get(placement.componentCode);
+    if(!component){ compositionFindings.push({severity:cfg().validation.missingSharedComponentSeverity,code:'SHARED_COMPONENT_NOT_FOUND',message:`${entity.code} placement ${placement.instanceId} references missing UI Component ${placement.componentCode}.`}); continue; }
+    if(placement.source==='screen-shell'&&shell&&!shell.relatedUiComponents.includes(component.code)) compositionFindings.push({severity:cfg().validation.sharedRelationMismatchSeverity,code:'SHELL_COMPONENT_RELATION_MISSING',message:`${shell.code} places ${component.code} but related.ui_components does not reference it.`});
+    if(placement.source==='screen'&&!rel.uiComponents.includes(component.code)) compositionFindings.push({severity:cfg().validation.sharedRelationMismatchSeverity,code:'SCREEN_COMPONENT_RELATION_MISSING',message:`${entity.code} directly places ${component.code} but related.ui_components does not reference it.`});
+    const applicable=overrides.filter(o=>o.target===placement.instanceId||o.target===component.code);
+    const overrideMap={}; for(const o of applicable)overrideMap[o.slot]=o.value;
+    const slotNames=new Set(component.slots.map(x=>x.slot));
+    for(const o of applicable) if(!slotNames.has(o.slot)) compositionFindings.push({severity:cfg().validation.invalidSharedSlotSeverity,code:'INVALID_COMPONENT_OVERRIDE',message:`${entity.code} overrides undeclared slot ${o.slot} on ${component.code}.`});
+    if(component.kind==='header'&&overrideMap.rightActions){
+      const documented=userActions.map(x=>String(x.action||'').toLowerCase());
+      for(const action of splitListValue(overrideMap.rightActions)) if(!documented.some(x=>x===action.toLowerCase()||x.includes(action.toLowerCase()))) compositionFindings.push({severity:cfg().validation.undocumentedHeaderActionSeverity,code:'HEADER_ACTION_NOT_DOCUMENTED',message:`${entity.code} shows Header action "${action}" but User Actions does not document it.`});
+    }
+    if(component.kind==='bottom-navigation'||component.kind==='navigation') for(const item of component.navigationItems||[]) if(item.destination&&/^SCR-/i.test(item.destination)&&!screenCodes.has(item.destination)) compositionFindings.push({severity:'warning',code:'BOTTOM_NAV_DESTINATION_NOT_FOUND',message:`${component.code} item ${item.item} points to missing Screen ${item.destination}.`});
+    sharedInstances.push({
+      region:placement.region||component.defaultRegion||'main',id:placement.instanceId,type:'shared-ui',placeholder:component.title,size:'full',count:1,role:`Shared ${component.kind}`,visibility:'',notes:placement.notes||'',
+      provenance:'shared-component',ownerCode:component.code,shellCode:placement.shellCode||null,sharedKind:component.kind,overrides:overrideMap,overrideSummary:Object.entries(overrideMap).map(([k,v])=>`${k}=${v}`).join('; '),slots:component.slots,elements:component.elements,navigationItems:component.navigationItems,sourceDocument:component.path
+    });
+  }
+  const effectiveVisibleComponents=[...sharedInstances,...visibleComponents];
+  const sourceDependencies=[];
+  if(shell) sourceDependencies.push({code:shell.code,type:'screen-shell',path:shell.path,sourceHash:shell.sourceHash});
+  for(const c of unique(sharedInstances.map(x=>x.ownerCode))) { const component=components.get(c); if(component)sourceDependencies.push({code:component.code,type:'ui-component',path:component.path,sourceHash:component.sourceHash}); }
+  const completeness=visualCompleteness(displayProfile,effectiveVisualRegions,effectiveVisibleComponents,sections);
+  completeness.screenLocalVisualRegions=visualRegions.length;
+  completeness.inheritedVisualRegions=inheritedRegions.length;
+  completeness.screenLocalVisibleComponents=visibleComponents.length;
+  completeness.sharedVisibleComponents=sharedInstances.length;
   return {
-    schemaVersion: '1.2', generatedAt: now(), screenCode: entity.code, title: entity.title, route, purpose,
-    sourceDocument: entity.path, sourceHash: fileHash(abs(entity.path)), sourceRevision: Number(entity.revision || 0),
-    related: related(entity.meta), displayProfile, visualRegions, visibleComponents, hiddenSecondaryUi,
-    visualCompleteness:visualCompleteness(displayProfile,visualRegions,visibleComponents,sections),
+    schemaVersion: '1.3', generatedAt: now(), screenCode: entity.code, title: entity.title, route, purpose,
+    sourceDocument: entity.path, sourceHash: fileHash(abs(entity.path)), sourceRevision: Number(entity.revision || 0), sourceDependencies,
+    related: rel, displayProfile, visualRegions, visibleComponents, effectiveVisualRegions, effectiveVisibleComponents, hiddenSecondaryUi,
+    composition:{shell:shell?{code:shell.code,title:shell.title,path:shell.path,platform:shell.platform}:shellCode?{code:shellCode,missing:true}:null,directPlacements,overrides,sharedInstances,findings:compositionFindings},
+    visualCompleteness:completeness,
     sections, fields, actions:userActions, userActions, lifecycleActions, systemActions, apiInteractions, states, navigation,
     validations: normalizedRows(section(entity.body, ['Validation & Messages','Validation'])),
     openQuestions: bullets(section(entity.body, ['Open Questions / Mockup Gaps','Open Questions'])), unknowns
@@ -374,10 +503,13 @@ function renderAscii(spec) {
   const userActions=spec.userActions||spec.actions||[];
   lines.push(asciiBoxLine(`PURPOSE: ${spec.purpose || 'TBD'}`,width));
   lines.push(asciiBoxLine(`DISPLAY: ${spec.displayProfile?.platform||'TBD'} ${spec.displayProfile?.viewport?.width||'?'}x${spec.displayProfile?.viewport?.height||'?'} | state: ${spec.displayProfile?.primaryVisibleState||'TBD'}`,width),bar);
-  lines.push(asciiBoxLine('SECTIONS',width));
+  lines.push(asciiBoxLine('SHARED UI COMPOSITION',width));
+  lines.push(asciiBoxLine(`Shell: ${spec.composition?.shell?.code||'none'}`,width));
+  for(const c of spec.composition?.sharedInstances||[]) lines.push(asciiBoxLine(`- ${c.id}: ${c.ownerCode}${c.shellCode?` via ${c.shellCode}`:' (direct)'}`,width));
+  lines.push(bar,asciiBoxLine('SECTIONS',width));
   if(spec.sections.length) for(const s of spec.sections) for(const [i,l] of wrap(`- ${s.region}${s.component?`: ${s.component}`:''}`,width-4).entries()) lines.push(asciiBoxLine(i?`  ${l}`:l,width)); else lines.push(asciiBoxLine('- TBD',width));
   lines.push(bar,asciiBoxLine('VISIBLE COMPONENTS',width));
-  if(spec.visibleComponents?.length) for(const c of spec.visibleComponents) lines.push(asciiBoxLine(`[${c.type||'custom'}] ${c.region||'main'} :: ${c.placeholder||c.id}${c.count>1?` x${c.count}`:''}`,width)); else lines.push(asciiBoxLine('- visual component inventory not documented',width));
+  if(spec.effectiveVisibleComponents?.length||spec.visibleComponents?.length) for(const c of (spec.effectiveVisibleComponents?.length?spec.effectiveVisibleComponents:spec.visibleComponents)) lines.push(asciiBoxLine(`[${c.type||'custom'}] ${c.region||'main'} :: ${c.placeholder||c.id}${c.count>1?` x${c.count}`:''}`,width)); else lines.push(asciiBoxLine('- visual component inventory not documented',width));
   lines.push(bar,asciiBoxLine('FIELDS',width));
   if(spec.fields.length) for(const f of spec.fields) lines.push(asciiBoxLine(`[${f.type||'field'}] ${f.name}${String(f.required).toLowerCase()==='true'||/yes|required/i.test(f.required)?' *':''}${f.validation?` | ${f.validation}`:''}`,width)); else lines.push(asciiBoxLine('- none / TBD',width));
   lines.push(bar,asciiBoxLine('USER ACTIONS',width));
@@ -418,17 +550,25 @@ Requirements: ${spec.related.requirements.join(', ') || 'TBD'}
 | Density | ${cleanCell(spec.displayProfile?.density||'TBD')} |
 | Profile Source | ${cleanCell(spec.displayProfile?.source||'TBD')} |
 
-## Visual Layout Regions
+## Shared UI Composition
+
+Shell: ${cleanCell(spec.composition?.shell?.code||'None')}
+
+| Region | Instance | Shared Component | Via Shell | Overrides |
+|---|---|---|---|---|
+${rows(spec.composition?.sharedInstances||[],[['Region','region'],['Instance','id'],['Shared Component','ownerCode'],['Via Shell','shellCode'],['Overrides','overrideSummary']])}
+
+## Effective Visual Layout Regions
 
 | Region | Parent | Position | Layout | Size | Purpose |
 |---|---|---|---|---|---|
-${rows(spec.visualRegions||[],[['Region','id'],['Parent','parent'],['Position','position'],['Layout','layout'],['Size','size'],['Purpose','purpose']])}
+${rows(spec.effectiveVisualRegions||spec.visualRegions||[],[['Region','id'],['Parent','parent'],['Position','position'],['Layout','layout'],['Size','size'],['Purpose','purpose']])}
 
-## Visible Components
+## Effective Visible Components
 
 | Region | Component | Type | Placeholder | Size | Count | Role | State |
 |---|---|---|---|---|---|---|---|
-${rows(spec.visibleComponents||[],[['Region','region'],['Component','id'],['Type','type'],['Placeholder','placeholder'],['Size','size'],['Count','count'],['Role','role'],['State','visibility']])}
+${rows(spec.effectiveVisibleComponents||spec.visibleComponents||[],[['Region','region'],['Component','id'],['Type','type'],['Placeholder','placeholder'],['Size','size'],['Count','count'],['Role','role'],['State','visibility']])}
 
 ## Hidden / Secondary UI
 
@@ -535,7 +675,8 @@ function alternateStateComponents(spec){
   return spec.visibleComponents.filter(c=>!componentVisibleForPrimary(c,spec.displayProfile?.primaryVisibleState));
 }
 function derivedVisualComponents(spec){
-  if(spec.visibleComponents?.length) return spec.visibleComponents.filter(c=>componentVisibleForPrimary(c,spec.displayProfile?.primaryVisibleState)).map(x=>({...x,derived:false}));
+  const effective=spec.effectiveVisibleComponents?.length?spec.effectiveVisibleComponents:spec.visibleComponents;
+  if(effective?.length) return effective.filter(c=>componentVisibleForPrimary(c,spec.displayProfile?.primaryVisibleState)).map(x=>({...x,derived:false}));
   if(!cfg().projection.safePlaceholderDerivation) return [];
   const out=[]; let n=0;
   for(const sec of spec.sections||[]) if(sec.component){ n++; out.push({region:slug(sec.region||'main'),id:`derived-section-${n}`,type:inferPlaceholderType(sec.component),placeholder:sec.component,size:'full',count:1,role:sec.notes||sec.component,visibility:sec.visibility||'',notes:'Derived from Layout / Sections',derived:true}); }
@@ -544,13 +685,30 @@ function derivedVisualComponents(spec){
   return out;
 }
 function derivedVisualRegions(spec,components){
-  if(spec.visualRegions?.length) return spec.visualRegions.map(x=>({...x,derived:false}));
+  const effective=spec.effectiveVisualRegions?.length?spec.effectiveVisualRegions:spec.visualRegions;
+  if(effective?.length) return effective.map(x=>({...x,derived:false}));
   if(spec.sections?.length) return spec.sections.map((x,i)=>({id:slug(x.region||`region-${i+1}`),parent:'root',position:'main',layout:'column',size:'fluid',purpose:x.component||x.region,notes:'Derived from Layout / Sections',derived:true}));
   return [{id:'main',parent:'root',position:'main',layout:'column',size:'fluid',purpose:spec.purpose||'Main content',notes:'Fallback review region',derived:true}];
+}
+function slotDefault(c,name){ return (c.slots||[]).find(x=>x.slot===name)?.defaultValue||''; }
+function sharedComponentPlaceholderHtml(c){
+  const owner=escapeHtml(c.ownerCode||'shared'); const kind=String(c.sharedKind||'generic'); const ov=c.overrides||{};
+  const badge=`<span class="wf-owner">${owner}</span>`;
+  if(kind==='header'){
+    const left=ov.left||slotDefault(c,'left')||''; const title=ov.title||slotDefault(c,'title')||c.placeholder||'Title'; const right=splitListValue(ov.rightActions||slotDefault(c,'rightActions'));
+    return `<div class="wf-component wf-shared wf-shared-header">${badge}<div class="wf-header-row"><span class="wf-header-left">${escapeHtml(left)}</span><b>${escapeHtml(title)}</b><span class="wf-header-right">${right.map(x=>`<i>${escapeHtml(x)}</i>`).join('')}</span></div></div>`;
+  }
+  if(kind==='bottom-navigation'||kind==='navigation'){
+    const active=ov.activeItem||slotDefault(c,'activeItem')||''; const items=(c.navigationItems||[]).length?c.navigationItems:splitListValue(ov.items||slotDefault(c,'items')).map(x=>({item:x,destination:''}));
+    return `<div class="wf-component wf-shared wf-shared-bottom-nav">${badge}<div class="wf-bottom-items">${items.map(x=>`<span class="${String(x.item).toLowerCase()===String(active).toLowerCase()?'active':''}"><i>○</i><b>${escapeHtml(x.item)}</b></span>`).join('')}</div></div>`;
+  }
+  const els=(c.elements||[]).map(e=>`<span class="wf-shared-element"><b>${escapeHtml(ov[e.slot]||e.placeholder||e.id)}</b><small>${escapeHtml(e.type||'')}</small></span>`).join('');
+  return `<div class="wf-component wf-shared wf-shared-generic">${badge}${els||`<b>${escapeHtml(c.placeholder||c.id)}</b>`}</div>`;
 }
 function componentPlaceholderHtml(c){
   const type=String(c.type||'custom').toLowerCase(); const label=escapeHtml(c.placeholder||c.id||type); const role=c.role?`<small>${escapeHtml(c.role)}</small>`:'';
   const one=()=>{
+    if(type==='shared-ui') return sharedComponentPlaceholderHtml(c);
     if(['image','hero'].includes(type)) return `<div class="wf-component wf-image ${type==='hero'?'wf-hero':''}"><span>▧</span><b>${label}</b>${role}</div>`;
     if(type==='logo') return `<div class="wf-component wf-logo"><span>LOGO</span>${role}</div>`;
     if(type==='avatar') return `<div class="wf-component wf-avatar"><span></span><b>${label}</b></div>`;
@@ -605,16 +763,16 @@ function renderCombinedHtml(specs, session, proposals) {
     const profileRows=[{property:'Platform',value:s.displayProfile?.platform},{property:'Viewport',value:s.displayProfile?.viewport?`${s.displayProfile.viewport.width}x${s.displayProfile.viewport.height}`:''},{property:'Primary state',value:s.displayProfile?.primaryVisibleState},{property:'Canvas mode',value:s.displayProfile?.canvasMode},{property:'Source',value:s.displayProfile?.source}];
     return `<section class="screen" id="screen-${slug(s.screenCode)}" data-screen data-text="${escapeHtml((s.screenCode+' '+s.title+' '+(s.route||'')+' '+s.related.features.join(' ')).toLowerCase())}">
       <div class="screen-head"><div><span class="code">${escapeHtml(s.screenCode)}</span><h2>${escapeHtml(s.title)}</h2><div class="route">${escapeHtml(s.route||'TBD route')}</div></div><div class="meta"><b>Feature</b> ${escapeHtml(s.related.features.join(', ')||'TBD')}<br><b>Requirement</b> ${escapeHtml(s.related.requirements.join(', ')||'TBD')}</div></div>
-      <div class="wireframe-layout"><div class="visual-column"><h3>Primary visible state</h3>${visualCanvasHtml(s)}</div><aside class="secondary-panel"><h3>Secondary / hidden UI</h3>${s.hiddenSecondaryUi?.length?tableHtml([['UI','ui'],['Trigger','trigger'],['Type','type'],['Description','description']],s.hiddenSecondaryUi):'<div class="empty">No modal/popover/hover-only UI documented.</div>'}${alternateStateComponents(s).length?`<h3>Other-state components</h3>${tableHtml([['Component','id'],['Type','type'],['State','visibility']],alternateStateComponents(s))}`:''}<h3>Visual completeness</h3><ul class="checklist"><li>${s.visualCompleteness?.explicitDisplayProfile?'✓':'△'} Display profile</li><li>${s.visualCompleteness?.visualRegions?'✓':'△'} Layout regions</li><li>${s.visualCompleteness?.visibleComponents?'✓':'△'} Visible component inventory</li><li>${s.visualCompleteness?.explicitPrimaryState?'✓':'△'} Primary state explicit</li></ul></aside></div>
-      <details><summary>Visual wireframe specification</summary><h3>Display profile</h3>${tableHtml([['Property','property'],['Value','value']],profileRows)}<h3>Layout regions</h3>${tableHtml([['Region','id'],['Position','position'],['Layout','layout'],['Size','size'],['Purpose','purpose']],s.visualRegions||[])}<h3>Visible components</h3>${tableHtml([['Region','region'],['Component','id'],['Type','type'],['Placeholder','placeholder'],['Size','size'],['Count','count'],['State','visibility']],s.visibleComponents||[])}</details>
+      <div class="wireframe-layout"><div class="visual-column"><h3>Primary visible state</h3>${visualCanvasHtml(s)}</div><aside class="secondary-panel"><h3>Shared UI composition</h3>${s.composition?.shell?`<div class="shared-shell"><b>${escapeHtml(s.composition.shell.code)}</b><small>${escapeHtml(s.composition.shell.title||'')}</small></div>`:'<div class="empty">No Screen Shell selected.</div>'}${s.composition?.sharedInstances?.length?tableHtml([['Instance','id'],['Owner','ownerCode'],['Region','region'],['Overrides','overrideSummary']],s.composition.sharedInstances):'<div class="empty">No shared UI instances.</div>'}<h3>Secondary / hidden UI</h3>${s.hiddenSecondaryUi?.length?tableHtml([['UI','ui'],['Trigger','trigger'],['Type','type'],['Description','description']],s.hiddenSecondaryUi):'<div class="empty">No modal/popover/hover-only UI documented.</div>'}${alternateStateComponents(s).length?`<h3>Other-state components</h3>${tableHtml([['Component','id'],['Type','type'],['State','visibility']],alternateStateComponents(s))}`:''}<h3>Visual completeness</h3><ul class="checklist"><li>${s.visualCompleteness?.explicitDisplayProfile?'✓':'△'} Display profile</li><li>${s.visualCompleteness?.visualRegions?'✓':'△'} Effective layout regions</li><li>${s.visualCompleteness?.visibleComponents?'✓':'△'} Effective component inventory</li><li>${s.visualCompleteness?.explicitPrimaryState?'✓':'△'} Primary state explicit</li><li>${s.visualCompleteness?.sharedVisibleComponents||0} shared component(s)</li></ul></aside></div>
+      <details><summary>Visual wireframe specification</summary><h3>Display profile</h3>${tableHtml([['Property','property'],['Value','value']],profileRows)}<h3>Effective layout regions</h3>${tableHtml([['Region','id'],['Position','position'],['Layout','layout'],['Size','size'],['Purpose','purpose'],['Owner','ownerCode']],s.effectiveVisualRegions||s.visualRegions||[])}<h3>Effective visible components</h3>${tableHtml([['Region','region'],['Component','id'],['Type','type'],['Placeholder','placeholder'],['Owner','ownerCode'],['Via Shell','shellCode'],['State','visibility']],s.effectiveVisibleComponents||s.visibleComponents||[])}</details>
       <details><summary>Functional screen contract</summary><h3>Fields</h3>${tableHtml([['Field','name'],['Type','type'],['Required','required'],['Validation','validation']],s.fields)}<h3>User Actions</h3>${tableHtml([['Action','action'],['Behaviour','behaviour'],['Destination','destination'],['Condition','condition']],userActions)}<h3>Lifecycle Actions</h3>${tableHtml([['Event / Trigger','trigger'],['Action','action'],['API / Effect','effect'],['Success','success'],['Failure','failure']],s.lifecycleActions||[])}<h3>System Actions</h3>${tableHtml([['Action','action'],['Trigger','trigger'],['Effect','effect'],['API / Data','data'],['Next','destination']],s.systemActions||[])}<h3>API Interactions</h3>${tableHtml([['Trigger','trigger'],['API','api'],['Purpose','purpose'],['Loading','loadingState'],['Success','success'],['Failure','failure']],s.apiInteractions||[])}<h3>States</h3>${tableHtml([['State','state'],['Trigger','trigger'],['Difference','difference']],s.states)}<h3>Navigation</h3>${navigation}</details>
       <details ${gaps.length?'open':''}><summary>Review gaps (${gaps.length})</summary>${gaps.length?gaps.map(g=>`<div class="gap ${escapeHtml(g.severity||'warning')}"><b>${escapeHtml(g.kind)} · ${escapeHtml(g.status)}</b><p>${escapeHtml(g.summary)}</p></div>`).join(''):'<p>No active review gaps.</p>'}</details>
       <footer>Source: ${escapeHtml(s.sourceDocument)} · hash ${escapeHtml(s.sourceHash.slice(0,12))}</footer>
     </section>`;
   }).join('\n');
   return `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Screen Visual Wireframes</title><style>
-  *{box-sizing:border-box}body{margin:0;font:14px system-ui,-apple-system,Segoe UI,sans-serif;background:#eef0f3;color:#16181d}body>aside{position:fixed;inset:0 auto 0 0;width:290px;background:#111827;color:#fff;padding:18px;overflow:auto}body>aside h1{font-size:18px;margin:0 0 6px}body>aside p{color:#aab2c0;margin:0 0 12px}body>aside input{width:100%;padding:10px;border:1px solid #374151;border-radius:8px;background:#1f2937;color:#fff;margin-bottom:12px}body>aside a{display:flex;flex-direction:column;color:#fff;text-decoration:none;padding:10px;border-radius:8px;margin:4px 0}body>aside a:hover{background:#1f2937}body>aside span,body>aside small{color:#cbd5e1}main{margin-left:290px;padding:24px;max-width:1780px}.intro,.screen{background:#fff;border:1px solid #d7dbe2;border-radius:14px;padding:18px;margin:0 0 22px}.screen-head{display:flex;justify-content:space-between;gap:20px;align-items:flex-start}.screen h2{margin:4px 0}.code{font:12px ui-monospace,monospace;background:#eef2ff;padding:4px 7px;border-radius:6px}.route{font:13px ui-monospace,monospace;color:#4b5563}.meta{min-width:260px;color:#4b5563}.wireframe-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,340px);gap:18px;align-items:start;margin:18px 0}.visual-column h3,.secondary-panel h3{margin:0 0 10px}.secondary-panel{background:#f8fafc;border:1px solid #d8dde6;border-radius:10px;padding:12px}.visual-summary{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font:12px ui-monospace,monospace;margin-bottom:8px;color:#59616e}.visual-summary span,.visual-summary b,.visual-summary em{border:1px solid #d4d8df;background:#fff;padding:4px 7px;border-radius:5px}.wf-frame{position:relative;background:#d2d4d8;border:1px solid #888f98;overflow:hidden;margin:0 auto 4px;box-shadow:0 8px 28px #0001}.wf-frame.browser{border-radius:5px}.wf-frame.device{border-radius:28px;border-width:8px;background:#1e2126;padding:0}.wf-browser-chrome{height:3.8%;min-height:26px;background:#d6d8dc;border-bottom:1px solid #aeb3ba;display:flex;align-items:center;gap:5px;padding:0 10px}.wf-browser-chrome span{width:8px;height:8px;border-radius:50%;background:#9da3ab}.wf-browser-chrome i{height:55%;margin-left:7px;flex:1;background:#f4f5f6;border:1px solid #bcc1c8;border-radius:3px;font:9px ui-monospace,monospace;color:#9399a2;padding:2px 6px}.wf-device-notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:32%;height:2.2%;min-height:10px;border-radius:0 0 10px 10px;background:#1e2126;z-index:4}.wf-viewport{height:96.2%;background:#f7f7f7;overflow:hidden}.device .wf-viewport{height:100%;border-radius:20px;background:#fafafa}.wf-visual-grid{height:100%;display:grid;grid-template-areas:"top top top" "left main right" "bottom bottom bottom";grid-template-columns:var(--left) minmax(0,1fr) var(--right);grid-template-rows:auto minmax(0,1fr) auto;gap:1px;background:#c7c9cd}.wf-zone{background:#f1f1f1;min-width:0;min-height:0;display:flex;flex-direction:column;gap:1px}.wf-zone-top{grid-area:top}.wf-zone-left{grid-area:left}.wf-zone-main{grid-area:main}.wf-zone-right{grid-area:right}.wf-zone-bottom{grid-area:bottom}.wf-region{background:#f8f8f8;padding:clamp(5px,1vw,14px);min-height:0;overflow:hidden;display:flex;flex-direction:column;gap:6px;flex:1}.wf-region.derived{outline:1px dashed #b7bbc1;outline-offset:-3px}.wf-region-label{display:flex;justify-content:space-between;gap:6px;color:#777;font-size:10px;text-transform:uppercase;letter-spacing:.04em}.wf-region-label span{text-transform:none;letter-spacing:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.wf-region-content{display:flex;flex-direction:column;gap:clamp(4px,.7vw,9px);min-height:0}.layout-row .wf-region-content{flex-direction:row;align-items:center;flex-wrap:wrap}.layout-grid .wf-region-content{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}.wf-component{border-color:#9b9b9b!important;color:#636363;background:#e1e1e1}.wf-component small{display:block;font-size:9px;color:#888}.wf-image{min-height:clamp(48px,10vw,150px);border:1px solid #999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;background:#bdbdbd}.wf-image>span{font-size:22px}.wf-hero{min-height:clamp(70px,14vw,220px)}.wf-logo{align-self:center;padding:8px 14px;border:2px solid #999;background:#d5d5d5;font-weight:800}.wf-avatar{display:flex;align-items:center;gap:6px}.wf-avatar span{width:32px;height:32px;border-radius:50%;background:#bbb}.wf-heading{background:transparent;display:flex;flex-direction:column;gap:4px;max-width:70%}.wf-heading b{font-size:clamp(10px,1.5vw,18px);color:#555}.wf-heading i,.wf-text i,.wf-card i,.wf-stat i{display:block;height:5px;background:#c1c1c1;border-radius:4px;width:100%}.wf-text{background:transparent;display:flex;flex-direction:column;gap:4px;max-width:78%}.wf-text b{font-size:10px}.wf-text i.short,.wf-card i.short{width:58%}.wf-button{align-self:flex-start;padding:7px 16px;border:1px solid #858585;border-radius:4px;background:#a5a5a5;color:#fff;font-weight:700}.wf-link{align-self:flex-start;background:transparent;text-decoration:underline;padding:3px}.wf-tabs{display:flex;background:transparent;border-bottom:1px solid #aaa}.wf-tabs span{padding:6px 10px;border:1px solid #aaa;border-bottom:0;background:#d8d8d8}.wf-tabs span.active{background:#aaa;color:#fff}.wf-field{background:transparent;display:flex;flex-direction:column;gap:3px;min-width:120px;flex:1}.wf-field b{font-size:10px}.wf-input{height:28px;border:1px solid #9b9b9b;background:#eee;border-radius:3px;padding:5px;font-size:9px}.wf-input.textarea{height:54px}.wf-choice{background:transparent;display:flex;align-items:center;gap:5px}.wf-choice span{width:12px;height:12px;border:1px solid #888;background:#eee}.wf-choice span.radio{border-radius:50%}.wf-chip{align-self:flex-start;border:1px solid #999;border-radius:12px;padding:3px 8px}.wf-card-grid,.wf-repeat{display:grid;grid-template-columns:repeat(auto-fit,minmax(70px,1fr));gap:6px}.wf-card{border:1px solid #a6a6a6;padding:6px;background:#d5d5d5;display:flex;flex-direction:column;gap:4px;min-width:0}.wf-card .thumb{height:38px;background:#b2b2b2}.wf-list,.wf-table,.wf-chart,.wf-nav{border:1px solid #aaa;padding:6px;background:#ddd}.wf-list>div{display:flex;gap:5px;align-items:center;padding:4px 0;border-top:1px solid #bbb}.wf-list>div span{width:18px;height:18px;background:#b5b5b5}.wf-list>div i{height:5px;background:#b8b8b8;flex:1}.wf-table .tr{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;padding:4px 0;border-top:1px solid #bbb}.wf-table .tr i{height:5px;background:#b4b4b4}.wf-table .head i{height:8px;background:#999}.wf-chart>div{height:68px;display:flex;gap:4px;align-items:end;border-left:1px solid #aaa;border-bottom:1px solid #aaa;padding:4px}.wf-chart i{flex:1;background:#aaa}.wf-stat{padding:8px;border:1px solid #aaa;background:#ddd}.wf-stat b{display:block;font-size:18px}.wf-nav{display:flex;flex-direction:column;gap:5px}.wf-nav span{padding:4px;border-bottom:1px solid #bbb}.wf-divider{height:1px!important;background:#aaa!important}.wf-skeleton{display:flex;flex-direction:column;gap:4px;background:transparent}.wf-skeleton i{height:8px;background:#c2c2c2}.wf-skeleton i.short{width:60%}.wf-spacer{min-height:14px;background:transparent}.wf-custom{border:1px dashed #888;padding:8px;display:flex;justify-content:space-between;gap:6px}.wf-empty-region{border:1px dashed #aaa;padding:8px;color:#999;font-size:10px}.checklist{padding-left:18px}table{border-collapse:collapse;width:100%;margin:8px 0 16px}th,td{border:1px solid #d9dde3;padding:7px;text-align:left;vertical-align:top}.tbd{color:#b45309!important;background:#fffbeb!important}.empty{border:1px dashed #bbb;border-radius:8px;padding:10px;color:#666}summary{cursor:pointer;font-weight:700;padding:8px 0}.gap{border-left:4px solid #d97706;background:#fffbeb;padding:9px 12px;margin:8px 0}.gap.high,.gap.error{border-color:#dc2626;background:#fef2f2}footer{font:11px ui-monospace,monospace;color:#737b87;margin-top:12px}@media(max-width:1100px){.wireframe-layout{grid-template-columns:1fr}.secondary-panel{order:2}}@media(max-width:850px){body>aside{position:static;width:auto}main{margin:0}.screen-head{flex-direction:column}.meta{min-width:0}.wf-region-label span{display:none}}
-  </style></head><body><aside><h1>Screen Visual Wireframes</h1><p>${session.active?'Active review session':'Generated projection'} · ${specs.length} screen(s)</p><input id="q" placeholder="Search screen / route / feature">${nav||'<p>No Screens in scope.</p>'}</aside><main><div class="intro"><b>Low-fidelity visual review artifact.</b> The canvas renders the primary visible state using typed placeholders and platform-aware proportions. Modal/popover/hover-only UI is listed outside the canvas. Canonical truth remains in Screen/Feature/Requirement/Flow documentation.</div>${screens||'<section class="screen"><p>No Screen entities matched the current scope.</p></section>'}</main><script>const q=document.getElementById('q');q&&q.addEventListener('input',()=>{const v=q.value.toLowerCase();document.querySelectorAll('[data-screen]').forEach(x=>x.style.display=x.dataset.text.includes(v)?'':'none');document.querySelectorAll('[data-nav-item]').forEach(x=>x.style.display=x.dataset.text.includes(v)?'':'none')});</script></body></html>`;
+  *{box-sizing:border-box}body{margin:0;font:14px system-ui,-apple-system,Segoe UI,sans-serif;background:#eef0f3;color:#16181d}body>aside{position:fixed;inset:0 auto 0 0;width:290px;background:#111827;color:#fff;padding:18px;overflow:auto}body>aside h1{font-size:18px;margin:0 0 6px}body>aside p{color:#aab2c0;margin:0 0 12px}body>aside input{width:100%;padding:10px;border:1px solid #374151;border-radius:8px;background:#1f2937;color:#fff;margin-bottom:12px}body>aside a{display:flex;flex-direction:column;color:#fff;text-decoration:none;padding:10px;border-radius:8px;margin:4px 0}body>aside a:hover{background:#1f2937}body>aside span,body>aside small{color:#cbd5e1}main{margin-left:290px;padding:24px;max-width:1780px}.intro,.screen{background:#fff;border:1px solid #d7dbe2;border-radius:14px;padding:18px;margin:0 0 22px}.screen-head{display:flex;justify-content:space-between;gap:20px;align-items:flex-start}.screen h2{margin:4px 0}.code{font:12px ui-monospace,monospace;background:#eef2ff;padding:4px 7px;border-radius:6px}.route{font:13px ui-monospace,monospace;color:#4b5563}.meta{min-width:260px;color:#4b5563}.wireframe-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,340px);gap:18px;align-items:start;margin:18px 0}.visual-column h3,.secondary-panel h3{margin:0 0 10px}.secondary-panel{background:#f8fafc;border:1px solid #d8dde6;border-radius:10px;padding:12px}.secondary-panel h3:not(:first-child){margin-top:14px}.shared-shell{border:1px solid #c8ced8;background:#fff;border-radius:7px;padding:8px;margin-bottom:8px}.shared-shell small{display:block;color:#6b7280;margin-top:2px}.visual-summary{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font:12px ui-monospace,monospace;margin-bottom:8px;color:#59616e}.visual-summary span,.visual-summary b,.visual-summary em{border:1px solid #d4d8df;background:#fff;padding:4px 7px;border-radius:5px}.wf-frame{position:relative;background:#d2d4d8;border:1px solid #888f98;overflow:hidden;margin:0 auto 4px;box-shadow:0 8px 28px #0001}.wf-frame.browser{border-radius:5px}.wf-frame.device{border-radius:28px;border-width:8px;background:#1e2126;padding:0}.wf-browser-chrome{height:3.8%;min-height:26px;background:#d6d8dc;border-bottom:1px solid #aeb3ba;display:flex;align-items:center;gap:5px;padding:0 10px}.wf-browser-chrome span{width:8px;height:8px;border-radius:50%;background:#9da3ab}.wf-browser-chrome i{height:55%;margin-left:7px;flex:1;background:#f4f5f6;border:1px solid #bcc1c8;border-radius:3px;font:9px ui-monospace,monospace;color:#9399a2;padding:2px 6px}.wf-device-notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:32%;height:2.2%;min-height:10px;border-radius:0 0 10px 10px;background:#1e2126;z-index:4}.wf-viewport{height:96.2%;background:#f7f7f7;overflow:hidden}.device .wf-viewport{height:100%;border-radius:20px;background:#fafafa}.wf-visual-grid{height:100%;display:grid;grid-template-areas:"top top top" "left main right" "bottom bottom bottom";grid-template-columns:var(--left) minmax(0,1fr) var(--right);grid-template-rows:auto minmax(0,1fr) auto;gap:1px;background:#c7c9cd}.wf-zone{background:#f1f1f1;min-width:0;min-height:0;display:flex;flex-direction:column;gap:1px}.wf-zone-top{grid-area:top}.wf-zone-left{grid-area:left}.wf-zone-main{grid-area:main}.wf-zone-right{grid-area:right}.wf-zone-bottom{grid-area:bottom}.wf-region{background:#f8f8f8;padding:clamp(5px,1vw,14px);min-height:0;overflow:hidden;display:flex;flex-direction:column;gap:6px;flex:1}.wf-region.derived{outline:1px dashed #b7bbc1;outline-offset:-3px}.wf-region-label{display:flex;justify-content:space-between;gap:6px;color:#777;font-size:10px;text-transform:uppercase;letter-spacing:.04em}.wf-region-label span{text-transform:none;letter-spacing:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.wf-region-content{display:flex;flex-direction:column;gap:clamp(4px,.7vw,9px);min-height:0}.layout-row .wf-region-content{flex-direction:row;align-items:center;flex-wrap:wrap}.layout-grid .wf-region-content{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}.wf-component{border-color:#9b9b9b!important;color:#636363;background:#e1e1e1}.wf-component small{display:block;font-size:9px;color:#888}.wf-image{min-height:clamp(48px,10vw,150px);border:1px solid #999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;background:#bdbdbd}.wf-image>span{font-size:22px}.wf-hero{min-height:clamp(70px,14vw,220px)}.wf-logo{align-self:center;padding:8px 14px;border:2px solid #999;background:#d5d5d5;font-weight:800}.wf-avatar{display:flex;align-items:center;gap:6px}.wf-avatar span{width:32px;height:32px;border-radius:50%;background:#bbb}.wf-heading{background:transparent;display:flex;flex-direction:column;gap:4px;max-width:70%}.wf-heading b{font-size:clamp(10px,1.5vw,18px);color:#555}.wf-heading i,.wf-text i,.wf-card i,.wf-stat i{display:block;height:5px;background:#c1c1c1;border-radius:4px;width:100%}.wf-text{background:transparent;display:flex;flex-direction:column;gap:4px;max-width:78%}.wf-text b{font-size:10px}.wf-text i.short,.wf-card i.short{width:58%}.wf-button{align-self:flex-start;padding:7px 16px;border:1px solid #858585;border-radius:4px;background:#a5a5a5;color:#fff;font-weight:700}.wf-link{align-self:flex-start;background:transparent;text-decoration:underline;padding:3px}.wf-tabs{display:flex;background:transparent;border-bottom:1px solid #aaa}.wf-tabs span{padding:6px 10px;border:1px solid #aaa;border-bottom:0;background:#d8d8d8}.wf-tabs span.active{background:#aaa;color:#fff}.wf-field{background:transparent;display:flex;flex-direction:column;gap:3px;min-width:120px;flex:1}.wf-field b{font-size:10px}.wf-input{height:28px;border:1px solid #9b9b9b;background:#eee;border-radius:3px;padding:5px;font-size:9px}.wf-input.textarea{height:54px}.wf-choice{background:transparent;display:flex;align-items:center;gap:5px}.wf-choice span{width:12px;height:12px;border:1px solid #888;background:#eee}.wf-choice span.radio{border-radius:50%}.wf-chip{align-self:flex-start;border:1px solid #999;border-radius:12px;padding:3px 8px}.wf-card-grid,.wf-repeat{display:grid;grid-template-columns:repeat(auto-fit,minmax(70px,1fr));gap:6px}.wf-card{border:1px solid #a6a6a6;padding:6px;background:#d5d5d5;display:flex;flex-direction:column;gap:4px;min-width:0}.wf-card .thumb{height:38px;background:#b2b2b2}.wf-list,.wf-table,.wf-chart,.wf-nav{border:1px solid #aaa;padding:6px;background:#ddd}.wf-list>div{display:flex;gap:5px;align-items:center;padding:4px 0;border-top:1px solid #bbb}.wf-list>div span{width:18px;height:18px;background:#b5b5b5}.wf-list>div i{height:5px;background:#b8b8b8;flex:1}.wf-table .tr{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;padding:4px 0;border-top:1px solid #bbb}.wf-table .tr i{height:5px;background:#b4b4b4}.wf-table .head i{height:8px;background:#999}.wf-chart>div{height:68px;display:flex;gap:4px;align-items:end;border-left:1px solid #aaa;border-bottom:1px solid #aaa;padding:4px}.wf-chart i{flex:1;background:#aaa}.wf-stat{padding:8px;border:1px solid #aaa;background:#ddd}.wf-stat b{display:block;font-size:18px}.wf-nav{display:flex;flex-direction:column;gap:5px}.wf-nav span{padding:4px;border-bottom:1px solid #bbb}.wf-divider{height:1px!important;background:#aaa!important}.wf-skeleton{display:flex;flex-direction:column;gap:4px;background:transparent}.wf-skeleton i{height:8px;background:#c2c2c2}.wf-skeleton i.short{width:60%}.wf-spacer{min-height:14px;background:transparent}.wf-custom{border:1px dashed #888;padding:8px;display:flex;justify-content:space-between;gap:6px}.wf-shared{position:relative;background:#ededed!important;border:1px solid #7f8790!important;padding:6px}.wf-owner{position:absolute;top:2px;right:3px;font:7px ui-monospace,monospace;background:#fff;border:1px solid #aaa;border-radius:3px;padding:1px 3px;color:#666;max-width:55%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.wf-header-row{display:grid;grid-template-columns:minmax(32px,1fr) auto minmax(60px,1fr);align-items:center;gap:6px;min-height:34px;padding-top:5px}.wf-header-left{font-size:9px}.wf-header-right{display:flex;justify-content:flex-end;gap:4px}.wf-header-right i{font-style:normal;font-size:8px;border:1px solid #999;border-radius:3px;padding:3px}.wf-bottom-items{display:grid;grid-template-columns:repeat(auto-fit,minmax(48px,1fr));gap:3px;padding-top:5px}.wf-bottom-items span{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:8px;padding:4px;border-radius:4px}.wf-bottom-items span.active{background:#bcbcbc;color:#333}.wf-bottom-items i{font-style:normal}.wf-shared-generic{display:flex;gap:5px;flex-wrap:wrap}.wf-shared-element{border:1px solid #aaa;padding:4px;background:#ddd}.wf-empty-region{border:1px dashed #aaa;padding:8px;color:#999;font-size:10px}.checklist{padding-left:18px}table{border-collapse:collapse;width:100%;margin:8px 0 16px}th,td{border:1px solid #d9dde3;padding:7px;text-align:left;vertical-align:top}.tbd{color:#b45309!important;background:#fffbeb!important}.empty{border:1px dashed #bbb;border-radius:8px;padding:10px;color:#666}summary{cursor:pointer;font-weight:700;padding:8px 0}.gap{border-left:4px solid #d97706;background:#fffbeb;padding:9px 12px;margin:8px 0}.gap.high,.gap.error{border-color:#dc2626;background:#fef2f2}footer{font:11px ui-monospace,monospace;color:#737b87;margin-top:12px}@media(max-width:1100px){.wireframe-layout{grid-template-columns:1fr}.secondary-panel{order:2}}@media(max-width:850px){body>aside{position:static;width:auto}main{margin:0}.screen-head{flex-direction:column}.meta{min-width:0}.wf-region-label span{display:none}}
+  </style></head><body><aside><h1>Screen Visual Wireframes</h1><p>${session.active?'Active review session':'Generated projection'} · ${specs.length} screen(s)</p><input id="q" placeholder="Search screen / route / feature">${nav||'<p>No Screens in scope.</p>'}</aside><main><div class="intro"><b>Low-fidelity visual review artifact.</b> The canvas composes Screen-local content with reusable Screen Shell/UI Component sources, typed placeholders and platform-aware proportions. Modal/popover/hover-only UI is listed outside the canvas. Canonical truth remains in Screen/Feature/Requirement/Flow documentation.</div>${screens||'<section class="screen"><p>No Screen entities matched the current scope.</p></section>'}</main><script>const q=document.getElementById('q');q&&q.addEventListener('input',()=>{const v=q.value.toLowerCase();document.querySelectorAll('[data-screen]').forEach(x=>x.style.display=x.dataset.text.includes(v)?'':'none');document.querySelectorAll('[data-nav-item]').forEach(x=>x.style.display=x.dataset.text.includes(v)?'':'none')});</script></body></html>`;
 }
 function proposals() {
   ensureDir(proposalDir());
@@ -624,11 +782,15 @@ function proposals() {
 }
 export function buildWireframeArtifacts() {
   const session=currentSession();
-  const screens=scanEntities().entities.filter(e=>e.type==='screen' && inScope(e,session));
+  const allEntities=scanEntities().entities;
+  const screens=allEntities.filter(e=>e.type==='screen' && inScope(e,session));
+  const components=new Map(allEntities.filter(e=>e.type==='ui-component').map(e=>[e.code,parseSharedUiComponent(e)]));
+  const shells=new Map(allEntities.filter(e=>e.type==='screen-shell').map(e=>[e.code,parseScreenShell(e)]));
+  const screenCodes=new Set(allEntities.filter(e=>e.type==='screen').map(e=>e.code));
   ensureDir(specDir()); ensureDir(generatedDir());
   fs.rmSync(specDir(),{recursive:true,force:true}); ensureDir(specDir());
   fs.rmSync(generatedDir(),{recursive:true,force:true}); ensureDir(generatedDir());
-  const specs=screens.map(screenSpec);
+  const specs=screens.map(e=>screenSpec(e,{components,shells,screenCodes}));
   for(const spec of specs){
     writeJson(path.join(specDir(),`${slug(spec.screenCode)}.json`),spec);
     fs.writeFileSync(path.join(generatedDir(),`${slug(spec.screenCode)}.txt`),renderText(spec));
@@ -654,6 +816,11 @@ function buildWireframeReport({specs=loadSpecs(),session=currentSession()}={}){
     if(!spec){findings.push(finding(cfg().validation.staleProjectionSeverity,'MISSING_WIREFRAME_PROJECTION',`No generated wireframe projection for ${e.code}.`,e.code));continue;}
     const current=fileHash(abs(e.path));
     if(current!==spec.sourceHash) findings.push(finding(cfg().validation.staleProjectionSeverity,'STALE_WIREFRAME_PROJECTION',`${e.code} changed after the wireframe was generated. Rebuild required.`,e.code));
+    for(const dep of spec.sourceDependencies||[]){
+      if(!dep.path||!fs.existsSync(abs(dep.path))) findings.push(finding(cfg().validation.missingSharedComponentSeverity,'WIREFRAME_DEPENDENCY_MISSING',`${e.code} depends on missing ${dep.type||'shared UI'} ${dep.code||dep.path}.`,e.code));
+      else if(fileHash(abs(dep.path))!==dep.sourceHash) findings.push(finding(cfg().validation.staleProjectionSeverity,'STALE_WIREFRAME_DEPENDENCY',`${e.code} shared UI dependency ${dep.code} changed after generation. Rebuild required.`,e.code));
+    }
+    for(const cf of spec.composition?.findings||[]) findings.push(finding(cf.severity||'warning',cf.code||'SHARED_UI_COMPOSITION_GAP',cf.message||'Shared UI composition gap.',e.code));
     if(!spec.route) findings.push(finding(cfg().validation.missingRouteSeverity,'SCREEN_ROUTE_TBD',`${e.code} has no documented route.`,e.code));
     if(!(spec.userActions?.length || spec.actions?.length || spec.lifecycleActions?.length || spec.systemActions?.length)) findings.push(finding(cfg().validation.screenWithoutActionsSeverity,'SCREEN_ACTIONS_TBD',`${e.code} has no documented user, lifecycle, or system actions.`,e.code));
     if(!spec.navigation.length) findings.push(finding(cfg().validation.screenWithoutNavigationSeverity,'SCREEN_NAVIGATION_TBD',`${e.code} has no documented navigation rules.`,e.code));
@@ -671,7 +838,7 @@ function buildWireframeReport({specs=loadSpecs(),session=currentSession()}={}){
     else if(p.status==='open') findings.push(finding(cfg().validation.openGapSeverity,'OPEN_WIREFRAME_GAP',`${p.id}: ${p.summary}`,p.screenCode,p.id));
   }
   const blocks=new Set(cfg().validation.blockSeverities||['high','error']);
-  return {schemaVersion:'1.0',generatedAt:now(),active:!!session.active,scope:session.scope||{type:'all',refs:[]},summary:{screens:screenEntities.length,projected:specs.length,proposals:ps.length,open:ps.filter(x=>x.status==='open').length,accepted:ps.filter(x=>x.status==='accepted').length,resolved:ps.filter(x=>x.status==='resolved').length,findings:findings.length,blocking:findings.filter(x=>blocks.has(x.severity)).length},findings,screens:specs.map(s=>({screenCode:s.screenCode,title:s.title,route:s.route,sourceDocument:s.sourceDocument,sourceHash:s.sourceHash,platform:s.displayProfile?.platform,viewport:s.displayProfile?.viewport,primaryVisibleState:s.displayProfile?.primaryVisibleState,visualRegions:(s.visualRegions||[]).length,visibleComponents:(s.visibleComponents||[]).length,hiddenSecondaryUi:(s.hiddenSecondaryUi||[]).length,fields:s.fields.length,userActions:(s.userActions||s.actions||[]).length,lifecycleActions:(s.lifecycleActions||[]).length,systemActions:(s.systemActions||[]).length,apiInteractions:(s.apiInteractions||[]).length,actions:(s.userActions||s.actions||[]).length,states:s.states.length,navigation:s.navigation.length})),proposals:ps,pass:findings.every(x=>!blocks.has(x.severity))};
+  return {schemaVersion:'1.0',generatedAt:now(),active:!!session.active,scope:session.scope||{type:'all',refs:[]},summary:{screens:screenEntities.length,projected:specs.length,proposals:ps.length,open:ps.filter(x=>x.status==='open').length,accepted:ps.filter(x=>x.status==='accepted').length,resolved:ps.filter(x=>x.status==='resolved').length,findings:findings.length,blocking:findings.filter(x=>blocks.has(x.severity)).length},findings,screens:specs.map(s=>({screenCode:s.screenCode,title:s.title,route:s.route,sourceDocument:s.sourceDocument,sourceHash:s.sourceHash,platform:s.displayProfile?.platform,viewport:s.displayProfile?.viewport,primaryVisibleState:s.displayProfile?.primaryVisibleState,visualRegions:(s.visualRegions||[]).length,visibleComponents:(s.visibleComponents||[]).length,hiddenSecondaryUi:(s.hiddenSecondaryUi||[]).length,screenShell:s.composition?.shell?.code||null,sharedComponents:(s.composition?.sharedInstances||[]).map(x=>x.ownerCode),fields:s.fields.length,userActions:(s.userActions||s.actions||[]).length,lifecycleActions:(s.lifecycleActions||[]).length,systemActions:(s.systemActions||[]).length,apiInteractions:(s.apiInteractions||[]).length,actions:(s.userActions||s.actions||[]).length,states:s.states.length,navigation:s.navigation.length})),proposals:ps,pass:findings.every(x=>!blocks.has(x.severity))};
 }
 export function createWireframeGap({screenCode,kind='other',severity='warning',summary,expected='',evidence='Reviewer observation from generated wireframe.',targets=[]}){
   if(!currentSession().active) throw new Error('Wireframe review session is not active. Run wireframe:start first.');

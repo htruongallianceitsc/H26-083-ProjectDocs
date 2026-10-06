@@ -1,7 +1,7 @@
-# Production Project Documentation Starter Kit v5.13
+# Production Project Documentation Starter Kit v5.14
 
 
-Documentation-first starter kit for long-lived Web, Mobile and API projects. v5.13 upgrades optional **Screen-First Wireframe Analysis** into a platform-aware visual placeholder workflow: Screen docs can describe viewport, layout regions, typed visible components and secondary UI so the generated HTML looks like a real low-fidelity wireframe while canonical documentation remains the source of truth.
+Documentation-first starter kit for long-lived Web, Mobile and API projects. v5.14 adds **Shared UI Composition** so common Headers, Bottom Navigation and reusable app shells are canonical once, composed into many Screens, and traced through impact-aware wireframes while Screen-specific behaviour remains on each Screen.
 
 ## Core model
 
@@ -34,6 +34,34 @@ Docs Reconciliation <- Tests <- Source Changes
 Done Gate -> ChangeSet / Baseline
 ```
 
+
+## What v5.14 adds
+
+### 1. Canonical Shared UI Components
+
+New `ui-component` entities document reusable visual building blocks such as mobile Headers and Bottom Navigation. Components expose explicit slots (`title`, `rightActions`, `activeItem`, etc.) instead of forcing each Screen to duplicate the same structure.
+
+### 2. Reusable Screen Shells
+
+New `screen-shell` entities compose shared components into reusable frames such as `header + main + bottom-nav`. A Screen selects at most one primary shell through `related.screen_shells`.
+
+### 3. Screen slot overrides instead of copied UI
+
+Screens can use `Shared UI Overrides` to provide only what differs: e.g. `header.title=Projects`, `header.rightActions=Add Project; Filter`, `bottom-tabs.activeItem=Projects`. Screen-specific actions remain in `User Actions` and `Navigation Rules`.
+
+### 4. Composition-aware wireframe renderer
+
+The derived Screen spec is now schema `1.3`. The HTML wireframe merges Shell regions, Shared UI Components and Screen-local components, renders shared ownership badges, and exposes composition/provenance beside the canvas.
+
+### 5. Shared dependency stale detection and impact graph
+
+Generated Screen wireframes store source hashes for their Shell and Shared UI Components. Changing a common Header or Bottom Navigation makes every dependent projection stale until rebuilt. The relation graph also supports Component → Shell → Screen impact traversal.
+
+### 6. Mobile Screen template parity
+
+`mobile-screen-template.md` now carries the same visual/display/component contract as the general Screen template, plus mobile-specific states, lifecycle, network, safe-area and device concerns.
+
+See `kit/standards/shared-ui-composition.md`, `kit/templates/ui-component-template.md`, `kit/templates/screen-shell-template.md`, and `kit/examples/shared-ui-composition/`.
 
 ## What v5.13 adds
 

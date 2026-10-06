@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-06T06:00:26.384Z",
+  "generatedAt": "2026-10-06T06:46:40.156Z",
   "documents": [
     {
       "path": "PROJECT_BLUEPRINT.md",
@@ -12,7 +12,7 @@
     },
     {
       "path": "README.md",
-      "title": "Production Project Documentation Starter Kit v5.13",
+      "title": "Production Project Documentation Starter Kit v5.14",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -21,7 +21,7 @@
     },
     {
       "path": "START_HERE.md",
-      "title": "START HERE - v5.13",
+      "title": "START HERE - v5.14",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -76,6 +76,15 @@
     {
       "path": "docs/05-screens/README.md",
       "title": "screens",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/05-screens/shared/README.md",
+      "title": "Shared Screen UI",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -605,6 +614,24 @@
       "status": null
     },
     {
+      "path": "docs/history/V5_14_QA_REPORT.md",
+      "title": "v5.14 QA Report",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/history/V5_14_UPGRADE_NOTES.md",
+      "title": "v5.14 Upgrade Notes — Shared UI Composition & Impact-Aware Wireframes",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
       "path": "docs/history/V5_1_QA_REPORT.md",
       "title": "v5.1 QA Report",
       "uid": null,
@@ -801,6 +828,51 @@
       "revision": 0,
       "type": null,
       "status": null
+    },
+    {
+      "path": "kit/examples/shared-ui-composition/README.md",
+      "title": "Shared UI Composition Example",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/examples/shared-ui-composition/SCR-HOME.md",
+      "title": "Home",
+      "uid": "00000000-0000-4000-8000-000000051404",
+      "code": "SCR-HOME",
+      "revision": 1,
+      "type": "screen",
+      "status": "approved"
+    },
+    {
+      "path": "kit/examples/shared-ui-composition/UI-CMP-MOBILE-BOTTOM-NAV.md",
+      "title": "Mobile Bottom Navigation",
+      "uid": "00000000-0000-4000-8000-000000051402",
+      "code": "UI-CMP-MOBILE-BOTTOM-NAV",
+      "revision": 1,
+      "type": "ui-component",
+      "status": "approved"
+    },
+    {
+      "path": "kit/examples/shared-ui-composition/UI-CMP-MOBILE-HEADER.md",
+      "title": "Mobile Header",
+      "uid": "00000000-0000-4000-8000-000000051401",
+      "code": "UI-CMP-MOBILE-HEADER",
+      "revision": 1,
+      "type": "ui-component",
+      "status": "approved"
+    },
+    {
+      "path": "kit/examples/shared-ui-composition/UI-SHELL-MOBILE-MAIN.md",
+      "title": "Mobile Main Shell",
+      "uid": "00000000-0000-4000-8000-000000051403",
+      "code": "UI-SHELL-MOBILE-MAIN",
+      "revision": 1,
+      "type": "screen-shell",
+      "status": "approved"
     },
     {
       "path": "kit/prompts/00-master-orchestrator-prompt.md",
@@ -1280,8 +1352,17 @@
       "status": null
     },
     {
+      "path": "kit/prompts/52-shared-ui-composition-review.md",
+      "title": "Prompt 52 — Shared UI Composition Review",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
       "path": "kit/registry/README.md",
-      "title": "Registry Governance — v5.12",
+      "title": "Registry Governance — v5.14",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -1884,7 +1965,7 @@
     },
     {
       "path": "kit/standards/screen-first-wireframe-analysis.md",
-      "title": "Screen-First Wireframe Analysis Standard — v5.13",
+      "title": "Screen-First Wireframe Analysis Standard — v5.14",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -1894,6 +1975,15 @@
     {
       "path": "kit/standards/security-and-secrets.md",
       "title": "Security & Secrets Documentation Rules",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/shared-ui-composition.md",
+      "title": "Shared UI Composition Standard — v5.14",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -2729,6 +2819,15 @@
       "status": "draft"
     },
     {
+      "path": "kit/templates/screen-shell-template.md",
+      "title": "<Screen Shell>",
+      "uid": "<GENERATE-UUID>",
+      "code": "<UI-SHELL-NAME>",
+      "revision": 1,
+      "type": "screen-shell",
+      "status": "draft"
+    },
+    {
       "path": "kit/templates/screen-template.md",
       "title": "<TITLE>",
       "uid": "<GENERATE-UUID>",
@@ -2771,6 +2870,15 @@
       "code": "<CODE>",
       "revision": 1,
       "type": "test-case",
+      "status": "draft"
+    },
+    {
+      "path": "kit/templates/ui-component-template.md",
+      "title": "<Shared UI Component>",
+      "uid": "<GENERATE-UUID>",
+      "code": "<UI-CMP-NAME>",
+      "revision": 1,
+      "type": "ui-component",
       "status": "draft"
     },
     {
@@ -2999,6 +3107,15 @@
       "status": null
     },
     {
+      "path": "kit/workflows/25-shared-ui-composition.md",
+      "title": "Workflow 25 — Shared UI Composition",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
       "path": "kit/workflows/END_TO_END_CHECKLIST.md",
       "title": "End-to-End Documentation Checklist",
       "uid": null,
@@ -3009,7 +3126,7 @@
     },
     {
       "path": "tools/README.md",
-      "title": "Documentation Toolchain v5.13",
+      "title": "Documentation Toolchain v5.14",
       "uid": null,
       "code": null,
       "revision": 0,

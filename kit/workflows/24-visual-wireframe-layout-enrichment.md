@@ -105,3 +105,7 @@ npm run wireframe:build
 - click/hover-only secondary UI is documented outside the primary canvas;
 - no important region is merely `content`/`section` without enough detail to review;
 - generated HTML is current with the canonical Screen hash.
+
+## v5.14 shared UI check
+
+Before copying a Header, Bottom Navigation, Sidebar or common toolbar into multiple Screen documents, run Workflow 25. If the structure is genuinely shared, promote it to `ui-component` / `screen-shell`, then keep only Screen-local content and slot overrides here.

@@ -21,6 +21,16 @@
       "direction": "both"
     },
     {
+      "field": "ui_components",
+      "weight": 5,
+      "direction": "both"
+    },
+    {
+      "field": "screen_shells",
+      "weight": 5,
+      "direction": "both"
+    },
+    {
       "field": "screens",
       "weight": 4,
       "direction": "both"

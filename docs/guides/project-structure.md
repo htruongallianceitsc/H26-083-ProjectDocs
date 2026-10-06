@@ -77,6 +77,9 @@ docs/
 │   └── ...
 │
 ├── 05-screens/
+│   ├── shared/
+│   │   ├── components/       # ui-component: Header, Bottom Nav, shared toolbar...
+│   │   └── shells/           # screen-shell: shared Screen frames
 │   ├── SCR-LOGIN.md
 │   ├── SCR-DASHBOARD.md
 │   ├── SCR-ORDER-LIST.md

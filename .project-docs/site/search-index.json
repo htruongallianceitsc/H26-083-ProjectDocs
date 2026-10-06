@@ -5,12 +5,12 @@
     "text": "PROJECT_BLUEPRINT.md"
   },
   {
-    "title": "Production Project Documentation Starter Kit v5.13",
+    "title": "Production Project Documentation Starter Kit v5.14",
     "path": "pages/readme.html",
     "text": "README.md"
   },
   {
-    "title": "START HERE - v5.13",
+    "title": "START HERE - v5.14",
     "path": "pages/start-here.html",
     "text": "START_HERE.md"
   },
@@ -43,6 +43,11 @@
     "title": "screens",
     "path": "pages/docs-05-screens-readme.html",
     "text": "docs/05-screens/README.md"
+  },
+  {
+    "title": "Shared Screen UI",
+    "path": "pages/docs-05-screens-shared-readme.html",
+    "text": "docs/05-screens/shared/README.md"
   },
   {
     "title": "flows",
@@ -335,6 +340,16 @@
     "text": "docs/history/V5_13_UPGRADE_NOTES.md"
   },
   {
+    "title": "v5.14 QA Report",
+    "path": "pages/docs-history-v5-14-qa-report.html",
+    "text": "docs/history/V5_14_QA_REPORT.md"
+  },
+  {
+    "title": "v5.14 Upgrade Notes — Shared UI Composition & Impact-Aware Wireframes",
+    "path": "pages/docs-history-v5-14-upgrade-notes.html",
+    "text": "docs/history/V5_14_UPGRADE_NOTES.md"
+  },
+  {
     "title": "v5.1 QA Report",
     "path": "pages/docs-history-v5-1-qa-report.html",
     "text": "docs/history/V5_1_QA_REPORT.md"
@@ -443,6 +458,31 @@
     "title": "Example — Web Screen Visual Wireframe Specification",
     "path": "pages/kit-examples-screen-visual-wireframe-example.html",
     "text": "kit/examples/screen-visual-wireframe-example.md"
+  },
+  {
+    "title": "Shared UI Composition Example",
+    "path": "pages/kit-examples-shared-ui-composition-readme.html",
+    "text": "kit/examples/shared-ui-composition/README.md"
+  },
+  {
+    "title": "Home",
+    "path": "pages/kit-examples-shared-ui-composition-scr-home.html",
+    "text": "kit/examples/shared-ui-composition/SCR-HOME.md"
+  },
+  {
+    "title": "Mobile Bottom Navigation",
+    "path": "pages/kit-examples-shared-ui-composition-ui-cmp-mobile-bottom-nav.html",
+    "text": "kit/examples/shared-ui-composition/UI-CMP-MOBILE-BOTTOM-NAV.md"
+  },
+  {
+    "title": "Mobile Header",
+    "path": "pages/kit-examples-shared-ui-composition-ui-cmp-mobile-header.html",
+    "text": "kit/examples/shared-ui-composition/UI-CMP-MOBILE-HEADER.md"
+  },
+  {
+    "title": "Mobile Main Shell",
+    "path": "pages/kit-examples-shared-ui-composition-ui-shell-mobile-main.html",
+    "text": "kit/examples/shared-ui-composition/UI-SHELL-MOBILE-MAIN.md"
   },
   {
     "title": "Master Prompt — Documentation-First Project Orchestrator v5.9",
@@ -710,7 +750,12 @@
     "text": "kit/prompts/51-visual-wireframe-layout-enrichment.md"
   },
   {
-    "title": "Registry Governance — v5.12",
+    "title": "Prompt 52 — Shared UI Composition Review",
+    "path": "pages/kit-prompts-52-shared-ui-composition-review.html",
+    "text": "kit/prompts/52-shared-ui-composition-review.md"
+  },
+  {
+    "title": "Registry Governance — v5.14",
     "path": "pages/kit-registry-readme.html",
     "text": "kit/registry/README.md"
   },
@@ -1045,7 +1090,7 @@
     "text": "kit/standards/reuse/reuse-strategy.md"
   },
   {
-    "title": "Screen-First Wireframe Analysis Standard — v5.13",
+    "title": "Screen-First Wireframe Analysis Standard — v5.14",
     "path": "pages/kit-standards-screen-first-wireframe-analysis.html",
     "text": "kit/standards/screen-first-wireframe-analysis.md"
   },
@@ -1053,6 +1098,11 @@
     "title": "Security & Secrets Documentation Rules",
     "path": "pages/kit-standards-security-and-secrets.html",
     "text": "kit/standards/security-and-secrets.md"
+  },
+  {
+    "title": "Shared UI Composition Standard — v5.14",
+    "path": "pages/kit-standards-shared-ui-composition.html",
+    "text": "kit/standards/shared-ui-composition.md"
   },
   {
     "title": "Source Base Governance",
@@ -1515,6 +1565,11 @@
     "text": "kit/templates/runbook-template.md"
   },
   {
+    "title": "<Screen Shell>",
+    "path": "pages/kit-templates-screen-shell-template.html",
+    "text": "kit/templates/screen-shell-template.md"
+  },
+  {
     "title": "<TITLE>",
     "path": "pages/kit-templates-screen-template.html",
     "text": "kit/templates/screen-template.md"
@@ -1538,6 +1593,11 @@
     "title": "<TITLE>",
     "path": "pages/kit-templates-test-case-template.html",
     "text": "kit/templates/test-case-template.md"
+  },
+  {
+    "title": "<Shared UI Component>",
+    "path": "pages/kit-templates-ui-component-template.html",
+    "text": "kit/templates/ui-component-template.md"
   },
   {
     "title": "Workflow 01 — Idea -> Scope",
@@ -1665,12 +1725,17 @@
     "text": "kit/workflows/24-visual-wireframe-layout-enrichment.md"
   },
   {
+    "title": "Workflow 25 — Shared UI Composition",
+    "path": "pages/kit-workflows-25-shared-ui-composition.html",
+    "text": "kit/workflows/25-shared-ui-composition.md"
+  },
+  {
     "title": "End-to-End Documentation Checklist",
     "path": "pages/kit-workflows-end-to-end-checklist.html",
     "text": "kit/workflows/END_TO_END_CHECKLIST.md"
   },
   {
-    "title": "Documentation Toolchain v5.13",
+    "title": "Documentation Toolchain v5.14",
     "path": "pages/tools-readme.html",
     "text": "tools/README.md"
   },

@@ -920,6 +920,62 @@
       "terminalStatuses": [
         "deprecated"
       ]
+    },
+    "ui-component": {
+      "statuses": [
+        "draft",
+        "approved",
+        "implemented",
+        "deprecated"
+      ],
+      "initialStatus": "draft",
+      "transitions": {
+        "draft": [
+          "approved",
+          "deprecated"
+        ],
+        "approved": [
+          "draft",
+          "implemented",
+          "deprecated"
+        ],
+        "implemented": [
+          "approved",
+          "deprecated"
+        ],
+        "deprecated": []
+      },
+      "terminalStatuses": [
+        "deprecated"
+      ]
+    },
+    "screen-shell": {
+      "statuses": [
+        "draft",
+        "approved",
+        "implemented",
+        "deprecated"
+      ],
+      "initialStatus": "draft",
+      "transitions": {
+        "draft": [
+          "approved",
+          "deprecated"
+        ],
+        "approved": [
+          "draft",
+          "implemented",
+          "deprecated"
+        ],
+        "implemented": [
+          "approved",
+          "deprecated"
+        ],
+        "deprecated": []
+      },
+      "terminalStatuses": [
+        "deprecated"
+      ]
     }
   }
 }

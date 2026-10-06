@@ -12,6 +12,20 @@ Use this template when a generated wireframe is too vague to review. Copy the re
 | Canvas Mode | application | |
 | Density | medium | |
 
+## Shared UI Composition
+
+When common UI is reused, prefer a `screen-shell` + `ui-component` instead of duplicating Header/Bottom Navigation rows on every Screen.
+
+### Shared UI Placements
+
+| Region | Instance ID | Shared Component | Notes |
+|---|---|---|---|
+
+### Shared UI Overrides
+
+| Target Instance | Slot / Property | Value | Notes |
+|---|---|---|---|
+
 ## Visual Layout Regions
 
 | Region ID | Parent | Position | Layout | Size | Purpose / Content | Notes |
