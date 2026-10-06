@@ -21,6 +21,8 @@ kit/
 
 ## Boundaries
 
+- `mockups/` is project-specific design evidence and therefore stays outside `kit/`.
+
 - Put project facts and durable domain knowledge in `docs/`.
 - Put real implementation in `apps/`, `packages/`, `tests/`, `infra/`, or an adopted application root.
 - Put rebuildable runtime/generated state in `.project-docs/`.

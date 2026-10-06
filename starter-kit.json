@@ -1,7 +1,7 @@
 {
   "name": "production-project-docs-starter-kit",
-  "version": "5.9.0",
-  "schemaVersion": "5.9.0",
+  "version": "5.10.0",
+  "schemaVersion": "5.10.0",
   "registrySchemaVersion": "1.0",
   "capabilityPackSchemaVersion": "1.0",
   "workPlanSchemaVersion": "1.2",
@@ -53,7 +53,8 @@
       "packages": "packages",
       "tests": "tests",
       "infra": "infra"
-    }
+    },
+    "mockups": "mockups"
   },
   "legacyLayoutAliases": {
     "registry": "registry",
@@ -69,5 +70,11 @@
     "site": "site"
   },
   "brownfieldVersion": "1.0",
-  "blueprintProjectionVersion": "1.0"
+  "blueprintProjectionVersion": "1.0",
+  "mockupWorkflowVersion": "1.0",
+  "mockupWorkflow": {
+    "assetRoot": "mockups",
+    "runtimeDirectory": ".project-docs/mockups",
+    "config": "kit/registry/mockup-workflow.json"
+  }
 }

@@ -11,6 +11,7 @@ updated_at: YYYY-MM-DD
 last_reviewed_at: YYYY-MM-DD
 tags: []
 route: </route>
+mockup_refs: []
 related:
   modules: []
   features: []
@@ -33,6 +34,11 @@ related:
 ## Accessible Roles
 
 ## Entry Points
+
+## Mockup Coverage
+
+| Mockup | State / Variant | Notes |
+|---|---|---|
 
 ## Layout / Sections
 
@@ -58,5 +64,7 @@ related:
 ## Validation & Messages
 
 ## Responsive / Accessibility
+
+## Open Questions / Mockup Gaps
 
 ## Related Features / Rules / APIs

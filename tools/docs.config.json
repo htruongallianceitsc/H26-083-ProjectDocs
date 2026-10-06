@@ -21,7 +21,8 @@
     "tools/.cache/**",
     "kit/source-bases/**",
     "kit/reuse/capabilities/**",
-    "kit/reuse/patterns/**"
+    "kit/reuse/patterns/**",
+    "mockups/**"
   ],
   "generatedDir": "docs/_generated",
   "cacheDir": "tools/.cache",

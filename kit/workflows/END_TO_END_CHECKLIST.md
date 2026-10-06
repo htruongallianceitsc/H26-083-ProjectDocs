@@ -15,6 +15,7 @@
 - [ ] User journeys
 
 ## C. Feature Detail
+- [ ] Nếu có `mockups/`: Screen/state inventory đã được phân tích và map trước khi chốt Screen docs
 - [ ] Feature docs
 - [ ] Requirements
 - [ ] Business Rules
@@ -64,6 +65,8 @@
 - [ ] Có tài liệu duplicate source of truth?
 
 ## H. Tooling & Visual Review
+- [ ] Nếu `mockups/` có asset: `npm run mockup:check` pass
+- [ ] Mockup Traceability report reviewed
 - [ ] `cd tools && npm run docs:validate` pass
 - [ ] `npm run docs:sync` pass
 - [ ] `npm run docs:build` pass

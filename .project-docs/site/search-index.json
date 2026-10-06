@@ -5,12 +5,12 @@
     "text": "PROJECT_BLUEPRINT.md"
   },
   {
-    "title": "Production Project Documentation Starter Kit v5.9",
+    "title": "Production Project Documentation Starter Kit v5.10",
     "path": "pages/readme.html",
     "text": "README.md"
   },
   {
-    "title": "START HERE - v5.9",
+    "title": "START HERE - v5.10",
     "path": "pages/start-here.html",
     "text": "START_HERE.md"
   },
@@ -288,6 +288,16 @@
     "title": "Starter Kit v4 Upgrade Notes",
     "path": "pages/docs-history-v4-upgrade-notes.html",
     "text": "docs/history/V4_UPGRADE_NOTES.md"
+  },
+  {
+    "title": "v5.10 QA Report",
+    "path": "pages/docs-history-v5-10-qa-report.html",
+    "text": "docs/history/V5_10_QA_REPORT.md"
+  },
+  {
+    "title": "v5.10 Upgrade Notes — Mockup-Driven Documentation",
+    "path": "pages/docs-history-v5-10-upgrade-notes.html",
+    "text": "docs/history/V5_10_UPGRADE_NOTES.md"
   },
   {
     "title": "v5.1 QA Report",
@@ -630,6 +640,16 @@
     "text": "kit/prompts/45-blueprint-projection.md"
   },
   {
+    "title": "Prompt 46 — Mockup → Documentation Evidence",
+    "path": "pages/kit-prompts-46-mockup-to-documentation.html",
+    "text": "kit/prompts/46-mockup-to-documentation.md"
+  },
+  {
+    "title": "Prompt 47 — Mockup Functional Coverage Review",
+    "path": "pages/kit-prompts-47-mockup-functional-coverage.html",
+    "text": "kit/prompts/47-mockup-functional-coverage.md"
+  },
+  {
     "title": "Registry Governance — v5.9",
     "path": "pages/kit-registry-readme.html",
     "text": "kit/registry/README.md"
@@ -655,7 +675,7 @@
     "text": "kit/standards/ADDING_A_STACK.md"
   },
   {
-    "title": "Standards Architecture v5.9",
+    "title": "Standards Architecture v5.10",
     "path": "pages/kit-standards-readme.html",
     "text": "kit/standards/README.md"
   },
@@ -670,7 +690,7 @@
     "text": "kit/standards/acceptance-and-verification-traceability.md"
   },
   {
-    "title": "AI Agent Rules — v5.3",
+    "title": "AI Agent Rules — v5.10",
     "path": "pages/kit-standards-ai-agent-rules.html",
     "text": "kit/standards/ai-agent-rules.md"
   },
@@ -738,6 +758,11 @@
     "title": "Metadata Schema",
     "path": "pages/kit-standards-metadata-schema.html",
     "text": "kit/standards/metadata-schema.md"
+  },
+  {
+    "title": "Mockup-Driven Documentation Standard — v5.10",
+    "path": "pages/kit-standards-mockup-driven-documentation.html",
+    "text": "kit/standards/mockup-driven-documentation.md"
   },
   {
     "title": "Naming, Code & UID Convention",
@@ -935,7 +960,7 @@
     "text": "kit/standards/project-types/web/web-ui-ux.md"
   },
   {
-    "title": "Repository Entry & History Hygiene Standard — v5.6",
+    "title": "Repository Entry & History Hygiene Standard — v5.10",
     "path": "pages/kit-standards-repository-entry-hygiene.html",
     "text": "kit/standards/repository-entry-hygiene.md"
   },
@@ -1545,12 +1570,17 @@
     "text": "kit/workflows/20-blueprint-projection.md"
   },
   {
+    "title": "Workflow 21 — Mockups → Documentation",
+    "path": "pages/kit-workflows-21-mockup-to-documentation.html",
+    "text": "kit/workflows/21-mockup-to-documentation.md"
+  },
+  {
     "title": "End-to-End Documentation Checklist",
     "path": "pages/kit-workflows-end-to-end-checklist.html",
     "text": "kit/workflows/END_TO_END_CHECKLIST.md"
   },
   {
-    "title": "Documentation Toolchain v5.9",
+    "title": "Documentation Toolchain v5.10",
     "path": "pages/tools-readme.html",
     "text": "tools/README.md"
   },

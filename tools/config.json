@@ -19,7 +19,8 @@
     "node_modules",
     "kit/source-bases",
     "kit/reuse/capabilities",
-    "kit/reuse/patterns"
+    "kit/reuse/patterns",
+    "mockups"
   ],
   "generatedDir": "docs/_generated",
   "siteDir": ".project-docs/site",

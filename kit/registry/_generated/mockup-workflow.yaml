@@ -1,0 +1,53 @@
+# GENERATED FILE - DO NOT EDIT
+# Source: kit/registry/mockup-workflow.json
+schemaVersion: 1.0
+assetRoot: mockups
+runtimeDirectory: .project-docs/mockups
+supportedExtensions:
+  - .png
+  - .jpg
+  - .jpeg
+  - .webp
+  - .gif
+  - .svg
+naming:
+  separator: __
+  convention: "<screen-key>__<state>__<variant>.<ext>"
+  examples:
+    - auth/login__default.png
+    - auth/login__validation-error.png
+    - orders/order-list__empty__mobile.png
+analysis:
+  requireVisionAnalysisBeforePromotion: true
+  prompt: kit/prompts/46-mockup-to-documentation.md
+  template: kit/templates/mockup-analysis-template.json
+  schema: kit/registry/mockup-analysis.schema.json
+promotion:
+  requireReview: true
+  autoCreateDraftScreen: true
+  autoUpdateExistingScreens: false
+  existingScreenDefault: proposal-only
+validation:
+  requireEveryScreenMockupMapped: true
+  missingAnalysisSeverity: high
+  staleAnalysisSeverity: high
+  unmappedMockupSeverity: high
+  acceptedNotPromotedSeverity: high
+  blockSeverities:
+    - high
+    - error
+  screenWithoutFeatureSeverity: warning
+sourceOfTruth:
+  mockupRole: design-evidence
+  screenCanonicalFor:
+    - visible-ui-structure
+    - screen-states
+    - actions
+    - navigation-behaviour
+  neverInferFromMockupAlone:
+    - api-contract
+    - database-schema
+    - hidden-business-rule
+    - permission-model
+    - server-validation
+    - non-visible-edge-case

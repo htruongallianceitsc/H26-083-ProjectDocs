@@ -1,14 +1,18 @@
-# Production Project Documentation Starter Kit v5.9
+# Production Project Documentation Starter Kit v5.10
 
 
-Documentation-first starter kit for long-lived Web, Mobile and API projects. v5.9 adds Blueprint Projection & Progressive Documentation: start from one `PROJECT_BLUEPRINT.md`, promote reviewed detail into canonical documents only when needed, and compile/render the current knowledge graph back into Blueprint views by detail level and audience.
+Documentation-first starter kit for long-lived Web, Mobile and API projects. v5.10 adds **Mockup-Driven Documentation**: a governed path from a `mockups/` image folder to vision analysis, reviewed Screen candidates, canonical Screen documents, mockup traceability and drift detection — without treating pixels as proof of API/DB/business behaviour.
 
 ## Core model
 
 ```text
-Idea / Request
-      |
-      v
+Idea / Request                 Mockups / Visual Evidence
+      |                              |
+      |                              v
+      |                      Vision Analysis + Review
+      |                              |
+      +--------------+---------------+
+                     v
 Progressive Specification
       |
       v
@@ -30,6 +34,28 @@ Docs Reconciliation <- Tests <- Source Changes
 Done Gate -> ChangeSet / Baseline
 ```
 
+
+## What v5.10 adds
+
+### 1. `mockups/` as a governed design-evidence input
+
+Put UI screenshots/wireframes/design exports under `mockups/`. `mockup:inventory` records path/hash/dimensions and naming hints without pretending to understand the UI.
+
+### 2. Vision-analysis contract instead of blind document generation
+
+`mockup:tasks` identifies images that need semantic analysis. A vision-capable agent writes structured JSON evidence under `.project-docs/mockups/analysis/` using `kit/prompts/46-mockup-to-documentation.md`.
+
+### 3. Review-gated Screen generation
+
+`mockup:candidates` groups multiple images into logical Screens/states. New Screen candidates can become draft Screen docs only after review; existing Screens default to an enrichment proposal rather than automatic overwrite.
+
+### 4. Mockup → Screen traceability and drift checks
+
+Screen docs can carry `mockup_refs`. `mockup:report` generates `docs/_generated/MOCKUP_TRACEABILITY.md`; `mockup:check` detects missing/stale analysis, unmapped screen mockups, broken refs, and images changed after promotion.
+
+### 5. Strong source-of-truth boundary
+
+Mockups are **design evidence**, not business truth. Visible layout/text/states may seed Screen docs; APIs, DB schema, hidden rules, permissions and non-visible edge cases remain TBD/Open Questions until confirmed by canonical sources.
 
 ## What v5.9 adds
 

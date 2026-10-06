@@ -1,4 +1,4 @@
-# AI Agent Rules — v5.3
+# AI Agent Rules — v5.10
 
 1. Documentation first; do not produce implementation code unless implementation is explicitly requested and allowed.
 2. Resolve documentation depth before expanding a Feature. Do not assume Full detail is always better.
@@ -25,3 +25,9 @@
 23. Capture meaningful semantic batches as ChangeSets; create Baselines at UAT/release/migration boundaries.
 24. Do not rewrite accepted Decisions; supersede them with a newer Decision.
 25. State clearly what is confirmed requirement versus suggested design.
+26. When `mockups/` exists, inventory and analyze visual evidence before inventing Screen structure from text assumptions.
+27. Never infer API/DB/hidden business rule/permission from pixels alone; emit Open Questions/TBD instead.
+28. Group multiple mockups of the same logical page into Screen states/variants; do not create one Screen entity per image by default.
+29. Existing approved/implemented Screen docs must not be auto-overwritten from mockup analysis; create a reviewable enrichment proposal first.
+30. Treat changed mockup hashes as reconciliation triggers, not automatic truth replacement.
+

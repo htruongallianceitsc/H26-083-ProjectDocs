@@ -1,4 +1,4 @@
-# Repository Entry & History Hygiene Standard — v5.6
+# Repository Entry & History Hygiene Standard — v5.10
 
 ## Purpose
 
@@ -31,4 +31,4 @@ The canonical root entry set is strictly:
 - `project.profile.json`
 - `starter-kit.json`
 
-All other documentation and governance artifacts live under `docs/` or `kit/`. The `kit/` root groups registry, standards, prompts, templates, workflows, Source Bases, reuse assets, and examples so framework assets do not dilute the project root. Generated/runtime artifacts live under `.project-docs/`; the static site is `.project-docs/site/`.
+All other documentation and governance artifacts live under `docs/` or `kit/`. The `kit/` root groups registry, standards, prompts, templates, workflows, Source Bases, reuse assets, and examples so framework assets do not dilute the project root. Generated/runtime artifacts live under `.project-docs/`; the static site is `.project-docs/site/`. Project design evidence may live under the governed `mockups/` directory; it must not become an uncontrolled Markdown/documentation dump.

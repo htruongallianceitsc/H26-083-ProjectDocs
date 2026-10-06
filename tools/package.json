@@ -1,7 +1,7 @@
 {
   "name": "production-project-docs-tools",
   "private": true,
-  "version": "5.9.0",
+  "version": "5.10.0",
   "type": "module",
   "engines": {
     "node": ">=20"
@@ -25,8 +25,8 @@
     "pack:upgrade": "node scripts/pack-tool.mjs upgrade",
     "docs:clean": "node scripts/docs-tool.mjs clean",
     "docs:dev": "node scripts/docs-tool.mjs watch",
-    "test:e2e": "node scripts/e2e-test.mjs && node scripts/blueprint-e2e.mjs",
-    "docs:all": "npm run layout:check && npm run registry:check && npm run profile:check && npm run pack:validate && npm run source:validate && npm run source:check && npm run source:scan && npm run spec:check && npm run verification:check && npm run blueprint:check && npm run docs:validate && npm run knowledge:reindex && npm run doctor && npm run doc:check && npm run docs:sync && npm run docs:build && npm run docs:check-site",
+    "test:e2e": "node scripts/e2e-test.mjs && node scripts/blueprint-e2e.mjs && node scripts/mockup-e2e.mjs",
+    "docs:all": "npm run layout:check && npm run registry:check && npm run profile:check && npm run pack:validate && npm run source:validate && npm run source:check && npm run source:scan && npm run spec:check && npm run verification:check && npm run blueprint:check && npm run mockup:check && npm run docs:validate && npm run knowledge:reindex && npm run doctor && npm run doc:check && npm run docs:sync && npm run docs:build && npm run docs:check-site",
     "qa": "npm run docs:all && npm run test:e2e",
     "request:create": "node scripts/request-tool.mjs create",
     "request:list": "node scripts/request-tool.mjs list",
@@ -101,6 +101,14 @@
     "blueprint:status": "node scripts/blueprint-tool.mjs status",
     "blueprint:diff": "node scripts/blueprint-tool.mjs diff",
     "blueprint:reconcile": "node scripts/blueprint-tool.mjs reconcile",
-    "blueprint:check": "node scripts/blueprint-tool.mjs check"
+    "blueprint:check": "node scripts/blueprint-tool.mjs check",
+    "mockup:inventory": "node scripts/mockup-tool.mjs inventory",
+    "mockup:tasks": "node scripts/mockup-tool.mjs tasks",
+    "mockup:candidates": "node scripts/mockup-tool.mjs candidates",
+    "mockup:review": "node scripts/mockup-tool.mjs review",
+    "mockup:promote": "node scripts/mockup-tool.mjs promote",
+    "mockup:report": "node scripts/mockup-tool.mjs report",
+    "mockup:check": "node scripts/mockup-tool.mjs check",
+    "mockup:status": "node scripts/mockup-tool.mjs status"
   }
 }

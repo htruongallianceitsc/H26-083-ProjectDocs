@@ -1,4 +1,4 @@
-# Project Documentation Governance & Runtime State — v5.6
+# Project Documentation Governance & Runtime State — v5.10
 
 This folder stores governance/operational/generated state, not product truth.
 
@@ -14,6 +14,18 @@ This folder stores governance/operational/generated state, not product truth.
 - `pack-proposals/`: reusable-pack upgrade proposals.
 
 Do not manually edit hashes to bypass stale detection. Keep product/domain behaviour in `docs/`.
+
+## Mockup evidence state (v5.10)
+
+- `mockups/inventory.json`: deterministic image path/hash inventory.
+- `mockups/analysis-tasks.json`: images requiring vision analysis.
+- `mockups/analysis/`: structured visual evidence written by a vision-capable agent.
+- `mockups/candidates.json`: review-gated Screen grouping/promotion state.
+- `mockups/proposals/`: enrichment proposals for existing canonical Screens.
+- `mockups/report.json`: generated mapping/drift findings.
+
+These are governance/evidence records. Canonical behaviour remains in `docs/`.
+
 
 ## v5.2 Progressive Specification
 

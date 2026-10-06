@@ -1,4 +1,4 @@
-# START HERE - v5.9
+# START HERE - v5.10
 
 ## 0. Understand the workspace layout
 
@@ -46,6 +46,35 @@ npm run blueprint:diff
 ```
 
 `overview`, `lightweight`, `standard` and `full` control detail. `general`, `business`, `developer` and `qa` control audience.
+
+## 1B. Starting from mockup images? Ingest them before detailed functional authoring
+
+Put screenshots/wireframes under `mockups/`, preferably named like:
+
+```text
+mockups/auth/login__default.png
+mockups/auth/login__validation-error.png
+```
+
+Then build deterministic inventory and vision-analysis tasks:
+
+```bash
+cd tools
+npm run mockup:inventory
+npm run mockup:tasks
+```
+
+Use `kit/prompts/46-mockup-to-documentation.md` with a vision-capable agent to write structured analyses under `.project-docs/mockups/analysis/`. Then:
+
+```bash
+npm run mockup:candidates
+npm run mockup:review -- --candidate MCKC-SCR-... --decision accepted --reviewer "Reviewer"
+npm run mockup:promote -- --candidate MCKC-SCR-... --reviewer "Reviewer"
+npm run mockup:report
+npm run mockup:check
+```
+
+Mockups may seed visible Screen structure/state only. Do not infer API, DB, hidden business rules or permissions from pixels; keep them as `TBD` / Open Questions until confirmed.
 
 ## 2. Establish application boundaries
 

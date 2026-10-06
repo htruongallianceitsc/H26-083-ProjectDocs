@@ -7,7 +7,7 @@ const args = parseArgs(process.argv.slice(3));
 
 const layoutKeys = [
   'registry', 'standards', 'prompts', 'templates', 'workflows', 'sourceBases',
-  'reuse.capabilities', 'reuse.patterns', 'reuse.templates', 'examples', 'site'
+  'reuse.capabilities', 'reuse.patterns', 'reuse.templates', 'examples', 'site', 'mockups'
 ];
 const directoryMoves = [
   ['registry', 'registry'],
@@ -31,6 +31,7 @@ function exists(rel) { return fs.existsSync(path.join(ROOT, rel)); }
 function check() {
   const errors = [];
   const warnings = [];
+  fs.mkdirSync(workspaceAbs('mockups'), { recursive: true });
   const starter = loadJson('starter-kit.json', {});
   if (starter.workspaceLayoutVersion !== '1.0') errors.push(`starter-kit.json workspaceLayoutVersion must be 1.0 (got ${starter.workspaceLayoutVersion || 'missing'})`);
   if (!starter.workspaceLayout) errors.push('starter-kit.json workspaceLayout is missing');
@@ -82,15 +83,15 @@ function migrate() {
     fs.renameSync(src, dst);
   }
   const starter = loadJson('starter-kit.json', {});
-  starter.version = '5.9.0';
-  starter.schemaVersion = '5.9.0';
+  starter.version = '5.10.0';
+  starter.schemaVersion = '5.10.0';
   starter.workspaceLayoutVersion = '1.0';
   starter.blueprintProjectionVersion = starter.blueprintProjectionVersion || '1.0';
   starter.workspaceLayout = {
     docs: 'docs', runtime: '.project-docs', kit: 'kit', registry: 'kit/registry', standards: 'kit/standards',
     prompts: 'kit/prompts', templates: 'kit/templates', workflows: 'kit/workflows', sourceBases: 'kit/source-bases',
     reuse: { capabilities: 'kit/reuse/capabilities', patterns: 'kit/reuse/patterns', templates: 'kit/reuse/templates' },
-    examples: 'kit/examples', site: '.project-docs/site', tools: 'tools',
+    examples: 'kit/examples', site: '.project-docs/site', tools: 'tools', mockups: 'mockups',
     source: { apps: 'apps', packages: 'packages', tests: 'tests', infra: 'infra' }
   };
   starter.legacyLayoutAliases = starter.legacyLayoutAliases || {

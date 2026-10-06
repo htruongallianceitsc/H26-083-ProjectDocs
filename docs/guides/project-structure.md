@@ -19,13 +19,14 @@ project-root/
 ├── packages/
 ├── tests/
 ├── infra/
+├── mockups/
 ├── kit/
 ├── tools/
 ├── .project-docs/
 └── .github/
 ```
 
-Trong đó `docs/` là Project Knowledge Base; `kit/` chứa registry/standards/prompts/templates/workflows/Source Bases/reuse assets; `.project-docs/` chứa runtime và generated state. Phần cấu trúc dưới đây mô tả **bên trong `docs/`**, không phải toàn bộ repository root.
+Trong đó `docs/` là Project Knowledge Base; `mockups/` chứa design evidence đầu vào; `kit/` chứa registry/standards/prompts/templates/workflows/Source Bases/reuse assets; `.project-docs/` chứa runtime và generated state. Mockup không thay thế Screen/Requirement/API docs. Phần cấu trúc dưới đây mô tả **bên trong `docs/`**, không phải toàn bộ repository root.
 
 ## 1. Cấu trúc tổng thể tôi đề xuất
 

@@ -19,6 +19,7 @@
 - impact-analysis
 - progressive-specification
 - repository-entry-hygiene
+- mockup-driven-documentation
 
 ## Project Type
 ### Web

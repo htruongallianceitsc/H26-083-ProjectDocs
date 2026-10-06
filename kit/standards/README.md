@@ -1,4 +1,4 @@
-# Standards Architecture v5.9
+# Standards Architecture v5.10
 
 Standards resolve in this order:
 
@@ -30,3 +30,11 @@ These standards govern permanent entity identity, semantic graph behavior, sourc
 - `starter-kit.json.workspaceLayout` defines canonical workspace paths.
 - `.project-docs/site/` is the generated static-site location.
 - Root hygiene now distinguishes project truth, source truth, kit assets, tooling, and runtime state.
+
+## v5.10 additions
+
+- `mockup-driven-documentation.md`
+- `mockups/` is a governed design-evidence input root.
+- Vision analysis is review-gated before Screen promotion.
+- Existing Screen docs are proposal-first rather than automatically overwritten.
+- Mockup traceability/drift becomes part of QA when images exist.

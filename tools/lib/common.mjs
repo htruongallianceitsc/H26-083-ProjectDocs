@@ -24,6 +24,7 @@ const DEFAULT_WORKSPACE_LAYOUT = Object.freeze({
   examples: 'kit/examples',
   site: '.project-docs/site',
   tools: 'tools',
+  mockups: 'mockups',
   source: { apps: 'apps', packages: 'packages', tests: 'tests', infra: 'infra' }
 });
 

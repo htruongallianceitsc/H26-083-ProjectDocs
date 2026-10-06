@@ -1,4 +1,4 @@
-# Documentation Toolchain v5.9
+# Documentation Toolchain v5.10
 
 Requires Node.js 20+. The runtime uses only Node.js standard-library modules.
 
@@ -133,6 +133,21 @@ npm run pack:list
 npm run pack:validate
 ```
 
+
+## v5.10 mockup-driven documentation commands
+
+```bash
+npm run mockup:inventory
+npm run mockup:tasks
+npm run mockup:candidates
+npm run mockup:status
+npm run mockup:review -- --candidate MCKC-SCR-... --decision accepted --reviewer "Reviewer"
+npm run mockup:promote -- --candidate MCKC-SCR-... --reviewer "Reviewer"
+npm run mockup:report
+npm run mockup:check
+```
+
+`mockup:promote` creates a draft Screen for a new candidate. When the target Screen already exists it creates a proposal by default; use `--apply-existing` only after review and only for mechanical evidence-reference reconciliation.
 
 ## v5.9 Blueprint projection commands
 

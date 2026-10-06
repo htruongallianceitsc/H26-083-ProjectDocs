@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mockup-analysis.schema.json",
+  "title": "Mockup Vision Analysis",
+  "type": "object",
+  "required": [
+    "assetPath",
+    "imageHash",
+    "classification",
+    "screenKey",
+    "state",
+    "confidence",
+    "openQuestions"
+  ],
+  "properties": {
+    "assetPath": { "type": "string" },
+    "imageHash": { "type": "string" },
+    "classification": {
+      "type": "string",
+      "enum": ["screen", "reference", "component", "flow", "ignore", "non-screen"]
+    },
+    "screenKey": { "type": "string" },
+    "screenTitle": { "type": ["string", "null"] },
+    "existingScreenCode": { "type": ["string", "null"] },
+    "featureCodes": { "type": "array", "items": { "type": "string" } },
+    "requirementCodes": { "type": "array", "items": { "type": "string" } },
+    "businessRuleCodes": { "type": "array", "items": { "type": "string" } },
+    "flowCodes": { "type": "array", "items": { "type": "string" } },
+    "routeHint": { "type": ["string", "null"] },
+    "platform": { "type": ["string", "null"] },
+    "viewport": { "type": ["string", "null"] },
+    "state": { "type": "string" },
+    "variant": { "type": ["string", "null"] },
+    "sections": { "type": "array" },
+    "fields": { "type": "array" },
+    "actions": { "type": "array" },
+    "visibleMessages": { "type": "array" },
+    "navigation": { "type": "array" },
+    "explicitRules": { "type": "array" },
+    "accessibilityNotes": { "type": "array" },
+    "openQuestions": { "type": "array" },
+    "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+    "status": { "type": "string", "enum": ["analyzed", "needs-analysis"] }
+  },
+  "additionalProperties": true
+}

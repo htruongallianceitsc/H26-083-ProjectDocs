@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-05T11:01:54.280Z",
+  "generatedAt": "2026-10-06T01:24:32.688Z",
   "documents": [
     {
       "path": "PROJECT_BLUEPRINT.md",
@@ -12,7 +12,7 @@
     },
     {
       "path": "README.md",
-      "title": "Production Project Documentation Starter Kit v5.9",
+      "title": "Production Project Documentation Starter Kit v5.10",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -21,7 +21,7 @@
     },
     {
       "path": "START_HERE.md",
-      "title": "START HERE - v5.9",
+      "title": "START HERE - v5.10",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -517,6 +517,24 @@
     {
       "path": "docs/history/V4_UPGRADE_NOTES.md",
       "title": "Starter Kit v4 Upgrade Notes",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/history/V5_10_QA_REPORT.md",
+      "title": "v5.10 QA Report",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/history/V5_10_UPGRADE_NOTES.md",
+      "title": "v5.10 Upgrade Notes — Mockup-Driven Documentation",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -1136,6 +1154,24 @@
       "status": null
     },
     {
+      "path": "kit/prompts/46-mockup-to-documentation.md",
+      "title": "Prompt 46 — Mockup → Documentation Evidence",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/prompts/47-mockup-functional-coverage.md",
+      "title": "Prompt 47 — Mockup Functional Coverage Review",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
       "path": "kit/registry/README.md",
       "title": "Registry Governance — v5.9",
       "uid": null,
@@ -1182,7 +1218,7 @@
     },
     {
       "path": "kit/standards/README.md",
-      "title": "Standards Architecture v5.9",
+      "title": "Standards Architecture v5.10",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -1209,7 +1245,7 @@
     },
     {
       "path": "kit/standards/ai-agent-rules.md",
-      "title": "AI Agent Rules — v5.3",
+      "title": "AI Agent Rules — v5.10",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -1327,6 +1363,15 @@
     {
       "path": "kit/standards/metadata-schema.md",
       "title": "Metadata Schema",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/mockup-driven-documentation.md",
+      "title": "Mockup-Driven Documentation Standard — v5.10",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -1686,7 +1731,7 @@
     },
     {
       "path": "kit/standards/repository-entry-hygiene.md",
-      "title": "Repository Entry & History Hygiene Standard — v5.6",
+      "title": "Repository Entry & History Hygiene Standard — v5.10",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -2783,6 +2828,15 @@
       "status": null
     },
     {
+      "path": "kit/workflows/21-mockup-to-documentation.md",
+      "title": "Workflow 21 — Mockups → Documentation",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
       "path": "kit/workflows/END_TO_END_CHECKLIST.md",
       "title": "End-to-End Documentation Checklist",
       "uid": null,
@@ -2793,7 +2847,7 @@
     },
     {
       "path": "tools/README.md",
-      "title": "Documentation Toolchain v5.9",
+      "title": "Documentation Toolchain v5.10",
       "uid": null,
       "code": null,
       "revision": 0,

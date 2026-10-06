@@ -51,6 +51,7 @@
     "source_variant": "string",
     "source_origin": "string",
     "uid": "string",
-    "revision": "number"
+    "revision": "number",
+    "mockup_refs": "array"
   }
 }
