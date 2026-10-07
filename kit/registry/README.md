@@ -1,4 +1,4 @@
-# Registry Governance — v5.14
+# Registry Governance — v5.15
 
 `kit/registry/*.json` is the canonical machine-readable policy source.
 
@@ -89,3 +89,9 @@ The physical repository layout is configured in root `starter-kit.json.workspace
 - `relation-map.json` adds Screen → Shell, Screen → direct UI Component, and Shell → UI Component relations.
 - `impact-rules.json` traverses `screen_shells` and `ui_components` so shared UI changes can reach consuming Screens.
 - `wireframe-spec.schema.json` v1.3 adds composition, effective visual regions/components, provenance and shared source dependencies.
+
+
+## v5.15 Documentation Bundle registry
+
+- `documentation-bundle.json` defines portable bundle format/schema, export/import runtime directories and current target placement for every registered entity type.
+- Bundle schema version is independent from the starter-kit version so old-project exporters and new-project importers can communicate through a stable transport contract.

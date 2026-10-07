@@ -1,7 +1,7 @@
 {
   "name": "production-project-docs-starter-kit",
-  "version": "5.14.0",
-  "schemaVersion": "5.14.0",
+  "version": "5.15.0",
+  "schemaVersion": "5.15.0",
   "registrySchemaVersion": "1.0",
   "capabilityPackSchemaVersion": "1.0",
   "workPlanSchemaVersion": "1.2",
@@ -83,5 +83,13 @@
     "runtimeDirectory": ".project-docs/wireframes",
     "config": "kit/registry/wireframe-workflow.json",
     "promotionSchema": "kit/registry/wireframe-promotion.schema.json"
+  },
+  "documentationBundleVersion": "1.0",
+  "documentationBundleSchemaVersion": "1",
+  "documentationBundle": {
+    "format": "project-documentation-bundle",
+    "config": "kit/registry/documentation-bundle.json",
+    "exportDirectory": ".project-docs/exports",
+    "importDirectory": ".project-docs/imports"
   }
 }

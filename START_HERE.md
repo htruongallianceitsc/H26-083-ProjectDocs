@@ -1,4 +1,4 @@
-# START HERE - v5.14
+# START HERE - v5.15
 
 ## 0. Understand the workspace layout
 
@@ -14,6 +14,37 @@ Validate the layout after upgrades or repository moves:
 cd tools
 npm run layout:check
 ```
+
+## 0A. Moving project documentation from an older starter?
+
+Do not manually copy old `docs/` folders into the new base. If the source project is already v5.15+, export there:
+
+```bash
+cd tools
+npm run docs:export
+```
+
+If the source project is v5.14 or older and therefore has no `docs:export` command, use the **new v5.15 toolchain** to read it directly; the old project does not need to be upgraded first:
+
+```bash
+cd <new-v5.15-project>/tools
+npm run docs:export -- --source ../../OldProject
+```
+
+By default the ZIP is written into the source project's `.project-docs/exports/ProjectDocsExport.zip`. Copy that ZIP to the project created from the newer starter and import it:
+
+```bash
+cd tools
+npm run docs:import -- --file ../ProjectDocsExport.zip
+```
+
+The importer maps entity types into the current folder structure, preserves `uid`/`code`, fills missing legacy UID/revision values, skips identical entities, reports changed-target conflicts, and rebuilds documentation projections. Preview first when needed:
+
+```bash
+npm run docs:import -- --file ../ProjectDocsExport.zip --dry-run
+```
+
+Use `--on-conflict replace` only after reviewing the generated conflict report. See `docs/guides/documentation-bundles.md`.
 
 ## 1. Configure the project
 

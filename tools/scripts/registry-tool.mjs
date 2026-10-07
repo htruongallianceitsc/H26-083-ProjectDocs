@@ -175,7 +175,7 @@ function check() {
   if (!fs.existsSync(statusPath)) errors.push(`Missing generated mirror ${workspaceRel('registry','_generated','status-lifecycle.yaml')}; run npm run registry:sync`);
   else if (fs.readFileSync(statusPath,'utf8') !== statusLifecycleText()) errors.push(`Generated mirror drift: ${workspaceRel('registry','_generated','status-lifecycle.yaml')}`);
   const starter = loadJson('starter-kit.json',{});
-  if (starter.version !== '5.14.0' || starter.schemaVersion !== '5.14.0') errors.push(`starter-kit.json expected version/schemaVersion 5.14.0, got ${starter.version}/${starter.schemaVersion}`);
+  if (starter.version !== '5.15.0' || starter.schemaVersion !== '5.15.0') errors.push(`starter-kit.json expected version/schemaVersion 5.15.0, got ${starter.version}/${starter.schemaVersion}`);
   const layout = starter.documentationLayout || {};
   if (!layout.historyDirectory) errors.push('starter-kit.json documentationLayout.historyDirectory is required');
   else if (!fs.existsSync(path.join(ROOT, layout.historyDirectory))) errors.push(`Configured history directory does not exist: ${layout.historyDirectory}`);

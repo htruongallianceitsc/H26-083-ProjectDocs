@@ -127,3 +127,9 @@ Historical release/upgrade artifacts and general guides do not belong at root.
 - `tools/scripts/verification-tool.mjs` — status/check CLI.
 - `docs/_generated/verification.json` — derived documentation view.
 - `.project-docs/reports/verification-report.json` — derived QA report.
+
+## Documentation transfer (v5.15)
+
+- `kit/registry/documentation-bundle.json` — portable bundle format and current entity-type destination mapping.
+- `.project-docs/exports/` — generated documentation transfer ZIPs.
+- `.project-docs/imports/` — import reports and captured source context.

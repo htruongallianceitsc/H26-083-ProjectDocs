@@ -1,4 +1,4 @@
-# Project Documentation Governance & Runtime State — v5.14
+# Project Documentation Governance & Runtime State — v5.15
 
 This folder stores governance/operational/generated state, not product truth.
 
@@ -56,3 +56,11 @@ Wireframe state is derived/review governance. `docs/_generated/SCREEN_WIREFRAMES
 ## Workspace runtime state (v5.6)
 
 The generated static site moved from root `site/` to `.project-docs/site/`. This keeps the repository root focused on entry files, project knowledge, implementation, kit assets, and tooling. The site remains derived and may be deleted/rebuilt safely.
+
+## Documentation bundle transfer state (v5.15)
+
+- `exports/`: generated portable documentation ZIPs created by `npm run docs:export`.
+- `imports/IMP-.../import-report.json`: import summary, conflicts, warnings and post-import reconciliation results.
+- `imports/IMP-.../source-context/`: source project profile/Blueprint captured from the bundle for audit context; it is not automatically promoted to canonical target truth.
+
+Bundle/import state is transport and governance evidence. Canonical project truth remains the typed Markdown entities under `docs/`.

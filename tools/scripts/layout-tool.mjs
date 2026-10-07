@@ -83,8 +83,8 @@ function migrate() {
     fs.renameSync(src, dst);
   }
   const starter = loadJson('starter-kit.json', {});
-  starter.version = '5.14.0';
-  starter.schemaVersion = '5.14.0';
+  starter.version = '5.15.0';
+  starter.schemaVersion = '5.15.0';
   starter.workspaceLayoutVersion = '1.0';
   starter.blueprintProjectionVersion = starter.blueprintProjectionVersion || '1.0';
   starter.workspaceLayout = {

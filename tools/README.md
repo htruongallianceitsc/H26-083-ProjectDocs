@@ -1,4 +1,4 @@
-# Documentation Toolchain v5.14
+# Documentation Toolchain v5.15
 
 Requires Node.js 20+. The runtime uses only Node.js standard-library modules.
 
@@ -10,6 +10,24 @@ npm run qa
 ```
 
 The QA pipeline validates workspace layout, registries, source bases, source workspace, source intelligence, progressive specs, documentation, local indexes, Doctor, freshness, generated docs/site, and E2E regression.
+
+## Project Documentation Bundle transfer (v5.15)
+
+```bash
+# v5.15+ source project
+npm run docs:export
+
+# v5.14-or-earlier source (run from the v5.15 tools directory)
+npm run docs:export -- --source ../../OldProject
+
+# optional integrity check
+npm run docs:bundle:inspect -- --file ../.project-docs/exports/ProjectDocsExport.zip
+
+# target project
+npm run docs:import -- --file ../ProjectDocsExport.zip
+```
+
+Use `docs:import -- --dry-run` to preview and `--on-conflict replace` only after explicit conflict review. The importer maps canonical typed entities to the target starter's current layout and runs validation/reindex/sync/build by default.
 
 ## Workspace layout
 

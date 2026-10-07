@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-06T06:46:40.156Z",
+  "generatedAt": "2026-10-06T13:13:38.226Z",
   "documents": [
     {
       "path": "PROJECT_BLUEPRINT.md",
@@ -12,7 +12,7 @@
     },
     {
       "path": "README.md",
-      "title": "Production Project Documentation Starter Kit v5.14",
+      "title": "Production Project Documentation Starter Kit v5.15",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -21,7 +21,7 @@
     },
     {
       "path": "START_HERE.md",
-      "title": "START HERE - v5.14",
+      "title": "START HERE - v5.15",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -452,6 +452,15 @@
       "status": null
     },
     {
+      "path": "docs/guides/documentation-bundles.md",
+      "title": "Project Documentation Bundle",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
       "path": "docs/guides/file-catalog.md",
       "title": "File Catalog — v5.8",
       "uid": null,
@@ -625,6 +634,24 @@
     {
       "path": "docs/history/V5_14_UPGRADE_NOTES.md",
       "title": "v5.14 Upgrade Notes — Shared UI Composition & Impact-Aware Wireframes",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/history/V5_15_QA_REPORT.md",
+      "title": "v5.15 QA Report",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/history/V5_15_UPGRADE_NOTES.md",
+      "title": "v5.15 Upgrade Notes — Project Documentation Bundle",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -1362,7 +1389,7 @@
     },
     {
       "path": "kit/registry/README.md",
-      "title": "Registry Governance — v5.14",
+      "title": "Registry Governance — v5.15",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -3107,6 +3134,15 @@
       "status": null
     },
     {
+      "path": "kit/workflows/25-documentation-bundle-transfer.md",
+      "title": "Workflow 25 — Project Documentation Bundle Transfer",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
       "path": "kit/workflows/25-shared-ui-composition.md",
       "title": "Workflow 25 — Shared UI Composition",
       "uid": null,
@@ -3126,7 +3162,7 @@
     },
     {
       "path": "tools/README.md",
-      "title": "Documentation Toolchain v5.14",
+      "title": "Documentation Toolchain v5.15",
       "uid": null,
       "code": null,
       "revision": 0,

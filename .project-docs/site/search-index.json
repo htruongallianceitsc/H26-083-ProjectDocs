@@ -5,12 +5,12 @@
     "text": "PROJECT_BLUEPRINT.md"
   },
   {
-    "title": "Production Project Documentation Starter Kit v5.14",
+    "title": "Production Project Documentation Starter Kit v5.15",
     "path": "pages/readme.html",
     "text": "README.md"
   },
   {
-    "title": "START HERE - v5.14",
+    "title": "START HERE - v5.15",
     "path": "pages/start-here.html",
     "text": "START_HERE.md"
   },
@@ -250,6 +250,11 @@
     "text": "docs/guides/docs-governance.md"
   },
   {
+    "title": "Project Documentation Bundle",
+    "path": "pages/docs-guides-documentation-bundles.html",
+    "text": "docs/guides/documentation-bundles.md"
+  },
+  {
     "title": "File Catalog — v5.8",
     "path": "pages/docs-guides-file-catalog.html",
     "text": "docs/guides/file-catalog.md"
@@ -348,6 +353,16 @@
     "title": "v5.14 Upgrade Notes — Shared UI Composition & Impact-Aware Wireframes",
     "path": "pages/docs-history-v5-14-upgrade-notes.html",
     "text": "docs/history/V5_14_UPGRADE_NOTES.md"
+  },
+  {
+    "title": "v5.15 QA Report",
+    "path": "pages/docs-history-v5-15-qa-report.html",
+    "text": "docs/history/V5_15_QA_REPORT.md"
+  },
+  {
+    "title": "v5.15 Upgrade Notes — Project Documentation Bundle",
+    "path": "pages/docs-history-v5-15-upgrade-notes.html",
+    "text": "docs/history/V5_15_UPGRADE_NOTES.md"
   },
   {
     "title": "v5.1 QA Report",
@@ -755,7 +770,7 @@
     "text": "kit/prompts/52-shared-ui-composition-review.md"
   },
   {
-    "title": "Registry Governance — v5.14",
+    "title": "Registry Governance — v5.15",
     "path": "pages/kit-registry-readme.html",
     "text": "kit/registry/README.md"
   },
@@ -1725,6 +1740,11 @@
     "text": "kit/workflows/24-visual-wireframe-layout-enrichment.md"
   },
   {
+    "title": "Workflow 25 — Project Documentation Bundle Transfer",
+    "path": "pages/kit-workflows-25-documentation-bundle-transfer.html",
+    "text": "kit/workflows/25-documentation-bundle-transfer.md"
+  },
+  {
     "title": "Workflow 25 — Shared UI Composition",
     "path": "pages/kit-workflows-25-shared-ui-composition.html",
     "text": "kit/workflows/25-shared-ui-composition.md"
@@ -1735,7 +1755,7 @@
     "text": "kit/workflows/END_TO_END_CHECKLIST.md"
   },
   {
-    "title": "Documentation Toolchain v5.14",
+    "title": "Documentation Toolchain v5.15",
     "path": "pages/tools-readme.html",
     "text": "tools/README.md"
   },

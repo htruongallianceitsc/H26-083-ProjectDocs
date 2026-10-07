@@ -1,7 +1,7 @@
-# Production Project Documentation Starter Kit v5.14
+# Production Project Documentation Starter Kit v5.15
 
 
-Documentation-first starter kit for long-lived Web, Mobile and API projects. v5.14 adds **Shared UI Composition** so common Headers, Bottom Navigation and reusable app shells are canonical once, composed into many Screens, and traced through impact-aware wireframes while Screen-specific behaviour remains on each Screen.
+Documentation-first starter kit for long-lived Web, Mobile and API projects. v5.15 adds a **Project Documentation Bundle** so project knowledge created on an older starter can be exported to one portable ZIP and imported into a newer starter without manually copying old folder structures. The importer maps typed entities into the current layout, preserves identity, normalizes missing UID/revision values, detects conflicts, and rebuilds documentation projections.
 
 ## Core model
 
@@ -34,6 +34,34 @@ Docs Reconciliation <- Tests <- Source Changes
 Done Gate -> ChangeSet / Baseline
 ```
 
+
+## What v5.15 adds
+
+### 1. One-file documentation transfer
+
+Run `npm run docs:export` in the source project to create `.project-docs/exports/ProjectDocsExport.zip`. The ZIP is a transport format for canonical typed project knowledge, not a copy of the starter-kit implementation. For a source project older than v5.15 (which does not yet contain this command), run the v5.15 toolchain against it with `npm run docs:export -- --source <old-project-path>`; the old project itself does not need to be upgraded first.
+
+### 2. Starter-version-independent bundle schema
+
+The bundle uses `project-documentation-bundle` schema v1. The exporter understands the source project; the importer understands the target project. The target therefore does not need a hard-coded chain such as v5.10 → v5.11 → ... → v5.15.
+
+### 3. Current-layout import
+
+`npm run docs:import -- --file <bundle.zip>` reads entity type, code, relations and source metadata, then places each entity into the v5.15 canonical structure. Modules/Features, Screens, shared UI, API, DB, Test, Mobile, Request/Task/Bug and Application entities are mapped through `kit/registry/documentation-bundle.json`.
+
+### 4. Identity preservation and legacy normalization
+
+Existing `uid`, `code` and `revision` are preserved. When an older entity has no UID/revision, export/import assigns a deterministic portable UID and revision `1`, so repeated imports are idempotent instead of creating a new identity each time.
+
+### 5. Conflict-safe import
+
+Canonical target entities are never silently overwritten. Identical entities are skipped, changed entities are reported as conflicts, and replacement requires explicit `--on-conflict replace`. `--dry-run` can preview an import without changing the target workspace.
+
+### 6. Import reconciliation and audit evidence
+
+A normal import runs validation, knowledge reindex, generated-doc sync, site build and site-link check. Each import writes `.project-docs/imports/IMP-.../import-report.json` plus source project context for audit/review.
+
+See `docs/guides/documentation-bundles.md` and `kit/workflows/25-documentation-bundle-transfer.md`.
 
 ## What v5.14 adds
 
