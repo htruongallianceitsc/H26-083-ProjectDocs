@@ -1,7 +1,7 @@
-# Production Project Documentation Starter Kit v5.15
+# Production Project Documentation Starter Kit v5.17
 
 
-Documentation-first starter kit for long-lived Web, Mobile and API projects. v5.15 adds a **Project Documentation Bundle** so project knowledge created on an older starter can be exported to one portable ZIP and imported into a newer starter without manually copying old folder structures. The importer maps typed entities into the current layout, preserves identity, normalizes missing UID/revision values, detects conflicts, and rebuilds documentation projections.
+Documentation-first starter kit for long-lived Web, Mobile and API projects. v5.16 hardens React Native production standards and Source Base governance; v5.17 adds a governed mobile reuse library. The v5.15 Project Documentation Bundle remains the supported migration path for moving canonical project knowledge into this newer starter.
 
 ## Core model
 
@@ -34,6 +34,28 @@ Docs Reconciliation <- Tests <- Source Changes
 Done Gate -> ChangeSet / Baseline
 ```
 
+
+
+## What v5.17 adds
+
+### 1. Mobile reuse library
+Reusable capability packs now include mobile AUTH runtime projections, push notification and file/media upload. Eight runtime Pattern Packs cover bootstrap, auth refresh, async screen state, pagination, lifecycle reconciliation, connectivity-aware queries, secure session storage and socket reconnect/rejoin.
+
+### 2. Pack selection remains documentation-first
+These packs import reviewed documentation contracts only. They do **not** generate React Native feature code. See `docs/guides/mobile-reuse-library.md`.
+
+## What v5.16 adds
+
+### 1. React Native implementation contracts
+React Native standards now define concrete bootstrap, architecture boundary, state/data ownership, network/auth refresh, lifecycle, error, environment, native-module/New Architecture, dependency and OTA/release rules.
+
+### 2. Production Source Base v2
+`react-native-expo@2.0.0` uses Expo Router and provides explicit runtime seams for bootstrap, network, session, storage, connectivity, notifications, analytics, logging and feature flags. It is a source foundation, not business-code generation.
+
+### 3. Dependency and mobile readiness gates
+`source:dependency-check` validates the reviewed Expo/React/React Native compatibility baseline. Ready/Done and quality validation now enforce the content of linked mobile runtime contracts when those concerns are used.
+
+See `docs/guides/react-native-production-readiness.md` and `kit/workflows/26-react-native-production-readiness.md`.
 
 ## What v5.15 adds
 

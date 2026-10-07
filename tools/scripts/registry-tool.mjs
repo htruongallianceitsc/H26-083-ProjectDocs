@@ -128,7 +128,7 @@ function check() {
   for (const [gateName, gate] of Object.entries(readiness)) {
     if (gate.entityType && !types[gate.entityType]) errors.push(`readiness-rules: ${gateName} references unknown entity type ${gate.entityType}`);
     for (const r of gate.incomingRelations || []) if (r.sourceType && !types[r.sourceType]) errors.push(`readiness-rules: ${gateName} incoming source type ${r.sourceType} is unknown`);
-    for (const r of [...(gate.requiredRelations || []), ...(gate.relatedStatuses || []), ...(gate.blockingRelated || [])]) {
+    for (const r of [...(gate.requiredRelations || []), ...(gate.relatedStatuses || []), ...(gate.blockingRelated || []), ...(gate.conditionalRelatedContent || [])]) {
       if (!r.field) errors.push(`readiness-rules: ${gateName} rule missing field`);
       else { const mapped=relations.some(x => (x.from===gate.entityType || x.from==='*') && x.field===r.field); if(!mapped) errors.push(`readiness-rules: ${gateName} uses unmapped relation ${gate.entityType}.${r.field}`); }
     }
@@ -175,7 +175,7 @@ function check() {
   if (!fs.existsSync(statusPath)) errors.push(`Missing generated mirror ${workspaceRel('registry','_generated','status-lifecycle.yaml')}; run npm run registry:sync`);
   else if (fs.readFileSync(statusPath,'utf8') !== statusLifecycleText()) errors.push(`Generated mirror drift: ${workspaceRel('registry','_generated','status-lifecycle.yaml')}`);
   const starter = loadJson('starter-kit.json',{});
-  if (starter.version !== '5.15.0' || starter.schemaVersion !== '5.15.0') errors.push(`starter-kit.json expected version/schemaVersion 5.15.0, got ${starter.version}/${starter.schemaVersion}`);
+  if (starter.version !== '5.17.0' || starter.schemaVersion !== '5.17.0') errors.push(`starter-kit.json expected version/schemaVersion 5.17.0, got ${starter.version}/${starter.schemaVersion}`);
   const layout = starter.documentationLayout || {};
   if (!layout.historyDirectory) errors.push('starter-kit.json documentationLayout.historyDirectory is required');
   else if (!fs.existsSync(path.join(ROOT, layout.historyDirectory))) errors.push(`Configured history directory does not exist: ${layout.historyDirectory}`);

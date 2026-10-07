@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "1.0",
+  "packageId": "api-auth-refresh",
+  "packageType": "pattern",
+  "version": "1.0.0",
+  "starterSchemaVersion": "5.17.0",
+  "summary": "API Auth Refresh Pattern",
+  "features": {
+    "required": [
+      "auth-refresh"
+    ],
+    "optional": []
+  },
+  "variables": {},
+  "constraints": [],
+  "dependencies": [],
+  "files": [
+    {
+      "source": "entities/feature.md",
+      "destination": "docs/02-modules/COMMON/patterns/api-auth-refresh/feature.md",
+      "feature": "auth-refresh",
+      "code": "FEAT-PATTERN-API-AUTH-REFRESH",
+      "type": "feature"
+    },
+    {
+      "source": "entities/test.md",
+      "destination": "docs/11-quality/test-cases/TC-PATTERN-API-AUTH-REFRESH-001.md",
+      "feature": "auth-refresh",
+      "code": "TC-PATTERN-API-AUTH-REFRESH-001",
+      "type": "test-case"
+    }
+  ],
+  "upgradePolicy": "manual-review",
+  "moduleCode": "COMMON"
+}

@@ -47,8 +47,6 @@ profiles:
     projectType: mobile
     requiredPaths:
       - package.json
-      - app.json
-      - src/app/App.tsx
   flutter-bloc:
     applicationType: mobile
     technologyStack: flutter

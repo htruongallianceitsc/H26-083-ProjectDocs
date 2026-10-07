@@ -129,6 +129,95 @@
         "Component Display Profile",
         "Slots"
       ]
+    },
+    {
+      "id": "mobile-deep-link-fallback",
+      "severity": "error",
+      "type": "body-contains",
+      "entityType": "deep-link",
+      "projectType": "mobile",
+      "terms": [
+        "Authentication Guard",
+        "Invalid Target",
+        "Fallback Destination"
+      ]
+    },
+    {
+      "id": "mobile-push-runtime-contract",
+      "severity": "error",
+      "type": "body-contains",
+      "entityType": "push-event",
+      "projectType": "mobile",
+      "terms": [
+        "Payload Schema",
+        "Sensitive Data Policy",
+        "Foreground Behaviour",
+        "Background Behaviour",
+        "Terminated Behaviour"
+      ]
+    },
+    {
+      "id": "mobile-local-storage-lifecycle",
+      "severity": "error",
+      "type": "body-contains",
+      "entityType": "local-storage",
+      "projectType": "mobile",
+      "terms": [
+        "Migration",
+        "Logout Cleanup",
+        "Corruption Recovery"
+      ]
+    },
+    {
+      "id": "mobile-sync-conflict-idempotency",
+      "severity": "error",
+      "type": "body-contains",
+      "entityType": "sync-policy",
+      "projectType": "mobile",
+      "terms": [
+        "Idempotency",
+        "Conflict Policy",
+        "Retry / Backoff",
+        "Connectivity Restoration"
+      ]
+    },
+    {
+      "id": "mobile-background-idempotency",
+      "severity": "error",
+      "type": "body-contains",
+      "entityType": "background-job-mobile",
+      "projectType": "mobile",
+      "terms": [
+        "Idempotency",
+        "Retry",
+        "App Lifecycle Interaction"
+      ]
+    },
+    {
+      "id": "mobile-native-fallback",
+      "severity": "error",
+      "type": "body-contains",
+      "entityType": "native-capability",
+      "projectType": "mobile",
+      "terms": [
+        "Availability Detection",
+        "Failure / Fallback",
+        "Lifecycle Constraints"
+      ]
+    },
+    {
+      "id": "mobile-device-release-profile",
+      "severity": "warning",
+      "type": "body-contains",
+      "entityType": "device-test-profile",
+      "projectType": "mobile",
+      "terms": [
+        "iOS Matrix",
+        "Android Matrix",
+        "Lifecycle Transitions",
+        "Network Conditions",
+        "Release Gate"
+      ]
     }
   ]
 }

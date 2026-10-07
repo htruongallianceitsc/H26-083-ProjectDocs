@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "1.0",
+  "packageId": "secure-session-storage",
+  "packageType": "pattern",
+  "version": "1.0.0",
+  "starterSchemaVersion": "5.17.0",
+  "summary": "Secure Session Storage Pattern",
+  "features": {
+    "required": [
+      "secure-session"
+    ],
+    "optional": []
+  },
+  "variables": {},
+  "constraints": [],
+  "dependencies": [],
+  "files": [
+    {
+      "source": "entities/feature.md",
+      "destination": "docs/02-modules/COMMON/patterns/secure-session-storage/feature.md",
+      "feature": "secure-session",
+      "code": "FEAT-PATTERN-SECURE-SESSION-STORAGE",
+      "type": "feature"
+    },
+    {
+      "source": "entities/test.md",
+      "destination": "docs/11-quality/test-cases/TC-PATTERN-SECURE-SESSION-STORAGE-001.md",
+      "feature": "secure-session",
+      "code": "TC-PATTERN-SECURE-SESSION-STORAGE-001",
+      "type": "test-case"
+    }
+  ],
+  "upgradePolicy": "manual-review",
+  "moduleCode": "COMMON"
+}

@@ -1,6 +1,6 @@
-# Documentation Toolchain v5.15
+# Documentation Toolchain v5.17
 
-Requires Node.js 20+. The runtime uses only Node.js standard-library modules.
+Requires Node.js 20+ for documentation tooling. The React Native Expo SDK 57 source baseline requires Node.js 22.13+ when materialized. The runtime uses only Node.js standard-library modules.
 
 ## Full QA
 
@@ -55,6 +55,7 @@ npm run entity:transition -- --entity FEAT-AUTH-LOGIN --to in_progress
 ```bash
 npm run source:list
 npm run source:validate
+npm run source:dependency-check
 npm run source:recommend -- --type web --stack reactjs
 npm run source:init -- --code APP-WEB --profile react-spa --variant production
 npm run source:adopt -- --code APP-WEB --profile react-spa --root frontend

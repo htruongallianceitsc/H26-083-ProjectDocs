@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "1.0",
+  "packageId": "async-screen-state",
+  "packageType": "pattern",
+  "version": "1.0.0",
+  "starterSchemaVersion": "5.17.0",
+  "summary": "Async Screen State Pattern",
+  "features": {
+    "required": [
+      "async-screen"
+    ],
+    "optional": []
+  },
+  "variables": {},
+  "constraints": [],
+  "dependencies": [],
+  "files": [
+    {
+      "source": "entities/feature.md",
+      "destination": "docs/02-modules/COMMON/patterns/async-screen-state/feature.md",
+      "feature": "async-screen",
+      "code": "FEAT-PATTERN-ASYNC-SCREEN-STATE",
+      "type": "feature"
+    },
+    {
+      "source": "entities/test.md",
+      "destination": "docs/11-quality/test-cases/TC-PATTERN-ASYNC-SCREEN-STATE-001.md",
+      "feature": "async-screen",
+      "code": "TC-PATTERN-ASYNC-SCREEN-STATE-001",
+      "type": "test-case"
+    }
+  ],
+  "upgradePolicy": "manual-review",
+  "moduleCode": "COMMON"
+}

@@ -52,6 +52,21 @@ export function evaluateGate(gateName, entityCode) {
     }
   }
 
+  for (const rule of config.conditionalRelatedContent || []) {
+    const project = loadJson('project.profile.json', {});
+    if (rule.projectType && !(project.projectTypes || []).includes(rule.projectType)) continue;
+    const values = normalizeList(entity.meta.related?.[rule.field]);
+    if (!values.length) continue;
+    for (const code of values) {
+      const target = byCode.get(code);
+      if (!target) { add(false, `RELATED_CONTENT:${rule.field}`, `${entity.code}.${rule.field} references missing ${code}`); continue; }
+      if (rule.entityType && target.type !== rule.entityType) { add(false, `RELATED_CONTENT:${rule.field}`, `${code} type ${target.type}; expected ${rule.entityType}`); continue; }
+      const body = String(target.body || '').toLowerCase();
+      const missing = (rule.terms || []).filter(term => !body.includes(String(term).toLowerCase()));
+      add(missing.length === 0, `RELATED_CONTENT:${rule.field}:${code}`, missing.length ? `${code} is missing mobile contract sections/terms: ${missing.join(', ')}` : `${code} mobile contract content is ready`);
+    }
+  }
+
   if (config.requireApprovedPackReviews) {
     const lock = loadJson('.project-docs/packs.lock.json', { packs: {} });
     const pending = Object.entries(lock.packs || {}).filter(([, p]) => p.reviewStatus !== 'approved');

@@ -19,11 +19,21 @@
       ],
       "standards": [
         "kit/standards/stacks/mobile/react-native/architecture.md",
+        "kit/standards/stacks/mobile/react-native/project-structure-and-boundaries.md",
         "kit/standards/stacks/mobile/react-native/coding-standard.md",
+        "kit/standards/stacks/mobile/react-native/application-bootstrap.md",
         "kit/standards/stacks/mobile/react-native/state-management.md",
+        "kit/standards/stacks/mobile/react-native/state-and-data-ownership.md",
         "kit/standards/stacks/mobile/react-native/navigation.md",
-        "kit/standards/stacks/mobile/react-native/expo-native-boundary.md",
+        "kit/standards/stacks/mobile/react-native/network-api-client.md",
         "kit/standards/stacks/mobile/react-native/storage-networking.md",
+        "kit/standards/stacks/mobile/react-native/app-lifecycle-runtime.md",
+        "kit/standards/stacks/mobile/react-native/error-handling-recovery.md",
+        "kit/standards/stacks/mobile/react-native/environment-config-secrets.md",
+        "kit/standards/stacks/mobile/react-native/expo-native-boundary.md",
+        "kit/standards/stacks/mobile/react-native/new-architecture-native-modules.md",
+        "kit/standards/stacks/mobile/react-native/dependency-governance.md",
+        "kit/standards/stacks/mobile/react-native/ota-update-runtime-version.md",
         "kit/standards/stacks/mobile/react-native/testing-release.md"
       ]
     },

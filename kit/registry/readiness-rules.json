@@ -41,7 +41,69 @@
         "allowUntracked": true
       },
       "specProfile": true,
-      "verification": true
+      "verification": true,
+      "conditionalRelatedContent": [
+        {
+          "projectType": "mobile",
+          "field": "permissions",
+          "entityType": "permission",
+          "terms": [
+            "Privacy Purpose",
+            "Denied / Revoked Behaviour"
+          ]
+        },
+        {
+          "projectType": "mobile",
+          "field": "deep_links",
+          "entityType": "deep-link",
+          "terms": [
+            "Authentication Guard",
+            "Invalid Target",
+            "Fallback Destination"
+          ]
+        },
+        {
+          "projectType": "mobile",
+          "field": "push_events",
+          "entityType": "push-event",
+          "terms": [
+            "Payload Schema",
+            "Sensitive Data Policy",
+            "Foreground Behaviour",
+            "Background Behaviour",
+            "Terminated Behaviour"
+          ]
+        },
+        {
+          "projectType": "mobile",
+          "field": "local_storage",
+          "entityType": "local-storage",
+          "terms": [
+            "Migration",
+            "Logout Cleanup",
+            "Corruption Recovery"
+          ]
+        },
+        {
+          "projectType": "mobile",
+          "field": "sync_policies",
+          "entityType": "sync-policy",
+          "terms": [
+            "Idempotency",
+            "Conflict Policy",
+            "Connectivity Restoration"
+          ]
+        },
+        {
+          "projectType": "mobile",
+          "field": "background_jobs_mobile",
+          "entityType": "background-job-mobile",
+          "terms": [
+            "Idempotency",
+            "App Lifecycle Interaction"
+          ]
+        }
+      ]
     },
     "done": {
       "entityType": "feature",
@@ -81,7 +143,69 @@
         "allowUntracked": true
       },
       "specProfile": true,
-      "verification": true
+      "verification": true,
+      "conditionalRelatedContent": [
+        {
+          "projectType": "mobile",
+          "field": "permissions",
+          "entityType": "permission",
+          "terms": [
+            "Privacy Purpose",
+            "Denied / Revoked Behaviour"
+          ]
+        },
+        {
+          "projectType": "mobile",
+          "field": "deep_links",
+          "entityType": "deep-link",
+          "terms": [
+            "Authentication Guard",
+            "Invalid Target",
+            "Fallback Destination"
+          ]
+        },
+        {
+          "projectType": "mobile",
+          "field": "push_events",
+          "entityType": "push-event",
+          "terms": [
+            "Payload Schema",
+            "Sensitive Data Policy",
+            "Foreground Behaviour",
+            "Background Behaviour",
+            "Terminated Behaviour"
+          ]
+        },
+        {
+          "projectType": "mobile",
+          "field": "local_storage",
+          "entityType": "local-storage",
+          "terms": [
+            "Migration",
+            "Logout Cleanup",
+            "Corruption Recovery"
+          ]
+        },
+        {
+          "projectType": "mobile",
+          "field": "sync_policies",
+          "entityType": "sync-policy",
+          "terms": [
+            "Idempotency",
+            "Conflict Policy",
+            "Connectivity Restoration"
+          ]
+        },
+        {
+          "projectType": "mobile",
+          "field": "background_jobs_mobile",
+          "entityType": "background-job-mobile",
+          "terms": [
+            "Idempotency",
+            "App Lifecycle Interaction"
+          ]
+        }
+      ]
     }
   }
 }

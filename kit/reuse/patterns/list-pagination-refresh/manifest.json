@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "1.0",
+  "packageId": "list-pagination-refresh",
+  "packageType": "pattern",
+  "version": "1.0.0",
+  "starterSchemaVersion": "5.17.0",
+  "summary": "List Pagination Refresh Pattern",
+  "features": {
+    "required": [
+      "paged-list"
+    ],
+    "optional": []
+  },
+  "variables": {},
+  "constraints": [],
+  "dependencies": [],
+  "files": [
+    {
+      "source": "entities/feature.md",
+      "destination": "docs/02-modules/COMMON/patterns/list-pagination-refresh/feature.md",
+      "feature": "paged-list",
+      "code": "FEAT-PATTERN-LIST-PAGINATION-REFRESH",
+      "type": "feature"
+    },
+    {
+      "source": "entities/test.md",
+      "destination": "docs/11-quality/test-cases/TC-PATTERN-LIST-PAGINATION-REFRESH-001.md",
+      "feature": "paged-list",
+      "code": "TC-PATTERN-LIST-PAGINATION-REFRESH-001",
+      "type": "test-case"
+    }
+  ],
+  "upgradePolicy": "manual-review",
+  "moduleCode": "COMMON"
+}

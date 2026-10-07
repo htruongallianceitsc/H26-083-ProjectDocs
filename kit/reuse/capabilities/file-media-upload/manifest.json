@@ -1,0 +1,78 @@
+{
+  "schemaVersion": "1.0",
+  "packageId": "file-media-upload",
+  "packageType": "capability",
+  "version": "1.0.0",
+  "starterSchemaVersion": "5.17.0",
+  "summary": "Reusable file/media selection, validation, upload progress, retry and cancellation capability.",
+  "features": {
+    "required": [
+      "file-upload"
+    ],
+    "optional": [
+      "camera-capture"
+    ]
+  },
+  "variables": {
+    "MAX_FILE_SIZE_MB": {
+      "type": "string",
+      "default": "10"
+    },
+    "UPLOAD_STRATEGY": {
+      "type": "enum",
+      "values": [
+        "multipart",
+        "signed-url",
+        "project-defined"
+      ],
+      "default": "project-defined"
+    }
+  },
+  "constraints": [],
+  "dependencies": [],
+  "files": [
+    {
+      "source": "entities/module.md",
+      "destination": "docs/02-modules/FILE-UPLOAD/module.md",
+      "code": "MOD-FILE-UPLOAD",
+      "type": "module"
+    },
+    {
+      "source": "entities/feature.md",
+      "destination": "docs/02-modules/FILE-UPLOAD/upload/feature.md",
+      "feature": "file-upload",
+      "code": "FEAT-FILE-UPLOAD",
+      "type": "feature"
+    },
+    {
+      "source": "entities/requirement.md",
+      "destination": "docs/03-requirements/functional/REQ-FILE-UPLOAD-001.md",
+      "feature": "file-upload",
+      "code": "REQ-FILE-UPLOAD-001",
+      "type": "requirement"
+    },
+    {
+      "source": "entities/native-capability.md",
+      "destination": "docs/20-mobile/native-capabilities/NCAP-FILE-PICKER.md",
+      "feature": "file-upload",
+      "code": "NCAP-FILE-PICKER",
+      "type": "native-capability"
+    },
+    {
+      "source": "entities/permission.md",
+      "destination": "docs/20-mobile/permissions/PERM-MEDIA-ACCESS.md",
+      "feature": "camera-capture",
+      "code": "PERM-MEDIA-ACCESS",
+      "type": "permission"
+    },
+    {
+      "source": "entities/test.md",
+      "destination": "docs/11-quality/test-cases/TC-FILE-UPLOAD-001.md",
+      "feature": "file-upload",
+      "code": "TC-FILE-UPLOAD-001",
+      "type": "test-case"
+    }
+  ],
+  "upgradePolicy": "manual-review",
+  "moduleCode": "FILE-UPLOAD"
+}

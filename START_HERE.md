@@ -1,4 +1,4 @@
-# START HERE - v5.15
+# START HERE - v5.17
 
 ## 0. Understand the workspace layout
 
@@ -50,6 +50,20 @@ Use `--on-conflict replace` only after reviewing the generated conflict report. 
 
 Set project type, technology stacks, default Spec Level and target maturity in `project.profile.json`.
 
+
+
+## 1D. Starting a production React Native app?
+
+Configure `mobile` + `react-native`, then run:
+
+```bash
+cd tools
+npm run profile:check
+npm run source:dependency-check
+npm run source:init -- --code APP-MOBILE --profile react-native-expo --variant production
+```
+
+Review `docs/guides/react-native-production-readiness.md` before implementation. Select reuse packs only when the capability/pattern is actually needed. Packs seed documentation, not feature code.
 
 ## 1A. Start from one Blueprint when that is the fastest path
 

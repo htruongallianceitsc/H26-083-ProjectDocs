@@ -1,0 +1,111 @@
+{
+  "schemaVersion": "1.0",
+  "catalogVersion": "1.0",
+  "reviewedAt": "2026-10-07",
+  "baseline": {
+    "expoSdk": "57",
+    "expo": "~57.0.10",
+    "react": "19.2.3",
+    "reactNative": "0.86.2",
+    "expoRouter": "~57.0.10",
+    "nodeMinimum": "22.13.0",
+    "architecture": "new-only",
+    "router": "expo-router"
+  },
+  "baselineSources": [
+    "https://docs.expo.dev/versions/latest/",
+    "https://github.com/expo/expo-template-default/blob/main/package.json",
+    "https://docs.expo.dev/guides/new-architecture/",
+    "https://docs.expo.dev/router/introduction/"
+  ],
+  "policy": {
+    "coreVersionsMoveTogether": true,
+    "expoManagedInstallCommand": "npx expo install",
+    "requiredUpgradeChecks": [
+      "npx expo install --fix",
+      "npx expo-doctor",
+      "npm run source:dependency-check",
+      "device smoke tests"
+    ],
+    "reviewTriggers": [
+      "Expo SDK upgrade",
+      "native dependency change",
+      "New Architecture compatibility warning",
+      "store target change",
+      "runtimeVersion change"
+    ]
+  },
+  "categories": {
+    "navigation": {
+      "preferred": [
+        "expo-router"
+      ],
+      "status": "required-default-for-greenfield-expo"
+    },
+    "serverState": {
+      "preferred": [
+        "@tanstack/react-query"
+      ],
+      "status": "project-reviewed"
+    },
+    "clientState": {
+      "allowed": [
+        "zustand",
+        "@reduxjs/toolkit"
+      ],
+      "status": "choose-only-if-cross-feature-client-state-is-needed"
+    },
+    "forms": {
+      "allowed": [
+        "react-hook-form"
+      ],
+      "status": "project-reviewed"
+    },
+    "schemaValidation": {
+      "allowed": [
+        "zod"
+      ],
+      "status": "project-reviewed"
+    },
+    "secureStorage": {
+      "preferred": [
+        "expo-secure-store"
+      ],
+      "status": "when-sensitive-persistence-is-required"
+    },
+    "connectivity": {
+      "preferred": [
+        "@react-native-community/netinfo"
+      ],
+      "status": "when-connectivity-awareness-is-required"
+    },
+    "notifications": {
+      "preferred": [
+        "expo-notifications"
+      ],
+      "status": "when-push/local-notification-is-required"
+    },
+    "observability": {
+      "allowed": [
+        "@sentry/react-native"
+      ],
+      "status": "project-reviewed"
+    },
+    "realtime": {
+      "allowed": [
+        "socket.io-client",
+        "native WebSocket"
+      ],
+      "status": "protocol-specific-review-required"
+    }
+  },
+  "admissionFields": [
+    "expoCompatible",
+    "newArchitectureCompatible",
+    "requiresPrebuild",
+    "requiresNativeConfig",
+    "privacyImpact",
+    "runtimeVersionImpact",
+    "lastReviewed"
+  ]
+}

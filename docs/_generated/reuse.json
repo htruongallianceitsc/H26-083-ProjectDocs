@@ -4,14 +4,74 @@
     {
       "packageId": "auth-standard",
       "packageType": "capability",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "kit/reuse/capabilities/auth-standard"
+    },
+    {
+      "packageId": "file-media-upload",
+      "packageType": "capability",
+      "version": "1.0.0",
+      "path": "kit/reuse/capabilities/file-media-upload"
+    },
+    {
+      "packageId": "push-notification-standard",
+      "packageType": "capability",
+      "version": "1.0.0",
+      "path": "kit/reuse/capabilities/push-notification-standard"
+    },
+    {
+      "packageId": "api-auth-refresh",
+      "packageType": "pattern",
+      "version": "1.0.0",
+      "path": "kit/reuse/patterns/api-auth-refresh"
+    },
+    {
+      "packageId": "app-bootstrap",
+      "packageType": "pattern",
+      "version": "1.0.0",
+      "path": "kit/reuse/patterns/app-bootstrap"
+    },
+    {
+      "packageId": "async-screen-state",
+      "packageType": "pattern",
+      "version": "1.0.0",
+      "path": "kit/reuse/patterns/async-screen-state"
     },
     {
       "packageId": "common-crud-pattern",
       "packageType": "pattern",
       "version": "1.0.0",
       "path": "kit/reuse/patterns/common-crud-pattern"
+    },
+    {
+      "packageId": "connectivity-aware-query",
+      "packageType": "pattern",
+      "version": "1.0.0",
+      "path": "kit/reuse/patterns/connectivity-aware-query"
+    },
+    {
+      "packageId": "lifecycle-reconciliation",
+      "packageType": "pattern",
+      "version": "1.0.0",
+      "path": "kit/reuse/patterns/lifecycle-reconciliation"
+    },
+    {
+      "packageId": "list-pagination-refresh",
+      "packageType": "pattern",
+      "version": "1.0.0",
+      "path": "kit/reuse/patterns/list-pagination-refresh"
+    },
+    {
+      "packageId": "secure-session-storage",
+      "packageType": "pattern",
+      "version": "1.0.0",
+      "path": "kit/reuse/patterns/secure-session-storage"
+    },
+    {
+      "packageId": "socket-reconnect-rejoin",
+      "packageType": "pattern",
+      "version": "1.0.0",
+      "path": "kit/reuse/patterns/socket-reconnect-rejoin"
     }
   ]
 }

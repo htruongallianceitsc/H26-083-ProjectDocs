@@ -1,7 +1,9 @@
-# Capability Pack Library
+# Capability Packs
 
-This folder contains versioned reusable capabilities whose behavior is substantially stable across projects.
+Versioned reusable business/system capabilities. Current mobile-oriented catalog:
 
-A Capability Pack is not a shared runtime document dependency. Import creates project-local canonical documentation; `.project-docs/packs.lock.json` keeps provenance/version/base snapshots for review and upgrade.
+- `auth-standard@1.1.0` - base AUTH plus optional mobile session restore, token refresh and secure session.
+- `push-notification-standard@1.0.0` - versioned push lifecycle and navigation contract.
+- `file-media-upload@1.0.0` - reusable selection/upload/progress/retry capability.
 
-Reference pack: `auth-standard/`.
+Preview imports first and approve imported packs before Ready Gate.

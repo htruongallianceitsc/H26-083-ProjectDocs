@@ -1,4 +1,4 @@
-# Registry Governance — v5.15
+# Registry Governance — v5.17
 
 `kit/registry/*.json` is the canonical machine-readable policy source.
 
@@ -95,3 +95,10 @@ The physical repository layout is configured in root `starter-kit.json.workspace
 
 - `documentation-bundle.json` defines portable bundle format/schema, export/import runtime directories and current target placement for every registered entity type.
 - Bundle schema version is independent from the starter-kit version so old-project exporters and new-project importers can communicate through a stable transport contract.
+
+
+## React Native production registry (v5.16)
+
+- `react-native-dependency-catalog.json` is the reviewed Expo/React/React Native compatibility and dependency-admission baseline.
+- `readiness-rules.json` may contain conditional related-content checks for mobile contracts.
+- `quality-rules.json` validates critical mobile contract sections when those entity types exist.

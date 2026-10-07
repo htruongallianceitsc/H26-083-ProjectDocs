@@ -53,9 +53,7 @@
       ],
       "projectType": "mobile",
       "requiredPaths": [
-        "package.json",
-        "app.json",
-        "src/app/App.tsx"
+        "package.json"
       ]
     },
     "flutter-bloc": {

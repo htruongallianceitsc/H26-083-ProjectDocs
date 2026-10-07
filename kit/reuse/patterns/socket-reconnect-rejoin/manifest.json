@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "1.0",
+  "packageId": "socket-reconnect-rejoin",
+  "packageType": "pattern",
+  "version": "1.0.0",
+  "starterSchemaVersion": "5.17.0",
+  "summary": "Socket Reconnect / Rejoin Pattern",
+  "features": {
+    "required": [
+      "socket-runtime"
+    ],
+    "optional": []
+  },
+  "variables": {},
+  "constraints": [],
+  "dependencies": [],
+  "files": [
+    {
+      "source": "entities/feature.md",
+      "destination": "docs/02-modules/COMMON/patterns/socket-reconnect-rejoin/feature.md",
+      "feature": "socket-runtime",
+      "code": "FEAT-PATTERN-SOCKET-RECONNECT-REJOIN",
+      "type": "feature"
+    },
+    {
+      "source": "entities/test.md",
+      "destination": "docs/11-quality/test-cases/TC-PATTERN-SOCKET-RECONNECT-REJOIN-001.md",
+      "feature": "socket-runtime",
+      "code": "TC-PATTERN-SOCKET-RECONNECT-REJOIN-001",
+      "type": "test-case"
+    }
+  ],
+  "upgradePolicy": "manual-review",
+  "moduleCode": "COMMON"
+}

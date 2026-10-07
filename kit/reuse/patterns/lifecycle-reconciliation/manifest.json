@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "1.0",
+  "packageId": "lifecycle-reconciliation",
+  "packageType": "pattern",
+  "version": "1.0.0",
+  "starterSchemaVersion": "5.17.0",
+  "summary": "Lifecycle Reconciliation Pattern",
+  "features": {
+    "required": [
+      "lifecycle-reconcile"
+    ],
+    "optional": []
+  },
+  "variables": {},
+  "constraints": [],
+  "dependencies": [],
+  "files": [
+    {
+      "source": "entities/feature.md",
+      "destination": "docs/02-modules/COMMON/patterns/lifecycle-reconciliation/feature.md",
+      "feature": "lifecycle-reconcile",
+      "code": "FEAT-PATTERN-LIFECYCLE-RECONCILIATION",
+      "type": "feature"
+    },
+    {
+      "source": "entities/test.md",
+      "destination": "docs/11-quality/test-cases/TC-PATTERN-LIFECYCLE-RECONCILIATION-001.md",
+      "feature": "lifecycle-reconcile",
+      "code": "TC-PATTERN-LIFECYCLE-RECONCILIATION-001",
+      "type": "test-case"
+    }
+  ],
+  "upgradePolicy": "manual-review",
+  "moduleCode": "COMMON"
+}

@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "1.0",
+  "packageId": "app-bootstrap",
+  "packageType": "pattern",
+  "version": "1.0.0",
+  "starterSchemaVersion": "5.17.0",
+  "summary": "App Bootstrap Pattern",
+  "features": {
+    "required": [
+      "bootstrap-runtime"
+    ],
+    "optional": []
+  },
+  "variables": {},
+  "constraints": [],
+  "dependencies": [],
+  "files": [
+    {
+      "source": "entities/feature.md",
+      "destination": "docs/02-modules/COMMON/patterns/app-bootstrap/feature.md",
+      "feature": "bootstrap-runtime",
+      "code": "FEAT-PATTERN-APP-BOOTSTRAP",
+      "type": "feature"
+    },
+    {
+      "source": "entities/test.md",
+      "destination": "docs/11-quality/test-cases/TC-PATTERN-APP-BOOTSTRAP-001.md",
+      "feature": "bootstrap-runtime",
+      "code": "TC-PATTERN-APP-BOOTSTRAP-001",
+      "type": "test-case"
+    }
+  ],
+  "upgradePolicy": "manual-review",
+  "moduleCode": "COMMON"
+}

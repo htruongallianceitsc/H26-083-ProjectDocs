@@ -1,0 +1,71 @@
+{
+  "schemaVersion": "1.0",
+  "packageId": "push-notification-standard",
+  "packageType": "capability",
+  "version": "1.0.0",
+  "starterSchemaVersion": "5.17.0",
+  "summary": "Reusable push notification runtime contract with versioned payload and navigation fallback.",
+  "features": {
+    "required": [
+      "push-notification"
+    ],
+    "optional": []
+  },
+  "variables": {
+    "PUSH_PAYLOAD_VERSION": {
+      "type": "string",
+      "default": "1"
+    },
+    "PUSH_NAVIGATION_ENABLED": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "constraints": [],
+  "dependencies": [],
+  "files": [
+    {
+      "source": "entities/module.md",
+      "destination": "docs/02-modules/NOTIFICATION/module.md",
+      "code": "MOD-NOTIFICATION",
+      "type": "module"
+    },
+    {
+      "source": "entities/feature.md",
+      "destination": "docs/02-modules/NOTIFICATION/push-notification/feature.md",
+      "feature": "push-notification",
+      "code": "FEAT-NOTIFICATION-PUSH",
+      "type": "feature"
+    },
+    {
+      "source": "entities/requirement.md",
+      "destination": "docs/03-requirements/functional/REQ-NOTIFICATION-PUSH-001.md",
+      "feature": "push-notification",
+      "code": "REQ-NOTIFICATION-PUSH-001",
+      "type": "requirement"
+    },
+    {
+      "source": "entities/push-event.md",
+      "destination": "docs/20-mobile/push/PUSH-NOTIFICATION-GENERIC.md",
+      "feature": "push-notification",
+      "code": "PUSH-NOTIFICATION-GENERIC",
+      "type": "push-event"
+    },
+    {
+      "source": "entities/deep-link.md",
+      "destination": "docs/20-mobile/deep-links/DL-NOTIFICATION-TARGET.md",
+      "feature": "push-notification",
+      "code": "DL-NOTIFICATION-TARGET",
+      "type": "deep-link"
+    },
+    {
+      "source": "entities/test.md",
+      "destination": "docs/11-quality/test-cases/TC-NOTIFICATION-PUSH-001.md",
+      "feature": "push-notification",
+      "code": "TC-NOTIFICATION-PUSH-001",
+      "type": "test-case"
+    }
+  ],
+  "upgradePolicy": "manual-review",
+  "moduleCode": "NOTIFICATION"
+}

@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "1.0",
+  "packageId": "connectivity-aware-query",
+  "packageType": "pattern",
+  "version": "1.0.0",
+  "starterSchemaVersion": "5.17.0",
+  "summary": "Connectivity Aware Query Pattern",
+  "features": {
+    "required": [
+      "connectivity-query"
+    ],
+    "optional": []
+  },
+  "variables": {},
+  "constraints": [],
+  "dependencies": [],
+  "files": [
+    {
+      "source": "entities/feature.md",
+      "destination": "docs/02-modules/COMMON/patterns/connectivity-aware-query/feature.md",
+      "feature": "connectivity-query",
+      "code": "FEAT-PATTERN-CONNECTIVITY-AWARE-QUERY",
+      "type": "feature"
+    },
+    {
+      "source": "entities/test.md",
+      "destination": "docs/11-quality/test-cases/TC-PATTERN-CONNECTIVITY-AWARE-QUERY-001.md",
+      "feature": "connectivity-query",
+      "code": "TC-PATTERN-CONNECTIVITY-AWARE-QUERY-001",
+      "type": "test-case"
+    }
+  ],
+  "upgradePolicy": "manual-review",
+  "moduleCode": "COMMON"
+}

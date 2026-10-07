@@ -2,8 +2,8 @@
   "schemaVersion": "1.0",
   "packageId": "auth-standard",
   "packageType": "capability",
-  "version": "1.0.0",
-  "starterSchemaVersion": "5.1.0",
+  "version": "1.1.0",
+  "starterSchemaVersion": "5.17.0",
   "moduleCode": "AUTH",
   "summary": "Reusable production authentication documentation baseline.",
   "features": {
@@ -16,7 +16,10 @@
     "optional": [
       "register",
       "google-login",
-      "email-verification"
+      "email-verification",
+      "session-restore",
+      "token-refresh",
+      "mobile-secure-session"
     ]
   },
   "variables": {
@@ -66,6 +69,26 @@
     "GOOGLE_DOMAIN_POLICY": {
       "type": "string",
       "default": "unrestricted"
+    },
+    "SESSION_VALIDATE_ON_RESUME": {
+      "type": "boolean",
+      "default": true
+    },
+    "TOKEN_REFRESH_STRATEGY": {
+      "type": "enum",
+      "values": [
+        "none",
+        "single_flight"
+      ],
+      "default": "none"
+    },
+    "MOBILE_TOKEN_STORAGE": {
+      "type": "enum",
+      "values": [
+        "not_applicable",
+        "secure_storage_adapter"
+      ],
+      "default": "not_applicable"
     }
   },
   "constraints": [
@@ -89,6 +112,20 @@
         "equals": "disabled"
       },
       "forbidFeature": "register"
+    },
+    {
+      "if": {
+        "variable": "TOKEN_REFRESH_STRATEGY",
+        "equals": "single_flight"
+      },
+      "requireFeature": "token-refresh"
+    },
+    {
+      "if": {
+        "variable": "MOBILE_TOKEN_STORAGE",
+        "equals": "secure_storage_adapter"
+      },
+      "requireFeature": "mobile-secure-session"
     }
   ],
   "dependencies": [],
@@ -348,6 +385,69 @@
       "destination": "docs/11-quality/test-cases/TC-AUTH-EMAIL-VERIFICATION-001.md",
       "feature": "email-verification",
       "code": "TC-AUTH-EMAIL-VERIFICATION-001",
+      "type": "test-case"
+    },
+    {
+      "source": "entities/session-restore/feature.md",
+      "destination": "docs/02-modules/AUTH/session-restore/feature.md",
+      "feature": "session-restore",
+      "code": "FEAT-AUTH-SESSION-RESTORE",
+      "type": "feature"
+    },
+    {
+      "source": "entities/session-restore/requirement.md",
+      "destination": "docs/03-requirements/functional/REQ-AUTH-SESSION-RESTORE-001.md",
+      "feature": "session-restore",
+      "code": "REQ-AUTH-SESSION-RESTORE-001",
+      "type": "requirement"
+    },
+    {
+      "source": "entities/session-restore/test.md",
+      "destination": "docs/11-quality/test-cases/TC-AUTH-SESSION-RESTORE-001.md",
+      "feature": "session-restore",
+      "code": "TC-AUTH-SESSION-RESTORE-001",
+      "type": "test-case"
+    },
+    {
+      "source": "entities/token-refresh/feature.md",
+      "destination": "docs/02-modules/AUTH/token-refresh/feature.md",
+      "feature": "token-refresh",
+      "code": "FEAT-AUTH-TOKEN-REFRESH",
+      "type": "feature"
+    },
+    {
+      "source": "entities/token-refresh/requirement.md",
+      "destination": "docs/03-requirements/functional/REQ-AUTH-TOKEN-REFRESH-001.md",
+      "feature": "token-refresh",
+      "code": "REQ-AUTH-TOKEN-REFRESH-001",
+      "type": "requirement"
+    },
+    {
+      "source": "entities/token-refresh/test.md",
+      "destination": "docs/11-quality/test-cases/TC-AUTH-TOKEN-REFRESH-001.md",
+      "feature": "token-refresh",
+      "code": "TC-AUTH-TOKEN-REFRESH-001",
+      "type": "test-case"
+    },
+    {
+      "source": "entities/mobile-secure-session/feature.md",
+      "destination": "docs/02-modules/AUTH/mobile-secure-session/feature.md",
+      "feature": "mobile-secure-session",
+      "code": "FEAT-AUTH-MOBILE-SECURE-SESSION",
+      "type": "feature"
+    },
+    {
+      "source": "entities/mobile-secure-session/local-storage.md",
+      "destination": "docs/20-mobile/local-storage/LS-AUTH-SESSION.md",
+      "feature": "mobile-secure-session",
+      "code": "LS-AUTH-SESSION",
+      "type": "local-storage"
+    },
+    {
+      "source": "entities/mobile-secure-session/test.md",
+      "destination": "docs/11-quality/test-cases/TC-AUTH-MOBILE-SECURE-SESSION-001.md",
+      "feature": "mobile-secure-session",
+      "code": "TC-AUTH-MOBILE-SECURE-SESSION-001",
       "type": "test-case"
     }
   ],

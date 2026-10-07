@@ -5,12 +5,12 @@
     "text": "PROJECT_BLUEPRINT.md"
   },
   {
-    "title": "Production Project Documentation Starter Kit v5.15",
+    "title": "Production Project Documentation Starter Kit v5.17",
     "path": "pages/readme.html",
     "text": "README.md"
   },
   {
-    "title": "START HERE - v5.15",
+    "title": "START HERE - v5.17",
     "path": "pages/start-here.html",
     "text": "START_HERE.md"
   },
@@ -260,9 +260,19 @@
     "text": "docs/guides/file-catalog.md"
   },
   {
+    "title": "Mobile Reuse Library",
+    "path": "pages/docs-guides-mobile-reuse-library.html",
+    "text": "docs/guides/mobile-reuse-library.md"
+  },
+  {
     "title": "2. File quan trọng nhất: `PROJECT_BLUEPRINT.md`",
     "path": "pages/docs-guides-project-structure.html",
     "text": "docs/guides/project-structure.md"
+  },
+  {
+    "title": "React Native Production Readiness",
+    "path": "pages/docs-guides-react-native-production-readiness.html",
+    "text": "docs/guides/react-native-production-readiness.md"
   },
   {
     "title": "Visual Wireframe Review Guide",
@@ -363,6 +373,26 @@
     "title": "v5.15 Upgrade Notes — Project Documentation Bundle",
     "path": "pages/docs-history-v5-15-upgrade-notes.html",
     "text": "docs/history/V5_15_UPGRADE_NOTES.md"
+  },
+  {
+    "title": "v5.16 QA Report",
+    "path": "pages/docs-history-v5-16-qa-report.html",
+    "text": "docs/history/V5_16_QA_REPORT.md"
+  },
+  {
+    "title": "v5.16 Upgrade Notes - React Native Production Readiness",
+    "path": "pages/docs-history-v5-16-upgrade-notes.html",
+    "text": "docs/history/V5_16_UPGRADE_NOTES.md"
+  },
+  {
+    "title": "v5.17 QA Report",
+    "path": "pages/docs-history-v5-17-qa-report.html",
+    "text": "docs/history/V5_17_QA_REPORT.md"
+  },
+  {
+    "title": "v5.17 Upgrade Notes - Mobile Reuse Pack Library",
+    "path": "pages/docs-history-v5-17-upgrade-notes.html",
+    "text": "docs/history/V5_17_UPGRADE_NOTES.md"
   },
   {
     "title": "v5.1 QA Report",
@@ -770,7 +800,7 @@
     "text": "kit/prompts/52-shared-ui-composition-review.md"
   },
   {
-    "title": "Registry Governance — v5.15",
+    "title": "Registry Governance — v5.17",
     "path": "pages/kit-registry-readme.html",
     "text": "kit/registry/README.md"
   },
@@ -1290,24 +1320,74 @@
     "text": "kit/standards/stacks/mobile/ios-swiftui/lifecycle-navigation-storage.md"
   },
   {
-    "title": "Architecture",
+    "title": "App Lifecycle Runtime Standard",
+    "path": "pages/kit-standards-stacks-mobile-react-native-app-lifecycle-runtime.html",
+    "text": "kit/standards/stacks/mobile/react-native/app-lifecycle-runtime.md"
+  },
+  {
+    "title": "Application Bootstrap Standard",
+    "path": "pages/kit-standards-stacks-mobile-react-native-application-bootstrap.html",
+    "text": "kit/standards/stacks/mobile/react-native/application-bootstrap.md"
+  },
+  {
+    "title": "React Native Architecture Standard",
     "path": "pages/kit-standards-stacks-mobile-react-native-architecture.html",
     "text": "kit/standards/stacks/mobile/react-native/architecture.md"
   },
   {
-    "title": "Coding Standard",
+    "title": "React Native Coding Standard",
     "path": "pages/kit-standards-stacks-mobile-react-native-coding-standard.html",
     "text": "kit/standards/stacks/mobile/react-native/coding-standard.md"
   },
   {
-    "title": "Expo Native Boundary",
+    "title": "React Native Dependency Governance",
+    "path": "pages/kit-standards-stacks-mobile-react-native-dependency-governance.html",
+    "text": "kit/standards/stacks/mobile/react-native/dependency-governance.md"
+  },
+  {
+    "title": "Environment Configuration and Secrets",
+    "path": "pages/kit-standards-stacks-mobile-react-native-environment-config-secrets.html",
+    "text": "kit/standards/stacks/mobile/react-native/environment-config-secrets.md"
+  },
+  {
+    "title": "Error Handling and Recovery",
+    "path": "pages/kit-standards-stacks-mobile-react-native-error-handling-recovery.html",
+    "text": "kit/standards/stacks/mobile/react-native/error-handling-recovery.md"
+  },
+  {
+    "title": "Expo / Native Boundary",
     "path": "pages/kit-standards-stacks-mobile-react-native-expo-native-boundary.html",
     "text": "kit/standards/stacks/mobile/react-native/expo-native-boundary.md"
   },
   {
-    "title": "Navigation",
+    "title": "Navigation and Deep-Link Standard",
     "path": "pages/kit-standards-stacks-mobile-react-native-navigation.html",
     "text": "kit/standards/stacks/mobile/react-native/navigation.md"
+  },
+  {
+    "title": "Network and API Client Standard",
+    "path": "pages/kit-standards-stacks-mobile-react-native-network-api-client.html",
+    "text": "kit/standards/stacks/mobile/react-native/network-api-client.md"
+  },
+  {
+    "title": "New Architecture and Native Module Standard",
+    "path": "pages/kit-standards-stacks-mobile-react-native-new-architecture-native-modules.html",
+    "text": "kit/standards/stacks/mobile/react-native/new-architecture-native-modules.md"
+  },
+  {
+    "title": "OTA Update and Runtime Version Standard",
+    "path": "pages/kit-standards-stacks-mobile-react-native-ota-update-runtime-version.html",
+    "text": "kit/standards/stacks/mobile/react-native/ota-update-runtime-version.md"
+  },
+  {
+    "title": "Project Structure and Boundaries",
+    "path": "pages/kit-standards-stacks-mobile-react-native-project-structure-and-boundaries.html",
+    "text": "kit/standards/stacks/mobile/react-native/project-structure-and-boundaries.md"
+  },
+  {
+    "title": "State and Data Ownership Contract",
+    "path": "pages/kit-standards-stacks-mobile-react-native-state-and-data-ownership.html",
+    "text": "kit/standards/stacks/mobile/react-native/state-and-data-ownership.md"
   },
   {
     "title": "State Management",
@@ -1315,12 +1395,12 @@
     "text": "kit/standards/stacks/mobile/react-native/state-management.md"
   },
   {
-    "title": "Storage Networking",
+    "title": "Storage and Networking Integration",
     "path": "pages/kit-standards-stacks-mobile-react-native-storage-networking.html",
     "text": "kit/standards/stacks/mobile/react-native/storage-networking.md"
   },
   {
-    "title": "Testing Release",
+    "title": "React Native Testing and Release Standard",
     "path": "pages/kit-standards-stacks-mobile-react-native-testing-release.html",
     "text": "kit/standards/stacks/mobile/react-native/testing-release.md"
   },
@@ -1750,12 +1830,22 @@
     "text": "kit/workflows/25-shared-ui-composition.md"
   },
   {
+    "title": "Workflow 26 - React Native Production Readiness",
+    "path": "pages/kit-workflows-26-react-native-production-readiness.html",
+    "text": "kit/workflows/26-react-native-production-readiness.md"
+  },
+  {
+    "title": "Workflow 27 - Mobile Reuse Pack Selection",
+    "path": "pages/kit-workflows-27-mobile-reuse-pack-selection.html",
+    "text": "kit/workflows/27-mobile-reuse-pack-selection.md"
+  },
+  {
     "title": "End-to-End Documentation Checklist",
     "path": "pages/kit-workflows-end-to-end-checklist.html",
     "text": "kit/workflows/END_TO_END_CHECKLIST.md"
   },
   {
-    "title": "Documentation Toolchain v5.15",
+    "title": "Documentation Toolchain v5.17",
     "path": "pages/tools-readme.html",
     "text": "tools/README.md"
   },

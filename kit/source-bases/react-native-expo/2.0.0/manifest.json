@@ -1,0 +1,50 @@
+{
+  "schemaVersion": "1.0",
+  "sourceBaseId": "react-native-expo",
+  "version": "2.0.0",
+  "sourceProfile": "react-native-expo",
+  "applicationType": "mobile",
+  "technologyStack": "react-native",
+  "description": "v5.16 React Native / Expo Router source baseline with production runtime boundaries; no code-generation automation.",
+  "dependencyBaseline": "react-native-dependency-catalog@1.0",
+  "variants": {
+    "minimal": {
+      "template": "variants/minimal/template",
+      "requiredPaths": [
+        "package.json",
+        "app.config.ts",
+        "tsconfig.json",
+        "src/app/_layout.tsx",
+        "src/app/index.tsx"
+      ],
+      "commands": {
+        "install": "npm install",
+        "dev": "npm start",
+        "check": "npm run typecheck"
+      }
+    },
+    "production": {
+      "template": "variants/production/template",
+      "requiredPaths": [
+        "package.json",
+        "app.config.ts",
+        "eas.json",
+        "tsconfig.json",
+        "src/app/_layout.tsx",
+        "src/app/index.tsx",
+        "src/core/bootstrap/bootstrapApplication.ts",
+        "src/core/network/apiClient.ts",
+        "src/core/errors/AppError.ts",
+        "src/core/logging/logger.ts",
+        "src/features/home/screens/HomeScreen.tsx",
+        "tests/.gitkeep"
+      ],
+      "commands": {
+        "install": "npm install",
+        "dev": "npm start",
+        "check": "npm run check",
+        "doctor": "npx expo-doctor"
+      }
+    }
+  }
+}
