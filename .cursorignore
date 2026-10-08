@@ -1,0 +1,10 @@
+kit/
+docs/_generated/
+docs/history/
+.project-docs/indexes/
+.project-docs/site/
+.project-docs/exports/
+.project-docs/imports/
+.project-docs/cache/
+node_modules/
+dist/

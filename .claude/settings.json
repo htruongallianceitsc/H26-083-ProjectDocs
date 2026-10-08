@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(./kit/**)",
+      "Read(./docs/_generated/**)",
+      "Read(./docs/history/**)",
+      "Read(./.project-docs/indexes/**)",
+      "Read(./.project-docs/site/**)",
+      "Read(./.project-docs/exports/**)",
+      "Read(./.project-docs/imports/**)",
+      "Read(./.project-docs/cache/**)",
+      "Read(./**/node_modules/**)",
+      "Read(./**/dist/**)"
+    ]
+  }
+}
