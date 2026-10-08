@@ -109,7 +109,18 @@ export function loadJson(rel, fallback = null) {
 export function writeJson(rel, value) {
   const p = path.isAbsolute(rel) ? rel : path.join(ROOT, resolveProjectRel(rel));
   fs.mkdirSync(path.dirname(p), { recursive: true });
-  fs.writeFileSync(p, JSON.stringify(value, null, 2) + '\n');
+  if (value && !Array.isArray(value) && Object.prototype.hasOwnProperty.call(value, 'generatedAt') && fs.existsSync(p)) {
+    try {
+      const previous = JSON.parse(fs.readFileSync(p, 'utf8'));
+      const a = { ...previous }; const b = { ...value };
+      delete a.generatedAt; delete b.generatedAt;
+      if (JSON.stringify(a) === JSON.stringify(b)) { value.generatedAt = previous.generatedAt; return false; }
+    } catch {}
+  }
+  const text = JSON.stringify(value, null, 2) + '\n';
+  if (fs.existsSync(p) && fs.readFileSync(p, 'utf8') === text) return false;
+  fs.writeFileSync(p, text);
+  return true;
 }
 export function ensureDir(p) { fs.mkdirSync(p, { recursive: true }); }
 export function sha256(text) { return crypto.createHash('sha256').update(text).digest('hex'); }

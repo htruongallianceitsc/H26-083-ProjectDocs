@@ -1,4 +1,4 @@
-# START HERE - v5.17
+# START HERE - v5.18
 
 ## 0. Understand the workspace layout
 
@@ -27,7 +27,7 @@ npm run docs:export
 If the source project is v5.14 or older and therefore has no `docs:export` command, use the **new v5.15 toolchain** to read it directly; the old project does not need to be upgraded first:
 
 ```bash
-cd <new-v5.15-project>/tools
+cd <new-project>/tools
 npm run docs:export -- --source ../../OldProject
 ```
 

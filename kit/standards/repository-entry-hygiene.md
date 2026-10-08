@@ -32,3 +32,11 @@ The canonical root entry set is strictly:
 - `starter-kit.json`
 
 All other documentation and governance artifacts live under `docs/` or `kit/`. The `kit/` root groups registry, standards, prompts, templates, workflows, Source Bases, reuse assets, and examples so framework assets do not dilute the project root. Generated/runtime artifacts live under `.project-docs/`; the static site is `.project-docs/site/`. Project design evidence may live under the governed `mockups/` directory; it must not become an uncontrolled Markdown/documentation dump.
+
+## v5.18 Repository Metadata Exception
+
+The canonical **documentation entry surface** remains `README.md`, `START_HERE.md`, `PROJECT_BLUEPRINT.md`, `project.profile.json`, and `starter-kit.json`.
+
+Repository metadata files that support tooling and collaboration are allowed at root without becoming documentation entry points. The starter currently includes `.gitignore` and `.editorconfig`. Optional files such as `LICENSE`, `CONTRIBUTING.md`, `SECURITY.md`, or `.github/CODEOWNERS` should be added only when the repository's ownership, distribution, and governance model requires them.
+
+Disposable generated-output rules are defined in `kit/standards/generated-artifacts-policy.md`.

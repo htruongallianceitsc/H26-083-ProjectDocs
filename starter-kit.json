@@ -1,7 +1,7 @@
 {
   "name": "production-project-docs-starter-kit",
-  "version": "5.17.0",
-  "schemaVersion": "5.17.0",
+  "version": "5.18.0",
+  "schemaVersion": "5.18.0",
   "registrySchemaVersion": "1.0",
   "capabilityPackSchemaVersion": "1.0",
   "workPlanSchemaVersion": "1.2",
@@ -94,5 +94,6 @@
   },
   "reactNativeProductionVersion": "2.0",
   "reactNativeDependencyBaselineVersion": "1.0",
-  "mobileReuseLibraryVersion": "1.0"
+  "mobileReuseLibraryVersion": "1.0",
+  "generatedArtifactsPolicyVersion": "1.0"
 }

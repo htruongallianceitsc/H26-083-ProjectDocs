@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-07T01:33:17.372Z",
+  "generatedAt": "2026-10-08T01:25:49.617Z",
   "documents": [
     {
       "path": "PROJECT_BLUEPRINT.md",
@@ -12,7 +12,7 @@
     },
     {
       "path": "README.md",
-      "title": "Production Project Documentation Starter Kit v5.17",
+      "title": "Production Project Documentation Starter Kit v5.18",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -21,7 +21,7 @@
     },
     {
       "path": "START_HERE.md",
-      "title": "START HERE - v5.17",
+      "title": "START HERE - v5.18",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -706,6 +706,24 @@
     {
       "path": "docs/history/V5_17_UPGRADE_NOTES.md",
       "title": "v5.17 Upgrade Notes - Mobile Reuse Pack Library",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/history/V5_18_QA_REPORT.md",
+      "title": "v5.18 QA Report",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "docs/history/V5_18_UPGRADE_NOTES.md",
+      "title": "v5.18 Upgrade Notes - Repository Hygiene & Deterministic Build",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -1443,7 +1461,7 @@
     },
     {
       "path": "kit/registry/README.md",
-      "title": "Registry Governance — v5.17",
+      "title": "Registry Governance — v5.18",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -1597,6 +1615,15 @@
     {
       "path": "kit/standards/entity-identity-lifecycle-and-relations.md",
       "title": "Entity Identity, Lifecycle and Relation Semantics",
+      "uid": null,
+      "code": null,
+      "revision": 0,
+      "type": null,
+      "status": null
+    },
+    {
+      "path": "kit/standards/generated-artifacts-policy.md",
+      "title": "Generated Artifacts Policy",
       "uid": null,
       "code": null,
       "revision": 0,
@@ -3324,7 +3351,7 @@
     },
     {
       "path": "tools/README.md",
-      "title": "Documentation Toolchain v5.17",
+      "title": "Documentation Toolchain v5.18",
       "uid": null,
       "code": null,
       "revision": 0,

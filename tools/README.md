@@ -1,4 +1,4 @@
-# Documentation Toolchain v5.17
+# Documentation Toolchain v5.18
 
 Requires Node.js 20+ for documentation tooling. The React Native Expo SDK 57 source baseline requires Node.js 22.13+ when materialized. The runtime uses only Node.js standard-library modules.
 

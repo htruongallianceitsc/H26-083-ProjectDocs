@@ -122,5 +122,17 @@ export function codeIndex(docs){const m=new Map();for(const d of docs){if(!d.cod
 export function buildRelations(docs){const byCode=codeIndex(docs);const edges=[],broken=[];for(const d of docs.filter(x=>x.isEntity)){for(const rel of d.related){const targets=byCode.get(rel.code)||[];if(targets.length===1)edges.push({from:d.code,to:rel.code,relation:rel.key});else broken.push({source:d.code,relation:rel.key,target:rel.code,reason:targets.length?'duplicate-target':'missing-target'});}}const inbound=new Map(),outbound=new Map();for(const e of edges){if(!inbound.has(e.to))inbound.set(e.to,[]);if(!outbound.has(e.from))outbound.set(e.from,[]);inbound.get(e.to).push(e);outbound.get(e.from).push(e);}return{edges,broken,inbound,outbound};}
 export function docUrl(relPath){return `docs/${posix(relPath).replace(/\.md$/i,'')}.html`;}
 export async function ensureDir(dir){await fs.mkdir(dir,{recursive:true});}
-export async function writeJson(file,value){await ensureDir(path.dirname(file));await fs.writeFile(file,JSON.stringify(value,null,2)+'\n','utf8');}
+export async function writeJson(file,value){
+  await ensureDir(path.dirname(file));
+  try {
+    if (value && !Array.isArray(value) && Object.prototype.hasOwnProperty.call(value,'generatedAt')) {
+      const previous=JSON.parse(await fs.readFile(file,'utf8'));
+      const a={...previous}, b={...value}; delete a.generatedAt; delete b.generatedAt;
+      if(JSON.stringify(a)===JSON.stringify(b)){ value.generatedAt=previous.generatedAt; return false; }
+    }
+  } catch {}
+  const text=JSON.stringify(value,null,2)+'\n';
+  try { if(await fs.readFile(file,'utf8')===text) return false; } catch {}
+  await fs.writeFile(file,text,'utf8'); return true;
+}
 export function daysSince(dateString){if(!dateString||isPlaceholder(dateString))return null;const d=new Date(`${dateString}T00:00:00Z`);if(Number.isNaN(d.getTime()))return null;return Math.floor((Date.now()-d.getTime())/86400000);}

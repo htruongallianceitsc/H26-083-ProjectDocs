@@ -1,0 +1,20 @@
+# Dependencies and local caches
+node_modules/
+tools/node_modules/
+.cache/
+*.log
+
+# Disposable generated documentation artifacts
+.project-docs/site/
+.project-docs/indexes/
+.project-docs/reports/
+.project-docs/exports/
+.project-docs/imports/
+.project-docs/cache/
+
+# Local environment / OS noise
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db

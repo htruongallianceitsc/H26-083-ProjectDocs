@@ -1,1 +1,0 @@
-document.querySelectorAll('[data-search]').forEach(i=>i.addEventListener('input',()=>{const q=i.value.toLowerCase();document.querySelectorAll('[data-search-item]').forEach(x=>x.style.display=x.textContent.toLowerCase().includes(q)?'':'none')}));
